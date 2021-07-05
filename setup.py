@@ -11,6 +11,7 @@ import atexit
 
 VIENNA_VER = '2.4.18'
 VIENNA_DIR = './ViennaRNA-{}-Latest'.format(VIENNA_VER)
+SETUP_VER  = 'a1'
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -100,7 +101,7 @@ setup(
     name='ViennaRNA',
 
     # Link: https://www.python.org/dev/peps/pep-0440/#version-scheme
-    version=VIENNA_VER+'a0',
+    version=VIENNA_VER+SETUP_VER,
 
     description='The ViennaRNA Package consists of a C code library and several stand-alone programs for the prediction and comparison of RNA secondary structures.',
 
