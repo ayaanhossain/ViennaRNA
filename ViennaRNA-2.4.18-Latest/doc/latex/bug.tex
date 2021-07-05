@@ -1,0 +1,12 @@
+
+\begin{DoxyRefList}
+\item[Module \mbox{\hyperlink{group__domains__up}{domains\+\_\+up}} ]\label{bug__bug000003}%
+\Hypertarget{bug__bug000003}%
+Although the additional production rule(s) for unstructured domains as descibed in \mbox{\hyperlink{folding_grammar_sec_domains_up}{Unstructured Domains}} are always treated as \textquotesingle{}segments possibly bound to one or more ligands\textquotesingle{}, the current implementation requires that at least one ligand is bound. The default implementation already takes care of the required changes, however, upon using callback functions other than the default ones, one has to take care of this fact. Please also note, that this behavior might change in one of the next releases, such that the decomposition schemes as shown above comply with the actual implementation. 
+\item[Global \mbox{\hyperlink{group__part__func__window_ga0a13fc668b02f21b225e2334e4caac08}{VRNA\+\_\+\+PROBS\+\_\+\+WINDOW\+\_\+\+STACKP}} ]\label{bug__bug000001}%
+\Hypertarget{bug__bug000001}%
+Currently, this flag is a placeholder doing nothing as the corresponding implementation for stack probability computation is missing. 
+\item[Global \mbox{\hyperlink{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}{vrna\+\_\+subopt\+\_\+zuker}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{bug__bug000002}%
+\Hypertarget{bug__bug000002}%
+Due to resizing, any pre-\/existing constraints will be lost!
+\end{DoxyRefList}

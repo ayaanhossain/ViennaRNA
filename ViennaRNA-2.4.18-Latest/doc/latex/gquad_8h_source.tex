@@ -1,0 +1,1674 @@
+\hypertarget{gquad_8h_source}{}\doxysection{gquad.\+h}
+\label{gquad_8h_source}\index{ViennaRNA/gquad.h@{ViennaRNA/gquad.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_GQUAD\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_GQUAD\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifndef INLINE}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\# define INLINE inline}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\# define INLINE}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00030 \textcolor{keywordtype}{int}         E\_gquad(\textcolor{keywordtype}{int}           L,}
+\DoxyCodeLine{00031                     \textcolor{keywordtype}{int}           l[3],}
+\DoxyCodeLine{00032                     \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P);}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  exp\_E\_gquad(\textcolor{keywordtype}{int}               L,}
+\DoxyCodeLine{00036                         \textcolor{keywordtype}{int}               l[3],}
+\DoxyCodeLine{00037                         \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *pf);}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \textcolor{keywordtype}{void} E\_gquad\_ali\_en(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00041                     \textcolor{keywordtype}{int}           L,}
+\DoxyCodeLine{00042                     \textcolor{keywordtype}{int}           l[3],}
+\DoxyCodeLine{00043                     \textcolor{keyword}{const} \textcolor{keywordtype}{short}   **S,}
+\DoxyCodeLine{00044                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  **a2s,}
+\DoxyCodeLine{00045                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  n\_seq,}
+\DoxyCodeLine{00046                     \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P,}
+\DoxyCodeLine{00047                     \textcolor{keywordtype}{int}           en[2]);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{\Hypertarget{gquad_8h_source_l00066}\mbox{\hyperlink{group__gquads_ga392e45c9615aa123737671603fa4203c}{00066}} \textcolor{keywordtype}{int} *\mbox{\hyperlink{group__gquads_ga392e45c9615aa123737671603fa4203c}{get\_gquad\_matrix}}(\textcolor{keywordtype}{short}         *S,}
+\DoxyCodeLine{00067                       \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P);}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070 \textcolor{keywordtype}{int} *get\_gquad\_ali\_matrix(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  n,}
+\DoxyCodeLine{00071                           \textcolor{keywordtype}{short}         *S\_cons,}
+\DoxyCodeLine{00072                           \textcolor{keywordtype}{short}         **S,}
+\DoxyCodeLine{00073                           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  **a2s,}
+\DoxyCodeLine{00074                           \textcolor{keywordtype}{int}           n\_seq,}
+\DoxyCodeLine{00075                           \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P);}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *get\_gquad\_pf\_matrix(\textcolor{keywordtype}{short}             *S,}
+\DoxyCodeLine{00079                                 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}        *scale,}
+\DoxyCodeLine{00080                                 \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *pf);}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *get\_gquad\_pf\_matrix\_comparative(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  n,}
+\DoxyCodeLine{00084                                             \textcolor{keywordtype}{short}             *S\_cons,}
+\DoxyCodeLine{00085                                             \textcolor{keywordtype}{short}             **S,}
+\DoxyCodeLine{00086                                             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}      **a2s,}
+\DoxyCodeLine{00087                                             \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}        *scale,}
+\DoxyCodeLine{00088                                             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}      n\_seq,}
+\DoxyCodeLine{00089                                             \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *pf);}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092 \textcolor{keywordtype}{int} **get\_gquad\_L\_matrix(\textcolor{keywordtype}{short}        *S,}
+\DoxyCodeLine{00093                          \textcolor{keywordtype}{int}          start,}
+\DoxyCodeLine{00094                          \textcolor{keywordtype}{int}          maxdist,}
+\DoxyCodeLine{00095                          \textcolor{keywordtype}{int}          n,}
+\DoxyCodeLine{00096                          \textcolor{keywordtype}{int}          **g,}
+\DoxyCodeLine{00097                          \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P);}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100 \textcolor{keywordtype}{void}        vrna\_gquad\_mx\_local\_update(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00101                                        \textcolor{keywordtype}{int}                  start);}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104 \textcolor{keywordtype}{void} get\_gquad\_pattern\_mfe(\textcolor{keywordtype}{short}        *S,}
+\DoxyCodeLine{00105                            \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00106                            \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00107                            \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P,}
+\DoxyCodeLine{00108                            \textcolor{keywordtype}{int}          *L,}
+\DoxyCodeLine{00109                            \textcolor{keywordtype}{int}          l[3]);}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00113 get\_gquad\_pattern\_exhaustive(\textcolor{keywordtype}{short}        *S,}
+\DoxyCodeLine{00114                              \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00115                              \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00116                              \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P,}
+\DoxyCodeLine{00117                              \textcolor{keywordtype}{int}          *L,}
+\DoxyCodeLine{00118                              \textcolor{keywordtype}{int}          *l,}
+\DoxyCodeLine{00119                              \textcolor{keywordtype}{int}          threshold);}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122 \textcolor{keywordtype}{void} get\_gquad\_pattern\_pf(\textcolor{keywordtype}{short}             *S,}
+\DoxyCodeLine{00123                           \textcolor{keywordtype}{int}               i,}
+\DoxyCodeLine{00124                           \textcolor{keywordtype}{int}               j,}
+\DoxyCodeLine{00125                           \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *pf,}
+\DoxyCodeLine{00126                           \textcolor{keywordtype}{int}               *L,}
+\DoxyCodeLine{00127                           \textcolor{keywordtype}{int}               l[3]);}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}} *get\_plist\_gquad\_from\_pr(\textcolor{keywordtype}{short}            *S,}
+\DoxyCodeLine{00131                                \textcolor{keywordtype}{int}              gi,}
+\DoxyCodeLine{00132                                \textcolor{keywordtype}{int}              gj,}
+\DoxyCodeLine{00133                                \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}       *G,}
+\DoxyCodeLine{00134                                \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}       *probs,}
+\DoxyCodeLine{00135                                \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}       *scale,}
+\DoxyCodeLine{00136                                \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}} *pf);}
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{00139 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}} *get\_plist\_gquad\_from\_pr\_max(\textcolor{keywordtype}{short}            *S,}
+\DoxyCodeLine{00140                                    \textcolor{keywordtype}{int}              gi,}
+\DoxyCodeLine{00141                                    \textcolor{keywordtype}{int}              gj,}
+\DoxyCodeLine{00142                                    \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}       *G,}
+\DoxyCodeLine{00143                                    \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}       *probs,}
+\DoxyCodeLine{00144                                    \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}       *scale,}
+\DoxyCodeLine{00145                                    \textcolor{keywordtype}{int}              *L,}
+\DoxyCodeLine{00146                                    \textcolor{keywordtype}{int}              l[3],}
+\DoxyCodeLine{00147                                    \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}} *pf);}
+\DoxyCodeLine{00148 }
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}} *get\_plist\_gquad\_from\_db(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure,}
+\DoxyCodeLine{00151                                \textcolor{keywordtype}{float}      \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}});}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}} *}
+\DoxyCodeLine{00155 vrna\_get\_plist\_gquad\_from\_pr(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00156                              \textcolor{keywordtype}{int}                  gi,}
+\DoxyCodeLine{00157                              \textcolor{keywordtype}{int}                  gj);}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159 }
+\DoxyCodeLine{00160 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}} *}
+\DoxyCodeLine{00161 vrna\_get\_plist\_gquad\_from\_pr\_max(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00162                                  \textcolor{keywordtype}{int}                  gi,}
+\DoxyCodeLine{00163                                  \textcolor{keywordtype}{int}                  gj,}
+\DoxyCodeLine{00164                                  \textcolor{keywordtype}{int}                  *Lmax,}
+\DoxyCodeLine{00165                                  \textcolor{keywordtype}{int}                  lmax[3]);}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168 \textcolor{keywordtype}{int}         get\_gquad\_count(\textcolor{keywordtype}{short} *S,}
+\DoxyCodeLine{00169                             \textcolor{keywordtype}{int}   i,}
+\DoxyCodeLine{00170                             \textcolor{keywordtype}{int}   j);}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00173 \textcolor{keywordtype}{int}         get\_gquad\_layer\_count(\textcolor{keywordtype}{short} *S,}
+\DoxyCodeLine{00174                                   \textcolor{keywordtype}{int}   i,}
+\DoxyCodeLine{00175                                   \textcolor{keywordtype}{int}   j);}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177 }
+\DoxyCodeLine{00178 \textcolor{keywordtype}{void} get\_gquad\_pattern\_mfe\_ali(\textcolor{keywordtype}{short}        **S,}
+\DoxyCodeLine{00179                                \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} **a2s,}
+\DoxyCodeLine{00180                                \textcolor{keywordtype}{short}        *S\_cons,}
+\DoxyCodeLine{00181                                \textcolor{keywordtype}{int}          n\_seq,}
+\DoxyCodeLine{00182                                \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00183                                \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00184                                \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P,}
+\DoxyCodeLine{00185                                \textcolor{keywordtype}{int}          *L,}
+\DoxyCodeLine{00186                                \textcolor{keywordtype}{int}          l[3]);}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00188 }
+\DoxyCodeLine{\Hypertarget{gquad_8h_source_l00199}\mbox{\hyperlink{group__gquads_gae41763215b9c64d2a7b67f0df8a28078}{00199}} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__gquads_gae41763215b9c64d2a7b67f0df8a28078}{parse\_gquad}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *struc,}
+\DoxyCodeLine{00200                 \textcolor{keywordtype}{int}         *L,}
+\DoxyCodeLine{00201                 \textcolor{keywordtype}{int}         l[3]);}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204 INLINE PRIVATE \textcolor{keywordtype}{int} \mbox{\hyperlink{group__gquads_ga220c41e8dbcee940ac975b8ce88e55c5}{backtrack\_GQuad\_IntLoop}}(\textcolor{keywordtype}{int}          c,}
+\DoxyCodeLine{00205                                            \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00206                                            \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00207                                            \textcolor{keywordtype}{int}          type,}
+\DoxyCodeLine{00208                                            \textcolor{keywordtype}{short}        *S,}
+\DoxyCodeLine{00209                                            \textcolor{keywordtype}{int}          *ggg,}
+\DoxyCodeLine{00210                                            \textcolor{keywordtype}{int}          *index,}
+\DoxyCodeLine{00211                                            \textcolor{keywordtype}{int}          *p,}
+\DoxyCodeLine{00212                                            \textcolor{keywordtype}{int}          *q,}
+\DoxyCodeLine{00213                                            \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P);}
+\DoxyCodeLine{00214 }
+\DoxyCodeLine{00215 }
+\DoxyCodeLine{00216 INLINE PRIVATE \textcolor{keywordtype}{int} backtrack\_GQuad\_IntLoop\_comparative(\textcolor{keywordtype}{int}          c,}
+\DoxyCodeLine{00217                                                        \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00218                                                        \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00219                                                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} *type,}
+\DoxyCodeLine{00220                                                        \textcolor{keywordtype}{short}        *S\_cons,}
+\DoxyCodeLine{00221                                                        \textcolor{keywordtype}{short}        **S5,}
+\DoxyCodeLine{00222                                                        \textcolor{keywordtype}{short}        **S3,}
+\DoxyCodeLine{00223                                                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} **a2s,}
+\DoxyCodeLine{00224                                                        \textcolor{keywordtype}{int}          *ggg,}
+\DoxyCodeLine{00225                                                        \textcolor{keywordtype}{int}          *index,}
+\DoxyCodeLine{00226                                                        \textcolor{keywordtype}{int}          *p,}
+\DoxyCodeLine{00227                                                        \textcolor{keywordtype}{int}          *q,}
+\DoxyCodeLine{00228                                                        \textcolor{keywordtype}{int}          n\_seq,}
+\DoxyCodeLine{00229                                                        \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P);}
+\DoxyCodeLine{00230 }
+\DoxyCodeLine{00231 }
+\DoxyCodeLine{00232 INLINE PRIVATE \textcolor{keywordtype}{int} \mbox{\hyperlink{group__gquads_ga7b371308fa5a45c7ac353ef6ed1014de}{backtrack\_GQuad\_IntLoop\_L}}(\textcolor{keywordtype}{int}          c,}
+\DoxyCodeLine{00233                                              \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00234                                              \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00235                                              \textcolor{keywordtype}{int}          type,}
+\DoxyCodeLine{00236                                              \textcolor{keywordtype}{short}        *S,}
+\DoxyCodeLine{00237                                              \textcolor{keywordtype}{int}          **ggg,}
+\DoxyCodeLine{00238                                              \textcolor{keywordtype}{int}          maxdist,}
+\DoxyCodeLine{00239                                              \textcolor{keywordtype}{int}          *p,}
+\DoxyCodeLine{00240                                              \textcolor{keywordtype}{int}          *q,}
+\DoxyCodeLine{00241                                              \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P);}
+\DoxyCodeLine{00242 }
+\DoxyCodeLine{00243 }
+\DoxyCodeLine{00244 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00245 vrna\_BT\_gquad\_int(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00246                   \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00247                   \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00248                   \textcolor{keywordtype}{int}                   en,}
+\DoxyCodeLine{00249                   \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00250                   \textcolor{keywordtype}{int}                   *stack\_count);}
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252 }
+\DoxyCodeLine{00253 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00254 vrna\_BT\_gquad\_mfe(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00255                   \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00256                   \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00257                   \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00258                   \textcolor{keywordtype}{int}                   *stack\_count)}
+\DoxyCodeLine{00259 \{}
+\DoxyCodeLine{00260   \textcolor{comment}{/*}}
+\DoxyCodeLine{00261 \textcolor{comment}{   * here we do some fancy stuff to backtrace the stacksize and linker lengths}}
+\DoxyCodeLine{00262 \textcolor{comment}{   * of the g-\/quadruplex that should reside within position i,j}}
+\DoxyCodeLine{00263 \textcolor{comment}{   */}}
+\DoxyCodeLine{00264   \textcolor{keywordtype}{short}         *S;}
+\DoxyCodeLine{00265   \textcolor{keywordtype}{int}           l[3], L, a, n\_seq;}
+\DoxyCodeLine{00266   \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P;}
+\DoxyCodeLine{00267 }
+\DoxyCodeLine{00268   \textcolor{keywordflow}{if} (vc) \{}
+\DoxyCodeLine{00269     P = vc-\/>\mbox{\hyperlink{group__fold__compound_a19b8720c2c5321c1b97c830bd17566ea}{params}};}
+\DoxyCodeLine{00270     \textcolor{keywordflow}{switch} (vc-\/>\mbox{\hyperlink{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}{type}}) \{}
+\DoxyCodeLine{00271       \textcolor{keywordflow}{case} \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\_FC\_TYPE\_SINGLE}}:}
+\DoxyCodeLine{00272         S = vc-\/>sequence\_encoding2;}
+\DoxyCodeLine{00273         L = -\/1;}
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00275         get\_gquad\_pattern\_mfe(S, i, j, P, \&L, l);}
+\DoxyCodeLine{00276         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00277 }
+\DoxyCodeLine{00278       \textcolor{keywordflow}{case} \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\_FC\_TYPE\_COMPARATIVE}}:}
+\DoxyCodeLine{00279         n\_seq = vc-\/>\mbox{\hyperlink{group__fold__compound_a614702ab74478e786272be44f8cebfe3}{n\_seq}};}
+\DoxyCodeLine{00280         L     = -\/1;}
+\DoxyCodeLine{00281         get\_gquad\_pattern\_mfe\_ali(vc-\/>\mbox{\hyperlink{group__fold__compound_aebb37297f92c7bd22aac6343f8f61d61}{S}}, vc-\/>a2s, vc-\/>\mbox{\hyperlink{group__fold__compound_aa3fab7ae38ebfed2028375221d295686}{S\_cons}}, n\_seq, i, j, P, \&L, l);}
+\DoxyCodeLine{00282         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00283     \}}
+\DoxyCodeLine{00284 }
+\DoxyCodeLine{00285     \textcolor{keywordflow}{if} (L != -\/1) \{}
+\DoxyCodeLine{00286       \textcolor{comment}{/* fill the G's of the quadruplex into base\_pair2 */}}
+\DoxyCodeLine{00287       \textcolor{keywordflow}{for} (a = 0; a < L; a++) \{}
+\DoxyCodeLine{00288         bp\_stack[++(*stack\_count)].i  = i + a;}
+\DoxyCodeLine{00289         bp\_stack[(*stack\_count)].j    = i + a;}
+\DoxyCodeLine{00290         bp\_stack[++(*stack\_count)].i  = i + L + l[0] + a;}
+\DoxyCodeLine{00291         bp\_stack[(*stack\_count)].j    = i + L + l[0] + a;}
+\DoxyCodeLine{00292         bp\_stack[++(*stack\_count)].i  = i + L + l[0] + L + l[1] + a;}
+\DoxyCodeLine{00293         bp\_stack[(*stack\_count)].j    = i + L + l[0] + L + l[1] + a;}
+\DoxyCodeLine{00294         bp\_stack[++(*stack\_count)].i  = i + L + l[0] + L + l[1] + L + l[2] + a;}
+\DoxyCodeLine{00295         bp\_stack[(*stack\_count)].j    = i + L + l[0] + L + l[1] + L + l[2] + a;}
+\DoxyCodeLine{00296       \}}
+\DoxyCodeLine{00297       \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00298     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00299       \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00300     \}}
+\DoxyCodeLine{00301   \}}
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00303   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00304 \}}
+\DoxyCodeLine{00305 }
+\DoxyCodeLine{00306 }
+\DoxyCodeLine{00307 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00308 vrna\_BT\_gquad\_int(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00309                   \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00310                   \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00311                   \textcolor{keywordtype}{int}                   en,}
+\DoxyCodeLine{00312                   \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00313                   \textcolor{keywordtype}{int}                   *stack\_count)}
+\DoxyCodeLine{00314 \{}
+\DoxyCodeLine{00315   \textcolor{keywordtype}{int}           energy, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, *idx, ij, p, q, maxl, minl, c0, l1, *ggg;}
+\DoxyCodeLine{00316   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} type;}
+\DoxyCodeLine{00317   \textcolor{keywordtype}{char}          *ptype;}
+\DoxyCodeLine{00318   \textcolor{keywordtype}{short}         si, sj, *S, *S1;}
+\DoxyCodeLine{00319 }
+\DoxyCodeLine{00320   \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P;}
+\DoxyCodeLine{00321   \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}}     *md;}
+\DoxyCodeLine{00322 }
+\DoxyCodeLine{00323   idx     = vc-\/>\mbox{\hyperlink{group__fold__compound_a5037235dee512efd85ca543780bbca1a}{jindx}};}
+\DoxyCodeLine{00324   ij      = idx[j] + i;}
+\DoxyCodeLine{00325   P       = vc-\/>\mbox{\hyperlink{group__fold__compound_a19b8720c2c5321c1b97c830bd17566ea}{params}};}
+\DoxyCodeLine{00326   md      = \&(P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}});}
+\DoxyCodeLine{00327   ptype   = vc-\/>\mbox{\hyperlink{group__fold__compound_a3fbea559f1d1976b2d67c215cdeee0b2}{ptype}};}
+\DoxyCodeLine{00328   type    = (\textcolor{keywordtype}{unsigned} char)ptype[ij];}
+\DoxyCodeLine{00329   S1      = vc-\/>\mbox{\hyperlink{group__fold__compound_a9934bdb695d35a3544285cbcc19f9763}{sequence\_encoding}};}
+\DoxyCodeLine{00330   S       = vc-\/>sequence\_encoding2;}
+\DoxyCodeLine{00331   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = md-\/>\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{00332   si      = S1[i + 1];}
+\DoxyCodeLine{00333   sj      = S1[j -\/ 1];}
+\DoxyCodeLine{00334   ggg     = vc-\/>\mbox{\hyperlink{group__fold__compound_aca8be7bdc65bafe2172c6ee777f18568}{matrices}}-\/>\mbox{\hyperlink{group__dp__matrices_a0b7b86a5c75c96eabb89eb53a13e7164}{ggg}};}
+\DoxyCodeLine{00335   energy  = 0;}
+\DoxyCodeLine{00336 }
+\DoxyCodeLine{00337   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{00338     energy += P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{00339 }
+\DoxyCodeLine{00340   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00341     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00342 }
+\DoxyCodeLine{00343   p = i + 1;}
+\DoxyCodeLine{00344   \textcolor{keywordflow}{if} (S1[p] == 3) \{}
+\DoxyCodeLine{00345     \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00346       minl  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00347       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00348       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00349       c0    = j -\/ 3;}
+\DoxyCodeLine{00350       maxl  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00351       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00352       \textcolor{keywordflow}{for} (q = minl; q < maxl; q++) \{}
+\DoxyCodeLine{00353         \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{00354           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00355 }
+\DoxyCodeLine{00356         \textcolor{keywordflow}{if} (en == energy + ggg[idx[q] + p] + P-\/>internal\_loop[j -\/ q -\/ 1])}
+\DoxyCodeLine{00357           \textcolor{keywordflow}{return} vrna\_BT\_gquad\_mfe(vc, p, q, bp\_stack, stack\_count);}
+\DoxyCodeLine{00358       \}}
+\DoxyCodeLine{00359     \}}
+\DoxyCodeLine{00360   \}}
+\DoxyCodeLine{00361 }
+\DoxyCodeLine{00362   \textcolor{keywordflow}{for} (p = i + 2;}
+\DoxyCodeLine{00363        p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00364        p++) \{}
+\DoxyCodeLine{00365     l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{00366     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00367       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00368 }
+\DoxyCodeLine{00369     \textcolor{keywordflow}{if} (S1[p] != 3)}
+\DoxyCodeLine{00370       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00371 }
+\DoxyCodeLine{00372     minl  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00373     c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00374     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00375     c0    = j -\/ 1;}
+\DoxyCodeLine{00376     maxl  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00377     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00378     \textcolor{keywordflow}{for} (q = minl; q < maxl; q++) \{}
+\DoxyCodeLine{00379       \textcolor{keywordflow}{if} (S1[q] != 3)}
+\DoxyCodeLine{00380         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00381 }
+\DoxyCodeLine{00382       \textcolor{keywordflow}{if} (en == energy + ggg[idx[q] + p] + P-\/>internal\_loop[l1 + j -\/ q -\/ 1])}
+\DoxyCodeLine{00383         \textcolor{keywordflow}{return} vrna\_BT\_gquad\_mfe(vc, p, q, bp\_stack, stack\_count);}
+\DoxyCodeLine{00384     \}}
+\DoxyCodeLine{00385   \}}
+\DoxyCodeLine{00386 }
+\DoxyCodeLine{00387   q = j -\/ 1;}
+\DoxyCodeLine{00388   \textcolor{keywordflow}{if} (S1[q] == 3)}
+\DoxyCodeLine{00389     \textcolor{keywordflow}{for} (p = i + 4;}
+\DoxyCodeLine{00390          p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00391          p++) \{}
+\DoxyCodeLine{00392       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{00393       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00394         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00395 }
+\DoxyCodeLine{00396       \textcolor{keywordflow}{if} (S1[p] != 3)}
+\DoxyCodeLine{00397         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00398 }
+\DoxyCodeLine{00399       \textcolor{keywordflow}{if} (en == energy + ggg[idx[q] + p] + P-\/>internal\_loop[l1])}
+\DoxyCodeLine{00400         \textcolor{keywordflow}{return} vrna\_BT\_gquad\_mfe(vc, p, q, bp\_stack, stack\_count);}
+\DoxyCodeLine{00401     \}}
+\DoxyCodeLine{00402 }
+\DoxyCodeLine{00403   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00404 \}}
+\DoxyCodeLine{00405 }
+\DoxyCodeLine{00406 }
+\DoxyCodeLine{00424 INLINE PRIVATE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{gquad_8h_source_l00425}\mbox{\hyperlink{group__gquads_ga220c41e8dbcee940ac975b8ce88e55c5}{00425}} \mbox{\hyperlink{group__gquads_ga220c41e8dbcee940ac975b8ce88e55c5}{backtrack\_GQuad\_IntLoop}}(\textcolor{keywordtype}{int}           c,}
+\DoxyCodeLine{00426                         \textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00427                         \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00428                         \textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00429                         \textcolor{keywordtype}{short}         *S,}
+\DoxyCodeLine{00430                         \textcolor{keywordtype}{int}           *ggg,}
+\DoxyCodeLine{00431                         \textcolor{keywordtype}{int}           *index,}
+\DoxyCodeLine{00432                         \textcolor{keywordtype}{int}           *p,}
+\DoxyCodeLine{00433                         \textcolor{keywordtype}{int}           *q,}
+\DoxyCodeLine{00434                         \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00435 \{}
+\DoxyCodeLine{00436   \textcolor{keywordtype}{int}   energy, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, k, l, maxl, minl, c0, l1;}
+\DoxyCodeLine{00437   \textcolor{keywordtype}{short} si, sj;}
+\DoxyCodeLine{00438 }
+\DoxyCodeLine{00439   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{00440   si      = S[i + 1];}
+\DoxyCodeLine{00441   sj      = S[j -\/ 1];}
+\DoxyCodeLine{00442   energy  = 0;}
+\DoxyCodeLine{00443 }
+\DoxyCodeLine{00444   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{00445     energy += P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{00446 }
+\DoxyCodeLine{00447   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00448     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00449 }
+\DoxyCodeLine{00450   k = i + 1;}
+\DoxyCodeLine{00451   \textcolor{keywordflow}{if} (S[k] == 3) \{}
+\DoxyCodeLine{00452     \textcolor{keywordflow}{if} (k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00453       minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00454       c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00455       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00456       c0    = j -\/ 3;}
+\DoxyCodeLine{00457       maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00458       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00459       \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00460         \textcolor{keywordflow}{if} (S[l] != 3)}
+\DoxyCodeLine{00461           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00462 }
+\DoxyCodeLine{00463         \textcolor{keywordflow}{if} (c == energy + ggg[index[l] + k] + P-\/>internal\_loop[j -\/ l -\/ 1]) \{}
+\DoxyCodeLine{00464           *p  = k;}
+\DoxyCodeLine{00465           *q  = l;}
+\DoxyCodeLine{00466           \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00467         \}}
+\DoxyCodeLine{00468       \}}
+\DoxyCodeLine{00469     \}}
+\DoxyCodeLine{00470   \}}
+\DoxyCodeLine{00471 }
+\DoxyCodeLine{00472   \textcolor{keywordflow}{for} (k = i + 2;}
+\DoxyCodeLine{00473        k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00474        k++) \{}
+\DoxyCodeLine{00475     l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00476     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00477       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00478 }
+\DoxyCodeLine{00479     \textcolor{keywordflow}{if} (S[k] != 3)}
+\DoxyCodeLine{00480       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00481 }
+\DoxyCodeLine{00482     minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00483     c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00484     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00485     c0    = j -\/ 1;}
+\DoxyCodeLine{00486     maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00487     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00488     \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00489       \textcolor{keywordflow}{if} (S[l] != 3)}
+\DoxyCodeLine{00490         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00491 }
+\DoxyCodeLine{00492       \textcolor{keywordflow}{if} (c == energy + ggg[index[l] + k] + P-\/>internal\_loop[l1 + j -\/ l -\/ 1]) \{}
+\DoxyCodeLine{00493         *p  = k;}
+\DoxyCodeLine{00494         *q  = l;}
+\DoxyCodeLine{00495         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00496       \}}
+\DoxyCodeLine{00497     \}}
+\DoxyCodeLine{00498   \}}
+\DoxyCodeLine{00499 }
+\DoxyCodeLine{00500   l = j -\/ 1;}
+\DoxyCodeLine{00501   \textcolor{keywordflow}{if} (S[l] == 3)}
+\DoxyCodeLine{00502     \textcolor{keywordflow}{for} (k = i + 4;}
+\DoxyCodeLine{00503          k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00504          k++) \{}
+\DoxyCodeLine{00505       l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00506       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00507         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00508 }
+\DoxyCodeLine{00509       \textcolor{keywordflow}{if} (S[k] != 3)}
+\DoxyCodeLine{00510         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00511 }
+\DoxyCodeLine{00512       \textcolor{keywordflow}{if} (c == energy + ggg[index[l] + k] + P-\/>internal\_loop[l1]) \{}
+\DoxyCodeLine{00513         *p  = k;}
+\DoxyCodeLine{00514         *q  = l;}
+\DoxyCodeLine{00515         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00516       \}}
+\DoxyCodeLine{00517     \}}
+\DoxyCodeLine{00518 }
+\DoxyCodeLine{00519   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00520 \}}
+\DoxyCodeLine{00521 }
+\DoxyCodeLine{00522 }
+\DoxyCodeLine{00523 INLINE PRIVATE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00524 backtrack\_GQuad\_IntLoop\_comparative(\textcolor{keywordtype}{int}           c,}
+\DoxyCodeLine{00525                                     \textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00526                                     \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00527                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  *type,}
+\DoxyCodeLine{00528                                     \textcolor{keywordtype}{short}         *S\_cons,}
+\DoxyCodeLine{00529                                     \textcolor{keywordtype}{short}         **S5,}
+\DoxyCodeLine{00530                                     \textcolor{keywordtype}{short}         **S3,}
+\DoxyCodeLine{00531                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  **a2s,}
+\DoxyCodeLine{00532                                     \textcolor{keywordtype}{int}           *ggg,}
+\DoxyCodeLine{00533                                     \textcolor{keywordtype}{int}           *index,}
+\DoxyCodeLine{00534                                     \textcolor{keywordtype}{int}           *p,}
+\DoxyCodeLine{00535                                     \textcolor{keywordtype}{int}           *q,}
+\DoxyCodeLine{00536                                     \textcolor{keywordtype}{int}           n\_seq,}
+\DoxyCodeLine{00537                                     \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00538 \{}
+\DoxyCodeLine{00539   \textcolor{keywordtype}{int} energy, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, k, l, maxl, minl, c0, l1, ss, tt, u1, u2, eee;}
+\DoxyCodeLine{00540 }
+\DoxyCodeLine{00541   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{00542   energy  = 0;}
+\DoxyCodeLine{00543 }
+\DoxyCodeLine{00544   \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00545     tt = type[ss];}
+\DoxyCodeLine{00546     \textcolor{keywordflow}{if} (tt == 0)}
+\DoxyCodeLine{00547       tt = 7;}
+\DoxyCodeLine{00548 }
+\DoxyCodeLine{00549     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{00550       energy += P-\/>mismatchI[tt][S3[ss][i]][S5[ss][j]];}
+\DoxyCodeLine{00551 }
+\DoxyCodeLine{00552     \textcolor{keywordflow}{if} (tt > 2)}
+\DoxyCodeLine{00553       energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00554   \}}
+\DoxyCodeLine{00555 }
+\DoxyCodeLine{00556   k = i + 1;}
+\DoxyCodeLine{00557   \textcolor{keywordflow}{if} (S\_cons[k] == 3) \{}
+\DoxyCodeLine{00558     \textcolor{keywordflow}{if} (k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00559       minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00560       c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00561       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00562       c0    = j -\/ 3;}
+\DoxyCodeLine{00563       maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00564       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00565       \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00566         \textcolor{keywordflow}{if} (S\_cons[l] != 3)}
+\DoxyCodeLine{00567           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00568 }
+\DoxyCodeLine{00569         eee = 0;}
+\DoxyCodeLine{00570 }
+\DoxyCodeLine{00571         \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00572           u1  = a2s[ss][j -\/ 1] -\/ a2s[ss][l];}
+\DoxyCodeLine{00573           eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{00574         \}}
+\DoxyCodeLine{00575 }
+\DoxyCodeLine{00576         \textcolor{keywordflow}{if} (c == energy + ggg[index[l] + k] + eee) \{}
+\DoxyCodeLine{00577           *p  = k;}
+\DoxyCodeLine{00578           *q  = l;}
+\DoxyCodeLine{00579           \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00580         \}}
+\DoxyCodeLine{00581       \}}
+\DoxyCodeLine{00582     \}}
+\DoxyCodeLine{00583   \}}
+\DoxyCodeLine{00584 }
+\DoxyCodeLine{00585   \textcolor{keywordflow}{for} (k = i + 2;}
+\DoxyCodeLine{00586        k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00587        k++) \{}
+\DoxyCodeLine{00588     l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00589     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00590       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00591 }
+\DoxyCodeLine{00592     \textcolor{keywordflow}{if} (S\_cons[k] != 3)}
+\DoxyCodeLine{00593       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00594 }
+\DoxyCodeLine{00595     minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00596     c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00597     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00598     c0    = j -\/ 1;}
+\DoxyCodeLine{00599     maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00600     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00601     \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00602       \textcolor{keywordflow}{if} (S\_cons[l] != 3)}
+\DoxyCodeLine{00603         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00604 }
+\DoxyCodeLine{00605       eee = 0;}
+\DoxyCodeLine{00606 }
+\DoxyCodeLine{00607       \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00608         u1  = a2s[ss][k -\/ 1] -\/ a2s[ss][i];}
+\DoxyCodeLine{00609         u2  = a2s[ss][j -\/ 1] -\/ a2s[ss][l];}
+\DoxyCodeLine{00610         eee += P-\/>internal\_loop[u1 + u2];}
+\DoxyCodeLine{00611       \}}
+\DoxyCodeLine{00612 }
+\DoxyCodeLine{00613       \textcolor{keywordflow}{if} (c == energy + ggg[index[l] + k] + eee) \{}
+\DoxyCodeLine{00614         *p  = k;}
+\DoxyCodeLine{00615         *q  = l;}
+\DoxyCodeLine{00616         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00617       \}}
+\DoxyCodeLine{00618     \}}
+\DoxyCodeLine{00619   \}}
+\DoxyCodeLine{00620 }
+\DoxyCodeLine{00621   l = j -\/ 1;}
+\DoxyCodeLine{00622   \textcolor{keywordflow}{if} (S\_cons[l] == 3)}
+\DoxyCodeLine{00623     \textcolor{keywordflow}{for} (k = i + 4;}
+\DoxyCodeLine{00624          k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00625          k++) \{}
+\DoxyCodeLine{00626       l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00627       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00628         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00629 }
+\DoxyCodeLine{00630       \textcolor{keywordflow}{if} (S\_cons[k] != 3)}
+\DoxyCodeLine{00631         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00632 }
+\DoxyCodeLine{00633       eee = 0;}
+\DoxyCodeLine{00634 }
+\DoxyCodeLine{00635       \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00636         u1  = a2s[ss][k -\/ 1] -\/ a2s[ss][i];}
+\DoxyCodeLine{00637         eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{00638       \}}
+\DoxyCodeLine{00639 }
+\DoxyCodeLine{00640       \textcolor{keywordflow}{if} (c == energy + ggg[index[l] + k] + eee) \{}
+\DoxyCodeLine{00641         *p  = k;}
+\DoxyCodeLine{00642         *q  = l;}
+\DoxyCodeLine{00643         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00644       \}}
+\DoxyCodeLine{00645     \}}
+\DoxyCodeLine{00646 }
+\DoxyCodeLine{00647   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00648 \}}
+\DoxyCodeLine{00649 }
+\DoxyCodeLine{00650 }
+\DoxyCodeLine{00667 INLINE PRIVATE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{gquad_8h_source_l00668}\mbox{\hyperlink{group__gquads_ga7b371308fa5a45c7ac353ef6ed1014de}{00668}} \mbox{\hyperlink{group__gquads_ga7b371308fa5a45c7ac353ef6ed1014de}{backtrack\_GQuad\_IntLoop\_L}}(\textcolor{keywordtype}{int}           c,}
+\DoxyCodeLine{00669                           \textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00670                           \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00671                           \textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00672                           \textcolor{keywordtype}{short}         *S,}
+\DoxyCodeLine{00673                           \textcolor{keywordtype}{int}           **ggg,}
+\DoxyCodeLine{00674                           \textcolor{keywordtype}{int}           maxdist,}
+\DoxyCodeLine{00675                           \textcolor{keywordtype}{int}           *p,}
+\DoxyCodeLine{00676                           \textcolor{keywordtype}{int}           *q,}
+\DoxyCodeLine{00677                           \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00678 \{}
+\DoxyCodeLine{00679   \textcolor{keywordtype}{int}   energy, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, k, l, maxl, minl, c0, l1;}
+\DoxyCodeLine{00680   \textcolor{keywordtype}{short} si, sj;}
+\DoxyCodeLine{00681 }
+\DoxyCodeLine{00682   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{00683   si      = S[i + 1];}
+\DoxyCodeLine{00684   sj      = S[j -\/ 1];}
+\DoxyCodeLine{00685   energy  = 0;}
+\DoxyCodeLine{00686 }
+\DoxyCodeLine{00687   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{00688     energy += P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{00689 }
+\DoxyCodeLine{00690   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00691     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00692 }
+\DoxyCodeLine{00693   k = i + 1;}
+\DoxyCodeLine{00694   \textcolor{keywordflow}{if} (S[k] == 3) \{}
+\DoxyCodeLine{00695     \textcolor{keywordflow}{if} (k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00696       minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00697       c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00698       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00699       c0    = j -\/ 3;}
+\DoxyCodeLine{00700       maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00701       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00702       \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00703         \textcolor{keywordflow}{if} (S[l] != 3)}
+\DoxyCodeLine{00704           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00705 }
+\DoxyCodeLine{00706         \textcolor{keywordflow}{if} (c == energy + ggg[k][l -\/ k] + P-\/>internal\_loop[j -\/ l -\/ 1]) \{}
+\DoxyCodeLine{00707           *p  = k;}
+\DoxyCodeLine{00708           *q  = l;}
+\DoxyCodeLine{00709           \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00710         \}}
+\DoxyCodeLine{00711       \}}
+\DoxyCodeLine{00712     \}}
+\DoxyCodeLine{00713   \}}
+\DoxyCodeLine{00714 }
+\DoxyCodeLine{00715   \textcolor{keywordflow}{for} (k = i + 2;}
+\DoxyCodeLine{00716        k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00717        k++) \{}
+\DoxyCodeLine{00718     l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00719     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00720       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00721 }
+\DoxyCodeLine{00722     \textcolor{keywordflow}{if} (S[k] != 3)}
+\DoxyCodeLine{00723       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00724 }
+\DoxyCodeLine{00725     minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00726     c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00727     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00728     c0    = j -\/ 1;}
+\DoxyCodeLine{00729     maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00730     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00731     \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00732       \textcolor{keywordflow}{if} (S[l] != 3)}
+\DoxyCodeLine{00733         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00734 }
+\DoxyCodeLine{00735       \textcolor{keywordflow}{if} (c == energy + ggg[k][l -\/ k] + P-\/>internal\_loop[l1 + j -\/ l -\/ 1]) \{}
+\DoxyCodeLine{00736         *p  = k;}
+\DoxyCodeLine{00737         *q  = l;}
+\DoxyCodeLine{00738         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00739       \}}
+\DoxyCodeLine{00740     \}}
+\DoxyCodeLine{00741   \}}
+\DoxyCodeLine{00742 }
+\DoxyCodeLine{00743   l = j -\/ 1;}
+\DoxyCodeLine{00744   \textcolor{keywordflow}{if} (S[l] == 3)}
+\DoxyCodeLine{00745     \textcolor{keywordflow}{for} (k = i + 4;}
+\DoxyCodeLine{00746          k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00747          k++) \{}
+\DoxyCodeLine{00748       l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00749       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00750         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00751 }
+\DoxyCodeLine{00752       \textcolor{keywordflow}{if} (S[k] != 3)}
+\DoxyCodeLine{00753         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00754 }
+\DoxyCodeLine{00755       \textcolor{keywordflow}{if} (c == energy + ggg[k][l -\/ k] + P-\/>internal\_loop[l1]) \{}
+\DoxyCodeLine{00756         *p  = k;}
+\DoxyCodeLine{00757         *q  = l;}
+\DoxyCodeLine{00758         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00759       \}}
+\DoxyCodeLine{00760     \}}
+\DoxyCodeLine{00761 }
+\DoxyCodeLine{00762   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00763 \}}
+\DoxyCodeLine{00764 }
+\DoxyCodeLine{00765 }
+\DoxyCodeLine{00766 INLINE PRIVATE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00767 backtrack\_GQuad\_IntLoop\_L\_comparative(\textcolor{keywordtype}{int}           c,}
+\DoxyCodeLine{00768                                       \textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00769                                       \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00770                                       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  *type,}
+\DoxyCodeLine{00771                                       \textcolor{keywordtype}{short}         *S\_cons,}
+\DoxyCodeLine{00772                                       \textcolor{keywordtype}{short}         **S5,}
+\DoxyCodeLine{00773                                       \textcolor{keywordtype}{short}         **S3,}
+\DoxyCodeLine{00774                                       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  **a2s,}
+\DoxyCodeLine{00775                                       \textcolor{keywordtype}{int}           **ggg,}
+\DoxyCodeLine{00776                                       \textcolor{keywordtype}{int}           *p,}
+\DoxyCodeLine{00777                                       \textcolor{keywordtype}{int}           *q,}
+\DoxyCodeLine{00778                                       \textcolor{keywordtype}{int}           n\_seq,}
+\DoxyCodeLine{00779                                       \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00780 \{}
+\DoxyCodeLine{00781   \textcolor{comment}{/*}}
+\DoxyCodeLine{00782 \textcolor{comment}{   * The case that is handled here actually resembles something like}}
+\DoxyCodeLine{00783 \textcolor{comment}{   * an interior loop where the enclosing base pair is of regular}}
+\DoxyCodeLine{00784 \textcolor{comment}{   * kind and the enclosed pair is not a canonical one but a g-\/quadruplex}}
+\DoxyCodeLine{00785 \textcolor{comment}{   * that should then be decomposed further...}}
+\DoxyCodeLine{00786 \textcolor{comment}{   */}}
+\DoxyCodeLine{00787   \textcolor{keywordtype}{int} mm, dangle\_model, k, l, maxl, minl, c0, l1, ss, tt, eee, u1, u2;}
+\DoxyCodeLine{00788 }
+\DoxyCodeLine{00789   dangle\_model = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{00790 }
+\DoxyCodeLine{00791   mm = 0;}
+\DoxyCodeLine{00792   \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00793     tt = type[ss];}
+\DoxyCodeLine{00794 }
+\DoxyCodeLine{00795     \textcolor{keywordflow}{if} (dangle\_model == 2)}
+\DoxyCodeLine{00796       mm += P-\/>mismatchI[tt][S3[ss][i]][S5[ss][j]];}
+\DoxyCodeLine{00797 }
+\DoxyCodeLine{00798     \textcolor{keywordflow}{if} (tt > 2)}
+\DoxyCodeLine{00799       mm += P-\/>TerminalAU;}
+\DoxyCodeLine{00800   \}}
+\DoxyCodeLine{00801 }
+\DoxyCodeLine{00802   \textcolor{keywordflow}{for} (k = i + 2;}
+\DoxyCodeLine{00803        k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00804        k++) \{}
+\DoxyCodeLine{00805     \textcolor{keywordflow}{if} (S\_cons[k] != 3)}
+\DoxyCodeLine{00806       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00807 }
+\DoxyCodeLine{00808     l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00809     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00810       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00811 }
+\DoxyCodeLine{00812     minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00813     c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00814     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00815     c0    = j -\/ 1;}
+\DoxyCodeLine{00816     maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00817     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00818     \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00819       \textcolor{keywordflow}{if} (S\_cons[l] != 3)}
+\DoxyCodeLine{00820         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00821 }
+\DoxyCodeLine{00822       eee = 0;}
+\DoxyCodeLine{00823 }
+\DoxyCodeLine{00824       \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00825         u1  = a2s[ss][k -\/ 1] -\/ a2s[ss][i];}
+\DoxyCodeLine{00826         u2  = a2s[ss][j -\/ 1] -\/ a2s[ss][l];}
+\DoxyCodeLine{00827         eee += P-\/>internal\_loop[u1 + u2];}
+\DoxyCodeLine{00828       \}}
+\DoxyCodeLine{00829 }
+\DoxyCodeLine{00830       c0 = mm +}
+\DoxyCodeLine{00831            ggg[k][l -\/ k] +}
+\DoxyCodeLine{00832            eee;}
+\DoxyCodeLine{00833 }
+\DoxyCodeLine{00834       \textcolor{keywordflow}{if} (c == c0) \{}
+\DoxyCodeLine{00835         *p  = k;}
+\DoxyCodeLine{00836         *q  = l;}
+\DoxyCodeLine{00837         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00838       \}}
+\DoxyCodeLine{00839     \}}
+\DoxyCodeLine{00840   \}}
+\DoxyCodeLine{00841   k = i + 1;}
+\DoxyCodeLine{00842   \textcolor{keywordflow}{if} (S\_cons[k] == 3) \{}
+\DoxyCodeLine{00843     \textcolor{keywordflow}{if} (k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00844       minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00845       c0    = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00846       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minl);}
+\DoxyCodeLine{00847       c0    = j -\/ 3;}
+\DoxyCodeLine{00848       maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00849       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxl);}
+\DoxyCodeLine{00850       \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{00851         \textcolor{keywordflow}{if} (S\_cons[l] != 3)}
+\DoxyCodeLine{00852           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00853 }
+\DoxyCodeLine{00854         eee = 0;}
+\DoxyCodeLine{00855 }
+\DoxyCodeLine{00856         \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00857           u1  = a2s[ss][j -\/ 1] -\/ a2s[ss][l];}
+\DoxyCodeLine{00858           eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{00859         \}}
+\DoxyCodeLine{00860 }
+\DoxyCodeLine{00861         \textcolor{keywordflow}{if} (c == mm + ggg[k][l -\/ k] + eee) \{}
+\DoxyCodeLine{00862           *p  = k;}
+\DoxyCodeLine{00863           *q  = l;}
+\DoxyCodeLine{00864           \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00865         \}}
+\DoxyCodeLine{00866       \}}
+\DoxyCodeLine{00867     \}}
+\DoxyCodeLine{00868   \}}
+\DoxyCodeLine{00869 }
+\DoxyCodeLine{00870   l = j -\/ 1;}
+\DoxyCodeLine{00871   \textcolor{keywordflow}{if} (S\_cons[l] == 3) \{}
+\DoxyCodeLine{00872     \textcolor{keywordflow}{for} (k = i + 4; k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE; k++) \{}
+\DoxyCodeLine{00873       l1 = k -\/ i -\/ 1;}
+\DoxyCodeLine{00874       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00875         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00876 }
+\DoxyCodeLine{00877       \textcolor{keywordflow}{if} (S\_cons[k] != 3)}
+\DoxyCodeLine{00878         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00879 }
+\DoxyCodeLine{00880       eee = 0;}
+\DoxyCodeLine{00881 }
+\DoxyCodeLine{00882       \textcolor{keywordflow}{for} (ss = 0; ss < n\_seq; ss++) \{}
+\DoxyCodeLine{00883         u1  = a2s[ss][k -\/ 1] -\/ a2s[ss][i];}
+\DoxyCodeLine{00884         eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{00885       \}}
+\DoxyCodeLine{00886 }
+\DoxyCodeLine{00887       \textcolor{keywordflow}{if} (c == mm + ggg[k][l -\/ k] + eee) \{}
+\DoxyCodeLine{00888         *p  = k;}
+\DoxyCodeLine{00889         *q  = l;}
+\DoxyCodeLine{00890         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00891       \}}
+\DoxyCodeLine{00892     \}}
+\DoxyCodeLine{00893   \}}
+\DoxyCodeLine{00894 }
+\DoxyCodeLine{00895   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00896 \}}
+\DoxyCodeLine{00897 }
+\DoxyCodeLine{00898 }
+\DoxyCodeLine{00899 PRIVATE INLINE}
+\DoxyCodeLine{00900 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00901 E\_GQuad\_IntLoop(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00902                 \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00903                 \textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00904                 \textcolor{keywordtype}{short}         *S,}
+\DoxyCodeLine{00905                 \textcolor{keywordtype}{int}           *ggg,}
+\DoxyCodeLine{00906                 \textcolor{keywordtype}{int}           *index,}
+\DoxyCodeLine{00907                 \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00908 \{}
+\DoxyCodeLine{00909   \textcolor{keywordtype}{int}   energy, ge, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, p, q, l1, minq, maxq, c0;}
+\DoxyCodeLine{00910   \textcolor{keywordtype}{short} si, sj;}
+\DoxyCodeLine{00911 }
+\DoxyCodeLine{00912   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{00913   si      = S[i + 1];}
+\DoxyCodeLine{00914   sj      = S[j -\/ 1];}
+\DoxyCodeLine{00915   energy  = 0;}
+\DoxyCodeLine{00916 }
+\DoxyCodeLine{00917   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{00918     energy += P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{00919 }
+\DoxyCodeLine{00920   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00921     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00922 }
+\DoxyCodeLine{00923   ge = \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}};}
+\DoxyCodeLine{00924 }
+\DoxyCodeLine{00925   p = i + 1;}
+\DoxyCodeLine{00926   \textcolor{keywordflow}{if} (S[p] == 3) \{}
+\DoxyCodeLine{00927     \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00928       minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00929       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00930       minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{00931       c0    = j -\/ 3;}
+\DoxyCodeLine{00932       maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00933       maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{00934       \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{00935         \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{00936           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00937 }
+\DoxyCodeLine{00938         c0  = energy + ggg[index[q] + p] + P-\/>internal\_loop[j -\/ q -\/ 1];}
+\DoxyCodeLine{00939         ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{00940       \}}
+\DoxyCodeLine{00941     \}}
+\DoxyCodeLine{00942   \}}
+\DoxyCodeLine{00943 }
+\DoxyCodeLine{00944   \textcolor{keywordflow}{for} (p = i + 2;}
+\DoxyCodeLine{00945        p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00946        p++) \{}
+\DoxyCodeLine{00947     l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{00948     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00949       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00950 }
+\DoxyCodeLine{00951     \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{00952       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00953 }
+\DoxyCodeLine{00954     minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00955     c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00956     minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{00957     c0    = j -\/ 1;}
+\DoxyCodeLine{00958     maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{00959     maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{00960     \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{00961       \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{00962         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00963 }
+\DoxyCodeLine{00964       c0  = energy + ggg[index[q] + p] + P-\/>internal\_loop[l1 + j -\/ q -\/ 1];}
+\DoxyCodeLine{00965       ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{00966     \}}
+\DoxyCodeLine{00967   \}}
+\DoxyCodeLine{00968 }
+\DoxyCodeLine{00969   q = j -\/ 1;}
+\DoxyCodeLine{00970   \textcolor{keywordflow}{if} (S[q] == 3)}
+\DoxyCodeLine{00971     \textcolor{keywordflow}{for} (p = i + 4;}
+\DoxyCodeLine{00972          p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{00973          p++) \{}
+\DoxyCodeLine{00974       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{00975       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{00976         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00977 }
+\DoxyCodeLine{00978       \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{00979         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00980 }
+\DoxyCodeLine{00981       c0  = energy + ggg[index[q] + p] + P-\/>internal\_loop[l1];}
+\DoxyCodeLine{00982       ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{00983     \}}
+\DoxyCodeLine{00984 }
+\DoxyCodeLine{00985 \textcolor{preprocessor}{\#if 0}}
+\DoxyCodeLine{00986   \textcolor{comment}{/* here comes the additional stuff for the odd dangle models */}}
+\DoxyCodeLine{00987   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} \% 1) \{}
+\DoxyCodeLine{00988     en1 = energy + P-\/>dangle5[type][si];}
+\DoxyCodeLine{00989     en2 = energy + P-\/>dangle5[type][sj];}
+\DoxyCodeLine{00990     en3 = energy + P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{00991 }
+\DoxyCodeLine{00992     \textcolor{comment}{/* first case with 5' dangle (i.e. j-\/1) onto enclosing pair */}}
+\DoxyCodeLine{00993     p = i + 1;}
+\DoxyCodeLine{00994     \textcolor{keywordflow}{if} (S[p] == 3) \{}
+\DoxyCodeLine{00995       \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{00996         minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{00997         c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{00998         minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{00999         c0    = j -\/ 4;}
+\DoxyCodeLine{01000         maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01001         maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01002         \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01003           \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{01004             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01005 }
+\DoxyCodeLine{01006           c0  = en1 + ggg[index[q] + p] + P-\/>internal\_loop[j -\/ q -\/ 1];}
+\DoxyCodeLine{01007           ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01008         \}}
+\DoxyCodeLine{01009       \}}
+\DoxyCodeLine{01010     \}}
+\DoxyCodeLine{01011 }
+\DoxyCodeLine{01012     \textcolor{keywordflow}{for} (p = i + 2; p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE; p++) \{}
+\DoxyCodeLine{01013       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01014       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01015         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01016 }
+\DoxyCodeLine{01017       \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{01018         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01019 }
+\DoxyCodeLine{01020       minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01021       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01022       minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01023       c0    = j -\/ 2;}
+\DoxyCodeLine{01024       maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01025       maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01026       \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01027         \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{01028           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01029 }
+\DoxyCodeLine{01030         c0  = en1 + ggg[index[q] + p] + P-\/>internal\_loop[l1 + j -\/ q -\/ 1];}
+\DoxyCodeLine{01031         ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01032       \}}
+\DoxyCodeLine{01033     \}}
+\DoxyCodeLine{01034 }
+\DoxyCodeLine{01035     q = j -\/ 2;}
+\DoxyCodeLine{01036     \textcolor{keywordflow}{if} (S[q] == 3)}
+\DoxyCodeLine{01037       \textcolor{keywordflow}{for} (p = i + 4; p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE; p++) \{}
+\DoxyCodeLine{01038         l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01039         \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01040           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01041 }
+\DoxyCodeLine{01042         \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{01043           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01044 }
+\DoxyCodeLine{01045         c0  = en1 + ggg[index[q] + p] + P-\/>internal\_loop[l1 + 1];}
+\DoxyCodeLine{01046         ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01047       \}}
+\DoxyCodeLine{01048 }
+\DoxyCodeLine{01049     \textcolor{comment}{/* second case with 3' dangle (i.e. i+1) onto enclosing pair */}}
+\DoxyCodeLine{01050   \}}
+\DoxyCodeLine{01051 }
+\DoxyCodeLine{01052 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01053   \textcolor{keywordflow}{return} ge;}
+\DoxyCodeLine{01054 \}}
+\DoxyCodeLine{01055 }
+\DoxyCodeLine{01056 }
+\DoxyCodeLine{01057 PRIVATE INLINE}
+\DoxyCodeLine{01058 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{01059 E\_GQuad\_IntLoop\_comparative(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{01060                             \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{01061                             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  *tt,}
+\DoxyCodeLine{01062                             \textcolor{keywordtype}{short}         *S\_cons,}
+\DoxyCodeLine{01063                             \textcolor{keywordtype}{short}         **S5,}
+\DoxyCodeLine{01064                             \textcolor{keywordtype}{short}         **S3,}
+\DoxyCodeLine{01065                             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  **a2s,}
+\DoxyCodeLine{01066                             \textcolor{keywordtype}{int}           *ggg,}
+\DoxyCodeLine{01067                             \textcolor{keywordtype}{int}           *index,}
+\DoxyCodeLine{01068                             \textcolor{keywordtype}{int}           n\_seq,}
+\DoxyCodeLine{01069                             \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{01070 \{}
+\DoxyCodeLine{01071   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  type;}
+\DoxyCodeLine{01072   \textcolor{keywordtype}{int}           eee, energy, ge, p, q, l1, u1, u2, minq, maxq, c0, s;}
+\DoxyCodeLine{01073   \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}}     *md;}
+\DoxyCodeLine{01074 }
+\DoxyCodeLine{01075   md      = \&(P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}});}
+\DoxyCodeLine{01076   energy  = 0;}
+\DoxyCodeLine{01077 }
+\DoxyCodeLine{01078   \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01079     type = tt[s];}
+\DoxyCodeLine{01080     \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}} == 2)}
+\DoxyCodeLine{01081       energy += P-\/>mismatchI[type][S3[s][i]][S5[s][j]];}
+\DoxyCodeLine{01082 }
+\DoxyCodeLine{01083     \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{01084       energy += P-\/>TerminalAU;}
+\DoxyCodeLine{01085   \}}
+\DoxyCodeLine{01086 }
+\DoxyCodeLine{01087   ge = \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}};}
+\DoxyCodeLine{01088 }
+\DoxyCodeLine{01089   p = i + 1;}
+\DoxyCodeLine{01090   \textcolor{keywordflow}{if} (S\_cons[p] == 3) \{}
+\DoxyCodeLine{01091     \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{01092       minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01093       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01094       minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01095       c0    = j -\/ 3;}
+\DoxyCodeLine{01096       maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01097       maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01098       \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01099         \textcolor{keywordflow}{if} (S\_cons[q] != 3)}
+\DoxyCodeLine{01100           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01101 }
+\DoxyCodeLine{01102         eee = 0;}
+\DoxyCodeLine{01103 }
+\DoxyCodeLine{01104         \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01105           u1  = a2s[s][j -\/ 1] -\/ a2s[s][q];}
+\DoxyCodeLine{01106           eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{01107         \}}
+\DoxyCodeLine{01108 }
+\DoxyCodeLine{01109         c0 = energy +}
+\DoxyCodeLine{01110              ggg[index[q] + p] +}
+\DoxyCodeLine{01111              eee;}
+\DoxyCodeLine{01112         ge = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01113       \}}
+\DoxyCodeLine{01114     \}}
+\DoxyCodeLine{01115   \}}
+\DoxyCodeLine{01116 }
+\DoxyCodeLine{01117   \textcolor{keywordflow}{for} (p = i + 2;}
+\DoxyCodeLine{01118        p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01119        p++) \{}
+\DoxyCodeLine{01120     l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01121     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01122       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01123 }
+\DoxyCodeLine{01124     \textcolor{keywordflow}{if} (S\_cons[p] != 3)}
+\DoxyCodeLine{01125       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01126 }
+\DoxyCodeLine{01127     minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01128     c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01129     minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01130     c0    = j -\/ 1;}
+\DoxyCodeLine{01131     maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01132     maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01133     \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01134       \textcolor{keywordflow}{if} (S\_cons[q] != 3)}
+\DoxyCodeLine{01135         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01136 }
+\DoxyCodeLine{01137       eee = 0;}
+\DoxyCodeLine{01138 }
+\DoxyCodeLine{01139       \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01140         u1  = a2s[s][p -\/ 1] -\/ a2s[s][i];}
+\DoxyCodeLine{01141         u2  = a2s[s][j -\/ 1] -\/ a2s[s][q];}
+\DoxyCodeLine{01142         eee += P-\/>internal\_loop[u1 + u2];}
+\DoxyCodeLine{01143       \}}
+\DoxyCodeLine{01144 }
+\DoxyCodeLine{01145       c0 = energy +}
+\DoxyCodeLine{01146            ggg[index[q] + p] +}
+\DoxyCodeLine{01147            eee;}
+\DoxyCodeLine{01148       ge = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01149     \}}
+\DoxyCodeLine{01150   \}}
+\DoxyCodeLine{01151 }
+\DoxyCodeLine{01152   q = j -\/ 1;}
+\DoxyCodeLine{01153   \textcolor{keywordflow}{if} (S\_cons[q] == 3)}
+\DoxyCodeLine{01154     \textcolor{keywordflow}{for} (p = i + 4;}
+\DoxyCodeLine{01155          p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01156          p++) \{}
+\DoxyCodeLine{01157       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01158       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01159         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01160 }
+\DoxyCodeLine{01161       \textcolor{keywordflow}{if} (S\_cons[p] != 3)}
+\DoxyCodeLine{01162         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01163 }
+\DoxyCodeLine{01164       eee = 0;}
+\DoxyCodeLine{01165 }
+\DoxyCodeLine{01166       \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01167         u1  = a2s[s][p -\/ 1] -\/ a2s[s][i];}
+\DoxyCodeLine{01168         eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{01169       \}}
+\DoxyCodeLine{01170 }
+\DoxyCodeLine{01171       c0 = energy +}
+\DoxyCodeLine{01172            ggg[index[q] + p] +}
+\DoxyCodeLine{01173            eee;}
+\DoxyCodeLine{01174       ge = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01175     \}}
+\DoxyCodeLine{01176 }
+\DoxyCodeLine{01177   \textcolor{keywordflow}{return} ge;}
+\DoxyCodeLine{01178 \}}
+\DoxyCodeLine{01179 }
+\DoxyCodeLine{01180 }
+\DoxyCodeLine{01181 PRIVATE INLINE}
+\DoxyCodeLine{01182 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{01183 E\_GQuad\_IntLoop\_L\_comparative(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{01184                               \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{01185                               \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  *tt,}
+\DoxyCodeLine{01186                               \textcolor{keywordtype}{short}         *S\_cons,}
+\DoxyCodeLine{01187                               \textcolor{keywordtype}{short}         **S5,}
+\DoxyCodeLine{01188                               \textcolor{keywordtype}{short}         **S3,}
+\DoxyCodeLine{01189                               \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  **a2s,}
+\DoxyCodeLine{01190                               \textcolor{keywordtype}{int}           **ggg,}
+\DoxyCodeLine{01191                               \textcolor{keywordtype}{int}           n\_seq,}
+\DoxyCodeLine{01192                               \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{01193 \{}
+\DoxyCodeLine{01194   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  type;}
+\DoxyCodeLine{01195   \textcolor{keywordtype}{int}           eee, energy, ge, p, q, l1, u1, u2, minq, maxq, c0, s;}
+\DoxyCodeLine{01196   \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}}     *md;}
+\DoxyCodeLine{01197 }
+\DoxyCodeLine{01198   md      = \&(P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}});}
+\DoxyCodeLine{01199   energy  = 0;}
+\DoxyCodeLine{01200 }
+\DoxyCodeLine{01201   \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01202     type = tt[s];}
+\DoxyCodeLine{01203     \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}} == 2)}
+\DoxyCodeLine{01204       energy += P-\/>mismatchI[type][S3[s][i]][S5[s][j]];}
+\DoxyCodeLine{01205 }
+\DoxyCodeLine{01206     \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{01207       energy += P-\/>TerminalAU;}
+\DoxyCodeLine{01208   \}}
+\DoxyCodeLine{01209 }
+\DoxyCodeLine{01210   ge = \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}};}
+\DoxyCodeLine{01211 }
+\DoxyCodeLine{01212   p = i + 1;}
+\DoxyCodeLine{01213   \textcolor{keywordflow}{if} (S\_cons[p] == 3) \{}
+\DoxyCodeLine{01214     \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{01215       minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01216       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01217       minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01218       c0    = j -\/ 3;}
+\DoxyCodeLine{01219       maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01220       maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01221       \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01222         \textcolor{keywordflow}{if} (S\_cons[q] != 3)}
+\DoxyCodeLine{01223           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01224 }
+\DoxyCodeLine{01225         eee = 0;}
+\DoxyCodeLine{01226 }
+\DoxyCodeLine{01227         \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01228           u1  = a2s[s][j -\/ 1] -\/ a2s[s][q];}
+\DoxyCodeLine{01229           eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{01230         \}}
+\DoxyCodeLine{01231 }
+\DoxyCodeLine{01232         c0 = energy +}
+\DoxyCodeLine{01233              ggg[p][q -\/ p] +}
+\DoxyCodeLine{01234              eee;}
+\DoxyCodeLine{01235         ge = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01236       \}}
+\DoxyCodeLine{01237     \}}
+\DoxyCodeLine{01238   \}}
+\DoxyCodeLine{01239 }
+\DoxyCodeLine{01240   \textcolor{keywordflow}{for} (p = i + 2;}
+\DoxyCodeLine{01241        p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01242        p++) \{}
+\DoxyCodeLine{01243     l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01244     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01245       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01246 }
+\DoxyCodeLine{01247     \textcolor{keywordflow}{if} (S\_cons[p] != 3)}
+\DoxyCodeLine{01248       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01249 }
+\DoxyCodeLine{01250     minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01251     c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01252     minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01253     c0    = j -\/ 1;}
+\DoxyCodeLine{01254     maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01255     maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01256     \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01257       \textcolor{keywordflow}{if} (S\_cons[q] != 3)}
+\DoxyCodeLine{01258         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01259 }
+\DoxyCodeLine{01260       eee = 0;}
+\DoxyCodeLine{01261 }
+\DoxyCodeLine{01262       \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01263         u1  = a2s[s][p -\/ 1] -\/ a2s[s][i];}
+\DoxyCodeLine{01264         u2  = a2s[s][j -\/ 1] -\/ a2s[s][q];}
+\DoxyCodeLine{01265         eee += P-\/>internal\_loop[u1 + u2];}
+\DoxyCodeLine{01266       \}}
+\DoxyCodeLine{01267 }
+\DoxyCodeLine{01268       c0 = energy +}
+\DoxyCodeLine{01269            ggg[p][q -\/ p] +}
+\DoxyCodeLine{01270            eee;}
+\DoxyCodeLine{01271       ge = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01272     \}}
+\DoxyCodeLine{01273   \}}
+\DoxyCodeLine{01274 }
+\DoxyCodeLine{01275   q = j -\/ 1;}
+\DoxyCodeLine{01276   \textcolor{keywordflow}{if} (S\_cons[q] == 3)}
+\DoxyCodeLine{01277     \textcolor{keywordflow}{for} (p = i + 4;}
+\DoxyCodeLine{01278          p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01279          p++) \{}
+\DoxyCodeLine{01280       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01281       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01282         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01283 }
+\DoxyCodeLine{01284       \textcolor{keywordflow}{if} (S\_cons[p] != 3)}
+\DoxyCodeLine{01285         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01286 }
+\DoxyCodeLine{01287       eee = 0;}
+\DoxyCodeLine{01288 }
+\DoxyCodeLine{01289       \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01290         u1  = a2s[s][p -\/ 1] -\/ a2s[s][i];}
+\DoxyCodeLine{01291         eee += P-\/>internal\_loop[u1];}
+\DoxyCodeLine{01292       \}}
+\DoxyCodeLine{01293 }
+\DoxyCodeLine{01294       c0 = energy +}
+\DoxyCodeLine{01295            ggg[p][q -\/ p] +}
+\DoxyCodeLine{01296            eee;}
+\DoxyCodeLine{01297       ge = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01298     \}}
+\DoxyCodeLine{01299 }
+\DoxyCodeLine{01300   \textcolor{keywordflow}{return} ge;}
+\DoxyCodeLine{01301 \}}
+\DoxyCodeLine{01302 }
+\DoxyCodeLine{01303 }
+\DoxyCodeLine{01304 PRIVATE INLINE}
+\DoxyCodeLine{01305 \textcolor{keywordtype}{int} *}
+\DoxyCodeLine{01306 E\_GQuad\_IntLoop\_exhaustive(\textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{01307                            \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{01308                            \textcolor{keywordtype}{int}          **p\_p,}
+\DoxyCodeLine{01309                            \textcolor{keywordtype}{int}          **q\_p,}
+\DoxyCodeLine{01310                            \textcolor{keywordtype}{int}          type,}
+\DoxyCodeLine{01311                            \textcolor{keywordtype}{short}        *S,}
+\DoxyCodeLine{01312                            \textcolor{keywordtype}{int}          *ggg,}
+\DoxyCodeLine{01313                            \textcolor{keywordtype}{int}          threshold,}
+\DoxyCodeLine{01314                            \textcolor{keywordtype}{int}          *index,}
+\DoxyCodeLine{01315                            \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P)}
+\DoxyCodeLine{01316 \{}
+\DoxyCodeLine{01317   \textcolor{keywordtype}{int}   energy, *ge, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, p, q, l1, minq, maxq, c0;}
+\DoxyCodeLine{01318   \textcolor{keywordtype}{short} si, sj;}
+\DoxyCodeLine{01319   \textcolor{keywordtype}{int}   cnt = 0;}
+\DoxyCodeLine{01320 }
+\DoxyCodeLine{01321   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{01322   si      = S[i + 1];}
+\DoxyCodeLine{01323   sj      = S[j -\/ 1];}
+\DoxyCodeLine{01324   energy  = 0;}
+\DoxyCodeLine{01325 }
+\DoxyCodeLine{01326   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{01327     energy += P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{01328 }
+\DoxyCodeLine{01329   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{01330     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{01331 }
+\DoxyCodeLine{01332   \textcolor{comment}{/* guess how many gquads are possible in interval [i+1,j-\/1] */}}
+\DoxyCodeLine{01333   *p\_p  = (\textcolor{keywordtype}{int} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) * 256);}
+\DoxyCodeLine{01334   *q\_p  = (\textcolor{keywordtype}{int} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) * 256);}
+\DoxyCodeLine{01335   ge    = (\textcolor{keywordtype}{int} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) * 256);}
+\DoxyCodeLine{01336 }
+\DoxyCodeLine{01337   p = i + 1;}
+\DoxyCodeLine{01338   \textcolor{keywordflow}{if} (S[p] == 3) \{}
+\DoxyCodeLine{01339     \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{01340       minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01341       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01342       minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01343       c0    = j -\/ 3;}
+\DoxyCodeLine{01344       maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01345       maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01346       \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01347         \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{01348           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01349 }
+\DoxyCodeLine{01350         c0 = energy + ggg[index[q] + p] + P-\/>internal\_loop[j -\/ q -\/ 1];}
+\DoxyCodeLine{01351         \textcolor{keywordflow}{if} (c0 <= threshold) \{}
+\DoxyCodeLine{01352           ge[cnt]       = energy + P-\/>internal\_loop[j -\/ q -\/ 1];}
+\DoxyCodeLine{01353           (*p\_p)[cnt]   = p;}
+\DoxyCodeLine{01354           (*q\_p)[cnt++] = q;}
+\DoxyCodeLine{01355         \}}
+\DoxyCodeLine{01356       \}}
+\DoxyCodeLine{01357     \}}
+\DoxyCodeLine{01358   \}}
+\DoxyCodeLine{01359 }
+\DoxyCodeLine{01360   \textcolor{keywordflow}{for} (p = i + 2;}
+\DoxyCodeLine{01361        p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01362        p++) \{}
+\DoxyCodeLine{01363     l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01364     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01365       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01366 }
+\DoxyCodeLine{01367     \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{01368       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01369 }
+\DoxyCodeLine{01370     minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01371     c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01372     minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01373     c0    = j -\/ 1;}
+\DoxyCodeLine{01374     maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01375     maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01376     \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01377       \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{01378         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01379 }
+\DoxyCodeLine{01380       c0 = energy + ggg[index[q] + p] + P-\/>internal\_loop[l1 + j -\/ q -\/ 1];}
+\DoxyCodeLine{01381       \textcolor{keywordflow}{if} (c0 <= threshold) \{}
+\DoxyCodeLine{01382         ge[cnt]       = energy + P-\/>internal\_loop[l1 + j -\/ q -\/ 1];}
+\DoxyCodeLine{01383         (*p\_p)[cnt]   = p;}
+\DoxyCodeLine{01384         (*q\_p)[cnt++] = q;}
+\DoxyCodeLine{01385       \}}
+\DoxyCodeLine{01386     \}}
+\DoxyCodeLine{01387   \}}
+\DoxyCodeLine{01388 }
+\DoxyCodeLine{01389   q = j -\/ 1;}
+\DoxyCodeLine{01390   \textcolor{keywordflow}{if} (S[q] == 3)}
+\DoxyCodeLine{01391     \textcolor{keywordflow}{for} (p = i + 4;}
+\DoxyCodeLine{01392          p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01393          p++) \{}
+\DoxyCodeLine{01394       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01395       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01396         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01397 }
+\DoxyCodeLine{01398       \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{01399         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01400 }
+\DoxyCodeLine{01401       c0 = energy + ggg[index[q] + p] + P-\/>internal\_loop[l1];}
+\DoxyCodeLine{01402       \textcolor{keywordflow}{if} (c0 <= threshold) \{}
+\DoxyCodeLine{01403         ge[cnt]       = energy + P-\/>internal\_loop[l1];}
+\DoxyCodeLine{01404         (*p\_p)[cnt]   = p;}
+\DoxyCodeLine{01405         (*q\_p)[cnt++] = q;}
+\DoxyCodeLine{01406       \}}
+\DoxyCodeLine{01407     \}}
+\DoxyCodeLine{01408 }
+\DoxyCodeLine{01409   (*p\_p)[cnt] = -\/1;}
+\DoxyCodeLine{01410 }
+\DoxyCodeLine{01411   \textcolor{keywordflow}{return} ge;}
+\DoxyCodeLine{01412 \}}
+\DoxyCodeLine{01413 }
+\DoxyCodeLine{01414 }
+\DoxyCodeLine{01415 PRIVATE INLINE}
+\DoxyCodeLine{01416 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{01417 E\_GQuad\_IntLoop\_L(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{01418                   \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{01419                   \textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{01420                   \textcolor{keywordtype}{short}         *S,}
+\DoxyCodeLine{01421                   \textcolor{keywordtype}{int}           **ggg,}
+\DoxyCodeLine{01422                   \textcolor{keywordtype}{int}           maxdist,}
+\DoxyCodeLine{01423                   \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{01424 \{}
+\DoxyCodeLine{01425   \textcolor{keywordtype}{int}   energy, ge, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, p, q, l1, minq, maxq, c0;}
+\DoxyCodeLine{01426   \textcolor{keywordtype}{short} si, sj;}
+\DoxyCodeLine{01427 }
+\DoxyCodeLine{01428   \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} = P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}};}
+\DoxyCodeLine{01429   si      = S[i + 1];}
+\DoxyCodeLine{01430   sj      = S[j -\/ 1];}
+\DoxyCodeLine{01431   energy  = 0;}
+\DoxyCodeLine{01432 }
+\DoxyCodeLine{01433   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{01434     energy += P-\/>mismatchI[type][si][sj];}
+\DoxyCodeLine{01435 }
+\DoxyCodeLine{01436   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{01437     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{01438 }
+\DoxyCodeLine{01439   ge = \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}};}
+\DoxyCodeLine{01440 }
+\DoxyCodeLine{01441   p = i + 1;}
+\DoxyCodeLine{01442   \textcolor{keywordflow}{if} (S[p] == 3) \{}
+\DoxyCodeLine{01443     \textcolor{keywordflow}{if} (p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{01444       minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01445       c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01446       minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01447       c0    = j -\/ 3;}
+\DoxyCodeLine{01448       maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01449       maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01450       \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01451         \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{01452           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01453 }
+\DoxyCodeLine{01454         c0  = energy + ggg[p][q -\/ p] + P-\/>internal\_loop[j -\/ q -\/ 1];}
+\DoxyCodeLine{01455         ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01456       \}}
+\DoxyCodeLine{01457     \}}
+\DoxyCodeLine{01458   \}}
+\DoxyCodeLine{01459 }
+\DoxyCodeLine{01460   \textcolor{keywordflow}{for} (p = i + 2;}
+\DoxyCodeLine{01461        p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01462        p++) \{}
+\DoxyCodeLine{01463     l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01464     \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01465       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01466 }
+\DoxyCodeLine{01467     \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{01468       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01469 }
+\DoxyCodeLine{01470     minq  = j -\/ i + p -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01471     c0    = p + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01472     minq  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(c0, minq);}
+\DoxyCodeLine{01473     c0    = j -\/ 1;}
+\DoxyCodeLine{01474     maxq  = p + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01475     maxq  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(c0, maxq);}
+\DoxyCodeLine{01476     \textcolor{keywordflow}{for} (q = minq; q < maxq; q++) \{}
+\DoxyCodeLine{01477       \textcolor{keywordflow}{if} (S[q] != 3)}
+\DoxyCodeLine{01478         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01479 }
+\DoxyCodeLine{01480       c0  = energy + ggg[p][q -\/ p] + P-\/>internal\_loop[l1 + j -\/ q -\/ 1];}
+\DoxyCodeLine{01481       ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01482     \}}
+\DoxyCodeLine{01483   \}}
+\DoxyCodeLine{01484 }
+\DoxyCodeLine{01485   q = j -\/ 1;}
+\DoxyCodeLine{01486   \textcolor{keywordflow}{if} (S[q] == 3)}
+\DoxyCodeLine{01487     \textcolor{keywordflow}{for} (p = i + 4;}
+\DoxyCodeLine{01488          p < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01489          p++) \{}
+\DoxyCodeLine{01490       l1 = p -\/ i -\/ 1;}
+\DoxyCodeLine{01491       \textcolor{keywordflow}{if} (l1 > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01492         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01493 }
+\DoxyCodeLine{01494       \textcolor{keywordflow}{if} (S[p] != 3)}
+\DoxyCodeLine{01495         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01496 }
+\DoxyCodeLine{01497       c0  = energy + ggg[p][q -\/ p] + P-\/>internal\_loop[l1];}
+\DoxyCodeLine{01498       ge  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(ge, c0);}
+\DoxyCodeLine{01499     \}}
+\DoxyCodeLine{01500 }
+\DoxyCodeLine{01501   \textcolor{keywordflow}{return} ge;}
+\DoxyCodeLine{01502 \}}
+\DoxyCodeLine{01503 }
+\DoxyCodeLine{01504 }
+\DoxyCodeLine{01505 PRIVATE INLINE}
+\DoxyCodeLine{01506 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{01507 exp\_E\_GQuad\_IntLoop(\textcolor{keywordtype}{int}               i,}
+\DoxyCodeLine{01508                     \textcolor{keywordtype}{int}               j,}
+\DoxyCodeLine{01509                     \textcolor{keywordtype}{int}               type,}
+\DoxyCodeLine{01510                     \textcolor{keywordtype}{short}             *S,}
+\DoxyCodeLine{01511                     \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}        *G,}
+\DoxyCodeLine{01512                     \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}        *scale,}
+\DoxyCodeLine{01513                     \textcolor{keywordtype}{int}               *index,}
+\DoxyCodeLine{01514                     \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *pf)}
+\DoxyCodeLine{01515 \{}
+\DoxyCodeLine{01516   \textcolor{keywordtype}{int}         k, l, minl, maxl, u, r;}
+\DoxyCodeLine{01517   \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  q, qe;}
+\DoxyCodeLine{01518   \textcolor{keywordtype}{double}      *expintern;}
+\DoxyCodeLine{01519   \textcolor{keywordtype}{short}       si, sj;}
+\DoxyCodeLine{01520 }
+\DoxyCodeLine{01521   q         = 0;}
+\DoxyCodeLine{01522   si        = S[i + 1];}
+\DoxyCodeLine{01523   sj        = S[j -\/ 1];}
+\DoxyCodeLine{01524   qe        = (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})pf-\/>expmismatchI[type][si][sj];}
+\DoxyCodeLine{01525   expintern = \&(pf-\/>expinternal[0]);}
+\DoxyCodeLine{01526 }
+\DoxyCodeLine{01527   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{01528     qe *= (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})pf-\/>expTermAU;}
+\DoxyCodeLine{01529 }
+\DoxyCodeLine{01530   k = i + 1;}
+\DoxyCodeLine{01531   if (S[k] == 3) \{}
+\DoxyCodeLine{01532     \textcolor{keywordflow}{if} (k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{01533       minl  = j -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 1;}
+\DoxyCodeLine{01534       u     = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01535       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(u, minl);}
+\DoxyCodeLine{01536       u     = j -\/ 3;}
+\DoxyCodeLine{01537       maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01538       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(u, maxl);}
+\DoxyCodeLine{01539       \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{01540         \textcolor{keywordflow}{if} (S[l] != 3)}
+\DoxyCodeLine{01541           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01542 }
+\DoxyCodeLine{01543         \textcolor{keywordflow}{if} (G[index[k] -\/ l] == 0.)}
+\DoxyCodeLine{01544           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01545 }
+\DoxyCodeLine{01546         q += qe}
+\DoxyCodeLine{01547              * G[index[k] -\/ l]}
+\DoxyCodeLine{01548              * (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})expintern[j -\/ l -\/ 1]}
+\DoxyCodeLine{01549              * scale[j -\/ l + 1];}
+\DoxyCodeLine{01550       \}}
+\DoxyCodeLine{01551     \}}
+\DoxyCodeLine{01552   \}}
+\DoxyCodeLine{01553 }
+\DoxyCodeLine{01554   \textcolor{keywordflow}{for} (k = i + 2;}
+\DoxyCodeLine{01555        k <= j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01556        k++) \{}
+\DoxyCodeLine{01557     u = k -\/ i -\/ 1;}
+\DoxyCodeLine{01558     \textcolor{keywordflow}{if} (u > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01559       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01560 }
+\DoxyCodeLine{01561     \textcolor{keywordflow}{if} (S[k] != 3)}
+\DoxyCodeLine{01562       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01563 }
+\DoxyCodeLine{01564     minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01565     r     = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01566     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(r, minl);}
+\DoxyCodeLine{01567     maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01568     r     = j -\/ 1;}
+\DoxyCodeLine{01569     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(r, maxl);}
+\DoxyCodeLine{01570     \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{01571       \textcolor{keywordflow}{if} (S[l] != 3)}
+\DoxyCodeLine{01572         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01573 }
+\DoxyCodeLine{01574       \textcolor{keywordflow}{if} (G[index[k] -\/ l] == 0.)}
+\DoxyCodeLine{01575         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01576 }
+\DoxyCodeLine{01577       q += qe}
+\DoxyCodeLine{01578            * G[index[k] -\/ l]}
+\DoxyCodeLine{01579            * (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})expintern[u + j -\/ l -\/ 1]}
+\DoxyCodeLine{01580            * scale[u + j -\/ l + 1];}
+\DoxyCodeLine{01581     \}}
+\DoxyCodeLine{01582   \}}
+\DoxyCodeLine{01583 }
+\DoxyCodeLine{01584   l = j -\/ 1;}
+\DoxyCodeLine{01585   \textcolor{keywordflow}{if} (S[l] == 3)}
+\DoxyCodeLine{01586     \textcolor{keywordflow}{for} (k = i + 4; k <= j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE; k++) \{}
+\DoxyCodeLine{01587       u = k -\/ i -\/ 1;}
+\DoxyCodeLine{01588       \textcolor{keywordflow}{if} (u > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01589         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01590 }
+\DoxyCodeLine{01591       \textcolor{keywordflow}{if} (S[k] != 3)}
+\DoxyCodeLine{01592         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01593 }
+\DoxyCodeLine{01594       \textcolor{keywordflow}{if} (G[index[k] -\/ l] == 0.)}
+\DoxyCodeLine{01595         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01596 }
+\DoxyCodeLine{01597       q += qe}
+\DoxyCodeLine{01598            * G[index[k] -\/ l]}
+\DoxyCodeLine{01599            * (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})expintern[u]}
+\DoxyCodeLine{01600            * scale[u + 2];}
+\DoxyCodeLine{01601     \}}
+\DoxyCodeLine{01602 }
+\DoxyCodeLine{01603   \textcolor{keywordflow}{return} q;}
+\DoxyCodeLine{01604 \}}
+\DoxyCodeLine{01605 }
+\DoxyCodeLine{01606 }
+\DoxyCodeLine{01607 PRIVATE INLINE}
+\DoxyCodeLine{01608 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{01609 exp\_E\_GQuad\_IntLoop\_comparative(\textcolor{keywordtype}{int}               i,}
+\DoxyCodeLine{01610                                 \textcolor{keywordtype}{int}               j,}
+\DoxyCodeLine{01611                                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}      *tt,}
+\DoxyCodeLine{01612                                 \textcolor{keywordtype}{short}             *S\_cons,}
+\DoxyCodeLine{01613                                 \textcolor{keywordtype}{short}             **S5,}
+\DoxyCodeLine{01614                                 \textcolor{keywordtype}{short}             **S3,}
+\DoxyCodeLine{01615                                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}      **a2s,}
+\DoxyCodeLine{01616                                 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}        *G,}
+\DoxyCodeLine{01617                                 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}        *scale,}
+\DoxyCodeLine{01618                                 \textcolor{keywordtype}{int}               *index,}
+\DoxyCodeLine{01619                                 \textcolor{keywordtype}{int}               n\_seq,}
+\DoxyCodeLine{01620                                 \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *pf)}
+\DoxyCodeLine{01621 \{}
+\DoxyCodeLine{01622   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  type;}
+\DoxyCodeLine{01623   \textcolor{keywordtype}{int}           k, l, minl, maxl, u, u1, u2, r, s;}
+\DoxyCodeLine{01624   \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}    q, qe, qqq;}
+\DoxyCodeLine{01625   \textcolor{keywordtype}{double}        *expintern;}
+\DoxyCodeLine{01626   \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}}     *md;}
+\DoxyCodeLine{01627 }
+\DoxyCodeLine{01628   q         = 0;}
+\DoxyCodeLine{01629   qe        = 1.;}
+\DoxyCodeLine{01630   md        = \&(pf-\/>\mbox{\hyperlink{group__energy__parameters_ac18055127bccc27c1223f1d2f3b01b53}{model\_details}});}
+\DoxyCodeLine{01631   expintern = \&(pf-\/>expinternal[0]);}
+\DoxyCodeLine{01632 }
+\DoxyCodeLine{01633   \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01634     type = tt[s];}
+\DoxyCodeLine{01635     \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}} == 2)}
+\DoxyCodeLine{01636       qe *= (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})pf-\/>expmismatchI[type][S3[s][i]][S5[s][j]];}
+\DoxyCodeLine{01637 }
+\DoxyCodeLine{01638     if (type > 2)}
+\DoxyCodeLine{01639       qe *= (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})pf-\/>expTermAU;}
+\DoxyCodeLine{01640   \}}
+\DoxyCodeLine{01641 }
+\DoxyCodeLine{01642   k = i + 1;}
+\DoxyCodeLine{01643   \textcolor{keywordflow}{if} (S\_cons[k] == 3) \{}
+\DoxyCodeLine{01644     \textcolor{keywordflow}{if} (k < j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE) \{}
+\DoxyCodeLine{01645       minl  = j -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 1;}
+\DoxyCodeLine{01646       u     = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01647       minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(u, minl);}
+\DoxyCodeLine{01648       u     = j -\/ 3;}
+\DoxyCodeLine{01649       maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01650       maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(u, maxl);}
+\DoxyCodeLine{01651       \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{01652         \textcolor{keywordflow}{if} (S\_cons[l] != 3)}
+\DoxyCodeLine{01653           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01654 }
+\DoxyCodeLine{01655         \textcolor{keywordflow}{if} (G[index[k] -\/ l] == 0.)}
+\DoxyCodeLine{01656           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01657 }
+\DoxyCodeLine{01658         qqq = 1.;}
+\DoxyCodeLine{01659 }
+\DoxyCodeLine{01660         \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01661           u1  = a2s[s][j -\/ 1] -\/ a2s[s][l];}
+\DoxyCodeLine{01662           qqq *= expintern[u1];}
+\DoxyCodeLine{01663         \}}
+\DoxyCodeLine{01664 }
+\DoxyCodeLine{01665         q += qe *}
+\DoxyCodeLine{01666              G[index[k] -\/ l] *}
+\DoxyCodeLine{01667              qqq *}
+\DoxyCodeLine{01668              scale[j -\/ l + 1];}
+\DoxyCodeLine{01669       \}}
+\DoxyCodeLine{01670     \}}
+\DoxyCodeLine{01671   \}}
+\DoxyCodeLine{01672 }
+\DoxyCodeLine{01673   \textcolor{keywordflow}{for} (k = i + 2;}
+\DoxyCodeLine{01674        k <= j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE;}
+\DoxyCodeLine{01675        k++) \{}
+\DoxyCodeLine{01676     u = k -\/ i -\/ 1;}
+\DoxyCodeLine{01677     \textcolor{keywordflow}{if} (u > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01678       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01679 }
+\DoxyCodeLine{01680     \textcolor{keywordflow}{if} (S\_cons[k] != 3)}
+\DoxyCodeLine{01681       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01682 }
+\DoxyCodeLine{01683     minl  = j -\/ i + k -\/ \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}} -\/ 2;}
+\DoxyCodeLine{01684     r     = k + VRNA\_GQUAD\_MIN\_BOX\_SIZE -\/ 1;}
+\DoxyCodeLine{01685     minl  = \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(r, minl);}
+\DoxyCodeLine{01686     maxl  = k + VRNA\_GQUAD\_MAX\_BOX\_SIZE + 1;}
+\DoxyCodeLine{01687     r     = j -\/ 1;}
+\DoxyCodeLine{01688     maxl  = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(r, maxl);}
+\DoxyCodeLine{01689     \textcolor{keywordflow}{for} (l = minl; l < maxl; l++) \{}
+\DoxyCodeLine{01690       \textcolor{keywordflow}{if} (S\_cons[l] != 3)}
+\DoxyCodeLine{01691         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01692 }
+\DoxyCodeLine{01693       \textcolor{keywordflow}{if} (G[index[k] -\/ l] == 0.)}
+\DoxyCodeLine{01694         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01695 }
+\DoxyCodeLine{01696       qqq = 1.;}
+\DoxyCodeLine{01697 }
+\DoxyCodeLine{01698       \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01699         u1  = a2s[s][k -\/ 1] -\/ a2s[s][i];}
+\DoxyCodeLine{01700         u2  = a2s[s][j -\/ 1] -\/ a2s[s][l];}
+\DoxyCodeLine{01701         qqq *= expintern[u1 + u2];}
+\DoxyCodeLine{01702       \}}
+\DoxyCodeLine{01703 }
+\DoxyCodeLine{01704       q += qe *}
+\DoxyCodeLine{01705            G[index[k] -\/ l] *}
+\DoxyCodeLine{01706            qqq *}
+\DoxyCodeLine{01707            scale[u + j -\/ l + 1];}
+\DoxyCodeLine{01708     \}}
+\DoxyCodeLine{01709   \}}
+\DoxyCodeLine{01710 }
+\DoxyCodeLine{01711   l = j -\/ 1;}
+\DoxyCodeLine{01712   \textcolor{keywordflow}{if} (S\_cons[l] == 3)}
+\DoxyCodeLine{01713     \textcolor{keywordflow}{for} (k = i + 4; k <= j -\/ VRNA\_GQUAD\_MIN\_BOX\_SIZE; k++) \{}
+\DoxyCodeLine{01714       u = k -\/ i -\/ 1;}
+\DoxyCodeLine{01715       \textcolor{keywordflow}{if} (u > \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}})}
+\DoxyCodeLine{01716         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01717 }
+\DoxyCodeLine{01718       \textcolor{keywordflow}{if} (S\_cons[k] != 3)}
+\DoxyCodeLine{01719         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01720 }
+\DoxyCodeLine{01721       \textcolor{keywordflow}{if} (G[index[k] -\/ l] == 0.)}
+\DoxyCodeLine{01722         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01723 }
+\DoxyCodeLine{01724       qqq = 1.;}
+\DoxyCodeLine{01725 }
+\DoxyCodeLine{01726       \textcolor{keywordflow}{for} (s = 0; s < n\_seq; s++) \{}
+\DoxyCodeLine{01727         u1  = a2s[s][k -\/ 1] -\/ a2s[s][i];}
+\DoxyCodeLine{01728         qqq *= expintern[u1];}
+\DoxyCodeLine{01729       \}}
+\DoxyCodeLine{01730 }
+\DoxyCodeLine{01731       q += qe *}
+\DoxyCodeLine{01732            G[index[k] -\/ l] *}
+\DoxyCodeLine{01733            qqq *}
+\DoxyCodeLine{01734            scale[u + 2];}
+\DoxyCodeLine{01735     \}}
+\DoxyCodeLine{01736 }
+\DoxyCodeLine{01737   \textcolor{keywordflow}{return} q;}
+\DoxyCodeLine{01738 \}}
+\DoxyCodeLine{01739 }
+\DoxyCodeLine{01740 }
+\DoxyCodeLine{01746 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

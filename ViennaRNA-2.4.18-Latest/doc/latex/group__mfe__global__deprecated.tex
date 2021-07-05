@@ -1,0 +1,635 @@
+\hypertarget{group__mfe__global__deprecated}{}\doxysection{Deprecated Interface for Global MFE Prediction}
+\label{group__mfe__global__deprecated}\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Global MFE Prediction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mfe__global__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{alifold_8h}{alifold.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions for comparative structure prediction using RNA sequence alignments. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{cofold_8h}{cofold.\+h}}
+\begin{DoxyCompactList}\small\item\em MFE implementations for RNA-\/\+RNA interaction. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{fold_8h}{fold.\+h}}
+\begin{DoxyCompactList}\small\item\em MFE calculations for single RNA sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy of two interacting RNA molecules. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{cofold\+\_\+par}} (const char $\ast$string, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int is\+\_\+constrained)
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy of two interacting RNA molecules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gaafb33d7473eb9af9d1b168ca8761c41a}{free\+\_\+co\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga4fcbf34e77b99bfbb2333d2ab0c41a57}{update\+\_\+cofold\+\_\+params}} (void)
+\begin{DoxyCompactList}\small\item\em Recalculate parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gaaadbd28b4e428710529ab4098fdacad3}{update\+\_\+cofold\+\_\+params\+\_\+par}} (\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga5f5bf4df35d0554f6ace9579f8744c48}{export\+\_\+cofold\+\_\+arrays\+\_\+gq}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$fc\+\_\+p, int $\ast$$\ast$ggg\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Export the arrays of partition function cofold (with gquadruplex support) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga5cb6b59983f1f74ccc00b9b9c4e84482}{export\+\_\+cofold\+\_\+arrays}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$fc\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Export the arrays of partition function cofold. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga4958b517c613e4d2afd5bce6c1060a79}{get\+\_\+monomere\+\_\+mfes}} (float $\ast$e1, float $\ast$e2)
+\begin{DoxyCompactList}\small\item\em get\+\_\+monomer\+\_\+free\+\_\+energies \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gafee0c32208aa2ac97338b6e3fbad7fa5}{initialize\+\_\+cofold}} (int length)
+\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par}} (const char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int is\+\_\+constrained, int is\+\_\+circular)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}{circfold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of a circular RNA sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}{free\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free arrays for mfe folding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga41bf8f6fa15b94471f7095cad9f0ccf3}{update\+\_\+fold\+\_\+params}} (void)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gae66dc422efb8f5d56717d92d6002a9f8}{update\+\_\+fold\+\_\+params\+\_\+par}} (\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga99641b8dbb40891da5490d3cc271e607}{export\+\_\+fold\+\_\+arrays}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga6606ec0ec964ea506fdadb997a1a5328}{export\+\_\+fold\+\_\+arrays\+\_\+par}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$$\ast$P\+\_\+p)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga04d5d639fd4473ca766436a9bae5665c}{export\+\_\+circfold\+\_\+arrays}} (int $\ast$Fc\+\_\+p, int $\ast$Fc\+H\+\_\+p, int $\ast$Fc\+I\+\_\+p, int $\ast$Fc\+M\+\_\+p, int $\ast$$\ast$f\+M2\+\_\+p, int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga004bb901e7fd2f8d5ae68f9530318ce1}{export\+\_\+circfold\+\_\+arrays\+\_\+par}} (int $\ast$Fc\+\_\+p, int $\ast$Fc\+H\+\_\+p, int $\ast$Fc\+I\+\_\+p, int $\ast$Fc\+M\+\_\+p, int $\ast$$\ast$f\+M2\+\_\+p, int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$$\ast$P\+\_\+p)
+\item 
+int \mbox{\hyperlink{group__mfe__global__deprecated_ga2163034a25c6115d894b199e97e03f6c}{Loop\+Energy}} (int n1, int n2, int type, int type\+\_\+2, int si1, int sj1, int sp1, int sq1)
+\item 
+int \mbox{\hyperlink{group__mfe__global__deprecated_gab327ce11972f5ac069d52c8dedfdb700}{HairpinE}} (int size, int type, int si1, int sj1, const char $\ast$string)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gac3f0a28d9cb609d388b155445073fd20}{initialize\+\_\+fold}} (int length)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold}} (const char $\ast$$\ast$strings, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute MFE and according consensus structure of an alignment of sequences. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_gadbd3b0b1c144cbfb4efe704b2b260f96}{circalifold}} (const char $\ast$$\ast$strings, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute MFE and according structure of an alignment of sequences assuming the sequences are circular instead of linear. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga72095e4554b5d577250ea14c42acc49e}{free\+\_\+alifold\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by MFE alifold functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}\label{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!alifold@{alifold}}
+\index{alifold@{alifold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{alifold()}{alifold()}}
+{\footnotesize\ttfamily float alifold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{strings,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Compute MFE and according consensus structure of an alignment of sequences. 
+
+This function predicts the consensus structure for the aligned \textquotesingle{}sequences\textquotesingle{} and returns the minimum free energy; the mfe structure in bracket notation is returned in \textquotesingle{}structure\textquotesingle{}.
+
+Sufficient space must be allocated for \textquotesingle{}structure\textquotesingle{} before calling \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}}.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000012}{Deprecated}}]Usage of this function is discouraged! Use \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, or \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead! \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em strings} & A pointer to a NULL terminated array of character arrays \\
+\hline
+{\em structure} & A pointer to a character array that may contain a constraining consensus structure (will be overwritten by a consensus structure that exhibits the MFE) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy score in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}\label{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!cofold@{cofold}}
+\index{cofold@{cofold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{cofold()}{cofold()}}
+{\footnotesize\ttfamily float cofold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Compute the minimum free energy of two interacting RNA molecules. 
+
+The code is analog to the \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}} function. If \mbox{\hyperlink{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}} ==-\/1 results should be the same as with \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}}.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000030}{Deprecated}}]use \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}} instead\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The two sequences concatenated \\
+\hline
+{\em structure} & Will hold the barcket dot structure of the dimer molecule \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum free energy of the structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}\label{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!cofold\_par@{cofold\_par}}
+\index{cofold\_par@{cofold\_par}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{cofold\_par()}{cofold\_par()}}
+{\footnotesize\ttfamily float cofold\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{is\+\_\+constrained }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Compute the minimum free energy of two interacting RNA molecules. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000031}{Deprecated}}]use \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}} instead\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gaafb33d7473eb9af9d1b168ca8761c41a}\label{group__mfe__global__deprecated_gaafb33d7473eb9af9d1b168ca8761c41a}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!free\_co\_arrays@{free\_co\_arrays}}
+\index{free\_co\_arrays@{free\_co\_arrays}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{free\_co\_arrays()}{free\_co\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+co\+\_\+arrays (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Free memory occupied by \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000032}{Deprecated}}]This function will only free memory allocated by a prior call of \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} or \mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{cofold\+\_\+par()}}. See \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}} for how to use the new API\end{DoxyRefDesc}
+
+
+\begin{DoxyNote}{Note}
+folding matrices now reside in the fold compound, and should be free\textquotesingle{}d there 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+fc\+\_\+destroy(), \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga4fcbf34e77b99bfbb2333d2ab0c41a57}\label{group__mfe__global__deprecated_ga4fcbf34e77b99bfbb2333d2ab0c41a57}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!update\_cofold\_params@{update\_cofold\_params}}
+\index{update\_cofold\_params@{update\_cofold\_params}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{update\_cofold\_params()}{update\_cofold\_params()}}
+{\footnotesize\ttfamily void update\+\_\+cofold\+\_\+params (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Recalculate parameters. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000033}{Deprecated}}]See \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst()}} for an alternative using the new API\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gaaadbd28b4e428710529ab4098fdacad3}\label{group__mfe__global__deprecated_gaaadbd28b4e428710529ab4098fdacad3}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!update\_cofold\_params\_par@{update\_cofold\_params\_par}}
+\index{update\_cofold\_params\_par@{update\_cofold\_params\_par}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{update\_cofold\_params\_par()}{update\_cofold\_params\_par()}}
+{\footnotesize\ttfamily void update\+\_\+cofold\+\_\+params\+\_\+par (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Recalculate parameters. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000034}{Deprecated}}]See \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst()}} for an alternative using the new API\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga5f5bf4df35d0554f6ace9579f8744c48}\label{group__mfe__global__deprecated_ga5f5bf4df35d0554f6ace9579f8744c48}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!export\_cofold\_arrays\_gq@{export\_cofold\_arrays\_gq}}
+\index{export\_cofold\_arrays\_gq@{export\_cofold\_arrays\_gq}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{export\_cofold\_arrays\_gq()}{export\_cofold\_arrays\_gq()}}
+{\footnotesize\ttfamily void export\+\_\+cofold\+\_\+arrays\+\_\+gq (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{f5\+\_\+p,  }\item[{int $\ast$$\ast$}]{c\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+ML\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M1\+\_\+p,  }\item[{int $\ast$$\ast$}]{fc\+\_\+p,  }\item[{int $\ast$$\ast$}]{ggg\+\_\+p,  }\item[{int $\ast$$\ast$}]{indx\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Export the arrays of partition function cofold (with gquadruplex support) 
+
+Export the cofold arrays for use e.\+g. in the concentration Computations or suboptimal secondary structure backtracking
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000035}{Deprecated}}]folding matrices now reside within the fold compound. Thus, this function will only work in conjunction with a prior call to \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} or \mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{cofold\+\_\+par()}}\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}} for the new API
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em f5\+\_\+p} & A pointer to the \textquotesingle{}f5\textquotesingle{} array, i.\+e. array conatining best free energy in interval \mbox{[}1,j\mbox{]} \\
+\hline
+{\em c\+\_\+p} & A pointer to the \textquotesingle{}c\textquotesingle{} array, i.\+e. array containing best free energy in interval \mbox{[}i,j\mbox{]} given that i pairs with j \\
+\hline
+{\em f\+ML\+\_\+p} & A pointer to the \textquotesingle{}M\textquotesingle{} array, i.\+e. array containing best free energy in interval \mbox{[}i,j\mbox{]} for any multiloop segment with at least one stem \\
+\hline
+{\em f\+M1\+\_\+p} & A pointer to the \textquotesingle{}M1\textquotesingle{} array, i.\+e. array containing best free energy in interval \mbox{[}i,j\mbox{]} for multiloop segment with exactly one stem \\
+\hline
+{\em fc\+\_\+p} & A pointer to the \textquotesingle{}fc\textquotesingle{} array, i.\+e. array ... \\
+\hline
+{\em ggg\+\_\+p} & A pointer to the \textquotesingle{}ggg\textquotesingle{} array, i.\+e. array containing best free energy of a gquadruplex delimited by \mbox{[}i,j\mbox{]} \\
+\hline
+{\em indx\+\_\+p} & A pointer to the indexing array used for accessing the energy matrices \\
+\hline
+{\em ptype\+\_\+p} & A pointer to the ptype array containing the base pair types for each possibility (i,j) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga5cb6b59983f1f74ccc00b9b9c4e84482}\label{group__mfe__global__deprecated_ga5cb6b59983f1f74ccc00b9b9c4e84482}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!export\_cofold\_arrays@{export\_cofold\_arrays}}
+\index{export\_cofold\_arrays@{export\_cofold\_arrays}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{export\_cofold\_arrays()}{export\_cofold\_arrays()}}
+{\footnotesize\ttfamily void export\+\_\+cofold\+\_\+arrays (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{f5\+\_\+p,  }\item[{int $\ast$$\ast$}]{c\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+ML\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M1\+\_\+p,  }\item[{int $\ast$$\ast$}]{fc\+\_\+p,  }\item[{int $\ast$$\ast$}]{indx\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+Export the arrays of partition function cofold. 
+
+Export the cofold arrays for use e.\+g. in the concentration Computations or suboptimal secondary structure backtracking
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000036}{Deprecated}}]folding matrices now reside within the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. Thus, this function will only work in conjunction with a prior call to the deprecated functions \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} or \mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{cofold\+\_\+par()}}\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}} for the new API
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em f5\+\_\+p} & A pointer to the \textquotesingle{}f5\textquotesingle{} array, i.\+e. array conatining best free energy in interval \mbox{[}1,j\mbox{]} \\
+\hline
+{\em c\+\_\+p} & A pointer to the \textquotesingle{}c\textquotesingle{} array, i.\+e. array containing best free energy in interval \mbox{[}i,j\mbox{]} given that i pairs with j \\
+\hline
+{\em f\+ML\+\_\+p} & A pointer to the \textquotesingle{}M\textquotesingle{} array, i.\+e. array containing best free energy in interval \mbox{[}i,j\mbox{]} for any multiloop segment with at least one stem \\
+\hline
+{\em f\+M1\+\_\+p} & A pointer to the \textquotesingle{}M1\textquotesingle{} array, i.\+e. array containing best free energy in interval \mbox{[}i,j\mbox{]} for multiloop segment with exactly one stem \\
+\hline
+{\em fc\+\_\+p} & A pointer to the \textquotesingle{}fc\textquotesingle{} array, i.\+e. array ... \\
+\hline
+{\em indx\+\_\+p} & A pointer to the indexing array used for accessing the energy matrices \\
+\hline
+{\em ptype\+\_\+p} & A pointer to the ptype array containing the base pair types for each possibility (i,j) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga4958b517c613e4d2afd5bce6c1060a79}\label{group__mfe__global__deprecated_ga4958b517c613e4d2afd5bce6c1060a79}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!get\_monomere\_mfes@{get\_monomere\_mfes}}
+\index{get\_monomere\_mfes@{get\_monomere\_mfes}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{get\_monomere\_mfes()}{get\_monomere\_mfes()}}
+{\footnotesize\ttfamily void get\+\_\+monomere\+\_\+mfes (\begin{DoxyParamCaption}\item[{float $\ast$}]{e1,  }\item[{float $\ast$}]{e2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+
+
+get\+\_\+monomer\+\_\+free\+\_\+energies 
+
+Export monomer free energies out of cofold arrays \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000037}{Deprecated}}]\{This function is obsolete and will be removed soon!\}\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em e1} & A pointer to a variable where the energy of molecule A will be written to \\
+\hline
+{\em e2} & A pointer to a variable where the energy of molecule B will be written to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gafee0c32208aa2ac97338b6e3fbad7fa5}\label{group__mfe__global__deprecated_gafee0c32208aa2ac97338b6e3fbad7fa5}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!initialize\_cofold@{initialize\_cofold}}
+\index{initialize\_cofold@{initialize\_cofold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{initialize\_cofold()}{initialize\_cofold()}}
+{\footnotesize\ttfamily void initialize\+\_\+cofold (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{cofold_8h}{Vienna\+RNA/cofold.\+h}}$>$}
+
+allocate arrays for folding \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000038}{Deprecated}}]\{This function is obsolete and will be removed soon!\}\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}\label{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!fold\_par@{fold\_par}}
+\index{fold\_par@{fold\_par}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{fold\_par()}{fold\_par()}}
+{\footnotesize\ttfamily float fold\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{is\+\_\+constrained,  }\item[{int}]{is\+\_\+circular }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+
+
+Compute minimum free energy and an appropriate secondary structure of an RNA sequence. 
+
+The first parameter given, the RNA sequence, must be {\itshape uppercase} and should only contain an alphabet $\Sigma$ that is understood by the RNAlib~\newline
+(e.\+g. $ \Sigma = \{A,U,C,G\} $)~\newline
+ The second parameter, {\itshape structure}, must always point to an allocated block of memory with a size of at least $\mathrm{strlen}(\mathrm{sequence})+1$
+
+If the third parameter is NULL, global model detail settings are assumed for the folding recursions. Otherwise, the provided parameters are used.
+
+The fourth parameter indicates whether a secondary structure constraint in enhanced dot-\/bracket notation is passed through the structure parameter or not. If so, the characters \char`\"{} $\vert$ x $<$ $>$ \char`\"{} are recognized to mark bases that are paired, unpaired, paired upstream, or downstream, respectively. Matching brackets \char`\"{} ( ) \char`\"{} denote base pairs, dots \char`\"{}.\char`\"{} are used for unconstrained bases.
+
+To indicate that the RNA sequence is circular and thus has to be post-\/processed, set the last parameter to non-\/zero
+
+After a successful call of \mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par()}}, a backtracked secondary structure (in dot-\/bracket notation) that exhibits the minimum of free energy will be written to the memory {\itshape structure} is pointing to. The function returns the minimum of free energy for any fold of the sequence given.
+
+\begin{DoxyNote}{Note}
+Open\+MP\+: Passing NULL to the \textquotesingle{}parameters\textquotesingle{} argument involves access to several global model detail variables and thus is not to be considered threadsafe
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000066}{Deprecated}}]use \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}}, \mbox{\hyperlink{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}{circfold()}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, set\+\_\+energy\+\_\+model(), \mbox{\hyperlink{group__energy__parameters_ga7fa6a000d7c16feab939f2c4ee626197}{get\+\_\+scaled\+\_\+parameters()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & RNA sequence \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+{\em parameters} & A data structure containing the pre-\/scaled energy contributions and the model details. (NULL may be passed, see Open\+MP notes above) \\
+\hline
+{\em is\+\_\+constrained} & Switch to indicate that a structure constraint is passed via the structure argument (0==off) \\
+\hline
+{\em is\+\_\+circular} & Switch to (de-\/)activate post-\/processing steps in case RNA sequence is circular (0==off)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}\label{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!fold@{fold}}
+\index{fold@{fold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{fold()}{fold()}}
+{\footnotesize\ttfamily float fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+
+
+Compute minimum free energy and an appropriate secondary structure of an RNA sequence. 
+
+This function essentially does the same thing as \mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par()}}. However, it takes its model details, i.\+e. \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, \mbox{\hyperlink{group__model__details_ga4f6265bdf0ead7ff4628a360adbfd77e}{tetra\+\_\+loop}}, \mbox{\hyperlink{group__model__details_gabf380d09e4f1ab94fc6af57cf0ad5d32}{no\+GU}}, \mbox{\hyperlink{group__model__details_gaa8d1c7b92489179e1eafa562b7bdd259}{no\+\_\+closing\+GU}}, \mbox{\hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained}}, \mbox{\hyperlink{group__model__details_ga097eccaabd6ae8b4fef83cccff85bb5d}{no\+Lonely\+Pairs}} from the current global settings within the library
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000067}{Deprecated}}]use \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, or \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par()}}, \mbox{\hyperlink{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}{circfold()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & RNA sequence \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}\label{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!circfold@{circfold}}
+\index{circfold@{circfold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{circfold()}{circfold()}}
+{\footnotesize\ttfamily float circfold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+
+
+Compute minimum free energy and an appropriate secondary structure of a circular RNA sequence. 
+
+This function essentially does the same thing as \mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par()}}. However, it takes its model details, i.\+e. \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, \mbox{\hyperlink{group__model__details_ga4f6265bdf0ead7ff4628a360adbfd77e}{tetra\+\_\+loop}}, \mbox{\hyperlink{group__model__details_gabf380d09e4f1ab94fc6af57cf0ad5d32}{no\+GU}}, \mbox{\hyperlink{group__model__details_gaa8d1c7b92489179e1eafa562b7bdd259}{no\+\_\+closing\+GU}}, \mbox{\hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained}}, \mbox{\hyperlink{group__model__details_ga097eccaabd6ae8b4fef83cccff85bb5d}{no\+Lonely\+Pairs}} from the current global settings within the library
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000068}{Deprecated}}]Use \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold()}}, or \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par()}}, \mbox{\hyperlink{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}{circfold()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & RNA sequence \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}\label{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!free\_arrays@{free\_arrays}}
+\index{free\_arrays@{free\_arrays}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{free\_arrays()}{free\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+arrays (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+
+
+Free arrays for mfe folding. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000069}{Deprecated}}]See \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold()}}, or \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} and \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the usage of the new API!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga41bf8f6fa15b94471f7095cad9f0ccf3}\label{group__mfe__global__deprecated_ga41bf8f6fa15b94471f7095cad9f0ccf3}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!update\_fold\_params@{update\_fold\_params}}
+\index{update\_fold\_params@{update\_fold\_params}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{update\_fold\_params()}{update\_fold\_params()}}
+{\footnotesize\ttfamily void update\+\_\+fold\+\_\+params (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+
+
+Recalculate energy parameters. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000070}{Deprecated}}]For non-\/default model settings use the new API with \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst()}} and \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gae66dc422efb8f5d56717d92d6002a9f8}\label{group__mfe__global__deprecated_gae66dc422efb8f5d56717d92d6002a9f8}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!update\_fold\_params\_par@{update\_fold\_params\_par}}
+\index{update\_fold\_params\_par@{update\_fold\_params\_par}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{update\_fold\_params\_par()}{update\_fold\_params\_par()}}
+{\footnotesize\ttfamily void update\+\_\+fold\+\_\+params\+\_\+par (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+
+
+Recalculate energy parameters. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000071}{Deprecated}}]For non-\/default model settings use the new API with \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst()}} and \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga99641b8dbb40891da5490d3cc271e607}\label{group__mfe__global__deprecated_ga99641b8dbb40891da5490d3cc271e607}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!export\_fold\_arrays@{export\_fold\_arrays}}
+\index{export\_fold\_arrays@{export\_fold\_arrays}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{export\_fold\_arrays()}{export\_fold\_arrays()}}
+{\footnotesize\ttfamily void export\+\_\+fold\+\_\+arrays (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{f5\+\_\+p,  }\item[{int $\ast$$\ast$}]{c\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+ML\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M1\+\_\+p,  }\item[{int $\ast$$\ast$}]{indx\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000072}{Deprecated}}]See \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} and \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the usage of the new API!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga6606ec0ec964ea506fdadb997a1a5328}\label{group__mfe__global__deprecated_ga6606ec0ec964ea506fdadb997a1a5328}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!export\_fold\_arrays\_par@{export\_fold\_arrays\_par}}
+\index{export\_fold\_arrays\_par@{export\_fold\_arrays\_par}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{export\_fold\_arrays\_par()}{export\_fold\_arrays\_par()}}
+{\footnotesize\ttfamily void export\+\_\+fold\+\_\+arrays\+\_\+par (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{f5\+\_\+p,  }\item[{int $\ast$$\ast$}]{c\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+ML\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M1\+\_\+p,  }\item[{int $\ast$$\ast$}]{indx\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$$\ast$}]{P\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000073}{Deprecated}}]See \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} and \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the usage of the new API!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga04d5d639fd4473ca766436a9bae5665c}\label{group__mfe__global__deprecated_ga04d5d639fd4473ca766436a9bae5665c}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!export\_circfold\_arrays@{export\_circfold\_arrays}}
+\index{export\_circfold\_arrays@{export\_circfold\_arrays}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{export\_circfold\_arrays()}{export\_circfold\_arrays()}}
+{\footnotesize\ttfamily void export\+\_\+circfold\+\_\+arrays (\begin{DoxyParamCaption}\item[{int $\ast$}]{Fc\+\_\+p,  }\item[{int $\ast$}]{Fc\+H\+\_\+p,  }\item[{int $\ast$}]{Fc\+I\+\_\+p,  }\item[{int $\ast$}]{Fc\+M\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M2\+\_\+p,  }\item[{int $\ast$$\ast$}]{f5\+\_\+p,  }\item[{int $\ast$$\ast$}]{c\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+ML\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M1\+\_\+p,  }\item[{int $\ast$$\ast$}]{indx\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000074}{Deprecated}}]See \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} and \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the usage of the new API!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga004bb901e7fd2f8d5ae68f9530318ce1}\label{group__mfe__global__deprecated_ga004bb901e7fd2f8d5ae68f9530318ce1}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!export\_circfold\_arrays\_par@{export\_circfold\_arrays\_par}}
+\index{export\_circfold\_arrays\_par@{export\_circfold\_arrays\_par}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{export\_circfold\_arrays\_par()}{export\_circfold\_arrays\_par()}}
+{\footnotesize\ttfamily void export\+\_\+circfold\+\_\+arrays\+\_\+par (\begin{DoxyParamCaption}\item[{int $\ast$}]{Fc\+\_\+p,  }\item[{int $\ast$}]{Fc\+H\+\_\+p,  }\item[{int $\ast$}]{Fc\+I\+\_\+p,  }\item[{int $\ast$}]{Fc\+M\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M2\+\_\+p,  }\item[{int $\ast$$\ast$}]{f5\+\_\+p,  }\item[{int $\ast$$\ast$}]{c\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+ML\+\_\+p,  }\item[{int $\ast$$\ast$}]{f\+M1\+\_\+p,  }\item[{int $\ast$$\ast$}]{indx\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$$\ast$}]{P\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000075}{Deprecated}}]See \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} and \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the usage of the new API!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga2163034a25c6115d894b199e97e03f6c}\label{group__mfe__global__deprecated_ga2163034a25c6115d894b199e97e03f6c}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!LoopEnergy@{LoopEnergy}}
+\index{LoopEnergy@{LoopEnergy}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{LoopEnergy()}{LoopEnergy()}}
+{\footnotesize\ttfamily int Loop\+Energy (\begin{DoxyParamCaption}\item[{int}]{n1,  }\item[{int}]{n2,  }\item[{int}]{type,  }\item[{int}]{type\+\_\+2,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{int}]{sp1,  }\item[{int}]{sq1 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000076}{Deprecated}}]\{This function is deprecated and will be removed soon. Use \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\+\_\+\+Int\+Loop()}} instead!\} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gab327ce11972f5ac069d52c8dedfdb700}\label{group__mfe__global__deprecated_gab327ce11972f5ac069d52c8dedfdb700}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!HairpinE@{HairpinE}}
+\index{HairpinE@{HairpinE}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{HairpinE()}{HairpinE()}}
+{\footnotesize\ttfamily int HairpinE (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{type,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000077}{Deprecated}}]\{This function is deprecated and will be removed soon. Use \mbox{\hyperlink{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}{E\+\_\+\+Hairpin()}} instead!\} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gac3f0a28d9cb609d388b155445073fd20}\label{group__mfe__global__deprecated_gac3f0a28d9cb609d388b155445073fd20}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!initialize\_fold@{initialize\_fold}}
+\index{initialize\_fold@{initialize\_fold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{initialize\_fold()}{initialize\_fold()}}
+{\footnotesize\ttfamily void initialize\+\_\+fold (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold_8h}{Vienna\+RNA/fold.\+h}}$>$}
+
+Allocate arrays for folding~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000078}{Deprecated}}]See \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} and \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the usage of the new API!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global__deprecated_gadbd3b0b1c144cbfb4efe704b2b260f96}\label{group__mfe__global__deprecated_gadbd3b0b1c144cbfb4efe704b2b260f96}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!circalifold@{circalifold}}
+\index{circalifold@{circalifold}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{circalifold()}{circalifold()}}
+{\footnotesize\ttfamily float circalifold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{strings,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Compute MFE and according structure of an alignment of sequences assuming the sequences are circular instead of linear. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000013}{Deprecated}}]Usage of this function is discouraged! Use vrna\+\_\+alicircfold(), and \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} instead! \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+alicircfold(), \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em strings} & A pointer to a NULL terminated array of character arrays \\
+\hline
+{\em structure} & A pointer to a character array that may contain a constraining consensus structure (will be overwritten by a consensus structure that exhibits the MFE) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy score in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global__deprecated_ga72095e4554b5d577250ea14c42acc49e}\label{group__mfe__global__deprecated_ga72095e4554b5d577250ea14c42acc49e}} 
+\index{Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}!free\_alifold\_arrays@{free\_alifold\_arrays}}
+\index{free\_alifold\_arrays@{free\_alifold\_arrays}!Deprecated Interface for Global MFE Prediction@{Deprecated Interface for Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{free\_alifold\_arrays()}{free\_alifold\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+alifold\+\_\+arrays (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Free the memory occupied by MFE alifold functions. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000014}{Deprecated}}]Usage of this function is discouraged! It only affects memory being free\textquotesingle{}d that was allocated by an old API function before. Release of memory occupied by the newly introduced \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} is handled by \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} 
+\end{DoxySeeAlso}

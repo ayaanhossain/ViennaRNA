@@ -1,0 +1,185 @@
+\hypertarget{group__plotting__utils__deprecated}{}\doxysection{Deprecated Interface for Plotting Utilities}
+\label{group__plotting__utils__deprecated}\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Plotting Utilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{group__plotting__utils__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{COORDINATE}}
+\begin{DoxyCompactList}\small\item\em this is a workarround for the SWIG Perl Wrapper RNA plot function that returns an array of type \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{COORDINATE}}  \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_ga821802c3685e37e15182341f6217470d}{PS\+\_\+color\+\_\+aln}} (const char $\ast$structure, const char $\ast$filename, const char $\ast$seqs\mbox{[}$\,$\mbox{]}, const char $\ast$names\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Produce Post\+Script sequence alignment color-\/annotated by consensus structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_gaab48d4dac655d688abe921389ac2847c}{ali\+PS\+\_\+color\+\_\+aln}} (const char $\ast$structure, const char $\ast$filename, const char $\ast$seqs\mbox{[}$\,$\mbox{]}, const char $\ast$names\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em PS\+\_\+color\+\_\+aln for duplexes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_gaf4b9173e7d3fd361c3c85e6def194123}{simple\+\_\+xy\+\_\+coordinates}} (short $\ast$pair\+\_\+table, float $\ast$X, float $\ast$Y)
+\begin{DoxyCompactList}\small\item\em Calculate nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_gac4ea13d35308f09940178d2b05a248c2}{simple\+\_\+circplot\+\_\+coordinates}} (short $\ast$pair\+\_\+table, float $\ast$x, float $\ast$y)
+\begin{DoxyCompactList}\small\item\em Calculate nucleotide coordinates for {\itshape Circular Plot} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}{naview\+\_\+xy\+\_\+coordinates}} (short $\ast$pair\+\_\+table, float $\ast$X, float $\ast$Y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Switch for changing the secondary structure layout algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{COORDINATE@{COORDINATE}}\label{structCOORDINATE}
+\Hypertarget{group__plotting__utils__deprecated_structCOORDINATE}
+\doxysubsubsection{struct COORDINATE}
+this is a workarround for the SWIG Perl Wrapper RNA plot function that returns an array of type \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{COORDINATE}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__plotting__utils__deprecated_ga821802c3685e37e15182341f6217470d}\label{group__plotting__utils__deprecated_ga821802c3685e37e15182341f6217470d}} 
+\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}!PS\_color\_aln@{PS\_color\_aln}}
+\index{PS\_color\_aln@{PS\_color\_aln}!Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+\doxysubsubsection{\texorpdfstring{PS\_color\_aln()}{PS\_color\_aln()}}
+{\footnotesize\ttfamily int PS\+\_\+color\+\_\+aln (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$}]{seqs\mbox{[}$\,$\mbox{]},  }\item[{const char $\ast$}]{names\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2alignments_8h}{Vienna\+RNA/plotting/alignments.\+h}}$>$}
+
+
+
+Produce Post\+Script sequence alignment color-\/annotated by consensus structure. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000171}{Deprecated}}]Use \mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils__deprecated_gaab48d4dac655d688abe921389ac2847c}\label{group__plotting__utils__deprecated_gaab48d4dac655d688abe921389ac2847c}} 
+\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}!aliPS\_color\_aln@{aliPS\_color\_aln}}
+\index{aliPS\_color\_aln@{aliPS\_color\_aln}!Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+\doxysubsubsection{\texorpdfstring{aliPS\_color\_aln()}{aliPS\_color\_aln()}}
+{\footnotesize\ttfamily int ali\+PS\+\_\+color\+\_\+aln (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$}]{seqs\mbox{[}$\,$\mbox{]},  }\item[{const char $\ast$}]{names\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2alignments_8h}{Vienna\+RNA/plotting/alignments.\+h}}$>$}
+
+
+
+PS\+\_\+color\+\_\+aln for duplexes. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000172}{Deprecated}}]Use \mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils__deprecated_gaf4b9173e7d3fd361c3c85e6def194123}\label{group__plotting__utils__deprecated_gaf4b9173e7d3fd361c3c85e6def194123}} 
+\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}!simple\_xy\_coordinates@{simple\_xy\_coordinates}}
+\index{simple\_xy\_coordinates@{simple\_xy\_coordinates}!Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+\doxysubsubsection{\texorpdfstring{simple\_xy\_coordinates()}{simple\_xy\_coordinates()}}
+{\footnotesize\ttfamily int simple\+\_\+xy\+\_\+coordinates (\begin{DoxyParamCaption}\item[{short $\ast$}]{pair\+\_\+table,  }\item[{float $\ast$}]{X,  }\item[{float $\ast$}]{Y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Calculate nucleotide coordinates for secondary structure plot the {\itshape Simple way} 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}{make\+\_\+pair\+\_\+table()}}, \mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}, \mbox{\hyperlink{group__plotting__utils__deprecated_gac4ea13d35308f09940178d2b05a248c2}{simple\+\_\+circplot\+\_\+coordinates()}}, \mbox{\hyperlink{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}{naview\+\_\+xy\+\_\+coordinates()}}, \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}}, \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot}}, \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}}
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000173}{Deprecated}}]Consider switching to \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair\+\_\+table} & The pair table of the secondary structure \\
+\hline
+{\em X} & a pointer to an array with enough allocated space to hold the x coordinates \\
+\hline
+{\em Y} & a pointer to an array with enough allocated space to hold the y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of sequence on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils__deprecated_gac4ea13d35308f09940178d2b05a248c2}\label{group__plotting__utils__deprecated_gac4ea13d35308f09940178d2b05a248c2}} 
+\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}!simple\_circplot\_coordinates@{simple\_circplot\_coordinates}}
+\index{simple\_circplot\_coordinates@{simple\_circplot\_coordinates}!Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+\doxysubsubsection{\texorpdfstring{simple\_circplot\_coordinates()}{simple\_circplot\_coordinates()}}
+{\footnotesize\ttfamily int simple\+\_\+circplot\+\_\+coordinates (\begin{DoxyParamCaption}\item[{short $\ast$}]{pair\+\_\+table,  }\item[{float $\ast$}]{x,  }\item[{float $\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Calculate nucleotide coordinates for {\itshape Circular Plot} 
+
+This function calculates the coordinates of nucleotides mapped in equal distancies onto a unit circle.
+
+\begin{DoxyNote}{Note}
+In order to draw nice arcs using quadratic bezier curves that connect base pairs one may calculate a second tangential point $P^t$ in addition to the actual R\textsuperscript{2} coordinates. the simplest way to do so may be to compute a radius scaling factor $rs$ in the interval $[0,1]$ that weights the proportion of base pair span to the actual length of the sequence. This scaling factor can then be used to calculate the coordinates for $P^t$, i.\+e. $ P^{t}_x[i] = X[i] * rs$ and $P^{t}_y[i] = Y[i] * rs$.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}{make\+\_\+pair\+\_\+table()}}, \mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}, \mbox{\hyperlink{group__plotting__utils__deprecated_gaf4b9173e7d3fd361c3c85e6def194123}{simple\+\_\+xy\+\_\+coordinates()}}, \mbox{\hyperlink{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}{naview\+\_\+xy\+\_\+coordinates()}}, \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}}, \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot}}, \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}}
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000174}{Deprecated}}]Consider switching to \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair\+\_\+table} & The pair table of the secondary structure \\
+\hline
+{\em x} & a pointer to an array with enough allocated space to hold the x coordinates \\
+\hline
+{\em y} & a pointer to an array with enough allocated space to hold the y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of sequence on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}\label{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}} 
+\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}!naview\_xy\_coordinates@{naview\_xy\_coordinates}}
+\index{naview\_xy\_coordinates@{naview\_xy\_coordinates}!Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+\doxysubsubsection{\texorpdfstring{naview\_xy\_coordinates()}{naview\_xy\_coordinates()}}
+{\footnotesize\ttfamily int naview\+\_\+xy\+\_\+coordinates (\begin{DoxyParamCaption}\item[{short $\ast$}]{pair\+\_\+table,  }\item[{float $\ast$}]{X,  }\item[{float $\ast$}]{Y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2naview_8h}{Vienna\+RNA/plotting/naview.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000175}{Deprecated}}]Consider using \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt()}} instead! \end{DoxyRefDesc}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}\label{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}} 
+\index{Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}!rna\_plot\_type@{rna\_plot\_type}}
+\index{rna\_plot\_type@{rna\_plot\_type}!Deprecated Interface for Plotting Utilities@{Deprecated Interface for Plotting Utilities}}
+\doxysubsubsection{\texorpdfstring{rna\_plot\_type}{rna\_plot\_type}}
+{\footnotesize\ttfamily int rna\+\_\+plot\+\_\+type\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Switch for changing the secondary structure layout algorithm. 
+
+Current possibility are 0 for a simple radial drawing or 1 for the modified radial drawing taken from the {\itshape naview} program of \cite{bruccoleri:1988}.
+
+\begin{DoxyNote}{Note}
+To provide thread safety please do not rely on this global variable in future implementations but pass a plot type flag directly to the function that decides which layout algorithm it may use!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}, \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}, \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}} 
+\end{DoxySeeAlso}

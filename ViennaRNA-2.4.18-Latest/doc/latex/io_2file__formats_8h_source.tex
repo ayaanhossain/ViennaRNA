@@ -1,0 +1,109 @@
+\hypertarget{io_2file__formats_8h_source}{}\doxysection{file\+\_\+formats.\+h}
+\label{io_2file__formats_8h_source}\index{ViennaRNA/io/file\_formats.h@{ViennaRNA/io/file\_formats.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_FILE\_FORMATS\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_FILE\_FORMATS\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00028 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00040 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00041}\mbox{\hyperlink{group__file__formats_gaaface7db12fadc3d271641c4515ab6e4}{00041}} \mbox{\hyperlink{group__file__formats_gaaface7db12fadc3d271641c4515ab6e4}{vrna\_file\_helixlist}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,}
+\DoxyCodeLine{00042                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *db,}
+\DoxyCodeLine{00043                     \textcolor{keywordtype}{float}       energy,}
+\DoxyCodeLine{00044                     FILE        *file);}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00070 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00071}\mbox{\hyperlink{group__file__formats_gab69682373ccca1e0e28cc967eec07745}{00071}} \mbox{\hyperlink{group__file__formats_gab69682373ccca1e0e28cc967eec07745}{vrna\_file\_connect}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,}
+\DoxyCodeLine{00072                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *db,}
+\DoxyCodeLine{00073                   \textcolor{keywordtype}{float}       energy,}
+\DoxyCodeLine{00074                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *identifier,}
+\DoxyCodeLine{00075                   FILE        *file);}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00085 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00086}\mbox{\hyperlink{group__file__formats_ga9b462e6f202594af5d3fa56e280d633f}{00086}} \mbox{\hyperlink{group__file__formats_ga9b462e6f202594af5d3fa56e280d633f}{vrna\_file\_bpseq}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,}
+\DoxyCodeLine{00087                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *db,}
+\DoxyCodeLine{00088                 FILE        *file);}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 \textcolor{preprocessor}{\#if VRNA\_WITH\_JSON\_SUPPORT}}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00102 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00103}\mbox{\hyperlink{group__file__formats_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}{00103}} \mbox{\hyperlink{group__file__formats_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}{vrna\_file\_json}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00104                \textcolor{keyword}{const} \textcolor{keywordtype}{char} *db,}
+\DoxyCodeLine{00105                \textcolor{keywordtype}{double}     energy,}
+\DoxyCodeLine{00106                \textcolor{keyword}{const} \textcolor{keywordtype}{char} *identifier,}
+\DoxyCodeLine{00107                FILE       *file);}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00121}\mbox{\hyperlink{group__file__formats_gabec89c09874528c6cb73140a4c3d86d7}{00121}} \textcolor{preprocessor}{\#define VRNA\_OPTION\_MULTILINE             32U}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00126}\mbox{\hyperlink{group__file__formats_ga7d725ef525b29891abef3f1ed42599a4}{00126}} \textcolor{preprocessor}{\#define VRNA\_CONSTRAINT\_MULTILINE         32U}}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00193 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00194}\mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{00194}} \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\_file\_fasta\_read\_record}}(\textcolor{keywordtype}{char}          **header,}
+\DoxyCodeLine{00195                             \textcolor{keywordtype}{char}          **sequence,}
+\DoxyCodeLine{00196                             \textcolor{keywordtype}{char}          ***rest,}
+\DoxyCodeLine{00197                             FILE          *file,}
+\DoxyCodeLine{00198                             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  options);}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200 }
+\DoxyCodeLine{00217 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00218}\mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{00218}} \mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{vrna\_extract\_record\_rest\_structure}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   **lines,}
+\DoxyCodeLine{00219                                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length,}
+\DoxyCodeLine{00220                                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} option);}
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00222 }
+\DoxyCodeLine{00235 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00236}\mbox{\hyperlink{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}{00236}} \mbox{\hyperlink{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}{vrna\_file\_SHAPE\_read}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_name,}
+\DoxyCodeLine{00237                      \textcolor{keywordtype}{int}        length,}
+\DoxyCodeLine{00238                      \textcolor{keywordtype}{double}     default\_value,}
+\DoxyCodeLine{00239                      \textcolor{keywordtype}{char}       *sequence,}
+\DoxyCodeLine{00240                      \textcolor{keywordtype}{double}     *values);}
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00242 }
+\DoxyCodeLine{00243 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00244 }
+\DoxyCodeLine{00261 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__file__formats_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}{vrna\_extract\_record\_rest\_constraint}}(\textcolor{keywordtype}{char}          **cstruc,}
+\DoxyCodeLine{00262                                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}    **lines,}
+\DoxyCodeLine{00263                                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  option),}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00264}\mbox{\hyperlink{group__file__formats_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}{00264}}            \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00265 }
+\DoxyCodeLine{00270 DEPRECATED(\textcolor{keywordtype}{char} *extract\_record\_rest\_structure(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   **lines,}
+\DoxyCodeLine{00271                                                \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length,}
+\DoxyCodeLine{00272                                                \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} option),}
+\DoxyCodeLine{00273            \textcolor{stringliteral}{"{}Use vrna\_extract\_record\_rest\_structure() instead"{}});}
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00281 DEPRECATED(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__file__formats_gafd194a69af9d92b5b0412a7627ac1595}{read\_record}}(\textcolor{keywordtype}{char}          **header,}
+\DoxyCodeLine{00282                                     \textcolor{keywordtype}{char}          **sequence,}
+\DoxyCodeLine{00283                                     \textcolor{keywordtype}{char}          ***rest,}
+\DoxyCodeLine{00284                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  options),}
+\DoxyCodeLine{\Hypertarget{io_2file__formats_8h_source_l00285}\mbox{\hyperlink{group__file__formats_gafd194a69af9d92b5b0412a7627ac1595}{00285}}            \textcolor{stringliteral}{"{}Use vrna\_file\_fasta\_read\_record() instead"{}});}
+\DoxyCodeLine{00286 }
+\DoxyCodeLine{00287 }
+\DoxyCodeLine{00288 DEPRECATED(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} get\_multi\_input\_line(\textcolor{keywordtype}{char}         **\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00289                                              \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options),}
+\DoxyCodeLine{00290            \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00291 }
+\DoxyCodeLine{00292 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00293 }
+\DoxyCodeLine{00298 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

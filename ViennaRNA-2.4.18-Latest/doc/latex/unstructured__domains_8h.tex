@@ -1,0 +1,102 @@
+\hypertarget{unstructured__domains_8h}{}\doxysection{Vienna\+RNA/unstructured\+\_\+domains.h File Reference}
+\label{unstructured__domains_8h}\index{ViennaRNA/unstructured\_domains.h@{ViennaRNA/unstructured\_domains.h}}
+
+
+Functions to modify unstructured domains, e.\+g. to incorporate ligands binding to unpaired stretches.  
+
+
+Include dependency graph for unstructured\+\_\+domains.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unstructured__domains_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unstructured__domains_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__domains__up_structvrna__unstructured__domain__s}{vrna\+\_\+unstructured\+\_\+domain\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Data structure to store all functionality for ligand binding.  \mbox{\hyperlink{group__domains__up_structvrna__unstructured__domain__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvrna__unstructured__domain__motif__s}{vrna\+\_\+unstructured\+\_\+domain\+\_\+motif\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__domains__up_gaac911374e86236a51bfd42e1f098eaba}{VRNA\+\_\+\+UNSTRUCTURED\+\_\+\+DOMAIN\+\_\+\+EXT\+\_\+\+LOOP}}~1U
+\begin{DoxyCompactList}\small\item\em Flag to indicate ligand bound to unpiared stretch in the exterior loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__domains__up_ga23b610ea9564346c45cc1e2bbb62adf7}{VRNA\+\_\+\+UNSTRUCTURED\+\_\+\+DOMAIN\+\_\+\+HP\+\_\+\+LOOP}}~2U
+\begin{DoxyCompactList}\small\item\em Flag to indicate ligand bound to unpaired stretch in a hairpin loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__domains__up_gac4a0feccd9654c149203200248c2716b}{VRNA\+\_\+\+UNSTRUCTURED\+\_\+\+DOMAIN\+\_\+\+INT\+\_\+\+LOOP}}~4U
+\begin{DoxyCompactList}\small\item\em Flag to indicate ligand bound to unpiared stretch in an interior loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__domains__up_ga67b80796655e5227a4ed662bfbe398b0}{VRNA\+\_\+\+UNSTRUCTURED\+\_\+\+DOMAIN\+\_\+\+MB\+\_\+\+LOOP}}~8U
+\begin{DoxyCompactList}\small\item\em Flag to indicate ligand bound to unpiared stretch in a multibranch loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__domains__up_gaab12b58d59be76446a9f76fad2fe624c}{VRNA\+\_\+\+UNSTRUCTURED\+\_\+\+DOMAIN\+\_\+\+MOTIF}}~16U
+\begin{DoxyCompactList}\small\item\em Flag to indicate ligand binding without additional unbound nucleotides (motif-\/only) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__domains__up_ga3c6be4cce70f1af9e885788856101699}{VRNA\+\_\+\+UNSTRUCTURED\+\_\+\+DOMAIN\+\_\+\+ALL\+\_\+\+LOOPS}}
+\begin{DoxyCompactList}\small\item\em Flag to indicate ligand bound to unpiared stretch in any loop (convenience macro) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__domains__up_structvrna__unstructured__domain__s}{vrna\+\_\+unstructured\+\_\+domain\+\_\+s}} \mbox{\hyperlink{group__domains__up_ga0009117b14d29143e8b18ab891f48c2d}{vrna\+\_\+ud\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the ligand binding extension data structure \mbox{\hyperlink{group__domains__up_structvrna__unstructured__domain__s}{vrna\+\_\+unstructured\+\_\+domain\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef int() \mbox{\hyperlink{group__domains__up_ga75825c57d0bfde4ae4f95c044260c5c3}{vrna\+\_\+callback\+\_\+ud\+\_\+energy}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, int j, unsigned int loop\+\_\+type, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to retrieve binding free energy of a ligand bound to an unpaired sequence segment. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}() \mbox{\hyperlink{group__domains__up_ga861706f257ba993753464b823e65b86e}{vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+energy}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, int j, unsigned int loop\+\_\+type, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to retrieve Boltzmann factor of the binding free energy of a ligand bound to an unpaired sequence segment. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__domains__up_ga4fdfc02c1b660c07f2d887772f02a0a1}{vrna\+\_\+callback\+\_\+ud\+\_\+production}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback for pre-\/processing the production rule of the ligand binding to unpaired stretches feature. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__domains__up_ga33d78327dcd04c1ca5ab2887edc18c7b}{vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+production}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback for pre-\/processing the production rule of the ligand binding to unpaired stretches feature (partition function variant) \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__domains__up_gab10498abc84fcaf336aca8f8d7d42eb2}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+add}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, int j, unsigned int loop\+\_\+type, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} exp\+\_\+energy, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to store/add equilibrium probability for a ligand bound to an unpaired sequence segment. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}() \mbox{\hyperlink{group__domains__up_gaa10ba1b6f1e179ea84c5caca9cdaae67}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+get}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, int j, unsigned int loop\+\_\+type, int motif, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to retrieve equilibrium probability for a ligand bound to an unpaired sequence segment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvrna__unstructured__domain__motif__s}{vrna\+\_\+ud\+\_\+motif\+\_\+t}} $\ast$ \mbox{\hyperlink{group__domains__up_ga2039caedf194c5edec794866986d95ec}{vrna\+\_\+ud\+\_\+motifs\+\_\+centroid}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Detect unstructured domains in centroid structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvrna__unstructured__domain__motif__s}{vrna\+\_\+ud\+\_\+motif\+\_\+t}} $\ast$ \mbox{\hyperlink{group__domains__up_ga980126e9f350b64474b35f20fce2782c}{vrna\+\_\+ud\+\_\+motifs\+\_\+\+MEA}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$probability\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Detect unstructured domains in MEA structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvrna__unstructured__domain__motif__s}{vrna\+\_\+ud\+\_\+motif\+\_\+t}} $\ast$ \mbox{\hyperlink{group__domains__up_ga464d086264dd6f45089a65acec4e8c21}{vrna\+\_\+ud\+\_\+motifs\+\_\+\+MFE}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Detect unstructured domains in MFE structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__domains__up_ga55f7de5ef5b7472b0eeab9296b57f671}{vrna\+\_\+ud\+\_\+add\+\_\+motif}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$motif, double motif\+\_\+en, const char $\ast$motif\+\_\+name, unsigned int loop\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Add an unstructured domain motif, e.\+g. for ligand binding. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unstructured__domains_8h_aea51485feeafed1f93222ba7db9fc3b1}\label{unstructured__domains_8h_aea51485feeafed1f93222ba7db9fc3b1}} 
+int $\ast$ \mbox{\hyperlink{unstructured__domains_8h_aea51485feeafed1f93222ba7db9fc3b1}{vrna\+\_\+ud\+\_\+get\+\_\+motif\+\_\+size\+\_\+at}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, unsigned int loop\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Get a list of unique motif sizes that start at a certain position within the sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__domains__up_gada59cb0c498b812eadd010811af3f2d4}{vrna\+\_\+ud\+\_\+remove}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Remove ligand binding to unpaired stretches. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__domains__up_gac1f18c312b91d80089534a87d956e58b}{vrna\+\_\+ud\+\_\+set\+\_\+data}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, void $\ast$data, \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}} $\ast$free\+\_\+cb)
+\begin{DoxyCompactList}\small\item\em Attach an auxiliary data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__domains__up_ga745a99f0bc72898d54de16f6e538828a}{vrna\+\_\+ud\+\_\+set\+\_\+prod\+\_\+rule\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__domains__up_ga4fdfc02c1b660c07f2d887772f02a0a1}{vrna\+\_\+callback\+\_\+ud\+\_\+production}} $\ast$pre\+\_\+cb, \mbox{\hyperlink{group__domains__up_ga75825c57d0bfde4ae4f95c044260c5c3}{vrna\+\_\+callback\+\_\+ud\+\_\+energy}} $\ast$e\+\_\+cb)
+\begin{DoxyCompactList}\small\item\em Attach production rule callbacks for free energies computations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__domains__up_ga2fb1db2099da26c76247e1209ad4aa09}{vrna\+\_\+ud\+\_\+set\+\_\+exp\+\_\+prod\+\_\+rule\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__domains__up_ga33d78327dcd04c1ca5ab2887edc18c7b}{vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+production}} $\ast$pre\+\_\+cb, \mbox{\hyperlink{group__domains__up_ga861706f257ba993753464b823e65b86e}{vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+energy}} $\ast$exp\+\_\+e\+\_\+cb)
+\begin{DoxyCompactList}\small\item\em Attach production rule for partition function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{unstructured__domains_8h_a13ac877c9db89a1a5b5d9c0394148595}{vrna\+\_\+ud\+\_\+set\+\_\+prob\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__domains__up_gab10498abc84fcaf336aca8f8d7d42eb2}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+add}} $\ast$setter, \mbox{\hyperlink{group__domains__up_gaa10ba1b6f1e179ea84c5caca9cdaae67}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+get}} $\ast$getter)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to modify unstructured domains, e.\+g. to incorporate ligands binding to unpaired stretches. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unstructured__domains_8h_a13ac877c9db89a1a5b5d9c0394148595}\label{unstructured__domains_8h_a13ac877c9db89a1a5b5d9c0394148595}} 
+\index{unstructured\_domains.h@{unstructured\_domains.h}!vrna\_ud\_set\_prob\_cb@{vrna\_ud\_set\_prob\_cb}}
+\index{vrna\_ud\_set\_prob\_cb@{vrna\_ud\_set\_prob\_cb}!unstructured\_domains.h@{unstructured\_domains.h}}
+\doxysubsubsection{\texorpdfstring{vrna\_ud\_set\_prob\_cb()}{vrna\_ud\_set\_prob\_cb()}}
+{\footnotesize\ttfamily void vrna\+\_\+ud\+\_\+set\+\_\+prob\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{\mbox{\hyperlink{group__domains__up_gab10498abc84fcaf336aca8f8d7d42eb2}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+add}} $\ast$}]{setter,  }\item[{\mbox{\hyperlink{group__domains__up_gaa10ba1b6f1e179ea84c5caca9cdaae67}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+get}} $\ast$}]{getter }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000087}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{ud\+\_\+set\+\_\+prob\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}

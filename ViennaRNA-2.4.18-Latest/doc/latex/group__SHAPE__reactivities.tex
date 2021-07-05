@@ -1,0 +1,183 @@
+\hypertarget{group__SHAPE__reactivities}{}\doxysection{SHAPE Reactivity Data}
+\label{group__SHAPE__reactivities}\index{SHAPE Reactivity Data@{SHAPE Reactivity Data}}
+
+
+Incorporate SHAPE reactivity structure probing data into the folding recursions by means of soft constraints.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Incorporate SHAPE reactivity structure probing data into the folding recursions by means of soft constraints. 
+
+Details for our implementation to incorporate SHAPE reactivity data to guide secondary structure prediction can be found in \cite{lorenz:2016a} Collaboration diagram for SHAPE Reactivity Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__SHAPE__reactivities}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{SHAPE_8h}{SHAPE.\+h}}
+\begin{DoxyCompactList}\small\item\em This module provides function to incorporate SHAPE reactivity data into the folding recursions by means of soft constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const double $\ast$reactivities, double m, double b, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add SHAPE reactivity data as soft constraints (Deigan et al. method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan\+\_\+ali}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$$\ast$shape\+\_\+files, const int $\ast$shape\+\_\+file\+\_\+association, double m, double b, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add SHAPE reactivity data from files as soft constraints for consensus structure prediction (Deigan et al. method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const double $\ast$reactivities, double b, double default\+\_\+value, const char $\ast$shape\+\_\+conversion, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add SHAPE reactivity data as soft constraints (Zarringhalam et al. method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}{vrna\+\_\+sc\+\_\+\+SHAPE\+\_\+to\+\_\+pr}} (const char $\ast$shape\+\_\+conversion, double $\ast$values, int length, double default\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Convert SHAPE reactivity values to probabilities for being unpaired. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}\label{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}} 
+\index{SHAPE Reactivity Data@{SHAPE Reactivity Data}!vrna\_sc\_add\_SHAPE\_deigan@{vrna\_sc\_add\_SHAPE\_deigan}}
+\index{vrna\_sc\_add\_SHAPE\_deigan@{vrna\_sc\_add\_SHAPE\_deigan}!SHAPE Reactivity Data@{SHAPE Reactivity Data}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_add\_SHAPE\_deigan()}{vrna\_sc\_add\_SHAPE\_deigan()}}
+{\footnotesize\ttfamily int vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const double $\ast$}]{reactivities,  }\item[{double}]{m,  }\item[{double}]{b,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{SHAPE_8h}{Vienna\+RNA/constraints/\+SHAPE.\+h}}$>$}
+
+
+
+Add SHAPE reactivity data as soft constraints (Deigan et al. method) 
+
+This approach of SHAPE directed RNA folding uses the simple linear ansatz \[ \Delta G_{\text{SHAPE}}(i) = m \ln(\text{SHAPE reactivity}(i)+1)+ b \] to convert SHAPE reactivity values to pseudo energies whenever a nucleotide $ i $ contributes to a stacked pair. A positive slope $ m $ penalizes high reactivities in paired regions, while a negative intercept $ b $ results in a confirmatory \`{}`bonus'\textquotesingle{} free energy for correctly predicted base pairs. Since the energy evaluation of a base pair stack involves two pairs, the pseudo energies are added for all four contributing nucleotides. Consequently, the energy term is applied twice for pairs inside a helix and only once for pairs adjacent to other structures. For all other loop types the energy model remains unchanged even when the experimental data highly disagrees with a certain motif.
+
+\begin{DoxySeeAlso}{See also}
+For further details, we refer to \cite{deigan:2009}. 
+
+\mbox{\hyperlink{group__soft__constraints_ga73cdc07b9a199c614367bebef0f2c41a}{vrna\+\_\+sc\+\_\+remove()}}, \mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam()}}, \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} the soft constraints are associated with \\
+\hline
+{\em reactivities} & A vector of normalized SHAPE reactivities \\
+\hline
+{\em m} & The slope of the conversion function \\
+\hline
+{\em b} & The intercept of the conversion function \\
+\hline
+{\em options} & The options flag indicating how/where to store the soft constraints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on successful extraction of the method, 0 on errors
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000030}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}\label{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}} 
+\index{SHAPE Reactivity Data@{SHAPE Reactivity Data}!vrna\_sc\_add\_SHAPE\_deigan\_ali@{vrna\_sc\_add\_SHAPE\_deigan\_ali}}
+\index{vrna\_sc\_add\_SHAPE\_deigan\_ali@{vrna\_sc\_add\_SHAPE\_deigan\_ali}!SHAPE Reactivity Data@{SHAPE Reactivity Data}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_add\_SHAPE\_deigan\_ali()}{vrna\_sc\_add\_SHAPE\_deigan\_ali()}}
+{\footnotesize\ttfamily int vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan\+\_\+ali (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const char $\ast$$\ast$}]{shape\+\_\+files,  }\item[{const int $\ast$}]{shape\+\_\+file\+\_\+association,  }\item[{double}]{m,  }\item[{double}]{b,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{SHAPE_8h}{Vienna\+RNA/constraints/\+SHAPE.\+h}}$>$}
+
+
+
+Add SHAPE reactivity data from files as soft constraints for consensus structure prediction (Deigan et al. method) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} the soft constraints are associated with \\
+\hline
+{\em shape\+\_\+files} & A set of filenames that contain normalized SHAPE reactivity data \\
+\hline
+{\em shape\+\_\+file\+\_\+association} & An array of integers that associate the files with sequences in the alignment \\
+\hline
+{\em m} & The slope of the conversion function \\
+\hline
+{\em b} & The intercept of the conversion function \\
+\hline
+{\em options} & The options flag indicating how/where to store the soft constraints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on successful extraction of the method, 0 on errors
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000031}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan\+\_\+ali()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}\label{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}} 
+\index{SHAPE Reactivity Data@{SHAPE Reactivity Data}!vrna\_sc\_add\_SHAPE\_zarringhalam@{vrna\_sc\_add\_SHAPE\_zarringhalam}}
+\index{vrna\_sc\_add\_SHAPE\_zarringhalam@{vrna\_sc\_add\_SHAPE\_zarringhalam}!SHAPE Reactivity Data@{SHAPE Reactivity Data}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_add\_SHAPE\_zarringhalam()}{vrna\_sc\_add\_SHAPE\_zarringhalam()}}
+{\footnotesize\ttfamily int vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const double $\ast$}]{reactivities,  }\item[{double}]{b,  }\item[{double}]{default\+\_\+value,  }\item[{const char $\ast$}]{shape\+\_\+conversion,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{SHAPE_8h}{Vienna\+RNA/constraints/\+SHAPE.\+h}}$>$}
+
+
+
+Add SHAPE reactivity data as soft constraints (Zarringhalam et al. method) 
+
+This method first converts the observed SHAPE reactivity of nucleotide $ i $ into a probability $ q_i $ that position $ i $ is unpaired by means of a non-\/linear map. Then pseudo-\/energies of the form \[ \Delta G_{\text{SHAPE}}(x,i) = \beta\ |x_i - q_i| \] are computed, where $ x_i=0 $ if position $ i $ is unpaired and $ x_i=1 $ if $ i $ is paired in a given secondary structure. The parameter $ \beta $ serves as scaling factor. The magnitude of discrepancy between prediction and experimental observation is represented by $ |x_i - q_i| $.
+
+\begin{DoxySeeAlso}{See also}
+For further details, we refer to \cite{zarringhalam:2012} 
+
+\mbox{\hyperlink{group__soft__constraints_ga73cdc07b9a199c614367bebef0f2c41a}{vrna\+\_\+sc\+\_\+remove()}}, \mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan()}}, \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} the soft constraints are associated with \\
+\hline
+{\em reactivities} & A vector of normalized SHAPE reactivities \\
+\hline
+{\em b} & The scaling factor $ \beta $ of the conversion function \\
+\hline
+{\em default\+\_\+value} & The default value for a nucleotide where reactivity data is missing for \\
+\hline
+{\em shape\+\_\+conversion} & A flag that specifies how to convert reactivities to probabilities \\
+\hline
+{\em options} & The options flag indicating how/where to store the soft constraints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on successful extraction of the method, 0 on errors
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000032}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}\label{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}} 
+\index{SHAPE Reactivity Data@{SHAPE Reactivity Data}!vrna\_sc\_SHAPE\_to\_pr@{vrna\_sc\_SHAPE\_to\_pr}}
+\index{vrna\_sc\_SHAPE\_to\_pr@{vrna\_sc\_SHAPE\_to\_pr}!SHAPE Reactivity Data@{SHAPE Reactivity Data}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_SHAPE\_to\_pr()}{vrna\_sc\_SHAPE\_to\_pr()}}
+{\footnotesize\ttfamily int vrna\+\_\+sc\+\_\+\+SHAPE\+\_\+to\+\_\+pr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{shape\+\_\+conversion,  }\item[{double $\ast$}]{values,  }\item[{int}]{length,  }\item[{double}]{default\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{SHAPE_8h}{Vienna\+RNA/constraints/\+SHAPE.\+h}}$>$}
+
+
+
+Convert SHAPE reactivity values to probabilities for being unpaired. 
+
+This function parses the informations from a given file and stores the result in the preallocated string sequence and the \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} array values.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}{vrna\+\_\+file\+\_\+\+SHAPE\+\_\+read()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+\_\+conversion} & String definining the method used for the conversion process \\
+\hline
+{\em values} & Pointer to an array of SHAPE reactivities \\
+\hline
+{\em length} & Length of the array of SHAPE reactivities \\
+\hline
+{\em default\+\_\+value} & Result used for position with invalid/missing reactivity values \\
+\hline
+\end{DoxyParams}

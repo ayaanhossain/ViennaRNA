@@ -1,0 +1,167 @@
+\hypertarget{part__func_8h}{}\doxysection{Vienna\+RNA/part\+\_\+func.h File Reference}
+\label{part__func_8h}\index{ViennaRNA/part\_func.h@{ViennaRNA/part\_func.h}}
+
+
+Partition function implementations.  
+
+
+Include dependency graph for part\+\_\+func.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{part__func_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{part__func_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Data structure returned by \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}}  \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the data structure that stores the dimer partition functions, \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}}, as returned by \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}} \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_ga5445d8d96a40e9e79b1fa5a7f1a6b7ea}{cofoldF}}
+\begin{DoxyCompactList}\small\item\em Backward compatibility typedef for \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}{vrna\+\_\+pf\+\_\+float\+\_\+precision}} (void)
+\begin{DoxyCompactList}\small\item\em Find out whether partition function computations are using single precision floating points. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par}} (const char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained, int is\+\_\+circular)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ for a given RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ of an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function of a circular RNA sequence. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack}} (char $\ast$sequence)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5}} (char $\ast$sequence, int length)
+\begin{DoxyCompactList}\small\item\em Sample a sub-\/structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}{pbacktrack\+\_\+circ}} (char $\ast$sequence)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure of a circular RNA from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free arrays for the partition function recursions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}{update\+\_\+pf\+\_\+params}} (int length)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}{update\+\_\+pf\+\_\+params\+\_\+par}} (int length, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm}} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}{get\+\_\+pf\+\_\+arrays}} (short $\ast$$\ast$S\+\_\+p, short $\ast$$\ast$S1\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qb\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qm\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$q1k\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qln\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Get the pointers to (almost) all relavant computation arrays used in partition function computation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}{get\+\_\+subseq\+\_\+F}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Get the free energy of a subsequence from the q\mbox{[}\mbox{]} array. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance}} (int length)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance of the last partition function computation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{mean\+\_\+bp\+\_\+distance\+\_\+pr}} (int length, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}{stack\+Prob}} (double cutoff)
+\begin{DoxyCompactList}\small\item\em Get the probability of stacks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}{init\+\_\+pf\+\_\+fold}} (int length)
+\begin{DoxyCompactList}\small\item\em Allocate space for \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}{centroid}} (int length, double $\ast$dist)
+\item 
+char $\ast$ \mbox{\hyperlink{part__func_8h_a4e99e951dfdc006fe56c3a59374378ed}{get\+\_\+centroid\+\_\+struct\+\_\+gquad\+\_\+pr}} (int length, double $\ast$dist)
+\item 
+double \mbox{\hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{mean\+\_\+bp\+\_\+dist}} (int length)
+\item 
+double \mbox{\hyperlink{part__func_8h_a68ba6f3a48e08ca131ab54621ce3a2d7}{exp\+Loop\+Energy}} (int u1, int u2, int type, int type2, short si1, short sj1, short sp1, short sq1)
+\item 
+double \mbox{\hyperlink{part__func_8h_a7b6ab474cc80accc48010ccfcc59f96b}{exp\+Hairpin\+Energy}} (int u, int type, short si1, short sj1, const char $\ast$string)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Basic global partition function interface}\par
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ for a given RNA sequence, or sequence alignment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Simplified global partition function computation using sequence(s) or multiple sequence alignment(s)}\par
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\+\_\+pf\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an RNA sequence using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{vrna\+\_\+pf\+\_\+circfold}} (const char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for a circular RNA sequences using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{vrna\+\_\+pf\+\_\+alifold}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an RNA sequence alignment using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{vrna\+\_\+pf\+\_\+circalifold}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an alignment of circular RNA sequences using a comparative method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}{vrna\+\_\+pf\+\_\+co\+\_\+fold}} (const char $\ast$seq, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}{st\+\_\+back}}
+\begin{DoxyCompactList}\small\item\em Flag indicating that auxilary arrays are needed throughout the computations. This is essential for stochastic backtracking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Partition function implementations. 
+
+,
+
+This file includes (almost) all function declarations within the {\bfseries{RNAlib}} that are related to Partion function computations 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}\label{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}} 
+\index{part\_func.h@{part\_func.h}!centroid@{centroid}}
+\index{centroid@{centroid}!part\_func.h@{part\_func.h}}
+\doxysubsubsection{\texorpdfstring{centroid()}{centroid()}}
+{\footnotesize\ttfamily char$\ast$ centroid (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{double $\ast$}]{dist }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000107}{Deprecated}}]This function is deprecated and should not be used anymore as it is not threadsafe! \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{centroid_8h_a7dcc64bcefcf682396dd3bbea02416fe}{get\+\_\+centroid\+\_\+struct\+\_\+pl()}}, \mbox{\hyperlink{centroid_8h_ac92486ce514677256f4a832dc518759c}{get\+\_\+centroid\+\_\+struct\+\_\+pr()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{part__func_8h_a4e99e951dfdc006fe56c3a59374378ed}\label{part__func_8h_a4e99e951dfdc006fe56c3a59374378ed}} 
+\index{part\_func.h@{part\_func.h}!get\_centroid\_struct\_gquad\_pr@{get\_centroid\_struct\_gquad\_pr}}
+\index{get\_centroid\_struct\_gquad\_pr@{get\_centroid\_struct\_gquad\_pr}!part\_func.h@{part\_func.h}}
+\doxysubsubsection{\texorpdfstring{get\_centroid\_struct\_gquad\_pr()}{get\_centroid\_struct\_gquad\_pr()}}
+{\footnotesize\ttfamily char$\ast$ get\+\_\+centroid\+\_\+struct\+\_\+gquad\+\_\+pr (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{double $\ast$}]{dist }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000108}{Deprecated}}]This function is deprecated and should not be used anymore as it is not threadsafe! \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{vrna\+\_\+centroid()}}, \mbox{\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{vrna\+\_\+centroid\+\_\+from\+\_\+probs()}}, \mbox{\hyperlink{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}{vrna\+\_\+centroid\+\_\+from\+\_\+plist()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}\label{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}} 
+\index{part\_func.h@{part\_func.h}!mean\_bp\_dist@{mean\_bp\_dist}}
+\index{mean\_bp\_dist@{mean\_bp\_dist}!part\_func.h@{part\_func.h}}
+\doxysubsubsection{\texorpdfstring{mean\_bp\_dist()}{mean\_bp\_dist()}}
+{\footnotesize\ttfamily double mean\+\_\+bp\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+get the mean pair distance of ensemble
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000109}{Deprecated}}]This function is not threadsafe and should not be used anymore. Use \mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{part__func_8h_a68ba6f3a48e08ca131ab54621ce3a2d7}\label{part__func_8h_a68ba6f3a48e08ca131ab54621ce3a2d7}} 
+\index{part\_func.h@{part\_func.h}!expLoopEnergy@{expLoopEnergy}}
+\index{expLoopEnergy@{expLoopEnergy}!part\_func.h@{part\_func.h}}
+\doxysubsubsection{\texorpdfstring{expLoopEnergy()}{expLoopEnergy()}}
+{\footnotesize\ttfamily double exp\+Loop\+Energy (\begin{DoxyParamCaption}\item[{int}]{u1,  }\item[{int}]{u2,  }\item[{int}]{type,  }\item[{int}]{type2,  }\item[{short}]{si1,  }\item[{short}]{sj1,  }\item[{short}]{sp1,  }\item[{short}]{sq1 }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000110}{Deprecated}}]Use \mbox{\hyperlink{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}{exp\+\_\+\+E\+\_\+\+Int\+Loop()}} from \mbox{\hyperlink{loop__energies_8h}{loop\+\_\+energies.\+h}} instead \end{DoxyRefDesc}
+\mbox{\Hypertarget{part__func_8h_a7b6ab474cc80accc48010ccfcc59f96b}\label{part__func_8h_a7b6ab474cc80accc48010ccfcc59f96b}} 
+\index{part\_func.h@{part\_func.h}!expHairpinEnergy@{expHairpinEnergy}}
+\index{expHairpinEnergy@{expHairpinEnergy}!part\_func.h@{part\_func.h}}
+\doxysubsubsection{\texorpdfstring{expHairpinEnergy()}{expHairpinEnergy()}}
+{\footnotesize\ttfamily double exp\+Hairpin\+Energy (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{type,  }\item[{short}]{si1,  }\item[{short}]{sj1,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000111}{Deprecated}}]Use \mbox{\hyperlink{group__eval__loops__hp_ga51fb555974f180b78d76142b2894851c}{exp\+\_\+\+E\+\_\+\+Hairpin()}} from \mbox{\hyperlink{loop__energies_8h}{loop\+\_\+energies.\+h}} instead \end{DoxyRefDesc}

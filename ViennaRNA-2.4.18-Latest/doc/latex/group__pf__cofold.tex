@@ -1,0 +1,139 @@
+\hypertarget{group__pf__cofold}{}\doxysection{Partition Function for Two Hybridized Sequences}
+\label{group__pf__cofold}\index{Partition Function for Two Hybridized Sequences@{Partition Function for Two Hybridized Sequences}}
+
+
+Partition Function Cofolding.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Partition Function Cofolding. 
+
+To simplify the implementation the partition function computation is done internally in a null model that does not include the duplex initiation energy, i.\+e. the entropic penalty for producing a dimer from two monomers). The resulting free energies and pair probabilities are initially relative to that null model. In a second step the free energies can be corrected to include the dimerization penalty, and the pair probabilities can be divided into the conditional pair probabilities given that a re dimer is formed or not formed. See \cite{bernhart:2006} for further details.
+
+As for folding one RNA molecule, this computes the partition function of all possible structures and the base pair probabilities. Uses the same global \mbox{\hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\+\_\+scale}} variable to avoid overflows.
+
+After computing the partition functions of all possible dimeres one can compute the probabilities of base pairs, the concentrations out of start concentrations and sofar and soaway.
+
+Dimer formation is inherently concentration dependent. Given the free energies of the monomers A and B and dimers AB, AA, and BB one can compute the equilibrium concentrations, given input concentrations of A and B, see e.\+g. Dimitrov \& Zuker (2004) Collaboration diagram for Partition Function for Two Hybridized Sequences\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__pf__cofold}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{concentrations_8h}{concentrations.\+h}}
+\begin{DoxyCompactList}\small\item\em Concentration computations for RNA-\/\+RNA interactions. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{part__func__up_8h}{part\+\_\+func\+\_\+up.\+h}}
+\begin{DoxyCompactList}\small\item\em Implementations for accessibility and RNA-\/\+RNA interaction as a stepwise process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}\label{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}} 
+typedef struct \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the data structure that stores the dimer partition functions, \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}}, as returned by \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pf__cofold_ga5445d8d96a40e9e79b1fa5a7f1a6b7ea}\label{group__pf__cofold_ga5445d8d96a40e9e79b1fa5a7f1a6b7ea}} 
+typedef struct \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_ga5445d8d96a40e9e79b1fa5a7f1a6b7ea}{cofoldF}}
+\begin{DoxyCompactList}\small\item\em Backward compatibility typedef for \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__pf__cofold_gaff27888c4088cc1f60fd59cbd589474c}\label{group__pf__cofold_gaff27888c4088cc1f60fd59cbd589474c}} 
+int \mbox{\hyperlink{group__pf__cofold_gaff27888c4088cc1f60fd59cbd589474c}{mirnatog}}
+\begin{DoxyCompactList}\small\item\em Toggles no intrabp in 2nd mol. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pf__cofold_gac2d1851a710a8561390861155ca988fe}\label{group__pf__cofold_gac2d1851a710a8561390861155ca988fe}} 
+double \mbox{\hyperlink{group__pf__cofold_gac2d1851a710a8561390861155ca988fe}{F\+\_\+monomer}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Free energies of the two monomers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}\label{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}} 
+typedef struct \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the data structure that stores the dimer concentrations, \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}}, as required by vrna\+\_\+pf\+\_\+dimer\+\_\+concentration() \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pf__cofold_ga46244c7adf5040580291c45b465f4efa}\label{group__pf__cofold_ga46244c7adf5040580291c45b465f4efa}} 
+typedef struct \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_ga46244c7adf5040580291c45b465f4efa}{Conc\+Ent}}
+\begin{DoxyCompactList}\small\item\em Backward compatibility typedef for \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}} $\ast$ \mbox{\hyperlink{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}{vrna\+\_\+pf\+\_\+dimer\+\_\+concentrations}} (double Fc\+AB, double Fc\+AA, double Fc\+BB, double FEA, double FEB, const double $\ast$startconc, const \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$exp\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Given two start monomer concentrations a and b, compute the concentrations in thermodynamic equilibrium of all dimers and the monomers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified global partition function computation using sequence(s) or multiple sequence alignment(s)}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}{vrna\+\_\+pf\+\_\+co\+\_\+fold}} (const char $\ast$seq, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}\label{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}} 
+\index{Partition Function for Two Hybridized Sequences@{Partition Function for Two Hybridized Sequences}!vrna\_pf\_co\_fold@{vrna\_pf\_co\_fold}}
+\index{vrna\_pf\_co\_fold@{vrna\_pf\_co\_fold}!Partition Function for Two Hybridized Sequences@{Partition Function for Two Hybridized Sequences}}
+\doxysubsubsection{\texorpdfstring{vrna\_pf\_co\_fold()}{vrna\_pf\_co\_fold()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} vrna\+\_\+pf\+\_\+co\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. 
+
+This simplified interface to \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}} computes the partition function and, if required, base pair probabilities for an RNA-\/\+RNA interaction using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & Two concatenated RNA sequences with a delimiting \textquotesingle{}\&\textquotesingle{} in between \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe NULL) \\
+\hline
+{\em pl} & A pointer to a list of \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} to store pairing probabilities (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+pf\+\_\+t structure containing a set of energies needed for concentration computations. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}\label{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}} 
+\index{Partition Function for Two Hybridized Sequences@{Partition Function for Two Hybridized Sequences}!vrna\_pf\_dimer\_concentrations@{vrna\_pf\_dimer\_concentrations}}
+\index{vrna\_pf\_dimer\_concentrations@{vrna\_pf\_dimer\_concentrations}!Partition Function for Two Hybridized Sequences@{Partition Function for Two Hybridized Sequences}}
+\doxysubsubsection{\texorpdfstring{vrna\_pf\_dimer\_concentrations()}{vrna\_pf\_dimer\_concentrations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}}$\ast$ vrna\+\_\+pf\+\_\+dimer\+\_\+concentrations (\begin{DoxyParamCaption}\item[{double}]{Fc\+AB,  }\item[{double}]{Fc\+AA,  }\item[{double}]{Fc\+BB,  }\item[{double}]{FEA,  }\item[{double}]{FEB,  }\item[{const double $\ast$}]{startconc,  }\item[{const \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{exp\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{concentrations_8h}{Vienna\+RNA/concentrations.\+h}}$>$}
+
+
+
+Given two start monomer concentrations a and b, compute the concentrations in thermodynamic equilibrium of all dimers and the monomers. 
+
+This function takes an array \textquotesingle{}startconc\textquotesingle{} of input concentrations with alternating entries for the initial concentrations of molecules A and B (terminated by two zeroes), then computes the resulting equilibrium concentrations from the free energies for the dimers. Dimer free energies should be the dimer-\/only free energies, i.\+e. the Fc\+AB entries from the \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} struct.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Fc\+AB} & Free energy of AB dimer (Fc\+AB entry) \\
+\hline
+{\em Fc\+AA} & Free energy of AA dimer (Fc\+AB entry) \\
+\hline
+{\em Fc\+BB} & Free energy of BB dimer (Fc\+AB entry) \\
+\hline
+{\em FEA} & Free energy of monomer A \\
+\hline
+{\em FEB} & Free energy of monomer B \\
+\hline
+{\em startconc} & List of start concentrations \mbox{[}a0\mbox{]},\mbox{[}b0\mbox{]},\mbox{[}a1\mbox{]},\mbox{[}b1\mbox{]},...,\mbox{[}an\mbox{]}\mbox{[}bn\mbox{]},\mbox{[}0\mbox{]},\mbox{[}0\mbox{]} \\
+\hline
+{\em exp\+\_\+params} & The precomputed Boltzmann factors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+conc\+\_\+t array containing the equilibrium energies and start concentrations 
+\end{DoxyReturn}

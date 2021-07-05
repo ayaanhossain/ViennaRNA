@@ -1,0 +1,89 @@
+\hypertarget{profiledist_8h}{}\doxysection{Vienna\+RNA/profiledist.h File Reference}
+\label{profiledist_8h}\index{ViennaRNA/profiledist.h@{ViennaRNA/profiledist.h}}
+Include dependency graph for profiledist.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{profiledist_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}{profile\+\_\+edit\+\_\+distance}} (const float $\ast$T1, const float $\ast$T2)
+\begin{DoxyCompactList}\small\item\em Align the 2 probability profiles T1, T2~\newline
+. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\+\_\+bp\+\_\+profile\+\_\+bppm}} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$bppm, int length)
+\begin{DoxyCompactList}\small\item\em condense pair probability matrix into a vector containing probabilities for unpaired, upstream paired and downstream paired. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{profiledist_8h_a8e0b4fe3698b3502945116ecc0ba6160}\label{profiledist_8h_a8e0b4fe3698b3502945116ecc0ba6160}} 
+void \mbox{\hyperlink{profiledist_8h_a8e0b4fe3698b3502945116ecc0ba6160}{print\+\_\+bppm}} (const float $\ast$T)
+\begin{DoxyCompactList}\small\item\em print string representation of probability profile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{free\+\_\+profile}} (float $\ast$T)
+\begin{DoxyCompactList}\small\item\em free space allocated in Make\+\_\+bp\+\_\+profile \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{profiledist_8h_a904c7eaf4a2413567c00ac4891749d18}{Make\+\_\+bp\+\_\+profile}} (int length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}\label{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}} 
+\index{profiledist.h@{profiledist.h}!profile\_edit\_distance@{profile\_edit\_distance}}
+\index{profile\_edit\_distance@{profile\_edit\_distance}!profiledist.h@{profiledist.h}}
+\doxysubsubsection{\texorpdfstring{profile\_edit\_distance()}{profile\_edit\_distance()}}
+{\footnotesize\ttfamily float profile\+\_\+edit\+\_\+distance (\begin{DoxyParamCaption}\item[{const float $\ast$}]{T1,  }\item[{const float $\ast$}]{T2 }\end{DoxyParamCaption})}
+
+
+
+Align the 2 probability profiles T1, T2~\newline
+. 
+
+This is like a Needleman-\/\+Wunsch alignment, we should really use affine gap-\/costs ala Gotoh \mbox{\Hypertarget{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}\label{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}} 
+\index{profiledist.h@{profiledist.h}!Make\_bp\_profile\_bppm@{Make\_bp\_profile\_bppm}}
+\index{Make\_bp\_profile\_bppm@{Make\_bp\_profile\_bppm}!profiledist.h@{profiledist.h}}
+\doxysubsubsection{\texorpdfstring{Make\_bp\_profile\_bppm()}{Make\_bp\_profile\_bppm()}}
+{\footnotesize\ttfamily float$\ast$ Make\+\_\+bp\+\_\+profile\+\_\+bppm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{bppm,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+condense pair probability matrix into a vector containing probabilities for unpaired, upstream paired and downstream paired. 
+
+This resulting probability profile is used as input for profile\+\_\+edit\+\_\+distance
+
+
+\begin{DoxyParams}{Parameters}
+{\em bppm} & A pointer to the base pair probability matrix \\
+\hline
+{\em length} & The length of the sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The bp profile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}\label{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}} 
+\index{profiledist.h@{profiledist.h}!free\_profile@{free\_profile}}
+\index{free\_profile@{free\_profile}!profiledist.h@{profiledist.h}}
+\doxysubsubsection{\texorpdfstring{free\_profile()}{free\_profile()}}
+{\footnotesize\ttfamily void free\+\_\+profile (\begin{DoxyParamCaption}\item[{float $\ast$}]{T }\end{DoxyParamCaption})}
+
+
+
+free space allocated in Make\+\_\+bp\+\_\+profile 
+
+Backward compatibility only. You can just use plain free() \mbox{\Hypertarget{profiledist_8h_a904c7eaf4a2413567c00ac4891749d18}\label{profiledist_8h_a904c7eaf4a2413567c00ac4891749d18}} 
+\index{profiledist.h@{profiledist.h}!Make\_bp\_profile@{Make\_bp\_profile}}
+\index{Make\_bp\_profile@{Make\_bp\_profile}!profiledist.h@{profiledist.h}}
+\doxysubsubsection{\texorpdfstring{Make\_bp\_profile()}{Make\_bp\_profile()}}
+{\footnotesize\ttfamily float$\ast$ Make\+\_\+bp\+\_\+profile (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+This function is NOT threadsafe
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\+\_\+bp\+\_\+profile\+\_\+bppm()}}
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000126}{Deprecated}}]This function is deprecated and will be removed soon! See \mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\+\_\+bp\+\_\+profile\+\_\+bppm()}} for a replacement\end{DoxyRefDesc}

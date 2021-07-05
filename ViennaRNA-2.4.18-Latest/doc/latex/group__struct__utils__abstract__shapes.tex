@@ -1,0 +1,124 @@
+\hypertarget{group__struct__utils__abstract__shapes}{}\doxysection{Abstract Shapes Representation of Secondary Structures}
+\label{group__struct__utils__abstract__shapes}\index{Abstract Shapes Representation of Secondary Structures@{Abstract Shapes Representation of Secondary Structures}}
+
+
+Abstract Shapes, introduced by Giegerich et al. in (2004) \cite{giegerich:2004}, collapse the secondary structure while retaining the nestedness of helices and hairpin loops.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Abstract Shapes, introduced by Giegerich et al. in (2004) \cite{giegerich:2004}, collapse the secondary structure while retaining the nestedness of helices and hairpin loops. 
+
+The abstract shapes representation abstracts the structure from individual base pairs and their corresponding location in the sequence, while retaining the inherent nestedness of helices and hairpin loops.
+
+Below is a description of what is included in the abstract shapes abstraction for each respective level together with an example structure\+: \begin{DoxyVerb}CGUCUUAAACUCAUCACCGUGUGGAGCUGCGACCCUUCCCUAGAUUCGAAGACGAG
+((((((...(((..(((...))))))...(((..((.....))..)))))))))..
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Shape Level   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Shape Level   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result    }\\\cline{1-3}
+\endhead
+1   &Most accurate -\/ all loops and all unpaired   &{\ttfamily \mbox{[}\+\_\+\mbox{[}\+\_\+\mbox{[}\mbox{]}\mbox{]}\+\_\+\mbox{[}\+\_\+\mbox{[}\mbox{]}\+\_\+\mbox{]}\mbox{]}\+\_\+}    \\\cline{1-3}
+2   &Nesting pattern for all loop types and unpaired regions in external loop and multiloop   &{\ttfamily \mbox{[}\mbox{[}\+\_\+\mbox{[}\mbox{]}\mbox{]}\mbox{[}\+\_\+\mbox{[}\mbox{]}\+\_\+\mbox{]}\mbox{]}}    \\\cline{1-3}
+3   &Nesting pattern for all loop types but no unpaired regions   &{\ttfamily \mbox{[}\mbox{[}\mbox{[}\mbox{]}\mbox{]}\mbox{[}\mbox{[}\mbox{]}\mbox{]}\mbox{]}}    \\\cline{1-3}
+4   &Helix nesting pattern in external loop and multiloop   &{\ttfamily \mbox{[}\mbox{[}\mbox{]}\mbox{[}\mbox{[}\mbox{]}\mbox{]}\mbox{]}}    \\\cline{1-3}
+5   &Most abstract -\/ helix nesting pattern and no unpaired regions   &{\ttfamily \mbox{[}\mbox{[}\mbox{]}\mbox{[}\mbox{]}\mbox{]}}   \\\cline{1-3}
+\end{longtabu}
+
+
+\begin{DoxyNote}{Note}
+Our implementations also provide the special Shape Level 0, which does not collapse any structural features but simply convert base pairs and unpaired nucleotides into their corresponding set of symbols for abstract shapes. 
+\end{DoxyNote}
+Collaboration diagram for Abstract Shapes Representation of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__struct__utils__abstract__shapes}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}{vrna\+\_\+abstract\+\_\+shapes}} (const char $\ast$structure, unsigned int level)
+\begin{DoxyCompactList}\small\item\em Convert a secondary structure in dot-\/bracket notation to its abstract shapes representation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}{vrna\+\_\+abstract\+\_\+shapes\+\_\+pt}} (const short $\ast$pt, unsigned int level)
+\begin{DoxyCompactList}\small\item\em Convert a secondary structure to its abstract shapes representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}\label{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}} 
+\index{Abstract Shapes Representation of Secondary Structures@{Abstract Shapes Representation of Secondary Structures}!vrna\_abstract\_shapes@{vrna\_abstract\_shapes}}
+\index{vrna\_abstract\_shapes@{vrna\_abstract\_shapes}!Abstract Shapes Representation of Secondary Structures@{Abstract Shapes Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_abstract\_shapes()}{vrna\_abstract\_shapes()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+abstract\+\_\+shapes (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a secondary structure in dot-\/bracket notation to its abstract shapes representation. 
+
+This function converts a secondary structure into its abstract shapes representation as presented by Giegerich et al. 2004 \cite{giegerich:2004}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}{vrna\+\_\+abstract\+\_\+shapes\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & A secondary structure in dot-\/bracket notation \\
+\hline
+{\em level} & The abstraction level (integer in the range of 0 to 5) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The secondary structure in abstract shapes notation
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000138}{SWIG Wrapper Notes}}]This function is available as an overloaded function {\ttfamily abstract\+\_\+shapes()} where the optional second parameter {\ttfamily level} defaults to 5. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}\label{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}} 
+\index{Abstract Shapes Representation of Secondary Structures@{Abstract Shapes Representation of Secondary Structures}!vrna\_abstract\_shapes\_pt@{vrna\_abstract\_shapes\_pt}}
+\index{vrna\_abstract\_shapes\_pt@{vrna\_abstract\_shapes\_pt}!Abstract Shapes Representation of Secondary Structures@{Abstract Shapes Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_abstract\_shapes\_pt()}{vrna\_abstract\_shapes\_pt()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+abstract\+\_\+shapes\+\_\+pt (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt,  }\item[{unsigned int}]{level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a secondary structure to its abstract shapes representation. 
+
+This function converts a secondary structure into its abstract shapes representation as presented by Giegerich et al. 2004 \cite{giegerich:2004}. This function is equivalent to vrna\+\_\+db\+\_\+to\+\_\+shapes(), but requires a pair table input instead of a dot-\/bracket structure.
+
+\begin{DoxyNote}{Note}
+The length of the structure must be present at {\ttfamily pt}\mbox{[}0\mbox{]}!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}{vrna\+\_\+abstract\+\_\+shapes()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & A secondary structure in pair table format \\
+\hline
+{\em level} & The abstraction level (integer in the range of 0 to 5) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The secondary structure in abstract shapes notation
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000139}{SWIG Wrapper Notes}}]This function is available as an overloaded function {\ttfamily abstract\+\_\+shapes()} where the optional second parameter {\ttfamily level} defaults to 5. \end{DoxyRefDesc}

@@ -1,0 +1,55 @@
+\hypertarget{pk__plex_8h}{}\doxysection{Vienna\+RNA/pk\+\_\+plex.h File Reference}
+\label{pk__plex_8h}\index{ViennaRNA/pk\_plex.h@{ViennaRNA/pk\_plex.h}}
+
+
+Heuristics for two-\/step pseudoknot forming interaction predictions.  
+
+
+Include dependency graph for pk\+\_\+plex.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pk__plex_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{pk__plex_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em A result of the RNA PKplex interaction prediction.  \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int() \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}}(const short $\ast$pt, int start\+\_\+5, int end\+\_\+5, int start\+\_\+3, int end\+\_\+3, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Pseudoknot loop scoring function prototype. \end{DoxyCompactList}\item 
+typedef struct vrna\+\_\+pk\+\_\+plex\+\_\+option\+\_\+s $\ast$ \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em RNA PKplex options object. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s}} \mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Convenience typedef for results of the RNA PKplex prediction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}} $\ast$ \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const int $\ast$$\ast$accessibility, \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} options)
+\begin{DoxyCompactList}\small\item\em Predict Pseudoknot interactions in terms of a two-\/step folding process. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \mbox{\hyperlink{group__pseudoknots_gaf5d94fd4c79d75b0a91b6abb18dbd09c}{vrna\+\_\+pk\+\_\+plex\+\_\+accessibility}} (const char $\ast$sequence, unsigned int \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}}, double cutoff)
+\begin{DoxyCompactList}\small\item\em Obtain a list of opening energies suitable for PKplex computations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} \mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults}} (void)
+\begin{DoxyCompactList}\small\item\em Default options for PKplex algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\+\_\+pk\+\_\+plex\+\_\+opt}} (unsigned int delta, unsigned int max\+\_\+interaction\+\_\+length, int pk\+\_\+penalty)
+\begin{DoxyCompactList}\small\item\em Simple options for PKplex algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun}} (unsigned int delta, unsigned int max\+\_\+interaction\+\_\+length, \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}} $\ast$scoring\+\_\+function, void $\ast$scoring\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Simple options for PKplex algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Heuristics for two-\/step pseudoknot forming interaction predictions. 
+

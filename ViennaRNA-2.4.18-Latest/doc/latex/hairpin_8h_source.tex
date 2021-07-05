@@ -1,0 +1,201 @@
+\hypertarget{hairpin_8h_source}{}\doxysection{hairpin.\+h}
+\label{hairpin_8h_source}\index{ViennaRNA/loops/hairpin.h@{ViennaRNA/loops/hairpin.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_LOOPS\_HAIRPIN\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_LOOPS\_HAIRPIN\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\# if defined(DEPRECATED)}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#   undef DEPRECATED}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00024 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026 \textcolor{preprocessor}{\#ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\# define INLINE inline}}
+\DoxyCodeLine{00028 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\# define INLINE}}
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00070 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00071}\mbox{\hyperlink{group__eval__loops__hp_ga57179ea326cc5ed8dfe4d3962b233128}{00071}} \mbox{\hyperlink{group__eval__loops__hp_ga57179ea326cc5ed8dfe4d3962b233128}{vrna\_E\_hp\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00072                \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00073                \textcolor{keywordtype}{int}                  j);}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00084 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00085}\mbox{\hyperlink{group__eval__loops__hp_ga7d358fa17aaf1cfc312a053accd10778}{00085}} \mbox{\hyperlink{group__eval__loops__hp_ga7d358fa17aaf1cfc312a053accd10778}{vrna\_E\_ext\_hp\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00086                    \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00087                    \textcolor{keywordtype}{int}                  j);}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00093 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00094}\mbox{\hyperlink{group__eval__loops__hp_gafd39e7355dcf36bf1517bafc1b49c2d2}{00094}} \mbox{\hyperlink{group__eval__loops__hp_gafd39e7355dcf36bf1517bafc1b49c2d2}{vrna\_eval\_ext\_hp\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00095                       \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00096                       \textcolor{keywordtype}{int}                   j);}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00110 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00111}\mbox{\hyperlink{group__eval__loops__hp_gad0bb844f8dc704c71737ae1d7e32b975}{00111}} \mbox{\hyperlink{group__eval__loops__hp_gad0bb844f8dc704c71737ae1d7e32b975}{vrna\_eval\_hp\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00112                   \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00113                   \textcolor{keywordtype}{int}                   j);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00148 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00149}\mbox{\hyperlink{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}{00149}} \mbox{\hyperlink{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}{E\_Hairpin}}(\textcolor{keywordtype}{int}           size,}
+\DoxyCodeLine{00150           \textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00151           \textcolor{keywordtype}{int}           si1,}
+\DoxyCodeLine{00152           \textcolor{keywordtype}{int}           sj1,}
+\DoxyCodeLine{00153           \textcolor{keyword}{const} \textcolor{keywordtype}{char}    *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00154           \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00155 \{}
+\DoxyCodeLine{00156   \textcolor{keywordtype}{int} energy;}
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158   \textcolor{keywordflow}{if} (size <= 30)}
+\DoxyCodeLine{00159     energy = P-\/>hairpin[size];}
+\DoxyCodeLine{00160   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00161     energy = P-\/>hairpin[30] + (int)(P-\/>lxc * log((size) / 30.));}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163   \textcolor{keywordflow}{if} (size < 3)}
+\DoxyCodeLine{00164     \textcolor{keywordflow}{return} energy;            \textcolor{comment}{/* should only be the case when folding alignments */}}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166   \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{string}) \&\& (P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_add64a96d23e77ef1d0ddf8dfc5228143}{special\_hp}})) \{}
+\DoxyCodeLine{00167     \textcolor{keywordflow}{if} (size == 4) \{}
+\DoxyCodeLine{00168       \textcolor{comment}{/* check for tetraloop bonus */}}
+\DoxyCodeLine{00169       \textcolor{keywordtype}{char} tl[7] = \{}
+\DoxyCodeLine{00170         0}
+\DoxyCodeLine{00171       \}, *ts;}
+\DoxyCodeLine{00172       memcpy(tl, \textcolor{keywordtype}{string}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 6);}
+\DoxyCodeLine{00173       tl[6] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00174       \textcolor{keywordflow}{if} ((ts = strstr(P-\/>Tetraloops, tl)))}
+\DoxyCodeLine{00175         \textcolor{keywordflow}{return} P-\/>Tetraloop\_E[(ts -\/ P-\/>Tetraloops) / 7];}
+\DoxyCodeLine{00176     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (size == 6) \{}
+\DoxyCodeLine{00177       \textcolor{keywordtype}{char} tl[9] = \{}
+\DoxyCodeLine{00178         0}
+\DoxyCodeLine{00179       \}, *ts;}
+\DoxyCodeLine{00180       memcpy(tl, \textcolor{keywordtype}{string}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 8);}
+\DoxyCodeLine{00181       tl[8] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00182       \textcolor{keywordflow}{if} ((ts = strstr(P-\/>Hexaloops, tl)))}
+\DoxyCodeLine{00183         \textcolor{keywordflow}{return} P-\/>Hexaloop\_E[(ts -\/ P-\/>Hexaloops) / 9];}
+\DoxyCodeLine{00184     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (size == 3) \{}
+\DoxyCodeLine{00185       \textcolor{keywordtype}{char} tl[6] = \{}
+\DoxyCodeLine{00186         0}
+\DoxyCodeLine{00187       \}, *ts;}
+\DoxyCodeLine{00188       memcpy(tl, \textcolor{keywordtype}{string}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 5);}
+\DoxyCodeLine{00189       tl[5] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00190       \textcolor{keywordflow}{if} ((ts = strstr(P-\/>Triloops, tl)))}
+\DoxyCodeLine{00191         \textcolor{keywordflow}{return} P-\/>Triloop\_E[(ts -\/ P-\/>Triloops) / 6];}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193       \textcolor{keywordflow}{return} energy + (type > 2 ? P-\/>TerminalAU : 0);}
+\DoxyCodeLine{00194     \}}
+\DoxyCodeLine{00195   \}}
+\DoxyCodeLine{00196 }
+\DoxyCodeLine{00197   energy += P-\/>mismatchH[type][si1][sj1];}
+\DoxyCodeLine{00198 }
+\DoxyCodeLine{00199   \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00200 \}}
+\DoxyCodeLine{00201 }
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00203 \textcolor{comment}{/* End basic interface */}}
+\DoxyCodeLine{00231 PRIVATE INLINE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00232}\mbox{\hyperlink{group__eval__loops__hp_ga51fb555974f180b78d76142b2894851c}{00232}} \mbox{\hyperlink{group__eval__loops__hp_ga51fb555974f180b78d76142b2894851c}{exp\_E\_Hairpin}}(\textcolor{keywordtype}{int}               u,}
+\DoxyCodeLine{00233               \textcolor{keywordtype}{int}               type,}
+\DoxyCodeLine{00234               \textcolor{keywordtype}{short}             si1,}
+\DoxyCodeLine{00235               \textcolor{keywordtype}{short}             sj1,}
+\DoxyCodeLine{00236               \textcolor{keyword}{const} \textcolor{keywordtype}{char}        *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00237               \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *P)}
+\DoxyCodeLine{00238 \{}
+\DoxyCodeLine{00239   \textcolor{keywordtype}{double} q, kT;}
+\DoxyCodeLine{00240 }
+\DoxyCodeLine{00241   kT = P-\/>kT;   \textcolor{comment}{/* kT in cal/mol  */}}
+\DoxyCodeLine{00242 }
+\DoxyCodeLine{00243   \textcolor{keywordflow}{if} (u <= 30)}
+\DoxyCodeLine{00244     q = P-\/>exphairpin[u];}
+\DoxyCodeLine{00245   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00246     q = P-\/>exphairpin[30] * exp(-\/(P-\/>lxc * log(u / 30.)) * 10. / kT);}
+\DoxyCodeLine{00247 }
+\DoxyCodeLine{00248   \textcolor{keywordflow}{if} (u < 3)}
+\DoxyCodeLine{00249     \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})q;         \textcolor{comment}{/* should only be the case when folding alignments */}}
+\DoxyCodeLine{00250 }
+\DoxyCodeLine{00251   \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{string}) \&\& (P-\/>\mbox{\hyperlink{group__energy__parameters_ac18055127bccc27c1223f1d2f3b01b53}{model\_details}}.\mbox{\hyperlink{group__model__details_add64a96d23e77ef1d0ddf8dfc5228143}{special\_hp}})) \{}
+\DoxyCodeLine{00252     \textcolor{keywordflow}{if} (u == 4) \{}
+\DoxyCodeLine{00253       \textcolor{keywordtype}{char} tl[7] = \{}
+\DoxyCodeLine{00254         0}
+\DoxyCodeLine{00255       \}, *ts;}
+\DoxyCodeLine{00256       memcpy(tl, \textcolor{keywordtype}{string}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 6);}
+\DoxyCodeLine{00257       tl[6] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00258       \textcolor{keywordflow}{if} ((ts = strstr(P-\/>Tetraloops, tl))) \{}
+\DoxyCodeLine{00259         \textcolor{keywordflow}{if} (type != 7)}
+\DoxyCodeLine{00260           \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>exptetra[(ts -\/ P-\/>Tetraloops) / 7]);}
+\DoxyCodeLine{00261         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00262           q *= P-\/>exptetra[(ts -\/ P-\/>Tetraloops) / 7];}
+\DoxyCodeLine{00263       \}}
+\DoxyCodeLine{00264     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (u == 6) \{}
+\DoxyCodeLine{00265       \textcolor{keywordtype}{char} tl[9] = \{}
+\DoxyCodeLine{00266         0}
+\DoxyCodeLine{00267       \}, *ts;}
+\DoxyCodeLine{00268       memcpy(tl, \textcolor{keywordtype}{string}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 8);}
+\DoxyCodeLine{00269       tl[8] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00270       \textcolor{keywordflow}{if} ((ts = strstr(P-\/>Hexaloops, tl)))}
+\DoxyCodeLine{00271         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>exphex[(ts -\/ P-\/>Hexaloops) / 9]);}
+\DoxyCodeLine{00272     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (u == 3) \{}
+\DoxyCodeLine{00273       \textcolor{keywordtype}{char} tl[6] = \{}
+\DoxyCodeLine{00274         0}
+\DoxyCodeLine{00275       \}, *ts;}
+\DoxyCodeLine{00276       memcpy(tl, \textcolor{keywordtype}{string}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 5);}
+\DoxyCodeLine{00277       tl[5] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00278       \textcolor{keywordflow}{if} ((ts = strstr(P-\/>Triloops, tl)))}
+\DoxyCodeLine{00279         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>exptri[(ts -\/ P-\/>Triloops) / 6]);}
+\DoxyCodeLine{00280 }
+\DoxyCodeLine{00281       \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00282         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(q * P-\/>expTermAU);}
+\DoxyCodeLine{00283       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00284         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})q;}
+\DoxyCodeLine{00285     \}}
+\DoxyCodeLine{00286   \}}
+\DoxyCodeLine{00287 }
+\DoxyCodeLine{00288   q *= P-\/>expmismatchH[type][si1][sj1];}
+\DoxyCodeLine{00289 }
+\DoxyCodeLine{00290   \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})q;}
+\DoxyCodeLine{00291 \}}
+\DoxyCodeLine{00292 }
+\DoxyCodeLine{00293 }
+\DoxyCodeLine{00303 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00304}\mbox{\hyperlink{group__eval__loops__hp_gad62fe037be0a3fc6914676e5cb85be5e}{00304}} \mbox{\hyperlink{group__eval__loops__hp_gad62fe037be0a3fc6914676e5cb85be5e}{vrna\_exp\_E\_hp\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00305                    \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00306                    \textcolor{keywordtype}{int}                  j);}
+\DoxyCodeLine{00307 }
+\DoxyCodeLine{00308 }
+\DoxyCodeLine{00309 \textcolor{comment}{/* End partition function interface */}}
+\DoxyCodeLine{00330 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{hairpin_8h_source_l00331}\mbox{\hyperlink{group__mfe__backtracking_gae20d5805ddedc9b81d24735b11b6a9bf}{00331}} \mbox{\hyperlink{group__mfe__backtracking_gae20d5805ddedc9b81d24735b11b6a9bf}{vrna\_BT\_hp\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00332                 \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00333                 \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00334                 \textcolor{keywordtype}{int}                   en,}
+\DoxyCodeLine{00335                 \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00336                 \textcolor{keywordtype}{int}                   *stack\_count);}
+\DoxyCodeLine{00337 }
+\DoxyCodeLine{00338 }
+\DoxyCodeLine{00343 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00344 }
+\DoxyCodeLine{00354 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00355 }
+\DoxyCodeLine{00356 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

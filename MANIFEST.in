@@ -1,0 +1,2 @@
+graft ViennaRNA-2.*.*
+global-exclude *.py[cod]

@@ -1,0 +1,98 @@
+\hypertarget{boltzmann__sampling_8h_source}{}\doxysection{boltzmann\+\_\+sampling.\+h}
+\label{boltzmann__sampling_8h_source}\index{ViennaRNA/boltzmann\_sampling.h@{ViennaRNA/boltzmann\_sampling.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_BOLTZMANN\_SAMPLING\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_BOLTZMANN\_SAMPLING\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00028}\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{00028}} \textcolor{preprocessor}{\#define VRNA\_PBACKTRACK\_DEFAULT         0}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00040}\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{00040}} \textcolor{preprocessor}{\#define VRNA\_PBACKTRACK\_NON\_REDUNDANT   1}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00057}\mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{00057}} \textcolor{keyword}{typedef} void (\mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\_boltzmann\_sampling\_callback}})(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *stucture,}
+\DoxyCodeLine{00058                                                 \textcolor{keywordtype}{void}        *data);}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00075}\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{00075}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_pbacktrack\_memory\_s *\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}};}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00108 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00109}\mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{00109}} \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\_pbacktrack5}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00110                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         length);}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00157 \textcolor{keywordtype}{char} **}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00158}\mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{00158}} \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\_pbacktrack5\_num}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00159                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         num\_samples,}
+\DoxyCodeLine{00160                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         length,}
+\DoxyCodeLine{00161                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         options);}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00213 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00214}\mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{00214}} \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\_pbacktrack5\_cb}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}              *fc,}
+\DoxyCodeLine{00215                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                      num\_samples,}
+\DoxyCodeLine{00216                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                      length,}
+\DoxyCodeLine{00217                     \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\_boltzmann\_sampling\_callback}}  *cb,}
+\DoxyCodeLine{00218                     \textcolor{keywordtype}{void}                              *data,}
+\DoxyCodeLine{00219                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                      options);}
+\DoxyCodeLine{00220 }
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00296 \textcolor{keywordtype}{char} **}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00297}\mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{00297}} \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\_pbacktrack5\_resume}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00298                         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          num\_samples,}
+\DoxyCodeLine{00299                         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          length,}
+\DoxyCodeLine{00300                         \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}} *nr\_mem,}
+\DoxyCodeLine{00301                         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          options);}
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00303 }
+\DoxyCodeLine{00381 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00382}\mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{00382}} \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\_pbacktrack5\_resume\_cb}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}             *fc,}
+\DoxyCodeLine{00383                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                     num\_samples,}
+\DoxyCodeLine{00384                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                     length,}
+\DoxyCodeLine{00385                            \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\_boltzmann\_sampling\_callback}} *cb,}
+\DoxyCodeLine{00386                            \textcolor{keywordtype}{void}                             *data,}
+\DoxyCodeLine{00387                            \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}}            *nr\_mem,}
+\DoxyCodeLine{00388                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                     options);}
+\DoxyCodeLine{00389 }
+\DoxyCodeLine{00390 }
+\DoxyCodeLine{00418 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00419}\mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{00419}} \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\_pbacktrack}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00420 }
+\DoxyCodeLine{00421 }
+\DoxyCodeLine{00464 \textcolor{keywordtype}{char} **}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00465}\mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{00465}} \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\_pbacktrack\_num}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00466                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          num\_samples,}
+\DoxyCodeLine{00467                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          options);}
+\DoxyCodeLine{00468 }
+\DoxyCodeLine{00469 }
+\DoxyCodeLine{00517 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00518}\mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{00518}} \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\_pbacktrack\_cb}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}             *fc,}
+\DoxyCodeLine{00519                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                     num\_samples,}
+\DoxyCodeLine{00520                    \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\_boltzmann\_sampling\_callback}} *cb,}
+\DoxyCodeLine{00521                    \textcolor{keywordtype}{void}                             *data,}
+\DoxyCodeLine{00522                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                     options);}
+\DoxyCodeLine{00523 }
+\DoxyCodeLine{00524 }
+\DoxyCodeLine{00595 \textcolor{keywordtype}{char} **}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00596}\mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{00596}} \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\_pbacktrack\_resume}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}   *fc,}
+\DoxyCodeLine{00597                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}           num\_samples,}
+\DoxyCodeLine{00598                        \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}}  *nr\_mem,}
+\DoxyCodeLine{00599                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}           options);}
+\DoxyCodeLine{00600 }
+\DoxyCodeLine{00601 }
+\DoxyCodeLine{00675 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00676}\mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{00676}} \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\_pbacktrack\_resume\_cb}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}              *fc,}
+\DoxyCodeLine{00677                           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                      num\_samples,}
+\DoxyCodeLine{00678                           \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\_boltzmann\_sampling\_callback}}  *cb,}
+\DoxyCodeLine{00679                           \textcolor{keywordtype}{void}                              *data,}
+\DoxyCodeLine{00680                           \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}}             *nr\_mem,}
+\DoxyCodeLine{00681                           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                      options);}
+\DoxyCodeLine{00682 }
+\DoxyCodeLine{00683 }
+\DoxyCodeLine{00692 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{boltzmann__sampling_8h_source_l00693}\mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{00693}} \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\_pbacktrack\_mem\_free}}(\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}} s);}
+\DoxyCodeLine{00694 }
+\DoxyCodeLine{00695 }
+\DoxyCodeLine{00699 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

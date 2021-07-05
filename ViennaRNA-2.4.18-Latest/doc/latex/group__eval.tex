@@ -1,0 +1,1211 @@
+\hypertarget{group__eval}{}\doxysection{Free Energy Evaluation}
+\label{group__eval}\index{Free Energy Evaluation@{Free Energy Evaluation}}
+
+
+Functions and variables related to free energy evaluation of sequence/structure pairs.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions and variables related to free energy evaluation of sequence/structure pairs. 
+
+Several different functions to evaluate the free energy of a particular secondary structure under a particular set of parameters and the Nearest Neighbor Energy model are available. For most of them, two different forms of representations for the secondary structure may be used\+:
+\begin{DoxyItemize}
+\item The Dot-\/\+Bracket string
+\item A pair table representation
+\end{DoxyItemize}
+
+Furthermore, the evaluation functions are divided into {\ttfamily basic} and {\ttfamily simplified} variants, where {\ttfamily basic} functions require the use of a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure holding the sequence string, and model configuration (settings and parameters). The {\ttfamily simplified} functions, on the other hand, provide often used default model settings that may be called directly with only sequence and structure data.
+
+Finally, {\ttfamily verbose} options exist for some functions that allow one to print the (individual) free energy contributions to some {\ttfamily FILE} stream. Collaboration diagram for Free Energy Evaluation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__eval}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__eval__loops}{Energy Evaluation for Individual Loops}}
+\begin{DoxyCompactList}\small\item\em Functions to evaluate the free energy of particular types of loops. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__eval__move}{Energy Evaluation for Atomic Moves}}
+\begin{DoxyCompactList}\small\item\em Functions to evaluate the free energy change of a structure after application of (a set of) atomic moves. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__eval__deprecated}{Deprecated Interface for Free Energy Evaluation}}
+\begin{DoxyCompactList}\small\item\em Deprecated Energy Evaluation functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{eval_8h}{eval.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions and variables related to energy evaluation of sequence/structure pairs. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{all_8h}{all.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{external_8h}{external.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of exterior loops for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{hairpin_8h}{hairpin.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of hairpin loops for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{internal_8h}{internal.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of interior loops for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{multibranch_8h}{multibranch.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of multibranch loops for MFE and partition function calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__eval_gaf4afe19780b61b4962c613bde324128b}\label{group__eval_gaf4afe19780b61b4962c613bde324128b}} 
+\#define \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}}~-\/1
+\begin{DoxyCompactList}\small\item\em Quiet level verbosity setting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval_ga47430d9e875084cfb983b22612e3abdf}\label{group__eval_ga47430d9e875084cfb983b22612e3abdf}} 
+\#define \mbox{\hyperlink{group__eval_ga47430d9e875084cfb983b22612e3abdf}{VRNA\+\_\+\+VERBOSITY\+\_\+\+DEFAULT}}~1
+\begin{DoxyCompactList}\small\item\em Default level verbosity setting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Basic Energy Evaluation Interface with Dot-\/\+Bracket Structure String}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate the pseudo energy derived by the covariance scores of a set of aligned sequences. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$structure, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA and print contributions on a per-\/loop base. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gab12e6b1226227670322150df018734f8}{vrna\+\_\+eval\+\_\+structure\+\_\+v}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA and print contributions on a per-\/loop base. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval_ga1d49318a535422b723e2c47520ac090a}\label{group__eval_ga1d49318a535422b723e2c47520ac090a}} 
+float {\bfseries vrna\+\_\+eval\+\_\+structure\+\_\+cstr} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$structure, int verbosity\+\_\+level, vrna\+\_\+cstr\+\_\+t output\+\_\+stream)
+\end{DoxyCompactItemize}
+\doxysubsection*{Basic Energy Evaluation Interface with Structure Pair Table}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const short $\ast$pt, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+v}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const short $\ast$pt, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified Energy Evaluation with Sequence and Dot-\/\+Bracket Strings}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple}} (const char $\ast$string, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure}} (const char $\ast$string, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a sequence/structure pair where the sequence is circular. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure}} (const char $\ast$string, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a sequence/structure pair where the structure may contain G-\/\+Quadruplexes. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure}} (const char $\ast$string, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a sequence/structure pair where the sequence is circular and the structure may contain G-\/\+Quadruplexes. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gaf928bfd96767e1b8033a95a4cc432e39}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+verbose}} (const char $\ast$string, const char $\ast$structure, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}{vrna\+\_\+eval\+\_\+circ\+\_\+structure\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate free energy of a sequence/structure pair, assume sequence to be circular and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate free energy of a sequence/structure pair, allow for G-\/\+Quadruplexes in the structure and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate free energy of a sequence/structure pair, assume sequence to be circular, allow for G-\/\+Quadruplexes in the structure, and print contributions per loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified Energy Evaluation with Sequence Alignments and Consensus Structure Dot-\/\+Bracket String}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple}} (const char $\ast$$\ast$alignment, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA sequence alignment. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gac96577cf232c71160f762737a994b7c6}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure}} (const char $\ast$$\ast$alignment, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a multiple sequence alignment/consensus structure pair where the sequences are circular. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure}} (const char $\ast$$\ast$alignment, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a multiple sequence alignment/consensus structure pair where the structure may contain G-\/\+Quadruplexes. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gac673ebb9ae2a29f54d201e2ac5b85540}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure}} (const char $\ast$$\ast$alignment, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a multiple sequence alignment/consensus structure pair where the sequence is circular and the structure may contain G-\/\+Quadruplexes. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga1c07851f6b665c3461a19e9e4eb33d26}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+verbose}} (const char $\ast$$\ast$alignment, const char $\ast$structure, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a consensus structure for an RNA sequence alignment and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a consensus structure for an RNA sequence alignment and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gae89240c230e4740b22a703ee953396b9}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a consensus structure for an alignment of circular RNA sequences and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_ga8abc794fc48d43268ced5e8cde017baa}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a consensus structure for an RNA sequence alignment, allow for annotated G-\/\+Quadruplexes in the structure and print contributions per loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval_gaecd3e17292a0b3927277434019a5e187}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a consensus structure for an alignment of circular RNA sequences, allow for annotated G-\/\+Quadruplexes in the structure and print contributions per loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified Energy Evaluation with Sequence String and Structure Pair Table}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval_ga0bba59b4d6e53461088666ff4aece7b0}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple}} (const char $\ast$string, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval_ga76e152ee9a02be23da14cdddf52b4e44}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+verbose}} (const char $\ast$string, const short $\ast$pt, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval_gac40b813d35289da9816d0c1eec94faa5}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+v}} (const char $\ast$string, const short $\ast$pt, int verbosity\+\_\+level, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified Energy Evaluation with Sequence Alignment and Consensus Structure Pair Table}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval_gabbb4d2a7aa324ec9cce8f47ce61ab8af}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+pt\+\_\+simple}} (const char $\ast$$\ast$alignment, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Evaluate the Free Energy of a Consensus Secondary Structure given a Sequence Alignment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval_ga2769e4369d023ad2d5c5f4d2ee825c23}\label{group__eval_ga2769e4369d023ad2d5c5f4d2ee825c23}} 
+int {\bfseries vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+verbose} (const char $\ast$$\ast$alignment, const short $\ast$pt, FILE $\ast$file)
+\item 
+\mbox{\Hypertarget{group__eval_gaf2d227b3d54bf9b693a3df52faf5e2e4}\label{group__eval_gaf2d227b3d54bf9b693a3df52faf5e2e4}} 
+int {\bfseries vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+v} (const char $\ast$$\ast$alignment, const short $\ast$pt, int verbosity\+\_\+level, FILE $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval_ga58f199f1438d794a265f3b27fc8ea631}\label{group__eval_ga58f199f1438d794a265f3b27fc8ea631}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure@{vrna\_eval\_structure}}
+\index{vrna\_eval\_structure@{vrna\_eval\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure()}{vrna\_eval\_structure()}}
+{\footnotesize\ttfamily float vrna\+\_\+eval\+\_\+structure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function allows for energy evaluation of a given pair of structure and sequence (alignment). Model details, energy parameters, and possibly soft constraints are used as provided via the parameter \textquotesingle{}vc\textquotesingle{}. The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} does not need to contain any DP matrices, but requires all most basic init values as one would get from a call like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(sequence, NULL, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\_OPTION\_EVAL\_ONLY}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Accepts vrna\+\_\+fold\+\_\+compound\+\_\+t of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000043}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+structure()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}\label{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_covar\_structure@{vrna\_eval\_covar\_structure}}
+\index{vrna\_eval\_covar\_structure@{vrna\_eval\_covar\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_covar\_structure()}{vrna\_eval\_covar\_structure()}}
+{\footnotesize\ttfamily float vrna\+\_\+eval\+\_\+covar\+\_\+structure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the pseudo energy derived by the covariance scores of a set of aligned sequences. 
+
+Consensus structure prediction is driven by covariance scores of base pairs in rows of the provided alignment. This function allows one to retrieve the total amount of this covariance pseudo energy scores. The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} does not need to contain any DP matrices, but requires all most basic init values as one would get from a call like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vc = \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\_fold\_compound\_comparative}}(alignment, NULL, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\_OPTION\_EVAL\_ONLY}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Accepts vrna\+\_\+fold\+\_\+compound\+\_\+t of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}} only!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em structure} & Secondary (consensus) structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The covariance pseudo energy score of the input structure given the input sequence alignment in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000047}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+covar\+\_\+structure()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga0928d699d310178f84ee2351034e5cb5}\label{group__eval_ga0928d699d310178f84ee2351034e5cb5}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_verbose@{vrna\_eval\_structure\_verbose}}
+\index{vrna\_eval\_structure\_verbose@{vrna\_eval\_structure\_verbose}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_verbose()}{vrna\_eval\_structure\_verbose()}}
+{\footnotesize\ttfamily float vrna\+\_\+eval\+\_\+structure\+\_\+verbose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const char $\ast$}]{structure,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA and print contributions on a per-\/loop base. 
+
+This function is a simplyfied version of \mbox{\hyperlink{group__eval_gab12e6b1226227670322150df018734f8}{vrna\+\_\+eval\+\_\+structure\+\_\+v()}} that uses the {\itshape default} verbosity level.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}},
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000045}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+structure\+\_\+verbose()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gab12e6b1226227670322150df018734f8}\label{group__eval_gab12e6b1226227670322150df018734f8}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_v@{vrna\_eval\_structure\_v}}
+\index{vrna\_eval\_structure\_v@{vrna\_eval\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_v()}{vrna\_eval\_structure\_v()}}
+{\footnotesize\ttfamily float vrna\+\_\+eval\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA and print contributions on a per-\/loop base. 
+
+This function allows for detailed energy evaluation of a given sequence/structure pair. In contrast to \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} this function prints detailed energy contributions based on individual loops to a file handle. If NULL is passed as file handle, this function defaults to print to stdout. Any positive {\ttfamily verbosity\+\_\+level} activates potential warning message of the energy evaluting functions, while values $ \ge 1 $ allow for detailed control of what data is printed. A negative parameter {\ttfamily verbosity\+\_\+level} turns off printing all together.
+
+Model details, energy parameters, and possibly soft constraints are used as provided via the parameter \textquotesingle{}vc\textquotesingle{}. The fold\+\_\+compound does not need to contain any DP matrices, but all the most basic init values as one would get from a call like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(sequence, NULL, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\_OPTION\_EVAL\_ONLY}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}},
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}\label{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_pt@{vrna\_eval\_structure\_pt}}
+\index{vrna\_eval\_structure\_pt@{vrna\_eval\_structure\_pt}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_pt()}{vrna\_eval\_structure\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+pt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function allows for energy evaluation of a given sequence/structure pair where the structure is provided in pair\+\_\+table format as obtained from \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}. Model details, energy parameters, and possibly soft constraints are used as provided via the parameter \textquotesingle{}vc\textquotesingle{}. The fold\+\_\+compound does not need to contain any DP matrices, but all the most basic init values as one would get from a call like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(sequence, NULL, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\_OPTION\_EVAL\_ONLY}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em pt} & Secondary structure as pair\+\_\+table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10cal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000044}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+structure\+\_\+pt()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}\label{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_pt\_verbose@{vrna\_eval\_structure\_pt\_verbose}}
+\index{vrna\_eval\_structure\_pt\_verbose@{vrna\_eval\_structure\_pt\_verbose}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_pt\_verbose()}{vrna\_eval\_structure\_pt\_verbose()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const short $\ast$}]{pt,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function is a simplyfied version of \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} that uses the {\itshape default} verbosity level.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+v()}}, \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em pt} & Secondary structure as pair\+\_\+table \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10cal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000046}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+structure\+\_\+pt\+\_\+verbose()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}\label{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_pt\_v@{vrna\_eval\_structure\_pt\_v}}
+\index{vrna\_eval\_structure\_pt\_v@{vrna\_eval\_structure\_pt\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_pt\_v()}{vrna\_eval\_structure\_pt\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+v (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const short $\ast$}]{pt,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function allows for energy evaluation of a given sequence/structure pair where the structure is provided in pair\+\_\+table format as obtained from \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}. Model details, energy parameters, and possibly soft constraints are used as provided via the parameter \textquotesingle{}vc\textquotesingle{}. The fold\+\_\+compound does not need to contain any DP matrices, but all the most basic init values as one would get from a call like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(sequence, NULL, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\_OPTION\_EVAL\_ONLY}});}
+
+\end{DoxyCode}
+ In contrast to \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}} this function prints detailed energy contributions based on individual loops to a file handle. If NULL is passed as file handle, this function defaults to print to stdout. Any positive {\ttfamily verbosity\+\_\+level} activates potential warning message of the energy evaluting functions, while values $ \ge 1 $ allow for detailed control of what data is printed. A negative parameter {\ttfamily verbosity\+\_\+level} turns off printing all together.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em pt} & Secondary structure as pair\+\_\+table \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval_ga7e5273464b775d4130245681312c1369}\label{group__eval_ga7e5273464b775d4130245681312c1369}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_simple@{vrna\_eval\_structure\_simple}}
+\index{vrna\_eval\_structure\_simple@{vrna\_eval\_structure\_simple}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_simple()}{vrna\_eval\_structure\_simple()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function allows for energy evaluation of a given sequence/structure pair. In contrast to \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} this function assumes default model details and default energy parameters in order to evaluate the free energy of the secondary structure. Therefore, it serves as a simple interface function for energy evaluation for situations where no changes on the energy model are required.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}},
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000053}{SWIG Wrapper Notes}}]In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}\label{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_structure@{vrna\_eval\_circ\_structure}}
+\index{vrna\_eval\_circ\_structure@{vrna\_eval\_circ\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_structure()}{vrna\_eval\_circ\_structure()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a sequence/structure pair where the sequence is circular. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gac96577cf232c71160f762737a994b7c6}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}{vrna\+\_\+eval\+\_\+circ\+\_\+structure\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the structure given the circular input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000054}{SWIG Wrapper Notes}}]In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}{vrna\+\_\+eval\+\_\+circ\+\_\+structure\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga3263504825ef4b523eba797c99921df4}\label{group__eval_ga3263504825ef4b523eba797c99921df4}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_gquad\_structure@{vrna\_eval\_gquad\_structure}}
+\index{vrna\_eval\_gquad\_structure@{vrna\_eval\_gquad\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_gquad\_structure()}{vrna\_eval\_gquad\_structure()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+gquad\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a sequence/structure pair where the structure may contain G-\/\+Quadruplexes. 
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the structure including contributions of G-\/quadruplexes in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000055}{SWIG Wrapper Notes}}]In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}\label{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_gquad\_structure@{vrna\_eval\_circ\_gquad\_structure}}
+\index{vrna\_eval\_circ\_gquad\_structure@{vrna\_eval\_circ\_gquad\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_gquad\_structure()}{vrna\_eval\_circ\_gquad\_structure()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a sequence/structure pair where the sequence is circular and the structure may contain G-\/\+Quadruplexes. 
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_gac673ebb9ae2a29f54d201e2ac5b85540}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the structure including contributions of G-\/quadruplexes in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000056}{SWIG Wrapper Notes}}]In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gaf928bfd96767e1b8033a95a4cc432e39}\label{group__eval_gaf928bfd96767e1b8033a95a4cc432e39}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_simple\_verbose@{vrna\_eval\_structure\_simple\_verbose}}
+\index{vrna\_eval\_structure\_simple\_verbose@{vrna\_eval\_structure\_simple\_verbose}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_simple\_verbose()}{vrna\_eval\_structure\_simple\_verbose()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+verbose (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA and print contributions per loop. 
+
+This function is a simplyfied version of \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} that uses the {\itshape default} verbosity level.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000061}{SWIG Wrapper Notes}}]This function is not available. Use \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gacd6278343e77d13f1d53588e50d303bc}\label{group__eval_gacd6278343e77d13f1d53588e50d303bc}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_simple\_v@{vrna\_eval\_structure\_simple\_v}}
+\index{vrna\_eval\_structure\_simple\_v@{vrna\_eval\_structure\_simple\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_simple\_v()}{vrna\_eval\_structure\_simple\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA and print contributions per loop. 
+
+This function allows for detailed energy evaluation of a given sequence/structure pair. In contrast to \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} this function prints detailed energy contributions based on individual loops to a file handle. If NULL is passed as file handle, this function defaults to print to stdout. Any positive {\ttfamily verbosity\+\_\+level} activates potential warning message of the energy evaluting functions, while values $ \ge 1 $ allow for detailed control of what data is printed. A negative parameter {\ttfamily verbosity\+\_\+level} turns off printing all together.
+
+In contrast to \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}} this function assumes default model details and default energy parameters in order to evaluate the free energy of the secondary structure. Threefore, it serves as a simple interface function for energy evaluation for situations where no changes on the energy model are required.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}},
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000063}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}\label{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_structure\_v@{vrna\_eval\_circ\_structure\_v}}
+\index{vrna\_eval\_circ\_structure\_v@{vrna\_eval\_circ\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_structure\_v()}{vrna\_eval\_circ\_structure\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate free energy of a sequence/structure pair, assume sequence to be circular and print contributions per loop. 
+
+This function is the same as \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} but assumes the input sequence to be circularized.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000064}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}\label{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_gquad\_structure\_v@{vrna\_eval\_gquad\_structure\_v}}
+\index{vrna\_eval\_gquad\_structure\_v@{vrna\_eval\_gquad\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_gquad\_structure\_v()}{vrna\_eval\_gquad\_structure\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+gquad\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate free energy of a sequence/structure pair, allow for G-\/\+Quadruplexes in the structure and print contributions per loop. 
+
+This function is the same as \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} but allows for annotated G-\/\+Quadruplexes in the dot-\/bracket structure input.
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000065}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}\label{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_gquad\_structure\_v@{vrna\_eval\_circ\_gquad\_structure\_v}}
+\index{vrna\_eval\_circ\_gquad\_structure\_v@{vrna\_eval\_circ\_gquad\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_gquad\_structure\_v()}{vrna\_eval\_circ\_gquad\_structure\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate free energy of a sequence/structure pair, assume sequence to be circular, allow for G-\/\+Quadruplexes in the structure, and print contributions per loop. 
+
+This function is the same as \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} but assumes the input sequence to be circular and allows for annotated G-\/\+Quadruplexes in the dot-\/bracket structure input.
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000066}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}\label{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_consensus\_structure\_simple@{vrna\_eval\_consensus\_structure\_simple}}
+\index{vrna\_eval\_consensus\_structure\_simple@{vrna\_eval\_consensus\_structure\_simple}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_consensus\_structure\_simple()}{vrna\_eval\_consensus\_structure\_simple()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA sequence alignment. 
+
+This function allows for energy evaluation for a given multiple sequence alignment and consensus structure pair. In contrast to \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} this function assumes default model details and default energy parameters in order to evaluate the free energy of the secondary structure. Therefore, it serves as a simple interface function for energy evaluation for situations where no changes on the energy model are required.
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters and hyphen (\textquotesingle{}-\/\textquotesingle{}) to denote gaps \\
+\hline
+{\em structure} & Consensus Secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure given the input alignment in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000057}{SWIG Wrapper Notes}}]This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gac96577cf232c71160f762737a994b7c6}\label{group__eval_gac96577cf232c71160f762737a994b7c6}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_consensus\_structure@{vrna\_eval\_circ\_consensus\_structure}}
+\index{vrna\_eval\_circ\_consensus\_structure@{vrna\_eval\_circ\_consensus\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_consensus\_structure()}{vrna\_eval\_circ\_consensus\_structure()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a multiple sequence alignment/consensus structure pair where the sequences are circular. 
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gae89240c230e4740b22a703ee953396b9}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure given the circular input sequence in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000058}{SWIG Wrapper Notes}}]This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}\label{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_gquad\_consensus\_structure@{vrna\_eval\_gquad\_consensus\_structure}}
+\index{vrna\_eval\_gquad\_consensus\_structure@{vrna\_eval\_gquad\_consensus\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_gquad\_consensus\_structure()}{vrna\_eval\_gquad\_consensus\_structure()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a multiple sequence alignment/consensus structure pair where the structure may contain G-\/\+Quadruplexes. 
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_gac96577cf232c71160f762737a994b7c6}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga8abc794fc48d43268ced5e8cde017baa}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure including contributions of G-\/quadruplexes in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000059}{SWIG Wrapper Notes}}]This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gac673ebb9ae2a29f54d201e2ac5b85540}\label{group__eval_gac673ebb9ae2a29f54d201e2ac5b85540}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_gquad\_consensus\_structure@{vrna\_eval\_circ\_gquad\_consensus\_structure}}
+\index{vrna\_eval\_circ\_gquad\_consensus\_structure@{vrna\_eval\_circ\_gquad\_consensus\_structure}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_gquad\_consensus\_structure()}{vrna\_eval\_circ\_gquad\_consensus\_structure()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a multiple sequence alignment/consensus structure pair where the sequence is circular and the structure may contain G-\/\+Quadruplexes. 
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_gac96577cf232c71160f762737a994b7c6}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}, \mbox{\hyperlink{group__eval_gaecd3e17292a0b3927277434019a5e187}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure including contributions of G-\/quadruplexes in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000060}{SWIG Wrapper Notes}}]This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga1c07851f6b665c3461a19e9e4eb33d26}\label{group__eval_ga1c07851f6b665c3461a19e9e4eb33d26}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_consensus\_structure\_simple\_verbose@{vrna\_eval\_consensus\_structure\_simple\_verbose}}
+\index{vrna\_eval\_consensus\_structure\_simple\_verbose@{vrna\_eval\_consensus\_structure\_simple\_verbose}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_consensus\_structure\_simple\_verbose()}{vrna\_eval\_consensus\_structure\_simple\_verbose()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+verbose (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a consensus structure for an RNA sequence alignment and print contributions per loop. 
+
+This function is a simplyfied version of \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}} that uses the {\itshape default} verbosity level.
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters. Gaps are denoted by hyphens (\textquotesingle{}-\/\textquotesingle{}) \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the conensus structure given the aligned input sequences in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000062}{SWIG Wrapper Notes}}]This function is not available. Use \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gad88927c62ab0a8b534e078e44be1b36e}\label{group__eval_gad88927c62ab0a8b534e078e44be1b36e}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_consensus\_structure\_simple\_v@{vrna\_eval\_consensus\_structure\_simple\_v}}
+\index{vrna\_eval\_consensus\_structure\_simple\_v@{vrna\_eval\_consensus\_structure\_simple\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_consensus\_structure\_simple\_v()}{vrna\_eval\_consensus\_structure\_simple\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a consensus structure for an RNA sequence alignment and print contributions per loop. 
+
+This function allows for detailed energy evaluation of a given sequence alignment/consensus structure pair. In contrast to \mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple()}} this function prints detailed energy contributions based on individual loops to a file handle. If NULL is passed as file handle, this function defaults to print to stdout. Any positive {\ttfamily verbosity\+\_\+level} activates potential warning message of the energy evaluting functions, while values $ \ge 1 $ allow for detailed control of what data is printed. A negative parameter {\ttfamily verbosity\+\_\+level} turns off printing all together.
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+eval\+\_\+consensus\+\_\+structure(), \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters. Gaps are denoted by hyphens (\textquotesingle{}-\/\textquotesingle{}) \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure given the sequence alignment in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000067}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gae89240c230e4740b22a703ee953396b9}\label{group__eval_gae89240c230e4740b22a703ee953396b9}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_consensus\_structure\_v@{vrna\_eval\_circ\_consensus\_structure\_v}}
+\index{vrna\_eval\_circ\_consensus\_structure\_v@{vrna\_eval\_circ\_consensus\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_consensus\_structure\_v()}{vrna\_eval\_circ\_consensus\_structure\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a consensus structure for an alignment of circular RNA sequences and print contributions per loop. 
+
+This function is identical with \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}} but assumed the aligned sequences to be circular.
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_gac96577cf232c71160f762737a994b7c6}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters. Gaps are denoted by hyphens (\textquotesingle{}-\/\textquotesingle{}) \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure given the sequence alignment in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000068}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga8abc794fc48d43268ced5e8cde017baa}\label{group__eval_ga8abc794fc48d43268ced5e8cde017baa}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_gquad\_consensus\_structure\_v@{vrna\_eval\_gquad\_consensus\_structure\_v}}
+\index{vrna\_eval\_gquad\_consensus\_structure\_v@{vrna\_eval\_gquad\_consensus\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_gquad\_consensus\_structure\_v()}{vrna\_eval\_gquad\_consensus\_structure\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a consensus structure for an RNA sequence alignment, allow for annotated G-\/\+Quadruplexes in the structure and print contributions per loop. 
+
+This function is identical with \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}} but allows for annotated G-\/\+Quadruplexes in the consensus structure.
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters. Gaps are denoted by hyphens (\textquotesingle{}-\/\textquotesingle{}) \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure given the sequence alignment in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000069}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_gaecd3e17292a0b3927277434019a5e187}\label{group__eval_gaecd3e17292a0b3927277434019a5e187}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_circ\_gquad\_consensus\_structure\_v@{vrna\_eval\_circ\_gquad\_consensus\_structure\_v}}
+\index{vrna\_eval\_circ\_gquad\_consensus\_structure\_v@{vrna\_eval\_circ\_gquad\_consensus\_structure\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_circ\_gquad\_consensus\_structure\_v()}{vrna\_eval\_circ\_gquad\_consensus\_structure\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the free energy of a consensus structure for an alignment of circular RNA sequences, allow for annotated G-\/\+Quadruplexes in the structure and print contributions per loop. 
+
+This function is identical with \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}} but assumes the sequences in the alignment to be circular and allows for annotated G-\/\+Quadruplexes in the consensus structure.
+
+G-\/\+Quadruplexes are annotated as plus signs (\textquotesingle{}+\textquotesingle{}) for each G involved in the motif. Linker sequences must be denoted by dots (\textquotesingle{}.\textquotesingle{}) as they are considered unpaired. Below is an example of a 2-\/layer G-\/quadruplex\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GGAAGGAAAGGAGG}
+\DoxyCodeLine{++..++...++.++}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__eval_gac673ebb9ae2a29f54d201e2ac5b85540}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters. Gaps are denoted by hyphens (\textquotesingle{}-\/\textquotesingle{}) \\
+\hline
+{\em structure} & Consensus secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the consensus structure given the sequence alignment in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000070}{SWIG Wrapper Notes}}]This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga0bba59b4d6e53461088666ff4aece7b0}\label{group__eval_ga0bba59b4d6e53461088666ff4aece7b0}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_pt\_simple@{vrna\_eval\_structure\_pt\_simple}}
+\index{vrna\_eval\_structure\_pt\_simple@{vrna\_eval\_structure\_pt\_simple}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_pt\_simple()}{vrna\_eval\_structure\_pt\_simple()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+In contrast to \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}} this function assumes default model details and default energy parameters in order to evaluate the free energy of the secondary structure. Threefore, it serves as a simple interface function for energy evaluation for situations where no changes on the energy model are required.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em pt} & Secondary structure as pair\+\_\+table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10cal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000071}{SWIG Wrapper Notes}}]In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval_ga76e152ee9a02be23da14cdddf52b4e44}\label{group__eval_ga76e152ee9a02be23da14cdddf52b4e44}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_pt\_simple\_verbose@{vrna\_eval\_structure\_pt\_simple\_verbose}}
+\index{vrna\_eval\_structure\_pt\_simple\_verbose@{vrna\_eval\_structure\_pt\_simple\_verbose}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_pt\_simple\_verbose()}{vrna\_eval\_structure\_pt\_simple\_verbose()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+verbose (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const short $\ast$}]{pt,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function is a simplyfied version of \mbox{\hyperlink{group__eval_gac40b813d35289da9816d0c1eec94faa5}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+v()}} that uses the {\itshape default} verbosity level.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gac40b813d35289da9816d0c1eec94faa5}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+v()}}, \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}}, \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em pt} & Secondary structure as pair\+\_\+table \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval_gac40b813d35289da9816d0c1eec94faa5}\label{group__eval_gac40b813d35289da9816d0c1eec94faa5}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_structure\_pt\_simple\_v@{vrna\_eval\_structure\_pt\_simple\_v}}
+\index{vrna\_eval\_structure\_pt\_simple\_v@{vrna\_eval\_structure\_pt\_simple\_v}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_structure\_pt\_simple\_v()}{vrna\_eval\_structure\_pt\_simple\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple\+\_\+v (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const short $\ast$}]{pt,  }\item[{int}]{verbosity\+\_\+level,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+This function allows for energy evaluation of a given sequence/structure pair where the structure is provided in pair\+\_\+table format as obtained from \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}. Model details, energy parameters, and possibly soft constraints are used as provided via the parameter \textquotesingle{}vc\textquotesingle{}. The fold\+\_\+compound does not need to contain any DP matrices, but all the most basic init values as one would get from a call like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(sequence, NULL, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\_OPTION\_EVAL\_ONLY}});}
+
+\end{DoxyCode}
+ In contrast to \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}} this function assumes default model details and default energy parameters in order to evaluate the free energy of the secondary structure. Threefore, it serves as a simple interface function for energy evaluation for situations where no changes on the energy model are required.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+v()}}, \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em pt} & Secondary structure as pair\+\_\+table \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+{\em file} & A file handle where this function should print to (may be NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval_gabbb4d2a7aa324ec9cce8f47ce61ab8af}\label{group__eval_gabbb4d2a7aa324ec9cce8f47ce61ab8af}} 
+\index{Free Energy Evaluation@{Free Energy Evaluation}!vrna\_eval\_consensus\_structure\_pt\_simple@{vrna\_eval\_consensus\_structure\_pt\_simple}}
+\index{vrna\_eval\_consensus\_structure\_pt\_simple@{vrna\_eval\_consensus\_structure\_pt\_simple}!Free Energy Evaluation@{Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_consensus\_structure\_pt\_simple()}{vrna\_eval\_consensus\_structure\_pt\_simple()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+pt\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{alignment,  }\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Evaluate the Free Energy of a Consensus Secondary Structure given a Sequence Alignment. 
+
+\begin{DoxyNote}{Note}
+The free energy returned from this function already includes the covariation pseudo energies that is used fir comparative structure prediction within this library.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple()}}, \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}, \mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & RNA sequence alignment in uppercase letters. Gaps are denoted by hyphens (\textquotesingle{}-\/\textquotesingle{}) \\
+\hline
+{\em pt} & Secondary structure in pair table format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Free energy of the consensus structure in 10cal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000072}{SWIG Wrapper Notes}}]This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga0bba59b4d6e53461088666ff4aece7b0}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument \end{DoxyRefDesc}

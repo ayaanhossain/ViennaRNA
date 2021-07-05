@@ -1,0 +1,116 @@
+\hypertarget{group__eval__loops}{}\doxysection{Energy Evaluation for Individual Loops}
+\label{group__eval__loops}\index{Energy Evaluation for Individual Loops@{Energy Evaluation for Individual Loops}}
+
+
+Functions to evaluate the free energy of particular types of loops.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to evaluate the free energy of particular types of loops. 
+
+To assess the free energy contribution of a particular loop within a secondary structure, two variants are provided\+:
+\begin{DoxyItemize}
+\item The {\ttfamily bare} free energy $E$ (usually in deka-\/calories, i.\+e. multiples of $10 cal/mol$), and
+\item The {\ttfamily Boltzmann weight} $q = exp(-\beta E)$ of the free energy $E$ (with $\beta = \frac{1}{RT}$, gas constant $R$ and temperature $T$)
+\end{DoxyItemize}
+
+The latter is usually required for partition function computations. Collaboration diagram for Energy Evaluation for Individual Loops\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__eval__loops}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__eval__loops__ext}{Exterior Loops}}
+\begin{DoxyCompactList}\small\item\em Functions to evaluate the free energy contributions for exterior loops. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__eval__loops__hp}{Hairpin Loops}}
+\begin{DoxyCompactList}\small\item\em Functions to evaluate the free energy contributions for hairpin loops. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__eval__loops__int}{Internal Loops}}
+\begin{DoxyCompactList}\small\item\em Functions to evaluate the free energy contributions for internal loops. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__eval__loops__mb}{Multibranch Loops}}
+\begin{DoxyCompactList}\small\item\em Functions to evaluate the free energy contributions for mutlibranch loops. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{all_8h}{all.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{external_8h}{external.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of exterior loops for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{hairpin_8h}{hairpin.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of hairpin loops for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{internal_8h}{internal.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of interior loops for MFE and partition function calculations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{multibranch_8h}{multibranch.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of multibranch loops for MFE and partition function calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval__loops_ga730ba4df55c02fd530a0cddd49faf760}{vrna\+\_\+eval\+\_\+loop\+\_\+pt}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__loops_ga30faecaff1009fe62c58312c8d56dabb}{vrna\+\_\+eval\+\_\+loop\+\_\+pt\+\_\+v}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int i, const short $\ast$pt, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__loops_ga730ba4df55c02fd530a0cddd49faf760}\label{group__eval__loops_ga730ba4df55c02fd530a0cddd49faf760}} 
+\index{Energy Evaluation for Individual Loops@{Energy Evaluation for Individual Loops}!vrna\_eval\_loop\_pt@{vrna\_eval\_loop\_pt}}
+\index{vrna\_eval\_loop\_pt@{vrna\_eval\_loop\_pt}!Energy Evaluation for Individual Loops@{Energy Evaluation for Individual Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_loop\_pt()}{vrna\_eval\_loop\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+loop\+\_\+pt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{i,  }\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate energy of a loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em i} & position of covering base pair \\
+\hline
+{\em pt} & the pair table of the secondary structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+free energy of the loop in 10cal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000048}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+loop\+\_\+pt()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval__loops_ga30faecaff1009fe62c58312c8d56dabb}\label{group__eval__loops_ga30faecaff1009fe62c58312c8d56dabb}} 
+\index{Energy Evaluation for Individual Loops@{Energy Evaluation for Individual Loops}!vrna\_eval\_loop\_pt\_v@{vrna\_eval\_loop\_pt\_v}}
+\index{vrna\_eval\_loop\_pt\_v@{vrna\_eval\_loop\_pt\_v}!Energy Evaluation for Individual Loops@{Energy Evaluation for Individual Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_loop\_pt\_v()}{vrna\_eval\_loop\_pt\_v()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+loop\+\_\+pt\+\_\+v (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{i,  }\item[{const short $\ast$}]{pt,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate energy of a loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em i} & position of covering base pair \\
+\hline
+{\em pt} & the pair table of the secondary structure \\
+\hline
+{\em verbosity\+\_\+level} & The level of verbosity of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+free energy of the loop in 10cal/mol 
+\end{DoxyReturn}

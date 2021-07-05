@@ -1,0 +1,117 @@
+\hypertarget{group__centroid__fold}{}\doxysection{Compute the Centroid Structure}
+\label{group__centroid__fold}\index{Compute the Centroid Structure@{Compute the Centroid Structure}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Compute the Centroid Structure\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__centroid__fold}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{vrna\+\_\+centroid}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double $\ast$dist)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}{vrna\+\_\+centroid\+\_\+from\+\_\+plist}} (int length, double $\ast$dist, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pl)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{vrna\+\_\+centroid\+\_\+from\+\_\+probs}} (int length, double $\ast$dist, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$probs)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}\label{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}} 
+\index{Compute the Centroid Structure@{Compute the Centroid Structure}!vrna\_centroid@{vrna\_centroid}}
+\index{vrna\_centroid@{vrna\_centroid}!Compute the Centroid Structure@{Compute the Centroid Structure}}
+\doxysubsubsection{\texorpdfstring{vrna\_centroid()}{vrna\_centroid()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+centroid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{double $\ast$}]{dist }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{centroid_8h}{Vienna\+RNA/centroid.\+h}}$>$}
+
+
+
+Get the centroid structure of the ensemble. 
+
+The centroid is the structure with the minimal average distance to all other structures ~\newline
+ $ <d(S)> = \sum_{(i,j) \in S} (1-p_{ij}) + \sum_{(i,j) \notin S} p_{ij} $ ~\newline
+Thus, the centroid is simply the structure containing all pairs with $p_ij>0.5$ The distance of the centroid to the ensemble is written to the memory adressed by {\itshape dist}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vc} & The fold compound data structure \\
+\hline
+\mbox{\texttt{ out}}  & {\em dist} & A pointer to the distance variable where the centroid distance will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The centroid structure of the ensemble in dot-\/bracket notation ({\ttfamily NULL} on error) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}\label{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}} 
+\index{Compute the Centroid Structure@{Compute the Centroid Structure}!vrna\_centroid\_from\_plist@{vrna\_centroid\_from\_plist}}
+\index{vrna\_centroid\_from\_plist@{vrna\_centroid\_from\_plist}!Compute the Centroid Structure@{Compute the Centroid Structure}}
+\doxysubsubsection{\texorpdfstring{vrna\_centroid\_from\_plist()}{vrna\_centroid\_from\_plist()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+centroid\+\_\+from\+\_\+plist (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{double $\ast$}]{dist,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{centroid_8h}{Vienna\+RNA/centroid.\+h}}$>$}
+
+
+
+Get the centroid structure of the ensemble. 
+
+This function is a threadsafe replacement for \mbox{\hyperlink{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}{centroid()}} with a \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} input
+
+The centroid is the structure with the minimal average distance to all other structures ~\newline
+ $ <d(S)> = \sum_{(i,j) \in S} (1-p_{ij}) + \sum_{(i,j) \notin S} p_{ij} $ ~\newline
+Thus, the centroid is simply the structure containing all pairs with $p_ij>0.5$ The distance of the centroid to the ensemble is written to the memory adressed by {\itshape dist}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em length} & The length of the sequence \\
+\hline
+\mbox{\texttt{ out}}  & {\em dist} & A pointer to the distance variable where the centroid distance will be written to \\
+\hline
+\mbox{\texttt{ in}}  & {\em pl} & A pair list containing base pair probability information about the ensemble \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The centroid structure of the ensemble in dot-\/bracket notation ({\ttfamily NULL} on error) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}\label{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}} 
+\index{Compute the Centroid Structure@{Compute the Centroid Structure}!vrna\_centroid\_from\_probs@{vrna\_centroid\_from\_probs}}
+\index{vrna\_centroid\_from\_probs@{vrna\_centroid\_from\_probs}!Compute the Centroid Structure@{Compute the Centroid Structure}}
+\doxysubsubsection{\texorpdfstring{vrna\_centroid\_from\_probs()}{vrna\_centroid\_from\_probs()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+centroid\+\_\+from\+\_\+probs (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{double $\ast$}]{dist,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{probs }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{centroid_8h}{Vienna\+RNA/centroid.\+h}}$>$}
+
+
+
+Get the centroid structure of the ensemble. 
+
+This function is a threadsafe replacement for \mbox{\hyperlink{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}{centroid()}} with a probability array input
+
+The centroid is the structure with the minimal average distance to all other structures ~\newline
+ $ <d(S)> = \sum_{(i,j) \in S} (1-p_{ij}) + \sum_{(i,j) \notin S} p_{ij} $ ~\newline
+Thus, the centroid is simply the structure containing all pairs with $p_ij>0.5$ The distance of the centroid to the ensemble is written to the memory adressed by {\itshape dist}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em length} & The length of the sequence \\
+\hline
+\mbox{\texttt{ out}}  & {\em dist} & A pointer to the distance variable where the centroid distance will be written to \\
+\hline
+\mbox{\texttt{ in}}  & {\em probs} & An upper triangular matrix containing base pair probabilities (access via iindx \mbox{\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise()}} ) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The centroid structure of the ensemble in dot-\/bracket notation ({\ttfamily NULL} on error) 
+\end{DoxyReturn}

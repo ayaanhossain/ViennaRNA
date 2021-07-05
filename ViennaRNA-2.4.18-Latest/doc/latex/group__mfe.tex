@@ -1,0 +1,50 @@
+\hypertarget{group__mfe}{}\doxysection{Minimum Free Energy (MFE) Algorithms}
+\label{group__mfe}\index{Minimum Free Energy (MFE) Algorithms@{Minimum Free Energy (MFE) Algorithms}}
+
+
+Predicting the Minimum Free Energy (MFE) and a corresponding (consensus) secondary structure.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Predicting the Minimum Free Energy (MFE) and a corresponding (consensus) secondary structure. 
+
+In a nutshell we provide two different flavors for MFE prediction\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__mfe__global}{Global MFE Prediction}} -\/ to compute the MFE for the entire sequence
+\item \mbox{\hyperlink{group__mfe__window}{Local (sliding window) MFE Prediction}} -\/ to compute MFEs for each window using a sliding window approach
+\end{DoxyItemize}
+
+Each of these flavors, again, provides two implementations to either compute the MFE based on
+\begin{DoxyItemize}
+\item single RNA (DNA) sequence(s), or
+\item a comparative approach using multiple sequence alignments (MSA).
+\end{DoxyItemize}
+
+For the latter, a consensus secondary structure is predicted and our implementations compute an average of free energies for each sequence in the MSA plus an additional covariance pseudo-\/energy term.
+
+The implementations for \mbox{\hyperlink{group__mfe__backtracking}{Backtracking MFE structures}} are generally agnostic with respect to whether local or global structure prediction is in place. Collaboration diagram for Minimum Free Energy (MFE) Algorithms\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mfe}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__mfe__global}{Global MFE Prediction}}
+\begin{DoxyCompactList}\small\item\em Variations of the global Minimum Free Energy (MFE) prediction algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__mfe__window}{Local (sliding window) MFE Prediction}}
+\begin{DoxyCompactList}\small\item\em Variations of the local (sliding window) Minimum Free Energy (MFE) prediction algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__mfe__backtracking}{Backtracking MFE structures}}
+\begin{DoxyCompactList}\small\item\em Backtracking related interfaces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{mfe_8h}{mfe.\+h}}
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free energy (MFE) and backtrace corresponding secondary structures from RNA sequence data. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{mfe__window_8h}{mfe\+\_\+window.\+h}}
+\begin{DoxyCompactList}\small\item\em Compute local Minimum Free Energy (MFE) using a sliding window approach and backtrace corresponding secondary structures. \end{DoxyCompactList}\end{DoxyCompactItemize}

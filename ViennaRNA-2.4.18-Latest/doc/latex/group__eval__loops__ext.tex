@@ -1,0 +1,182 @@
+\hypertarget{group__eval__loops__ext}{}\doxysection{Exterior Loops}
+\label{group__eval__loops__ext}\index{Exterior Loops@{Exterior Loops}}
+
+
+Functions to evaluate the free energy contributions for exterior loops.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to evaluate the free energy contributions for exterior loops. 
+
+Collaboration diagram for Exterior Loops\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__eval__loops__ext}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{external_8h}{external.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of exterior loops for MFE and partition function calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Boltzmann weight (partition function) interface}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+s $\ast$ \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Auxiliary helper arrays for fast exterior loop computations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__loops__ext_ga357484958d3cd677f88f16c75c8a5730}{vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+stem}} (unsigned int type, int n5d, int n3d, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Evaluate a stem branching off the exterior loop (Boltzmann factor version) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__loops__ext_ga88bf7b86f25fff9d828008df48779539}\label{group__eval__loops__ext_ga88bf7b86f25fff9d828008df48779539}} 
+\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+init} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\item 
+\mbox{\Hypertarget{group__eval__loops__ext_ga560d6123a175af3c8fb668885da8b78c}\label{group__eval__loops__ext_ga560d6123a175af3c8fb668885da8b78c}} 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+rotate} (\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__ext_ga90c23338dfb678853d34e4ca91cda370}\label{group__eval__loops__ext_ga90c23338dfb678853d34e4ca91cda370}} 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+free} (\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__ext_ga1522bbee3c068632367decfcdbeeeb74}\label{group__eval__loops__ext_ga1522bbee3c068632367decfcdbeeeb74}} 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__ext_gaf371b09437ca36067620b9bab14baa86}\label{group__eval__loops__ext_gaf371b09437ca36067620b9bab14baa86}} 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+update} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int j, \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}} aux\+\_\+mx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Basic free energy interface}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}{vrna\+\_\+\+E\+\_\+ext\+\_\+stem}} (unsigned int type, int n5d, int n3d, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Evaluate a stem branching off the exterior loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__loops__ext_gace51f32d5b34b7003b51c948afc6c207}{vrna\+\_\+\+E\+\_\+ext\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a base pair in the exterior loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__loops__ext_gad26689b27fcaab5a1dcbd0d37d27ad5f}\label{group__eval__loops__ext_gad26689b27fcaab5a1dcbd0d37d27ad5f}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+ext\+\_\+loop\+\_\+5} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\item 
+\mbox{\Hypertarget{group__eval__loops__ext_ga6e57363a8ff3597cc69181c33fbb8196}\label{group__eval__loops__ext_ga6e57363a8ff3597cc69181c33fbb8196}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+ext\+\_\+loop\+\_\+3} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}\label{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}} 
+\index{Exterior Loops@{Exterior Loops}!vrna\_mx\_pf\_aux\_el\_t@{vrna\_mx\_pf\_aux\_el\_t}}
+\index{vrna\_mx\_pf\_aux\_el\_t@{vrna\_mx\_pf\_aux\_el\_t}!Exterior Loops@{Exterior Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_mx\_pf\_aux\_el\_t}{vrna\_mx\_pf\_aux\_el\_t}}
+{\footnotesize\ttfamily typedef struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+s$\ast$ \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+
+
+Auxiliary helper arrays for fast exterior loop computations. 
+
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+init(), vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+rotate(), vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast\+\_\+free(), vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+fast() 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}\label{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}} 
+\index{Exterior Loops@{Exterior Loops}!vrna\_E\_ext\_stem@{vrna\_E\_ext\_stem}}
+\index{vrna\_E\_ext\_stem@{vrna\_E\_ext\_stem}!Exterior Loops@{Exterior Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_E\_ext\_stem()}{vrna\_E\_ext\_stem()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+E\+\_\+ext\+\_\+stem (\begin{DoxyParamCaption}\item[{unsigned int}]{type,  }\item[{int}]{n5d,  }\item[{int}]{n3d,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+
+
+Evaluate a stem branching off the exterior loop. 
+
+Given a base pair $(i,j)$ encoded by {\itshape type}, compute the energy contribution including dangling-\/end/terminal-\/mismatch contributions. Instead of returning the energy contribution per-\/se, this function returns the corresponding Boltzmann factor. If either of the adjacent nucleotides $(i - 1)$ and $(j+1)$ must not contribute stacking energy, the corresponding encoding must be $-1$.
+
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+\+E\+\_\+exp\+\_\+stem()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The base pair encoding \\
+\hline
+{\em n5d} & The encoded nucleotide directly adjacent at the 5\textquotesingle{} side of the base pair (may be -\/1) \\
+\hline
+{\em n3d} & The encoded nucleotide directly adjacent at the 3\textquotesingle{} side of the base pair (may be -\/1) \\
+\hline
+{\em p} & The pre-\/computed energy parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The energy contribution of the introduced exterior-\/loop stem 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__loops__ext_gace51f32d5b34b7003b51c948afc6c207}\label{group__eval__loops__ext_gace51f32d5b34b7003b51c948afc6c207}} 
+\index{Exterior Loops@{Exterior Loops}!vrna\_E\_ext\_loop@{vrna\_E\_ext\_loop}}
+\index{vrna\_E\_ext\_loop@{vrna\_E\_ext\_loop}!Exterior Loops@{Exterior Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_E\_ext\_loop()}{vrna\_E\_ext\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+E\+\_\+ext\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+
+
+Evaluate the free energy of a base pair in the exterior loop. 
+
+Evalue the free energy of a base pair connecting two nucleotides in the exterior loop and take hard constraints into account.
+
+Typically, this is simply dangling end contributions of the adjacent nucleotides, potentially a terminal A-\/U mismatch penalty, and maybe some generic soft constraint contribution for that decomposition.
+
+\begin{DoxyNote}{Note}
+For dangles == 1 $\vert$$\vert$ 3 this function also evaluates the three additional pairs (i + 1, j), (i, j -\/ 1), and (i + 1, j -\/ 1) and returns the minimum for all four possibilities in total.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & Fold compound to work on (defines the model and parameters) \\
+\hline
+{\em i} & 5\textquotesingle{} position of the base pair \\
+\hline
+{\em j} & 3\textquotesingle{} position of the base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Free energy contribution that arises when this pair is formed in the exterior loop 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__loops__ext_ga357484958d3cd677f88f16c75c8a5730}\label{group__eval__loops__ext_ga357484958d3cd677f88f16c75c8a5730}} 
+\index{Exterior Loops@{Exterior Loops}!vrna\_exp\_E\_ext\_stem@{vrna\_exp\_E\_ext\_stem}}
+\index{vrna\_exp\_E\_ext\_stem@{vrna\_exp\_E\_ext\_stem}!Exterior Loops@{Exterior Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_E\_ext\_stem()}{vrna\_exp\_E\_ext\_stem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+stem (\begin{DoxyParamCaption}\item[{unsigned int}]{type,  }\item[{int}]{n5d,  }\item[{int}]{n3d,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+
+
+Evaluate a stem branching off the exterior loop (Boltzmann factor version) 
+
+Given a base pair $(i,j)$ encoded by {\itshape type}, compute the energy contribution including dangling-\/end/terminal-\/mismatch contributions. Instead of returning the energy contribution per-\/se, this function returns the corresponding Boltzmann factor. If either of the adjacent nucleotides $(i - 1)$ and $(j+1)$ must not contribute stacking energy, the corresponding encoding must be $-1$.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}{vrna\+\_\+\+E\+\_\+ext\+\_\+stem()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The base pair encoding \\
+\hline
+{\em n5d} & The encoded nucleotide directly adjacent at the 5\textquotesingle{} side of the base pair (may be -\/1) \\
+\hline
+{\em n3d} & The encoded nucleotide directly adjacent at the 3\textquotesingle{} side of the base pair (may be -\/1) \\
+\hline
+{\em p} & The pre-\/computed energy parameters (Boltzmann factor version) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Boltzmann weighted energy contribution of the introduced exterior-\/loop stem 
+\end{DoxyReturn}

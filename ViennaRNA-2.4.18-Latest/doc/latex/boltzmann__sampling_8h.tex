@@ -1,0 +1,68 @@
+\hypertarget{boltzmann__sampling_8h}{}\doxysection{Vienna\+RNA/boltzmann\+\_\+sampling.h File Reference}
+\label{boltzmann__sampling_8h}\index{ViennaRNA/boltzmann\_sampling.h@{ViennaRNA/boltzmann\_sampling.h}}
+
+
+Boltzmann Sampling of secondary structures from the ensemble.  
+
+
+Include dependency graph for boltzmann\+\_\+sampling.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boltzmann__sampling_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{boltzmann__sampling_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}~0
+\begin{DoxyCompactList}\small\item\em Boltzmann sampling flag indicating default backtracing mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}~1
+\begin{DoxyCompactList}\small\item\em Boltzmann sampling flag indicating non-\/redundant backtracing mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}}(const char $\ast$stucture, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback for Boltzmann sampling. \end{DoxyCompactList}\item 
+typedef struct vrna\+\_\+pbacktrack\+\_\+memory\+\_\+s $\ast$ \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Boltzmann sampling memory data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure of a subsequence from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, unsigned int num\+\_\+samples, unsigned int length, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free}} (\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} s)
+\begin{DoxyCompactList}\small\item\em Release memory occupied by a Boltzmann sampling memory data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Boltzmann Sampling of secondary structures from the ensemble. 
+
+A.\+k.\+a. Stochastic backtracking 

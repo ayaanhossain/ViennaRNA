@@ -1,0 +1,291 @@
+\hypertarget{group__buffer__utils}{}\doxysection{Buffers}
+\label{group__buffer__utils}\index{Buffers@{Buffers}}
+
+
+Functions that provide dynamically buffered stream-\/like data structures.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions that provide dynamically buffered stream-\/like data structures. 
+
+Collaboration diagram for Buffers\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__buffer__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{datastructures_2char__stream_8h}{char\+\_\+stream.\+h}}
+\begin{DoxyCompactList}\small\item\em Implementation of a dynamic, buffered character stream. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{datastructures_2stream__output_8h}{stream\+\_\+output.\+h}}
+\begin{DoxyCompactList}\small\item\em An implementation of a buffered, ordered stream output data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}\label{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}} 
+typedef struct vrna\+\_\+ordered\+\_\+stream\+\_\+s $\ast$ \mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em An ordered output stream structure with unordered insert capabilities. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\+\_\+callback\+\_\+stream\+\_\+output}}(void $\ast$auxdata, unsigned int i, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Ordered stream processing callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vrna\+\_\+cstr\+\_\+t \mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\+\_\+cstr}} (size\+\_\+t size, FILE $\ast$output)
+\begin{DoxyCompactList}\small\item\em Create a dynamic char $\ast$ stream data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\+\_\+cstr\+\_\+free}} (vrna\+\_\+cstr\+\_\+t buf)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by a dynamic char $\ast$ stream data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\+\_\+cstr\+\_\+close}} (vrna\+\_\+cstr\+\_\+t buf)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by a dynamic char $\ast$ stream and close the output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{vrna\+\_\+cstr\+\_\+fflush}} (struct vrna\+\_\+cstr\+\_\+s $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Flush the dynamic char $\ast$ output stream. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} \mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\+\_\+ostream\+\_\+init}} (\mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\+\_\+callback\+\_\+stream\+\_\+output}} $\ast$output, void $\ast$auxdata)
+\begin{DoxyCompactList}\small\item\em Get an initialized ordered output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{vrna\+\_\+ostream\+\_\+free}} (\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} dat)
+\begin{DoxyCompactList}\small\item\em Free an initialized ordered output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\+\_\+ostream\+\_\+request}} (\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} dat, unsigned int num)
+\begin{DoxyCompactList}\small\item\em Request index in ordered output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\+\_\+ostream\+\_\+provide}} (\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} dat, unsigned int i, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Provide output stream data for a particular index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}\label{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}} 
+\index{Buffers@{Buffers}!vrna\_callback\_stream\_output@{vrna\_callback\_stream\_output}}
+\index{vrna\_callback\_stream\_output@{vrna\_callback\_stream\_output}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_stream\_output}{vrna\_callback\_stream\_output}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+callback\+\_\+stream\+\_\+output(void $\ast$auxdata, unsigned int i, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2stream__output_8h}{Vienna\+RNA/datastructures/stream\+\_\+output.\+h}}$>$}
+
+
+
+Ordered stream processing callback. 
+
+This callback will be processed in sequential order as soon as sequential data in the output stream becomes available.
+
+\begin{DoxyNote}{Note}
+The callback must also release the memory occupied by the data passed since the stream will lose any reference to it after the callback has been executed.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em auxdata} & A shared pointer for all calls, as provided by the second argument to \mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\+\_\+ostream\+\_\+init()}} \\
+\hline
+{\em i} & The index number of the data passed to {\ttfamily data} \\
+\hline
+{\em data} & A block of data ready for processing \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}\label{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}} 
+\index{Buffers@{Buffers}!vrna\_cstr@{vrna\_cstr}}
+\index{vrna\_cstr@{vrna\_cstr}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_cstr()}{vrna\_cstr()}}
+{\footnotesize\ttfamily vrna\+\_\+cstr\+\_\+t vrna\+\_\+cstr (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{FILE $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2char__stream_8h}{Vienna\+RNA/datastructures/char\+\_\+stream.\+h}}$>$}
+
+
+
+Create a dynamic char $\ast$ stream data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\+\_\+cstr\+\_\+free()}}, \mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\+\_\+cstr\+\_\+close()}}, \mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{vrna\+\_\+cstr\+\_\+fflush()}}, vrna\+\_\+cstr\+\_\+printf()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The initial size of the buffer in characters \\
+\hline
+{\em output} & An optional output file stream handle that is used to write the collected data to (defaults to {\itshape stdout} if {\itshape NULL}) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}\label{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}} 
+\index{Buffers@{Buffers}!vrna\_cstr\_free@{vrna\_cstr\_free}}
+\index{vrna\_cstr\_free@{vrna\_cstr\_free}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_cstr\_free()}{vrna\_cstr\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+cstr\+\_\+free (\begin{DoxyParamCaption}\item[{vrna\+\_\+cstr\+\_\+t}]{buf }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2char__stream_8h}{Vienna\+RNA/datastructures/char\+\_\+stream.\+h}}$>$}
+
+
+
+Free the memory occupied by a dynamic char $\ast$ stream data structure. 
+
+This function first flushes any remaining character data within the stream and then free\textquotesingle{}s the memory occupied by the data structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\+\_\+cstr\+\_\+close()}}, \mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{vrna\+\_\+cstr\+\_\+fflush()}}, \mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\+\_\+cstr()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & The dynamic char $\ast$ stream data structure to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}\label{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}} 
+\index{Buffers@{Buffers}!vrna\_cstr\_close@{vrna\_cstr\_close}}
+\index{vrna\_cstr\_close@{vrna\_cstr\_close}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_cstr\_close()}{vrna\_cstr\_close()}}
+{\footnotesize\ttfamily void vrna\+\_\+cstr\+\_\+close (\begin{DoxyParamCaption}\item[{vrna\+\_\+cstr\+\_\+t}]{buf }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2char__stream_8h}{Vienna\+RNA/datastructures/char\+\_\+stream.\+h}}$>$}
+
+
+
+Free the memory occupied by a dynamic char $\ast$ stream and close the output stream. 
+
+This function first flushes any remaining character data within the stream then closes the attached output file stream (if any), and finally free\textquotesingle{}s the memory occupied by the data structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\+\_\+cstr\+\_\+free()}}, \mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{vrna\+\_\+cstr\+\_\+fflush()}}, \mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\+\_\+cstr()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & The dynamic char $\ast$ stream data structure to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}\label{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}} 
+\index{Buffers@{Buffers}!vrna\_cstr\_fflush@{vrna\_cstr\_fflush}}
+\index{vrna\_cstr\_fflush@{vrna\_cstr\_fflush}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_cstr\_fflush()}{vrna\_cstr\_fflush()}}
+{\footnotesize\ttfamily void vrna\+\_\+cstr\+\_\+fflush (\begin{DoxyParamCaption}\item[{struct vrna\+\_\+cstr\+\_\+s $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2char__stream_8h}{Vienna\+RNA/datastructures/char\+\_\+stream.\+h}}$>$}
+
+
+
+Flush the dynamic char $\ast$ output stream. 
+
+This function flushes the collected char $\ast$ stream, either by writing to the attached file handle, or simply by writing to {\itshape stdout} if no file handle has been attached upon construction using \mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\+\_\+cstr()}}.
+
+\begin{DoxyPostcond}{Postcondition}
+The stream buffer is empty after execution of this function
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\+\_\+cstr()}}, \mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\+\_\+cstr\+\_\+close()}}, \mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\+\_\+cstr\+\_\+free()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & The dynamic char $\ast$ stream data structure to flush \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}\label{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}} 
+\index{Buffers@{Buffers}!vrna\_ostream\_init@{vrna\_ostream\_init}}
+\index{vrna\_ostream\_init@{vrna\_ostream\_init}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_ostream\_init()}{vrna\_ostream\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} vrna\+\_\+ostream\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\+\_\+callback\+\_\+stream\+\_\+output}} $\ast$}]{output,  }\item[{void $\ast$}]{auxdata }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2stream__output_8h}{Vienna\+RNA/datastructures/stream\+\_\+output.\+h}}$>$}
+
+
+
+Get an initialized ordered output stream. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{vrna\+\_\+ostream\+\_\+free()}}, \mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\+\_\+ostream\+\_\+request()}}, \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\+\_\+ostream\+\_\+provide()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em output} & A callback function that processes and releases data in the stream \\
+\hline
+{\em auxdata} & A pointer to auxiliary data passed as first argument to the {\ttfamily output} callback \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized ordered output stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}\label{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}} 
+\index{Buffers@{Buffers}!vrna\_ostream\_free@{vrna\_ostream\_free}}
+\index{vrna\_ostream\_free@{vrna\_ostream\_free}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_ostream\_free()}{vrna\_ostream\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+ostream\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}}}]{dat }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2stream__output_8h}{Vienna\+RNA/datastructures/stream\+\_\+output.\+h}}$>$}
+
+
+
+Free an initialized ordered output stream. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\+\_\+ostream\+\_\+init()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em dat} & The output stream for which occupied memory should be free\textquotesingle{}d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}\label{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}} 
+\index{Buffers@{Buffers}!vrna\_ostream\_request@{vrna\_ostream\_request}}
+\index{vrna\_ostream\_request@{vrna\_ostream\_request}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_ostream\_request()}{vrna\_ostream\_request()}}
+{\footnotesize\ttfamily void vrna\+\_\+ostream\+\_\+request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}}}]{dat,  }\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2stream__output_8h}{Vienna\+RNA/datastructures/stream\+\_\+output.\+h}}$>$}
+
+
+
+Request index in ordered output stream. 
+
+This function must be called prior to \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\+\_\+ostream\+\_\+provide()}} to indicate that data associted with a certain index number is expected to be inserted into the stream in the future.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\+\_\+ostream\+\_\+init()}}, \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\+\_\+ostream\+\_\+provide()}}, \mbox{\hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{vrna\+\_\+ostream\+\_\+free()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em dat} & The output stream for which the index is requested \\
+\hline
+{\em num} & The index to request data for \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}\label{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}} 
+\index{Buffers@{Buffers}!vrna\_ostream\_provide@{vrna\_ostream\_provide}}
+\index{vrna\_ostream\_provide@{vrna\_ostream\_provide}!Buffers@{Buffers}}
+\doxysubsubsection{\texorpdfstring{vrna\_ostream\_provide()}{vrna\_ostream\_provide()}}
+{\footnotesize\ttfamily void vrna\+\_\+ostream\+\_\+provide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}}}]{dat,  }\item[{unsigned int}]{i,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{datastructures_2stream__output_8h}{Vienna\+RNA/datastructures/stream\+\_\+output.\+h}}$>$}
+
+
+
+Provide output stream data for a particular index. 
+
+\begin{DoxyPrecond}{Precondition}
+The index data is provided for must have been requested using \mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\+\_\+ostream\+\_\+request()}} beforehand.
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\+\_\+ostream\+\_\+request()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em dat} & The output stream for which data is provided \\
+\hline
+{\em i} & The index of the provided data \\
+\hline
+{\em data} & The data provided \\
+\hline
+\end{DoxyParams}

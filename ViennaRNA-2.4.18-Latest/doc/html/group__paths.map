@@ -1,0 +1,7 @@
+<map id="(Re&#45;)folding Paths, Saddle Points, Energy Barriers, and Local Minima" name="(Re&#45;)folding Paths, Saddle Points, Energy Barriers, and Local Minima">
+<area shape="rect" id="node1" href="$group__paths__walk.html" title="Implementation of gradient&#45; and random walks starting from a single secondary structure." alt="" coords="481,5,664,60"/>
+<area shape="rect" id="node2" title="API for various RNA folding path algorithms." alt="" coords="252,92,433,147"/>
+<area shape="rect" id="node3" href="$group__paths__deprecated.html" title=" " alt="" coords="482,85,663,154"/>
+<area shape="rect" id="node4" href="$group__paths__direct.html" title="Heuristics to explore direct, optimal (re&#45;)folding paths between two secondary structures." alt="" coords="489,179,656,233"/>
+<area shape="rect" id="node5" href="$group__landscape.html" title=" " alt="" coords="5,99,204,139"/>
+</map>

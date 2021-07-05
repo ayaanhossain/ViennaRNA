@@ -1,0 +1,4 @@
+<map id="vrna_param_s" name="vrna_param_s">
+<area shape="rect" id="node1" title="The datastructure that contains temperature scaled energy parameters." alt="" coords="5,95,109,121"/>
+<area shape="rect" id="node2" href="$group__model__details.html#structvrna__md__s" title="The data structure that contains the complete model details used throughout the calculations." alt="" coords="14,5,101,32"/>
+</map>

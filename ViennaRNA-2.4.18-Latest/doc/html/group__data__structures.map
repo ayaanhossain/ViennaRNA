@@ -1,0 +1,9 @@
+<map id="(Abstract) Data Structures" name="(Abstract) Data Structures">
+<area shape="rect" id="node1" title="All datastructures and typedefs shared among the ViennaRNA Package can be found here." alt="" coords="120,112,295,137"/>
+<area shape="rect" id="node2" href="$group__fold__compound.html" title="This module provides interfaces that deal with the most basic data structure used in structure predic..." alt="" coords="363,5,503,31"/>
+<area shape="rect" id="node4" href="$group__buffer__utils.html" title="Functions that provide dynamically buffered stream&#45;like data structures." alt="" coords="401,55,465,80"/>
+<area shape="rect" id="node5" href="$group__dp__matrices.html" title="This module provides interfaces that deal with creation and destruction of dynamic programming matric..." alt="" coords="343,105,524,145"/>
+<area shape="rect" id="node6" href="$group__heap__utils.html" title="Interface for an abstract implementation of a heap data structure." alt="" coords="403,169,463,195"/>
+<area shape="rect" id="node7" href="$group__hash__table__utils.html" title="Various implementations of hash table functions." alt="" coords="386,219,481,244"/>
+<area shape="rect" id="node3" href="$group__utils.html" title=" " alt="" coords="5,112,72,137"/>
+</map>

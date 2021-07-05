@@ -1,0 +1,198 @@
+\hypertarget{group__struct__utils__pair__table}{}\doxysection{Pair Table Representation of Secondary Structures}
+\label{group__struct__utils__pair__table}\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Pair Table Representation of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__struct__utils__pair__table}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a pair table from a dot-\/bracket notation of a secondary structure. \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string}} (const char $\ast$string, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Create a pair table for a secondary structure string. \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_gacca520048b24ec5a8978f4dafb4e4bf8}{vrna\+\_\+pt\+\_\+pk\+\_\+get}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a pair table of a secondary structure (pseudo-\/knot version) \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy}} (const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Get an exact copy of a pair table. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__pair__table_ga1ee4cdcda1f57d32dcb38032116d335d}\label{group__struct__utils__pair__table_ga1ee4cdcda1f57d32dcb38032116d335d}} 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_ga1ee4cdcda1f57d32dcb38032116d335d}{vrna\+\_\+pt\+\_\+ali\+\_\+get}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a pair table of a secondary structure (snoop align version) \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_gaef0f7e1a6c00c81a349973de53039dda}{vrna\+\_\+pt\+\_\+snoop\+\_\+get}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a pair table of a secondary structure (snoop version) \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}{vrna\+\_\+pt\+\_\+pk\+\_\+remove}} (const short $\ast$ptable, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Remove pseudo-\/knots from a pair table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}\label{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}} 
+\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}!vrna\_ptable@{vrna\_ptable}}
+\index{vrna\_ptable@{vrna\_ptable}!Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_ptable()}{vrna\_ptable()}}
+{\footnotesize\ttfamily short $\ast$ vrna\+\_\+ptable (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a pair table from a dot-\/bracket notation of a secondary structure. 
+
+Returns a newly allocated table, such that table\mbox{[}i\mbox{]}=j if (i.\+j) pair or 0 if i is unpaired, table\mbox{[}0\mbox{]} contains the length of the structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf9ecd0d7877fecdbb0292e24f40283d5}{vrna\+\_\+db\+\_\+from\+\_\+ptable()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created pair\+\_\+table
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000136}{SWIG Wrapper Notes}}]This functions is wrapped as overloaded function {\ttfamily ptable()} that takes an optional argument {\ttfamily options} to specify which type of matching brackets should be considered during conversion. The default set is round brackets, i.\+e. \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}\label{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}} 
+\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}!vrna\_ptable\_from\_string@{vrna\_ptable\_from\_string}}
+\index{vrna\_ptable\_from\_string@{vrna\_ptable\_from\_string}!Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_ptable\_from\_string()}{vrna\_ptable\_from\_string()}}
+{\footnotesize\ttfamily short $\ast$ vrna\+\_\+ptable\+\_\+from\+\_\+string (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a pair table for a secondary structure string. 
+
+This function takes an input string of a secondary structure annotation in \mbox{\hyperlink{rna_structure_notations_dot-bracket-notation}{Dot-\/\+Bracket Notation (a.\+k.\+a. Dot-\/\+Parenthesis Notation)}} or dot-\/bracket-\/ext-\/notation, and converts it into a pair table representation.
+
+\begin{DoxyNote}{Note}
+This function also extracts crossing base pairs, i.\+e. pseudo-\/knots if more than a single matching bracket type is allowed through the bitmask {\ttfamily options}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf9ecd0d7877fecdbb0292e24f40283d5}{vrna\+\_\+db\+\_\+from\+\_\+ptable()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}}, \mbox{\hyperlink{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}{vrna\+\_\+pt\+\_\+pk\+\_\+remove()}} \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANG}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}{VRNA\+\_\+\+BRACKETS\+\_\+\+CLY}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}{VRNA\+\_\+\+BRACKETS\+\_\+\+SQR}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga7e3f630af8d69bb0e917145aacf2f96d}{VRNA\+\_\+\+BRACKETS\+\_\+\+ALPHA}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANY}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Secondary structure in dot-\/bracket-\/ext-\/notation \\
+\hline
+{\em options} & A bitmask to specify which brackets are recognized during conversion to pair table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a new pair table of the provided secondary structure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000137}{SWIG Wrapper Notes}}]This functions is wrapped as overloaded function {\ttfamily ptable()} that takes an optional argument {\ttfamily options} to specify which type of matching brackets should be considered during conversion. The default set is round brackets, i.\+e. \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__pair__table_gacca520048b24ec5a8978f4dafb4e4bf8}\label{group__struct__utils__pair__table_gacca520048b24ec5a8978f4dafb4e4bf8}} 
+\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}!vrna\_pt\_pk\_get@{vrna\_pt\_pk\_get}}
+\index{vrna\_pt\_pk\_get@{vrna\_pt\_pk\_get}!Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_pt\_pk\_get()}{vrna\_pt\_pk\_get()}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+pt\+\_\+pk\+\_\+get (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a pair table of a secondary structure (pseudo-\/knot version) 
+
+Returns a newly allocated table, such that table\mbox{[}i\mbox{]}=j if (i.\+j) pair or 0 if i is unpaired, table\mbox{[}0\mbox{]} contains the length of the structure.
+
+In contrast to \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}} this function also recognizes the base pairs denoted by \textquotesingle{}\mbox{[}\textquotesingle{} and \textquotesingle{}\mbox{]}\textquotesingle{} brackets. Thus, this function behaves like 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\_ptable\_from\_string}}(structure, \#\mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\_BRACKETS\_RND}} | \mbox{\hyperlink{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}{VRNA\_BRACKETS\_SQR}})}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in (extended) dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created pair\+\_\+table 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}\label{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}} 
+\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}!vrna\_ptable\_copy@{vrna\_ptable\_copy}}
+\index{vrna\_ptable\_copy@{vrna\_ptable\_copy}!Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_ptable\_copy()}{vrna\_ptable\_copy()}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+ptable\+\_\+copy (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Get an exact copy of a pair table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & The pair table to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the copy of \textquotesingle{}pt\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__pair__table_gaef0f7e1a6c00c81a349973de53039dda}\label{group__struct__utils__pair__table_gaef0f7e1a6c00c81a349973de53039dda}} 
+\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}!vrna\_pt\_snoop\_get@{vrna\_pt\_snoop\_get}}
+\index{vrna\_pt\_snoop\_get@{vrna\_pt\_snoop\_get}!Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_pt\_snoop\_get()}{vrna\_pt\_snoop\_get()}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+pt\+\_\+snoop\+\_\+get (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a pair table of a secondary structure (snoop version) 
+
+returns a newly allocated table, such that\+: table\mbox{[}i\mbox{]}=j if (i.\+j) pair or 0 if i is unpaired, table\mbox{[}0\mbox{]} contains the length of the structure. The special pseudoknotted H/\+ACA-\/m\+RNA structure is taken into account. \mbox{\Hypertarget{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}\label{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}} 
+\index{Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}!vrna\_pt\_pk\_remove@{vrna\_pt\_pk\_remove}}
+\index{vrna\_pt\_pk\_remove@{vrna\_pt\_pk\_remove}!Pair Table Representation of Secondary Structures@{Pair Table Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_pt\_pk\_remove()}{vrna\_pt\_pk\_remove()}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+pt\+\_\+pk\+\_\+remove (\begin{DoxyParamCaption}\item[{const short $\ast$}]{ptable,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Remove pseudo-\/knots from a pair table. 
+
+This function removes pseudo-\/knots from an input structure by determining the minimum number of base pairs that need to be removed to make the structure pseudo-\/knot free.
+
+To accomplish that, we use a dynamic programming algorithm similar to the Nussinov maxmimum matching approach.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em ptable} & Input structure that may include pseudo-\/knots \\
+\hline
+{\em options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input structure devoid of pseudo-\/knots 
+\end{DoxyReturn}

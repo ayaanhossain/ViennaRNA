@@ -1,0 +1,45 @@
+\hypertarget{profiledist_8h_source}{}\doxysection{profiledist.\+h}
+\label{profiledist_8h_source}\index{ViennaRNA/profiledist.h@{ViennaRNA/profiledist.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PROFILEDIST\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PROFILEDIST\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{profiledist_8h_source_l00028}\mbox{\hyperlink{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}{00028}} \textcolor{keywordtype}{float} \mbox{\hyperlink{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}{profile\_edit\_distance}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float} *T1,}
+\DoxyCodeLine{00029                             \textcolor{keyword}{const} \textcolor{keywordtype}{float} *T2);}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{\Hypertarget{profiledist_8h_source_l00042}\mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{00042}} \textcolor{keywordtype}{float} *\mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\_bp\_profile\_bppm}}(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  *bppm,}
+\DoxyCodeLine{00043                             \textcolor{keywordtype}{int}         length);}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{\Hypertarget{profiledist_8h_source_l00049}\mbox{\hyperlink{profiledist_8h_a8e0b4fe3698b3502945116ecc0ba6160}{00049}} \textcolor{keywordtype}{void}  \mbox{\hyperlink{profiledist_8h_a8e0b4fe3698b3502945116ecc0ba6160}{print\_bppm}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float} *T);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{\Hypertarget{profiledist_8h_source_l00057}\mbox{\hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{00057}} \textcolor{keywordtype}{void}  \mbox{\hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{free\_profile}}(\textcolor{keywordtype}{float} *T);}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00068 DEPRECATED(\textcolor{keywordtype}{float} *\mbox{\hyperlink{profiledist_8h_a904c7eaf4a2413567c00ac4891749d18}{Make\_bp\_profile}}(\textcolor{keywordtype}{int} length),}
+\DoxyCodeLine{\Hypertarget{profiledist_8h_source_l00069}\mbox{\hyperlink{profiledist_8h_a904c7eaf4a2413567c00ac4891749d18}{00069}} \textcolor{stringliteral}{"{}Use Make\_bp\_profile\_bppm() instead"{}});}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

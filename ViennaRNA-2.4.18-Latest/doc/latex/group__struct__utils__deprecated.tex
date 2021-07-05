@@ -1,0 +1,594 @@
+\hypertarget{group__struct__utils__deprecated}{}\doxysection{Deprecated Interface for Secondary Structure Utilities}
+\label{group__struct__utils__deprecated}\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Secondary Structure Utilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{group__struct__utils__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{RNAstruct_8h}{RNAstruct.\+h}}
+\begin{DoxyCompactList}\small\item\em Parsing and Coarse Graining of Structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga07b7e90e712559a1992fba3ac6d21bbd}{b2\+HIT}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Converts the full structure from bracket notation to the HIT notation including root. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2C}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Converts the full structure from bracket notation to the a coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga5cd2feb367feeacad0c03cb7ddba5f10}{b2\+Shapiro}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Converts the full structure from bracket notation to the {\itshape weighted} coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} \textquotesingle{}S\textquotesingle{} \textquotesingle{}E\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga880d33066dd95441e5fbb73c57ed1c3e}{add\+\_\+root}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Adds a root to an un-\/rooted tree in any except bracket notation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_gabe3d815b420dc4553bfb23511198b4c6}{expand\+\_\+\+Shapiro}} (const char $\ast$coarse)
+\begin{DoxyCompactList}\small\item\em Inserts missing \textquotesingle{}S\textquotesingle{} identifiers in unweighted coarse grained structures as obtained from \mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2\+C()}}. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}{expand\+\_\+\+Full}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Convert the full structure from bracket notation to the expanded notation including root. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga260c4b622093b76a883bf96628280de1}{unexpand\+\_\+\+Full}} (const char $\ast$ffull)
+\begin{DoxyCompactList}\small\item\em Restores the bracket notation from an expanded full or HIT tree, that is any tree using only identifiers \textquotesingle{}U\textquotesingle{} \textquotesingle{}P\textquotesingle{} and \textquotesingle{}R\textquotesingle{}. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga09a80253ac7b6bae606871ba7c6e5136}{unweight}} (const char $\ast$wcoarse)
+\begin{DoxyCompactList}\small\item\em Strip weights from any weighted tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}{unexpand\+\_\+aligned\+\_\+F}} (char $\ast$align\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts two aligned structures in expanded notation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_ga3c79042e6bf6f01706bf30ec9e69e8ac}{parse\+\_\+structure}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Collects a statistic of structure elements of the full structure in bracket notation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_gac6dfa5e22928c087c6e09ff0054a7ced}{pack\+\_\+structure}} (const char $\ast$struc)
+\begin{DoxyCompactList}\small\item\em Pack secondary secondary structure, 5\+:1 compression using base 3 encoding. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga071c6921efe1eb974f115ee6fefa3c39}{unpack\+\_\+structure}} (const char $\ast$packed)
+\begin{DoxyCompactList}\small\item\em Unpack secondary structure previously packed with \mbox{\hyperlink{group__struct__utils__deprecated_gac6dfa5e22928c087c6e09ff0054a7ced}{pack\+\_\+structure()}} \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}{make\+\_\+pair\+\_\+table}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a pair table of a secondary structure. \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_gafeaa6d68eef3a99d0a7aa08aa91c6601}{copy\+\_\+pair\+\_\+table}} (const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Get an exact copy of a pair table. \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga3c81b3967056c3888b8472b65fbb16f5}{alimake\+\_\+pair\+\_\+table}} (const char $\ast$structure)
+\item 
+short $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga9aa3bf3b4346bb7fb88efc154dd07a79}{make\+\_\+pair\+\_\+table\+\_\+snoop}} (const char $\ast$structure)
+\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga6ebbcd29a754f0e4f1a66d1fd84184db}{bp\+\_\+distance}} (const char $\ast$str1, const char $\ast$str2)
+\begin{DoxyCompactList}\small\item\em Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2. \end{DoxyCompactList}\item 
+unsigned int $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga578cd9712dee812fb1c58aa3cc489864}{make\+\_\+reference\+BP\+\_\+array}} (short $\ast$reference\+\_\+pt, unsigned int turn)
+\begin{DoxyCompactList}\small\item\em Make a reference base pair count matrix. \end{DoxyCompactList}\item 
+unsigned int $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_gadd463184355d0803b6ee6e09f29182f2}{compute\+\_\+\+BPdifferences}} (short $\ast$pt1, short $\ast$pt2, unsigned int turn)
+\begin{DoxyCompactList}\small\item\em Make a reference base pair distance matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_gadf0ad2d46c9ca7b850437d1b79627a7e}{parenthesis\+\_\+structure}} (char $\ast$structure, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp, int length)
+\begin{DoxyCompactList}\small\item\em Create a dot-\/backet/parenthesis structure from backtracking stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_gab9c5c8311bd5120900585d4fa50c2df0}{parenthesis\+\_\+zuker}} (char $\ast$structure, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp, int length)
+\begin{DoxyCompactList}\small\item\em Create a dot-\/backet/parenthesis structure from backtracking stack obtained by zuker suboptimal calculation in cofold.\+c. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_ga129d81c4a1ead793c5b2311333e03dfa}{bppm\+\_\+to\+\_\+structure}} (char $\ast$structure, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Create a dot-\/bracket like structure string from base pair probability matrix. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{group__struct__utils__deprecated_ga49962ad6242b8c628de6ca16bb831c1d}{bppm\+\_\+symbol}} (const float $\ast$x)
+\begin{DoxyCompactList}\small\item\em Get a pseudo dot bracket notation for a given probability information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga365a3fad38b21ca8606cb556f2896218}\label{group__struct__utils__deprecated_ga365a3fad38b21ca8606cb556f2896218}} 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga365a3fad38b21ca8606cb556f2896218}{loop\+\_\+size}} \mbox{[}2000\mbox{]}
+\begin{DoxyCompactList}\small\item\em contains a list of all loop sizes. loop\+\_\+size\mbox{[}0\mbox{]} contains the number of external bases. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga3fce53616c021cbc724fc80b8c1ebeb5}\label{group__struct__utils__deprecated_ga3fce53616c021cbc724fc80b8c1ebeb5}} 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga3fce53616c021cbc724fc80b8c1ebeb5}{helix\+\_\+size}} \mbox{[}2000\mbox{]}
+\begin{DoxyCompactList}\small\item\em contains a list of all stack sizes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga0518a287aa4a870508cea819029778ab}\label{group__struct__utils__deprecated_ga0518a287aa4a870508cea819029778ab}} 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga0518a287aa4a870508cea819029778ab}{loop\+\_\+degree}} \mbox{[}2000\mbox{]}
+\begin{DoxyCompactList}\small\item\em contains the corresponding list of loop degrees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga439fcb9f8d4f9f4d2227fde5fbfecb30}\label{group__struct__utils__deprecated_ga439fcb9f8d4f9f4d2227fde5fbfecb30}} 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga439fcb9f8d4f9f4d2227fde5fbfecb30}{loops}}
+\begin{DoxyCompactList}\small\item\em contains the number of loops ( and therefore of stacks ). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}\label{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}} 
+int \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}}
+\begin{DoxyCompactList}\small\item\em contains the number of unpaired bases. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}\label{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}} 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}{pairs}}
+\begin{DoxyCompactList}\small\item\em contains the number of base pairs in the last parsed structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga07b7e90e712559a1992fba3ac6d21bbd}\label{group__struct__utils__deprecated_ga07b7e90e712559a1992fba3ac6d21bbd}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!b2HIT@{b2HIT}}
+\index{b2HIT@{b2HIT}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{b2HIT()}{b2HIT()}}
+{\footnotesize\ttfamily char$\ast$ b2\+HIT (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Converts the full structure from bracket notation to the HIT notation including root. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000129}{Deprecated}}]See \mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} and \mbox{\hyperlink{group__struct__utils__tree_ga3ad5609bc93ef20034c3ab989365c1f0}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+HIT}} for a replacement\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}\label{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!b2C@{b2C}}
+\index{b2C@{b2C}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{b2C()}{b2C()}}
+{\footnotesize\ttfamily char$\ast$ b2C (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Converts the full structure from bracket notation to the a coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000130}{Deprecated}}]See \mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} and \mbox{\hyperlink{group__struct__utils__tree_ga549e259a963d77e2d5b7e14083fc016e}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+SHORT}} for a replacement\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga5cd2feb367feeacad0c03cb7ddba5f10}\label{group__struct__utils__deprecated_ga5cd2feb367feeacad0c03cb7ddba5f10}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!b2Shapiro@{b2Shapiro}}
+\index{b2Shapiro@{b2Shapiro}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{b2Shapiro()}{b2Shapiro()}}
+{\footnotesize\ttfamily char$\ast$ b2\+Shapiro (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Converts the full structure from bracket notation to the {\itshape weighted} coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} \textquotesingle{}S\textquotesingle{} \textquotesingle{}E\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000131}{Deprecated}}]See \mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} and \mbox{\hyperlink{group__struct__utils__tree_ga91f2e3a3a502d5445fd7fe5983a5fe92}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+WEIGHT}} for a replacement\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga880d33066dd95441e5fbb73c57ed1c3e}\label{group__struct__utils__deprecated_ga880d33066dd95441e5fbb73c57ed1c3e}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!add\_root@{add\_root}}
+\index{add\_root@{add\_root}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{add\_root()}{add\_root()}}
+{\footnotesize\ttfamily char$\ast$ add\+\_\+root (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Adds a root to an un-\/rooted tree in any except bracket notation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_gabe3d815b420dc4553bfb23511198b4c6}\label{group__struct__utils__deprecated_gabe3d815b420dc4553bfb23511198b4c6}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!expand\_Shapiro@{expand\_Shapiro}}
+\index{expand\_Shapiro@{expand\_Shapiro}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{expand\_Shapiro()}{expand\_Shapiro()}}
+{\footnotesize\ttfamily char$\ast$ expand\+\_\+\+Shapiro (\begin{DoxyParamCaption}\item[{const char $\ast$}]{coarse }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Inserts missing \textquotesingle{}S\textquotesingle{} identifiers in unweighted coarse grained structures as obtained from \mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2\+C()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coarse} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}\label{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!expand\_Full@{expand\_Full}}
+\index{expand\_Full@{expand\_Full}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{expand\_Full()}{expand\_Full()}}
+{\footnotesize\ttfamily char$\ast$ expand\+\_\+\+Full (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Convert the full structure from bracket notation to the expanded notation including root. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga260c4b622093b76a883bf96628280de1}\label{group__struct__utils__deprecated_ga260c4b622093b76a883bf96628280de1}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!unexpand\_Full@{unexpand\_Full}}
+\index{unexpand\_Full@{unexpand\_Full}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{unexpand\_Full()}{unexpand\_Full()}}
+{\footnotesize\ttfamily char$\ast$ unexpand\+\_\+\+Full (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ffull }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Restores the bracket notation from an expanded full or HIT tree, that is any tree using only identifiers \textquotesingle{}U\textquotesingle{} \textquotesingle{}P\textquotesingle{} and \textquotesingle{}R\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ffull} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga09a80253ac7b6bae606871ba7c6e5136}\label{group__struct__utils__deprecated_ga09a80253ac7b6bae606871ba7c6e5136}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!unweight@{unweight}}
+\index{unweight@{unweight}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{unweight()}{unweight()}}
+{\footnotesize\ttfamily char$\ast$ unweight (\begin{DoxyParamCaption}\item[{const char $\ast$}]{wcoarse }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Strip weights from any weighted tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wcoarse} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}\label{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!unexpand\_aligned\_F@{unexpand\_aligned\_F}}
+\index{unexpand\_aligned\_F@{unexpand\_aligned\_F}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{unexpand\_aligned\_F()}{unexpand\_aligned\_F()}}
+{\footnotesize\ttfamily void unexpand\+\_\+aligned\+\_\+F (\begin{DoxyParamCaption}\item[{char $\ast$}]{align\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Converts two aligned structures in expanded notation. 
+
+Takes two aligned structures as produced by \mbox{\hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}} function back to bracket notation with \textquotesingle{}\+\_\+\textquotesingle{} as the gap character. The result overwrites the input.
+
+
+\begin{DoxyParams}{Parameters}
+{\em align} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga3c79042e6bf6f01706bf30ec9e69e8ac}\label{group__struct__utils__deprecated_ga3c79042e6bf6f01706bf30ec9e69e8ac}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!parse\_structure@{parse\_structure}}
+\index{parse\_structure@{parse\_structure}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{parse\_structure()}{parse\_structure()}}
+{\footnotesize\ttfamily void parse\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAstruct_8h}{Vienna\+RNA/\+RNAstruct.\+h}}$>$}
+
+
+
+Collects a statistic of structure elements of the full structure in bracket notation. 
+
+The function writes to the following global variables\+: \mbox{\hyperlink{group__struct__utils__deprecated_ga365a3fad38b21ca8606cb556f2896218}{loop\+\_\+size}}, \mbox{\hyperlink{group__struct__utils__deprecated_ga0518a287aa4a870508cea819029778ab}{loop\+\_\+degree}}, \mbox{\hyperlink{group__struct__utils__deprecated_ga3fce53616c021cbc724fc80b8c1ebeb5}{helix\+\_\+size}}, \mbox{\hyperlink{group__struct__utils__deprecated_ga439fcb9f8d4f9f4d2227fde5fbfecb30}{loops}}, \mbox{\hyperlink{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}{pairs}}, \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_gac6dfa5e22928c087c6e09ff0054a7ced}\label{group__struct__utils__deprecated_gac6dfa5e22928c087c6e09ff0054a7ced}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!pack\_structure@{pack\_structure}}
+\index{pack\_structure@{pack\_structure}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{pack\_structure()}{pack\_structure()}}
+{\footnotesize\ttfamily char$\ast$ pack\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{struc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Pack secondary secondary structure, 5\+:1 compression using base 3 encoding. 
+
+Returns a binary string encoding of the secondary structure using a 5\+:1 compression scheme. The string is NULL terminated and can therefore be used with standard string functions such as strcmp(). Useful for programs that need to keep many structures in memory.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000200}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}} as a replacement\end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em struc} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The binary encoded structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga071c6921efe1eb974f115ee6fefa3c39}\label{group__struct__utils__deprecated_ga071c6921efe1eb974f115ee6fefa3c39}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!unpack\_structure@{unpack\_structure}}
+\index{unpack\_structure@{unpack\_structure}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{unpack\_structure()}{unpack\_structure()}}
+{\footnotesize\ttfamily char$\ast$ unpack\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{packed }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Unpack secondary structure previously packed with \mbox{\hyperlink{group__struct__utils__deprecated_gac6dfa5e22928c087c6e09ff0054a7ced}{pack\+\_\+structure()}} 
+
+Translate a compressed binary string produced by \mbox{\hyperlink{group__struct__utils__deprecated_gac6dfa5e22928c087c6e09ff0054a7ced}{pack\+\_\+structure()}} back into the familiar dot-\/bracket notation.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000201}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__dot__bracket_ga6490adff857d84ce06e6f379ae3a4512}{vrna\+\_\+db\+\_\+unpack()}} as a replacement\end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em packed} & The binary encoded packed secondary structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The unpacked secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}\label{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!make\_pair\_table@{make\_pair\_table}}
+\index{make\_pair\_table@{make\_pair\_table}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{make\_pair\_table()}{make\_pair\_table()}}
+{\footnotesize\ttfamily short$\ast$ make\+\_\+pair\+\_\+table (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a pair table of a secondary structure. 
+
+Returns a newly allocated table, such that table\mbox{[}i\mbox{]}=j if (i.\+j) pair or 0 if i is unpaired, table\mbox{[}0\mbox{]} contains the length of the structure.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000202}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}} instead \end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created pair\+\_\+table 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_gafeaa6d68eef3a99d0a7aa08aa91c6601}\label{group__struct__utils__deprecated_gafeaa6d68eef3a99d0a7aa08aa91c6601}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!copy\_pair\_table@{copy\_pair\_table}}
+\index{copy\_pair\_table@{copy\_pair\_table}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{copy\_pair\_table()}{copy\_pair\_table()}}
+{\footnotesize\ttfamily short$\ast$ copy\+\_\+pair\+\_\+table (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Get an exact copy of a pair table. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000203}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}} instead \end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & The pair table to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the copy of \textquotesingle{}pt\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga3c81b3967056c3888b8472b65fbb16f5}\label{group__struct__utils__deprecated_ga3c81b3967056c3888b8472b65fbb16f5}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!alimake\_pair\_table@{alimake\_pair\_table}}
+\index{alimake\_pair\_table@{alimake\_pair\_table}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{alimake\_pair\_table()}{alimake\_pair\_table()}}
+{\footnotesize\ttfamily short$\ast$ alimake\+\_\+pair\+\_\+table (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+Pair table for snoop align
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000204}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__pair__table_ga1ee4cdcda1f57d32dcb38032116d335d}{vrna\+\_\+pt\+\_\+ali\+\_\+get()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga9aa3bf3b4346bb7fb88efc154dd07a79}\label{group__struct__utils__deprecated_ga9aa3bf3b4346bb7fb88efc154dd07a79}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!make\_pair\_table\_snoop@{make\_pair\_table\_snoop}}
+\index{make\_pair\_table\_snoop@{make\_pair\_table\_snoop}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{make\_pair\_table\_snoop()}{make\_pair\_table\_snoop()}}
+{\footnotesize\ttfamily short$\ast$ make\+\_\+pair\+\_\+table\+\_\+snoop (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+returns a newly allocated table, such that\+: table\mbox{[}i\mbox{]}=j if (i.\+j) pair or 0 if i is unpaired, table\mbox{[}0\mbox{]} contains the length of the structure. The special pseudoknotted H/\+ACA-\/m\+RNA structure is taken into account. \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000205}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__pair__table_gaef0f7e1a6c00c81a349973de53039dda}{vrna\+\_\+pt\+\_\+snoop\+\_\+get()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga6ebbcd29a754f0e4f1a66d1fd84184db}\label{group__struct__utils__deprecated_ga6ebbcd29a754f0e4f1a66d1fd84184db}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!bp\_distance@{bp\_distance}}
+\index{bp\_distance@{bp\_distance}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{bp\_distance()}{bp\_distance()}}
+{\footnotesize\ttfamily int bp\+\_\+distance (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str1,  }\item[{const char $\ast$}]{str2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2. 
+
+The sequences should have the same length. dist = number of base pairs in one structure but not in the other same as edit distance with open-\/pair close-\/pair as move-\/set
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000206}{Deprecated}}]Use vrna\+\_\+bp\+\_\+distance instead\end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em str1} & First structure in dot-\/bracket notation \\
+\hline
+{\em str2} & Second structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base pair distance between str1 and str2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga578cd9712dee812fb1c58aa3cc489864}\label{group__struct__utils__deprecated_ga578cd9712dee812fb1c58aa3cc489864}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!make\_referenceBP\_array@{make\_referenceBP\_array}}
+\index{make\_referenceBP\_array@{make\_referenceBP\_array}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{make\_referenceBP\_array()}{make\_referenceBP\_array()}}
+{\footnotesize\ttfamily unsigned int$\ast$ make\+\_\+reference\+BP\+\_\+array (\begin{DoxyParamCaption}\item[{short $\ast$}]{reference\+\_\+pt,  }\item[{unsigned int}]{turn }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Make a reference base pair count matrix. 
+
+Get an upper triangular matrix containing the number of basepairs of a reference structure for each interval \mbox{[}i,j\mbox{]} with i$<$j. Access it via iindx!!!
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000207}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils_gab4c2a00c99ce1d612ffa5bde114eb96d}{vrna\+\_\+ref\+BPcnt\+\_\+matrix()}} instead\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__deprecated_gadd463184355d0803b6ee6e09f29182f2}\label{group__struct__utils__deprecated_gadd463184355d0803b6ee6e09f29182f2}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!compute\_BPdifferences@{compute\_BPdifferences}}
+\index{compute\_BPdifferences@{compute\_BPdifferences}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{compute\_BPdifferences()}{compute\_BPdifferences()}}
+{\footnotesize\ttfamily unsigned int$\ast$ compute\+\_\+\+BPdifferences (\begin{DoxyParamCaption}\item[{short $\ast$}]{pt1,  }\item[{short $\ast$}]{pt2,  }\item[{unsigned int}]{turn }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Make a reference base pair distance matrix. 
+
+Get an upper triangular matrix containing the base pair distance of two reference structures for each interval \mbox{[}i,j\mbox{]} with i$<$j. Access it via iindx!!!
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000208}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils_ga5a27bd058183170afd4716f5b8ff511a}{vrna\+\_\+ref\+BPdist\+\_\+matrix()}} instead\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__deprecated_gadf0ad2d46c9ca7b850437d1b79627a7e}\label{group__struct__utils__deprecated_gadf0ad2d46c9ca7b850437d1b79627a7e}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!parenthesis\_structure@{parenthesis\_structure}}
+\index{parenthesis\_structure@{parenthesis\_structure}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{parenthesis\_structure()}{parenthesis\_structure()}}
+{\footnotesize\ttfamily void parenthesis\+\_\+structure (\begin{DoxyParamCaption}\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$}]{bp,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a dot-\/backet/parenthesis structure from backtracking stack. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000210}{Deprecated}}]use vrna\+\_\+parenthesis\+\_\+structure() instead \end{DoxyRefDesc}
+
+
+\begin{DoxyNote}{Note}
+This function is threadsafe 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__struct__utils__deprecated_gab9c5c8311bd5120900585d4fa50c2df0}\label{group__struct__utils__deprecated_gab9c5c8311bd5120900585d4fa50c2df0}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!parenthesis\_zuker@{parenthesis\_zuker}}
+\index{parenthesis\_zuker@{parenthesis\_zuker}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{parenthesis\_zuker()}{parenthesis\_zuker()}}
+{\footnotesize\ttfamily void parenthesis\+\_\+zuker (\begin{DoxyParamCaption}\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$}]{bp,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a dot-\/backet/parenthesis structure from backtracking stack obtained by zuker suboptimal calculation in cofold.\+c. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000211}{Deprecated}}]use vrna\+\_\+parenthesis\+\_\+zuker instead \end{DoxyRefDesc}
+
+
+\begin{DoxyNote}{Note}
+This function is threadsafe 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga129d81c4a1ead793c5b2311333e03dfa}\label{group__struct__utils__deprecated_ga129d81c4a1ead793c5b2311333e03dfa}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!bppm\_to\_structure@{bppm\_to\_structure}}
+\index{bppm\_to\_structure@{bppm\_to\_structure}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{bppm\_to\_structure()}{bppm\_to\_structure()}}
+{\footnotesize\ttfamily void bppm\+\_\+to\+\_\+structure (\begin{DoxyParamCaption}\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{pr,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a dot-\/bracket like structure string from base pair probability matrix. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000212}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils_ga0c28c410a5ab22d6ab9c77a84e8d5b44}{vrna\+\_\+db\+\_\+from\+\_\+probs()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__deprecated_ga49962ad6242b8c628de6ca16bb831c1d}\label{group__struct__utils__deprecated_ga49962ad6242b8c628de6ca16bb831c1d}} 
+\index{Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}!bppm\_symbol@{bppm\_symbol}}
+\index{bppm\_symbol@{bppm\_symbol}!Deprecated Interface for Secondary Structure Utilities@{Deprecated Interface for Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{bppm\_symbol()}{bppm\_symbol()}}
+{\footnotesize\ttfamily char bppm\+\_\+symbol (\begin{DoxyParamCaption}\item[{const float $\ast$}]{x }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Get a pseudo dot bracket notation for a given probability information. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000213}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils_ga025bff1b27fa46534c8fae6980f64bb5}{vrna\+\_\+bpp\+\_\+symbol()}} instead!\end{DoxyRefDesc}

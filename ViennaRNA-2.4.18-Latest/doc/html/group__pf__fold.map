@@ -1,0 +1,7 @@
+<map id="Partition Function and Equilibrium Properties" name="Partition Function and Equilibrium Properties">
+<area shape="rect" id="node1" title="Compute the partition function to assess various equilibrium properties." alt="" coords="5,118,184,158"/>
+<area shape="rect" id="node2" href="$group__cofold.html" title=" " alt="" coords="368,5,516,31"/>
+<area shape="rect" id="node3" href="$group__part__func__window.html" title="Scanning version using a sliding window approach to compute equilibrium probabilities." alt="" coords="359,55,525,109"/>
+<area shape="rect" id="node4" href="$group__pf__cofold.html" title="Partition Function Cofolding." alt="" coords="375,133,509,188"/>
+<area shape="rect" id="node5" href="$group__part__func__global.html" title="Variations of the global partition function algorithm." alt="" coords="347,215,537,255"/>
+</map>

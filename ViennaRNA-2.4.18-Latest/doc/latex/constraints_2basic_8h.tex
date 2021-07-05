@@ -1,0 +1,78 @@
+\hypertarget{constraints_2basic_8h}{}\doxysection{Vienna\+RNA/constraints/basic.h File Reference}
+\label{constraints_2basic_8h}\index{ViennaRNA/constraints/basic.h@{ViennaRNA/constraints/basic.h}}
+
+
+Functions and data structures for constraining secondary structure predictions and evaluation.  
+
+
+Include dependency graph for basic.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{constraints_2basic_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{constraints_2basic_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+FILE}}~0
+\begin{DoxyCompactList}\small\item\em Flag for \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}} to indicate that constraints are present in a text file. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga62aa195893d02d1a79ca94952748df36}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+SOFT\+\_\+\+MFE}}~0
+\begin{DoxyCompactList}\small\item\em Indicate generation of constraints for MFE folding. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+SOFT\+\_\+\+PF}}~\mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}}
+\begin{DoxyCompactList}\small\item\em Indicate generation of constraints for partition function computation. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+HP}}~(unsigned char)1
+\begin{DoxyCompactList}\small\item\em Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+IL}}~(unsigned char)2
+\begin{DoxyCompactList}\small\item\em Indicator for interior loop decomposition step. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+ML}}~(unsigned char)3
+\begin{DoxyCompactList}\small\item\em Indicator for multibranch loop decomposition step. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+ML}}~(unsigned char)5
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+STEM}}~(unsigned char)6
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML}}~(unsigned char)7
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+UP}}~(unsigned char)8
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+STEM}}~(unsigned char)9
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga4fe48d575830b16c208e280e01ab1497}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL}}~(unsigned char)10
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL\+\_\+\+ENC}}~(unsigned char)11
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT}}~(unsigned char)12
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+UP}}~(unsigned char)13
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM}}~(unsigned char)14
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+EXT}}~(unsigned char)15
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+EXT}}~(unsigned char)16
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gae7554cd3ff089360c02e4920229e221c}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+OUTSIDE}}~(unsigned char)17
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM}}~(unsigned char)18
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga2e75d7a77118735b32f25422d9686719}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM1}}~(unsigned char)19
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$constraint, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add constraints to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions and data structures for constraining secondary structure predictions and evaluation. 
+

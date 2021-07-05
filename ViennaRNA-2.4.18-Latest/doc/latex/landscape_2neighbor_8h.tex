@@ -1,0 +1,55 @@
+\hypertarget{landscape_2neighbor_8h}{}\doxysection{Vienna\+RNA/landscape/neighbor.h File Reference}
+\label{landscape_2neighbor_8h}\index{ViennaRNA/landscape/neighbor.h@{ViennaRNA/landscape/neighbor.h}}
+
+
+Methods to compute the neighbors of an RNA secondary structure.  
+
+
+Include dependency graph for neighbor.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{landscape_2neighbor_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{landscape_2neighbor_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__neighbors_gae72b0e349b6108c00737df51cce44622}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+CHANGE}}~1
+\begin{DoxyCompactList}\small\item\em State indicator for a neighbor that has been changed. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+INVALID}}~2
+\begin{DoxyCompactList}\small\item\em State indicator for a neighbor that has been invalidated. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+NEW}}~3
+\begin{DoxyCompactList}\small\item\em State indicator for a neighbor that has become newly available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\+\_\+callback\+\_\+move\+\_\+update}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} neighbor, unsigned int state, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Prototype of the neighborhood update callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}{vrna\+\_\+loopidx\+\_\+update}} (int $\ast$loopidx, const short $\ast$pt, int length, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Alters the loop\+Indices array that was constructed with \mbox{\hyperlink{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}{vrna\+\_\+loopidx\+\_\+from\+\_\+ptable()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const short $\ast$pt, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate neighbors of a secondary structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}} (const \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$curr\+\_\+move, const short $\ast$prev\+\_\+pt, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$prev\+\_\+neighbors, int size\+\_\+prev\+\_\+neighbors, int $\ast$size\+\_\+neighbors, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate neighbors of a secondary structure (the fast way) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, short $\ast$ptable, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} move, \mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\+\_\+callback\+\_\+move\+\_\+update}} $\ast$cb, void $\ast$data, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Apply a move to a secondary structure and indicate which neighbors have changed consequentially. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, short $\ast$ptable, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} move, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$$\ast$invalid\+\_\+moves, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Apply a move to a secondary structure and indicate which neighbors have changed consequentially. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Methods to compute the neighbors of an RNA secondary structure. 
+

@@ -1,0 +1,136 @@
+\hypertarget{group__paths__deprecated}{}\doxysection{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}
+\label{group__paths__deprecated}\index{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__paths__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}} \mbox{\hyperlink{group__paths__deprecated_gab6b8737d5377e70a7815d04aae7fd884}{path\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__paths__deprecated_ga4c0dabf032c04eeab9c7370d15db6ad2}{find\+\_\+saddle}} (const char $\ast$seq, const char $\ast$s1, const char $\ast$s2, int width)
+\begin{DoxyCompactList}\small\item\em Find energy of a saddle point between 2 structures (search only direct path) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__paths__deprecated_ga9056421d716ae89f0ed3f107627f395b}{free\+\_\+path}} (\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$path)
+\begin{DoxyCompactList}\small\item\em Free memory allocated by \mbox{\hyperlink{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}{get\+\_\+path()}} function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}{get\+\_\+path}} (const char $\ast$seq, const char $\ast$s1, const char $\ast$s2, int width)
+\begin{DoxyCompactList}\small\item\em Find refolding path between 2 structures (search only direct path) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__paths__deprecated_gab6b8737d5377e70a7815d04aae7fd884}\label{group__paths__deprecated_gab6b8737d5377e70a7815d04aae7fd884}} 
+\index{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}!path\_t@{path\_t}}
+\index{path\_t@{path\_t}!Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}}
+\doxysubsubsection{\texorpdfstring{path\_t}{path\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}} \mbox{\hyperlink{group__paths__deprecated_gab6b8737d5377e70a7815d04aae7fd884}{path\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{paths_8h}{Vienna\+RNA/landscape/paths.\+h}}$>$}
+
+
+
+Old typename of \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000170}{Deprecated}}]Use \mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} instead!\end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__paths__deprecated_ga4c0dabf032c04eeab9c7370d15db6ad2}\label{group__paths__deprecated_ga4c0dabf032c04eeab9c7370d15db6ad2}} 
+\index{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}!find\_saddle@{find\_saddle}}
+\index{find\_saddle@{find\_saddle}!Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}}
+\doxysubsubsection{\texorpdfstring{find\_saddle()}{find\_saddle()}}
+{\footnotesize\ttfamily int find\+\_\+saddle (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2,  }\item[{int}]{width }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2findpath_8h}{Vienna\+RNA/landscape/findpath.\+h}}$>$}
+
+
+
+Find energy of a saddle point between 2 structures (search only direct path) 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000167}{Deprecated}}]Use \mbox{\hyperlink{group__paths__direct_gad77dbfa125158f534147c0015a849bc3}{vrna\+\_\+path\+\_\+findpath\+\_\+saddle()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & RNA sequence \\
+\hline
+{\em s1} & A pointer to the character array where the first secondary structure in dot-\/bracket notation will be written to \\
+\hline
+{\em s2} & A pointer to the character array where the second secondary structure in dot-\/bracket notation will be written to \\
+\hline
+{\em width} & integer how many strutures are being kept during the search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the saddle energy in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__paths__deprecated_ga9056421d716ae89f0ed3f107627f395b}\label{group__paths__deprecated_ga9056421d716ae89f0ed3f107627f395b}} 
+\index{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}!free\_path@{free\_path}}
+\index{free\_path@{free\_path}!Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}}
+\doxysubsubsection{\texorpdfstring{free\_path()}{free\_path()}}
+{\footnotesize\ttfamily void free\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2findpath_8h}{Vienna\+RNA/landscape/findpath.\+h}}$>$}
+
+
+
+Free memory allocated by \mbox{\hyperlink{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}{get\+\_\+path()}} function. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000168}{Deprecated}}]Use \mbox{\hyperlink{group__paths_ga3763dc16760d09277a1b1c3f3061d0c7}{vrna\+\_\+path\+\_\+free()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & pointer to memory to be freed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}\label{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}} 
+\index{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}!get\_path@{get\_path}}
+\index{get\_path@{get\_path}!Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers@{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}}
+\doxysubsubsection{\texorpdfstring{get\_path()}{get\_path()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}}$\ast$ get\+\_\+path (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2,  }\item[{int}]{width }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2findpath_8h}{Vienna\+RNA/landscape/findpath.\+h}}$>$}
+
+
+
+Find refolding path between 2 structures (search only direct path) 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000169}{Deprecated}}]Use \mbox{\hyperlink{group__paths__direct_ga2fed8ff126f5becd82cedd81a25c9bf0}{vrna\+\_\+path\+\_\+findpath()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & RNA sequence \\
+\hline
+{\em s1} & A pointer to the character array where the first secondary structure in dot-\/bracket notation will be written to \\
+\hline
+{\em s2} & A pointer to the character array where the second secondary structure in dot-\/bracket notation will be written to \\
+\hline
+{\em width} & integer how many strutures are being kept during the search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+direct refolding path between two structures 
+\end{DoxyReturn}

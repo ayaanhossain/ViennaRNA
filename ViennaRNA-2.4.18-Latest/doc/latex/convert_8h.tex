@@ -1,0 +1,72 @@
+\hypertarget{convert_8h}{}\doxysection{Vienna\+RNA/params/convert.h File Reference}
+\label{convert_8h}\index{ViennaRNA/params/convert.h@{ViennaRNA/params/convert.h}}
+
+
+Functions and definitions for energy parameter file format conversion.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{convert_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga8dc6aee5a806c49b71557152f9616bc4}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+ALL}}~1U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaf66fe2cb11dfcfd32d791049c254a8a4}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+HP}}~2U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gad23522d63f8d4c50d5a5deee9bee3ef2}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+STACK}}~4U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaa892c7b4957459090f3e08da298cc347}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MM\+\_\+\+HP}}~8U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga4ff223fb1f9c62cd92d9ab811ad03d55}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MM\+\_\+\+INT}}~16U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaf5d3743219f83c6348155cd81e755bbb}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MM\+\_\+\+INT\+\_\+1N}}~32U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga78382ec622ba99e0ac2262317bdd7316}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MM\+\_\+\+INT\+\_\+23}}~64U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gae67af9f1cdf7baf2865481282a5d1034}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MM\+\_\+\+MULTI}}~128U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaf14ead7ef1fdbe725ade653750fc51e3}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MM\+\_\+\+EXT}}~256U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga036ffd996d8c8a9acf631760dd1da24b}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+DANGLE5}}~512U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga34a8a5479ef885834ef32f3fb43d79bc}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+DANGLE3}}~1024U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga079aafefd5f8ab57ee5120099a34bd25}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+INT\+\_\+11}}~2048U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gacf770881d9034431ebe741642342a1f9}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+INT\+\_\+21}}~4096U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaa307671e2631cdacad9cbe4c6583b05f}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+INT\+\_\+22}}~8192U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga7092fe0be4de6f02cc0bf08e81af726a}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+BULGE}}~16384U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gac5c2289fdf8ff1b980976d1613ff943a}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+INT}}~32768U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaf2c8755d64eff3852aa45df9ac80a4fe}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+ML}}~65536U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga46d5b1535ae86060b6317565b7c6b40b}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+MISC}}~131072U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gaa1ff48a79642d69579d1766561ec6db6}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+SPECIAL\+\_\+\+HP}}~262144U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga0d4e8a836bb4864ab5129c085dbf592d}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+VANILLA}}~524288U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_ga2eb0462f16939ddacdaf751a88d675ce}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+NINIO}}~1048576U
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__convert_gac86976e9c2a55b3a6481ea60044f6098}{VRNA\+\_\+\+CONVERT\+\_\+\+OUTPUT\+\_\+\+DUMP}}~2097152U
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__energy__parameters__convert_gafbe538bc4eb2cf2a33326e1010005f8a}{convert\+\_\+parameter\+\_\+file}} (const char $\ast$iname, const char $\ast$oname, unsigned int options)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions and definitions for energy parameter file format conversion. 
+

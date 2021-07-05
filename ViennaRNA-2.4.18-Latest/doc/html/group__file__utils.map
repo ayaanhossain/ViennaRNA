@@ -1,0 +1,7 @@
+<map id="Files and I/O" name="Files and I/O">
+<area shape="rect" id="node1" href="$group__command__files.html" title="Functions to parse and interpret the content of Command Files." alt="" coords="304,16,419,41"/>
+<area shape="rect" id="node2" href="$group__file__formats.html" title="Functions to read/write different file formats for nucleic acid sequences and secondary structures." alt="" coords="279,87,443,127"/>
+<area shape="rect" id="node3" title="Functions to parse, write, and convert various file formats and to deal with file system related issu..." alt="" coords="5,149,103,174"/>
+<area shape="rect" id="node4" href="$group__utils.html" title=" " alt="" coords="328,218,395,244"/>
+<area shape="rect" id="node5" href="$group__file__formats__msa.html" title="Functions to read/write multiple sequence alignments (MSA) in various file formats." alt="" coords="263,277,460,302"/>
+</map>

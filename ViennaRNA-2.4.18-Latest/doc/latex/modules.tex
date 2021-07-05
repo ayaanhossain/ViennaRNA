@@ -1,0 +1,160 @@
+\doxysection{The RNAlib API}
+Our library is grouped into several modules, each addressing different aspects of RNA secondary structure related problems. You can find an overview of the different groups below.\begin{DoxyCompactList}
+\item \contentsline{section}{Free Energy Evaluation}{\pageref{group__eval}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Energy Evaluation for Individual Loops}{\pageref{group__eval__loops}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Exterior Loops}{\pageref{group__eval__loops__ext}}{}
+\item \contentsline{section}{Hairpin Loops}{\pageref{group__eval__loops__hp}}{}
+\item \contentsline{section}{Internal Loops}{\pageref{group__eval__loops__int}}{}
+\item \contentsline{section}{Multibranch Loops}{\pageref{group__eval__loops__mb}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Energy Evaluation for Atomic Moves}{\pageref{group__eval__move}}{}
+\item \contentsline{section}{Deprecated Interface for Free Energy Evaluation}{\pageref{group__eval__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{The RNA Folding Grammar}{\pageref{group__grammar}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Fine-\/tuning of the Implemented Models}{\pageref{group__model__details}}{}
+\item \contentsline{section}{Energy Parameters}{\pageref{group__energy__parameters}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Reading/\+Writing Energy Parameter Sets from/to File}{\pageref{group__energy__parameters__rw}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Converting Energy Parameter Files}{\pageref{group__energy__parameters__convert}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
+\item \contentsline{section}{Extending the Folding Grammar with Additional Domains}{\pageref{group__domains}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Unstructured Domains}{\pageref{group__domains__up}}{}
+\item \contentsline{section}{Structured Domains}{\pageref{group__domains__struc}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Constraining the RNA Folding Grammar}{\pageref{group__constraints}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Hard Constraints}{\pageref{group__hard__constraints}}{}
+\item \contentsline{section}{Soft Constraints}{\pageref{group__soft__constraints}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
+\item \contentsline{section}{The RNA Secondary Structure Landscape}{\pageref{group__landscape}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Neighborhood Relation and Move Sets for Secondary Structures}{\pageref{group__neighbors}}{}
+\item \contentsline{section}{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}{\pageref{group__paths}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Direct Refolding Paths between two Secondary Structures}{\pageref{group__paths__direct}}{}
+\item \contentsline{section}{Folding Paths that start at a single Secondary Structure}{\pageref{group__paths__walk}}{}
+\item \contentsline{section}{Deprecated Interface for (Re-\/)folding Paths, Saddle Points, and Energy Barriers}{\pageref{group__paths__deprecated}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
+\item \contentsline{section}{Minimum Free Energy (MFE) Algorithms}{\pageref{group__mfe}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Global MFE Prediction}{\pageref{group__mfe__global}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Computing MFE representatives of a Distance Based Partitioning}{\pageref{group__kl__neighborhood__mfe}}{}
+\item \contentsline{section}{Deprecated Interface for Global MFE Prediction}{\pageref{group__mfe__global__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Local (sliding window) MFE Prediction}{\pageref{group__mfe__window}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Deprecated Interface for Local (Sliding Window) MFE Prediction}{\pageref{group__mfe__window__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Backtracking MFE structures}{\pageref{group__mfe__backtracking}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Partition Function and Equilibrium Properties}{\pageref{group__pf__fold}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Global Partition Function and Equilibrium Probabilities}{\pageref{group__part__func__global}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Computing Partition Functions of a Distance Based Partitioning}{\pageref{group__kl__neighborhood__pf}}{}
+\item \contentsline{section}{Predicting various thermodynamic properties}{\pageref{group__thermodynamics}}{}
+\item \contentsline{section}{Deprecated Interface for Global Partition Function Computation}{\pageref{group__part__func__global__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Local (sliding window) Partition Function and Equilibrium Probabilities}{\pageref{group__part__func__window}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Deprecated Interface for Local (Sliding Window) Partition Function Computation}{\pageref{group__part__func__window__deprecated}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
+\item \contentsline{section}{Suboptimals and Representative Structures}{\pageref{group__subopt__and__representatives}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}{\pageref{group__subopt__zuker}}{}
+\item \contentsline{section}{Suboptimal Structures within an Energy Band around the MFE}{\pageref{group__subopt__wuchty}}{}
+\item \contentsline{section}{Random Structure Samples from the Ensemble}{\pageref{group__subopt__stochbt}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Stochastic Backtracking of Structures from Distance Based Partitioning}{\pageref{group__kl__neighborhood__stochbt}}{}
+\item \contentsline{section}{Deprecated Interface for Stochastic Backtracking}{\pageref{group__subopt__stochbt__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Compute the Structure with Maximum Expected Accuracy (MEA)}{\pageref{group__mea__fold}}{}
+\item \contentsline{section}{Compute the Centroid Structure}{\pageref{group__centroid__fold}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{RNA-\/\+RNA Interaction}{\pageref{group__cofold}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Partition Function for Two Hybridized Sequences}{\pageref{group__pf__cofold}}{}
+\item \contentsline{section}{Partition Function for two Hybridized Sequences as a Stepwise Process}{\pageref{group__up__cofold}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Classified Dynamic Programming Variants}{\pageref{group__class__fold}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Distance Based Partitioning of the Secondary Structure Space}{\pageref{group__kl__neighborhood}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Computing MFE representatives of a Distance Based Partitioning}{\pageref{group__kl__neighborhood__mfe}}{}
+\item \contentsline{section}{Computing Partition Functions of a Distance Based Partitioning}{\pageref{group__kl__neighborhood__pf}}{}
+\item \contentsline{section}{Stochastic Backtracking of Structures from Distance Based Partitioning}{\pageref{group__kl__neighborhood__stochbt}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Compute the Density of States}{\pageref{group__dos}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Inverse Folding (Design)}{\pageref{group__inverse__fold}}{}
+\item \contentsline{section}{Experimental Structure Probing Data}{\pageref{group__probing__data}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{SHAPE Reactivity Data}{\pageref{group__SHAPE__reactivities}}{}
+\item \contentsline{section}{Generate Soft Constraints from Data}{\pageref{group__perturbation}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Ligands Binding to RNA Structures}{\pageref{group__ligand__binding}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Ligands Binding to Unstructured Domains}{\pageref{group__ligands__up}}{}
+\item \contentsline{section}{Incorporating Ligands Binding to Specific Sequence/\+Structure Motifs using Soft Constraints}{\pageref{group__constraints__ligand}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Structure Modules and Pseudoknots}{\pageref{group__paired__modules}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Pseudoknots}{\pageref{group__pseudoknots}}{}
+\item \contentsline{section}{G-\/\+Quadruplexes}{\pageref{group__gquads}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Utilities}{\pageref{group__utils}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Utilities to deal with Nucleotide Alphabets}{\pageref{group__alphabet__utils}}{}
+\item \contentsline{section}{(Nucleic Acid Sequence) String Utilitites}{\pageref{group__string__utils}}{}
+\item \contentsline{section}{Secondary Structure Utilities}{\pageref{group__struct__utils}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Dot-\/\+Bracket Notation of Secondary Structures}{\pageref{group__struct__utils__dot__bracket}}{}
+\item \contentsline{section}{Washington University Secondary Structure (WUSS) notation}{\pageref{group__struct__utils__wuss}}{}
+\item \contentsline{section}{Pair Table Representation of Secondary Structures}{\pageref{group__struct__utils__pair__table}}{}
+\item \contentsline{section}{Pair List Representation of Secondary Structures}{\pageref{group__struct__utils__plist}}{}
+\item \contentsline{section}{Abstract Shapes Representation of Secondary Structures}{\pageref{group__struct__utils__abstract__shapes}}{}
+\item \contentsline{section}{Helix List Representation of Secondary Structures}{\pageref{group__struct__utils__helix__list}}{}
+\item \contentsline{section}{Tree Representation of Secondary Structures}{\pageref{group__struct__utils__tree}}{}
+\item \contentsline{section}{Deprecated Interface for Secondary Structure Utilities}{\pageref{group__struct__utils__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Multiple Sequence Alignment Utilities}{\pageref{group__aln__utils}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Deprecated Interface for Multiple Sequence Alignment Utilities}{\pageref{group__aln__utils__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Files and I/O}{\pageref{group__file__utils}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Nucleic Acid Sequences and Structures}{\pageref{group__file__formats}}{}
+\item \contentsline{section}{Multiple Sequence Alignments}{\pageref{group__file__formats__msa}}{}
+\item \contentsline{section}{Command Files}{\pageref{group__command__files}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Plotting}{\pageref{group__plotting__utils}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Layouts and Coordinates}{\pageref{group__plot__layout__utils}}{}
+\item \contentsline{section}{Annotation}{\pageref{group__annotation__utils}}{}
+\item \contentsline{section}{Alignment Plots}{\pageref{group__alignment__plots}}{}
+\item \contentsline{section}{Deprecated Interface for Plotting Utilities}{\pageref{group__plotting__utils__deprecated}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Search Algorithms}{\pageref{group__search__utils}}{}
+\item \contentsline{section}{Combinatorics Algorithms}{\pageref{group__combinatorics__utils}}{}
+\item \contentsline{section}{(Abstract) Data Structures}{\pageref{group__data__structures}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{The Fold Compound}{\pageref{group__fold__compound}}{}
+\item \contentsline{section}{The Dynamic Programming Matrices}{\pageref{group__dp__matrices}}{}
+\item \contentsline{section}{Hash Tables}{\pageref{group__hash__table__utils}}{}
+\item \contentsline{section}{Heaps}{\pageref{group__heap__utils}}{}
+\item \contentsline{section}{Buffers}{\pageref{group__buffer__utils}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{Messages}{\pageref{group__message__utils}}{}
+\item \contentsline{section}{Unit Conversion}{\pageref{group__units}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}

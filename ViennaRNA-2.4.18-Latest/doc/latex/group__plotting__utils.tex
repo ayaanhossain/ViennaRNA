@@ -1,0 +1,378 @@
+\hypertarget{group__plotting__utils}{}\doxysection{Plotting}
+\label{group__plotting__utils}\index{Plotting@{Plotting}}
+
+
+Functions for Creating Secondary Structure Plots, Dot-\/\+Plots, and More.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions for Creating Secondary Structure Plots, Dot-\/\+Plots, and More. 
+
+Collaboration diagram for Plotting\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{group__plotting__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__plot__layout__utils}{Layouts and Coordinates}}
+\begin{DoxyCompactList}\small\item\em Functions to compute coordinate layouts for secondary structure plots. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__annotation__utils}{Annotation}}
+\begin{DoxyCompactList}\small\item\em Functions to generate annotations for Secondary Structure Plots, Dot-\/\+Plots, and Others. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__alignment__plots}{Alignment Plots}}
+\begin{DoxyCompactList}\small\item\em Functions to generate Alignment plots with annotated consensus structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plotting__utils__deprecated}{Deprecated Interface for Plotting Utilities}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{plotting_2alignments_8h}{alignments.\+h}}
+\begin{DoxyCompactList}\small\item\em Various functions for plotting Sequence / Structure Alignments. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{layouts_8h}{layouts.\+h}}
+\begin{DoxyCompactList}\small\item\em Secondary structure plot layout algorithms. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{plotting_2naview_8h}{naview.\+h}}
+\begin{DoxyCompactList}\small\item\em Implementation of the Naview RNA secondary structure layout algorithm \cite{bruccoleri:1988}. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{probabilities_8h}{probabilities.\+h}}
+\begin{DoxyCompactList}\small\item\em Various functions for plotting RNA secondary structures, dot-\/plots and other visualizations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{plotting_2structures_8h}{structures.\+h}}
+\begin{DoxyCompactList}\small\item\em Various functions for plotting RNA secondary structures. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{plotting_2utils_8h}{utils.\+h}}
+\begin{DoxyCompactList}\small\item\em Various utilities to assist in plotting secondary structures and consensus structures. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{RNApuzzler_8h}{RNApuzzler.\+h}}
+\begin{DoxyCompactList}\small\item\em Implementation of the RNApuzzler RNA secondary structure layout algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{RNAturtle_8h}{RNAturtle.\+h}}
+\begin{DoxyCompactList}\small\item\em Implementation of the RNAturtle RNA secondary structure layout algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__plotting__utils_structvrna__dotplot__auxdata__t}{vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}{PS\+\_\+dot\+\_\+plot\+\_\+list}} (char $\ast$seq, char $\ast$filename, \mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}} $\ast$pl, \mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}} $\ast$mf, char $\ast$comment)
+\begin{DoxyCompactList}\small\item\em Produce a postscript dot-\/plot from two pair lists. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}{PS\+\_\+dot\+\_\+plot}} (char $\ast$string, char $\ast$file)
+\begin{DoxyCompactList}\small\item\em Produce postscript dot-\/plot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot}} (const char $\ast$seq, const char $\ast$structure, const char $\ast$file, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a}} (const char $\ast$seq, const char $\ast$structure, const char $\ast$file, const char $\ast$pre, const char $\ast$post, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+RNA}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile, char option)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Graph Meta Language (gml) and write it to a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in SStruct\+View format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure plot in SVG format and write it to a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure plot for further editing in XRNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}{PS\+\_\+rna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$file)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}{PS\+\_\+rna\+\_\+plot\+\_\+a}} (char $\ast$string, char $\ast$structure, char $\ast$file, char $\ast$pre, char $\ast$post)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}{PS\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile, char $\ast$pre, char $\ast$post)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{} (detect and draw g-\/quadruplexes) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_dotplot\_auxdata\_t@{vrna\_dotplot\_auxdata\_t}}\label{structvrna__dotplot__auxdata__t}
+\Hypertarget{group__plotting__utils_structvrna__dotplot__auxdata__t}
+\doxysubsubsection{struct vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t}
+
+
+Collaboration diagram for vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{structvrna__dotplot__auxdata__t__coll__graph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}\label{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}} 
+\index{Plotting@{Plotting}!PS\_dot\_plot\_list@{PS\_dot\_plot\_list}}
+\index{PS\_dot\_plot\_list@{PS\_dot\_plot\_list}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{PS\_dot\_plot\_list()}{PS\_dot\_plot\_list()}}
+{\footnotesize\ttfamily int PS\+\_\+dot\+\_\+plot\+\_\+list (\begin{DoxyParamCaption}\item[{char $\ast$}]{seq,  }\item[{char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}} $\ast$}]{pl,  }\item[{\mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}} $\ast$}]{mf,  }\item[{char $\ast$}]{comment }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{probabilities_8h}{Vienna\+RNA/plotting/probabilities.\+h}}$>$}
+
+
+
+Produce a postscript dot-\/plot from two pair lists. 
+
+This function reads two plist structures (e.\+g. base pair probabilities and a secondary structure) as produced by \mbox{\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()}} and \mbox{\hyperlink{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}{assign\+\_\+plist\+\_\+from\+\_\+db()}} and produces a postscript \char`\"{}dot plot\char`\"{} that is written to \textquotesingle{}filename\textquotesingle{}.~\newline
+Using base pair probabilities in the first and mfe structure in the second plist, the resulting \char`\"{}dot plot\char`\"{} represents each base pairing probability by a square of corresponding area in a upper triangle matrix. The lower part of the matrix contains the minimum free energy structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}{assign\+\_\+plist\+\_\+from\+\_\+db()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em filename} & A filename for the postscript output \\
+\hline
+{\em pl} & The base pair probability pairlist \\
+\hline
+{\em mf} & The mfe secondary structure pairlist \\
+\hline
+{\em comment} & A comment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if postscript was successfully written, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}\label{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}} 
+\index{Plotting@{Plotting}!PS\_dot\_plot@{PS\_dot\_plot}}
+\index{PS\_dot\_plot@{PS\_dot\_plot}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{PS\_dot\_plot()}{PS\_dot\_plot()}}
+{\footnotesize\ttfamily int PS\+\_\+dot\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{probabilities_8h}{Vienna\+RNA/plotting/probabilities.\+h}}$>$}
+
+
+
+Produce postscript dot-\/plot. 
+
+Wrapper to PS\+\_\+dot\+\_\+plot\+\_\+list
+
+Reads base pair probabilities produced by \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} from the global array \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}} and the pair list \mbox{\hyperlink{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}{base\+\_\+pair}} produced by \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}} and produces a postscript \char`\"{}dot plot\char`\"{} that is written to \textquotesingle{}filename\textquotesingle{}. The \char`\"{}dot plot\char`\"{} represents each base pairing probability by a square of corresponding area in a upper triangle matrix. The lower part of the matrix contains the minimum free energy \begin{DoxyNote}{Note}
+DO NOT USE THIS FUNCTION ANYMORE SINCE IT IS NOT THREADSAFE
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000176}{Deprecated}}]This function is deprecated and will be removed soon! Use \mbox{\hyperlink{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}{PS\+\_\+dot\+\_\+plot\+\_\+list()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}\label{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}} 
+\index{Plotting@{Plotting}!vrna\_file\_PS\_rnaplot@{vrna\_file\_PS\_rnaplot}}
+\index{vrna\_file\_PS\_rnaplot@{vrna\_file\_PS\_rnaplot}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_PS\_rnaplot()}{vrna\_file\_PS\_rnaplot()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{file,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+Note that this function has changed from previous versions and now expects the structure to be plotted in dot-\/bracket notation as an argument. It does not make use of the global \mbox{\hyperlink{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}{base\+\_\+pair}} array anymore.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & The filename of the postscript output \\
+\hline
+{\em md\+\_\+p} & Model parameters used to generate a commandline option string in the output (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}\label{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}} 
+\index{Plotting@{Plotting}!vrna\_file\_PS\_rnaplot\_a@{vrna\_file\_PS\_rnaplot\_a}}
+\index{vrna\_file\_PS\_rnaplot\_a@{vrna\_file\_PS\_rnaplot\_a}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_PS\_rnaplot\_a()}{vrna\_file\_PS\_rnaplot\_a()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{file,  }\item[{const char $\ast$}]{pre,  }\item[{const char $\ast$}]{post,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+Same as \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot()}} but adds extra Post\+Script macros for various annotations (see generated PS code). The \textquotesingle{}pre\textquotesingle{} and \textquotesingle{}post\textquotesingle{} variables contain Post\+Script code that is verbatim copied in the resulting PS file just before and after the structure plot. If both arguments (\textquotesingle{}pre\textquotesingle{} and \textquotesingle{}post\textquotesingle{}) are NULL, no additional macros will be printed into the Post\+Script.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & The filename of the postscript output \\
+\hline
+{\em pre} & Post\+Script code to appear before the secondary structure plot \\
+\hline
+{\em post} & Post\+Script code to appear after the secondary structure plot \\
+\hline
+{\em md\+\_\+p} & Model parameters used to generate a commandline option string in the output (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}\label{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}} 
+\index{Plotting@{Plotting}!gmlRNA@{gmlRNA}}
+\index{gmlRNA@{gmlRNA}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{gmlRNA()}{gmlRNA()}}
+{\footnotesize\ttfamily int gml\+RNA (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile,  }\item[{char}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in Graph Meta Language (gml) and write it to a file. 
+
+If \textquotesingle{}option\textquotesingle{} is an uppercase letter the RNA sequence is used to label nodes, if \textquotesingle{}option\textquotesingle{} equals {\itshape \textquotesingle{}X\textquotesingle{}} or {\itshape \textquotesingle{}x\textquotesingle{}} the resulting file will coordinates for an initial layout of the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The RNA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the gml output \\
+\hline
+{\em option} & The option flag \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_gadd368528755f9a830727b680243541df}\label{group__plotting__utils_gadd368528755f9a830727b680243541df}} 
+\index{Plotting@{Plotting}!ssv\_rna\_plot@{ssv\_rna\_plot}}
+\index{ssv\_rna\_plot@{ssv\_rna\_plot}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{ssv\_rna\_plot()}{ssv\_rna\_plot()}}
+{\footnotesize\ttfamily int ssv\+\_\+rna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in SStruct\+View format. 
+
+Write coord file for SStruct\+View
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The RNA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the ssv output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_gae7853539b5df98f294b4af434e979304}\label{group__plotting__utils_gae7853539b5df98f294b4af434e979304}} 
+\index{Plotting@{Plotting}!svg\_rna\_plot@{svg\_rna\_plot}}
+\index{svg\_rna\_plot@{svg\_rna\_plot}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{svg\_rna\_plot()}{svg\_rna\_plot()}}
+{\footnotesize\ttfamily int svg\+\_\+rna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure plot in SVG format and write it to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The RNA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the svg output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}\label{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}} 
+\index{Plotting@{Plotting}!xrna\_plot@{xrna\_plot}}
+\index{xrna\_plot@{xrna\_plot}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{xrna\_plot()}{xrna\_plot()}}
+{\footnotesize\ttfamily int xrna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure plot for further editing in XRNA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The RNA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the xrna output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}\label{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}} 
+\index{Plotting@{Plotting}!PS\_rna\_plot@{PS\_rna\_plot}}
+\index{PS\_rna\_plot@{PS\_rna\_plot}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{PS\_rna\_plot()}{PS\_rna\_plot()}}
+{\footnotesize\ttfamily int PS\+\_\+rna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000177}{Deprecated}}]Use \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}\label{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}} 
+\index{Plotting@{Plotting}!PS\_rna\_plot\_a@{PS\_rna\_plot\_a}}
+\index{PS\_rna\_plot\_a@{PS\_rna\_plot\_a}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{PS\_rna\_plot\_a()}{PS\_rna\_plot\_a()}}
+{\footnotesize\ttfamily int PS\+\_\+rna\+\_\+plot\+\_\+a (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{file,  }\item[{char $\ast$}]{pre,  }\item[{char $\ast$}]{post }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000178}{Deprecated}}]Use \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}\label{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}} 
+\index{Plotting@{Plotting}!PS\_rna\_plot\_a\_gquad@{PS\_rna\_plot\_a\_gquad}}
+\index{PS\_rna\_plot\_a\_gquad@{PS\_rna\_plot\_a\_gquad}!Plotting@{Plotting}}
+\doxysubsubsection{\texorpdfstring{PS\_rna\_plot\_a\_gquad()}{PS\_rna\_plot\_a\_gquad()}}
+{\footnotesize\ttfamily int PS\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile,  }\item[{char $\ast$}]{pre,  }\item[{char $\ast$}]{post }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2structures_8h}{Vienna\+RNA/plotting/structures.\+h}}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{} (detect and draw g-\/quadruplexes) 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000179}{Deprecated}}]Use \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}} instead! \end{DoxyRefDesc}

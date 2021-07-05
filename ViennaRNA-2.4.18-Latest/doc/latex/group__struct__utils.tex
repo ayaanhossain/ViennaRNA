@@ -1,0 +1,147 @@
+\hypertarget{group__struct__utils}{}\doxysection{Secondary Structure Utilities}
+\label{group__struct__utils}\index{Secondary Structure Utilities@{Secondary Structure Utilities}}
+
+
+Functions to create, parse, convert, manipulate, and compare secondary structure representations.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to create, parse, convert, manipulate, and compare secondary structure representations. 
+
+Collaboration diagram for Secondary Structure Utilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__struct__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__struct__utils__dot__bracket}{Dot-\/\+Bracket Notation of Secondary Structures}}
+\begin{DoxyCompactList}\small\item\em The Dot-\/\+Bracket notation as introduced already in the early times of the Vienna\+RNA Package denotes base pairs by matching pairs of parenthesis {\ttfamily ()} and unpaired nucleotides by dots {\ttfamily .}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__wuss}{Washington University Secondary Structure (\+WUSS) notation}}
+\begin{DoxyCompactList}\small\item\em The WUSS notation, as frequently used for consensus secondary structures in \mbox{\hyperlink{file_formats_msa-formats-stockholm}{Stockholm 1.\+0 format}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__pair__table}{Pair Table Representation of Secondary Structures}}
+\item 
+\mbox{\hyperlink{group__struct__utils__plist}{Pair List Representation of Secondary Structures}}
+\item 
+\mbox{\hyperlink{group__struct__utils__abstract__shapes}{Abstract Shapes Representation of Secondary Structures}}
+\begin{DoxyCompactList}\small\item\em Abstract Shapes, introduced by Giegerich et al. in (2004) \cite{giegerich:2004}, collapse the secondary structure while retaining the nestedness of helices and hairpin loops. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__helix__list}{Helix List Representation of Secondary Structures}}
+\item 
+\mbox{\hyperlink{group__struct__utils__tree}{Tree Representation of Secondary Structures}}
+\begin{DoxyCompactList}\small\item\em Secondary structures can be readily represented as trees, where internal nodes represent base pairs, and leaves represent unpaired nucleotides. The dot-\/bracket structure string already is a tree represented by a string of parenthesis (base pairs) and dots for the leaf nodes (unpaired nucleotides). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__deprecated}{Deprecated Interface for Secondary Structure Utilities}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{utils_2structures_8h}{structures.\+h}}
+\begin{DoxyCompactList}\small\item\em Various utility-\/ and helper-\/functions for secondary structure parsing, converting, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}\label{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}} 
+int $\ast$ \mbox{\hyperlink{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}{vrna\+\_\+loopidx\+\_\+from\+\_\+ptable}} (const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Get a loop index representation of a structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils_ga65bdfbac6a16bf30286e8a3f7d15f60a}{vrna\+\_\+bp\+\_\+distance}} (const char $\ast$str1, const char $\ast$str2)
+\begin{DoxyCompactList}\small\item\em Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2. \end{DoxyCompactList}\item 
+unsigned int $\ast$ \mbox{\hyperlink{group__struct__utils_gab4c2a00c99ce1d612ffa5bde114eb96d}{vrna\+\_\+ref\+BPcnt\+\_\+matrix}} (const short $\ast$reference\+\_\+pt, unsigned int turn)
+\begin{DoxyCompactList}\small\item\em Make a reference base pair count matrix. \end{DoxyCompactList}\item 
+unsigned int $\ast$ \mbox{\hyperlink{group__struct__utils_ga5a27bd058183170afd4716f5b8ff511a}{vrna\+\_\+ref\+BPdist\+\_\+matrix}} (const short $\ast$pt1, const short $\ast$pt2, unsigned int turn)
+\begin{DoxyCompactList}\small\item\em Make a reference base pair distance matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils_ga0c28c410a5ab22d6ab9c77a84e8d5b44}\label{group__struct__utils_ga0c28c410a5ab22d6ab9c77a84e8d5b44}} 
+char $\ast$ \mbox{\hyperlink{group__struct__utils_ga0c28c410a5ab22d6ab9c77a84e8d5b44}{vrna\+\_\+db\+\_\+from\+\_\+probs}} (const \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Create a dot-\/bracket like structure string from base pair probability matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils_ga025bff1b27fa46534c8fae6980f64bb5}\label{group__struct__utils_ga025bff1b27fa46534c8fae6980f64bb5}} 
+char \mbox{\hyperlink{group__struct__utils_ga025bff1b27fa46534c8fae6980f64bb5}{vrna\+\_\+bpp\+\_\+symbol}} (const float $\ast$x)
+\begin{DoxyCompactList}\small\item\em Get a pseudo dot bracket notation for a given probability information. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils_ga27bea2c241564af53a065982183389df}{vrna\+\_\+db\+\_\+from\+\_\+bp\+\_\+stack}} (\mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Create a dot-\/backet/parenthesis structure from backtracking stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils_ga65bdfbac6a16bf30286e8a3f7d15f60a}\label{group__struct__utils_ga65bdfbac6a16bf30286e8a3f7d15f60a}} 
+\index{Secondary Structure Utilities@{Secondary Structure Utilities}!vrna\_bp\_distance@{vrna\_bp\_distance}}
+\index{vrna\_bp\_distance@{vrna\_bp\_distance}!Secondary Structure Utilities@{Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{vrna\_bp\_distance()}{vrna\_bp\_distance()}}
+{\footnotesize\ttfamily int vrna\+\_\+bp\+\_\+distance (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str1,  }\item[{const char $\ast$}]{str2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2. 
+
+The sequences should have the same length. dist = number of base pairs in one structure but not in the other same as edit distance with open-\/pair close-\/pair as move-\/set
+
+
+\begin{DoxyParams}{Parameters}
+{\em str1} & First structure in dot-\/bracket notation \\
+\hline
+{\em str2} & Second structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base pair distance between str1 and str2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils_gab4c2a00c99ce1d612ffa5bde114eb96d}\label{group__struct__utils_gab4c2a00c99ce1d612ffa5bde114eb96d}} 
+\index{Secondary Structure Utilities@{Secondary Structure Utilities}!vrna\_refBPcnt\_matrix@{vrna\_refBPcnt\_matrix}}
+\index{vrna\_refBPcnt\_matrix@{vrna\_refBPcnt\_matrix}!Secondary Structure Utilities@{Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{vrna\_refBPcnt\_matrix()}{vrna\_refBPcnt\_matrix()}}
+{\footnotesize\ttfamily unsigned int$\ast$ vrna\+\_\+ref\+BPcnt\+\_\+matrix (\begin{DoxyParamCaption}\item[{const short $\ast$}]{reference\+\_\+pt,  }\item[{unsigned int}]{turn }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Make a reference base pair count matrix. 
+
+Get an upper triangular matrix containing the number of basepairs of a reference structure for each interval \mbox{[}i,j\mbox{]} with i$<$j. Access it via iindx!!! \mbox{\Hypertarget{group__struct__utils_ga5a27bd058183170afd4716f5b8ff511a}\label{group__struct__utils_ga5a27bd058183170afd4716f5b8ff511a}} 
+\index{Secondary Structure Utilities@{Secondary Structure Utilities}!vrna\_refBPdist\_matrix@{vrna\_refBPdist\_matrix}}
+\index{vrna\_refBPdist\_matrix@{vrna\_refBPdist\_matrix}!Secondary Structure Utilities@{Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{vrna\_refBPdist\_matrix()}{vrna\_refBPdist\_matrix()}}
+{\footnotesize\ttfamily unsigned int$\ast$ vrna\+\_\+ref\+BPdist\+\_\+matrix (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt1,  }\item[{const short $\ast$}]{pt2,  }\item[{unsigned int}]{turn }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Make a reference base pair distance matrix. 
+
+Get an upper triangular matrix containing the base pair distance of two reference structures for each interval \mbox{[}i,j\mbox{]} with i$<$j. Access it via iindx!!! \mbox{\Hypertarget{group__struct__utils_ga27bea2c241564af53a065982183389df}\label{group__struct__utils_ga27bea2c241564af53a065982183389df}} 
+\index{Secondary Structure Utilities@{Secondary Structure Utilities}!vrna\_db\_from\_bp\_stack@{vrna\_db\_from\_bp\_stack}}
+\index{vrna\_db\_from\_bp\_stack@{vrna\_db\_from\_bp\_stack}!Secondary Structure Utilities@{Secondary Structure Utilities}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_from\_bp\_stack()}{vrna\_db\_from\_bp\_stack()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+from\+\_\+bp\+\_\+stack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$}]{bp,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a dot-\/backet/parenthesis structure from backtracking stack. 
+
+This function is capable to create dot-\/bracket structures from suboptimal structure prediction sensu M. Zuker
+
+
+\begin{DoxyParams}{Parameters}
+{\em bp} & Base pair stack containing the traced base pairs \\
+\hline
+{\em length} & The length of the structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The secondary structure in dot-\/bracket notation as provided in the input 
+\end{DoxyReturn}

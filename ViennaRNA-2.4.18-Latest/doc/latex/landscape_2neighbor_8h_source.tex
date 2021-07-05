@@ -1,0 +1,68 @@
+\hypertarget{landscape_2neighbor_8h_source}{}\doxysection{neighbor.\+h}
+\label{landscape_2neighbor_8h_source}\index{ViennaRNA/landscape/neighbor.h@{ViennaRNA/landscape/neighbor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_NEIGHBOR\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_NEIGHBOR\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00111 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00112 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{move_8h}{ViennaRNA/landscape/move.h}}>}}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00124}\mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{00124}} \textcolor{keyword}{typedef} void (\mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\_callback\_move\_update}})(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00125                                          \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}}          neighbor,}
+\DoxyCodeLine{00126                                          \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         state,}
+\DoxyCodeLine{00127                                          \textcolor{keywordtype}{void}                 *data);}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00135}\mbox{\hyperlink{group__neighbors_gae72b0e349b6108c00737df51cce44622}{00135}} \textcolor{preprocessor}{\#define VRNA\_NEIGHBOR\_CHANGE   1}}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00143}\mbox{\hyperlink{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}{00143}} \textcolor{preprocessor}{\#define VRNA\_NEIGHBOR\_INVALID   2}}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00151}\mbox{\hyperlink{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}{00151}} \textcolor{preprocessor}{\#define VRNA\_NEIGHBOR\_NEW       3}}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00165 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00166}\mbox{\hyperlink{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}{00166}} \mbox{\hyperlink{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}{vrna\_loopidx\_update}}(\textcolor{keywordtype}{int}               *loopidx,}
+\DoxyCodeLine{00167                     \textcolor{keyword}{const} \textcolor{keywordtype}{short}       *pt,}
+\DoxyCodeLine{00168                     \textcolor{keywordtype}{int}               length,}
+\DoxyCodeLine{00169                     \textcolor{keyword}{const} \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}} *m);}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00187 \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}} *}
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00188}\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{00188}} \mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\_neighbors}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00189                \textcolor{keyword}{const} \textcolor{keywordtype}{short}          *pt,}
+\DoxyCodeLine{00190                \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         options);}
+\DoxyCodeLine{00191 }
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00214 \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}} *}
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00215}\mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{00215}} \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\_neighbors\_successive}}(\textcolor{keyword}{const} \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00216                           \textcolor{keyword}{const} \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}}           *curr\_move,}
+\DoxyCodeLine{00217                           \textcolor{keyword}{const} \textcolor{keywordtype}{short}                 *prev\_pt,}
+\DoxyCodeLine{00218                           \textcolor{keyword}{const} \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}}           *prev\_neighbors,}
+\DoxyCodeLine{00219                           \textcolor{keywordtype}{int}                         size\_prev\_neighbors,}
+\DoxyCodeLine{00220                           \textcolor{keywordtype}{int}                         *size\_neighbors,}
+\DoxyCodeLine{00221                           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                options);}
+\DoxyCodeLine{00222 }
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00245 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00246}\mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{00246}} \mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\_move\_neighbor\_diff\_cb}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}       *fc,}
+\DoxyCodeLine{00247                            \textcolor{keywordtype}{short}                      *ptable,}
+\DoxyCodeLine{00248                            \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}}                move,}
+\DoxyCodeLine{00249                            \mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\_callback\_move\_update}}  *cb,}
+\DoxyCodeLine{00250                            \textcolor{keywordtype}{void}                       *data,}
+\DoxyCodeLine{00251                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}               options);}
+\DoxyCodeLine{00252 }
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00270 \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}} *}
+\DoxyCodeLine{\Hypertarget{landscape_2neighbor_8h_source_l00271}\mbox{\hyperlink{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}{00271}} \mbox{\hyperlink{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}{vrna\_move\_neighbor\_diff}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00272                         \textcolor{keywordtype}{short}                 *ptable,}
+\DoxyCodeLine{00273                         \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}}           move,}
+\DoxyCodeLine{00274                         \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}}           **invalid\_moves,}
+\DoxyCodeLine{00275                         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          options);}
+\DoxyCodeLine{00276 }
+\DoxyCodeLine{00277 }
+\DoxyCodeLine{00281 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VIENNA\_RNA\_PACKAGE\_NEIGHBOR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

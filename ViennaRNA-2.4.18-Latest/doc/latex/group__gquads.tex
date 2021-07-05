@@ -1,0 +1,147 @@
+\hypertarget{group__gquads}{}\doxysection{G-\/\+Quadruplexes}
+\label{group__gquads}\index{G-\/Quadruplexes@{G-\/Quadruplexes}}
+
+
+Various functions related to G-\/quadruplex computations.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Various functions related to G-\/quadruplex computations. 
+
+Collaboration diagram for G-\/\+Quadruplexes\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{group__gquads}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{group__gquads_ga392e45c9615aa123737671603fa4203c}{get\+\_\+gquad\+\_\+matrix}} (short $\ast$S, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\begin{DoxyCompactList}\small\item\em Get a triangular matrix prefilled with minimum free energy contributions of G-\/quadruplexes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__gquads_gae41763215b9c64d2a7b67f0df8a28078}{parse\+\_\+gquad}} (const char $\ast$struc, int $\ast$L, int l\mbox{[}3\mbox{]})
+\item 
+PRIVATE int \mbox{\hyperlink{group__gquads_ga220c41e8dbcee940ac975b8ce88e55c5}{backtrack\+\_\+\+GQuad\+\_\+\+Int\+Loop}} (int c, int i, int j, int type, short $\ast$S, int $\ast$ggg, int $\ast$index, int $\ast$p, int $\ast$q, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\item 
+PRIVATE int \mbox{\hyperlink{group__gquads_ga7b371308fa5a45c7ac353ef6ed1014de}{backtrack\+\_\+\+GQuad\+\_\+\+Int\+Loop\+\_\+L}} (int c, int i, int j, int type, short $\ast$S, int $\ast$$\ast$ggg, int maxdist, int $\ast$p, int $\ast$q, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__gquads_ga392e45c9615aa123737671603fa4203c}\label{group__gquads_ga392e45c9615aa123737671603fa4203c}} 
+\index{G-\/Quadruplexes@{G-\/Quadruplexes}!get\_gquad\_matrix@{get\_gquad\_matrix}}
+\index{get\_gquad\_matrix@{get\_gquad\_matrix}!G-\/Quadruplexes@{G-\/Quadruplexes}}
+\doxysubsubsection{\texorpdfstring{get\_gquad\_matrix()}{get\_gquad\_matrix()}}
+{\footnotesize\ttfamily int$\ast$ get\+\_\+gquad\+\_\+matrix (\begin{DoxyParamCaption}\item[{short $\ast$}]{S,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{gquad_8h}{Vienna\+RNA/gquad.\+h}}$>$}
+
+
+
+Get a triangular matrix prefilled with minimum free energy contributions of G-\/quadruplexes. 
+
+At each position ij in the matrix, the minimum free energy of any G-\/quadruplex delimited by i and j is stored. If no G-\/quadruplex formation is possible, the matrix element is set to INF. Access the elements in the matrix via matrix\mbox{[}indx\mbox{[}j\mbox{]}+i\mbox{]}. To get the integer array indx see get\+\_\+jindx().
+
+\begin{DoxySeeAlso}{See also}
+get\+\_\+jindx(), encode\+\_\+sequence()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em S} & The encoded sequence \\
+\hline
+{\em P} & A pointer to the data structure containing the precomputed energy contributions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the G-\/quadruplex contribution matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__gquads_gae41763215b9c64d2a7b67f0df8a28078}\label{group__gquads_gae41763215b9c64d2a7b67f0df8a28078}} 
+\index{G-\/Quadruplexes@{G-\/Quadruplexes}!parse\_gquad@{parse\_gquad}}
+\index{parse\_gquad@{parse\_gquad}!G-\/Quadruplexes@{G-\/Quadruplexes}}
+\doxysubsubsection{\texorpdfstring{parse\_gquad()}{parse\_gquad()}}
+{\footnotesize\ttfamily int parse\+\_\+gquad (\begin{DoxyParamCaption}\item[{const char $\ast$}]{struc,  }\item[{int $\ast$}]{L,  }\item[{int}]{l\mbox{[}3\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{gquad_8h}{Vienna\+RNA/gquad.\+h}}$>$}
+
+given a dot-\/bracket structure (possibly) containing gquads encoded by \textquotesingle{}+\textquotesingle{} signs, find first gquad, return end position or 0 if none found Upon return L and l\mbox{[}\mbox{]} contain the number of stacked layers, as well as the lengths of the linker regions. To parse a string with many gquads, call parse\+\_\+gquad repeatedly e.\+g. end1 = parse\+\_\+gquad(struc, \&\+L, l); ... ; end2 = parse\+\_\+gquad(struc+end1, \&L, l); end2+=end1; ... ; end3 = parse\+\_\+gquad(struc+end2, \&L, l); end3+=end2; ... ; \mbox{\Hypertarget{group__gquads_ga220c41e8dbcee940ac975b8ce88e55c5}\label{group__gquads_ga220c41e8dbcee940ac975b8ce88e55c5}} 
+\index{G-\/Quadruplexes@{G-\/Quadruplexes}!backtrack\_GQuad\_IntLoop@{backtrack\_GQuad\_IntLoop}}
+\index{backtrack\_GQuad\_IntLoop@{backtrack\_GQuad\_IntLoop}!G-\/Quadruplexes@{G-\/Quadruplexes}}
+\doxysubsubsection{\texorpdfstring{backtrack\_GQuad\_IntLoop()}{backtrack\_GQuad\_IntLoop()}}
+{\footnotesize\ttfamily PRIVATE int backtrack\+\_\+\+GQuad\+\_\+\+Int\+Loop (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{type,  }\item[{short $\ast$}]{S,  }\item[{int $\ast$}]{ggg,  }\item[{int $\ast$}]{index,  }\item[{int $\ast$}]{p,  }\item[{int $\ast$}]{q,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{gquad_8h}{Vienna\+RNA/gquad.\+h}}$>$}
+
+backtrack an interior loop like enclosed g-\/quadruplex with closing pair (i,j)
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The total contribution the loop should resemble \\
+\hline
+{\em i} & position i of enclosing pair \\
+\hline
+{\em j} & position j of enclosing pair \\
+\hline
+{\em type} & base pair type of enclosing pair (must be reverse type) \\
+\hline
+{\em S} & integer encoded sequence \\
+\hline
+{\em ggg} & triangular matrix containing g-\/quadruplex contributions \\
+\hline
+{\em index} & the index for accessing the triangular matrix \\
+\hline
+{\em p} & here the 5\textquotesingle{} position of the gquad is stored \\
+\hline
+{\em q} & here the 3\textquotesingle{} position of the gquad is stored \\
+\hline
+{\em P} & the datastructure containing the precalculated contibutions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if no gquad found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__gquads_ga7b371308fa5a45c7ac353ef6ed1014de}\label{group__gquads_ga7b371308fa5a45c7ac353ef6ed1014de}} 
+\index{G-\/Quadruplexes@{G-\/Quadruplexes}!backtrack\_GQuad\_IntLoop\_L@{backtrack\_GQuad\_IntLoop\_L}}
+\index{backtrack\_GQuad\_IntLoop\_L@{backtrack\_GQuad\_IntLoop\_L}!G-\/Quadruplexes@{G-\/Quadruplexes}}
+\doxysubsubsection{\texorpdfstring{backtrack\_GQuad\_IntLoop\_L()}{backtrack\_GQuad\_IntLoop\_L()}}
+{\footnotesize\ttfamily PRIVATE int backtrack\+\_\+\+GQuad\+\_\+\+Int\+Loop\+\_\+L (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{type,  }\item[{short $\ast$}]{S,  }\item[{int $\ast$$\ast$}]{ggg,  }\item[{int}]{maxdist,  }\item[{int $\ast$}]{p,  }\item[{int $\ast$}]{q,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{gquad_8h}{Vienna\+RNA/gquad.\+h}}$>$}
+
+backtrack an interior loop like enclosed g-\/quadruplex with closing pair (i,j) with underlying Lfold matrix
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The total contribution the loop should resemble \\
+\hline
+{\em i} & position i of enclosing pair \\
+\hline
+{\em j} & position j of enclosing pair \\
+\hline
+{\em type} & base pair type of enclosing pair (must be reverse type) \\
+\hline
+{\em S} & integer encoded sequence \\
+\hline
+{\em ggg} & triangular matrix containing g-\/quadruplex contributions \\
+\hline
+{\em p} & here the 5\textquotesingle{} position of the gquad is stored \\
+\hline
+{\em q} & here the 3\textquotesingle{} position of the gquad is stored \\
+\hline
+{\em P} & the datastructure containing the precalculated contibutions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if no gquad found 
+\end{DoxyReturn}

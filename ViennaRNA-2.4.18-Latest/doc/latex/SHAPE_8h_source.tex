@@ -1,0 +1,55 @@
+\hypertarget{SHAPE_8h_source}{}\doxysection{SHAPE.\+h}
+\label{SHAPE_8h_source}\index{ViennaRNA/constraints/SHAPE.h@{ViennaRNA/constraints/SHAPE.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_CONSTRAINTS\_SHAPE\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_CONSTRAINTS\_SHAPE\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00023 \textcolor{keywordtype}{void} vrna\_constraints\_add\_SHAPE(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00024                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_file,}
+\DoxyCodeLine{00025                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_method,}
+\DoxyCodeLine{00026                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_conversion,}
+\DoxyCodeLine{00027                                 \textcolor{keywordtype}{int} verbose,}
+\DoxyCodeLine{00028                                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} constraint\_type);}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 \textcolor{keywordtype}{void} vrna\_constraints\_add\_SHAPE\_ali(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00031                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_method,}
+\DoxyCodeLine{00032                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} **shape\_files,}
+\DoxyCodeLine{00033                                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}  *shape\_file\_association,}
+\DoxyCodeLine{00034                                     \textcolor{keywordtype}{int} verbose,}
+\DoxyCodeLine{00035                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} constraint\_type);}
+\DoxyCodeLine{\Hypertarget{SHAPE_8h_source_l00061}\mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{00061}} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\_sc\_add\_SHAPE\_deigan}}( \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00062                               \textcolor{keyword}{const} \textcolor{keywordtype}{double} *reactivities,}
+\DoxyCodeLine{00063                               \textcolor{keywordtype}{double} m,}
+\DoxyCodeLine{00064                               \textcolor{keywordtype}{double} b,}
+\DoxyCodeLine{00065                               \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{\Hypertarget{SHAPE_8h_source_l00079}\mbox{\hyperlink{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}{00079}} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}{vrna\_sc\_add\_SHAPE\_deigan\_ali}}( \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00080                                   \textcolor{keyword}{const} \textcolor{keywordtype}{char} **shape\_files,}
+\DoxyCodeLine{00081                                   \textcolor{keyword}{const} \textcolor{keywordtype}{int} *shape\_file\_association,}
+\DoxyCodeLine{00082                                   \textcolor{keywordtype}{double} m,}
+\DoxyCodeLine{00083                                   \textcolor{keywordtype}{double} b,}
+\DoxyCodeLine{00084                                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{\Hypertarget{SHAPE_8h_source_l00108}\mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{00108}} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\_sc\_add\_SHAPE\_zarringhalam}}( \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00109                                     \textcolor{keyword}{const} \textcolor{keywordtype}{double} *reactivities,}
+\DoxyCodeLine{00110                                     \textcolor{keywordtype}{double} b,}
+\DoxyCodeLine{00111                                     \textcolor{keywordtype}{double} default\_value,}
+\DoxyCodeLine{00112                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_conversion,}
+\DoxyCodeLine{00113                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{\Hypertarget{SHAPE_8h_source_l00127}\mbox{\hyperlink{SHAPE_8h_a71b84eb0dd69e5c256f4ecf8f78cf314}{00127}} \textcolor{keywordtype}{int} \mbox{\hyperlink{SHAPE_8h_a71b84eb0dd69e5c256f4ecf8f78cf314}{vrna\_sc\_SHAPE\_parse\_method}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *method\_string,}
+\DoxyCodeLine{00128                                 \textcolor{keywordtype}{char} *method,}
+\DoxyCodeLine{00129                                 \textcolor{keywordtype}{float} *param\_1,}
+\DoxyCodeLine{00130                                 \textcolor{keywordtype}{float} *param\_2);}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{\Hypertarget{SHAPE_8h_source_l00146}\mbox{\hyperlink{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}{00146}} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}{vrna\_sc\_SHAPE\_to\_pr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_conversion,}
+\DoxyCodeLine{00147                         \textcolor{keywordtype}{double} *values,}
+\DoxyCodeLine{00148                         \textcolor{keywordtype}{int} length,}
+\DoxyCodeLine{00149                         \textcolor{keywordtype}{double} default\_value);}
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

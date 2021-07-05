@@ -1,0 +1,118 @@
+\hypertarget{fold__vars_8h}{}\doxysection{Vienna\+RNA/fold\+\_\+vars.h File Reference}
+\label{fold__vars_8h}\index{ViennaRNA/fold\_vars.h@{ViennaRNA/fold\_vars.h}}
+
+
+Here all all declarations of the global variables used throughout RNAlib.  
+
+
+Include dependency graph for fold\+\_\+vars.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fold__vars_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{fold__vars_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{fold__vars_8h_a0afc287c2464866d94858c39175154af}\label{fold__vars_8h_a0afc287c2464866d94858c39175154af}} 
+int \mbox{\hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained}}
+\begin{DoxyCompactList}\small\item\em Global switch to activate/deactivate folding with structure constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{fold__vars_8h_af2763d55a74663a5e60652b8880baa5b}\label{fold__vars_8h_af2763d55a74663a5e60652b8880baa5b}} 
+int \mbox{\hyperlink{fold__vars_8h_af2763d55a74663a5e60652b8880baa5b}{csv}}
+\begin{DoxyCompactList}\small\item\em generate comma seperated output \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{fold__vars_8h_a5dbaa0cca2c8c82048a0f0e38e164944}{Ribosum\+File}}
+\item 
+int \mbox{\hyperlink{fold__vars_8h_af349001ad3b4d008d0051d935b1b6261}{james\+\_\+rule}}
+\item 
+int \mbox{\hyperlink{fold__vars_8h_a80c3c5fd35e7479704cc91d2d0367743}{log\+ML}}
+\item 
+int \mbox{\hyperlink{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}}
+\begin{DoxyCompactList}\small\item\em Marks the position (starting from 1) of the first nucleotide of the second molecule within the concatenated sequence. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_gaaeed53a7508c6ce549a98223e94b25df}{bondT}} $\ast$ \mbox{\hyperlink{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}{base\+\_\+pair}}
+\begin{DoxyCompactList}\small\item\em Contains a list of base pairs after a call to \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}
+\begin{DoxyCompactList}\small\item\em A pointer to the base pair probability matrix. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{fold__vars_8h_a92089ae3a51b5d75a14ce9cc29cc8317}{iindx}}
+\begin{DoxyCompactList}\small\item\em index array to move through pr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Here all all declarations of the global variables used throughout RNAlib. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{fold__vars_8h_a5dbaa0cca2c8c82048a0f0e38e164944}\label{fold__vars_8h_a5dbaa0cca2c8c82048a0f0e38e164944}} 
+\index{fold\_vars.h@{fold\_vars.h}!RibosumFile@{RibosumFile}}
+\index{RibosumFile@{RibosumFile}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{RibosumFile}{RibosumFile}}
+{\footnotesize\ttfamily char$\ast$ Ribosum\+File\hspace{0.3cm}{\ttfamily [extern]}}
+
+warning this variable will vanish in the future ribosums will be compiled in instead \mbox{\Hypertarget{fold__vars_8h_af349001ad3b4d008d0051d935b1b6261}\label{fold__vars_8h_af349001ad3b4d008d0051d935b1b6261}} 
+\index{fold\_vars.h@{fold\_vars.h}!james\_rule@{james\_rule}}
+\index{james\_rule@{james\_rule}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{james\_rule}{james\_rule}}
+{\footnotesize\ttfamily int james\+\_\+rule\hspace{0.3cm}{\ttfamily [extern]}}
+
+interior loops of size 2 get energy 0.\+8\+Kcal and no mismatches, default 1 \mbox{\Hypertarget{fold__vars_8h_a80c3c5fd35e7479704cc91d2d0367743}\label{fold__vars_8h_a80c3c5fd35e7479704cc91d2d0367743}} 
+\index{fold\_vars.h@{fold\_vars.h}!logML@{logML}}
+\index{logML@{logML}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{logML}{logML}}
+{\footnotesize\ttfamily int log\+ML\hspace{0.3cm}{\ttfamily [extern]}}
+
+use logarithmic multiloop energy function \mbox{\Hypertarget{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}\label{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}} 
+\index{fold\_vars.h@{fold\_vars.h}!cut\_point@{cut\_point}}
+\index{cut\_point@{cut\_point}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{cut\_point}{cut\_point}}
+{\footnotesize\ttfamily int cut\+\_\+point\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Marks the position (starting from 1) of the first nucleotide of the second molecule within the concatenated sequence. 
+
+To evaluate the energy of a duplex structure (a structure formed by two strands), concatenate the to sequences and set it to the first base of the second strand in the concatenated sequence. The default value of -\/1 stands for single molecule folding. The cut\+\_\+point variable is also used by \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot()}} and \mbox{\hyperlink{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}{PS\+\_\+dot\+\_\+plot()}} to mark the chain break in postscript plots. \mbox{\Hypertarget{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}\label{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}} 
+\index{fold\_vars.h@{fold\_vars.h}!base\_pair@{base\_pair}}
+\index{base\_pair@{base\_pair}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{base\_pair}{base\_pair}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_gaaeed53a7508c6ce549a98223e94b25df}{bondT}}$\ast$ base\+\_\+pair\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Contains a list of base pairs after a call to \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}}. 
+
+base\+\_\+pair\mbox{[}0\mbox{]}.i contains the total number of pairs. \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000081}{Deprecated}}]Do not use this variable anymore! \end{DoxyRefDesc}
+\mbox{\Hypertarget{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}\label{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}} 
+\index{fold\_vars.h@{fold\_vars.h}!pr@{pr}}
+\index{pr@{pr}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{pr}{pr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}$\ast$ pr\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+A pointer to the base pair probability matrix. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000082}{Deprecated}}]Do not use this variable anymore! \end{DoxyRefDesc}
+\mbox{\Hypertarget{fold__vars_8h_a92089ae3a51b5d75a14ce9cc29cc8317}\label{fold__vars_8h_a92089ae3a51b5d75a14ce9cc29cc8317}} 
+\index{fold\_vars.h@{fold\_vars.h}!iindx@{iindx}}
+\index{iindx@{iindx}!fold\_vars.h@{fold\_vars.h}}
+\doxysubsubsection{\texorpdfstring{iindx}{iindx}}
+{\footnotesize\ttfamily int$\ast$ iindx\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+index array to move through pr. 
+
+The probability for base i and j to form a pair is in pr\mbox{[}iindx\mbox{[}i\mbox{]}-\/j\mbox{]}. \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000083}{Deprecated}}]Do not use this variable anymore! \end{DoxyRefDesc}

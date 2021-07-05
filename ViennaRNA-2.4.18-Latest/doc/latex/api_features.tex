@@ -1,0 +1,593 @@
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{newAPI}{RNAlib API v3.\+0}} ~\newline
+
+\item \mbox{\hyperlink{callbacks}{Callback Functions}} ~\newline
+
+\item \mbox{\hyperlink{wrappers}{Scripting Language interface(s)}} ~\newline
+ 
+\end{DoxyItemize}\hypertarget{newAPI}{}\doxysection{RNAlib API v3.0}\label{newAPI}
+\hypertarget{newAPI_newAPI_intro}{}\doxysubsection{Introduction}\label{newAPI_newAPI_intro}
+With version 2.\+2 we introduce the new API that will take over the old one in the future version 3.\+0. By then, backwards compatibility will be broken, and third party applications using RNAlib need to be ported. This switch of API became necessary, since many new features found their way into the RNAlib where a balance between threadsafety and easy-\/to-\/use library functions is hard or even impossible to establish. Furthermore, many old functions of the library are present as slightly modified copies of themself to provide a crude way to overload functions.
+
+Therefore, we introduce the new v3.\+0 API very early in our development stage such that developers have enough time to migrate to the new functions and interfaces. We also started to provide encapsulation of the RNAlib functions, data structures, typedefs, and macros by prefixing them with {\itshape vrna\+\_\+} and {\itshape VRNA\+\_\+} , respectively. Header files should also be included using the {\itshape Vienna\+RNA/} namespace, e.\+g. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold_8h}{ViennaRNA/fold.h}}>}}
+
+\end{DoxyCode}
+ instead of just using 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold_8h}{fold.h}}>}}
+
+\end{DoxyCode}
+ as required for RNAlib 1.\+x and 2.\+x.
+
+This eases the work for programmers of third party applications that would otherwise need to put much effort into renaming functions and data types in their own implementations if their names appear in our library. Since we still provide backward compatibility up to the last version of RNAlib 2.\+x, this advantage may be fully exploited only starting from v3.\+0 which will be released in the future. However, our plan is to provide the possibility for an early switch-\/off mechanism of the backward compatibility in one of our next releases of Vienna\+RNA Package 2.\+x.\hypertarget{newAPI_newAPI_changes}{}\doxysubsection{What are the major changes?}\label{newAPI_newAPI_changes}
+...\hypertarget{newAPI_newAPI_porting}{}\doxysubsection{How to port your program to the new API}\label{newAPI_newAPI_porting}
+...\hypertarget{newAPI_newAPI_examples}{}\doxysubsection{Some Examples using RNAlib API v3.\+0}\label{newAPI_newAPI_examples}
+Examples on how to use the new v3.\+0 API can be found in the \mbox{\hyperlink{examples_c_ex_c_fc}{First Steps with the Fold Compound}} section. \hypertarget{callbacks}{}\doxysection{Callback Functions}\label{callbacks}
+With the new \mbox{\hyperlink{newAPI}{RNAlib API v3.\+0}} we introduce so-\/called callback mechanisms for several functions.\hypertarget{callbacks_callbacks_intro}{}\doxysubsection{The purpose of Callback mechanisms}\label{callbacks_callbacks_intro}
+Using callback mechanisms, our library enables users not only to retrieve computed data without the need for parsing complicated data structures, but also allows one to tweak our implementation to do additional tasks without the requirement of a re-\/implementation of basic algorithms.
+
+Our implementation of the callback mechanisms always follows the same scheme\+: The user\+:
+\begin{DoxyItemize}
+\item defines a function that complies with the interface we\textquotesingle{}ve defined, and
+\item passes a pointer to said function to our implementations
+\end{DoxyItemize}
+
+In addition to the specific arguments of our callback interfaces, virtually all callbacks receive an additional {\itshape pass-\/through-\/pointer} as their last argument. This enables one to\+:
+\begin{DoxyItemize}
+\item encapsulate data, and
+\item provide thread-\/safe operations,
+\end{DoxyItemize}
+
+since this pointer is simply passed through by our library functions. It may therefore hold the address of an arbitrary, user-\/defined data structure.\hypertarget{callbacks_callback_descriptions}{}\doxysubsection{List of available Callbacks}\label{callbacks_callback_descriptions}
+Below, you find an enumeration of the individual callback functions that are available in {\itshape RNAlib}.
+
+
+\begin{DoxyRefList}
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} (const char $\ast$stucture, void $\ast$data)]\label{callbacks__callbacks000001}%
+\Hypertarget{callbacks__callbacks000001}%
+ This function will be called for each secondary structure that has been successfully backtraced from the partition function DP matrices.  
+\item[Global \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}} (void $\ast$data)]\label{callbacks__callbacks000002}%
+\Hypertarget{callbacks__callbacks000002}%
+ This callback is supposed to free memory occupied by an auxiliary data structure. It will be called when the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} is erased from memory through a call to \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} and will be passed the address of memory previously bound to the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} via \mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata()}}.  
+\item[Global \mbox{\hyperlink{group__hard__constraints_gae465f1d4a3d8b6592b38ecbb0d9f613d}{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate}} (int i, int j, int k, int l, unsigned char d, void $\ast$data)]\label{callbacks__callbacks000014}%
+\Hypertarget{callbacks__callbacks000014}%
+ This callback enables one to over-\/rule default hard constraints in secondary structure decompositions.  
+\item[Global \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status}} (unsigned char status, void $\ast$data)]\label{callbacks__callbacks000003}%
+\Hypertarget{callbacks__callbacks000003}%
+ This function will be called to notify a third-\/party implementation about the status of a currently ongoing recursion. The purpose of this callback mechanism is to provide users with a simple way to ensure pre-\/ and post conditions for auxiliary mechanisms attached to our implementations.  
+\item[Global \mbox{\hyperlink{group__soft__constraints_gaeb6448da6c593d4c489c7fbadcb99499}{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}} (int i, int j, int k, int l, unsigned char d, void $\ast$data)]\label{callbacks__callbacks000017}%
+\Hypertarget{callbacks__callbacks000017}%
+ This callback enables one to add auxiliary base pairs in the backtracking steps of hairpin-\/ and interior loops.  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga88a266695d9e25cc12114dceb7b4565e}{vrna\+\_\+callback\+\_\+sc\+\_\+energy}} (int i, int j, int k, int l, unsigned char d, void $\ast$data)]\label{callbacks__callbacks000015}%
+\Hypertarget{callbacks__callbacks000015}%
+ This callback enables one to add (pseudo-\/)energy contributions to individual decompositions of the secondary structure.  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga4099978d410513edeeff8f3db13144c5}{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}} (int i, int j, int k, int l, unsigned char d, void $\ast$data)]\label{callbacks__callbacks000016}%
+\Hypertarget{callbacks__callbacks000016}%
+ This callback enables one to add (pseudo-\/)energy contributions to individual decompositions of the secondary structure (Partition function variant, i.\+e. contributions must be returned as Boltzmann factors).  
+\item[Global \mbox{\hyperlink{group__domains__up_ga75825c57d0bfde4ae4f95c044260c5c3}{vrna\+\_\+callback\+\_\+ud\+\_\+energy}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, int j, unsigned int loop\+\_\+type, void $\ast$data)]\label{callbacks__callbacks000008}%
+\Hypertarget{callbacks__callbacks000008}%
+ This function will be called to determine the additional energy contribution of a specific unstructured domain, e.\+g. the binding free energy of some ligand.  
+\item[Global \mbox{\hyperlink{group__domains__up_ga861706f257ba993753464b823e65b86e}{vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+energy}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, int j, unsigned int loop\+\_\+type, void $\ast$data)]\label{callbacks__callbacks000009}%
+\Hypertarget{callbacks__callbacks000009}%
+ This function will be called to determine the additional energy contribution of a specific unstructured domain, e.\+g. the binding free energy of some ligand (Partition function variant, i.\+e. the Boltzmann factors instead of actual free energies).  
+\item[Global \mbox{\hyperlink{group__domains__up_ga33d78327dcd04c1ca5ab2887edc18c7b}{vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+production}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, void $\ast$data)]\label{callbacks__callbacks000011}%
+\Hypertarget{callbacks__callbacks000011}%
+ The production rule for the unstructured domain grammar extension (Partition function variant)  
+\item[Global \mbox{\hyperlink{group__domains__up_gab10498abc84fcaf336aca8f8d7d42eb2}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+add}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, int j, unsigned int loop\+\_\+type, FLT\+\_\+\+OR\+\_\+\+DBL exp\+\_\+energy, void $\ast$data)]\label{callbacks__callbacks000012}%
+\Hypertarget{callbacks__callbacks000012}%
+ A callback function to store equilibrium probabilities for the unstructured domain feature  
+\item[Global \mbox{\hyperlink{group__domains__up_gaa10ba1b6f1e179ea84c5caca9cdaae67}{vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+get}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, int j, unsigned int loop\+\_\+type, int motif, void $\ast$data)]\label{callbacks__callbacks000013}%
+\Hypertarget{callbacks__callbacks000013}%
+ A callback function to retrieve equilibrium probabilities for the unstructured domain feature  
+\item[Global \mbox{\hyperlink{group__domains__up_ga4fdfc02c1b660c07f2d887772f02a0a1}{vrna\+\_\+callback\+\_\+ud\+\_\+production}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, void $\ast$data)]\label{callbacks__callbacks000010}%
+\Hypertarget{callbacks__callbacks000010}%
+ The production rule for the unstructured domain grammar extension  
+\item[Global \mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}} (float temp, float heat\+\_\+capacity, void $\ast$data)]\label{callbacks__callbacks000004}%
+\Hypertarget{callbacks__callbacks000004}%
+ This function will be called for each evaluated temperature in the heat capacity prediction.  
+\item[Global \mbox{\hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback}} (int start, int end, const char $\ast$structure, float en, void $\ast$data)]\label{callbacks__callbacks000005}%
+\Hypertarget{callbacks__callbacks000005}%
+ This function will be called for each hit in a sliding window MFE prediction.  
+\item[Global \mbox{\hyperlink{group__part__func__window_gabe710a1182e6db69cc75329dfc9bed67}{vrna\+\_\+probs\+\_\+window\+\_\+callback}} (FLT\+\_\+\+OR\+\_\+\+DBL $\ast$pr, int pr\+\_\+size, int i, int max, unsigned int type, void $\ast$data)]\label{callbacks__callbacks000006}%
+\Hypertarget{callbacks__callbacks000006}%
+ This function will be called for each probability data set in the sliding window probability computation implementation of \mbox{\hyperlink{group__part__func__window_ga7115d012988541a65ec323c5f17a334b}{vrna\+\_\+probs\+\_\+window()}}. The argument {\itshape type} specifies the type of probability that is passed to this function.  
+\item[Global \mbox{\hyperlink{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}{vrna\+\_\+subopt\+\_\+callback}} (const char $\ast$stucture, float energy, void $\ast$data)]\label{callbacks__callbacks000007}%
+\Hypertarget{callbacks__callbacks000007}%
+ This function will be called for each suboptimal secondary structure that is successfully backtraced. 
+\end{DoxyRefList}\hypertarget{wrappers}{}\doxysection{Scripting Language interface(s)}\label{wrappers}
+\hypertarget{wrappers_scripting_intro}{}\doxysubsection{Introduction}\label{wrappers_scripting_intro}
+For an easy integration into scripting languages, we provide an automatically generated interface to the RNAlib C-\/library, generated with SWIG.\hypertarget{wrappers_scripting_renaming}{}\doxysubsection{Function Renaming}\label{wrappers_scripting_renaming}
+To provide a namespace-\/like separation of function symbols from our C library and third-\/party code, we use the prefix {\ttfamily vrna\+\_\+} or {\ttfamily VRNA\+\_\+} whenever possible. This, however, is not necessary for the scripting language interface, as it uses the separate namespace or package {\ttfamily RNA} anyway. Consequently, symbols that appear to have the {\ttfamily vrna\+\_\+} or {\ttfamily VRNA\+\_\+} prefix in the C-\/library have the corresponding prefix stripped away.
+
+For instance, the C code 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mfe = \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\_fold}}(sequence, structure);}
+
+\end{DoxyCode}
+ translates to 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{my (\$structure, \$mfe) = \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{RNA::fold}}(\$sequence)}
+
+\end{DoxyCode}
+ in the Perl 5 interface, and 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{structure,mfe = RNA.fold(sequence)}
+
+\end{DoxyCode}
+ for Python 2/3. Note, that in this example we also make use of the possibilty to return multiple data at once in the scripting language, while the C library function uses additional parameters to return multiple data.
+
+Functions that are dedicated to work on specific data structures only, e.\+g. the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, are usually not exported at all. Instead, they are attached as object methods of a corresponding class (see \mbox{\hyperlink{wrappers_scripting_oo_interface}{Object oriented Interface for Data Structures}} for detailed information).\hypertarget{wrappers_scripting_globals}{}\doxysubsubsection{Global Variables}\label{wrappers_scripting_globals}
+For the Python interface(s) SWIG places global variables of the C-\/library into an additional namespace {\ttfamily cvar}. For instance, changing the global temperature variable thus becomes 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RNA.cvar.temperature = 25}
+
+\end{DoxyCode}
+\hypertarget{wrappers_scripting_oo_interface}{}\doxysubsection{Object oriented Interface for Data Structures}\label{wrappers_scripting_oo_interface}
+For data structures, typedefs, and enumerations the {\ttfamily vrna\+\_\+} prefixes are dropped as well, together with their suffixes {\ttfamily \+\_\+s}, {\ttfamily \+\_\+t}, and {\ttfamily \+\_\+e}, respectively. Furthermore, data structures are usually transformed into classes and relevant functions of the C-\/library are attached as methods.\hypertarget{wrappers_scripting_examples}{}\doxysubsection{Examples}\label{wrappers_scripting_examples}
+Examples on the basic usage of the scripting language interfaces can be found in the \mbox{\hyperlink{examples_perl5}{Perl5 Examples}} and \mbox{\hyperlink{examples_python}{Python Examples}} section.\hypertarget{wrappers_scripting_wrapper_notes}{}\doxysubsection{SWIG generated Wrapper notes}\label{wrappers_scripting_wrapper_notes}
+Special notes on how functions, structures, enums, and macro definitions are actually wrapped, can be found below
+
+
+\begin{DoxyRefList}
+\item[Global \mbox{\hyperlink{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}{vrna\+\_\+backtrack5}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int length, char $\ast$structure)]\label{wrappers__wrappers000094}%
+\Hypertarget{wrappers__wrappers000094}%
+ This function is attached as overloaded method {\bfseries{backtrack()}} to objects of type {\itshape fold\+\_\+compound} with default parameter {\ttfamily length} equal to the total length of the RNA.  
+\item[Global \mbox{\hyperlink{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}{vrna\+\_\+abstract\+\_\+shapes}} (const char $\ast$structure, unsigned int level)]\label{wrappers__wrappers000138}%
+\Hypertarget{wrappers__wrappers000138}%
+ This function is available as an overloaded function {\ttfamily abstract\+\_\+shapes()} where the optional second parameter {\ttfamily level} defaults to 5.  
+\item[Global \mbox{\hyperlink{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}{vrna\+\_\+abstract\+\_\+shapes\+\_\+pt}} (const short $\ast$pt, unsigned int level)]\label{wrappers__wrappers000139}%
+\Hypertarget{wrappers__wrappers000139}%
+ This function is available as an overloaded function {\ttfamily abstract\+\_\+shapes()} where the optional second parameter {\ttfamily level} defaults to 5.  
+\item[Global \mbox{\hyperlink{group__aln__utils_gaa12b481a7e7b965ef2eb1bcc4399e759}{vrna\+\_\+aln\+\_\+conservation\+\_\+col}} (const char $\ast$$\ast$alignment, const vrna\+\_\+md\+\_\+t $\ast$md\+\_\+p, unsigned int options)]\label{wrappers__wrappers000002}%
+\Hypertarget{wrappers__wrappers000002}%
+ This function is available in an overloaded form where the last two parameters may be omitted, indicating {\ttfamily md} = {\itshape NULL}, and {\ttfamily options} = \mbox{\hyperlink{group__aln__utils_ga1e659227c9fc077d29989f576f129000}{VRNA\+\_\+\+MEASURE\+\_\+\+SHANNON\+\_\+\+ENTROPY}}, respectively.  
+\item[Global \mbox{\hyperlink{group__aln__utils_gab6f16a2ea93f3bfd4d089cc8d448bb16}{vrna\+\_\+aln\+\_\+conservation\+\_\+struct}} (const char $\ast$$\ast$alignment, const char $\ast$structure, const vrna\+\_\+md\+\_\+t $\ast$md)]\label{wrappers__wrappers000001}%
+\Hypertarget{wrappers__wrappers000001}%
+ This function is available in an overloaded form where the last parameter may be omitted, indicating {\ttfamily md} = {\itshape NULL}  
+\item[Global \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten}} (char $\ast$structure, unsigned int options)]\label{wrappers__wrappers000133}%
+\Hypertarget{wrappers__wrappers000133}%
+ This function flattens an input structure string in-\/place! The second parameter is optional and defaults to \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}.
+
+An overloaded version of this function exists, where an additional second parameter can be passed to specify the target brackets, i.\+e. the type of matching pair characters all brackets will be flattened to. Therefore, in the scripting language interface this function is a replacement for \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}}.  
+\item[Global \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to}} (char $\ast$string, const char target\mbox{[}3\mbox{]}, unsigned int options)]\label{wrappers__wrappers000134}%
+\Hypertarget{wrappers__wrappers000134}%
+ This function is available as an overloaded version of \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}  
+\item[Global \mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove}} (const char $\ast$structure, unsigned int options)]\label{wrappers__wrappers000135}%
+\Hypertarget{wrappers__wrappers000135}%
+ This function is available as an overloaded function {\ttfamily db\+\_\+pk\+\_\+remove()} where the optional second parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANY}}.  
+\item[Global \mbox{\hyperlink{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}{vrna\+\_\+ensemble\+\_\+defect}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$structure)]\label{wrappers__wrappers000117}%
+\Hypertarget{wrappers__wrappers000117}%
+ This function is attached as method {\bfseries{ensemble\+\_\+defect()}} to objects of type {\itshape fold\+\_\+compound}. Note that the SWIG wrapper takes a structure in dot-\/bracket notation and converts it into a pair table using \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}. The resulting pair table is then internally passed to \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt()}}. To control which kind of matching brackets will be used during conversion, the optional argument {\ttfamily options} can be used. See also the description of \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}} for available options. (default\+: {\bfseries{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}).  
+\item[Global \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const short $\ast$pt)]\label{wrappers__wrappers000116}%
+\Hypertarget{wrappers__wrappers000116}%
+ This function is attached as overloaded method {\bfseries{ensemble\+\_\+defect()}} to objects of type {\itshape fold\+\_\+compound}.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_gae081ac655a76bd5c4b3d86c60b096b75}{vrna\+\_\+enumerate\+\_\+necklaces}} (const unsigned int $\ast$type\+\_\+counts)]\label{wrappers__wrappers000015}%
+\Hypertarget{wrappers__wrappers000015}%
+ This function is available as global function {\bfseries{enumerate\+\_\+necklaces()}} which accepts lists input, an produces list of lists output.  
+\item[Global \mbox{\hyperlink{group__eval_gac96577cf232c71160f762737a994b7c6}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure}} (const char $\ast$$\ast$alignment, const char $\ast$structure)]\label{wrappers__wrappers000058}%
+\Hypertarget{wrappers__wrappers000058}%
+ This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument  
+\item[Global \mbox{\hyperlink{group__eval_gae89240c230e4740b22a703ee953396b9}{vrna\+\_\+eval\+\_\+circ\+\_\+consensus\+\_\+structure\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000068}%
+\Hypertarget{wrappers__wrappers000068}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gac673ebb9ae2a29f54d201e2ac5b85540}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure}} (const char $\ast$$\ast$alignment, const char $\ast$structure)]\label{wrappers__wrappers000060}%
+\Hypertarget{wrappers__wrappers000060}%
+ This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument  
+\item[Global \mbox{\hyperlink{group__eval_gaecd3e17292a0b3927277434019a5e187}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000070}%
+\Hypertarget{wrappers__wrappers000070}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure}} (const char $\ast$string, const char $\ast$structure)]\label{wrappers__wrappers000056}%
+\Hypertarget{wrappers__wrappers000056}%
+ In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gab96a6c59923ff06c35f8c2fd2c239727}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000066}%
+\Hypertarget{wrappers__wrappers000066}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga9dba2fc5d7e6ad1359a7c2f350589c0e}{vrna\+\_\+eval\+\_\+circ\+\_\+gquad\+\_\+structure()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure}} (const char $\ast$string, const char $\ast$structure)]\label{wrappers__wrappers000054}%
+\Hypertarget{wrappers__wrappers000054}%
+ In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}{vrna\+\_\+eval\+\_\+circ\+\_\+structure\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gac3fb44e0773a51be8efc5f4f595a94a7}{vrna\+\_\+eval\+\_\+circ\+\_\+structure\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000064}%
+\Hypertarget{wrappers__wrappers000064}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3e05a23ddf9b083f4e69881e440d4866}{vrna\+\_\+eval\+\_\+circ\+\_\+structure()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gabbb4d2a7aa324ec9cce8f47ce61ab8af}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+pt\+\_\+simple}} (const char $\ast$$\ast$alignment, const short $\ast$pt)]\label{wrappers__wrappers000072}%
+\Hypertarget{wrappers__wrappers000072}%
+ This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga0bba59b4d6e53461088666ff4aece7b0}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument  
+\item[Global \mbox{\hyperlink{group__eval_ga7762c3a7bdcbc3a14ef93259d322c7d6}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple}} (const char $\ast$$\ast$alignment, const char $\ast$structure)]\label{wrappers__wrappers000057}%
+\Hypertarget{wrappers__wrappers000057}%
+ This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument  
+\item[Global \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000067}%
+\Hypertarget{wrappers__wrappers000067}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_ga1c07851f6b665c3461a19e9e4eb33d26}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+verbose}} (const char $\ast$$\ast$alignment, const char $\ast$structure, FILE $\ast$file)]\label{wrappers__wrappers000062}%
+\Hypertarget{wrappers__wrappers000062}%
+ This function is not available. Use \mbox{\hyperlink{group__eval_gad88927c62ab0a8b534e078e44be1b36e}{vrna\+\_\+eval\+\_\+consensus\+\_\+structure\+\_\+simple\+\_\+v()}} instead!  
+\item[Global \mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$structure)]\label{wrappers__wrappers000047}%
+\Hypertarget{wrappers__wrappers000047}%
+ This function is attached as method {\bfseries{eval\+\_\+covar\+\_\+structure()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval_gaf09a326b3d57a4b30c27bd0e216198ac}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure}} (const char $\ast$$\ast$alignment, const char $\ast$structure)]\label{wrappers__wrappers000059}%
+\Hypertarget{wrappers__wrappers000059}%
+ This function is available through an overloadeded version of \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument  
+\item[Global \mbox{\hyperlink{group__eval_ga8abc794fc48d43268ced5e8cde017baa}{vrna\+\_\+eval\+\_\+gquad\+\_\+consensus\+\_\+structure\+\_\+v}} (const char $\ast$$\ast$alignment, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000069}%
+\Hypertarget{wrappers__wrappers000069}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}. Simply pass a sequence alignment as list of strings (including gaps) as first, and the consensus structure as second argument. The last two arguments are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure}} (const char $\ast$string, const char $\ast$structure)]\label{wrappers__wrappers000055}%
+\Hypertarget{wrappers__wrappers000055}%
+ In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gaeaa2bdbc1b5d78c667e735fbdff87fff}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000065}%
+\Hypertarget{wrappers__wrappers000065}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga3263504825ef4b523eba797c99921df4}{vrna\+\_\+eval\+\_\+gquad\+\_\+structure()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval__loops__hp_gad0bb844f8dc704c71737ae1d7e32b975}{vrna\+\_\+eval\+\_\+hp\+\_\+loop}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, int i, int j)]\label{wrappers__wrappers000051}%
+\Hypertarget{wrappers__wrappers000051}%
+ This function is attached as method {\bfseries{eval\+\_\+hp\+\_\+loop()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}{vrna\+\_\+eval\+\_\+int\+\_\+loop}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, int i, int j, int k, int l)]\label{wrappers__wrappers000052}%
+\Hypertarget{wrappers__wrappers000052}%
+ This function is attached as method {\bfseries{eval\+\_\+int\+\_\+loop()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval__loops_ga730ba4df55c02fd530a0cddd49faf760}{vrna\+\_\+eval\+\_\+loop\+\_\+pt}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, const short $\ast$pt)]\label{wrappers__wrappers000048}%
+\Hypertarget{wrappers__wrappers000048}%
+ This function is attached as method {\bfseries{eval\+\_\+loop\+\_\+pt()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}{vrna\+\_\+eval\+\_\+move}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$structure, int m1, int m2)]\label{wrappers__wrappers000049}%
+\Hypertarget{wrappers__wrappers000049}%
+ This function is attached as method {\bfseries{eval\+\_\+move()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}{vrna\+\_\+eval\+\_\+move\+\_\+pt}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, short $\ast$pt, int m1, int m2)]\label{wrappers__wrappers000050}%
+\Hypertarget{wrappers__wrappers000050}%
+ This function is attached as method {\bfseries{eval\+\_\+move\+\_\+pt()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$structure)]\label{wrappers__wrappers000043}%
+\Hypertarget{wrappers__wrappers000043}%
+ This function is attached as method {\bfseries{eval\+\_\+structure()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const short $\ast$pt)]\label{wrappers__wrappers000044}%
+\Hypertarget{wrappers__wrappers000044}%
+ This function is attached as method {\bfseries{eval\+\_\+structure\+\_\+pt()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval_ga0bba59b4d6e53461088666ff4aece7b0}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+simple}} (const char $\ast$string, const short $\ast$pt)]\label{wrappers__wrappers000071}%
+\Hypertarget{wrappers__wrappers000071}%
+ In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_ga2c6533ba0afe4c88d335d8f1e0e2a48e}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const short $\ast$pt, FILE $\ast$file)]\label{wrappers__wrappers000046}%
+\Hypertarget{wrappers__wrappers000046}%
+ This function is attached as method {\bfseries{eval\+\_\+structure\+\_\+pt\+\_\+verbose()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple}} (const char $\ast$string, const char $\ast$structure)]\label{wrappers__wrappers000053}%
+\Hypertarget{wrappers__wrappers000053}%
+ In the target scripting language, this function serves as a wrapper for \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} and, thus, allows for two additional, optional arguments, the verbosity level and a file handle which default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level, FILE $\ast$file)]\label{wrappers__wrappers000063}%
+\Hypertarget{wrappers__wrappers000063}%
+ This function is available through an overloaded version of \mbox{\hyperlink{group__eval_ga7e5273464b775d4130245681312c1369}{vrna\+\_\+eval\+\_\+structure\+\_\+simple()}}. The last two arguments for this function are optional and default to \mbox{\hyperlink{group__eval_gaf4afe19780b61b4962c613bde324128b}{VRNA\+\_\+\+VERBOSITY\+\_\+\+QUIET}} and NULL, respectively.  
+\item[Global \mbox{\hyperlink{group__eval_gaf928bfd96767e1b8033a95a4cc432e39}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+verbose}} (const char $\ast$string, const char $\ast$structure, FILE $\ast$file)]\label{wrappers__wrappers000061}%
+\Hypertarget{wrappers__wrappers000061}%
+ This function is not available. Use \mbox{\hyperlink{group__eval_gacd6278343e77d13f1d53588e50d303bc}{vrna\+\_\+eval\+\_\+structure\+\_\+simple\+\_\+v()}} instead!  
+\item[Global \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$structure, FILE $\ast$file)]\label{wrappers__wrappers000045}%
+\Hypertarget{wrappers__wrappers000045}%
+ This function is attached as method {\bfseries{eval\+\_\+structure\+\_\+verbose()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, double $\ast$mfe)]\label{wrappers__wrappers000099}%
+\Hypertarget{wrappers__wrappers000099}%
+ This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{exp\+\_\+params\+\_\+rescale()}} method.
+
+When no parameter is passed to this method, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale()}}, i.\+e. default scaling of the partition function. Passing an energy in kcal/mol, e.\+g. as retrieved by a previous call to the {\itshape mfe()} method, instructs all subsequent calls to scale the partition function accordingly.  
+\item[Global \mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+md\+\_\+t $\ast$md\+\_\+p)]\label{wrappers__wrappers000101}%
+\Hypertarget{wrappers__wrappers000101}%
+ This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{exp\+\_\+params\+\_\+reset()}} method.
+
+When no parameter is passed to this method, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset()}}, i.\+e. global default model settings are used. Passing an object of type \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} resets the fold compound according to the specifications stored within the \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} object.  
+\item[Global \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+exp\+\_\+param\+\_\+t $\ast$params)]\label{wrappers__wrappers000098}%
+\Hypertarget{wrappers__wrappers000098}%
+ This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{exp\+\_\+params\+\_\+subst()}} method.
+
+When no parameter is passed, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}}, i.\+e. resetting the parameters to the global defaults.  
+\item[Class \mbox{\hyperlink{group__fold__compound}{vrna\+\_\+fc\+\_\+s}} ]\label{wrappers__wrappers000081}%
+\Hypertarget{wrappers__wrappers000081}%
+ 
+
+This data structure is wrapped as an object {\bfseries{fold\+\_\+compound}} with several related functions attached as methods.
+
+A new {\bfseries{fold\+\_\+compound}} can be obtained by calling one of its constructors\+:~\newline
+
+\begin{DoxyItemize}
+\item {\itshape fold\+\_\+compound(seq)} -- Initialize with a single sequence, or two concatenated sequences separated by an ampersand character \textquotesingle{}\&\textquotesingle{} (for cofolding)
+\item {\itshape fold\+\_\+compound(aln)} -- Initialize with a sequence alignment {\itshape aln} stored as a list of sequences (with gap characters)
+\end{DoxyItemize}The resulting object has a list of attached methods which in most cases directly correspond to functions that mainly operate on the corresponding {\itshape C} data structure\+:~\newline
+
+\begin{DoxyItemize}
+\item {\itshape \mbox{\hyperlink{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}{type()}}} -- Get the type of the {\itshape fold\+\_\+compound} (See \mbox{\hyperlink{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}{vrna\+\_\+fc\+\_\+type\+\_\+e}})
+\item {\itshape \mbox{\hyperlink{group__fold__compound_a95fbfed770b858e50c766505dc4bf998}{length()}}} -- Get the length of the sequence(s) or alignment stored within the {\itshape fold\+\_\+compound} 
+\end{DoxyItemize}
+\item[Global \mbox{\hyperlink{group__command__files_gadbe8c9622f7bcc6dcbe3448b98df8656}{vrna\+\_\+file\+\_\+commands\+\_\+apply}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$filename, unsigned int options)]\label{wrappers__wrappers000022}%
+\Hypertarget{wrappers__wrappers000022}%
+ This function is attached as method {\bfseries{file\+\_\+commands\+\_\+apply()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__file__formats__msa_gade4fa8136ebb2d0f7eb3f8b59a8658e3}{vrna\+\_\+file\+\_\+msa\+\_\+detect\+\_\+format}} (const char $\ast$filename, unsigned int options)]\label{wrappers__wrappers000077}%
+\Hypertarget{wrappers__wrappers000077}%
+ This function exists as an overloaded version where the {\ttfamily options} parameter may be omitted! In that case, the {\ttfamily options} parameter defaults to \mbox{\hyperlink{group__file__formats__msa_ga4acc255373831856a8417b68de8a94c0}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+DEFAULT}}.  
+\item[Global \mbox{\hyperlink{group__file__formats__msa_gad02d5d12bda54611c915a1019323b7be}{vrna\+\_\+file\+\_\+msa\+\_\+read}} (const char $\ast$filename, char $\ast$$\ast$$\ast$names, char $\ast$$\ast$$\ast$aln, char $\ast$$\ast$id, char $\ast$$\ast$structure, unsigned int options)]\label{wrappers__wrappers000078}%
+\Hypertarget{wrappers__wrappers000078}%
+ In the target scripting language, only the first and last argument, {\ttfamily filename} and {\ttfamily options}, are passed to the corresponding function. The other arguments, which serve as output in the C-\/library, are available as additional return values. Hence, a function call in python may look like this\+:
+
+
+\item[Global \mbox{\hyperlink{group__file__formats__msa_gad4203a438622b2df7bc2f16578d54799}{vrna\+\_\+file\+\_\+msa\+\_\+read\+\_\+record}} (FILE $\ast$fp, char $\ast$$\ast$$\ast$names, char $\ast$$\ast$$\ast$aln, char $\ast$$\ast$id, char $\ast$$\ast$structure, unsigned int options)]\label{wrappers__wrappers000079}%
+\Hypertarget{wrappers__wrappers000079}%
+ In the target scripting language, only the first and last argument, {\ttfamily fp} and {\ttfamily options}, are passed to the corresponding function. The other arguments, which serve as output in the C-\/library, are available as additional return values. Hence, a function call in python may look like this\+:
+
+
+\item[Global \mbox{\hyperlink{group__file__formats__msa_gaccca55b71d34def88e18ed9a51ccb2bf}{vrna\+\_\+file\+\_\+msa\+\_\+write}} (const char $\ast$filename, const char $\ast$$\ast$names, const char $\ast$$\ast$aln, const char $\ast$id, const char $\ast$structure, const char $\ast$source, unsigned int options)]\label{wrappers__wrappers000080}%
+\Hypertarget{wrappers__wrappers000080}%
+ In the target scripting language, this function exists as a set of overloaded versions, where the last four parameters may be omitted. If the {\ttfamily options} parameter is missing the options default to (\mbox{\hyperlink{group__file__formats__msa_ga62be992445cd8ab2ad7a8fded944338b}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+STOCKHOLM}} $\vert$ \mbox{\hyperlink{group__file__formats__msa_ga1577ea0f497d9c501549c863a4f2c089}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+APPEND}}).  
+\item[Global \mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln}} (const char $\ast$filename, const char $\ast$$\ast$seqs, const char $\ast$$\ast$names, const char $\ast$structure, unsigned int columns)]\label{wrappers__wrappers000130}%
+\Hypertarget{wrappers__wrappers000130}%
+ This function is available as overloaded function {\ttfamily file\+\_\+\+PS\+\_\+aln()} with three additional parameters {\ttfamily start}, {\ttfamily end}, and {\ttfamily offset} before the {\ttfamily columns} argument. Thus, it resembles the {\ttfamily \mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice()}}} function. The last four arguments may be omitted, indicating the default of {\ttfamily start} = {\itshape 0}, {\ttfamily end} = {\itshape 0}, {\ttfamily offset} = {\itshape 0}, and {\ttfamily columns} = {\itshape 60}.  
+\item[Global \mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice}} (const char $\ast$filename, const char $\ast$$\ast$seqs, const char $\ast$$\ast$names, const char $\ast$structure, unsigned int start, unsigned int end, int offset, unsigned int columns)]\label{wrappers__wrappers000131}%
+\Hypertarget{wrappers__wrappers000131}%
+ This function is available as overloaded function {\ttfamily file\+\_\+\+PS\+\_\+aln()} where the last four parameter may be omitted, indicating {\ttfamily start} = {\itshape 0}, {\ttfamily end} = {\itshape 0}, {\ttfamily offset} = {\itshape 0}, and {\ttfamily columns} = {\itshape 60}. 
+\item[Global \mbox{\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$constraint, unsigned int options)]\label{wrappers__wrappers000028}%
+\Hypertarget{wrappers__wrappers000028}%
+ This function is attached as method {\bfseries{hc\+\_\+add\+\_\+from\+\_\+db()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{wrappers__wrappers000024}%
+\Hypertarget{wrappers__wrappers000024}%
+ This function is attached as method {\bfseries{hc\+\_\+init()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints)]\label{wrappers__wrappers000088}%
+\Hypertarget{wrappers__wrappers000088}%
+ This function is attached as overloaded method {\bfseries{heat\+\_\+capacity()}} to objects of type {\itshape fold\+\_\+compound}. If the optional function arguments {\ttfamily T\+\_\+min}, {\ttfamily T\+\_\+max}, {\ttfamily T\+\_\+increment}, and {\ttfamily mpoints} are omitted, they default to 0.\+0, 100.\+0, 1.\+0 and 2, respectively.  
+\item[Global \mbox{\hyperlink{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}{vrna\+\_\+heat\+\_\+capacity\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints, vrna\+\_\+heat\+\_\+capacity\+\_\+callback $\ast$cb, void $\ast$data)]\label{wrappers__wrappers000089}%
+\Hypertarget{wrappers__wrappers000089}%
+ This function is attached as method {\bfseries{heat\+\_\+capacity\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__thermodynamics_ga0c2664e15dded704d805a9d2a625ff21}{vrna\+\_\+heat\+\_\+capacity\+\_\+simple}} (const char $\ast$sequence, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints)]\label{wrappers__wrappers000090}%
+\Hypertarget{wrappers__wrappers000090}%
+ This function is available as overloaded function {\bfseries{heat\+\_\+capacity()}}. If the optional function arguments {\ttfamily T\+\_\+min}, {\ttfamily T\+\_\+max}, {\ttfamily T\+\_\+increment}, and {\ttfamily mpoints} are omitted, they default to 0.\+0, 100.\+0, 1.\+0 and 2, respectively.  
+\item[Global \mbox{\hyperlink{mm_8h_a242e65bd5031f05fccd1133c5be0b75a}{vrna\+\_\+maximum\+\_\+matching}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc)]\label{wrappers__wrappers000004}%
+\Hypertarget{wrappers__wrappers000004}%
+ This function is attached as method {\bfseries{maximum\+\_\+matching()}} to objects of type {\ttfamily fold\+\_\+compound} (i.\+e. \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}).  
+\item[Global \mbox{\hyperlink{mm_8h_a25e2bf03fe5711c9c3a3828a14ef961e}{vrna\+\_\+maximum\+\_\+matching\+\_\+simple}} (const char $\ast$sequence)]\label{wrappers__wrappers000003}%
+\Hypertarget{wrappers__wrappers000003}%
+ This function is available as global function {\bfseries{maximum\+\_\+matching()}}.  
+\item[Class \mbox{\hyperlink{group__model__details}{vrna\+\_\+md\+\_\+s}} ]\label{wrappers__wrappers000095}%
+\Hypertarget{wrappers__wrappers000095}%
+ This data structure is wrapped as an object {\bfseries{md}} with multiple related functions attached as methods.
+
+A new set of default parameters can be obtained by calling the constructure of {\bfseries{md\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item {\itshape md()} -- Initialize with default settings
+\end{DoxyItemize}
+
+The resulting object has a list of attached methods which directly correspond to functions that mainly operate on the corresponding {\itshape C} data structure\+:~\newline
+
+\begin{DoxyItemize}
+\item {\itshape reset()} -- \mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\+\_\+md\+\_\+set\+\_\+default()}}
+\item {\itshape set\+\_\+from\+\_\+globals()} -- \mbox{\hyperlink{group__model__details_gabad896c3650d420f3f3ddefc69e2bceb}{set\+\_\+model\+\_\+details()}}
+\item {\itshape option\+\_\+string()} -- \mbox{\hyperlink{group__model__details_ga3a7469f0725a849af6ba61a57dfd60ce}{vrna\+\_\+md\+\_\+option\+\_\+string()}}
+\end{DoxyItemize}
+
+Note, that default parameters can be modified by directly setting any of the following global variables. Internally, getting/setting default parameters using their global variable representative translates into calls of the following functions, therefore these wrappers for these functions do not exist in the scripting language interface(s)\+:
+
+
+\item[Global \mbox{\hyperlink{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}{vrna\+\_\+\+MEA}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, double gamma, float $\ast$mea)]\label{wrappers__wrappers000121}%
+\Hypertarget{wrappers__wrappers000121}%
+ This function is attached as overloaded method {\bfseries{MEA}}(gamma = 1.) to objects of type {\itshape fold\+\_\+compound}. Note, that it returns the MEA structure and MEA value as a tuple (MEA\+\_\+structure, MEA)  
+\item[Global \mbox{\hyperlink{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}{vrna\+\_\+\+MEA\+\_\+from\+\_\+plist}} (vrna\+\_\+ep\+\_\+t $\ast$plist, const char $\ast$sequence, double gamma, vrna\+\_\+md\+\_\+t $\ast$md, float $\ast$mea)]\label{wrappers__wrappers000122}%
+\Hypertarget{wrappers__wrappers000122}%
+ This function is available as overloaded function {\bfseries{MEA\+\_\+from\+\_\+plist}}(gamma = 1., md = NULL). Note, that it returns the MEA structure and MEA value as a tuple (MEA\+\_\+structure, MEA)  
+\item[Global \mbox{\hyperlink{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{wrappers__wrappers000115}%
+\Hypertarget{wrappers__wrappers000115}%
+ This function is attached as method {\bfseries{\mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance()}}}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, char $\ast$structure)]\label{wrappers__wrappers000091}%
+\Hypertarget{wrappers__wrappers000091}%
+ This function is attached as method {\bfseries{mfe()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, char $\ast$structure)]\label{wrappers__wrappers000092}%
+\Hypertarget{wrappers__wrappers000092}%
+ This function is attached as method {\bfseries{mfe\+\_\+dimer()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, FILE $\ast$file)]\label{wrappers__wrappers000093}%
+\Hypertarget{wrappers__wrappers000093}%
+ This function is attached as method {\bfseries{mfe\+\_\+window()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const short $\ast$pt, unsigned int options)]\label{wrappers__wrappers000096}%
+\Hypertarget{wrappers__wrappers000096}%
+ This function is attached as an overloaded method {\itshape neighbors()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}} if it is omitted.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load}} (const char fname\mbox{[}\mbox{]}, unsigned int options)]\label{wrappers__wrappers000102}%
+\Hypertarget{wrappers__wrappers000102}%
+ This function is available as overloaded function {\bfseries{params\+\_\+load}}(fname=\char`\"{}\char`\"{}, options=\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}). Here, the empty filename string indicates to load default RNA parameters, i.\+e. this is equivalent to calling \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults}} (void)]\label{wrappers__wrappers000105}%
+\Hypertarget{wrappers__wrappers000105}%
+ This function is available as overloaded function {\bfseries{params\+\_\+load()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999}} (void)]\label{wrappers__wrappers000112}%
+\Hypertarget{wrappers__wrappers000112}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004}} (void)]\label{wrappers__wrappers000111}%
+\Hypertarget{wrappers__wrappers000111}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string}} (const char $\ast$string, const char $\ast$name, unsigned int options)]\label{wrappers__wrappers000104}%
+\Hypertarget{wrappers__wrappers000104}%
+ This function is available as overloaded function {\bfseries{params\+\_\+load\+\_\+from\+\_\+string}}(string, name=\char`\"{}\char`\"{}, options=\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}).  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007}} (void)]\label{wrappers__wrappers000108}%
+\Hypertarget{wrappers__wrappers000108}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018}} (void)]\label{wrappers__wrappers000109}%
+\Hypertarget{wrappers__wrappers000109}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins}} (void)]\label{wrappers__wrappers000110}%
+\Hypertarget{wrappers__wrappers000110}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999}} (void)]\label{wrappers__wrappers000107}%
+\Hypertarget{wrappers__wrappers000107}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004}} (void)]\label{wrappers__wrappers000106}%
+\Hypertarget{wrappers__wrappers000106}%
+ This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}.  
+\item[Global \mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+md\+\_\+t $\ast$md\+\_\+p)]\label{wrappers__wrappers000100}%
+\Hypertarget{wrappers__wrappers000100}%
+ This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{params\+\_\+reset()}} method.
+
+When no parameter is passed to this method, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset()}}, i.\+e. global default model settings are used. Passing an object of type \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} resets the fold compound according to the specifications stored within the \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} object.  
+\item[Global \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save}} (const char fname\mbox{[}\mbox{]}, unsigned int options)]\label{wrappers__wrappers000103}%
+\Hypertarget{wrappers__wrappers000103}%
+ This function is available as overloaded function {\bfseries{params\+\_\+save}}(fname, options=\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}).  
+\item[Global \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+param\+\_\+t $\ast$par)]\label{wrappers__wrappers000097}%
+\Hypertarget{wrappers__wrappers000097}%
+ This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{params\+\_\+subst()}} method.
+
+When no parameter is passed, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst()}}, i.\+e. resetting the parameters to the global defaults.  
+\item[Global \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)]\label{wrappers__wrappers000143}%
+\Hypertarget{wrappers__wrappers000143}%
+ This function is attached as an overloaded method {\itshape path()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}} if it is omitted.  
+\item[Global \mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$s1, const char $\ast$s2, vrna\+\_\+path\+\_\+options\+\_\+t options)]\label{wrappers__wrappers000127}%
+\Hypertarget{wrappers__wrappers000127}%
+ This function is attached as an overloaded method {\itshape path\+\_\+direct()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to {\itshape NULL} if it is omitted.  
+\item[Global \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$s1, const char $\ast$s2, int maxE, vrna\+\_\+path\+\_\+options\+\_\+t options)]\label{wrappers__wrappers000128}%
+\Hypertarget{wrappers__wrappers000128}%
+ This function is attached as an overloaded method {\itshape path\+\_\+direct()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily maxE} defaults to \#\+INT\+\_\+\+MAX -\/ 1 if it is omitted, while the optional parameter {\ttfamily options} defaults to {\itshape NULL}. In case the function did not find a path with $E_{saddle} < E_{max}$ it returns an empty list.  
+\item[Global \mbox{\hyperlink{group__paths__direct_ga2fed8ff126f5becd82cedd81a25c9bf0}{vrna\+\_\+path\+\_\+findpath}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$s1, const char $\ast$s2, int width)]\label{wrappers__wrappers000125}%
+\Hypertarget{wrappers__wrappers000125}%
+ This function is attached as an overloaded method {\itshape path\+\_\+findpath()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily width} defaults to 1 if it is omitted.  
+\item[Global \mbox{\hyperlink{group__paths__direct_gad77dbfa125158f534147c0015a849bc3}{vrna\+\_\+path\+\_\+findpath\+\_\+saddle}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$s1, const char $\ast$s2, int width)]\label{wrappers__wrappers000123}%
+\Hypertarget{wrappers__wrappers000123}%
+ This function is attached as an overloaded method {\itshape path\+\_\+findpath\+\_\+saddle()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily width} defaults to 1 if it is omitted.  
+\item[Global \mbox{\hyperlink{group__paths__direct_gaca6d3ab6f8b9463e3382bd1f474c26f1}{vrna\+\_\+path\+\_\+findpath\+\_\+saddle\+\_\+ub}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$s1, const char $\ast$s2, int width, int maxE)]\label{wrappers__wrappers000124}%
+\Hypertarget{wrappers__wrappers000124}%
+ This function is attached as an overloaded method {\itshape path\+\_\+findpath\+\_\+saddle()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily width} defaults to 1 if it is omitted, while the optional parameter {\ttfamily maxE} defaults to \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}. In case the function did not find a path with $E_{saddle} < E_{max}$ the function returns a {\itshape NULL} object, i.\+e. {\itshape undef} for Perl and {\itshape None} for Python.  
+\item[Global \mbox{\hyperlink{group__paths__direct_gad00765c2f269fddfa319310af22d4f67}{vrna\+\_\+path\+\_\+findpath\+\_\+ub}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$s1, const char $\ast$s2, int width, int maxE)]\label{wrappers__wrappers000126}%
+\Hypertarget{wrappers__wrappers000126}%
+ This function is attached as an overloaded method {\itshape path\+\_\+findpath()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily width} defaults to 1 if it is omitted, while the optional parameter {\ttfamily maxE} defaults to \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}. In case the function did not find a path with $E_{saddle} < E_{max}$ the function returns an empty list.  
+\item[Global \mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, short $\ast$pt, unsigned int options)]\label{wrappers__wrappers000144}%
+\Hypertarget{wrappers__wrappers000144}%
+ This function is attached as an overloaded method {\itshape path\+\_\+gradient()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}} if it is omitted.  
+\item[Global \mbox{\hyperlink{group__paths__direct_ga3790a24ca64d68acfa6e67b525151a5f}{vrna\+\_\+path\+\_\+options\+\_\+findpath}} (int width, unsigned int type)]\label{wrappers__wrappers000129}%
+\Hypertarget{wrappers__wrappers000129}%
+ This function is available as overloaded function {\itshape path\+\_\+options\+\_\+findpath()}. The optional parameter {\ttfamily width} defaults to 10 if omitted, while the optional parameter {\ttfamily type} defaults to \mbox{\hyperlink{group__paths_ga3e964156b52440b65fae5e2a48750d8e}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+DOT\+\_\+\+BRACKET}}.  
+\item[Global \mbox{\hyperlink{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}{vrna\+\_\+path\+\_\+random}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)]\label{wrappers__wrappers000145}%
+\Hypertarget{wrappers__wrappers000145}%
+ This function is attached as an overloaded method {\itshape path\+\_\+gradient()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}} if it is omitted.  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc)]\label{wrappers__wrappers000006}%
+\Hypertarget{wrappers__wrappers000006}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int length)]\label{wrappers__wrappers000005}%
+\Hypertarget{wrappers__wrappers000005}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback $\ast$cb, void $\ast$data, unsigned int options)]\label{wrappers__wrappers000009}%
+\Hypertarget{wrappers__wrappers000009}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, unsigned int options)]\label{wrappers__wrappers000007}%
+\Hypertarget{wrappers__wrappers000007}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, unsigned int num\+\_\+samples, unsigned int length, vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t $\ast$nr\+\_\+mem, unsigned int options)]\label{wrappers__wrappers000011}%
+\Hypertarget{wrappers__wrappers000011}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the list of structures, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback $\ast$cb, void $\ast$data, vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t $\ast$nr\+\_\+mem, unsigned int options)]\label{wrappers__wrappers000013}%
+\Hypertarget{wrappers__wrappers000013}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the number of structures backtraced, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback $\ast$cb, void $\ast$data, unsigned int options)]\label{wrappers__wrappers000010}%
+\Hypertarget{wrappers__wrappers000010}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, unsigned int options)]\label{wrappers__wrappers000008}%
+\Hypertarget{wrappers__wrappers000008}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t $\ast$nr\+\_\+mem, unsigned int options)]\label{wrappers__wrappers000012}%
+\Hypertarget{wrappers__wrappers000012}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the list of structures, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, unsigned int num\+\_\+samples, vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback $\ast$cb, void $\ast$data, vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t $\ast$nr\+\_\+mem, unsigned int options)]\label{wrappers__wrappers000014}%
+\Hypertarget{wrappers__wrappers000014}%
+ This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the number of structures backtraced, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}}  
+\item[Global \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, char $\ast$structure)]\label{wrappers__wrappers000113}%
+\Hypertarget{wrappers__wrappers000113}%
+ This function is attached as method {\bfseries{pf()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, char $\ast$structure)]\label{wrappers__wrappers000114}%
+\Hypertarget{wrappers__wrappers000114}%
+ This function is attached as method {\bfseries{pf\+\_\+dimer()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__thermodynamics_ga4ec346141028c7bcd15bc235c408b6e9}{vrna\+\_\+positional\+\_\+entropy}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc)]\label{wrappers__wrappers000118}%
+\Hypertarget{wrappers__wrappers000118}%
+ This function is attached as method {\bfseries{positional\+\_\+entropy()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__thermodynamics_gaa88e17336daede0e6db4da1f3252c031}{vrna\+\_\+pr\+\_\+energy}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, double e)]\label{wrappers__wrappers000120}%
+\Hypertarget{wrappers__wrappers000120}%
+ This function is attached as method {\bfseries{pr\+\_\+energy()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__thermodynamics_ga882c35d9dd775c1275593b3b6a966bec}{vrna\+\_\+pr\+\_\+structure}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$structure)]\label{wrappers__wrappers000119}%
+\Hypertarget{wrappers__wrappers000119}%
+ This function is attached as method {\bfseries{pr\+\_\+structure()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable}} (const char $\ast$structure)]\label{wrappers__wrappers000136}%
+\Hypertarget{wrappers__wrappers000136}%
+ This functions is wrapped as overloaded function {\ttfamily ptable()} that takes an optional argument {\ttfamily options} to specify which type of matching brackets should be considered during conversion. The default set is round brackets, i.\+e. \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}.  
+\item[Global \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string}} (const char $\ast$string, unsigned int options)]\label{wrappers__wrappers000137}%
+\Hypertarget{wrappers__wrappers000137}%
+ This functions is wrapped as overloaded function {\ttfamily ptable()} that takes an optional argument {\ttfamily options} to specify which type of matching brackets should be considered during conversion. The default set is round brackets, i.\+e. \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry}} (const char $\ast$string)]\label{wrappers__wrappers000018}%
+\Hypertarget{wrappers__wrappers000018}%
+ This function is available as global function {\bfseries{rotational\+\_\+symmetry()}}. See \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} for details.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_gad42ffd53025bed9d636d811748db7c5a}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$structure)]\label{wrappers__wrappers000020}%
+\Hypertarget{wrappers__wrappers000020}%
+ This function is attached as method {\bfseries{rotational\+\_\+symmetry\+\_\+db()}} to objects of type {\ttfamily fold\+\_\+compound} (i.\+e. \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}). See \mbox{\hyperlink{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos()}} for details.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$fc, const char $\ast$structure, unsigned int $\ast$$\ast$positions)]\label{wrappers__wrappers000021}%
+\Hypertarget{wrappers__wrappers000021}%
+ This function is attached as method {\bfseries{rotational\+\_\+symmetry\+\_\+db()}} to objects of type {\ttfamily fold\+\_\+compound} (i.\+e. \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}). Thus, the first argument must be omitted. In contrast to our C-\/implementation, this function doesn\textquotesingle{}t simply return the order of rotational symmetry of the secondary structure, but returns the list {\ttfamily position} of cyclic permutation shifts that result in a rotationally symmetric structure. The length of the list then determines the order of rotational symmetry.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num}} (const unsigned int $\ast$string, size\+\_\+t string\+\_\+length)]\label{wrappers__wrappers000016}%
+\Hypertarget{wrappers__wrappers000016}%
+ This function is available as global function {\bfseries{rotational\+\_\+symmetry()}}. See \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} for details. Note, that in the target language the length of the list {\ttfamily string} is always known a-\/priori, so the parameter {\ttfamily string\+\_\+length} must be omitted.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos}} (const char $\ast$string, unsigned int $\ast$$\ast$positions)]\label{wrappers__wrappers000019}%
+\Hypertarget{wrappers__wrappers000019}%
+ This function is available as overloaded global function {\bfseries{rotational\+\_\+symmetry()}}. It merges the functionalities of \mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry()}}, \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}}, \mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num()}}, and \mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num()}}. In contrast to our C-\/implementation, this function doesn\textquotesingle{}t return the order of rotational symmetry as a single value, but returns a list of cyclic permutation shifts that result in a rotationally symmetric string. The length of the list then determines the order of rotational symmetry.  
+\item[Global \mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num}} (const unsigned int $\ast$string, size\+\_\+t string\+\_\+length, unsigned int $\ast$$\ast$positions)]\label{wrappers__wrappers000017}%
+\Hypertarget{wrappers__wrappers000017}%
+ This function is available as global function {\bfseries{rotational\+\_\+symmetry()}}. See \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} for details. Note, that in the target language the length of the list {\ttfamily string} is always known a-\/priori, so the parameter {\ttfamily string\+\_\+length} must be omitted.  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga499cba7f77804fdb4c2124451e25a1b1}{vrna\+\_\+sc\+\_\+add\+\_\+bp}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, int j, FLT\+\_\+\+OR\+\_\+\+DBL energy, unsigned int options)]\label{wrappers__wrappers000036}%
+\Hypertarget{wrappers__wrappers000036}%
+ 
+
+This function is attached as an overloaded method {\bfseries{sc\+\_\+add\+\_\+bp()}} to objects of type {\itshape fold\+\_\+compound}. The method either takes arguments for a single base pair (i,j) with the corresponding energy value\+:  
+\item[Global \mbox{\hyperlink{group__soft__constraints_gaf03db36cc1338763c3a260283e301ea9}{vrna\+\_\+sc\+\_\+add\+\_\+bt}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+callback\+\_\+sc\+\_\+backtrack $\ast$f)]\label{wrappers__wrappers000041}%
+\Hypertarget{wrappers__wrappers000041}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+bt()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga2b4fe5190703fea37e1dde1bed95b84d}{vrna\+\_\+sc\+\_\+add\+\_\+data}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, void $\ast$data, vrna\+\_\+callback\+\_\+free\+\_\+auxdata $\ast$free\+\_\+data)]\label{wrappers__wrappers000039}%
+\Hypertarget{wrappers__wrappers000039}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+data()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga374349fe449e91437a7439cfb808a65c}{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy $\ast$exp\+\_\+f)]\label{wrappers__wrappers000042}%
+\Hypertarget{wrappers__wrappers000042}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+exp\+\_\+f()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_gafc707c5281ec93eff1144208133aab03}{vrna\+\_\+sc\+\_\+add\+\_\+f}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+callback\+\_\+sc\+\_\+energy $\ast$f)]\label{wrappers__wrappers000040}%
+\Hypertarget{wrappers__wrappers000040}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+f()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__constraints__ligand_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$seq, const char $\ast$structure, FLT\+\_\+\+OR\+\_\+\+DBL energy, unsigned int options)]\label{wrappers__wrappers000029}%
+\Hypertarget{wrappers__wrappers000029}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+hi\+\_\+motif()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const double $\ast$reactivities, double m, double b, unsigned int options)]\label{wrappers__wrappers000030}%
+\Hypertarget{wrappers__wrappers000030}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan\+\_\+ali}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const char $\ast$$\ast$shape\+\_\+files, const int $\ast$shape\+\_\+file\+\_\+association, double m, double b, unsigned int options)]\label{wrappers__wrappers000031}%
+\Hypertarget{wrappers__wrappers000031}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan\+\_\+ali()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const double $\ast$reactivities, double b, double default\+\_\+value, const char $\ast$shape\+\_\+conversion, unsigned int options)]\label{wrappers__wrappers000032}%
+\Hypertarget{wrappers__wrappers000032}%
+ This function is attached as method {\bfseries{sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga750becf3afad46d05954e705c97a2125}{vrna\+\_\+sc\+\_\+add\+\_\+up}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int i, FLT\+\_\+\+OR\+\_\+\+DBL energy, unsigned int options)]\label{wrappers__wrappers000038}%
+\Hypertarget{wrappers__wrappers000038}%
+ This function is attached as an overloaded method {\bfseries{sc\+\_\+add\+\_\+up()}} to objects of type {\itshape fold\+\_\+compound}. The method either takes arguments for a single nucleotide $i $ with the corresponding energy value\+:  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga9d977a1681356778cc66dceafbe5b032}{vrna\+\_\+sc\+\_\+init}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{wrappers__wrappers000033}%
+\Hypertarget{wrappers__wrappers000033}%
+ This function is attached as method {\bfseries{sc\+\_\+init()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga73cdc07b9a199c614367bebef0f2c41a}{vrna\+\_\+sc\+\_\+remove}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{wrappers__wrappers000034}%
+\Hypertarget{wrappers__wrappers000034}%
+ This function is attached as method {\bfseries{sc\+\_\+remove()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_ga0dc523c123207e53a894c0a815b541b7}{vrna\+\_\+sc\+\_\+set\+\_\+bp}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const FLT\+\_\+\+OR\+\_\+\+DBL $\ast$$\ast$constraints, unsigned int options)]\label{wrappers__wrappers000035}%
+\Hypertarget{wrappers__wrappers000035}%
+ This function is attached as method {\bfseries{sc\+\_\+set\+\_\+bp()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__soft__constraints_gac922f25191e577767d94d7383d63aa9e}{vrna\+\_\+sc\+\_\+set\+\_\+up}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, const FLT\+\_\+\+OR\+\_\+\+DBL $\ast$constraints, unsigned int options)]\label{wrappers__wrappers000037}%
+\Hypertarget{wrappers__wrappers000037}%
+ This function is attached as method {\bfseries{sc\+\_\+set\+\_\+up()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}{vrna\+\_\+seq\+\_\+encode}} (const char $\ast$sequence, vrna\+\_\+md\+\_\+t $\ast$md)]\label{wrappers__wrappers000132}%
+\Hypertarget{wrappers__wrappers000132}%
+ In the target scripting language, this function is wrapped as overloaded function {\itshape seq\+\_\+encode()} where the last parameter, the {\itshape model\+\_\+details} data structure, is optional. If it is omitted, default model settings are applied, i.\+e. default nucleotide letter conversion. The wrapped function returns a list/tuple of integer representations of the input sequence.  
+\item[Global \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int delta, int sorted, FILE $\ast$fp)]\label{wrappers__wrappers000140}%
+\Hypertarget{wrappers__wrappers000140}%
+ This function is attached as method {\bfseries{\mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}}}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, int delta, vrna\+\_\+subopt\+\_\+callback $\ast$cb, void $\ast$data)]\label{wrappers__wrappers000141}%
+\Hypertarget{wrappers__wrappers000141}%
+ This function is attached as method {\bfseries{subopt\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}{vrna\+\_\+subopt\+\_\+zuker}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{wrappers__wrappers000142}%
+\Hypertarget{wrappers__wrappers000142}%
+ This function is attached as method {\bfseries{subopt\+\_\+zuker()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__domains__up_gada59cb0c498b812eadd010811af3f2d4}{vrna\+\_\+ud\+\_\+remove}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc)]\label{wrappers__wrappers000083}%
+\Hypertarget{wrappers__wrappers000083}%
+ This function is attached as method {\bfseries{ud\+\_\+remove()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__domains__up_gac1f18c312b91d80089534a87d956e58b}{vrna\+\_\+ud\+\_\+set\+\_\+data}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, void $\ast$data, vrna\+\_\+callback\+\_\+free\+\_\+auxdata $\ast$free\+\_\+cb)]\label{wrappers__wrappers000084}%
+\Hypertarget{wrappers__wrappers000084}%
+ This function is attached as method {\bfseries{ud\+\_\+set\+\_\+data()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__domains__up_ga2fb1db2099da26c76247e1209ad4aa09}{vrna\+\_\+ud\+\_\+set\+\_\+exp\+\_\+prod\+\_\+rule\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+production $\ast$pre\+\_\+cb, vrna\+\_\+callback\+\_\+ud\+\_\+exp\+\_\+energy $\ast$exp\+\_\+e\+\_\+cb)]\label{wrappers__wrappers000086}%
+\Hypertarget{wrappers__wrappers000086}%
+ This function is attached as method {\bfseries{ud\+\_\+set\+\_\+exp\+\_\+prod\+\_\+rule\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{unstructured__domains_8h_a13ac877c9db89a1a5b5d9c0394148595}{vrna\+\_\+ud\+\_\+set\+\_\+prob\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+add $\ast$setter, vrna\+\_\+callback\+\_\+ud\+\_\+probs\+\_\+get $\ast$getter)]\label{wrappers__wrappers000087}%
+\Hypertarget{wrappers__wrappers000087}%
+ This function is attached as method {\bfseries{ud\+\_\+set\+\_\+prob\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound}  
+\item[Global \mbox{\hyperlink{group__domains__up_ga745a99f0bc72898d54de16f6e538828a}{vrna\+\_\+ud\+\_\+set\+\_\+prod\+\_\+rule\+\_\+cb}} (vrna\+\_\+fold\+\_\+compound\+\_\+t $\ast$vc, vrna\+\_\+callback\+\_\+ud\+\_\+production $\ast$pre\+\_\+cb, vrna\+\_\+callback\+\_\+ud\+\_\+energy $\ast$e\+\_\+cb)]\label{wrappers__wrappers000085}%
+\Hypertarget{wrappers__wrappers000085}%
+ This function is attached as method {\bfseries{ud\+\_\+set\+\_\+prod\+\_\+rule\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound} 
+\end{DoxyRefList}

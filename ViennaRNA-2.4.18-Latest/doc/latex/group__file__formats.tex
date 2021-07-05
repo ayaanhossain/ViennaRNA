@@ -1,0 +1,389 @@
+\hypertarget{group__file__formats}{}\doxysection{Nucleic Acid Sequences and Structures}
+\label{group__file__formats}\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+
+
+Functions to read/write different file formats for nucleic acid sequences and secondary structures.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to read/write different file formats for nucleic acid sequences and secondary structures. 
+
+Collaboration diagram for Nucleic Acid Sequences and Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__file__formats}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{io_2file__formats_8h}{file\+\_\+formats.\+h}}
+\begin{DoxyCompactList}\small\item\em Read and write different file formats for RNA sequences, structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__file__formats_gabec89c09874528c6cb73140a4c3d86d7}{VRNA\+\_\+\+OPTION\+\_\+\+MULTILINE}}~32U
+\begin{DoxyCompactList}\small\item\em Tell a function that an input is assumed to span several lines. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats_ga7d725ef525b29891abef3f1ed42599a4}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+MULTILINE}}~32U
+\begin{DoxyCompactList}\small\item\em parse multiline constraint \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__file__formats_gaaface7db12fadc3d271641c4515ab6e4}{vrna\+\_\+file\+\_\+helixlist}} (const char $\ast$seq, const char $\ast$db, float energy, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure as helix list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_gab69682373ccca1e0e28cc967eec07745}{vrna\+\_\+file\+\_\+connect}} (const char $\ast$seq, const char $\ast$db, float energy, const char $\ast$identifier, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure as connect table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_ga9b462e6f202594af5d3fa56e280d633f}{vrna\+\_\+file\+\_\+bpseq}} (const char $\ast$seq, const char $\ast$db, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure in bpseq format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}{vrna\+\_\+file\+\_\+json}} (const char $\ast$seq, const char $\ast$db, double energy, const char $\ast$identifier, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure in jsonformat. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record}} (char $\ast$$\ast$header, char $\ast$$\ast$sequence, char $\ast$$\ast$$\ast$rest, FILE $\ast$file, unsigned int options)
+\item 
+char $\ast$ \mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+structure}} (const char $\ast$$\ast$lines, unsigned int length, unsigned int option)
+\begin{DoxyCompactList}\small\item\em Extract a dot-\/bracket structure string from (multiline)character array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}{vrna\+\_\+file\+\_\+\+SHAPE\+\_\+read}} (const char $\ast$file\+\_\+name, int length, double default\+\_\+value, char $\ast$sequence, double $\ast$values)
+\begin{DoxyCompactList}\small\item\em Read data from a given SHAPE reactivity input file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint}} (char $\ast$$\ast$cstruc, const char $\ast$$\ast$lines, unsigned int option)
+\begin{DoxyCompactList}\small\item\em Extract a hard constraint encoded as pseudo dot-\/bracket string. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__file__formats_gafd194a69af9d92b5b0412a7627ac1595}{read\+\_\+record}} (char $\ast$$\ast$header, char $\ast$$\ast$sequence, char $\ast$$\ast$$\ast$rest, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Get a data record from stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__file__formats_gabec89c09874528c6cb73140a4c3d86d7}\label{group__file__formats_gabec89c09874528c6cb73140a4c3d86d7}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!VRNA\_OPTION\_MULTILINE@{VRNA\_OPTION\_MULTILINE}}
+\index{VRNA\_OPTION\_MULTILINE@{VRNA\_OPTION\_MULTILINE}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_OPTION\_MULTILINE}{VRNA\_OPTION\_MULTILINE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+OPTION\+\_\+\+MULTILINE~32U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Tell a function that an input is assumed to span several lines. 
+
+If used as input-\/option a function might also be returning this state telling that it has read data from multiple lines.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+structure()}}, \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__file__formats_ga7d725ef525b29891abef3f1ed42599a4}\label{group__file__formats_ga7d725ef525b29891abef3f1ed42599a4}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!VRNA\_CONSTRAINT\_MULTILINE@{VRNA\_CONSTRAINT\_MULTILINE}}
+\index{VRNA\_CONSTRAINT\_MULTILINE@{VRNA\_CONSTRAINT\_MULTILINE}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_CONSTRAINT\_MULTILINE}{VRNA\_CONSTRAINT\_MULTILINE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+CONSTRAINT\+\_\+\+MULTILINE~32U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+parse multiline constraint 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000163}{Deprecated}}]see \mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+structure()}} \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__file__formats_gaaface7db12fadc3d271641c4515ab6e4}\label{group__file__formats_gaaface7db12fadc3d271641c4515ab6e4}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_file\_helixlist@{vrna\_file\_helixlist}}
+\index{vrna\_file\_helixlist@{vrna\_file\_helixlist}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_helixlist()}{vrna\_file\_helixlist()}}
+{\footnotesize\ttfamily void vrna\+\_\+file\+\_\+helixlist (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{db,  }\item[{float}]{energy,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Print a secondary structure as helix list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em db} & The structure in dot-\/bracket format \\
+\hline
+{\em energy} & Free energy of the structure in kcal/mol \\
+\hline
+{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == NULL) ) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__file__formats_gab69682373ccca1e0e28cc967eec07745}\label{group__file__formats_gab69682373ccca1e0e28cc967eec07745}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_file\_connect@{vrna\_file\_connect}}
+\index{vrna\_file\_connect@{vrna\_file\_connect}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_connect()}{vrna\_file\_connect()}}
+{\footnotesize\ttfamily void vrna\+\_\+file\+\_\+connect (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{db,  }\item[{float}]{energy,  }\item[{const char $\ast$}]{identifier,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Print a secondary structure as connect table. 
+
+Connect table file format looks like this\+: \begin{DoxyVerb}* 300  ENERGY = 7.0  example
+* 1 G       0    2   22    1
+* 2 G       1    3   21    2
+* \end{DoxyVerb}
+ where the headerline is followed by 6 columns with\+:
+\begin{DoxyEnumerate}
+\item Base number\+: index n
+\item Base (A, C, G, T, U, X)
+\item Index n-\/1 (0 if first nucleotide)
+\item Index n+1 (0 if last nucleotide)
+\item Number of the base to which n is paired. No pairing is indicated by 0 (zero).
+\item Natural numbering.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em db} & The structure in dot-\/bracket format \\
+\hline
+{\em energy} & The free energy of the structure \\
+\hline
+{\em identifier} & An optional identifier for the sequence \\
+\hline
+{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == NULL) ) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__file__formats_ga9b462e6f202594af5d3fa56e280d633f}\label{group__file__formats_ga9b462e6f202594af5d3fa56e280d633f}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_file\_bpseq@{vrna\_file\_bpseq}}
+\index{vrna\_file\_bpseq@{vrna\_file\_bpseq}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_bpseq()}{vrna\_file\_bpseq()}}
+{\footnotesize\ttfamily void vrna\+\_\+file\+\_\+bpseq (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{db,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Print a secondary structure in bpseq format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em db} & The structure in dot-\/bracket format \\
+\hline
+{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == NULL) ) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__file__formats_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}\label{group__file__formats_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_file\_json@{vrna\_file\_json}}
+\index{vrna\_file\_json@{vrna\_file\_json}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_json()}{vrna\_file\_json()}}
+{\footnotesize\ttfamily void vrna\+\_\+file\+\_\+json (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{db,  }\item[{double}]{energy,  }\item[{const char $\ast$}]{identifier,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Print a secondary structure in jsonformat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The RNA sequence \\
+\hline
+{\em db} & The structure in dot-\/bracket format \\
+\hline
+{\em energy} & The free energy \\
+\hline
+{\em identifier} & An identifier for the sequence \\
+\hline
+{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == NULL) ) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}\label{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_file\_fasta\_read\_record@{vrna\_file\_fasta\_read\_record}}
+\index{vrna\_file\_fasta\_read\_record@{vrna\_file\_fasta\_read\_record}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_fasta\_read\_record()}{vrna\_file\_fasta\_read\_record()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{header,  }\item[{char $\ast$$\ast$}]{sequence,  }\item[{char $\ast$$\ast$$\ast$}]{rest,  }\item[{FILE $\ast$}]{file,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+\begin{DoxyVerb}@brief  Get a (fasta) data set from a file or stdin
+
+This function may be used to obtain complete datasets from a filehandle or stdin.
+A dataset is always defined to contain at least a sequence. If data starts with a
+fasta header, i.e. a line like
+@verbatim >some header info \end{DoxyVerb}
+ then \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} will assume that the sequence that follows the header may span over several lines. To disable this behavior and to assign a single line to the argument \textquotesingle{}sequence\textquotesingle{} one can pass \mbox{\hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{VRNA\+\_\+\+INPUT\+\_\+\+NO\+\_\+\+SPAN}} in the \textquotesingle{}options\textquotesingle{} argument. If no fasta header is read in the beginning of a data block, a sequence must not span over multiple lines!~\newline
+Unless the options \mbox{\hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{VRNA\+\_\+\+INPUT\+\_\+\+NOSKIP\+\_\+\+COMMENTS}} or \mbox{\hyperlink{group__utils_gab4db885222b3b69608310d7c7e63e286}{VRNA\+\_\+\+INPUT\+\_\+\+NOSKIP\+\_\+\+BLANK\+\_\+\+LINES}} are passed, a sequence may be interrupted by lines starting with a comment character or empty lines.~\newline
+A sequence is regarded as completely read if it was either assumed to not span over multiple lines, a secondary structure or structure constraint follows the sequence on the next line, or a new header marks the beginning of a new sequence...~\newline
+All lines following the sequence (this includes comments) that do not initiate a new dataset according to the above definition are available through the line-\/array \textquotesingle{}rest\textquotesingle{}. Here one can usually find the structure constraint or other information belonging to the current dataset. Filling of \textquotesingle{}rest\textquotesingle{} may be prevented by passing \mbox{\hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{VRNA\+\_\+\+INPUT\+\_\+\+NO\+\_\+\+REST}} to the options argument.~\newline
+ \begin{DoxyNote}{Note}
+This function will exit any program with an error message if no sequence could be read! 
+
+This function is NOT threadsafe! It uses a global variable to store information about the next data block.
+\end{DoxyNote}
+The main purpose of this function is to be able to easily parse blocks of data in the header of a loop where all calculations for the appropriate data is done inside the loop. The loop may be then left on certain return values, e.\+g.\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{@end}verbatim}
+\DoxyCodeLine{ \textcolor{keywordtype}{char} *id, *seq, **rest;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}  i;}
+\DoxyCodeLine{\textcolor{keywordtype}{id} = seq = NULL;}
+\DoxyCodeLine{rest = NULL;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}(!(\mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\_file\_fasta\_read\_record}}(\&\textcolor{keywordtype}{id}, \&seq, \&rest, NULL, 0) \& (\mbox{\hyperlink{group__utils_gad403c9ea58f1836689404c2931419c8c}{VRNA\_INPUT\_ERROR}} | \mbox{\hyperlink{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}{VRNA\_INPUT\_QUIT}})))\{}
+\DoxyCodeLine{  \textcolor{keywordflow}{if}(\textcolor{keywordtype}{id})}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, \textcolor{keywordtype}{id});}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, seq);}
+\DoxyCodeLine{  \textcolor{keywordflow}{if}(rest)}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(i=0;rest[i];i++)\{}
+\DoxyCodeLine{      printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, rest[i]);}
+\DoxyCodeLine{      free(rest[i]);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  free(rest);}
+\DoxyCodeLine{  free(seq);}
+\DoxyCodeLine{  free(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ In the example above, the while loop will be terminated when \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} returns either an error, EOF, or a user initiated quit request.~\newline
+ As long as data is read from stdin (we are passing NULL as the file pointer), the id is printed if it is available for the current block of data. The sequence will be printed in any case and if some more lines belong to the current block of data each line will be printed as well.
+
+\begin{DoxyNote}{Note}
+Do not forget to free the memory occupied by header, sequence and rest!
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em header} & A pointer which will be set such that it points to the header of the record \\
+\hline
+{\em sequence} & A pointer which will be set such that it points to the sequence of the record \\
+\hline
+{\em rest} & A pointer which will be set such that it points to an array of lines which also belong to the record \\
+\hline
+{\em file} & A file handle to read from (if NULL, this function reads from stdin) \\
+\hline
+{\em options} & Some options which may be passed to alter the behavior of the function, use 0 for no options \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A flag with information about what the function actually did read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}\label{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_extract\_record\_rest\_structure@{vrna\_extract\_record\_rest\_structure}}
+\index{vrna\_extract\_record\_rest\_structure@{vrna\_extract\_record\_rest\_structure}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_extract\_record\_rest\_structure()}{vrna\_extract\_record\_rest\_structure()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{lines,  }\item[{unsigned int}]{length,  }\item[{unsigned int}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Extract a dot-\/bracket structure string from (multiline)character array. 
+
+This function extracts a dot-\/bracket structure string from the \textquotesingle{}rest\textquotesingle{} array as returned by \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} and returns it. All occurences of comments within the \textquotesingle{}lines\textquotesingle{} array will be skipped as long as they do not break the structure string. If no structure could be read, this function returns NULL.
+
+\begin{DoxyPrecond}{Precondition}
+The argument \textquotesingle{}lines\textquotesingle{} has to be a 2-\/dimensional character array as obtained by \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em lines} & The (multiline) character array to be parsed \\
+\hline
+{\em length} & The assumed length of the dot-\/bracket string (passing a value $<$ 1 results in no length limit) \\
+\hline
+{\em option} & Some options which may be passed to alter the behavior of the function, use 0 for no options \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot-\/bracket string read from lines or NULL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}\label{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_file\_SHAPE\_read@{vrna\_file\_SHAPE\_read}}
+\index{vrna\_file\_SHAPE\_read@{vrna\_file\_SHAPE\_read}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_SHAPE\_read()}{vrna\_file\_SHAPE\_read()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+SHAPE\+\_\+read (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+name,  }\item[{int}]{length,  }\item[{double}]{default\+\_\+value,  }\item[{char $\ast$}]{sequence,  }\item[{double $\ast$}]{values }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Read data from a given SHAPE reactivity input file. 
+
+This function parses the informations from a given file and stores the result in the preallocated string sequence and the double array values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & Path to the constraints file \\
+\hline
+{\em length} & Length of the sequence (file entries exceeding this limit will cause an error) \\
+\hline
+{\em default\+\_\+value} & Value for missing indices \\
+\hline
+{\em sequence} & Pointer to an array used for storing the sequence obtained from the SHAPE reactivity file \\
+\hline
+{\em values} & Pointer to an array used for storing the values obtained from the SHAPE reactivity file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__file__formats_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}\label{group__file__formats_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!vrna\_extract\_record\_rest\_constraint@{vrna\_extract\_record\_rest\_constraint}}
+\index{vrna\_extract\_record\_rest\_constraint@{vrna\_extract\_record\_rest\_constraint}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_extract\_record\_rest\_constraint()}{vrna\_extract\_record\_rest\_constraint()}}
+{\footnotesize\ttfamily void vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{cstruc,  }\item[{const char $\ast$$\ast$}]{lines,  }\item[{unsigned int}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Extract a hard constraint encoded as pseudo dot-\/bracket string. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000164}{Deprecated}}]Use \mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+structure()}} instead! \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+The argument \textquotesingle{}lines\textquotesingle{} has to be a 2-\/dimensional character array as obtained by \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}, \mbox{\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+PIPE}}, \mbox{\hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+DOT}}, \mbox{\hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+X}} \mbox{\hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+ANG\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+RND\+\_\+\+BRACK}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em cstruc} & A pointer to a character array that is used as pseudo dot-\/bracket output \\
+\hline
+{\em lines} & A 2-\/dimensional character array with the extension lines from the FASTA input \\
+\hline
+{\em option} & The option flags that define the behavior and recognition pattern of this function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__file__formats_gafd194a69af9d92b5b0412a7627ac1595}\label{group__file__formats_gafd194a69af9d92b5b0412a7627ac1595}} 
+\index{Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}!read\_record@{read\_record}}
+\index{read\_record@{read\_record}!Nucleic Acid Sequences and Structures@{Nucleic Acid Sequences and Structures}}
+\doxysubsubsection{\texorpdfstring{read\_record()}{read\_record()}}
+{\footnotesize\ttfamily unsigned int read\+\_\+record (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{header,  }\item[{char $\ast$$\ast$}]{sequence,  }\item[{char $\ast$$\ast$$\ast$}]{rest,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2file__formats_8h}{Vienna\+RNA/io/file\+\_\+formats.\+h}}$>$}
+
+
+
+Get a data record from stdin. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000166}{Deprecated}}]This function is deprecated! Use \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}} as a replacment.\end{DoxyRefDesc}

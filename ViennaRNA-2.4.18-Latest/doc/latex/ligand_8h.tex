@@ -1,0 +1,66 @@
+\hypertarget{ligand_8h}{}\doxysection{Vienna\+RNA/constraints/ligand.h File Reference}
+\label{ligand_8h}\index{ViennaRNA/constraints/ligand.h@{ViennaRNA/constraints/ligand.h}}
+
+
+Functions for incorporation of ligands binding to hairpin and interior loop motifs using the soft constraints framework.  
+
+
+Include dependency graph for ligand.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ligand_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{ligand_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvrna__sc__motif__s}{vrna\+\_\+sc\+\_\+motif\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structvrna__sc__motif__s}{vrna\+\_\+sc\+\_\+motif\+\_\+s}} \mbox{\hyperlink{ligand_8h_a56615bc45d2aa4d6d3326fb74183c9ac}{vrna\+\_\+sc\+\_\+motif\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__constraints__ligand_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$seq, const char $\ast$structure, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} energy, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add soft constraints for hairpin or interior loop binding motif. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for incorporation of ligands binding to hairpin and interior loop motifs using the soft constraints framework. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ligand_8h_a56615bc45d2aa4d6d3326fb74183c9ac}\label{ligand_8h_a56615bc45d2aa4d6d3326fb74183c9ac}} 
+\index{ligand.h@{ligand.h}!vrna\_sc\_motif\_t@{vrna\_sc\_motif\_t}}
+\index{vrna\_sc\_motif\_t@{vrna\_sc\_motif\_t}!ligand.h@{ligand.h}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_motif\_t}{vrna\_sc\_motif\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structvrna__sc__motif__s}{vrna\+\_\+sc\+\_\+motif\+\_\+s}} \mbox{\hyperlink{ligand_8h_a56615bc45d2aa4d6d3326fb74183c9ac}{vrna\+\_\+sc\+\_\+motif\+\_\+t}}}
+
+\begin{DoxyVerb}@addtogroup constraints_ligand
+
+@brief  Ligand binding to specific hairpin/interior loop like motifs using the @ref soft_constraints feature
+
+Here is an example that adds a theophylline binding motif. Free energy
+contribution is derived from @f$k_d = 0.32 \mu mol / l @f$, taken from
+Jenison et al. 1994
+
+@image html   theo_aptamer.svg
+@image latex  theo_aptamer.eps
+
+@code{.c}
+\end{DoxyVerb}
+ vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif(vc, \char`\"{}\+GAUACCAG\&\+CCCUUGGCAGC\char`\"{}, \char`\"{}(...((((\&)...)))...)\char`\"{}, -\/9.\+22, VRNA\+\_\+\+OPTION\+\_\+\+DEFAULT);  

@@ -1,0 +1,248 @@
+\hypertarget{group__eval__loops__hp}{}\doxysection{Hairpin Loops}
+\label{group__eval__loops__hp}\index{Hairpin Loops@{Hairpin Loops}}
+
+
+Functions to evaluate the free energy contributions for hairpin loops.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to evaluate the free energy contributions for hairpin loops. 
+
+Collaboration diagram for Hairpin Loops\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{group__eval__loops__hp}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{hairpin_8h}{hairpin.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of hairpin loops for MFE and partition function calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Basic free energy interface}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval__loops__hp_ga57179ea326cc5ed8dfe4d3962b233128}{vrna\+\_\+\+E\+\_\+hp\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of a hairpin loop and consider hard constraints if they apply. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__loops__hp_ga7d358fa17aaf1cfc312a053accd10778}{vrna\+\_\+\+E\+\_\+ext\+\_\+hp\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy of an exterior hairpin loop and consider possible hard constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__loops__hp_gafd39e7355dcf36bf1517bafc1b49c2d2}\label{group__eval__loops__hp_gafd39e7355dcf36bf1517bafc1b49c2d2}} 
+int \mbox{\hyperlink{group__eval__loops__hp_gafd39e7355dcf36bf1517bafc1b49c2d2}{vrna\+\_\+eval\+\_\+ext\+\_\+hp\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate free energy of an exterior hairpin loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__loops__hp_gad0bb844f8dc704c71737ae1d7e32b975}{vrna\+\_\+eval\+\_\+hp\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate free energy of a hairpin loop. \end{DoxyCompactList}\item 
+PRIVATE int \mbox{\hyperlink{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}{E\+\_\+\+Hairpin}} (int size, int type, int si1, int sj1, const char $\ast$string, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\begin{DoxyCompactList}\small\item\em Compute the Energy of a hairpin-\/loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Boltzmann weight (partition function) interface}
+\begin{DoxyCompactItemize}
+\item 
+PRIVATE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__loops__hp_ga51fb555974f180b78d76142b2894851c}{exp\+\_\+\+E\+\_\+\+Hairpin}} (int u, int type, short si1, short sj1, const char $\ast$string, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$P)
+\begin{DoxyCompactList}\small\item\em Compute Boltzmann weight $e^{-\Delta G/kT} $ of a hairpin loop. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__loops__hp_gad62fe037be0a3fc6914676e5cb85be5e}{vrna\+\_\+exp\+\_\+\+E\+\_\+hp\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em High-\/\+Level function for hairpin loop energy evaluation (partition function variant) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__loops__hp_ga57179ea326cc5ed8dfe4d3962b233128}\label{group__eval__loops__hp_ga57179ea326cc5ed8dfe4d3962b233128}} 
+\index{Hairpin Loops@{Hairpin Loops}!vrna\_E\_hp\_loop@{vrna\_E\_hp\_loop}}
+\index{vrna\_E\_hp\_loop@{vrna\_E\_hp\_loop}!Hairpin Loops@{Hairpin Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_E\_hp\_loop()}{vrna\_E\_hp\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+E\+\_\+hp\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+Evaluate the free energy of a hairpin loop and consider hard constraints if they apply. 
+
+This function evaluates the free energy of a hairpin loop
+
+In case the base pair is not allowed due to a constraint conflict, this function returns \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}.
+
+\begin{DoxyNote}{Note}
+This function is polymorphic! The provided \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} may be of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} or \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} that stores all relevant model settings \\
+\hline
+{\em i} & The 5\textquotesingle{} nucleotide of the base pair (3\textquotesingle{} to evaluate the pair as exterior hairpin loop) \\
+\hline
+{\em j} & The 3\textquotesingle{} nucleotide of the base pair (5\textquotesingle{} to evaluate the pair as exterior hairpin loop) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the hairpin loop in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__loops__hp_ga7d358fa17aaf1cfc312a053accd10778}\label{group__eval__loops__hp_ga7d358fa17aaf1cfc312a053accd10778}} 
+\index{Hairpin Loops@{Hairpin Loops}!vrna\_E\_ext\_hp\_loop@{vrna\_E\_ext\_hp\_loop}}
+\index{vrna\_E\_ext\_hp\_loop@{vrna\_E\_ext\_hp\_loop}!Hairpin Loops@{Hairpin Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_E\_ext\_hp\_loop()}{vrna\_E\_ext\_hp\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+E\+\_\+ext\+\_\+hp\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+Evaluate the free energy of an exterior hairpin loop and consider possible hard constraints. 
+
+\begin{DoxyNote}{Note}
+This function is polymorphic! The provided \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} may be of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} or \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}} 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__eval__loops__hp_gad0bb844f8dc704c71737ae1d7e32b975}\label{group__eval__loops__hp_gad0bb844f8dc704c71737ae1d7e32b975}} 
+\index{Hairpin Loops@{Hairpin Loops}!vrna\_eval\_hp\_loop@{vrna\_eval\_hp\_loop}}
+\index{vrna\_eval\_hp\_loop@{vrna\_eval\_hp\_loop}!Hairpin Loops@{Hairpin Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_hp\_loop()}{vrna\_eval\_hp\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+hp\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+Evaluate free energy of a hairpin loop. 
+
+\begin{DoxyNote}{Note}
+This function is polymorphic! The provided \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} may be of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} or \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} for the particular energy evaluation \\
+\hline
+{\em i} & 5\textquotesingle{}-\/position of the base pair \\
+\hline
+{\em j} & 3\textquotesingle{}-\/position of the base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Free energy of the hairpin loop closed by $ (i,j) $ in deka-\/kal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000051}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+hp\+\_\+loop()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}\label{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}} 
+\index{Hairpin Loops@{Hairpin Loops}!E\_Hairpin@{E\_Hairpin}}
+\index{E\_Hairpin@{E\_Hairpin}!Hairpin Loops@{Hairpin Loops}}
+\doxysubsubsection{\texorpdfstring{E\_Hairpin()}{E\_Hairpin()}}
+{\footnotesize\ttfamily PRIVATE int E\+\_\+\+Hairpin (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{type,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{const char $\ast$}]{string,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+Compute the Energy of a hairpin-\/loop. 
+
+To evaluate the free energy of a hairpin-\/loop, several parameters have to be known. A general hairpin-\/loop has this structure\+:~\newline
+ 
+\begin{DoxyPre}
+      a3 a4
+    a2     a5
+    a1     a6
+      X -\/ Y
+      |   |
+      5'  3'
+\end{DoxyPre}
+ where X-\/Y marks the closing pair \mbox{[}e.\+g. a {\bfseries{(G,C)}} pair\mbox{]}. The length of this loop is 6 as there are six unpaired nucleotides (a1-\/a6) enclosed by (X,Y). The 5\textquotesingle{} mismatching nucleotide is a1 while the 3\textquotesingle{} mismatch is a6. The nucleotide sequence of this loop is "{}a1.\+a2.\+a3.\+a4.\+a5.\+a6"{} ~\newline
+ \begin{DoxyNote}{Note}
+The parameter sequence should contain the sequence of the loop in capital letters of the nucleic acid alphabet if the loop size is below 7. This is useful for unusually stable tri-\/, tetra-\/ and hexa-\/loops which are treated differently (based on experimental data) if they are tabulated. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_ga541f2cf7436e9bc939b0a49b24baf987}{scale\+\_\+parameters()}} 
+
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+Not (really) thread safe! A threadsafe implementation will replace this function in a future release!~\newline
+Energy evaluation may change due to updates in global variable \char`\"{}tetra\+\_\+loop\char`\"{}
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the loop (number of unpaired nucleotides) \\
+\hline
+{\em type} & The pair type of the base pair closing the hairpin \\
+\hline
+{\em si1} & The 5\textquotesingle{}-\/mismatching nucleotide \\
+\hline
+{\em sj1} & The 3\textquotesingle{}-\/mismatching nucleotide \\
+\hline
+{\em string} & The sequence of the loop (May be {\ttfamily NULL}, otherwise mst be at least $size + 2$ long) \\
+\hline
+{\em P} & The datastructure containing scaled energy parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Free energy of the Hairpin-\/loop in dcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__loops__hp_ga51fb555974f180b78d76142b2894851c}\label{group__eval__loops__hp_ga51fb555974f180b78d76142b2894851c}} 
+\index{Hairpin Loops@{Hairpin Loops}!exp\_E\_Hairpin@{exp\_E\_Hairpin}}
+\index{exp\_E\_Hairpin@{exp\_E\_Hairpin}!Hairpin Loops@{Hairpin Loops}}
+\doxysubsubsection{\texorpdfstring{exp\_E\_Hairpin()}{exp\_E\_Hairpin()}}
+{\footnotesize\ttfamily PRIVATE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} exp\+\_\+\+E\+\_\+\+Hairpin (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{type,  }\item[{short}]{si1,  }\item[{short}]{sj1,  }\item[{const char $\ast$}]{string,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+Compute Boltzmann weight $e^{-\Delta G/kT} $ of a hairpin loop. 
+
+multiply by scale\mbox{[}u+2\mbox{]} \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}{get\+\_\+scaled\+\_\+pf\+\_\+parameters()}} 
+
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} 
+
+\mbox{\hyperlink{group__eval__loops__hp_gadf943ee9a45b7f4cee9192c06210dace}{E\+\_\+\+Hairpin()}} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+Not (really) thread safe! A threadsafe implementation will replace this function in a future release!~\newline
+Energy evaluation may change due to updates in global variable \char`\"{}tetra\+\_\+loop\char`\"{}
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em u} & The size of the loop (number of unpaired nucleotides) \\
+\hline
+{\em type} & The pair type of the base pair closing the hairpin \\
+\hline
+{\em si1} & The 5\textquotesingle{}-\/mismatching nucleotide \\
+\hline
+{\em sj1} & The 3\textquotesingle{}-\/mismatching nucleotide \\
+\hline
+{\em string} & The sequence of the loop (May be {\ttfamily NULL}, otherwise mst be at least $size + 2$ long) \\
+\hline
+{\em P} & The datastructure containing scaled Boltzmann weights of the energy parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Boltzmann weight of the Hairpin-\/loop 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__loops__hp_gad62fe037be0a3fc6914676e5cb85be5e}\label{group__eval__loops__hp_gad62fe037be0a3fc6914676e5cb85be5e}} 
+\index{Hairpin Loops@{Hairpin Loops}!vrna\_exp\_E\_hp\_loop@{vrna\_exp\_E\_hp\_loop}}
+\index{vrna\_exp\_E\_hp\_loop@{vrna\_exp\_E\_hp\_loop}!Hairpin Loops@{Hairpin Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_E\_hp\_loop()}{vrna\_exp\_E\_hp\_loop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} vrna\+\_\+exp\+\_\+\+E\+\_\+hp\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+High-\/\+Level function for hairpin loop energy evaluation (partition function variant) 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__loops__hp_ga57179ea326cc5ed8dfe4d3962b233128}{vrna\+\_\+\+E\+\_\+hp\+\_\+loop()}} for it\textquotesingle{}s free energy counterpart
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This function is polymorphic! The provided \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} may be of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} or \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}} 
+\end{DoxyNote}

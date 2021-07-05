@@ -1,0 +1,64 @@
+\hypertarget{RNApuzzler_8h_source}{}\doxysection{RNApuzzler.\+h}
+\label{RNApuzzler_8h_source}\index{ViennaRNA/plotting/RNApuzzler/RNApuzzler.h@{ViennaRNA/plotting/RNApuzzler/RNApuzzler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef RNAPUZZLER\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define RNAPUZZLER\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{RNApuzzler_8h_source_l00020}\mbox{\hyperlink{group__plot__layout__utils}{00020}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00021   \textcolor{comment}{/*}}
+\DoxyCodeLine{00022 \textcolor{comment}{   * variables fixed during operation}}
+\DoxyCodeLine{00023 \textcolor{comment}{   * drawing behavior}}
+\DoxyCodeLine{00024 \textcolor{comment}{   */}}
+\DoxyCodeLine{00025   \textcolor{keywordtype}{short}       drawArcs;}
+\DoxyCodeLine{00026   \textcolor{keywordtype}{double}      paired;}
+\DoxyCodeLine{00027   \textcolor{keywordtype}{double}      \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}};}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029   \textcolor{comment}{/* intersection resolution behavior */}}
+\DoxyCodeLine{00030   \textcolor{keywordtype}{short}       checkAncestorIntersections;}
+\DoxyCodeLine{00031   \textcolor{keywordtype}{short}       checkSiblingIntersections;}
+\DoxyCodeLine{00032   \textcolor{keywordtype}{short}       checkExteriorIntersections;}
+\DoxyCodeLine{00033   \textcolor{keywordtype}{short}       allowFlipping;}
+\DoxyCodeLine{00034   \textcolor{keywordtype}{short}       optimize;}
+\DoxyCodeLine{00035   \textcolor{keywordtype}{int}         maximumNumberOfConfigChangesAllowed;}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038   \textcolor{comment}{/* import behavior -\/ unused for now */}}
+\DoxyCodeLine{00039   \textcolor{keywordtype}{char}        *config; \textcolor{comment}{/* file path */}}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041   \textcolor{comment}{/* other stuff */}}
+\DoxyCodeLine{00042   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *filename;}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044   \textcolor{comment}{/* variables changed during operation */}}
+\DoxyCodeLine{00045   \textcolor{keywordtype}{int}         numberOfChangesAppliedToConfig;}
+\DoxyCodeLine{00046   \textcolor{keywordtype}{int}         psNumber;}
+\DoxyCodeLine{00047 \} \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\_plot\_options\_puzzler\_t}};}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00087 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{RNApuzzler_8h_source_l00088}\mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{00088}} \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\_plot\_coords\_puzzler}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *structure,}
+\DoxyCodeLine{00089                          \textcolor{keywordtype}{float}                        **x,}
+\DoxyCodeLine{00090                          \textcolor{keywordtype}{float}                        **y,}
+\DoxyCodeLine{00091                          \textcolor{keywordtype}{double}                       **arc\_coords,}
+\DoxyCodeLine{00092                          \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\_plot\_options\_puzzler\_t}}  *options);}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00115 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{RNApuzzler_8h_source_l00116}\mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{00116}} \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\_plot\_coords\_puzzler\_pt}}(\textcolor{keywordtype}{short} \textcolor{keyword}{const} *\textcolor{keyword}{const}          pair\_table,}
+\DoxyCodeLine{00117                             \textcolor{keywordtype}{float}                       **x,}
+\DoxyCodeLine{00118                             \textcolor{keywordtype}{float}                       **y,}
+\DoxyCodeLine{00119                             \textcolor{keywordtype}{double}                      **arc\_coords,}
+\DoxyCodeLine{00120                             \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\_plot\_options\_puzzler\_t}} *puzzler);}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00131 \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\_plot\_options\_puzzler\_t}} *}
+\DoxyCodeLine{\Hypertarget{RNApuzzler_8h_source_l00132}\mbox{\hyperlink{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}{00132}} \mbox{\hyperlink{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}{vrna\_plot\_options\_puzzler}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00133 }
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00143 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{RNApuzzler_8h_source_l00144}\mbox{\hyperlink{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}{00144}} \mbox{\hyperlink{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}{vrna\_plot\_options\_puzzler\_free}}(\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\_plot\_options\_puzzler\_t}} *options);}
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00152 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

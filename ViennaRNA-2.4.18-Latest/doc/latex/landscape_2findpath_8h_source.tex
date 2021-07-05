@@ -1,0 +1,80 @@
+\hypertarget{landscape_2findpath_8h_source}{}\doxysection{findpath.\+h}
+\label{landscape_2findpath_8h_source}\index{ViennaRNA/landscape/findpath.h@{ViennaRNA/landscape/findpath.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_FIND\_PATH\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_FIND\_PATH\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{paths_8h}{ViennaRNA/landscape/paths.h}}>}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00054 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00055}\mbox{\hyperlink{group__paths__direct_gad77dbfa125158f534147c0015a849bc3}{00055}} \mbox{\hyperlink{group__paths__direct_gad77dbfa125158f534147c0015a849bc3}{vrna\_path\_findpath\_saddle}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00056                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s1,}
+\DoxyCodeLine{00057                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s2,}
+\DoxyCodeLine{00058                           \textcolor{keywordtype}{int}                   width);}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00087 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00088}\mbox{\hyperlink{group__paths__direct_gaca6d3ab6f8b9463e3382bd1f474c26f1}{00088}} \mbox{\hyperlink{group__paths__direct_gaca6d3ab6f8b9463e3382bd1f474c26f1}{vrna\_path\_findpath\_saddle\_ub}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00089                              \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s1,}
+\DoxyCodeLine{00090                              \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s2,}
+\DoxyCodeLine{00091                              \textcolor{keywordtype}{int}                  width,}
+\DoxyCodeLine{00092                              \textcolor{keywordtype}{int}                  maxE);}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00116 \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\_path\_t}} *}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00117}\mbox{\hyperlink{group__paths__direct_ga2fed8ff126f5becd82cedd81a25c9bf0}{00117}} \mbox{\hyperlink{group__paths__direct_ga2fed8ff126f5becd82cedd81a25c9bf0}{vrna\_path\_findpath}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00118                    \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s1,}
+\DoxyCodeLine{00119                    \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s2,}
+\DoxyCodeLine{00120                    \textcolor{keywordtype}{int}                  width);}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00150 \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\_path\_t}} *}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00151}\mbox{\hyperlink{group__paths__direct_gad00765c2f269fddfa319310af22d4f67}{00151}} \mbox{\hyperlink{group__paths__direct_gad00765c2f269fddfa319310af22d4f67}{vrna\_path\_findpath\_ub}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00152                       \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s1,}
+\DoxyCodeLine{00153                       \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s2,}
+\DoxyCodeLine{00154                       \textcolor{keywordtype}{int}                   width,}
+\DoxyCodeLine{00155                       \textcolor{keywordtype}{int}                   maxE);}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00159 }
+\DoxyCodeLine{00176 DEPRECATED(\textcolor{keywordtype}{int}}
+\DoxyCodeLine{00177            \mbox{\hyperlink{group__paths__deprecated_ga4c0dabf032c04eeab9c7370d15db6ad2}{find\_saddle}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00178                        \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00179                        \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00180                        \textcolor{keywordtype}{int}        width),}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00181}\mbox{\hyperlink{group__paths__deprecated_ga4c0dabf032c04eeab9c7370d15db6ad2}{00181}}            \textcolor{stringliteral}{"{}Use vrna\_path\_findpath\_saddle() instead!"{}});}
+\DoxyCodeLine{00182 }
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{00193 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{00194            \mbox{\hyperlink{group__paths__deprecated_ga9056421d716ae89f0ed3f107627f395b}{free\_path}}(\mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\_path\_t}} *path),}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00195}\mbox{\hyperlink{group__paths__deprecated_ga9056421d716ae89f0ed3f107627f395b}{00195}}            \textcolor{stringliteral}{"{}Use vrna\_path\_free() instead!"{}});}
+\DoxyCodeLine{00196 }
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00214 DEPRECATED(\mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\_path\_t}} *}
+\DoxyCodeLine{00215            \mbox{\hyperlink{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}{get\_path}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,}
+\DoxyCodeLine{00216                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s1,}
+\DoxyCodeLine{00217                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s2,}
+\DoxyCodeLine{00218                     \textcolor{keywordtype}{int}         width),}
+\DoxyCodeLine{\Hypertarget{landscape_2findpath_8h_source_l00219}\mbox{\hyperlink{group__paths__deprecated_gac009a44db824f90a6de5f9c28b9b3222}{00219}}            \textcolor{stringliteral}{"{}Use vrna\_path\_findpath() instead!"{}});}
+\DoxyCodeLine{00220 }
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00222 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00228 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

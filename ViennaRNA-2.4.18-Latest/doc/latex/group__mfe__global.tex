@@ -1,0 +1,286 @@
+\hypertarget{group__mfe__global}{}\doxysection{Global MFE Prediction}
+\label{group__mfe__global}\index{Global MFE Prediction@{Global MFE Prediction}}
+
+
+Variations of the global Minimum Free Energy (MFE) prediction algorithm.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Variations of the global Minimum Free Energy (MFE) prediction algorithm. 
+
+We provide implementations of the global MFE prediction algorithm for
+\begin{DoxyItemize}
+\item Single sequences,
+\item Multiple sequence alignments (MSA), and
+\item RNA-\/\+RNA hybrids 
+\end{DoxyItemize}Collaboration diagram for Global MFE Prediction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mfe__global}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__kl__neighborhood__mfe}{Computing MFE representatives of a Distance Based Partitioning}}
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy (MFE) and secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures basepair distance to two fixed reference structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__mfe__global__deprecated}{Deprecated Interface for Global MFE Prediction}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{mfe_8h}{mfe.\+h}}
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free energy (MFE) and backtrace corresponding secondary structures from RNA sequence data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Basic global MFE prediction interface}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of an RNA sequence, or RNA sequence alignment. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy of two interacting RNA molecules. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified global MFE prediction using sequence(s) or multiple sequence alignment(s)}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding secondary structure for an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding secondary structure for a circular RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold}} (const char $\ast$$\ast$sequences, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding consensus secondary structure for an RNA sequence alignment using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\+\_\+circalifold}} (const char $\ast$$\ast$sequences, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding consensus secondary structure for a sequence alignment of circular RNAs using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{vrna\+\_\+cofold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding secondary structure for two dimerized RNA sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}\label{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_mfe@{vrna\_mfe}}
+\index{vrna\_mfe@{vrna\_mfe}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_mfe()}{vrna\_mfe()}}
+{\footnotesize\ttfamily float vrna\+\_\+mfe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute minimum free energy and an appropriate secondary structure of an RNA sequence, or RNA sequence alignment. 
+
+Depending on the type of the provided \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, this function predicts the MFE for a single sequence, or a corresponding averaged MFE for a sequence alignment. If backtracking is activated, it also constructs the corresponding secondary structure, or consensus structure. Therefore, the second parameter, {\itshape structure}, has to point to an allocated block of memory with a size of at least $\mathrm{strlen}(\mathrm{sequence})+1$ to store the backtracked MFE structure. (For consensus structures, this is the length of the alignment + 1. If {\ttfamily NULL} is passed, no backtracking will be performed.
+
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, \mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\+\_\+circalifold()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & fold compound \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to (Maybe NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000091}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{mfe()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}\label{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_mfe\_dimer@{vrna\_mfe\_dimer}}
+\index{vrna\_mfe\_dimer@{vrna\_mfe\_dimer}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_mfe\_dimer()}{vrna\_mfe\_dimer()}}
+{\footnotesize\ttfamily float vrna\+\_\+mfe\+\_\+dimer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute the minimum free energy of two interacting RNA molecules. 
+
+The code is analog to the \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & fold compound \\
+\hline
+{\em structure} & Will hold the barcket dot structure of the dimer molecule \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum free energy of the structure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000092}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{mfe\+\_\+dimer()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}\label{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_fold@{vrna\_fold}}
+\index{vrna\_fold@{vrna\_fold}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_fold()}{vrna\_fold()}}
+{\footnotesize\ttfamily float vrna\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute Minimum Free Energy (MFE), and a corresponding secondary structure for an RNA sequence. 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} computes the MFE and, if required, a secondary structure for an RNA sequence using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing, e.\+g. suboptimal backtracking, etc.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & RNA sequence \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}\label{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_circfold@{vrna\_circfold}}
+\index{vrna\_circfold@{vrna\_circfold}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_circfold()}{vrna\_circfold()}}
+{\footnotesize\ttfamily float vrna\+\_\+circfold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute Minimum Free Energy (MFE), and a corresponding secondary structure for a circular RNA sequence. 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} computes the MFE and, if required, a secondary structure for a circular RNA sequence using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing, e.\+g. suboptimal backtracking, etc.
+
+Folding of circular RNA sequences is handled as a post-\/processing step of the forward recursions. See \cite{hofacker:2006} for further details.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & RNA sequence \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}\label{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_alifold@{vrna\_alifold}}
+\index{vrna\_alifold@{vrna\_alifold}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_alifold()}{vrna\_alifold()}}
+{\footnotesize\ttfamily float vrna\+\_\+alifold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute Minimum Free Energy (MFE), and a corresponding consensus secondary structure for an RNA sequence alignment using a comparative method. 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} computes the MFE and, if required, a consensus secondary structure for an RNA sequence alignment using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing, e.\+g. suboptimal backtracking, etc.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\+\_\+circalifold()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & RNA sequence alignment \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}\label{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_circalifold@{vrna\_circalifold}}
+\index{vrna\_circalifold@{vrna\_circalifold}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_circalifold()}{vrna\_circalifold()}}
+{\footnotesize\ttfamily float vrna\+\_\+circalifold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute Minimum Free Energy (MFE), and a corresponding consensus secondary structure for a sequence alignment of circular RNAs using a comparative method. 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} computes the MFE and, if required, a consensus secondary structure for an RNA sequence alignment using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing, e.\+g. suboptimal backtracking, etc.
+
+Folding of circular RNA sequences is handled as a post-\/processing step of the forward recursions. See \cite{hofacker:2006} for further details.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & Sequence alignment of circular RNAs \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}\label{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}} 
+\index{Global MFE Prediction@{Global MFE Prediction}!vrna\_cofold@{vrna\_cofold}}
+\index{vrna\_cofold@{vrna\_cofold}!Global MFE Prediction@{Global MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_cofold()}{vrna\_cofold()}}
+{\footnotesize\ttfamily float vrna\+\_\+cofold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Compute Minimum Free Energy (MFE), and a corresponding secondary structure for two dimerized RNA sequences. 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} computes the MFE and, if required, a secondary structure for two RNA sequences upon dimerization using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing, e.\+g. suboptimal backtracking, etc.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, \mbox{\hyperlink{group__string__utils_ga74f05ece32ea73b59f84a7452afd5fae}{vrna\+\_\+cut\+\_\+point\+\_\+insert()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & two RNA sequences separated by the \textquotesingle{}\&\textquotesingle{} character \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum free energy (MFE) in kcal/mol 
+\end{DoxyReturn}

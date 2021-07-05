@@ -1,0 +1,294 @@
+\hypertarget{utils_2basic_8h}{}\doxysection{Vienna\+RNA/utils/basic.h File Reference}
+\label{utils_2basic_8h}\index{ViennaRNA/utils/basic.h@{ViennaRNA/utils/basic.h}}
+
+
+General utility-\/ and helper-\/functions used throughout the {\itshape Vienna\+RNA} {\itshape Package}.  
+
+
+Include dependency graph for basic.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_2basic_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_2basic_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__utils_gad403c9ea58f1836689404c2931419c8c}{VRNA\+\_\+\+INPUT\+\_\+\+ERROR}}~1U
+\begin{DoxyCompactList}\small\item\em Output flag of \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+: {\itshape \char`\"{}\+An ERROR has occured, maybe EOF\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}{VRNA\+\_\+\+INPUT\+\_\+\+QUIT}}~2U
+\begin{DoxyCompactList}\small\item\em Output flag of \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+: {\itshape \char`\"{}the user requested quitting the program\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}{VRNA\+\_\+\+INPUT\+\_\+\+MISC}}~4U
+\begin{DoxyCompactList}\small\item\em Output flag of \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+: {\itshape \char`\"{}something was read\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}{VRNA\+\_\+\+INPUT\+\_\+\+FASTA\+\_\+\+HEADER}}~8U
+\begin{DoxyCompactList}\small\item\em Input/\+Output flag of \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+:~\newline
+if used as input option this tells \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}} that the data to be read should comply with the FASTA format. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_gac08a9df45b9721b97a47dbfe7a6e5f85}{VRNA\+\_\+\+INPUT\+\_\+\+CONSTRAINT}}~32U
+\begin{DoxyCompactList}\small\item\em Input flag for \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+:~\newline
+Tell \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}} that we assume to read a structure constraint. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga086742158293217a46ae2f71bb296937}{VRNA\+\_\+\+INPUT\+\_\+\+NO\+\_\+\+TRUNCATION}}~256U
+\begin{DoxyCompactList}\small\item\em Input switch for \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+: {\itshape \char`\"{}do not trunkate the line by eliminating white spaces at end of line\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{VRNA\+\_\+\+INPUT\+\_\+\+NO\+\_\+\+REST}}~512U
+\begin{DoxyCompactList}\small\item\em Input switch for \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}\+: {\itshape \char`\"{}do fill rest array\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{VRNA\+\_\+\+INPUT\+\_\+\+NO\+\_\+\+SPAN}}~1024U
+\begin{DoxyCompactList}\small\item\em Input switch for \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}\+: {\itshape \char`\"{}never allow data to span more than one line\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_gab4db885222b3b69608310d7c7e63e286}{VRNA\+\_\+\+INPUT\+\_\+\+NOSKIP\+\_\+\+BLANK\+\_\+\+LINES}}~2048U
+\begin{DoxyCompactList}\small\item\em Input switch for \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}\+: {\itshape \char`\"{}do not skip empty lines\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga305474b93ccb79ae4c7754016a8ddd84}{VRNA\+\_\+\+INPUT\+\_\+\+BLANK\+\_\+\+LINE}}~4096U
+\begin{DoxyCompactList}\small\item\em Output flag for \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}\+: {\itshape \char`\"{}read an empty line\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{VRNA\+\_\+\+INPUT\+\_\+\+NOSKIP\+\_\+\+COMMENTS}}~128U
+\begin{DoxyCompactList}\small\item\em Input switch for \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}}\+: {\itshape \char`\"{}do not skip comment lines\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_gaf2062e0eeefffd3ed639af460b3d4fab}{VRNA\+\_\+\+INPUT\+\_\+\+COMMENT}}~8192U
+\begin{DoxyCompactList}\small\item\em Output flag for \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}\+: {\itshape \char`\"{}read a comment\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(A,  B)~((A) $<$ (B) ? (A) \+: (B))
+\begin{DoxyCompactList}\small\item\em Get the minimum of two comparable values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}(A,  B)~((A) $>$ (B) ? (A) \+: (B))
+\begin{DoxyCompactList}\small\item\em Get the maximum of two comparable values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga721b8d5f3abef17f10293f1f7f8c958e}{MIN3}}(A,  B,  C)~(\mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}((\mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}((A), (B))), (C)))
+\begin{DoxyCompactList}\small\item\em Get the minimum of three comparable values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utils_ga8d577123d2e66d2b7d0bf9af6e172b93}{MAX3}}(A,  B,  C)~(\mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}((\mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{MAX2}}((A), (B))), (C)))
+\begin{DoxyCompactList}\small\item\em Get the maximum of three comparable values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\+\_\+alloc}} (unsigned size)
+\begin{DoxyCompactList}\small\item\em Allocate space safely. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}{vrna\+\_\+realloc}} (void $\ast$p, unsigned size)
+\begin{DoxyCompactList}\small\item\em Reallocate space safely. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\+\_\+init\+\_\+rand}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize seed for random number generator. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn}} (void)
+\begin{DoxyCompactList}\small\item\em get a random number from \mbox{[}0..1\mbox{]} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{vrna\+\_\+int\+\_\+urn}} (int from, int to)
+\begin{DoxyCompactList}\small\item\em Generates a pseudo random integer in a specified range. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__utils_gad3bbe8d01afb1310609cb018d5290550}{vrna\+\_\+time\+\_\+stamp}} (void)
+\begin{DoxyCompactList}\small\item\em Get a timestamp. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line}} (char $\ast$$\ast$string, unsigned int options)
+\item 
+int $\ast$ \mbox{\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise}} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Get an index mapper array (iindx) for accessing the energy matrices, e.\+g. in partition function related functions. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\+\_\+idx\+\_\+col\+\_\+wise}} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Get an index mapper array (indx) for accessing the energy matrices, e.\+g. in MFE related functions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print an error message and die. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}{vrna\+\_\+message\+\_\+verror}} (const char $\ast$format, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Print an error message and die. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print a warning message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{vrna\+\_\+message\+\_\+vwarning}} (const char $\ast$format, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Print a warning message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info}} (FILE $\ast$fp, const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print an info message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{vrna\+\_\+message\+\_\+vinfo}} (FILE $\ast$fp, const char $\ast$format, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Print an info message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple}} (void)
+\begin{DoxyCompactList}\small\item\em Print a line to {\itshape stdout} that asks for an input sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__message__utils_gaf4d194d558b0c975f269de01dea52460}{vrna\+\_\+message\+\_\+input\+\_\+seq}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Print a line with a user defined string and a ruler to stdout. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}{get\+\_\+line}} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Read a line of arbitrary length from a stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_2basic_8h_a6bf778117d31b7fd90db435323f4ef74}{print\+\_\+tty\+\_\+input\+\_\+seq}} (void)
+\begin{DoxyCompactList}\small\item\em Print a line to {\itshape stdout} that asks for an input sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_2basic_8h_ae4ef89b662a3e9b5b5f0781d9757aba0}{print\+\_\+tty\+\_\+input\+\_\+seq\+\_\+str}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Print a line with a user defined string and a ruler to stdout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_2basic_8h_af2355fa8746f2f30fbe71db65dea3d51}{warn\+\_\+user}} (const char message\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Print a warning message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_2basic_8h_a127ce946e56b5a5773781cabe68e38c5}{nrerror}} (const char message\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Die with an error message. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}} (unsigned size)
+\begin{DoxyCompactList}\small\item\em Allocate space safely. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{utils_2basic_8h_a9037ada838835b1b9db41581a021b0c8}{xrealloc}} (void $\ast$p, unsigned size)
+\begin{DoxyCompactList}\small\item\em Reallocate space safely. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_2basic_8h_a8aaa6d9be6f803f496d9b97375c371f3}{init\+\_\+rand}} (void)
+\begin{DoxyCompactList}\small\item\em Make random number seeds. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utils_2basic_8h_aaa328491c84996e445d027fde9800f2e}{urn}} (void)
+\begin{DoxyCompactList}\small\item\em get a random number from \mbox{[}0..1\mbox{]} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_2basic_8h_a68ff0849d44f62fe491800378a5ffcb4}{int\+\_\+urn}} (int from, int to)
+\begin{DoxyCompactList}\small\item\em Generates a pseudo random integer in a specified range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_2basic_8h_ab213334ce977b6d21611cdea6b80c3bf}{filecopy}} (FILE $\ast$from, FILE $\ast$to)
+\begin{DoxyCompactList}\small\item\em Inefficient {\ttfamily cp} \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{utils_2basic_8h_a7afeb906cb36e9d77379eabc6907ac46}{time\+\_\+stamp}} (void)
+\begin{DoxyCompactList}\small\item\em Get a timestamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \mbox{\hyperlink{group__utils_gaf9a866c8417afda7368bbac939ab3c47}{xsubi}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Current 48 bit random number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+General utility-\/ and helper-\/functions used throughout the {\itshape Vienna\+RNA} {\itshape Package}. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}\label{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}} 
+\index{basic.h@{basic.h}!get\_line@{get\_line}}
+\index{get\_line@{get\_line}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{get\_line()}{get\_line()}}
+{\footnotesize\ttfamily char$\ast$ get\+\_\+line (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+Read a line of arbitrary length from a stream. 
+
+Returns a pointer to the resulting string. The necessary memory is allocated and should be released using {\itshape free()} when the string is no longer needed.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000182}{Deprecated}}]Use \mbox{\hyperlink{group__file__utils_gad16c270b70a77c753088b29de8a802dc}{vrna\+\_\+read\+\_\+line()}} as a substitute!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & A file pointer to the stream where the function should read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the resulting string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_2basic_8h_a6bf778117d31b7fd90db435323f4ef74}\label{utils_2basic_8h_a6bf778117d31b7fd90db435323f4ef74}} 
+\index{basic.h@{basic.h}!print\_tty\_input\_seq@{print\_tty\_input\_seq}}
+\index{print\_tty\_input\_seq@{print\_tty\_input\_seq}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{print\_tty\_input\_seq()}{print\_tty\_input\_seq()}}
+{\footnotesize\ttfamily void print\+\_\+tty\+\_\+input\+\_\+seq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Print a line to {\itshape stdout} that asks for an input sequence. 
+
+There will also be a ruler (scale line) printed that helps orientation of the sequence positions \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000183}{Deprecated}}]Use \mbox{\hyperlink{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_ae4ef89b662a3e9b5b5f0781d9757aba0}\label{utils_2basic_8h_ae4ef89b662a3e9b5b5f0781d9757aba0}} 
+\index{basic.h@{basic.h}!print\_tty\_input\_seq\_str@{print\_tty\_input\_seq\_str}}
+\index{print\_tty\_input\_seq\_str@{print\_tty\_input\_seq\_str}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{print\_tty\_input\_seq\_str()}{print\_tty\_input\_seq\_str()}}
+{\footnotesize\ttfamily void print\+\_\+tty\+\_\+input\+\_\+seq\+\_\+str (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Print a line with a user defined string and a ruler to stdout. 
+
+(usually this is used to ask for user input) There will also be a ruler (scale line) printed that helps orientation of the sequence positions
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000184}{Deprecated}}]Use \mbox{\hyperlink{group__message__utils_gaf4d194d558b0c975f269de01dea52460}{vrna\+\_\+message\+\_\+input\+\_\+seq()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_af2355fa8746f2f30fbe71db65dea3d51}\label{utils_2basic_8h_af2355fa8746f2f30fbe71db65dea3d51}} 
+\index{basic.h@{basic.h}!warn\_user@{warn\_user}}
+\index{warn\_user@{warn\_user}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{warn\_user()}{warn\_user()}}
+{\footnotesize\ttfamily void warn\+\_\+user (\begin{DoxyParamCaption}\item[{const char}]{message\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Print a warning message. 
+
+Print a warning message to {\itshape stderr} 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000185}{Deprecated}}]Use \mbox{\hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_a127ce946e56b5a5773781cabe68e38c5}\label{utils_2basic_8h_a127ce946e56b5a5773781cabe68e38c5}} 
+\index{basic.h@{basic.h}!nrerror@{nrerror}}
+\index{nrerror@{nrerror}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{nrerror()}{nrerror()}}
+{\footnotesize\ttfamily void nrerror (\begin{DoxyParamCaption}\item[{const char}]{message\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Die with an error message. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000186}{Deprecated}}]Use \mbox{\hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}\label{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}} 
+\index{basic.h@{basic.h}!space@{space}}
+\index{space@{space}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{space()}{space()}}
+{\footnotesize\ttfamily void$\ast$ space (\begin{DoxyParamCaption}\item[{unsigned}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocate space safely. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000187}{Deprecated}}]Use \mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\+\_\+alloc()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_a9037ada838835b1b9db41581a021b0c8}\label{utils_2basic_8h_a9037ada838835b1b9db41581a021b0c8}} 
+\index{basic.h@{basic.h}!xrealloc@{xrealloc}}
+\index{xrealloc@{xrealloc}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{xrealloc()}{xrealloc()}}
+{\footnotesize\ttfamily void$\ast$ xrealloc (\begin{DoxyParamCaption}\item[{void $\ast$}]{p,  }\item[{unsigned}]{size }\end{DoxyParamCaption})}
+
+
+
+Reallocate space safely. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000188}{Deprecated}}]Use \mbox{\hyperlink{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}{vrna\+\_\+realloc()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_a8aaa6d9be6f803f496d9b97375c371f3}\label{utils_2basic_8h_a8aaa6d9be6f803f496d9b97375c371f3}} 
+\index{basic.h@{basic.h}!init\_rand@{init\_rand}}
+\index{init\_rand@{init\_rand}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{init\_rand()}{init\_rand()}}
+{\footnotesize\ttfamily void init\+\_\+rand (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Make random number seeds. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000189}{Deprecated}}]Use \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\+\_\+init\+\_\+rand()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_aaa328491c84996e445d027fde9800f2e}\label{utils_2basic_8h_aaa328491c84996e445d027fde9800f2e}} 
+\index{basic.h@{basic.h}!urn@{urn}}
+\index{urn@{urn}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{urn()}{urn()}}
+{\footnotesize\ttfamily double urn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+get a random number from \mbox{[}0..1\mbox{]} 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000190}{Deprecated}}]Use \mbox{\hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_a68ff0849d44f62fe491800378a5ffcb4}\label{utils_2basic_8h_a68ff0849d44f62fe491800378a5ffcb4}} 
+\index{basic.h@{basic.h}!int\_urn@{int\_urn}}
+\index{int\_urn@{int\_urn}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{int\_urn()}{int\_urn()}}
+{\footnotesize\ttfamily int int\+\_\+urn (\begin{DoxyParamCaption}\item[{int}]{from,  }\item[{int}]{to }\end{DoxyParamCaption})}
+
+
+
+Generates a pseudo random integer in a specified range. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000191}{Deprecated}}]Use \mbox{\hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{vrna\+\_\+int\+\_\+urn()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_ab213334ce977b6d21611cdea6b80c3bf}\label{utils_2basic_8h_ab213334ce977b6d21611cdea6b80c3bf}} 
+\index{basic.h@{basic.h}!filecopy@{filecopy}}
+\index{filecopy@{filecopy}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{filecopy()}{filecopy()}}
+{\footnotesize\ttfamily void filecopy (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{from,  }\item[{FILE $\ast$}]{to }\end{DoxyParamCaption})}
+
+
+
+Inefficient {\ttfamily cp} 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000192}{Deprecated}}]Use \mbox{\hyperlink{group__file__utils_ga4382a56d2fee9ed738364b99329edc7c}{vrna\+\_\+file\+\_\+copy()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_2basic_8h_a7afeb906cb36e9d77379eabc6907ac46}\label{utils_2basic_8h_a7afeb906cb36e9d77379eabc6907ac46}} 
+\index{basic.h@{basic.h}!time\_stamp@{time\_stamp}}
+\index{time\_stamp@{time\_stamp}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{time\_stamp()}{time\_stamp()}}
+{\footnotesize\ttfamily char$\ast$ time\+\_\+stamp (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get a timestamp. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000193}{Deprecated}}]Use \mbox{\hyperlink{group__utils_gad3bbe8d01afb1310609cb018d5290550}{vrna\+\_\+time\+\_\+stamp()}} instead! \end{DoxyRefDesc}

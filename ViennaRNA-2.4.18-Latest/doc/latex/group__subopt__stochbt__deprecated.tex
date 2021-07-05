@@ -1,0 +1,117 @@
+\hypertarget{group__subopt__stochbt__deprecated}{}\doxysection{Deprecated Interface for Stochastic Backtracking}
+\label{group__subopt__stochbt__deprecated}\index{Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Stochastic Backtracking\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__subopt__stochbt__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack}} (char $\ast$sequence)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}\label{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}} 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5}} (char $\ast$sequence, int length)
+\begin{DoxyCompactList}\small\item\em Sample a sub-\/structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}{pbacktrack\+\_\+circ}} (char $\ast$sequence)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure of a circular RNA from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}{st\+\_\+back}}
+\begin{DoxyCompactList}\small\item\em Flag indicating that auxilary arrays are needed throughout the computations. This is essential for stochastic backtracking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}\label{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}} 
+\index{Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}!pbacktrack@{pbacktrack}}
+\index{pbacktrack@{pbacktrack}!Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}}
+\doxysubsubsection{\texorpdfstring{pbacktrack()}{pbacktrack()}}
+{\footnotesize\ttfamily char$\ast$ pbacktrack (\begin{DoxyParamCaption}\item[{char $\ast$}]{sequence }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Sample a secondary structure from the Boltzmann ensemble according its probability. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}{st\+\_\+back}} has to be set to 1 before calling \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} or \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} 
+
+\mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} or \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} have to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The RNA sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}\label{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}} 
+\index{Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}!pbacktrack\_circ@{pbacktrack\_circ}}
+\index{pbacktrack\_circ@{pbacktrack\_circ}!Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}}
+\doxysubsubsection{\texorpdfstring{pbacktrack\_circ()}{pbacktrack\_circ()}}
+{\footnotesize\ttfamily char$\ast$ pbacktrack\+\_\+circ (\begin{DoxyParamCaption}\item[{char $\ast$}]{sequence }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Sample a secondary structure of a circular RNA from the Boltzmann ensemble according its probability. 
+
+This function does the same as \mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}} but assumes the RNA molecule to be circular
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}{st\+\_\+back}} has to be set to 1 before calling \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} or \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} 
+
+\mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} or \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}} have to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000099}{Deprecated}}]Use \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}} instead.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The RNA sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}\label{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}} 
+\index{Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}!st\_back@{st\_back}}
+\index{st\_back@{st\_back}!Deprecated Interface for Stochastic Backtracking@{Deprecated Interface for Stochastic Backtracking}}
+\doxysubsubsection{\texorpdfstring{st\_back}{st\_back}}
+{\footnotesize\ttfamily int st\+\_\+back\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Flag indicating that auxilary arrays are needed throughout the computations. This is essential for stochastic backtracking. 
+
+Set this variable to 1 prior to a call of \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} to ensure that all matrices needed for stochastic backtracking are filled in the forward recursions
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000096}{Deprecated}}]set the {\itshape uniq\+\_\+\+ML} flag in \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} before passing it to \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}.\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}, \mbox{\hyperlink{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}{pbacktrack\+\_\+circ}} 
+\end{DoxySeeAlso}

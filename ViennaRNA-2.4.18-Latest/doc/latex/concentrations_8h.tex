@@ -1,0 +1,83 @@
+\hypertarget{concentrations_8h}{}\doxysection{Vienna\+RNA/concentrations.h File Reference}
+\label{concentrations_8h}\index{ViennaRNA/concentrations.h@{ViennaRNA/concentrations.h}}
+
+
+Concentration computations for RNA-\/\+RNA interactions.  
+
+
+Include dependency graph for concentrations.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{concentrations_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{concentrations_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Data structure for concentration dependency computations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}} $\ast$ \mbox{\hyperlink{concentrations_8h_a163159722a422ba90335a601fc34b8fb}{get\+\_\+concentrations}} (double FEAB, double FEAA, double FEBB, double FEA, double FEB, double $\ast$startconc)
+\begin{DoxyCompactList}\small\item\em Given two start monomer concentrations a and b, compute the concentrations in thermodynamic equilibrium of all dimers and the monomers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the data structure that stores the dimer concentrations, \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}}, as required by vrna\+\_\+pf\+\_\+dimer\+\_\+concentration() \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}} \mbox{\hyperlink{group__pf__cofold_ga46244c7adf5040580291c45b465f4efa}{Conc\+Ent}}
+\begin{DoxyCompactList}\small\item\em Backward compatibility typedef for \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}} $\ast$ \mbox{\hyperlink{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}{vrna\+\_\+pf\+\_\+dimer\+\_\+concentrations}} (double Fc\+AB, double Fc\+AA, double Fc\+BB, double FEA, double FEB, const double $\ast$startconc, const \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$exp\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Given two start monomer concentrations a and b, compute the concentrations in thermodynamic equilibrium of all dimers and the monomers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concentration computations for RNA-\/\+RNA interactions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{concentrations_8h_a163159722a422ba90335a601fc34b8fb}\label{concentrations_8h_a163159722a422ba90335a601fc34b8fb}} 
+\index{concentrations.h@{concentrations.h}!get\_concentrations@{get\_concentrations}}
+\index{get\_concentrations@{get\_concentrations}!concentrations.h@{concentrations.h}}
+\doxysubsubsection{\texorpdfstring{get\_concentrations()}{get\_concentrations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{vrna\+\_\+dimer\+\_\+conc\+\_\+t}}$\ast$ get\+\_\+concentrations (\begin{DoxyParamCaption}\item[{double}]{FEAB,  }\item[{double}]{FEAA,  }\item[{double}]{FEBB,  }\item[{double}]{FEA,  }\item[{double}]{FEB,  }\item[{double $\ast$}]{startconc }\end{DoxyParamCaption})}
+
+
+
+Given two start monomer concentrations a and b, compute the concentrations in thermodynamic equilibrium of all dimers and the monomers. 
+
+This function takes an array \textquotesingle{}startconc\textquotesingle{} of input concentrations with alternating entries for the initial concentrations of molecules A and B (terminated by two zeroes), then computes the resulting equilibrium concentrations from the free energies for the dimers. Dimer free energies should be the dimer-\/only free energies, i.\+e. the Fc\+AB entries from the \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} struct.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000039}{Deprecated}}]\{ Use \mbox{\hyperlink{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}{vrna\+\_\+pf\+\_\+dimer\+\_\+concentrations()}} instead!\}\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em FEAB} & Free energy of AB dimer (Fc\+AB entry) \\
+\hline
+{\em FEAA} & Free energy of AA dimer (Fc\+AB entry) \\
+\hline
+{\em FEBB} & Free energy of BB dimer (Fc\+AB entry) \\
+\hline
+{\em FEA} & Free energy of monomer A \\
+\hline
+{\em FEB} & Free energy of monomer B \\
+\hline
+{\em startconc} & List of start concentrations \mbox{[}a0\mbox{]},\mbox{[}b0\mbox{]},\mbox{[}a1\mbox{]},\mbox{[}b1\mbox{]},...,\mbox{[}an\mbox{]}\mbox{[}bn\mbox{]},\mbox{[}0\mbox{]},\mbox{[}0\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+conc\+\_\+t array containing the equilibrium energies and start concentrations 
+\end{DoxyReturn}

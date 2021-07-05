@@ -1,0 +1,701 @@
+\hypertarget{group__energy__parameters}{}\doxysection{Energy Parameters}
+\label{group__energy__parameters}\index{Energy Parameters@{Energy Parameters}}
+
+
+All relevant functions to retrieve and copy pre-\/calculated energy parameter sets as well as reading/writing the energy parameter set from/to file(s).  
+
+
+
+
+\doxysubsection{Detailed Description}
+All relevant functions to retrieve and copy pre-\/calculated energy parameter sets as well as reading/writing the energy parameter set from/to file(s). 
+
+This module covers all relevant functions for pre-\/calculation of the energy parameters necessary for the folding routines provided by RNAlib. Furthermore, the energy parameter set in the RNAlib can be easily exchanged by a user-\/defined one. It is also possible to write the current energy parameter set into a text file. Collaboration diagram for Energy Parameters\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__energy__parameters}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__energy__parameters__rw}{Reading/\+Writing Energy Parameter Sets from/to File}}
+\begin{DoxyCompactList}\small\item\em Read and Write energy parameter sets from and to files or strings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{params_2basic_8h}{basic.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions to deal with sets of energy parameters. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{constants_8h}{constants.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy parameter constants. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{convert_8h}{convert.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions and definitions for energy parameter file format conversion. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{io_8h}{io.\+h}}
+\begin{DoxyCompactList}\small\item\em Read and write energy parameter files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\+\_\+param\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em The datastructure that contains temperature scaled energy parameters.  \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\+\_\+exp\+\_\+param\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em The data structure that contains temperature scaled Boltzmann weights of the energy parameters.  \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}\label{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}} 
+typedef struct \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\+\_\+param\+\_\+s}} \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the free energy parameter data structure \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}\label{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}} 
+typedef struct \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\+\_\+exp\+\_\+param\+\_\+s}} \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the Boltzmann factor data structure \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\+\_\+param\+\_\+s}} \mbox{\hyperlink{group__energy__parameters_ga857dde86357d306cc902f0d8b2797659}{paramT}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\+\_\+param\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\+\_\+exp\+\_\+param\+\_\+s}} \mbox{\hyperlink{group__energy__parameters_ga8bffe1828e2cbec101769f5cc0b1535b}{pf\+\_\+paramT}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\+\_\+exp\+\_\+param\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params}} (\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Get a data structure containing prescaled free energy parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga4bffa39f26e7746148444dd8a8426eca}{vrna\+\_\+params\+\_\+copy}} (\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$par)
+\begin{DoxyCompactList}\small\item\em Get a copy of the provided free energy parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params}} (\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Get a data structure containing prescaled free energy parameters already transformed to Boltzmann factors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_gaf78c09e685e6eef4100b1a41d4042550}{vrna\+\_\+exp\+\_\+params\+\_\+comparative}} (unsigned int n\+\_\+seq, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Get a data structure containing prescaled free energy parameters already transformed to Boltzmann factors (alifold version) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga70bc46be7cfa5434a71efe241c4f0609}{vrna\+\_\+exp\+\_\+params\+\_\+copy}} (\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$par)
+\begin{DoxyCompactList}\small\item\em Get a copy of the provided free energy parameters (provided as Boltzmann factors) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$par)
+\begin{DoxyCompactList}\small\item\em Update/\+Reset energy parameters data structure within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$params)
+\begin{DoxyCompactList}\small\item\em Update the energy parameters for subsequent partition function computations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double $\ast$mfe)
+\begin{DoxyCompactList}\small\item\em Rescale Boltzmann factors for partition function computations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Reset free energy parameters within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} according to provided, or default model details. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Reset Boltzmann factors for partition function computations within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} according to provided, or default model details. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}{get\+\_\+scaled\+\_\+pf\+\_\+parameters}} (void)
+\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_gaef2b931c7e9d4ffb0a5c33df50ec2068}{get\+\_\+boltzmann\+\_\+factors}} (double \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}, double beta\+Scale, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} md, double \mbox{\hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\+\_\+scale}})
+\begin{DoxyCompactList}\small\item\em Get precomputed Boltzmann factors of the loop type dependent energy contributions with independent thermodynamic temperature. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga665a446ba8ff211e551297a8fa36ec27}{get\+\_\+boltzmann\+\_\+factor\+\_\+copy}} (\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Get a copy of already precomputed Boltzmann factors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga0ccf4e1be085a573533fd6b9da2d8cf9}{get\+\_\+scaled\+\_\+alipf\+\_\+parameters}} (unsigned int n\+\_\+seq)
+\begin{DoxyCompactList}\small\item\em Get precomputed Boltzmann factors of the loop type dependent energy contributions (alifold variant) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga2aa1d87c97f35d2e4121634a17556829}{get\+\_\+boltzmann\+\_\+factors\+\_\+ali}} (unsigned int n\+\_\+seq, double \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}, double beta\+Scale, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} md, double \mbox{\hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\+\_\+scale}})
+\begin{DoxyCompactList}\small\item\em Get precomputed Boltzmann factors of the loop type dependent energy contributions (alifold variant) with independent thermodynamic temperature. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga541f2cf7436e9bc939b0a49b24baf987}{scale\+\_\+parameters}} (void)
+\begin{DoxyCompactList}\small\item\em Get precomputed energy contributions for all the known loop types. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__energy__parameters_ga7fa6a000d7c16feab939f2c4ee626197}{get\+\_\+scaled\+\_\+parameters}} (double \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} md)
+\begin{DoxyCompactList}\small\item\em Get precomputed energy contributions for all the known loop types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_param\_s@{vrna\_param\_s}}\label{structvrna__param__s}
+\Hypertarget{group__energy__parameters_structvrna__param__s}
+\doxysubsubsection{struct vrna\+\_\+param\+\_\+s}
+The datastructure that contains temperature scaled energy parameters. 
+
+Collaboration diagram for vrna\+\_\+param\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{structvrna__param__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__energy__parameters_aeed2cd83713012bcb52e431041e037c8}\label{group__energy__parameters_aeed2cd83713012bcb52e431041e037c8}} 
+double \mbox{\hyperlink{group__energy__parameters_aeed2cd83713012bcb52e431041e037c8}{temperature}}
+\begin{DoxyCompactList}\small\item\em Temperature used for loop contribution scaling. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}\label{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}} 
+\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} \mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\+\_\+details}}
+\begin{DoxyCompactList}\small\item\em Model details to be used in the recursions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_ace10aa4aacffcbf6de92349f2ee0d66a}\label{group__energy__parameters_ace10aa4aacffcbf6de92349f2ee0d66a}} 
+char \mbox{\hyperlink{group__energy__parameters_ace10aa4aacffcbf6de92349f2ee0d66a}{param\+\_\+file}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em The filename the parameters were derived from, or empty string if they represent the default. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\index{vrna\_exp\_param\_s@{vrna\_exp\_param\_s}}\label{structvrna__exp__param__s}
+\Hypertarget{group__energy__parameters_structvrna__exp__param__s}
+\doxysubsubsection{struct vrna\+\_\+exp\+\_\+param\+\_\+s}
+The data structure that contains temperature scaled Boltzmann weights of the energy parameters. 
+
+Collaboration diagram for vrna\+\_\+exp\+\_\+param\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{structvrna__exp__param__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__energy__parameters_a378d5bcf2bae1f3ec84c912c7d3908d2}{id}}
+\begin{DoxyCompactList}\small\item\em An identifier for the data structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_a53c12f0d74f94ce371e0471a8ab5a377}\label{group__energy__parameters_a53c12f0d74f94ce371e0471a8ab5a377}} 
+double \mbox{\hyperlink{group__energy__parameters_a53c12f0d74f94ce371e0471a8ab5a377}{pf\+\_\+scale}}
+\begin{DoxyCompactList}\small\item\em Scaling factor to avoid over-\//underflows. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_a674656d65ea957ddbeff8bd146b7fc16}\label{group__energy__parameters_a674656d65ea957ddbeff8bd146b7fc16}} 
+double \mbox{\hyperlink{group__energy__parameters_a674656d65ea957ddbeff8bd146b7fc16}{temperature}}
+\begin{DoxyCompactList}\small\item\em Temperature used for loop contribution scaling. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__energy__parameters_a77145830b7bb01b36c3217b363310ef0}{alpha}}
+\begin{DoxyCompactList}\small\item\em Scaling factor for the thermodynamic temperature. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_ac18055127bccc27c1223f1d2f3b01b53}\label{group__energy__parameters_ac18055127bccc27c1223f1d2f3b01b53}} 
+\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} \mbox{\hyperlink{group__energy__parameters_ac18055127bccc27c1223f1d2f3b01b53}{model\+\_\+details}}
+\begin{DoxyCompactList}\small\item\em Model details to be used in the recursions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__energy__parameters_a8e1b02a4753a9b64c3c9ae8529b9d75c}\label{group__energy__parameters_a8e1b02a4753a9b64c3c9ae8529b9d75c}} 
+char \mbox{\hyperlink{group__energy__parameters_a8e1b02a4753a9b64c3c9ae8529b9d75c}{param\+\_\+file}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em The filename the parameters were derived from, or empty string if they represent the default. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxyparagraph{Field Documentation}
+\mbox{\Hypertarget{group__energy__parameters_a378d5bcf2bae1f3ec84c912c7d3908d2}\label{group__energy__parameters_a378d5bcf2bae1f3ec84c912c7d3908d2}} 
+\index{vrna\_exp\_param\_s@{vrna\_exp\_param\_s}!id@{id}}
+\index{id@{id}!vrna\_exp\_param\_s@{vrna\_exp\_param\_s}}
+\doxysubparagraph{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int vrna\+\_\+exp\+\_\+param\+\_\+s\+::id}
+
+
+
+An identifier for the data structure. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000151}{Deprecated}}]This attribute will be removed in version 3 \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_a77145830b7bb01b36c3217b363310ef0}\label{group__energy__parameters_a77145830b7bb01b36c3217b363310ef0}} 
+\index{vrna\_exp\_param\_s@{vrna\_exp\_param\_s}!alpha@{alpha}}
+\index{alpha@{alpha}!vrna\_exp\_param\_s@{vrna\_exp\_param\_s}}
+\doxysubparagraph{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily double vrna\+\_\+exp\+\_\+param\+\_\+s\+::alpha}
+
+
+
+Scaling factor for the thermodynamic temperature. 
+
+This allows for temperature scaling in Boltzmann factors independently from the energy contributions. The resulting Boltzmann factors are then computed by $ e^{-E/(\alpha \cdot K \cdot T)} $ 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__energy__parameters_ga857dde86357d306cc902f0d8b2797659}\label{group__energy__parameters_ga857dde86357d306cc902f0d8b2797659}} 
+\index{Energy Parameters@{Energy Parameters}!paramT@{paramT}}
+\index{paramT@{paramT}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{paramT}{paramT}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\+\_\+param\+\_\+s}} \mbox{\hyperlink{group__energy__parameters_ga857dde86357d306cc902f0d8b2797659}{paramT}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Old typename of \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\+\_\+param\+\_\+s}}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000142}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_ga8bffe1828e2cbec101769f5cc0b1535b}\label{group__energy__parameters_ga8bffe1828e2cbec101769f5cc0b1535b}} 
+\index{Energy Parameters@{Energy Parameters}!pf\_paramT@{pf\_paramT}}
+\index{pf\_paramT@{pf\_paramT}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{pf\_paramT}{pf\_paramT}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\+\_\+exp\+\_\+param\+\_\+s}} \mbox{\hyperlink{group__energy__parameters_ga8bffe1828e2cbec101769f5cc0b1535b}{pf\+\_\+paramT}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Old typename of \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\+\_\+exp\+\_\+param\+\_\+s}}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000143}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} instead! \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}\label{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_params@{vrna\_params}}
+\index{vrna\_params@{vrna\_params}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_params()}{vrna\_params()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}$\ast$ vrna\+\_\+params (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get a data structure containing prescaled free energy parameters. 
+
+If a NULL pointer is passed for the model details parameter, the default model parameters are stored within the requested \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\+\_\+md\+\_\+set\+\_\+default()}}, \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em md} & A pointer to the model details to store inside the structure (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the memory location where the requested parameters are stored 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_ga4bffa39f26e7746148444dd8a8426eca}\label{group__energy__parameters_ga4bffa39f26e7746148444dd8a8426eca}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_params\_copy@{vrna\_params\_copy}}
+\index{vrna\_params\_copy@{vrna\_params\_copy}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_copy()}{vrna\_params\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}$\ast$ vrna\+\_\+params\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{par }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get a copy of the provided free energy parameters. 
+
+If NULL is passed as parameter, a default set of energy parameters is created and returned.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}}, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em par} & The free energy parameters that are to be copied (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy or a default set of the (provided) parameters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}\label{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_exp\_params@{vrna\_exp\_params}}
+\index{vrna\_exp\_params@{vrna\_exp\_params}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_params()}{vrna\_exp\_params()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ vrna\+\_\+exp\+\_\+params (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get a data structure containing prescaled free energy parameters already transformed to Boltzmann factors. 
+
+This function returns a data structure that contains all necessary precomputed energy contributions for each type of loop.
+
+In contrast to \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}}, the free energies within this data structure are stored as their Boltzmann factors, i.\+e.
+
+$ exp(-E / kT) $
+
+where $ E $ is the free energy.
+
+If a NULL pointer is passed for the model details parameter, the default model parameters are stored within the requested \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\+\_\+md\+\_\+set\+\_\+default()}}, \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}}, vrna\+\_\+rescale\+\_\+pf\+\_\+params()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em md} & A pointer to the model details to store inside the structure (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the memory location where the requested parameters are stored 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_gaf78c09e685e6eef4100b1a41d4042550}\label{group__energy__parameters_gaf78c09e685e6eef4100b1a41d4042550}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_exp\_params\_comparative@{vrna\_exp\_params\_comparative}}
+\index{vrna\_exp\_params\_comparative@{vrna\_exp\_params\_comparative}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_params\_comparative()}{vrna\_exp\_params\_comparative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ vrna\+\_\+exp\+\_\+params\+\_\+comparative (\begin{DoxyParamCaption}\item[{unsigned int}]{n\+\_\+seq,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get a data structure containing prescaled free energy parameters already transformed to Boltzmann factors (alifold version) 
+
+If a NULL pointer is passed for the model details parameter, the default model parameters are stored within the requested \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} structure.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\+\_\+md\+\_\+set\+\_\+default()}}, \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}}, \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+seq} & The number of sequences in the alignment \\
+\hline
+{\em md} & A pointer to the model details to store inside the structure (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the memory location where the requested parameters are stored 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_ga70bc46be7cfa5434a71efe241c4f0609}\label{group__energy__parameters_ga70bc46be7cfa5434a71efe241c4f0609}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_exp\_params\_copy@{vrna\_exp\_params\_copy}}
+\index{vrna\_exp\_params\_copy@{vrna\_exp\_params\_copy}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_params\_copy()}{vrna\_exp\_params\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ vrna\+\_\+exp\+\_\+params\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{par }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get a copy of the provided free energy parameters (provided as Boltzmann factors) 
+
+If NULL is passed as parameter, a default set of energy parameters is created and returned.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}}, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em par} & The free energy parameters that are to be copied (Maybe NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy or a default set of the (provided) parameters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}\label{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_params\_subst@{vrna\_params\_subst}}
+\index{vrna\_params\_subst@{vrna\_params\_subst}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_subst()}{vrna\_params\_subst()}}
+{\footnotesize\ttfamily void vrna\+\_\+params\+\_\+subst (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{par }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Update/\+Reset energy parameters data structure within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. 
+
+Passing NULL as second argument leads to a reset of the energy parameters within vc to their default values. Otherwise, the energy parameters provided will be copied over into vc.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset()}}, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} that is about to receive updated energy parameters \\
+\hline
+{\em par} & The energy parameters used to substitute those within vc (Maybe NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000097}{SWIG Wrapper Notes}}]This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{params\+\_\+subst()}} method.
+
+When no parameter is passed, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_ga5d1909208f7ea3baa98b75afaa1f62ca}{vrna\+\_\+params\+\_\+subst()}}, i.\+e. resetting the parameters to the global defaults. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}\label{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_exp\_params\_subst@{vrna\_exp\_params\_subst}}
+\index{vrna\_exp\_params\_subst@{vrna\_exp\_params\_subst}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_params\_subst()}{vrna\_exp\_params\_subst()}}
+{\footnotesize\ttfamily void vrna\+\_\+exp\+\_\+params\+\_\+subst (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{params }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Update the energy parameters for subsequent partition function computations. 
+
+This function can be used to properly assign new energy parameters for partition function computations to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. For this purpose, the data of the provided pointer {\ttfamily params} will be copied into {\ttfamily vc} and a recomputation of the partition function scaling factor is issued, if the {\ttfamily pf\+\_\+scale} attribute of {\ttfamily params} is less than {\ttfamily 1.\+0}.
+
+Passing NULL as second argument leads to a reset of the energy parameters within vc to their default values
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset()}}, \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale()}}, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+{\em params} & A pointer to the new energy parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000098}{SWIG Wrapper Notes}}]This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{exp\+\_\+params\+\_\+subst()}} method.
+
+When no parameter is passed, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}}, i.\+e. resetting the parameters to the global defaults. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}\label{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_exp\_params\_rescale@{vrna\_exp\_params\_rescale}}
+\index{vrna\_exp\_params\_rescale@{vrna\_exp\_params\_rescale}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_params\_rescale()}{vrna\_exp\_params\_rescale()}}
+{\footnotesize\ttfamily void vrna\+\_\+exp\+\_\+params\+\_\+rescale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{double $\ast$}]{mfe }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Rescale Boltzmann factors for partition function computations. 
+
+This function may be used to (automatically) rescale the Boltzmann factors used in partition function computations. Since partition functions over subsequences can easily become extremely large, the RNAlib internally rescales them to avoid numerical over-\/ and/or underflow. Therefore, a proper scaling factor $s$ needs to be chosen that in turn is then used to normalize the corresponding partition functions $\hat{q}[i,j] = q[i,j] / s^{(j-i+1)}$.
+
+This function provides two ways to automatically adjust the scaling factor.
+\begin{DoxyEnumerate}
+\item Automatic guess
+\item Automatic adjustment according to MFE
+\end{DoxyEnumerate}
+
+Passing {\ttfamily NULL} as second parameter activates the {\itshape automatic guess mode}. Here, the scaling factor is recomputed according to a mean free energy of {\ttfamily 184.\+3$\ast$length} cal for random sequences. \begin{DoxyNote}{Note}
+This recomputation only takes place if the {\ttfamily pf\+\_\+scale} attribute of the {\ttfamily exp\+\_\+params} data structure contained in {\ttfamily vc} has a value below {\ttfamily 1.\+0}.
+\end{DoxyNote}
+On the other hand, if the MFE for a sequence is known, it can be used to recompute a more robust scaling factor, since it represents the lowest free energy of the entire ensemble of structures, i.\+e. the highest Boltzmann factor. To activate this second mode of {\itshape automatic adjustment according to MFE}, a pointer to the MFE value needs to be passed as second argument. This value is then taken to compute the scaling factor as $ s = exp((sfact * MFE) / kT / length )$, where sfact is an additional scaling weight located in the vrna\+\_\+md\+\_\+t data structure of {\ttfamily exp\+\_\+params} in {\ttfamily vc}.
+
+The computed scaling factor $s$ will be stored as {\ttfamily pf\+\_\+scale} attribute of the {\ttfamily exp\+\_\+params} data structure in {\ttfamily vc}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}, \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+{\em mfe} & A pointer to the MFE (in kcal/mol) or NULL\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000099}{SWIG Wrapper Notes}}]This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{exp\+\_\+params\+\_\+rescale()}} method.
+
+When no parameter is passed to this method, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale()}}, i.\+e. default scaling of the partition function. Passing an energy in kcal/mol, e.\+g. as retrieved by a previous call to the {\itshape mfe()} method, instructs all subsequent calls to scale the partition function accordingly. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}\label{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_params\_reset@{vrna\_params\_reset}}
+\index{vrna\_params\_reset@{vrna\_params\_reset}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_reset()}{vrna\_params\_reset()}}
+{\footnotesize\ttfamily void vrna\+\_\+params\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Reset free energy parameters within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} according to provided, or default model details. 
+
+This function allows one to rescale free energy parameters for subsequent structure prediction or evaluation according to a set of model details, e.\+g. temperature values. To do so, the caller provides either a pointer to a set of model details to be used for rescaling, or NULL if global default setting should be used.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset()}}, vrna\+\_\+params\+\_\+subs() 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+{\em md\+\_\+p} & A pointer to the new model details (or NULL for reset to defaults)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000100}{SWIG Wrapper Notes}}]This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{params\+\_\+reset()}} method.
+
+When no parameter is passed to this method, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset()}}, i.\+e. global default model settings are used. Passing an object of type \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} resets the fold compound according to the specifications stored within the \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} object. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}\label{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}} 
+\index{Energy Parameters@{Energy Parameters}!vrna\_exp\_params\_reset@{vrna\_exp\_params\_reset}}
+\index{vrna\_exp\_params\_reset@{vrna\_exp\_params\_reset}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{vrna\_exp\_params\_reset()}{vrna\_exp\_params\_reset()}}
+{\footnotesize\ttfamily vrna\+\_\+exp\+\_\+params\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Reset Boltzmann factors for partition function computations within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} according to provided, or default model details. 
+
+This function allows one to rescale Boltzmann factors for subsequent partition function computations according to a set of model details, e.\+g. temperature values. To do so, the caller provides either a pointer to a set of model details to be used for rescaling, or NULL if global default setting should be used.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset()}}, \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}}, \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+{\em md\+\_\+p} & A pointer to the new model details (or NULL for reset to defaults)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000101}{SWIG Wrapper Notes}}]This function is attached to \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} objects as overloaded {\bfseries{exp\+\_\+params\+\_\+reset()}} method.
+
+When no parameter is passed to this method, the resulting action is the same as passing {\itshape NULL} as second parameter to \mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset()}}, i.\+e. global default model settings are used. Passing an object of type \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} resets the fold compound according to the specifications stored within the \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\+\_\+md\+\_\+s}} object. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}\label{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}} 
+\index{Energy Parameters@{Energy Parameters}!get\_scaled\_pf\_parameters@{get\_scaled\_pf\_parameters}}
+\index{get\_scaled\_pf\_parameters@{get\_scaled\_pf\_parameters}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{get\_scaled\_pf\_parameters()}{get\_scaled\_pf\_parameters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ get\+\_\+scaled\+\_\+pf\+\_\+parameters (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+get a data structure of type \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} which contains the Boltzmann weights of several energy parameters scaled according to the current temperature
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000144}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Returns}
+The data structure containing Boltzmann weights for use in partition function calculations 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_gaef2b931c7e9d4ffb0a5c33df50ec2068}\label{group__energy__parameters_gaef2b931c7e9d4ffb0a5c33df50ec2068}} 
+\index{Energy Parameters@{Energy Parameters}!get\_boltzmann\_factors@{get\_boltzmann\_factors}}
+\index{get\_boltzmann\_factors@{get\_boltzmann\_factors}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{get\_boltzmann\_factors()}{get\_boltzmann\_factors()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ get\+\_\+boltzmann\+\_\+factors (\begin{DoxyParamCaption}\item[{double}]{temperature,  }\item[{double}]{beta\+Scale,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}}]{md,  }\item[{double}]{pf\+\_\+scale }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get precomputed Boltzmann factors of the loop type dependent energy contributions with independent thermodynamic temperature. 
+
+This function returns a data structure that contains all necessary precalculated Boltzmann factors for each loop type contribution.~\newline
+ In contrast to \mbox{\hyperlink{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}{get\+\_\+scaled\+\_\+pf\+\_\+parameters()}}, this function enables setting of independent temperatures for both, the individual energy contributions as well as the thermodynamic temperature used in $ exp(-\Delta G / kT) $
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000145}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}{get\+\_\+scaled\+\_\+pf\+\_\+parameters()}}, \mbox{\hyperlink{group__energy__parameters_ga665a446ba8ff211e551297a8fa36ec27}{get\+\_\+boltzmann\+\_\+factor\+\_\+copy()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em temperature} & The temperature in degrees Celcius used for (re-\/)scaling the energy contributions \\
+\hline
+{\em beta\+Scale} & A scaling value that is used as a multiplication factor for the absolute temperature of the system \\
+\hline
+{\em md} & The model details to be used \\
+\hline
+{\em pf\+\_\+scale} & The scaling factor for the Boltzmann factors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of precomputed Boltzmann factors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_ga665a446ba8ff211e551297a8fa36ec27}\label{group__energy__parameters_ga665a446ba8ff211e551297a8fa36ec27}} 
+\index{Energy Parameters@{Energy Parameters}!get\_boltzmann\_factor\_copy@{get\_boltzmann\_factor\_copy}}
+\index{get\_boltzmann\_factor\_copy@{get\_boltzmann\_factor\_copy}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{get\_boltzmann\_factor\_copy()}{get\_boltzmann\_factor\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ get\+\_\+boltzmann\+\_\+factor\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get a copy of already precomputed Boltzmann factors. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000146}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga70bc46be7cfa5434a71efe241c4f0609}{vrna\+\_\+exp\+\_\+params\+\_\+copy()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gaef2b931c7e9d4ffb0a5c33df50ec2068}{get\+\_\+boltzmann\+\_\+factors()}}, \mbox{\hyperlink{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}{get\+\_\+scaled\+\_\+pf\+\_\+parameters()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The input data structure that shall be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy of the provided Boltzmann factor data set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_ga0ccf4e1be085a573533fd6b9da2d8cf9}\label{group__energy__parameters_ga0ccf4e1be085a573533fd6b9da2d8cf9}} 
+\index{Energy Parameters@{Energy Parameters}!get\_scaled\_alipf\_parameters@{get\_scaled\_alipf\_parameters}}
+\index{get\_scaled\_alipf\_parameters@{get\_scaled\_alipf\_parameters}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{get\_scaled\_alipf\_parameters()}{get\_scaled\_alipf\_parameters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ get\+\_\+scaled\+\_\+alipf\+\_\+parameters (\begin{DoxyParamCaption}\item[{unsigned int}]{n\+\_\+seq }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get precomputed Boltzmann factors of the loop type dependent energy contributions (alifold variant) 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000147}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_gaf78c09e685e6eef4100b1a41d4042550}{vrna\+\_\+exp\+\_\+params\+\_\+comparative()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_ga2aa1d87c97f35d2e4121634a17556829}\label{group__energy__parameters_ga2aa1d87c97f35d2e4121634a17556829}} 
+\index{Energy Parameters@{Energy Parameters}!get\_boltzmann\_factors\_ali@{get\_boltzmann\_factors\_ali}}
+\index{get\_boltzmann\_factors\_ali@{get\_boltzmann\_factors\_ali}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{get\_boltzmann\_factors\_ali()}{get\_boltzmann\_factors\_ali()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}}$\ast$ get\+\_\+boltzmann\+\_\+factors\+\_\+ali (\begin{DoxyParamCaption}\item[{unsigned int}]{n\+\_\+seq,  }\item[{double}]{temperature,  }\item[{double}]{beta\+Scale,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}}]{md,  }\item[{double}]{pf\+\_\+scale }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get precomputed Boltzmann factors of the loop type dependent energy contributions (alifold variant) with independent thermodynamic temperature. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000148}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_gaf78c09e685e6eef4100b1a41d4042550}{vrna\+\_\+exp\+\_\+params\+\_\+comparative()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters_ga541f2cf7436e9bc939b0a49b24baf987}\label{group__energy__parameters_ga541f2cf7436e9bc939b0a49b24baf987}} 
+\index{Energy Parameters@{Energy Parameters}!scale\_parameters@{scale\_parameters}}
+\index{scale\_parameters@{scale\_parameters}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{scale\_parameters()}{scale\_parameters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}$\ast$ scale\+\_\+parameters (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get precomputed energy contributions for all the known loop types. 
+
+\begin{DoxyNote}{Note}
+Open\+MP\+: This function relies on several global model settings variables and thus is not to be considered threadsafe. See \mbox{\hyperlink{group__energy__parameters_ga7fa6a000d7c16feab939f2c4ee626197}{get\+\_\+scaled\+\_\+parameters()}} for a completely threadsafe implementation.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000149}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Returns}
+A set of precomputed energy contributions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters_ga7fa6a000d7c16feab939f2c4ee626197}\label{group__energy__parameters_ga7fa6a000d7c16feab939f2c4ee626197}} 
+\index{Energy Parameters@{Energy Parameters}!get\_scaled\_parameters@{get\_scaled\_parameters}}
+\index{get\_scaled\_parameters@{get\_scaled\_parameters}!Energy Parameters@{Energy Parameters}}
+\doxysubsubsection{\texorpdfstring{get\_scaled\_parameters()}{get\_scaled\_parameters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}}$\ast$ get\+\_\+scaled\+\_\+parameters (\begin{DoxyParamCaption}\item[{double}]{temperature,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{params_2basic_8h}{Vienna\+RNA/params/basic.\+h}}$>$}
+
+
+
+Get precomputed energy contributions for all the known loop types. 
+
+Call this function to retrieve precomputed energy contributions, i.\+e. scaled according to the temperature passed. Furthermore, this function assumes a data structure that contains the model details as well, such that subsequent folding recursions are able to retrieve the correct model settings
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000150}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_gad0e3e7e74bdc50d1709d40c92993185e}{vrna\+\_\+params()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__model__details_gabad896c3650d420f3f3ddefc69e2bceb}{set\+\_\+model\+\_\+details()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em temperature} & The temperature in degrees Celcius \\
+\hline
+{\em md} & The model details \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+precomputed energy contributions and model settings 
+\end{DoxyReturn}

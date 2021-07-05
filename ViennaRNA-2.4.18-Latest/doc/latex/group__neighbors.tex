@@ -1,0 +1,682 @@
+\hypertarget{group__neighbors}{}\doxysection{Neighborhood Relation and Move Sets for Secondary Structures}
+\label{group__neighbors}\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+
+
+Different functions to generate structural neighbors of a secondary structure according to a particular Move Set.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Different functions to generate structural neighbors of a secondary structure according to a particular Move Set. 
+
+This module contains methods to compute the neighbors of an RNA secondary structure. Neighbors of a given structure are all structures that differ in exactly one base pair. That means one can insert an delete base pairs in the given structure. These insertions and deletions of base pairs are usually called moves. A third move which is considered in these methods is a shift move. A shifted base pair has one stable position and one position that changes. These moves are encoded as follows\+: ~\newline
+
+\begin{DoxyItemize}
+\item insertion\+: (i, j) where i,j $>$ 0 ~\newline
+
+\item deletion\+: (i, j) where i,j $<$ 0 ~\newline
+ shift\+: (i, j) where either i $>$ 0, j $<$ 0 or i $<$ 0, j $>$ 0 ~\newline
+ The negative position of a shift indicates the position that has changed.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{         We have given a sequence and a structure.}
+\DoxyCodeLine{         Sequence  AAGGAAACC}
+\DoxyCodeLine{         Structure ..(.....)}
+\DoxyCodeLine{         Indices   123456789}
+\DoxyCodeLine{}
+\DoxyCodeLine{         The given base pair is (3,9) and the neighbors are the insertion (4, 8), the deletion (-\/3,-\/9), the shift (3,-\/8)}
+\DoxyCodeLine{         and the shift (-\/4, 9).}
+\DoxyCodeLine{         This leads to the neighbored structures:}
+\DoxyCodeLine{         ...(....)}
+\DoxyCodeLine{         .........}
+\DoxyCodeLine{         ...(...).}
+\DoxyCodeLine{         ....(...)}
+
+\end{DoxyCode}
+
+
+A simple method to construct all insertions is to iterate over the positions of a sequence twice. The first iteration has the index i in \mbox{[}1, sequence length\mbox{]}, the second iteration has the index j in \mbox{[}i+1, sequence length\mbox{]}. All pairs (i,j) with compatible letters and which are non-\/crossing with present base pairs are valid neighbored insertion moves. Valid deletion moves are all present base pairs with negative sign. Valid shift moves are constructed by taking all paired positions as fix position of a shift move and iterating over all positions of the sequence. If the letters of a position are compatible and if it the move is non-\/crossing with existing base pairs, we have a valid shift move. The method of generating shift moves can be accelerated by skipping neighbored base pairs.
+
+If we need to construct all neighbors several times for subsequent moves, we can speed up the task by using the move set of the previous structure. The previous move set has to be filtered, such that all moves that would cross the next selected move are non-\/crossing. Next, the selected move has to be removed. Then one has to only to generate all moves that were not possible before. One move is the inverted selected move (if it was an insertion, simply make the indices negative). The generation of all other new moves is different and depends on the selected move. It is easy for an insertion move, because we have only to include all non-\/crossing shift moves, that are possible with the new base pair. For that we can either iterate over the sequence or we can select all crossing shift moves in the filter procedure and convert them into shifts.
+
+The generation of new moves given a deletion is a little bit more complex, because we can create more moves. At first we can insert the deleted pair as insertion move. Then we generate all insertions that would have crossed the deleted base pair. Finally we construct all crossing shift moves.
+
+If the given move is a shift, we can save much time by specifying the intervals for the generation of new moves. The interval which was enclosed by the positive position of the shift move and the previous paired position is the freed interval after applying the move. This freed interval includes all positions and base pairs that we need to construct new insertions and shifts. All these new moves have one position in the freed interval and the other position in the environment of the freed interval. The environment are all position which are outside the freed interval, but within the same enclosing loop of the shift move. The environment for valid base pairs can be divided into one or more intervals, depending on the shift move. The following examples describe a few scenarios to specify the intervals of the environment.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{shift_move_intervals}}
+\end{DoxyImageNoCaption}
+
+
+Given the intervals of the environment and the freed interval, the new shift moves can be constructed quickly. One has to take all positions of pairs from the environment in order to create valid pairs with positions in the freed interval. The same procedure can be applied for the other direction. This is taking all paired positions within the freed interval in order to look for pairs with valid positions in the intervals of the environment. Collaboration diagram for Neighborhood Relation and Move Sets for Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__neighbors}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{move_8h}{move.\+h}}
+\begin{DoxyCompactList}\small\item\em Methods to operate with structural neighbors of RNA secondary structures. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{landscape_2neighbor_8h}{neighbor.\+h}}
+\begin{DoxyCompactList}\small\item\em Methods to compute the neighbors of an RNA secondary structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em An atomic representation of the transition / move from one structure to its neighbor.  \mbox{\hyperlink{group__neighbors_structvrna__move__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}}~4
+\begin{DoxyCompactList}\small\item\em Option flag indicating insertion move. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}}~8
+\begin{DoxyCompactList}\small\item\em Option flag indicating deletion move. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}~16
+\begin{DoxyCompactList}\small\item\em Option flag indicating shift move. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_ga258084b251b218fba9398826435a4393}{VRNA\+\_\+\+MOVESET\+\_\+\+NO\+\_\+\+LP}}~32
+\begin{DoxyCompactList}\small\item\em Option flag indicating moves without lonely base pairs. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}~(\mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}} $\vert$ \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}})
+\begin{DoxyCompactList}\small\item\em Option flag indicating default move set, i.\+e. insertions/deletion of a base pair. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gae72b0e349b6108c00737df51cce44622}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+CHANGE}}~1
+\begin{DoxyCompactList}\small\item\em State indicator for a neighbor that has been changed. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+INVALID}}~2
+\begin{DoxyCompactList}\small\item\em State indicator for a neighbor that has been invalidated. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+NEW}}~3
+\begin{DoxyCompactList}\small\item\em State indicator for a neighbor that has become newly available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}\label{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}} 
+typedef struct \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+s}} \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A single move that transforms a secondary structure into one of its neighbors. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\+\_\+callback\+\_\+move\+\_\+update}}(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} neighbor, unsigned int state, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Prototype of the neighborhood update callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} \mbox{\hyperlink{group__neighbors_gaeff6157398a2073f587416fa9ec94789}{vrna\+\_\+move\+\_\+init}} (int pos\+\_\+5, int pos\+\_\+3)
+\begin{DoxyCompactList}\small\item\em Create an atomic move. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__neighbors_gad085062ae3aa7ee20783debe4a906fad}{vrna\+\_\+move\+\_\+list\+\_\+free}} (\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$moves)
+\item 
+void \mbox{\hyperlink{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}{vrna\+\_\+move\+\_\+apply}} (short $\ast$pt, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Apply a particular move / transition to a secondary structure, i.\+e. transform a structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga9cf75e9c6551f46ea568abf4f7fd11cd}{vrna\+\_\+move\+\_\+is\+\_\+removal}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Test whether a move is a base pair removal. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga613d33e6fa8e784d76b34bb07458f398}{vrna\+\_\+move\+\_\+is\+\_\+insertion}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Test whether a move is a base pair insertion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga31a8c4c2db9f54cb8f2d2cdf3b725d4d}{vrna\+\_\+move\+\_\+is\+\_\+shift}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Test whether a move is a base pair shift. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga7aa139b99eec837e646973ffa23b6a9d}{vrna\+\_\+move\+\_\+compare}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$a, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$b, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Compare two moves. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}{vrna\+\_\+loopidx\+\_\+update}} (int $\ast$loopidx, const short $\ast$pt, int length, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Alters the loop\+Indices array that was constructed with \mbox{\hyperlink{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}{vrna\+\_\+loopidx\+\_\+from\+\_\+ptable()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const short $\ast$pt, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate neighbors of a secondary structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}} (const \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$curr\+\_\+move, const short $\ast$prev\+\_\+pt, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$prev\+\_\+neighbors, int size\+\_\+prev\+\_\+neighbors, int $\ast$size\+\_\+neighbors, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate neighbors of a secondary structure (the fast way) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, short $\ast$ptable, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} move, \mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\+\_\+callback\+\_\+move\+\_\+update}} $\ast$cb, void $\ast$data, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Apply a move to a secondary structure and indicate which neighbors have changed consequentially. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, short $\ast$ptable, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} move, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$$\ast$invalid\+\_\+moves, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Apply a move to a secondary structure and indicate which neighbors have changed consequentially. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_move\_s@{vrna\_move\_s}}\label{structvrna__move__s}
+\Hypertarget{group__neighbors_structvrna__move__s}
+\doxysubsubsection{struct vrna\+\_\+move\+\_\+s}
+An atomic representation of the transition / move from one structure to its neighbor. 
+
+An atomic transition / move may be one of the following\+:
+\begin{DoxyItemize}
+\item a {\bfseries{base pair insertion}},
+\item a {\bfseries{base pair removal}}, or
+\item a {\bfseries{base pair shift}} where an existing base pair changes one of its pairing partner.
+\end{DoxyItemize}
+
+These moves are encoded by two integer values that represent the affected 5\textquotesingle{} and 3\textquotesingle{} nucleotide positions. Furthermore, we use the following convention on the signedness of these encodings\+:
+\begin{DoxyItemize}
+\item both values are positive for {\itshape insertion moves}
+\item both values are negative for {\itshape base pair removals}
+\item both values have different signedness for {\itshape shift moves}, where the positive value indicates the nucleotide that stays constant, and the others absolute value is the new pairing partner
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+A value of 0 in either field is used as list-\/end indicator and doesn\textquotesingle{}t represent any valid move. 
+\end{DoxyNote}
+
+
+Collaboration diagram for vrna\+\_\+move\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{structvrna__move__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}\label{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}} 
+int \mbox{\hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{pos\+\_\+5}}
+\begin{DoxyCompactList}\small\item\em The (absolute value of the) 5\textquotesingle{} position of a base pair, or any position of a shifted pair. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__neighbors_a3849db905a45c4e399991df38705a36b}\label{group__neighbors_a3849db905a45c4e399991df38705a36b}} 
+int \mbox{\hyperlink{group__neighbors_a3849db905a45c4e399991df38705a36b}{pos\+\_\+3}}
+\begin{DoxyCompactList}\small\item\em The (absolute value of the) 3\textquotesingle{} position of a base pair, or any position of a shifted pair. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__neighbors_a181681bc3aab907d93e340df4777e759}\label{group__neighbors_a181681bc3aab907d93e340df4777e759}} 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__neighbors_a181681bc3aab907d93e340df4777e759}{next}}
+\begin{DoxyCompactList}\small\item\em The next base pair (if an elementary move changes more than one base pair), or {\ttfamily NULL} Has to be terminated with move 0,0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}\label{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_MOVESET\_INSERTION@{VRNA\_MOVESET\_INSERTION}}
+\index{VRNA\_MOVESET\_INSERTION@{VRNA\_MOVESET\_INSERTION}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MOVESET\_INSERTION}{VRNA\_MOVESET\_INSERTION}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION~4}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Option flag indicating insertion move. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors()}}, \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}\label{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_MOVESET\_DELETION@{VRNA\_MOVESET\_DELETION}}
+\index{VRNA\_MOVESET\_DELETION@{VRNA\_MOVESET\_DELETION}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MOVESET\_DELETION}{VRNA\_MOVESET\_DELETION}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MOVESET\+\_\+\+DELETION~8}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Option flag indicating deletion move. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors()}}, \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}\label{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_MOVESET\_SHIFT@{VRNA\_MOVESET\_SHIFT}}
+\index{VRNA\_MOVESET\_SHIFT@{VRNA\_MOVESET\_SHIFT}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MOVESET\_SHIFT}{VRNA\_MOVESET\_SHIFT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT~16}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Option flag indicating shift move. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors()}}, \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_ga258084b251b218fba9398826435a4393}\label{group__neighbors_ga258084b251b218fba9398826435a4393}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_MOVESET\_NO\_LP@{VRNA\_MOVESET\_NO\_LP}}
+\index{VRNA\_MOVESET\_NO\_LP@{VRNA\_MOVESET\_NO\_LP}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MOVESET\_NO\_LP}{VRNA\_MOVESET\_NO\_LP}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MOVESET\+\_\+\+NO\+\_\+\+LP~32}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Option flag indicating moves without lonely base pairs. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors()}}, \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}\label{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_MOVESET\_DEFAULT@{VRNA\_MOVESET\_DEFAULT}}
+\index{VRNA\_MOVESET\_DEFAULT@{VRNA\_MOVESET\_DEFAULT}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MOVESET\_DEFAULT}{VRNA\_MOVESET\_DEFAULT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT~(\mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}} $\vert$ \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Option flag indicating default move set, i.\+e. insertions/deletion of a base pair. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors()}}, \mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_gae72b0e349b6108c00737df51cce44622}\label{group__neighbors_gae72b0e349b6108c00737df51cce44622}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_NEIGHBOR\_CHANGE@{VRNA\_NEIGHBOR\_CHANGE}}
+\index{VRNA\_NEIGHBOR\_CHANGE@{VRNA\_NEIGHBOR\_CHANGE}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_NEIGHBOR\_CHANGE}{VRNA\_NEIGHBOR\_CHANGE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+NEIGHBOR\+\_\+\+CHANGE~1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+State indicator for a neighbor that has been changed. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}\label{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_NEIGHBOR\_INVALID@{VRNA\_NEIGHBOR\_INVALID}}
+\index{VRNA\_NEIGHBOR\_INVALID@{VRNA\_NEIGHBOR\_INVALID}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_NEIGHBOR\_INVALID}{VRNA\_NEIGHBOR\_INVALID}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+NEIGHBOR\+\_\+\+INVALID~2}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+State indicator for a neighbor that has been invalidated. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}\label{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!VRNA\_NEIGHBOR\_NEW@{VRNA\_NEIGHBOR\_NEW}}
+\index{VRNA\_NEIGHBOR\_NEW@{VRNA\_NEIGHBOR\_NEW}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_NEIGHBOR\_NEW}{VRNA\_NEIGHBOR\_NEW}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+NEIGHBOR\+\_\+\+NEW~3}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+State indicator for a neighbor that has become newly available. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}\label{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_callback\_move\_update@{vrna\_callback\_move\_update}}
+\index{vrna\_callback\_move\_update@{vrna\_callback\_move\_update}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_move\_update}{vrna\_callback\_move\_update}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+callback\+\_\+move\+\_\+update(\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} neighbor, unsigned int state, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+Prototype of the neighborhood update callback. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb()}}, \mbox{\hyperlink{group__neighbors_gae72b0e349b6108c00737df51cce44622}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+CHANGE}}, \mbox{\hyperlink{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+INVALID}}, \mbox{\hyperlink{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+NEW}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound the calling function is working on \\
+\hline
+{\em neighbor} & The move that generates the (changed or new) neighbor \\
+\hline
+{\em state} & The state of the neighbor (move) as supplied by argument {\ttfamily neighbor} \\
+\hline
+{\em data} & Some arbitrary data pointer as passed to \mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb()}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__neighbors_gaeff6157398a2073f587416fa9ec94789}\label{group__neighbors_gaeff6157398a2073f587416fa9ec94789}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_init@{vrna\_move\_init}}
+\index{vrna\_move\_init@{vrna\_move\_init}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_init()}{vrna\_move\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} vrna\+\_\+move\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{pos\+\_\+5,  }\item[{int}]{pos\+\_\+3 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Create an atomic move. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+s}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+5} & The 5\textquotesingle{} position of the move (positive for insertions, negative for removal, any value for shift moves) \\
+\hline
+{\em pos\+\_\+3} & The 3\textquotesingle{} position of the move (positive for insertions, negative for removal, any value for shift moves) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An atomic move as specified by {\ttfamily pos\+\_\+5} and {\ttfamily pos\+\_\+3} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_gad085062ae3aa7ee20783debe4a906fad}\label{group__neighbors_gad085062ae3aa7ee20783debe4a906fad}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_list\_free@{vrna\_move\_list\_free}}
+\index{vrna\_move\_list\_free@{vrna\_move\_list\_free}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_list\_free()}{vrna\_move\_list\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+move\+\_\+list\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{moves }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+delete all moves in a zero terminated list. \mbox{\Hypertarget{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}\label{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_apply@{vrna\_move\_apply}}
+\index{vrna\_move\_apply@{vrna\_move\_apply}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_apply()}{vrna\_move\_apply()}}
+{\footnotesize\ttfamily void vrna\+\_\+move\+\_\+apply (\begin{DoxyParamCaption}\item[{short $\ast$}]{pt,  }\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Apply a particular move / transition to a secondary structure, i.\+e. transform a structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em pt} & The pair table representation of the secondary structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & The move to apply \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__neighbors_ga9cf75e9c6551f46ea568abf4f7fd11cd}\label{group__neighbors_ga9cf75e9c6551f46ea568abf4f7fd11cd}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_is\_removal@{vrna\_move\_is\_removal}}
+\index{vrna\_move\_is\_removal@{vrna\_move\_is\_removal}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_is\_removal()}{vrna\_move\_is\_removal()}}
+{\footnotesize\ttfamily int vrna\+\_\+move\+\_\+is\+\_\+removal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Test whether a move is a base pair removal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The move to test against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero if the move is a base pair removal, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_ga613d33e6fa8e784d76b34bb07458f398}\label{group__neighbors_ga613d33e6fa8e784d76b34bb07458f398}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_is\_insertion@{vrna\_move\_is\_insertion}}
+\index{vrna\_move\_is\_insertion@{vrna\_move\_is\_insertion}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_is\_insertion()}{vrna\_move\_is\_insertion()}}
+{\footnotesize\ttfamily int vrna\+\_\+move\+\_\+is\+\_\+insertion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Test whether a move is a base pair insertion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The move to test against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero if the move is a base pair insertion, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_ga31a8c4c2db9f54cb8f2d2cdf3b725d4d}\label{group__neighbors_ga31a8c4c2db9f54cb8f2d2cdf3b725d4d}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_is\_shift@{vrna\_move\_is\_shift}}
+\index{vrna\_move\_is\_shift@{vrna\_move\_is\_shift}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_is\_shift()}{vrna\_move\_is\_shift()}}
+{\footnotesize\ttfamily int vrna\+\_\+move\+\_\+is\+\_\+shift (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Test whether a move is a base pair shift. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The move to test against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero if the move is a base pair shift, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_ga7aa139b99eec837e646973ffa23b6a9d}\label{group__neighbors_ga7aa139b99eec837e646973ffa23b6a9d}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_compare@{vrna\_move\_compare}}
+\index{vrna\_move\_compare@{vrna\_move\_compare}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_compare()}{vrna\_move\_compare()}}
+{\footnotesize\ttfamily int vrna\+\_\+move\+\_\+compare (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{a,  }\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{b,  }\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}
+
+
+
+Compare two moves. 
+
+The function compares two moves {\ttfamily a} and {\ttfamily b} and returns whether move {\ttfamily a} is lexicographically smaller (-\/1), larger (1) or equal to move {\ttfamily b}.
+
+If any of the moves {\ttfamily a} or {\ttfamily b} is a shift move, this comparison only makes sense in a structure context. Thus, the third argument with the current structure must be provided.
+
+\begin{DoxyNote}{Note}
+This function returns 0 (equality) upon any error, e.\+g. missing input
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Currently, shift moves are not supported!
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first move of the comparison \\
+\hline
+{\em b} & The second move of the comparison \\
+\hline
+{\em pt} & The pair table of the current structure that is compatible with both moves (maybe NULL if moves are guaranteed to be no shifts) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if {\ttfamily a} $<$ {\ttfamily b}, 1 if {\ttfamily a} $>$ {\ttfamily b}, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}\label{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_loopidx\_update@{vrna\_loopidx\_update}}
+\index{vrna\_loopidx\_update@{vrna\_loopidx\_update}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_loopidx\_update()}{vrna\_loopidx\_update()}}
+{\footnotesize\ttfamily void vrna\+\_\+loopidx\+\_\+update (\begin{DoxyParamCaption}\item[{int $\ast$}]{loopidx,  }\item[{const short $\ast$}]{pt,  }\item[{int}]{length,  }\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+Alters the loop\+Indices array that was constructed with \mbox{\hyperlink{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}{vrna\+\_\+loopidx\+\_\+from\+\_\+ptable()}}. 
+
+The loop\+Index of the current move will be inserted. The correctness of the input will not be checked because the speed should be optimized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em loopidx} & The loop index data structure that needs an update \\
+\hline
+\mbox{\texttt{ in}}  & {\em pt} & A pair table on which the move will be executed \\
+\hline
+ & {\em length} & The length of the structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & The move that is applied to the current structure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}\label{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_neighbors@{vrna\_neighbors}}
+\index{vrna\_neighbors@{vrna\_neighbors}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_neighbors()}{vrna\_neighbors()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ vrna\+\_\+neighbors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const short $\ast$}]{pt,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+Generate neighbors of a secondary structure. 
+
+This function allows one to generate all structural neighbors (according to a particular move set) of an RNA secondary structure. The neighborhood is then returned as a list of transitions / moves required to transform the current structure into the actual neighbor.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive()}}, \mbox{\hyperlink{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}{vrna\+\_\+move\+\_\+apply()}}, \mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}}, \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}}, \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}, \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\texttt{ in}}  & {\em pt} & The pair table representation of the structure \\
+\hline
+ & {\em options} & Options to modify the behavior of this function, e.\+g. available move set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Neighbors as a list of moves / transitions (the last element in the list has both of its fields set to 0)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000096}{SWIG Wrapper Notes}}]This function is attached as an overloaded method {\itshape neighbors()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}} if it is omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}\label{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_neighbors\_successive@{vrna\_neighbors\_successive}}
+\index{vrna\_neighbors\_successive@{vrna\_neighbors\_successive}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_neighbors\_successive()}{vrna\_neighbors\_successive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}}$\ast$ vrna\+\_\+neighbors\+\_\+successive (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{curr\+\_\+move,  }\item[{const short $\ast$}]{prev\+\_\+pt,  }\item[{const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$}]{prev\+\_\+neighbors,  }\item[{int}]{size\+\_\+prev\+\_\+neighbors,  }\item[{int $\ast$}]{size\+\_\+neighbors,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+Generate neighbors of a secondary structure (the fast way) 
+
+This function implements a fast way to generate all neighbors of a secondary structure that results from successive applications of individual moves. The speed-\/up results from updating an already known list of valid neighbors before the individual move towards the current structure took place. In essence, this function removes neighbors that are not accessible anymore and inserts neighbors emerging after a move took place.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_ga4f8eefae08c05f5a49a4d4ee5d02e32f}{vrna\+\_\+neighbors()}}, \mbox{\hyperlink{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}{vrna\+\_\+move\+\_\+apply()}}, \mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}}, \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}}, \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}, \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\texttt{ in}}  & {\em curr\+\_\+move} & The move that was/will be applied to {\ttfamily prev\+\_\+pt} \\
+\hline
+\mbox{\texttt{ in}}  & {\em prev\+\_\+pt} & A pair table representation of the structure before {\ttfamily curr\+\_\+move} is/was applied \\
+\hline
+\mbox{\texttt{ in}}  & {\em prev\+\_\+neighbors} & The list of neighbors of {\ttfamily prev\+\_\+pt} \\
+\hline
+ & {\em size\+\_\+prev\+\_\+neighbors} & The size of {\ttfamily prev\+\_\+neighbors}, i.\+e. the lists length \\
+\hline
+\mbox{\texttt{ out}}  & {\em size\+\_\+neighbors} & A pointer to store the size / length of the new neighbor list \\
+\hline
+ & {\em options} & Options to modify the behavior of this function, e.\+g. available move set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Neighbors as a list of moves / transitions (the last element in the list has both of its fields set to 0) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_gad495362605ffd0168591ce41a685ee3e}\label{group__neighbors_gad495362605ffd0168591ce41a685ee3e}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_neighbor\_diff\_cb@{vrna\_move\_neighbor\_diff\_cb}}
+\index{vrna\_move\_neighbor\_diff\_cb@{vrna\_move\_neighbor\_diff\_cb}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_neighbor\_diff\_cb()}{vrna\_move\_neighbor\_diff\_cb()}}
+{\footnotesize\ttfamily int vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{short $\ast$}]{ptable,  }\item[{\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}}}]{move,  }\item[{\mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\+\_\+callback\+\_\+move\+\_\+update}} $\ast$}]{cb,  }\item[{void $\ast$}]{data,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+Apply a move to a secondary structure and indicate which neighbors have changed consequentially. 
+
+This function applies a move to a secondary structure and explores the local neighborhood of the affected loop. Any changes to previously compatible neighbors that have been affected by this loop will be reported through a callback function. In particular, any of the three cases might appear\+:
+\begin{DoxyItemize}
+\item A previously available neighbor move has changed, usually the free energy change of the move (\mbox{\hyperlink{group__neighbors_gae72b0e349b6108c00737df51cce44622}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+CHANGE}})
+\item A previously available neighbor move became invalid (\mbox{\hyperlink{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+INVALID}})
+\item A new neighbor move becomes available (\mbox{\hyperlink{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+NEW}})
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff()}}, \mbox{\hyperlink{group__neighbors_gae72b0e349b6108c00737df51cce44622}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+CHANGE}}, \mbox{\hyperlink{group__neighbors_gaf7e3417828057ae0ed4d0de03178116a}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+INVALID}}, \mbox{\hyperlink{group__neighbors_ga9343dd62daad15b6b8c55c1260c09228}{VRNA\+\_\+\+NEIGHBOR\+\_\+\+NEW}}, \mbox{\hyperlink{group__neighbors_ga4605019694e3d38e2c40d5a97ef99920}{vrna\+\_\+callback\+\_\+move\+\_\+update}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold compound for the RNA sequence(s) that this function operates on \\
+\hline
+{\em ptable} & The current structure as pair table \\
+\hline
+{\em move} & The move to apply \\
+\hline
+{\em cb} & The address of the callback function that is passed the neighborhood changes \\
+\hline
+{\em data} & An arbitrary data pointer that will be passed through to the callback function {\ttfamily cb} \\
+\hline
+{\em options} & Options to modify the behavior of this function, .e.\+g available move set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}\label{group__neighbors_gaa3e8c627d24912974922c5ae805e15e0}} 
+\index{Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}!vrna\_move\_neighbor\_diff@{vrna\_move\_neighbor\_diff}}
+\index{vrna\_move\_neighbor\_diff@{vrna\_move\_neighbor\_diff}!Neighborhood Relation and Move Sets for Secondary Structures@{Neighborhood Relation and Move Sets for Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_move\_neighbor\_diff()}{vrna\_move\_neighbor\_diff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}}$\ast$ vrna\+\_\+move\+\_\+neighbor\+\_\+diff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{short $\ast$}]{ptable,  }\item[{\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}}}]{move,  }\item[{\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$$\ast$}]{invalid\+\_\+moves,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}
+
+
+
+Apply a move to a secondary structure and indicate which neighbors have changed consequentially. 
+
+Similar to \mbox{\hyperlink{group__neighbors_gad495362605ffd0168591ce41a685ee3e}{vrna\+\_\+move\+\_\+neighbor\+\_\+diff\+\_\+cb()}}, this function applies a move to a secondary structure and reports back the neighbors of the current structure become affected by this move. Instead of executing a callback for each of the affected neighbors, this function compiles two lists of neighbor moves, one that is returned and consists of all moves that are novel or may have changed in energy, and a second, {\ttfamily invalid\+\_\+moves}, that consists of all the neighbor moves that become invalid, respectively.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold compound for the RNA sequence(s) that this function operates on \\
+\hline
+{\em ptable} & The current structure as pair table \\
+\hline
+{\em move} & The move to apply \\
+\hline
+{\em invalid\+\_\+moves} & The address of a move list where the function stores those moves that become invalid \\
+\hline
+{\em options} & Options to modify the behavior of this function, .e.\+g available move set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of moves that might have changed in energy or are novel compared to the structure before application of the move 
+\end{DoxyReturn}

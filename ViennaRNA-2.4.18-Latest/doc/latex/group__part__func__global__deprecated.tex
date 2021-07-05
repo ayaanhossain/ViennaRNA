@@ -1,0 +1,942 @@
+\hypertarget{group__part__func__global__deprecated}{}\doxysection{Deprecated Interface for Global Partition Function Computation}
+\label{group__part__func__global__deprecated}\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Global Partition Function Computation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__part__func__global__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{part__func__co_8h}{part\+\_\+func\+\_\+co.\+h}}
+\begin{DoxyCompactList}\small\item\em Partition function for two RNA sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par}} (const char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained, int is\+\_\+circular)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ for a given RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ of an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function of a circular RNA sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free arrays for the partition function recursions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}{update\+\_\+pf\+\_\+params}} (int length)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}{update\+\_\+pf\+\_\+params\+\_\+par}} (int length, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm}} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}{get\+\_\+pf\+\_\+arrays}} (short $\ast$$\ast$S\+\_\+p, short $\ast$$\ast$S1\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qb\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qm\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$q1k\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qln\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Get the pointers to (almost) all relavant computation arrays used in partition function computation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}\label{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}} 
+double \mbox{\hyperlink{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}{get\+\_\+subseq\+\_\+F}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Get the free energy of a subsequence from the q\mbox{[}\mbox{]} array. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance}} (int length)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance of the last partition function computation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{mean\+\_\+bp\+\_\+distance\+\_\+pr}} (int length, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}{stack\+Prob}} (double cutoff)
+\begin{DoxyCompactList}\small\item\em Get the probability of stacks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}{init\+\_\+pf\+\_\+fold}} (int length)
+\begin{DoxyCompactList}\small\item\em Allocate space for \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold}} (char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global__deprecated_gaabfc6cb6d02b8f08ac4c92f4f5b125d9}{co\+\_\+pf\+\_\+fold\+\_\+par}} (char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga94c19120130e66a667a10a3c8598550c}{compute\+\_\+probabilities}} (double FAB, double FEA, double FEB, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pr\+AB, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prA, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prB, int Alength)
+\begin{DoxyCompactList}\small\item\em Compute Boltzmann probabilities of dimerization without homodimers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gaa12dda9dd6179cdd22bcce87c0682c07}{init\+\_\+co\+\_\+pf\+\_\+fold}} (int length)
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_gad94c0133157bed6912fe7fe866e0039e}{export\+\_\+co\+\_\+bppm}} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gade3ce34ae8214811374b1d28a40dc247}{free\+\_\+co\+\_\+pf\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga6e0f36c1f9b7d9dd4bfbad914c1119e5}{update\+\_\+co\+\_\+pf\+\_\+params}} (int length)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga75465d7e8793db68a434d83df9a2e794}{update\+\_\+co\+\_\+pf\+\_\+params\+\_\+par}} (int length, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}{assign\+\_\+plist\+\_\+from\+\_\+db}} (\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl, const char $\ast$struc, float \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} from a dot-\/bracket string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr}} (\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$probs, int length, double cutoff)
+\begin{DoxyCompactList}\small\item\em Create a vrna\+\_\+ep\+\_\+t from a probability matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_gab46954fb0ed3b6d5631e7f9b802978cd}{alipf\+\_\+fold\+\_\+par}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained, int is\+\_\+circular)
+\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}{alipf\+\_\+fold}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em The partition function version of \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}} works in analogy to \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}. Pair probabilities and information about sequence covariations are returned via the \textquotesingle{}pi\textquotesingle{} variable as a list of \mbox{\hyperlink{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{vrna\+\_\+pinfo\+\_\+t}} structs. The list is terminated by the first entry with pi.\+i = 0. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}{alipf\+\_\+circ\+\_\+fold}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_ga11b6ab8bd9be1821fea352b190a01cab}{export\+\_\+ali\+\_\+bppm}} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga0c0498f35686e26b38ee460d3db1a661}{free\+\_\+alipf\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by folding matrices allocated by alipf\+\_\+fold, alipf\+\_\+circ\+\_\+fold, etc. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_ga0df40248788f0fb17ebdc59d74116d1c}{alipbacktrack}} (double $\ast$prob)
+\begin{DoxyCompactList}\small\item\em Sample a consensus secondary structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}{get\+\_\+alipf\+\_\+arrays}} (short $\ast$$\ast$$\ast$S\+\_\+p, short $\ast$$\ast$$\ast$S5\+\_\+p, short $\ast$$\ast$$\ast$S3\+\_\+p, unsigned short $\ast$$\ast$$\ast$a2s\+\_\+p, char $\ast$$\ast$$\ast$Ss\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qb\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qm\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$q1k\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qln\+\_\+p, short $\ast$$\ast$pscore)
+\begin{DoxyCompactList}\small\item\em Get pointers to (almost) all relavant arrays used in alifold\textquotesingle{}s partition function computation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gab46954fb0ed3b6d5631e7f9b802978cd}\label{group__part__func__global__deprecated_gab46954fb0ed3b6d5631e7f9b802978cd}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!alipf\_fold\_par@{alipf\_fold\_par}}
+\index{alipf\_fold\_par@{alipf\_fold\_par}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{alipf\_fold\_par()}{alipf\_fold\_par()}}
+{\footnotesize\ttfamily float alipf\+\_\+fold\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{pl,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{calculate\+\_\+bppm,  }\item[{int}]{is\+\_\+constrained,  }\item[{int}]{is\+\_\+circular }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000018}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} instead\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & \\
+\hline
+{\em structure} & \\
+\hline
+{\em pl} & \\
+\hline
+{\em parameters} & \\
+\hline
+{\em calculate\+\_\+bppm} & \\
+\hline
+{\em is\+\_\+constrained} & \\
+\hline
+{\em is\+\_\+circular} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}\label{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!pf\_fold\_par@{pf\_fold\_par}}
+\index{pf\_fold\_par@{pf\_fold\_par}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{pf\_fold\_par()}{pf\_fold\_par()}}
+{\footnotesize\ttfamily float pf\+\_\+fold\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{calculate\+\_\+bppm,  }\item[{int}]{is\+\_\+constrained,  }\item[{int}]{is\+\_\+circular }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Compute the partition function $Q$ for a given RNA sequence. 
+
+If {\itshape structure} is not a NULL pointer on input, it contains on return a string consisting of the letters \char`\"{} . , $\vert$ \{ \} ( ) \char`\"{} denoting bases that are essentially unpaired, weakly paired, strongly paired without preference, weakly upstream (downstream) paired, or strongly up-\/ (down-\/)stream paired bases, respectively. If \mbox{\hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained}} is not 0, the {\itshape structure} string is interpreted on input as a list of constraints for the folding. The character \char`\"{}x\char`\"{} marks bases that must be unpaired, matching brackets \char`\"{} ( ) \char`\"{} denote base pairs, all other characters are ignored. Any pairs conflicting with the constraint will be forbidden. This is usually sufficient to ensure the constraints are honored. If the parameter calculate\+\_\+bppm is set to 0 base pairing probabilities will not be computed (saving CPU time), otherwise after calculations took place \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}} will contain the probability that bases {\itshape i} and {\itshape j} pair.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000097}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} instead\end{DoxyRefDesc}
+
+
+\begin{DoxyNote}{Note}
+The global array \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}} is deprecated and the user who wants the calculated base pair probabilities for further computations is advised to use the function \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}} 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+After successful run the hidden folding matrices are filled with the appropriate Boltzmann factors. Depending on whether the global variable \mbox{\hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack}} was set the base pair probabilities are already computed and may be accessed for further usage via the \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}} function. A call of \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()}} will free all memory allocated by this function. Successive calls will first free previously allocated memory before starting the computation. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}, \mbox{\hyperlink{group__struct__utils__deprecated_ga129d81c4a1ead793c5b2311333e03dfa}{bppm\+\_\+to\+\_\+structure()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}}, \mbox{\hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sequence} & The RNA sequence input \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em structure} & A pointer to a char array where a base pair probability information can be stored in a pseudo-\/dot-\/bracket notation (may be NULL, too) \\
+\hline
+\mbox{\texttt{ in}}  & {\em parameters} & Data structure containing the precalculated Boltzmann factors \\
+\hline
+\mbox{\texttt{ in}}  & {\em calculate\+\_\+bppm} & Switch to Base pair probability calculations on/off (0==off) \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+constrained} & Switch to indicate that a structure contraint is passed via the structure argument (0==off) \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+circular} & Switch to (de-\/)activate postprocessing steps in case RNA sequence is circular (0==off) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ensemble free energy $G = -RT \cdot \log(Q) $ in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}\label{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!pf\_fold@{pf\_fold}}
+\index{pf\_fold@{pf\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{pf\_fold()}{pf\_fold()}}
+{\footnotesize\ttfamily float pf\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Compute the partition function $Q$ of an RNA sequence. 
+
+If {\itshape structure} is not a NULL pointer on input, it contains on return a string consisting of the letters \char`\"{} . , $\vert$ \{ \} ( ) \char`\"{} denoting bases that are essentially unpaired, weakly paired, strongly paired without preference, weakly upstream (downstream) paired, or strongly up-\/ (down-\/)stream paired bases, respectively. If \mbox{\hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained}} is not 0, the {\itshape structure} string is interpreted on input as a list of constraints for the folding. The character \char`\"{}x\char`\"{} marks bases that must be unpaired, matching brackets \char`\"{} ( ) \char`\"{} denote base pairs, all other characters are ignored. Any pairs conflicting with the constraint will be forbidden. This is usually sufficient to ensure the constraints are honored. If \mbox{\hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack}} has been set to 0 base pairing probabilities will not be computed (saving CPU time), otherwise \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}} will contain the probability that bases {\itshape i} and {\itshape j} pair.
+
+\begin{DoxyNote}{Note}
+The global array \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}} is deprecated and the user who wants the calculated base pair probabilities for further computations is advised to use the function \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}}. 
+
+{\bfseries{Open\+MP\+:}} This function is not entirely threadsafe. While the recursions are working on their own copies of data the model details for the recursions are determined from the global settings just before entering the recursions. Consider using \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} for a really threadsafe implementation. 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+This function takes its model details from the global variables provided in {\itshape RNAlib} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+After successful run the hidden folding matrices are filled with the appropriate Boltzmann factors. Depending on whether the global variable \mbox{\hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack}} was set the base pair probabilities are already computed and may be accessed for further usage via the \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}} function. A call of \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()}} will free all memory allocated by this function. Successive calls will first free previously allocated memory before starting the computation. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}}, \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}}, \mbox{\hyperlink{group__struct__utils__deprecated_ga129d81c4a1ead793c5b2311333e03dfa}{bppm\+\_\+to\+\_\+structure()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The RNA sequence input \\
+\hline
+{\em structure} & A pointer to a char array where a base pair probability information can be stored in a pseudo-\/dot-\/bracket notation (may be NULL, too) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ensemble free energy $G = -RT \cdot \log(Q) $ in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}\label{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!pf\_circ\_fold@{pf\_circ\_fold}}
+\index{pf\_circ\_fold@{pf\_circ\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{pf\_circ\_fold()}{pf\_circ\_fold()}}
+{\footnotesize\ttfamily float pf\+\_\+circ\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Compute the partition function of a circular RNA sequence. 
+
+\begin{DoxyNote}{Note}
+The global array \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}} is deprecated and the user who wants the calculated base pair probabilities for further computations is advised to use the function \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}}. 
+
+{\bfseries{Open\+MP\+:}} This function is not entirely threadsafe. While the recursions are working on their own copies of data the model details for the recursions are determined from the global settings just before entering the recursions. Consider using \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} for a really threadsafe implementation. 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+This function takes its model details from the global variables provided in {\itshape RNAlib} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+After successful run the hidden folding matrices are filled with the appropriate Boltzmann factors. Depending on whether the global variable \mbox{\hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack}} was set the base pair probabilities are already computed and may be accessed for further usage via the \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}} function. A call of \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()}} will free all memory allocated by this function. Successive calls will first free previously allocated memory before starting the computation. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000098}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} instead! \end{DoxyRefDesc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sequence} & The RNA sequence input \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em structure} & A pointer to a char array where a base pair probability information can be stored in a pseudo-\/dot-\/bracket notation (may be NULL, too) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ensemble free energy $G = -RT \cdot \log(Q) $ in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}\label{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!free\_pf\_arrays@{free\_pf\_arrays}}
+\index{free\_pf\_arrays@{free\_pf\_arrays}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{free\_pf\_arrays()}{free\_pf\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+pf\+\_\+arrays (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Free arrays for the partition function recursions. 
+
+Call this function if you want to free all allocated memory associated with the partition function forward recursion. \begin{DoxyNote}{Note}
+Successive calls of \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}, \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}} already check if they should free any memory from a previous run. 
+
+{\bfseries{Open\+MP notice\+:}}~\newline
+ This function should be called before leaving a thread in order to avoid leaking memory
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000100}{Deprecated}}]See vrna\+\_\+fold\+\_\+compound\+\_\+t and its related functions for how to free memory occupied by the dynamic programming matrices\end{DoxyRefDesc}
+
+
+\begin{DoxyPostcond}{Postcondition}
+All memory allocated by \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} or \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}} will be free\textquotesingle{}d 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}, \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}\label{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!update\_pf\_params@{update\_pf\_params}}
+\index{update\_pf\_params@{update\_pf\_params}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{update\_pf\_params()}{update\_pf\_params()}}
+{\footnotesize\ttfamily void update\+\_\+pf\+\_\+params (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Recalculate energy parameters. 
+
+Call this function to recalculate the pair matrix and energy parameters after a change in folding parameters like \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000101}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}} instead\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}\label{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!update\_pf\_params\_par@{update\_pf\_params\_par}}
+\index{update\_pf\_params\_par@{update\_pf\_params\_par}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{update\_pf\_params\_par()}{update\_pf\_params\_par()}}
+{\footnotesize\ttfamily void update\+\_\+pf\+\_\+params\+\_\+par (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Recalculate energy parameters. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000102}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}} instead\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}\label{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!export\_bppm@{export\_bppm}}
+\index{export\_bppm@{export\_bppm}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{export\_bppm()}{export\_bppm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}$\ast$ export\+\_\+bppm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Get a pointer to the base pair probability array. 
+
+Accessing the base pair probabilities for a pair (i,j) is achieved by 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}  = \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}}();}
+\DoxyCodeLine{pr\_ij           = \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}[\mbox{\hyperlink{fold__vars_8h_a92089ae3a51b5d75a14ce9cc29cc8317}{iindx}}[i]-\/j];}
+
+\end{DoxyCode}
+
+
+\begin{DoxyPrecond}{Precondition}
+Call \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} or \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}} first to fill the base pair probability array
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}, \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}}, \mbox{\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+A pointer to the base pair probability array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}\label{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!get\_pf\_arrays@{get\_pf\_arrays}}
+\index{get\_pf\_arrays@{get\_pf\_arrays}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{get\_pf\_arrays()}{get\_pf\_arrays()}}
+{\footnotesize\ttfamily int get\+\_\+pf\+\_\+arrays (\begin{DoxyParamCaption}\item[{short $\ast$$\ast$}]{S\+\_\+p,  }\item[{short $\ast$$\ast$}]{S1\+\_\+p,  }\item[{char $\ast$$\ast$}]{ptype\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{qb\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{qm\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{q1k\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{qln\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Get the pointers to (almost) all relavant computation arrays used in partition function computation. 
+
+\begin{DoxyPrecond}{Precondition}
+In order to assign meaningful pointers, you have to call \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}} or \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} first! 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}, \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em S\+\_\+p} & A pointer to the \textquotesingle{}S\textquotesingle{} array (integer representation of nucleotides) \\
+\hline
+\mbox{\texttt{ out}}  & {\em S1\+\_\+p} & A pointer to the \textquotesingle{}S1\textquotesingle{} array (2nd integer representation of nucleotides) \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptype\+\_\+p} & A pointer to the pair type matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em qb\+\_\+p} & A pointer to the Q\textsuperscript{B} matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em qm\+\_\+p} & A pointer to the Q\textsuperscript{M} matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em q1k\+\_\+p} & A pointer to the 5\textquotesingle{} slice of the Q matrix ( $q1k(k) = Q(1, k)$) \\
+\hline
+\mbox{\texttt{ out}}  & {\em qln\+\_\+p} & A pointer to the 3\textquotesingle{} slice of the Q matrix ( $qln(l) = Q(l, n)$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non Zero if everything went fine, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}\label{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!mean\_bp\_distance@{mean\_bp\_distance}}
+\index{mean\_bp\_distance@{mean\_bp\_distance}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{mean\_bp\_distance()}{mean\_bp\_distance()}}
+{\footnotesize\ttfamily double mean\+\_\+bp\+\_\+distance (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Get the mean base pair distance of the last partition function computation. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000103}{Deprecated}}]Use \mbox{\hyperlink{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance()}} or \mbox{\hyperlink{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()}} instead! \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance()}}, \mbox{\hyperlink{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mean base pair distance in thermodynamic ensemble 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}\label{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!mean\_bp\_distance\_pr@{mean\_bp\_distance\_pr}}
+\index{mean\_bp\_distance\_pr@{mean\_bp\_distance\_pr}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{mean\_bp\_distance\_pr()}{mean\_bp\_distance\_pr()}}
+{\footnotesize\ttfamily double mean\+\_\+bp\+\_\+distance\+\_\+pr (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{pr }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble. 
+
+This is a threadsafe implementation of \mbox{\hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{mean\+\_\+bp\+\_\+dist()}} !
+
+$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$~\newline
+this can be computed from the pair probs $p_ij$ as~\newline
+ $<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000104}{Deprecated}}]Use \mbox{\hyperlink{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance()}} or \mbox{\hyperlink{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the sequence \\
+\hline
+{\em pr} & The matrix containing the base pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}\label{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!stackProb@{stackProb}}
+\index{stackProb@{stackProb}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{stackProb()}{stackProb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}}$\ast$ stack\+Prob (\begin{DoxyParamCaption}\item[{double}]{cutoff }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Get the probability of stacks. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000105}{Deprecated}}]Use \mbox{\hyperlink{group__thermodynamics_ga132664bf29fdc30bb5ea715491d1ab22}{vrna\+\_\+stack\+\_\+prob()}} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}\label{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!init\_pf\_fold@{init\_pf\_fold}}
+\index{init\_pf\_fold@{init\_pf\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{init\_pf\_fold()}{init\_pf\_fold()}}
+{\footnotesize\ttfamily void init\+\_\+pf\+\_\+fold (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Allocate space for \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000106}{Deprecated}}]This function is obsolete and will be removed soon!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}\label{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!co\_pf\_fold@{co\_pf\_fold}}
+\index{co\_pf\_fold@{co\_pf\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{co\_pf\_fold()}{co\_pf\_fold()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} co\+\_\+pf\+\_\+fold (\begin{DoxyParamCaption}\item[{char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Calculate partition function and base pair probabilities. 
+
+This is the cofold partition function folding. The second molecule starts at the \mbox{\hyperlink{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}} nucleotide.
+
+\begin{DoxyNote}{Note}
+Open\+MP\+: Since this function relies on the global parameters \mbox{\hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack}}, \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}} and \mbox{\hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\+\_\+scale}} it is not threadsafe according to concurrent changes in these variables! Use \mbox{\hyperlink{group__part__func__global__deprecated_gaabfc6cb6d02b8f08ac4c92f4f5b125d9}{co\+\_\+pf\+\_\+fold\+\_\+par()}} instead to circumvent this issue.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000112}{Deprecated}}]\{Use \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}} instead!\}\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & Concatenated RNA sequences \\
+\hline
+{\em structure} & Will hold the structure or constraints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+pf\+\_\+t structure containing a set of energies needed for concentration computations. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gaabfc6cb6d02b8f08ac4c92f4f5b125d9}\label{group__part__func__global__deprecated_gaabfc6cb6d02b8f08ac4c92f4f5b125d9}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!co\_pf\_fold\_par@{co\_pf\_fold\_par}}
+\index{co\_pf\_fold\_par@{co\_pf\_fold\_par}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{co\_pf\_fold\_par()}{co\_pf\_fold\_par()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} co\+\_\+pf\+\_\+fold\+\_\+par (\begin{DoxyParamCaption}\item[{char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{calculate\+\_\+bppm,  }\item[{int}]{is\+\_\+constrained }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Calculate partition function and base pair probabilities. 
+
+This is the cofold partition function folding. The second molecule starts at the \mbox{\hyperlink{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}} nucleotide.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000113}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gaef2b931c7e9d4ffb0a5c33df50ec2068}{get\+\_\+boltzmann\+\_\+factors()}}, \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & Concatenated RNA sequences \\
+\hline
+{\em structure} & Pointer to the structure constraint \\
+\hline
+{\em parameters} & Data structure containing the precalculated Boltzmann factors \\
+\hline
+{\em calculate\+\_\+bppm} & Switch to turn Base pair probability calculations on/off (0==off) \\
+\hline
+{\em is\+\_\+constrained} & Switch to indicate that a structure contraint is passed via the structure argument (0==off) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+pf\+\_\+t structure containing a set of energies needed for concentration computations. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga94c19120130e66a667a10a3c8598550c}\label{group__part__func__global__deprecated_ga94c19120130e66a667a10a3c8598550c}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!compute\_probabilities@{compute\_probabilities}}
+\index{compute\_probabilities@{compute\_probabilities}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{compute\_probabilities()}{compute\_probabilities()}}
+{\footnotesize\ttfamily void compute\+\_\+probabilities (\begin{DoxyParamCaption}\item[{double}]{FAB,  }\item[{double}]{FEA,  }\item[{double}]{FEB,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{pr\+AB,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{prA,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{prB,  }\item[{int}]{Alength }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Compute Boltzmann probabilities of dimerization without homodimers. 
+
+Given the pair probabilities and free energies (in the null model) for a dimer AB and the two constituent monomers A and B, compute the conditional pair probabilities given that a dimer AB actually forms. Null model pair probabilities are given as a list as produced by \mbox{\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()}}, the dimer probabilities \textquotesingle{}pr\+AB\textquotesingle{} are modified in place.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000115}{Deprecated}}]\{ Use \mbox{\hyperlink{group__thermodynamics_gaa1e39e73afb51fbaf4ae38f0c066c46b}{vrna\+\_\+pf\+\_\+dimer\+\_\+probs()}} instead!\}\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em FAB} & free energy of dimer AB \\
+\hline
+{\em FEA} & free energy of monomer A \\
+\hline
+{\em FEB} & free energy of monomer B \\
+\hline
+{\em pr\+AB} & pair probabilities for dimer \\
+\hline
+{\em prA} & pair probabilities monomer \\
+\hline
+{\em prB} & pair probabilities monomer \\
+\hline
+{\em Alength} & Length of molecule A \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gaa12dda9dd6179cdd22bcce87c0682c07}\label{group__part__func__global__deprecated_gaa12dda9dd6179cdd22bcce87c0682c07}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!init\_co\_pf\_fold@{init\_co\_pf\_fold}}
+\index{init\_co\_pf\_fold@{init\_co\_pf\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{init\_co\_pf\_fold()}{init\_co\_pf\_fold()}}
+{\footnotesize\ttfamily void init\+\_\+co\+\_\+pf\+\_\+fold (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+DO NOT USE THIS FUNCTION ANYMORE \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000116}{Deprecated}}]\{ This function is deprecated and will be removed soon!\}\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gad94c0133157bed6912fe7fe866e0039e}\label{group__part__func__global__deprecated_gad94c0133157bed6912fe7fe866e0039e}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!export\_co\_bppm@{export\_co\_bppm}}
+\index{export\_co\_bppm@{export\_co\_bppm}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{export\_co\_bppm()}{export\_co\_bppm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}$\ast$ export\+\_\+co\+\_\+bppm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Get a pointer to the base pair probability array. 
+
+Accessing the base pair probabilities for a pair (i,j) is achieved by \begin{DoxyVerb}FLT_OR_DBL *pr = export_bppm(); pr_ij = pr[iindx[i]-j]; \end{DoxyVerb}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000117}{Deprecated}}]This function is deprecated and will be removed soon! The base pair probability array is available through the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure, and its associated \mbox{\hyperlink{group__dp__matrices_ga68729ab3fed26bdd1806fa814f172fc1}{vrna\+\_\+mx\+\_\+pf\+\_\+t}} member.\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise()}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+A pointer to the base pair probability array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gade3ce34ae8214811374b1d28a40dc247}\label{group__part__func__global__deprecated_gade3ce34ae8214811374b1d28a40dc247}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!free\_co\_pf\_arrays@{free\_co\_pf\_arrays}}
+\index{free\_co\_pf\_arrays@{free\_co\_pf\_arrays}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{free\_co\_pf\_arrays()}{free\_co\_pf\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+co\+\_\+pf\+\_\+arrays (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Free the memory occupied by \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold()}} 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000118}{Deprecated}}]This function will be removed for the new API soon! See \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, and \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} for an alternative\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga6e0f36c1f9b7d9dd4bfbad914c1119e5}\label{group__part__func__global__deprecated_ga6e0f36c1f9b7d9dd4bfbad914c1119e5}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!update\_co\_pf\_params@{update\_co\_pf\_params}}
+\index{update\_co\_pf\_params@{update\_co\_pf\_params}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{update\_co\_pf\_params()}{update\_co\_pf\_params()}}
+{\footnotesize\ttfamily void update\+\_\+co\+\_\+pf\+\_\+params (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Recalculate energy parameters. 
+
+This function recalculates all energy parameters given the current model settings.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000119}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & Length of the current RNA sequence \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga75465d7e8793db68a434d83df9a2e794}\label{group__part__func__global__deprecated_ga75465d7e8793db68a434d83df9a2e794}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!update\_co\_pf\_params\_par@{update\_co\_pf\_params\_par}}
+\index{update\_co\_pf\_params\_par@{update\_co\_pf\_params\_par}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{update\_co\_pf\_params\_par()}{update\_co\_pf\_params\_par()}}
+{\footnotesize\ttfamily void update\+\_\+co\+\_\+pf\+\_\+params\+\_\+par (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__co_8h}{Vienna\+RNA/part\+\_\+func\+\_\+co.\+h}}$>$}
+
+
+
+Recalculate energy parameters. 
+
+This function recalculates all energy parameters given the current model settings. It\textquotesingle{}s second argument can either be NULL or a data structure containing the precomputed Boltzmann factors. In the first scenario, the necessary data structure will be created automatically according to the current global model settings, i.\+e. this mode might not be threadsafe. However, if the provided data structure is not NULL, threadsafety for the model parameters \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}}, \mbox{\hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\+\_\+scale}} and \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}} is regained, since their values are taken from this data structure during subsequent calculations.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000120}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & Length of the current RNA sequence \\
+\hline
+{\em parameters} & data structure containing the precomputed Boltzmann factors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}\label{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!assign\_plist\_from\_db@{assign\_plist\_from\_db}}
+\index{assign\_plist\_from\_db@{assign\_plist\_from\_db}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{assign\_plist\_from\_db()}{assign\_plist\_from\_db()}}
+{\footnotesize\ttfamily void assign\+\_\+plist\+\_\+from\+\_\+db (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{pl,  }\item[{const char $\ast$}]{struc,  }\item[{float}]{pr }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} from a dot-\/bracket string. 
+
+The dot-\/bracket string is parsed and for each base pair an entry in the plist is created. The probability of each pair in the list is set by a function parameter.
+
+The end of the plist is marked by sequence positions i as well as j equal to 0. This condition should be used to stop looping over its entries
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000199}{Deprecated}}]Use \mbox{\hyperlink{group__struct__utils__plist_gaf002d69024d709744664a8b9ca3dd77d}{vrna\+\_\+plist()}} instead\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl} & A pointer to the \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} that is to be created \\
+\hline
+{\em struc} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em pr} & The probability for each base pair \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}\label{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!assign\_plist\_from\_pr@{assign\_plist\_from\_pr}}
+\index{assign\_plist\_from\_pr@{assign\_plist\_from\_pr}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{assign\_plist\_from\_pr()}{assign\_plist\_from\_pr()}}
+{\footnotesize\ttfamily void assign\+\_\+plist\+\_\+from\+\_\+pr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{pl,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{probs,  }\item[{int}]{length,  }\item[{double}]{cutoff }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a vrna\+\_\+ep\+\_\+t from a probability matrix. 
+
+The probability matrix given is parsed and all pair probabilities above the given threshold are used to create an entry in the plist
+
+The end of the plist is marked by sequence positions i as well as j equal to 0. This condition should be used to stop looping over its entries
+
+\begin{DoxyNote}{Note}
+This function is threadsafe 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000209}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}{vrna\+\_\+plist\+\_\+from\+\_\+probs()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em pl} & A pointer to the vrna\+\_\+ep\+\_\+t that is to be created \\
+\hline
+\mbox{\texttt{ in}}  & {\em probs} & The probability matrix used for creating the plist \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & The length of the RNA sequence \\
+\hline
+\mbox{\texttt{ in}}  & {\em cutoff} & The cutoff value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}\label{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!alipf\_fold@{alipf\_fold}}
+\index{alipf\_fold@{alipf\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{alipf\_fold()}{alipf\_fold()}}
+{\footnotesize\ttfamily float alipf\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+The partition function version of \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}} works in analogy to \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}. Pair probabilities and information about sequence covariations are returned via the \textquotesingle{}pi\textquotesingle{} variable as a list of \mbox{\hyperlink{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{vrna\+\_\+pinfo\+\_\+t}} structs. The list is terminated by the first entry with pi.\+i = 0. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000019}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} instead\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & \\
+\hline
+{\em structure} & \\
+\hline
+{\em pl} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}\label{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!alipf\_circ\_fold@{alipf\_circ\_fold}}
+\index{alipf\_circ\_fold@{alipf\_circ\_fold}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{alipf\_circ\_fold()}{alipf\_circ\_fold()}}
+{\footnotesize\ttfamily float alipf\+\_\+circ\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000020}{Deprecated}}]Use \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} instead\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & \\
+\hline
+{\em structure} & \\
+\hline
+{\em pl} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga11b6ab8bd9be1821fea352b190a01cab}\label{group__part__func__global__deprecated_ga11b6ab8bd9be1821fea352b190a01cab}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!export\_ali\_bppm@{export\_ali\_bppm}}
+\index{export\_ali\_bppm@{export\_ali\_bppm}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{export\_ali\_bppm()}{export\_ali\_bppm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}$\ast$ export\+\_\+ali\+\_\+bppm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Get a pointer to the base pair probability array. 
+
+Accessing the base pair probabilities for a pair (i,j) is achieved by \begin{DoxyVerb}FLT_OR_DBL *pr = export_bppm(); pr_ij = pr[iindx[i]-j]; \end{DoxyVerb}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000021}{Deprecated}}]Usage of this function is discouraged! The new \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} allows direct access to the folding matrices, including the pair probabilities! The pair probability array returned here reflects the one of the latest call to \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}, or any of the old API calls for consensus structure partition function folding.\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, and \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+A pointer to the base pair probability array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga0c0498f35686e26b38ee460d3db1a661}\label{group__part__func__global__deprecated_ga0c0498f35686e26b38ee460d3db1a661}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!free\_alipf\_arrays@{free\_alipf\_arrays}}
+\index{free\_alipf\_arrays@{free\_alipf\_arrays}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{free\_alipf\_arrays()}{free\_alipf\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+alipf\+\_\+arrays (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Free the memory occupied by folding matrices allocated by alipf\+\_\+fold, alipf\+\_\+circ\+\_\+fold, etc. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000022}{Deprecated}}]Usage of this function is discouraged! This function only free\textquotesingle{}s memory allocated by old API function calls. Memory allocated by any of the new API calls (starting with vrna\+\_\+) will be not affected!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, vrna\+\_\+vrna\+\_\+fold\+\_\+compound\+\_\+free() 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga0df40248788f0fb17ebdc59d74116d1c}\label{group__part__func__global__deprecated_ga0df40248788f0fb17ebdc59d74116d1c}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!alipbacktrack@{alipbacktrack}}
+\index{alipbacktrack@{alipbacktrack}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{alipbacktrack()}{alipbacktrack()}}
+{\footnotesize\ttfamily char$\ast$ alipbacktrack (\begin{DoxyParamCaption}\item[{double $\ast$}]{prob }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Sample a consensus secondary structure from the Boltzmann ensemble according its probability. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000023}{Deprecated}}]Use \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & to be described (berni) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled consensus secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}\label{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}} 
+\index{Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}!get\_alipf\_arrays@{get\_alipf\_arrays}}
+\index{get\_alipf\_arrays@{get\_alipf\_arrays}!Deprecated Interface for Global Partition Function Computation@{Deprecated Interface for Global Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{get\_alipf\_arrays()}{get\_alipf\_arrays()}}
+{\footnotesize\ttfamily int get\+\_\+alipf\+\_\+arrays (\begin{DoxyParamCaption}\item[{short $\ast$$\ast$$\ast$}]{S\+\_\+p,  }\item[{short $\ast$$\ast$$\ast$}]{S5\+\_\+p,  }\item[{short $\ast$$\ast$$\ast$}]{S3\+\_\+p,  }\item[{unsigned short $\ast$$\ast$$\ast$}]{a2s\+\_\+p,  }\item[{char $\ast$$\ast$$\ast$}]{Ss\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{qb\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{qm\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{q1k\+\_\+p,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$}]{qln\+\_\+p,  }\item[{short $\ast$$\ast$}]{pscore }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alifold_8h}{Vienna\+RNA/alifold.\+h}}$>$}
+
+
+
+Get pointers to (almost) all relavant arrays used in alifold\textquotesingle{}s partition function computation. 
+
+\begin{DoxyNote}{Note}
+To obtain meaningful pointers, call alipf\+\_\+fold first!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+pf\+\_\+alifold(), \mbox{\hyperlink{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}{alipf\+\_\+circ\+\_\+fold()}}
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000024}{Deprecated}}]It is discouraged to use this function! The new \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} allows direct access to all necessary consensus structure prediction related variables!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em S\+\_\+p} & A pointer to the \textquotesingle{}S\textquotesingle{} array (integer representation of nucleotides) \\
+\hline
+{\em S5\+\_\+p} & A pointer to the \textquotesingle{}S5\textquotesingle{} array \\
+\hline
+{\em S3\+\_\+p} & A pointer to the \textquotesingle{}S3\textquotesingle{} array \\
+\hline
+{\em a2s\+\_\+p} & A pointer to the alignment-\/column to sequence position mapping array \\
+\hline
+{\em Ss\+\_\+p} & A pointer to the \textquotesingle{}Ss\textquotesingle{} array \\
+\hline
+{\em qb\+\_\+p} & A pointer to the Q\textsuperscript{B} matrix \\
+\hline
+{\em qm\+\_\+p} & A pointer to the Q\textsuperscript{M} matrix \\
+\hline
+{\em q1k\+\_\+p} & A pointer to the 5\textquotesingle{} slice of the Q matrix ( $q1k(k) = Q(1, k)$) \\
+\hline
+{\em qln\+\_\+p} & A pointer to the 3\textquotesingle{} slice of the Q matrix ( $qln(l) = Q(l, n)$) \\
+\hline
+{\em pscore} & A pointer to the start of a pscore list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non Zero if everything went fine, 0 otherwise 
+\end{DoxyReturn}

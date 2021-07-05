@@ -1,0 +1,59 @@
+\hypertarget{part__func__co_8h}{}\doxysection{Vienna\+RNA/part\+\_\+func\+\_\+co.h File Reference}
+\label{part__func__co_8h}\index{ViennaRNA/part\_func\_co.h@{ViennaRNA/part\_func\_co.h}}
+
+
+Partition function for two RNA sequences.  
+
+
+Include dependency graph for part\+\_\+func\+\_\+co.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{part__func__co_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold}} (char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__part__func__global__deprecated_gaabfc6cb6d02b8f08ac4c92f4f5b125d9}{co\+\_\+pf\+\_\+fold\+\_\+par}} (char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{part__func__co_8h_afb35675f133966dc9f8a8c2c9686e13a}{get\+\_\+plist}} (\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pl, int length, double cut\+\_\+off)
+\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga94c19120130e66a667a10a3c8598550c}{compute\+\_\+probabilities}} (double FAB, double FEA, double FEB, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pr\+AB, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prA, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prB, int Alength)
+\begin{DoxyCompactList}\small\item\em Compute Boltzmann probabilities of dimerization without homodimers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gaa12dda9dd6179cdd22bcce87c0682c07}{init\+\_\+co\+\_\+pf\+\_\+fold}} (int length)
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_gad94c0133157bed6912fe7fe866e0039e}{export\+\_\+co\+\_\+bppm}} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_gade3ce34ae8214811374b1d28a40dc247}{free\+\_\+co\+\_\+pf\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga6e0f36c1f9b7d9dd4bfbad914c1119e5}{update\+\_\+co\+\_\+pf\+\_\+params}} (int length)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga75465d7e8793db68a434d83df9a2e794}{update\+\_\+co\+\_\+pf\+\_\+params\+\_\+par}} (int length, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__pf__cofold_gaff27888c4088cc1f60fd59cbd589474c}{mirnatog}}
+\begin{DoxyCompactList}\small\item\em Toggles no intrabp in 2nd mol. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__pf__cofold_gac2d1851a710a8561390861155ca988fe}{F\+\_\+monomer}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Free energies of the two monomers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Partition function for two RNA sequences. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{part__func__co_8h_afb35675f133966dc9f8a8c2c9686e13a}\label{part__func__co_8h_afb35675f133966dc9f8a8c2c9686e13a}} 
+\index{part\_func\_co.h@{part\_func\_co.h}!get\_plist@{get\_plist}}
+\index{get\_plist@{get\_plist}!part\_func\_co.h@{part\_func\_co.h}}
+\doxysubsubsection{\texorpdfstring{get\_plist()}{get\_plist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}}$\ast$ get\+\_\+plist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{pl,  }\item[{int}]{length,  }\item[{double}]{cut\+\_\+off }\end{DoxyParamCaption})}
+
+DO NOT USE THIS FUNCTION ANYMORE \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000114}{Deprecated}}]\{ This function is deprecated and will be removed soon!\} use \mbox{\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()}} instead! \end{DoxyRefDesc}

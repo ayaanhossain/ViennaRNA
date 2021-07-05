@@ -1,0 +1,102 @@
+\hypertarget{group__alignment__plots}{}\doxysection{Alignment Plots}
+\label{group__alignment__plots}\index{Alignment Plots@{Alignment Plots}}
+
+
+Functions to generate Alignment plots with annotated consensus structure.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to generate Alignment plots with annotated consensus structure. 
+
+Collaboration diagram for Alignment Plots\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{group__alignment__plots}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln}} (const char $\ast$filename, const char $\ast$$\ast$seqs, const char $\ast$$\ast$names, const char $\ast$structure, unsigned int columns)
+\begin{DoxyCompactList}\small\item\em Create an annotated Post\+Script alignment plot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice}} (const char $\ast$filename, const char $\ast$$\ast$seqs, const char $\ast$$\ast$names, const char $\ast$structure, unsigned int start, unsigned int end, int offset, unsigned int columns)
+\begin{DoxyCompactList}\small\item\em Create an annotated Post\+Script alignment plot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}\label{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}} 
+\index{Alignment Plots@{Alignment Plots}!vrna\_file\_PS\_aln@{vrna\_file\_PS\_aln}}
+\index{vrna\_file\_PS\_aln@{vrna\_file\_PS\_aln}!Alignment Plots@{Alignment Plots}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_PS\_aln()}{vrna\_file\_PS\_aln()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+PS\+\_\+aln (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$$\ast$}]{seqs,  }\item[{const char $\ast$$\ast$}]{names,  }\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{columns }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2alignments_8h}{Vienna\+RNA/plotting/alignments.\+h}}$>$}
+
+
+
+Create an annotated Post\+Script alignment plot. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The output file name \\
+\hline
+{\em seqs} & The aligned sequences \\
+\hline
+{\em names} & The names of the sequences \\
+\hline
+{\em structure} & The consensus structure in dot-\/bracket notation \\
+\hline
+{\em columns} & The number of columns before the alignment is wrapped as a new block (a value of 0 indicates no wrapping)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000130}{SWIG Wrapper Notes}}]This function is available as overloaded function {\ttfamily file\+\_\+\+PS\+\_\+aln()} with three additional parameters {\ttfamily start}, {\ttfamily end}, and {\ttfamily offset} before the {\ttfamily columns} argument. Thus, it resembles the {\ttfamily \mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice()}}} function. The last four arguments may be omitted, indicating the default of {\ttfamily start} = {\itshape 0}, {\ttfamily end} = {\itshape 0}, {\ttfamily offset} = {\itshape 0}, and {\ttfamily columns} = {\itshape 60}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}\label{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}} 
+\index{Alignment Plots@{Alignment Plots}!vrna\_file\_PS\_aln\_slice@{vrna\_file\_PS\_aln\_slice}}
+\index{vrna\_file\_PS\_aln\_slice@{vrna\_file\_PS\_aln\_slice}!Alignment Plots@{Alignment Plots}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_PS\_aln\_slice()}{vrna\_file\_PS\_aln\_slice()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$$\ast$}]{seqs,  }\item[{const char $\ast$$\ast$}]{names,  }\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{start,  }\item[{unsigned int}]{end,  }\item[{int}]{offset,  }\item[{unsigned int}]{columns }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2alignments_8h}{Vienna\+RNA/plotting/alignments.\+h}}$>$}
+
+
+
+Create an annotated Post\+Script alignment plot. 
+
+Similar to \mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln()}} but allows the user to print a particular slice of the alignment by specifying a {\ttfamily start} and {\ttfamily end} position. The additional {\ttfamily offset} parameter allows for adjusting the alignment position ruler value.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The output file name \\
+\hline
+{\em seqs} & The aligned sequences \\
+\hline
+{\em names} & The names of the sequences \\
+\hline
+{\em structure} & The consensus structure in dot-\/bracket notation \\
+\hline
+{\em start} & The start of the alignment slice (a value of 0 indicates the first position of the alignment, i.\+e. no slicing at 5\textquotesingle{} side) \\
+\hline
+{\em end} & The end of the alignment slice (a value of 0 indicates the last position of the alignment, i.\+e. no slicing at 3\textquotesingle{} side) \\
+\hline
+{\em offset} & The alignment coordinate offset for the position ruler. \\
+\hline
+{\em columns} & The number of columns before the alignment is wrapped as a new block (a value of 0 indicates no wrapping)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000131}{SWIG Wrapper Notes}}]This function is available as overloaded function {\ttfamily file\+\_\+\+PS\+\_\+aln()} where the last four parameter may be omitted, indicating {\ttfamily start} = {\itshape 0}, {\ttfamily end} = {\itshape 0}, {\ttfamily offset} = {\itshape 0}, and {\ttfamily columns} = {\itshape 60}. \end{DoxyRefDesc}

@@ -1,0 +1,80 @@
+\hypertarget{cofold_8h_source}{}\doxysection{cofold.\+h}
+\label{cofold_8h_source}\index{ViennaRNA/cofold.h@{ViennaRNA/cofold.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_COFOLD\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_COFOLD\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{mfe_8h}{ViennaRNA/mfe.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00026 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00042 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00043 \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{00044         \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00045}\mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{00045}}         \textcolor{stringliteral}{"{}Use vrna\_cofold() instead"{}});}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00054 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00055 \mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{cofold\_par}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00056             \textcolor{keywordtype}{char} *structure,}
+\DoxyCodeLine{00057             \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *parameters,}
+\DoxyCodeLine{00058             \textcolor{keywordtype}{int} is\_constrained),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00059}\mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{00059}}             \textcolor{stringliteral}{"{}Use the new API and vrna\_mfe\_dimer() instead"{}});}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00072 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_gaafb33d7473eb9af9d1b168ca8761c41a}{free\_co\_arrays}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00073}\mbox{\hyperlink{group__mfe__global__deprecated_gaafb33d7473eb9af9d1b168ca8761c41a}{00073}}           \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00081 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_ga4fcbf34e77b99bfbb2333d2ab0c41a57}{update\_cofold\_params}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00082}\mbox{\hyperlink{group__mfe__global__deprecated_ga4fcbf34e77b99bfbb2333d2ab0c41a57}{00082}}           \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00090 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_gaaadbd28b4e428710529ab4098fdacad3}{update\_cofold\_params\_par}}(\mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *parameters),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00091}\mbox{\hyperlink{group__mfe__global__deprecated_gaaadbd28b4e428710529ab4098fdacad3}{00091}}           \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00115 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_ga5f5bf4df35d0554f6ace9579f8744c48}{export\_cofold\_arrays\_gq}}(\textcolor{keywordtype}{int} **f5\_p,}
+\DoxyCodeLine{00116                                         \textcolor{keywordtype}{int} **c\_p,}
+\DoxyCodeLine{00117                                         \textcolor{keywordtype}{int} **fML\_p,}
+\DoxyCodeLine{00118                                         \textcolor{keywordtype}{int} **fM1\_p,}
+\DoxyCodeLine{00119                                         \textcolor{keywordtype}{int} **fc\_p,}
+\DoxyCodeLine{00120                                         \textcolor{keywordtype}{int} **ggg\_p,}
+\DoxyCodeLine{00121                                         \textcolor{keywordtype}{int} **indx\_p,}
+\DoxyCodeLine{00122                                         \textcolor{keywordtype}{char} **ptype\_p),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00123}\mbox{\hyperlink{group__mfe__global__deprecated_ga5f5bf4df35d0554f6ace9579f8744c48}{00123}}           \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00145 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_ga5cb6b59983f1f74ccc00b9b9c4e84482}{export\_cofold\_arrays}}( \textcolor{keywordtype}{int} **f5\_p,}
+\DoxyCodeLine{00146                                       \textcolor{keywordtype}{int} **c\_p,}
+\DoxyCodeLine{00147                                       \textcolor{keywordtype}{int} **fML\_p,}
+\DoxyCodeLine{00148                                       \textcolor{keywordtype}{int} **fM1\_p,}
+\DoxyCodeLine{00149                                       \textcolor{keywordtype}{int} **fc\_p,}
+\DoxyCodeLine{00150                                       \textcolor{keywordtype}{int} **indx\_p,}
+\DoxyCodeLine{00151                                       \textcolor{keywordtype}{char} **ptype\_p),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00152}\mbox{\hyperlink{group__mfe__global__deprecated_ga5cb6b59983f1f74ccc00b9b9c4e84482}{00152}}           \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154 }
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{00166 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_ga4958b517c613e4d2afd5bce6c1060a79}{get\_monomere\_mfes}}( \textcolor{keywordtype}{float} *e1, \textcolor{keywordtype}{float} *e2),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00167}\mbox{\hyperlink{group__mfe__global__deprecated_ga4958b517c613e4d2afd5bce6c1060a79}{00167}}           \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00168 }
+\DoxyCodeLine{00169 }
+\DoxyCodeLine{00176 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_gafee0c32208aa2ac97338b6e3fbad7fa5}{initialize\_cofold}}(\textcolor{keywordtype}{int} length),}
+\DoxyCodeLine{\Hypertarget{cofold_8h_source_l00177}\mbox{\hyperlink{group__mfe__global__deprecated_gafee0c32208aa2ac97338b6e3fbad7fa5}{00177}}           \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{00179 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{00181 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

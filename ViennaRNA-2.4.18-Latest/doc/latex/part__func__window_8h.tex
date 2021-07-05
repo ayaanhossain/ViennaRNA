@@ -1,0 +1,78 @@
+\hypertarget{part__func__window_8h}{}\doxysection{Vienna\+RNA/part\+\_\+func\+\_\+window.h File Reference}
+\label{part__func__window_8h}\index{ViennaRNA/part\_func\_window.h@{ViennaRNA/part\_func\_window.h}}
+
+
+Partition function and equilibrium probability implementation for the sliding window algorithm.  
+
+
+Include dependency graph for part\+\_\+func\+\_\+window.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{part__func__window_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{part__func__window_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__part__func__window_gaf0bb577130090f6c856d1358804250bf}{VRNA\+\_\+\+EXT\+\_\+\+LOOP}}~1U
+\begin{DoxyCompactList}\small\item\em Exterior loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga30170811c320f3a7b23ffff3b3343b91}{VRNA\+\_\+\+HP\+\_\+\+LOOP}}~2U
+\begin{DoxyCompactList}\small\item\em Hairpin loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga956a237e7d956b684b7d593cb3eca665}{VRNA\+\_\+\+INT\+\_\+\+LOOP}}~4U
+\begin{DoxyCompactList}\small\item\em Internal loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_gad905b71f02b3799eb84b490435aec837}{VRNA\+\_\+\+MB\+\_\+\+LOOP}}~8U
+\begin{DoxyCompactList}\small\item\em Multibranch loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga1fef1ad234755db78ab6b695edce5080}{VRNA\+\_\+\+ANY\+\_\+\+LOOP}}~(\mbox{\hyperlink{group__part__func__window_gaf0bb577130090f6c856d1358804250bf}{VRNA\+\_\+\+EXT\+\_\+\+LOOP}} $\vert$ \mbox{\hyperlink{group__part__func__window_ga30170811c320f3a7b23ffff3b3343b91}{VRNA\+\_\+\+HP\+\_\+\+LOOP}} $\vert$ \mbox{\hyperlink{group__part__func__window_ga956a237e7d956b684b7d593cb3eca665}{VRNA\+\_\+\+INT\+\_\+\+LOOP}} $\vert$ \mbox{\hyperlink{group__part__func__window_gad905b71f02b3799eb84b490435aec837}{VRNA\+\_\+\+MB\+\_\+\+LOOP}})
+\begin{DoxyCompactList}\small\item\em Any loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga296217b76e76e5f7e6927e7210aa9b1f}{VRNA\+\_\+\+PROBS\+\_\+\+WINDOW\+\_\+\+BPP}}~4096U
+\begin{DoxyCompactList}\small\item\em Trigger base pairing probabilities. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga18325811c7dfc7b7d9d4ac37f4353615}{VRNA\+\_\+\+PROBS\+\_\+\+WINDOW\+\_\+\+UP}}~8192U
+\begin{DoxyCompactList}\small\item\em Trigger unpaired probabilities. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga0a13fc668b02f21b225e2334e4caac08}{VRNA\+\_\+\+PROBS\+\_\+\+WINDOW\+\_\+\+STACKP}}~16384U
+\begin{DoxyCompactList}\small\item\em Trigger base pair stack probabilities. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga9068f4ec008bf1c042a9357f5c2c5e13}{VRNA\+\_\+\+PROBS\+\_\+\+WINDOW\+\_\+\+UP\+\_\+\+SPLIT}}~32768U
+\begin{DoxyCompactList}\small\item\em Trigger detailed unpaired probabilities split up into different loop type contexts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__part__func__window_ga4b79137d9b28b1f9cac7983792ce34a0}{VRNA\+\_\+\+PROBS\+\_\+\+WINDOW\+\_\+\+PF}}~65536U
+\begin{DoxyCompactList}\small\item\em Trigger partition function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__part__func__window_gabe710a1182e6db69cc75329dfc9bed67}{vrna\+\_\+probs\+\_\+window\+\_\+callback}}(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}, int pr\+\_\+size, int i, int max, unsigned int type, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Sliding window probability computation callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{Indent}\textbf{ Basic local partition function interface}\par
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__part__func__window_ga7115d012988541a65ec323c5f17a334b}{vrna\+\_\+probs\+\_\+window}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int ulength, unsigned int options, \mbox{\hyperlink{group__part__func__window_gabe710a1182e6db69cc75329dfc9bed67}{vrna\+\_\+probs\+\_\+window\+\_\+callback}} $\ast$cb, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Compute various equilibrium probabilities under a sliding window approach. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Simplified global partition function computation using sequence(s) or multiple sequence alignment(s)}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__window_ga6267230f20cab0e2315375310b4dad85}{vrna\+\_\+pfl\+\_\+fold}} (const char $\ast$sequence, int window\+\_\+size, int \mbox{\hyperlink{group__model__details_ga18df869af0d70101106458fc3f027806}{max\+\_\+bp\+\_\+span}}, float cutoff)
+\begin{DoxyCompactList}\small\item\em Compute base pair probabilities using a sliding-\/window approach. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__part__func__window_ga457a60751b2a5225477e3b7735636a5f}{vrna\+\_\+pfl\+\_\+fold\+\_\+cb}} (const char $\ast$sequence, int window\+\_\+size, int \mbox{\hyperlink{group__model__details_ga18df869af0d70101106458fc3f027806}{max\+\_\+bp\+\_\+span}}, \mbox{\hyperlink{group__part__func__window_gabe710a1182e6db69cc75329dfc9bed67}{vrna\+\_\+probs\+\_\+window\+\_\+callback}} $\ast$cb, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Compute base pair probabilities using a sliding-\/window approach (callback version) \end{DoxyCompactList}\item 
+double $\ast$$\ast$ \mbox{\hyperlink{group__part__func__window_ga1dd5c51b797c961124912e289bff553a}{vrna\+\_\+pfl\+\_\+fold\+\_\+up}} (const char $\ast$sequence, int ulength, int window\+\_\+size, int \mbox{\hyperlink{group__model__details_ga18df869af0d70101106458fc3f027806}{max\+\_\+bp\+\_\+span}})
+\begin{DoxyCompactList}\small\item\em Compute probability of contiguous unpaired segments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__part__func__window_gac3251d3da0238d6d9ffdd6703b00f1d3}{vrna\+\_\+pfl\+\_\+fold\+\_\+up\+\_\+cb}} (const char $\ast$sequence, int ulength, int window\+\_\+size, int \mbox{\hyperlink{group__model__details_ga18df869af0d70101106458fc3f027806}{max\+\_\+bp\+\_\+span}}, \mbox{\hyperlink{group__part__func__window_gabe710a1182e6db69cc75329dfc9bed67}{vrna\+\_\+probs\+\_\+window\+\_\+callback}} $\ast$cb, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Compute probability of contiguous unpaired segments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Partition function and equilibrium probability implementation for the sliding window algorithm. 
+
+,
+
+This file contains the implementation for sliding window partition function and equilibrium probabilities. It also provides the unpaired probability implementation from Bernhart et al. 2011 \cite{bernhart:2011} 

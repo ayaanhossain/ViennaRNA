@@ -1,0 +1,50 @@
+\hypertarget{zscore_8h_source}{}\doxysection{zscore.\+h}
+\label{zscore_8h_source}\index{ViennaRNA/zscore.h@{ViennaRNA/zscore.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_ZSCORE\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_ZSCORE\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_zsc\_dat\_s *vrna\_zsc\_dat\_t;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#define VRNA\_ZSCORE\_OPTIONS\_NONE      1U}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#define VRNA\_ZSCORE\_FILTER\_ON         2U}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#define VRNA\_ZSCORE\_PRE\_FILTER        4U}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#define VRNA\_ZSCORE\_REPORT\_SUBSUMED   8U}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#define VRNA\_ZSCORE\_MODEL\_DEFAULT     16U}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#define VRNA\_ZSCORE\_SETTINGS\_DEFAULT  (VRNA\_ZSCORE\_FILTER\_ON | VRNA\_ZSCORE\_MODEL\_DEFAULT)}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00014 vrna\_zsc\_filter\_init(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00015                      \textcolor{keywordtype}{double}               min\_z,}
+\DoxyCodeLine{00016                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         options);}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00020 vrna\_zsc\_filter\_update(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00021                        \textcolor{keywordtype}{double}               min\_z,}
+\DoxyCodeLine{00022                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         options);}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00026 vrna\_zsc\_filter\_free(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00030 vrna\_zsc\_filter\_on(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \textcolor{keywordtype}{double}}
+\DoxyCodeLine{00034 vrna\_zsc\_filter\_threshold(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 \textcolor{keywordtype}{double}}
+\DoxyCodeLine{00038 vrna\_zsc\_compute(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00039                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         i,}
+\DoxyCodeLine{00040                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         j,}
+\DoxyCodeLine{00041                  \textcolor{keywordtype}{int}                  e);}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

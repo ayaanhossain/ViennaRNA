@@ -1,0 +1,381 @@
+\hypertarget{group__heap__utils}{}\doxysection{Heaps}
+\label{group__heap__utils}\index{Heaps@{Heaps}}
+
+
+Interface for an abstract implementation of a heap data structure.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Interface for an abstract implementation of a heap data structure. 
+
+Collaboration diagram for Heaps\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{group__heap__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{heap_8h}{heap.\+h}}
+\begin{DoxyCompactList}\small\item\em Implementation of an abstract heap data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+heap\+\_\+s $\ast$ \mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em An abstract heap data structure. \end{DoxyCompactList}\item 
+typedef int() \mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\+\_\+callback\+\_\+heap\+\_\+cmp}}(const void $\ast$a, const void $\ast$b, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Heap compare function prototype. \end{DoxyCompactList}\item 
+typedef size\+\_\+t() \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}}(const void $\ast$a, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Retrieve the position of a particular heap entry within the heap. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}}(const void $\ast$a, size\+\_\+t pos, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Store the position of a particular heap entry within the heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} \mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init}} (size\+\_\+t n, \mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\+\_\+callback\+\_\+heap\+\_\+cmp}} $\ast$cmp, \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}} $\ast$get\+\_\+entry\+\_\+pos, \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}} $\ast$set\+\_\+entry\+\_\+pos, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Initialize a heap data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by a heap data structure. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__heap__utils_ga5d84774d7d7f000ab05724d54984c2ed}{vrna\+\_\+heap\+\_\+size}} (struct vrna\+\_\+heap\+\_\+s $\ast$h)
+\begin{DoxyCompactList}\small\item\em Get the size of a heap data structure, i.\+e. the number of stored elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\+\_\+heap\+\_\+insert}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h, void $\ast$v)
+\begin{DoxyCompactList}\small\item\em Insert an element into the heap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h)
+\begin{DoxyCompactList}\small\item\em Pop (remove and return) the object at the root of the heap. \end{DoxyCompactList}\item 
+const void $\ast$ \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\+\_\+heap\+\_\+top}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h)
+\begin{DoxyCompactList}\small\item\em Get the object at the root of the heap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h, const void $\ast$v)
+\begin{DoxyCompactList}\small\item\em Remove an arbitrary element within the heap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h, void $\ast$v)
+\begin{DoxyCompactList}\small\item\em Update an arbitrary element within the heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}\label{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}} 
+\index{Heaps@{Heaps}!vrna\_heap\_t@{vrna\_heap\_t}}
+\index{vrna\_heap\_t@{vrna\_heap\_t}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_t}{vrna\_heap\_t}}
+{\footnotesize\ttfamily typedef struct vrna\+\_\+heap\+\_\+s$\ast$ \mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+An abstract heap data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}, \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}}, \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\+\_\+heap\+\_\+insert()}}, \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop()}}, \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\+\_\+heap\+\_\+top()}}, \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}}, \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}\label{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}} 
+\index{Heaps@{Heaps}!vrna\_callback\_heap\_cmp@{vrna\_callback\_heap\_cmp}}
+\index{vrna\_callback\_heap\_cmp@{vrna\_callback\_heap\_cmp}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_heap\_cmp}{vrna\_callback\_heap\_cmp}}
+{\footnotesize\ttfamily typedef int() vrna\+\_\+callback\+\_\+heap\+\_\+cmp(const void $\ast$a, const void $\ast$b, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Heap compare function prototype. 
+
+Use this prototype to design the compare function for the heap implementation. The arbitrary data pointer {\ttfamily data} may be used to get access to further information required to actually compare the two values {\ttfamily a} and {\ttfamily b}.
+
+\begin{DoxyNote}{Note}
+The heap implementation acts as a {\itshape min-\/heap}, therefore, the minimum element will be present at the heap\textquotesingle{}s root. In case a {\itshape max-\/heap} is required, simply reverse the logic of this compare function.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first object to compare \\
+\hline
+{\em b} & The second object to compare \\
+\hline
+{\em data} & An arbitrary data pointer passed through from the heap implementation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A value less than zero if {\ttfamily a} $<$ {\ttfamily b}, a value greater than zero if {\ttfamily a} $>$ {\ttfamily b}, and 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}\label{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}} 
+\index{Heaps@{Heaps}!vrna\_callback\_heap\_get\_pos@{vrna\_callback\_heap\_get\_pos}}
+\index{vrna\_callback\_heap\_get\_pos@{vrna\_callback\_heap\_get\_pos}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_heap\_get\_pos}{vrna\_callback\_heap\_get\_pos}}
+{\footnotesize\ttfamily typedef size\+\_\+t() vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos(const void $\ast$a, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Retrieve the position of a particular heap entry within the heap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The object to look-\/up within the heap \\
+\hline
+{\em data} & An arbitrary data pointer passed through from the heap implementation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The position of the element {\ttfamily a} within the heap, or 0 if it is not in the heap 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}\label{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}} 
+\index{Heaps@{Heaps}!vrna\_callback\_heap\_set\_pos@{vrna\_callback\_heap\_set\_pos}}
+\index{vrna\_callback\_heap\_set\_pos@{vrna\_callback\_heap\_set\_pos}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_heap\_set\_pos}{vrna\_callback\_heap\_set\_pos}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos(const void $\ast$a, size\+\_\+t pos, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Store the position of a particular heap entry within the heap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The object whose position shall be stored \\
+\hline
+{\em pos} & The current position of {\ttfamily a} within the heap, or 0 if a was deleted \\
+\hline
+{\em data} & An arbitrary data pointer passed through from the heap implementation \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}\label{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}} 
+\index{Heaps@{Heaps}!vrna\_heap\_init@{vrna\_heap\_init}}
+\index{vrna\_heap\_init@{vrna\_heap\_init}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_init()}{vrna\_heap\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} vrna\+\_\+heap\+\_\+init (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n,  }\item[{\mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\+\_\+callback\+\_\+heap\+\_\+cmp}} $\ast$}]{cmp,  }\item[{\mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}} $\ast$}]{get\+\_\+entry\+\_\+pos,  }\item[{\mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}} $\ast$}]{set\+\_\+entry\+\_\+pos,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Initialize a heap data structure. 
+
+This function initializes a heap data structure. The implementation is based on a {\itshape min-\/heap}, i.\+e. the minimal element is located at the root of the heap. However, by reversing the logic of the compare function, one can easily transform this into a {\itshape max-\/heap} implementation.
+
+Beside the regular operations on a heap data structure, we implement removal and update of arbitrary elements within the heap. For that purpose, however, one requires a reverse-\/index lookup system that, (i) for a given element stores the current position in the heap, and (ii) allows for fast lookup of an elements current position within the heap. The corresponding getter-\/ and setter-\/ functions may be provided through the arguments {\ttfamily get\+\_\+entry\+\_\+pos} and {\ttfamily set\+\_\+entry\+\_\+pos}, respectively.
+
+Sometimes, it is difficult to simply compare two data structures without any context. Therefore, the compare function is provided with a user-\/defined data pointer that can hold any context required.
+
+\begin{DoxyWarning}{Warning}
+If any of the arguments {\ttfamily get\+\_\+entry\+\_\+pos} or {\ttfamily set\+\_\+entry\+\_\+pos} is NULL, the operations \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update()}} and \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}} won\textquotesingle{}t work.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}}, \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\+\_\+heap\+\_\+insert()}}, \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop()}}, \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\+\_\+heap\+\_\+top()}}, \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}}, \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update()}}, \mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}, \mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\+\_\+callback\+\_\+heap\+\_\+cmp}}, \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}}, \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The initial size of the heap, i.\+e. the number of elements to store \\
+\hline
+{\em cmp} & The address of a compare function that will be used to fullfill the partial order requirement \\
+\hline
+{\em get\+\_\+entry\+\_\+pos} & The address of a function that retrieves the position of an element within the heap (or NULL) \\
+\hline
+{\em set\+\_\+entry\+\_\+pos} & The address of a function that stores the position of an element within the heap (or NULL) \\
+\hline
+{\em data} & An arbitrary data pointer passed through to the compare function {\ttfamily cmp}, and the set/get functions {\ttfamily get\+\_\+entry\+\_\+pos} / {\ttfamily set\+\_\+entry\+\_\+pos} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized heap data structure, or NULL on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}\label{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}} 
+\index{Heaps@{Heaps}!vrna\_heap\_free@{vrna\_heap\_free}}
+\index{vrna\_heap\_free@{vrna\_heap\_free}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_free()}{vrna\_heap\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+heap\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}]{h }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Free memory occupied by a heap data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap that should be free\textquotesingle{}d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__heap__utils_ga5d84774d7d7f000ab05724d54984c2ed}\label{group__heap__utils_ga5d84774d7d7f000ab05724d54984c2ed}} 
+\index{Heaps@{Heaps}!vrna\_heap\_size@{vrna\_heap\_size}}
+\index{vrna\_heap\_size@{vrna\_heap\_size}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_size()}{vrna\_heap\_size()}}
+{\footnotesize\ttfamily size\+\_\+t vrna\+\_\+heap\+\_\+size (\begin{DoxyParamCaption}\item[{struct vrna\+\_\+heap\+\_\+s $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Get the size of a heap data structure, i.\+e. the number of stored elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of elements currently stored in the heap, or 0 upon any error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}\label{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}} 
+\index{Heaps@{Heaps}!vrna\_heap\_insert@{vrna\_heap\_insert}}
+\index{vrna\_heap\_insert@{vrna\_heap\_insert}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_insert()}{vrna\_heap\_insert()}}
+{\footnotesize\ttfamily void vrna\+\_\+heap\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}]{h,  }\item[{void $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Insert an element into the heap. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}, \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop()}}, \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\+\_\+heap\+\_\+top()}}, \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}}, \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}}, \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap data structure \\
+\hline
+{\em v} & A pointer to the object that is about to be inserted into the heap \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}\label{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}} 
+\index{Heaps@{Heaps}!vrna\_heap\_pop@{vrna\_heap\_pop}}
+\index{vrna\_heap\_pop@{vrna\_heap\_pop}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_pop()}{vrna\_heap\_pop()}}
+{\footnotesize\ttfamily void$\ast$ vrna\+\_\+heap\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}]{h }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Pop (remove and return) the object at the root of the heap. 
+
+This function removes the root from the heap and returns it to the caller.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}, \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\+\_\+heap\+\_\+top()}}, \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\+\_\+heap\+\_\+insert()}}, \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}} \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}}, \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The object at the root of the heap, i.\+e. the minimal element (or NULL if (a) the heap is empty or (b) any error occurred) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_ga534a8483824371019241e340c026111b}\label{group__heap__utils_ga534a8483824371019241e340c026111b}} 
+\index{Heaps@{Heaps}!vrna\_heap\_top@{vrna\_heap\_top}}
+\index{vrna\_heap\_top@{vrna\_heap\_top}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_top()}{vrna\_heap\_top()}}
+{\footnotesize\ttfamily const void$\ast$ vrna\+\_\+heap\+\_\+top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}]{h }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Get the object at the root of the heap. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}, \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop()}}, \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\+\_\+heap\+\_\+insert()}}, \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}} \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}}, \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The object at the root of the heap, i.\+e. the minimal element (or NULL if (a) the heap is empty or (b) any error occurred) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}\label{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}} 
+\index{Heaps@{Heaps}!vrna\_heap\_remove@{vrna\_heap\_remove}}
+\index{vrna\_heap\_remove@{vrna\_heap\_remove}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_remove()}{vrna\_heap\_remove()}}
+{\footnotesize\ttfamily void$\ast$ vrna\+\_\+heap\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}]{h,  }\item[{const void $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Remove an arbitrary element within the heap. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}, \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}}, \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}}, \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop()}}, \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}}
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+This function won\textquotesingle{}t work if the heap was not properly initialized with callback functions for fast reverse-\/index mapping!
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap data structure \\
+\hline
+{\em v} & The object to remove from the heap \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The object that was removed from the heap (or NULL if (a) it wasn\textquotesingle{}t found or (b) any error occurred) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}\label{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}} 
+\index{Heaps@{Heaps}!vrna\_heap\_update@{vrna\_heap\_update}}
+\index{vrna\_heap\_update@{vrna\_heap\_update}!Heaps@{Heaps}}
+\doxysubsubsection{\texorpdfstring{vrna\_heap\_update()}{vrna\_heap\_update()}}
+{\footnotesize\ttfamily void$\ast$ vrna\+\_\+heap\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}}]{h,  }\item[{void $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+
+
+
+Update an arbitrary element within the heap. 
+
+\begin{DoxyNote}{Note}
+If the object that is to be updated is not currently stored in the heap, it will be inserted. In this case, the function returns NULL.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This function won\textquotesingle{}t work if the heap was not properly initialized with callback functions for fast reverse-\/index mapping!
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init()}}, \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}}, \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}} \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop()}}, \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove()}}, \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The heap data structure \\
+\hline
+{\em v} & The object to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \textquotesingle{}previous\textquotesingle{} object within the heap that now got replaced by {\ttfamily v} (or NULL if (a) it wasn\textquotesingle{}t found or (b) any error occurred) 
+\end{DoxyReturn}

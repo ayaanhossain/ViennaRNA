@@ -1,0 +1,282 @@
+\hypertarget{group__combinatorics__utils}{}\doxysection{Combinatorics Algorithms}
+\label{group__combinatorics__utils}\index{Combinatorics Algorithms@{Combinatorics Algorithms}}
+
+
+Implementations to solve various combinatorial aspects for strings of objects.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Implementations to solve various combinatorial aspects for strings of objects. 
+
+Collaboration diagram for Combinatorics Algorithms\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__combinatorics__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{combinatorics_8h}{combinatorics.\+h}}
+\begin{DoxyCompactList}\small\item\em Various implementations that deal with combinatorial aspects of objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int $\ast$$\ast$ \mbox{\hyperlink{group__combinatorics__utils_gae081ac655a76bd5c4b3d86c60b096b75}{vrna\+\_\+enumerate\+\_\+necklaces}} (const unsigned int $\ast$type\+\_\+counts)
+\begin{DoxyCompactList}\small\item\em Enumerate all necklaces with fixed content. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num}} (const unsigned int $\ast$string, size\+\_\+t string\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Determine the order of rotational symmetry for a string of objects represented by natural numbers. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num}} (const unsigned int $\ast$string, size\+\_\+t string\+\_\+length, unsigned int $\ast$$\ast$positions)
+\begin{DoxyCompactList}\small\item\em Determine the order of rotational symmetry for a string of objects represented by natural numbers. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry}} (const char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Determine the order of rotational symmetry for a NULL-\/terminated string of ASCII characters. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos}} (const char $\ast$string, unsigned int $\ast$$\ast$positions)
+\begin{DoxyCompactList}\small\item\em Determine the order of rotational symmetry for a NULL-\/terminated string of ASCII characters. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__combinatorics__utils_gad42ffd53025bed9d636d811748db7c5a}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Determine the order of rotational symmetry for a dot-\/bracket structure. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure, unsigned int $\ast$$\ast$positions)
+\begin{DoxyCompactList}\small\item\em Determine the order of rotational symmetry for a dot-\/bracket structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__combinatorics__utils_gae081ac655a76bd5c4b3d86c60b096b75}\label{group__combinatorics__utils_gae081ac655a76bd5c4b3d86c60b096b75}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_enumerate\_necklaces@{vrna\_enumerate\_necklaces}}
+\index{vrna\_enumerate\_necklaces@{vrna\_enumerate\_necklaces}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_enumerate\_necklaces()}{vrna\_enumerate\_necklaces()}}
+{\footnotesize\ttfamily unsigned int $\ast$$\ast$ vrna\+\_\+enumerate\+\_\+necklaces (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{type\+\_\+counts }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Enumerate all necklaces with fixed content. 
+
+This function implements {\itshape A fast algorithm to generate necklaces with fixed content} as published by Joe Sawada in 2003 \cite{sawada:2003}.
+
+The function receives a list of counts (the elements on the necklace) for each type of object within a necklace. The list starts at index 0 and ends with an entry that has a count of 0. The algorithm then enumerates all non-\/cyclic permutations of the content, returned as a list of necklaces. This list, again, is zero-\/terminated, i.\+e. the last entry of the list is a {\ttfamily NULL} pointer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\+\_\+counts} & A 0-\/terminated list of entity counts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of all non-\/cyclic permutations of the entities
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000015}{SWIG Wrapper Notes}}]This function is available as global function {\bfseries{enumerate\+\_\+necklaces()}} which accepts lists input, an produces list of lists output. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}\label{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_rotational\_symmetry\_num@{vrna\_rotational\_symmetry\_num}}
+\index{vrna\_rotational\_symmetry\_num@{vrna\_rotational\_symmetry\_num}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_rotational\_symmetry\_num()}{vrna\_rotational\_symmetry\_num()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+rotational\+\_\+symmetry\+\_\+num (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{string,  }\item[{size\+\_\+t}]{string\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Determine the order of rotational symmetry for a string of objects represented by natural numbers. 
+
+The algorithm applies a fast search of the provided string within itself, assuming the end of the string wraps around to connect with it\textquotesingle{}s start. For example, a string of the form {\ttfamily 011011} has rotational symmetry of order {\ttfamily 2} 
+
+This is a simplified version of \mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num()}} that may be useful if one is only interested in the degree of rotational symmetry but not the actual set of rotational symmetric strings.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num()}}, vrna\+\_\+rotationa\+\_\+symmetry()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The string of elements encoded as natural numbers \\
+\hline
+{\em string\+\_\+length} & The length of the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The order of rotational symmetry
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000016}{SWIG Wrapper Notes}}]This function is available as global function {\bfseries{rotational\+\_\+symmetry()}}. See \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} for details. Note, that in the target language the length of the list {\ttfamily string} is always known a-\/priori, so the parameter {\ttfamily string\+\_\+length} must be omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}\label{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_rotational\_symmetry\_pos\_num@{vrna\_rotational\_symmetry\_pos\_num}}
+\index{vrna\_rotational\_symmetry\_pos\_num@{vrna\_rotational\_symmetry\_pos\_num}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_rotational\_symmetry\_pos\_num()}{vrna\_rotational\_symmetry\_pos\_num()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{string,  }\item[{size\+\_\+t}]{string\+\_\+length,  }\item[{unsigned int $\ast$$\ast$}]{positions }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Determine the order of rotational symmetry for a string of objects represented by natural numbers. 
+
+The algorithm applies a fast search of the provided string within itself, assuming the end of the string wraps around to connect with it\textquotesingle{}s start. For example, a string of the form {\ttfamily 011011} has rotational symmetry of order {\ttfamily 2} 
+
+If the argument {\ttfamily positions} is not {\ttfamily NULL}, the function stores an array of string start positions for rotational shifts that map the string back onto itself. This array has length of order of rotational symmetry, i.\+e. the number returned by this function. The first element {\ttfamily positions}\mbox{[}0\mbox{]} always contains a shift value of {\ttfamily 0} representing the trivial rotation.
+
+\begin{DoxyNote}{Note}
+Do not forget to release the memory occupied by {\ttfamily positions} after a successful execution of this function.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num()}}, \mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry()}}, \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The string of elements encoded as natural numbers \\
+\hline
+{\em string\+\_\+length} & The length of the string \\
+\hline
+{\em positions} & A pointer to an (undefined) list of alternative string start positions that lead to an identity mapping (may be NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The order of rotational symmetry
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000017}{SWIG Wrapper Notes}}]This function is available as global function {\bfseries{rotational\+\_\+symmetry()}}. See \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} for details. Note, that in the target language the length of the list {\ttfamily string} is always known a-\/priori, so the parameter {\ttfamily string\+\_\+length} must be omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}\label{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_rotational\_symmetry@{vrna\_rotational\_symmetry}}
+\index{vrna\_rotational\_symmetry@{vrna\_rotational\_symmetry}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_rotational\_symmetry()}{vrna\_rotational\_symmetry()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+rotational\+\_\+symmetry (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Determine the order of rotational symmetry for a NULL-\/terminated string of ASCII characters. 
+
+The algorithm applies a fast search of the provided string within itself, assuming the end of the string wraps around to connect with it\textquotesingle{}s start. For example, a string of the form {\ttfamily AABAAB} has rotational symmetry of order {\ttfamily 2} 
+
+This is a simplified version of \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} that may be useful if one is only interested in the degree of rotational symmetry but not the actual set of rotational symmetric strings.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}}, vrna\+\_\+rotationa\+\_\+symmetry\+\_\+num()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A NULL-\/terminated string of characters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The order of rotational symmetry
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000018}{SWIG Wrapper Notes}}]This function is available as global function {\bfseries{rotational\+\_\+symmetry()}}. See \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}} for details. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}\label{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_rotational\_symmetry\_pos@{vrna\_rotational\_symmetry\_pos}}
+\index{vrna\_rotational\_symmetry\_pos@{vrna\_rotational\_symmetry\_pos}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_rotational\_symmetry\_pos()}{vrna\_rotational\_symmetry\_pos()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{unsigned int $\ast$$\ast$}]{positions }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Determine the order of rotational symmetry for a NULL-\/terminated string of ASCII characters. 
+
+The algorithm applies a fast search of the provided string within itself, assuming the end of the string wraps around to connect with it\textquotesingle{}s start. For example, a string of the form {\ttfamily AABAAB} has rotational symmetry of order {\ttfamily 2} 
+
+If the argument {\ttfamily positions} is not {\ttfamily NULL}, the function stores an array of string start positions for rotational shifts that map the string back onto itself. This array has length of order of rotational symmetry, i.\+e. the number returned by this function. The first element {\ttfamily positions}\mbox{[}0\mbox{]} always contains a shift value of {\ttfamily 0} representing the trivial rotation.
+
+\begin{DoxyNote}{Note}
+Do not forget to release the memory occupied by {\ttfamily positions} after a successful execution of this function.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry()}}, \mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num()}}, vrna\+\_\+rotational\+\_\+symmetry\+\_\+num\+\_\+pos()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A NULL-\/terminated string of characters \\
+\hline
+{\em positions} & A pointer to an (undefined) list of alternative string start positions that lead to an identity mapping (may be NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The order of rotational symmetry
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000019}{SWIG Wrapper Notes}}]This function is available as overloaded global function {\bfseries{rotational\+\_\+symmetry()}}. It merges the functionalities of \mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry()}}, \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}}, \mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num()}}, and \mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num()}}. In contrast to our C-\/implementation, this function doesn\textquotesingle{}t return the order of rotational symmetry as a single value, but returns a list of cyclic permutation shifts that result in a rotationally symmetric string. The length of the list then determines the order of rotational symmetry. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__combinatorics__utils_gad42ffd53025bed9d636d811748db7c5a}\label{group__combinatorics__utils_gad42ffd53025bed9d636d811748db7c5a}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_rotational\_symmetry\_db@{vrna\_rotational\_symmetry\_db}}
+\index{vrna\_rotational\_symmetry\_db@{vrna\_rotational\_symmetry\_db}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_rotational\_symmetry\_db()}{vrna\_rotational\_symmetry\_db()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+rotational\+\_\+symmetry\+\_\+db (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Determine the order of rotational symmetry for a dot-\/bracket structure. 
+
+Given a (permutation of multiple) RNA strand(s) and a particular secondary structure in dot-\/bracket notation, compute the degree of rotational symmetry. In case there is only a single linear RNA strand, the structure always has degree 1, as there are no rotational symmetries due to the direction of the nucleic acid sequence and the fixed positions of 5\textquotesingle{} and 3\textquotesingle{} ends. However, for circular RNAs, rotational symmetries might arise if the sequence consists of a concatenation of $k$ identical subsequences.
+
+This is a simplified version of \mbox{\hyperlink{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos()}} that may be useful if one is only interested in the degree of rotational symmetry but not the actual set of rotational symmetric strings.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos()}}, \mbox{\hyperlink{group__combinatorics__utils_gae1dec02c4b63f303ce06a9293d316762}{vrna\+\_\+rotational\+\_\+symmetry()}}, \mbox{\hyperlink{group__combinatorics__utils_gac51464b5281833a58c25f9447252c495}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+num()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold\+\_\+compound data structure containing the nucleic acid sequence(s), their order, and model settings \\
+\hline
+{\em structure} & The dot-\/bracket structure the degree of rotational symmetry is checked for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The degree of rotational symmetry of the {\ttfamily structure} (0 in case of any errors)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000020}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{rotational\+\_\+symmetry\+\_\+db()}} to objects of type {\ttfamily fold\+\_\+compound} (i.\+e. \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}). See \mbox{\hyperlink{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos()}} for details. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}\label{group__combinatorics__utils_ga2a4227ebe28dbc7ad55444a3a1bf7119}} 
+\index{Combinatorics Algorithms@{Combinatorics Algorithms}!vrna\_rotational\_symmetry\_db\_pos@{vrna\_rotational\_symmetry\_db\_pos}}
+\index{vrna\_rotational\_symmetry\_db\_pos@{vrna\_rotational\_symmetry\_db\_pos}!Combinatorics Algorithms@{Combinatorics Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_rotational\_symmetry\_db\_pos()}{vrna\_rotational\_symmetry\_db\_pos()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+rotational\+\_\+symmetry\+\_\+db\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{const char $\ast$}]{structure,  }\item[{unsigned int $\ast$$\ast$}]{positions }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{combinatorics_8h}{Vienna\+RNA/combinatorics.\+h}}$>$}
+
+
+
+Determine the order of rotational symmetry for a dot-\/bracket structure. 
+
+Given a (permutation of multiple) RNA strand(s) and a particular secondary structure in dot-\/bracket notation, compute the degree of rotational symmetry. In case there is only a single linear RNA strand, the structure always has degree 1, as there are no rotational symmetries due to the direction of the nucleic acid sequence and the fixed positions of 5\textquotesingle{} and 3\textquotesingle{} ends. However, for circular RNAs, rotational symmetries might arise if the sequence consists of a concatenation of $k$ identical subsequences.
+
+If the argument {\ttfamily positions} is not {\ttfamily NULL}, the function stores an array of string start positions for rotational shifts that map the string back onto itself. This array has length of order of rotational symmetry, i.\+e. the number returned by this function. The first element {\ttfamily positions}\mbox{[}0\mbox{]} always contains a shift value of {\ttfamily 0} representing the trivial rotation.
+
+\begin{DoxyNote}{Note}
+Do not forget to release the memory occupied by {\ttfamily positions} after a successful execution of this function.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__combinatorics__utils_gad42ffd53025bed9d636d811748db7c5a}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+db()}}, \mbox{\hyperlink{group__combinatorics__utils_ga294d48935fcac87ab335d771fe289ecb}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos()}}, \mbox{\hyperlink{group__combinatorics__utils_ga95b5a6ac35da982e2a766f8d2f98a2e1}{vrna\+\_\+rotational\+\_\+symmetry\+\_\+pos\+\_\+num()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold\+\_\+compound data structure containing the nucleic acid sequence(s), their order, and model settings \\
+\hline
+{\em structure} & The dot-\/bracket structure the degree of rotational symmetry is checked for \\
+\hline
+{\em positions} & A pointer to an (undefined) list of alternative string start positions that lead to an identity mapping (may be NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The degree of rotational symmetry of the {\ttfamily structure} (0 in case of any errors)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000021}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{rotational\+\_\+symmetry\+\_\+db()}} to objects of type {\ttfamily fold\+\_\+compound} (i.\+e. \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}). Thus, the first argument must be omitted. In contrast to our C-\/implementation, this function doesn\textquotesingle{}t simply return the order of rotational symmetry of the secondary structure, but returns the list {\ttfamily position} of cyclic permutation shifts that result in a rotationally symmetric structure. The length of the list then determines the order of rotational symmetry. \end{DoxyRefDesc}

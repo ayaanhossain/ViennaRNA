@@ -1,0 +1,113 @@
+\hypertarget{group__mea__fold}{}\doxysection{Compute the Structure with Maximum Expected Accuracy (MEA)}
+\label{group__mea__fold}\index{Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Compute the Structure with Maximum Expected Accuracy (MEA)\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mea__fold}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}{vrna\+\_\+\+MEA}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, double gamma, float $\ast$mea)
+\begin{DoxyCompactList}\small\item\em Compute a MEA (maximum expected accuracy) structure. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}{vrna\+\_\+\+MEA\+\_\+from\+\_\+plist}} (\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$\mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}}, const char $\ast$sequence, double gamma, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md, float $\ast$mea)
+\begin{DoxyCompactList}\small\item\em Compute a MEA (maximum expected accuracy) structure from a list of probabilities. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mea__fold_ga396ec6144c6a74fcbab4cea6b42d76c3}{MEA}} (\mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}} $\ast$p, char $\ast$structure, double gamma)
+\begin{DoxyCompactList}\small\item\em Computes a MEA (maximum expected accuracy) structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}\label{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}} 
+\index{Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}!vrna\_MEA@{vrna\_MEA}}
+\index{vrna\_MEA@{vrna\_MEA}!Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}}
+\doxysubsubsection{\texorpdfstring{vrna\_MEA()}{vrna\_MEA()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+\+MEA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{double}]{gamma,  }\item[{float $\ast$}]{mea }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{MEA_8h}{Vienna\+RNA/\+MEA.\+h}}$>$}
+
+
+
+Compute a MEA (maximum expected accuracy) structure. 
+
+The algorithm maximizes the expected accuracy \[ A(S) = \sum_{(i,j) \in S} 2 \gamma p_{ij} + \sum_{i \notin S} p^u_i \] Higher values of $\gamma$ result in more base pairs of lower probability and thus higher sensitivity. Low values of $\gamma$ result in structures containing only highly likely pairs (high specificity). The code of the MEA function also demonstrates the use of sparse dynamic programming scheme to reduce the time and memory complexity of folding.
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} must be executed on input parameter {\ttfamily fc} 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure with pre-\/filled base pair probability matrix \\
+\hline
+{\em gamma} & The weighting factor for base pairs vs. unpaired nucleotides \\
+\hline
+{\em mea} & A pointer to a variable where the MEA value will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An MEA structure (or NULL on any error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000121}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{MEA}}(gamma = 1.) to objects of type {\itshape fold\+\_\+compound}. Note, that it returns the MEA structure and MEA value as a tuple (MEA\+\_\+structure, MEA) \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}\label{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}} 
+\index{Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}!vrna\_MEA\_from\_plist@{vrna\_MEA\_from\_plist}}
+\index{vrna\_MEA\_from\_plist@{vrna\_MEA\_from\_plist}!Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}}
+\doxysubsubsection{\texorpdfstring{vrna\_MEA\_from\_plist()}{vrna\_MEA\_from\_plist()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+\+MEA\+\_\+from\+\_\+plist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{plist,  }\item[{const char $\ast$}]{sequence,  }\item[{double}]{gamma,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md,  }\item[{float $\ast$}]{mea }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{MEA_8h}{Vienna\+RNA/\+MEA.\+h}}$>$}
+
+
+
+Compute a MEA (maximum expected accuracy) structure from a list of probabilities. 
+
+The algorithm maximizes the expected accuracy \[ A(S) = \sum_{(i,j) \in S} 2 \gamma p_{ij} + \sum_{i \notin S} p^u_i \] Higher values of $\gamma$ result in more base pairs of lower probability and thus higher sensitivity. Low values of $\gamma$ result in structures containing only highly likely pairs (high specificity). The code of the MEA function also demonstrates the use of sparse dynamic programming scheme to reduce the time and memory complexity of folding.
+
+\begin{DoxyNote}{Note}
+To include G-\/\+Quadruplex support, the corresponding field in {\ttfamily md} must be set.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em plist} & A list of base pair probabilities the MEA structure is computed from \\
+\hline
+{\em sequence} & The RNA sequence that corresponds to the list of probability values \\
+\hline
+{\em gamma} & The weighting factor for base pairs vs. unpaired nucleotides \\
+\hline
+{\em md} & A model details data structure (maybe NULL) \\
+\hline
+{\em mea} & A pointer to a variable where the MEA value will be written to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An MEA structure (or NULL on any error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000122}{SWIG Wrapper Notes}}]This function is available as overloaded function {\bfseries{MEA\+\_\+from\+\_\+plist}}(gamma = 1., md = NULL). Note, that it returns the MEA structure and MEA value as a tuple (MEA\+\_\+structure, MEA) \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mea__fold_ga396ec6144c6a74fcbab4cea6b42d76c3}\label{group__mea__fold_ga396ec6144c6a74fcbab4cea6b42d76c3}} 
+\index{Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}!MEA@{MEA}}
+\index{MEA@{MEA}!Compute the Structure with Maximum Expected Accuracy (MEA)@{Compute the Structure with Maximum Expected Accuracy (MEA)}}
+\doxysubsubsection{\texorpdfstring{MEA()}{MEA()}}
+{\footnotesize\ttfamily float MEA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}} $\ast$}]{p,  }\item[{char $\ast$}]{structure,  }\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{MEA_8h}{Vienna\+RNA/\+MEA.\+h}}$>$}
+
+
+
+Computes a MEA (maximum expected accuracy) structure. 
+
+The algorithm maximizes the expected accuracy \[ A(S) = \sum_{(i,j) \in S} 2 \gamma p_{ij} + \sum_{i \notin S} p^u_i \] Higher values of $\gamma$ result in more base pairs of lower probability and thus higher sensitivity. Low values of $\gamma$ result in structures containing only highly likely pairs (high specificity). The code of the MEA function also demonstrates the use of sparse dynamic programming scheme to reduce the time and memory complexity of folding.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000089}{Deprecated}}]Use \mbox{\hyperlink{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}{vrna\+\_\+\+MEA()}} or \mbox{\hyperlink{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}{vrna\+\_\+\+MEA\+\_\+from\+\_\+plist()}} instead! \end{DoxyRefDesc}

@@ -1,0 +1,228 @@
+\hypertarget{group__subopt__wuchty}{}\doxysection{Suboptimal Structures within an Energy Band around the MFE}
+\label{group__subopt__wuchty}\index{Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Suboptimal Structures within an Energy Band around the MFE\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__subopt__wuchty}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}{vrna\+\_\+subopt\+\_\+callback}}(const char $\ast$stucture, float energy, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback for \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{subopt_8h_a01ae9a0f27d245d89f705afd843fc457}{vrna\+\_\+subopt\+\_\+solution\+\_\+t}} $\ast$ \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int delta, int sorted, FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Returns list of subopt structures or writes to fp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int delta, \mbox{\hyperlink{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}{vrna\+\_\+subopt\+\_\+callback}} $\ast$cb, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Generate suboptimal structures within an energy band arround the MFE. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}} $\ast$ \mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt}} (char $\ast$seq, char $\ast$structure, int delta, FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Returns list of subopt structures or writes to fp. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__subopt__wuchty_gaa1e1e7031a948ebcb39a9d58d1e9842c}\label{group__subopt__wuchty_gaa1e1e7031a948ebcb39a9d58d1e9842c}} 
+\mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}} $\ast$ \mbox{\hyperlink{group__subopt__wuchty_gaa1e1e7031a948ebcb39a9d58d1e9842c}{subopt\+\_\+par}} (char $\ast$seq, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int delta, int is\+\_\+constrained, int is\+\_\+circular, FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Returns list of subopt structures or writes to fp. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}} $\ast$ \mbox{\hyperlink{group__subopt__wuchty_ga8634516e4740e0b6c9a46d2bae940340}{subopt\+\_\+circ}} (char $\ast$seq, char $\ast$sequence, int delta, FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Returns list of circular subopt structures or writes to fp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__subopt__wuchty_ga5e57d914bcb5feeecdf520e25313fcfe}\label{group__subopt__wuchty_ga5e57d914bcb5feeecdf520e25313fcfe}} 
+double \mbox{\hyperlink{group__subopt__wuchty_ga5e57d914bcb5feeecdf520e25313fcfe}{print\+\_\+energy}}
+\begin{DoxyCompactList}\small\item\em printing threshold for use with log\+ML \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__subopt__wuchty_ga873cf8ed69e0437f8efa8b1fec854a0e}\label{group__subopt__wuchty_ga873cf8ed69e0437f8efa8b1fec854a0e}} 
+int \mbox{\hyperlink{group__subopt__wuchty_ga873cf8ed69e0437f8efa8b1fec854a0e}{subopt\+\_\+sorted}}
+\begin{DoxyCompactList}\small\item\em Sort output by energy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}\label{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}} 
+\index{Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}!vrna\_subopt\_callback@{vrna\_subopt\_callback}}
+\index{vrna\_subopt\_callback@{vrna\_subopt\_callback}!Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}}
+\doxysubsubsection{\texorpdfstring{vrna\_subopt\_callback}{vrna\_subopt\_callback}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+subopt\+\_\+callback(const char $\ast$stucture, float energy, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Callback for \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}} 
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\mbox{\hyperlink{callbacks__callbacks000007}{Notes on Callback Functions}}]This function will be called for each suboptimal secondary structure that is successfully backtraced. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The suboptimal secondary structure in dot-\/bracket notation \\
+\hline
+{\em energy} & The free energy of the secondary structure in kcal/mol \\
+\hline
+{\em data} & Some arbitrary, auxiliary data address as passed to \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}\label{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}} 
+\index{Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}!vrna\_subopt@{vrna\_subopt}}
+\index{vrna\_subopt@{vrna\_subopt}!Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}}
+\doxysubsubsection{\texorpdfstring{vrna\_subopt()}{vrna\_subopt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{subopt_8h_a01ae9a0f27d245d89f705afd843fc457}{vrna\+\_\+subopt\+\_\+solution\+\_\+t}} $\ast$ vrna\+\_\+subopt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{delta,  }\item[{int}]{sorted,  }\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Returns list of subopt structures or writes to fp. 
+
+This function produces {\bfseries{all}} suboptimal secondary structures within \textquotesingle{}delta\textquotesingle{} $\ast$ 0.\+01 kcal/mol of the optimum, see \cite{wuchty:1999}. The results are either directly written to a \textquotesingle{}fp\textquotesingle{} (if \textquotesingle{}fp\textquotesingle{} is not NULL), or (fp==NULL) returned in a \mbox{\hyperlink{subopt_8h_a01ae9a0f27d245d89f705afd843fc457}{vrna\+\_\+subopt\+\_\+solution\+\_\+t}} $\ast$ list terminated by an entry were the \textquotesingle{}structure\textquotesingle{} member is NULL.
+
+\begin{DoxyNote}{Note}
+This function requires all multibranch loop DP matrices for unique multibranch loop backtracing. Therefore, the supplied \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} {\ttfamily vc} (argument 1) must be initialized with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1, for instance like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}} md;}
+\DoxyCodeLine{\mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\_md\_set\_default}}(\&md);}
+\DoxyCodeLine{md.\mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{uniq\_ML}} = 1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc=\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(\textcolor{stringliteral}{"{}GGGGGGAAAAAACCCCCC"{}}, \&md, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+
+\end{DoxyCode}
+
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}{vrna\+\_\+subopt\+\_\+zuker()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & \\
+\hline
+{\em delta} & \\
+\hline
+{\em sorted} & Sort results by energy in ascending order \\
+\hline
+{\em fp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000140}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{\mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}}}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}\label{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}} 
+\index{Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}!vrna\_subopt\_cb@{vrna\_subopt\_cb}}
+\index{vrna\_subopt\_cb@{vrna\_subopt\_cb}!Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}}
+\doxysubsubsection{\texorpdfstring{vrna\_subopt\_cb()}{vrna\_subopt\_cb()}}
+{\footnotesize\ttfamily void vrna\+\_\+subopt\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{delta,  }\item[{\mbox{\hyperlink{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}{vrna\+\_\+subopt\+\_\+callback}} $\ast$}]{cb,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Generate suboptimal structures within an energy band arround the MFE. 
+
+This is the most generic implementation of the suboptimal structure generator according to Wuchty et al. 1999 \cite{wuchty:1999}. Identical to \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}, it computes all secondary structures within an energy band {\ttfamily delta} arround the MFE. However, this function does not print the resulting structures and their corresponding free energies to a file pointer, or returns them as a list. Instead, it calls a user-\/provided callback function which it passes the structure in dot-\/bracket format, the corresponding free energy in kcal/mol, and a user-\/provided data structure each time a structure was backtracked successfully. This function indicates the final output, i.\+e. the end of the backtracking procedure by passing NULL instead of an actual dot-\/bracket string to the callback.
+
+\begin{DoxyNote}{Note}
+This function requires all multibranch loop DP matrices for unique multibranch loop backtracing. Therefore, the supplied \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} {\ttfamily vc} (argument 1) must be initialized with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1, for instance like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}} md;}
+\DoxyCodeLine{\mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\_md\_set\_default}}(\&md);}
+\DoxyCodeLine{md.\mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{uniq\_ML}} = 1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc=\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(\textcolor{stringliteral}{"{}GGGGGGAAAAAACCCCCC"{}}, \&md, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+
+\end{DoxyCode}
+
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}{vrna\+\_\+subopt\+\_\+callback}}, \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}, \mbox{\hyperlink{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}{vrna\+\_\+subopt\+\_\+zuker()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & fold compount with the sequence data \\
+\hline
+{\em delta} & Energy band arround the MFE in 10cal/mol, i.\+e. deka-\/calories \\
+\hline
+{\em cb} & Pointer to a callback function that handles the backtracked structure and its free energy in kcal/mol \\
+\hline
+{\em data} & Pointer to some data structure that is passed along to the callback\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000141}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{subopt\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}\label{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}} 
+\index{Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}!subopt@{subopt}}
+\index{subopt@{subopt}!Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}}
+\doxysubsubsection{\texorpdfstring{subopt()}{subopt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}}$\ast$ subopt (\begin{DoxyParamCaption}\item[{char $\ast$}]{seq,  }\item[{char $\ast$}]{structure,  }\item[{int}]{delta,  }\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Returns list of subopt structures or writes to fp. 
+
+This function produces {\bfseries{all}} suboptimal secondary structures within \textquotesingle{}delta\textquotesingle{} $\ast$ 0.\+01 kcal/mol of the optimum. The results are either directly written to a \textquotesingle{}fp\textquotesingle{} (if \textquotesingle{}fp\textquotesingle{} is not NULL), or (fp==NULL) returned in a \mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}} $\ast$ list terminated by an entry were the \textquotesingle{}structure\textquotesingle{} pointer is NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & \\
+\hline
+{\em structure} & \\
+\hline
+{\em delta} & \\
+\hline
+{\em fp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__subopt__wuchty_ga8634516e4740e0b6c9a46d2bae940340}\label{group__subopt__wuchty_ga8634516e4740e0b6c9a46d2bae940340}} 
+\index{Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}!subopt\_circ@{subopt\_circ}}
+\index{subopt\_circ@{subopt\_circ}!Suboptimal Structures within an Energy Band around the MFE@{Suboptimal Structures within an Energy Band around the MFE}}
+\doxysubsubsection{\texorpdfstring{subopt\_circ()}{subopt\_circ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}}$\ast$ subopt\+\_\+circ (\begin{DoxyParamCaption}\item[{char $\ast$}]{seq,  }\item[{char $\ast$}]{sequence,  }\item[{int}]{delta,  }\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Returns list of circular subopt structures or writes to fp. 
+
+This function is similar to \mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}} but calculates secondary structures assuming the RNA sequence to be circular instead of linear
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & \\
+\hline
+{\em sequence} & \\
+\hline
+{\em delta} & \\
+\hline
+{\em fp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

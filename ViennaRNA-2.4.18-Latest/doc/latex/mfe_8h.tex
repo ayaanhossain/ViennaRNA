@@ -1,0 +1,58 @@
+\hypertarget{mfe_8h}{}\doxysection{Vienna\+RNA/mfe.h File Reference}
+\label{mfe_8h}\index{ViennaRNA/mfe.h@{ViennaRNA/mfe.h}}
+
+
+Compute Minimum Free energy (MFE) and backtrace corresponding secondary structures from RNA sequence data.  
+
+
+Include dependency graph for mfe.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mfe_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mfe_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}{vrna\+\_\+backtrack5}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int length, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Backtrack an MFE (sub)structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Basic global MFE prediction interface}\par
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of an RNA sequence, or RNA sequence alignment. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy of two interacting RNA molecules. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Simplified global MFE prediction using sequence(s) or multiple sequence alignment(s)}\par
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding secondary structure for an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding secondary structure for a circular RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold}} (const char $\ast$$\ast$sequences, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding consensus secondary structure for an RNA sequence alignment using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\+\_\+circalifold}} (const char $\ast$$\ast$sequences, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding consensus secondary structure for a sequence alignment of circular RNAs using a comparative method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{vrna\+\_\+cofold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute Minimum Free Energy (MFE), and a corresponding secondary structure for two dimerized RNA sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Compute Minimum Free energy (MFE) and backtrace corresponding secondary structures from RNA sequence data. 
+
+,
+
+This file includes (almost) all function declarations within the RNAlib that are related to MFE folding... 

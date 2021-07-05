@@ -1,0 +1,1601 @@
+Below, you\textquotesingle{}ll find a list of notable changes for each version of the Vienna\+RNA Package.
+
+\doxysection*{Version 2.\+4.\+x}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.18...HEAD}{\texttt{ Unreleased}}}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.17...v2.4.18}{\texttt{ Version 2.\+4.\+18}} (Release date\+: 2021-\/04-\/22)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix and refactor {\ttfamily RNApkplex} program
+\item Fix occasional backtracing errors in {\ttfamily RNALalifold}
+\item Restrict available dangling end models in {\ttfamily RNALalifold} to 0 and 2
+\item Prevent segmentation faults upon bogus input data in {\ttfamily RNAfold}, {\ttfamily RNAalifold}, {\ttfamily RNAcofold}, {\ttfamily RNAheat}, and {\ttfamily RNAeval}
+\item Free MFE DP matrices in {\ttfamily RNAsubopt} Boltzmann sampling when not required anymore
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Add {\ttfamily \mbox{\hyperlink{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}{vrna\+\_\+abstract\+\_\+shapes()}}} and {\ttfamily \mbox{\hyperlink{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}{vrna\+\_\+abstract\+\_\+shapes\+\_\+pt()}}} functions to convert secondary structures into their respective abstract shape notation ala Giegerich et al. 2004
+\item API\+: Add functions {\ttfamily \mbox{\hyperlink{group__string__utils_gae15cbc5999a67c90f45538e42c3201fe}{vrna\+\_\+seq\+\_\+reverse()}}} and {\ttfamily \mbox{\hyperlink{group__string__utils_gad4adadba9618ad090a3f49f2da46a6a8}{vrna\+\_\+\+DNA\+\_\+complement()}}} to create reverse complements of a sequence
+\item API\+: Add more soft constraint handling to comparative structure prediction
+\item API\+: Add generic soft constraints for sliding window comparative MFE backtracing
+\item API\+: Add {\ttfamily \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt()}}} that accepts pair table input instead of dot-\/bracket string to allow for non-\/nested reference structures
+\item API\+: Add failure/success return values to generic soft constraints application functions
+\item API\+: Refactor {\ttfamily RNAPKplex} implementation by better using constraints framework and moving out many parts from {\ttfamily RNAPKplex.\+c} into {\ttfamily RNAlib} as separate re-\/usable functions
+\item API\+: Fix energy contributions used in {\ttfamily RNAPKplex} implementations
+\item API\+: Fix energy evaluation for cofolding with dangle model 1
+\item API\+: Fix wrong arithmetic usage for PF variant of combined generic and simple soft constraints applied to external loops
+\item API\+: Fix memory size in \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} initialization
+\item API\+: Fix bogus memory access for comparative prediction when preparing hard constraints
+\item API\+: Fix wrong index usage in hard constraints for comparative base pair probability computations of internal loops
+\item API\+: Fix G-\/\+Quadruplex contributions as part of multibranch loops in single sequence base pair probability computations
+\item API\+: Fix multibranch loop MFE decomposition step for multiple strand cases
+\item API\+: Fix external loop generic hard constraint index updating for partition function computations
+\item API\+: Fix memory allocation for auxiliary grammar data structure
+\item API\+: Fix incorporation of auxiliary grammar contrib for closing pairs in sliding-\/window MFE computation
+\item API\+: Fix DP matrix intitialization in sliding window MFE computations (fixes occasional backtracing issues in comparative sliding-\/window MFE computations)
+\item API\+: Make {\ttfamily vrna\+\_\+sc\+\_\+t.\+type} attribute a constant
+\item API\+: Remove upper-\/triangular hard constraint matrix in favor of full matrix
+\item API\+: Always ensure sane base pair span settings after {\ttfamily vrna\+\_\+fold\+\_\+compound\+\_\+prepare()}
+\item API\+: Return INF on predictions of {\ttfamily \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\+\_\+mfe\+\_\+dimer()}}} that fail due to unsatisfiable constraints
+\item API\+: Rename internally used hard and soft constraints API symbols
+\item API\+: Fix header file inclusions to prevent \#include cycles
+\item SWIG\+: Add wrapper for {\ttfamily \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}}}
+\item SWIG\+: Fix memory leak in wrapper for {\ttfamily \mbox{\hyperlink{group__part__func__window_ga7115d012988541a65ec323c5f17a334b}{vrna\+\_\+probs\+\_\+window()}}}
+\item SWIG\+: Refactor and therefore fix soft constraint binding functions for use in comparative structure predictions
+\item SWIG\+: Fix typo that prevented properly wrapping {\ttfamily \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}}
+\item SWIG\+: Unify wrappers for {\ttfamily \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}} and {\ttfamily \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item REFMAN\+: Refactored structure annotation documentation
+\item REFMAN\+: Update Mac OS X install section
+\item Replace {\ttfamily DEF} placeholders in energy parameter files with their value of -\/50
+\item Update {\ttfamily RNAlocmin} subpackage to properly compile with more stringent C++ compilers
+\item Update {\ttfamily RNAforester} subpackage to properly compile with more stringent C++ compilers
+\item Update autotools framework, e.\+g. checks for pthreads
+\item Update universal binary build instructions for Mac OS X builds to enable ARM compilation for M1 CPUs
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.16...v2.4.17}{\texttt{ Version 2.\+4.\+17}} (Release date\+: 2020-\/11-\/25)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix {\ttfamily RNAup -\/b} mode with shorter sequence first
+\item Add {\ttfamily -\/-\/backtrack-\/global} option to {\ttfamily RNALfold} (currently only available for dangles == 2 $\vert$ 0)
+\item Add {\ttfamily -\/-\/zscore-\/pre-\/filter} and {\ttfamily -\/-\/zscore-\/report-\/subsumed} options to {\ttfamily RNALfold}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix multiloop backtracing with soft constraints for unpaired positions in {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}} and {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}}}
+\item API\+: Fix parameter parse in {\ttfamily \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}}
+\item API\+: Add {\ttfamily \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}}} and {\ttfamily vrna\+\_\+head\+\_\+capacity\+\_\+cb()} functions to RNAlib
+\item API\+: Add backtracing function {\ttfamily vrna\+\_\+backtrack\+\_\+window()} for global MFE structure to sliding-\/window predictions
+\item API\+: Add SVG support for {\ttfamily RNApuzzler} structure layouts
+\item API\+: Make {\ttfamily vrna\+\_\+md\+\_\+t} argument to \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a constant pointer
+\item API\+: Remove missing symbols from header file {\ttfamily \mbox{\hyperlink{default_8h_source}{Vienna\+RNA/params/default.\+h}}}
+\item API\+: Refactor z-\/score threshold filter handling for sliding-\/window MFE prediction
+\item SWIG\+: Fix typo in interface functions to load DNA parameters
+\item SWIG\+: Add python-\/3.\+9 autoconf checks
+\item SWIG\+: Add {\ttfamily vrna\+\_\+head\+\_\+capacity$\ast$()} wrappers
+\item SWIG\+: Add access to raw energy parameters
+\item SWIG\+: Add {\ttfamily alias} and {\ttfamily pair} attribute to objects of type {\ttfamily md}
+\item SWIG\+: Add out/varout typemaps for 2-\/dimensional int-\/like arrays
+\item SWIG\+: Add all data fields to objects of type \textquotesingle{}param\textquotesingle{} and \textquotesingle{}exp\+\_\+param\textquotesingle{}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Fix Debian and Windows installer files
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.15...v2.4.16}{\texttt{ Version 2.\+4.\+16}} (Release date\+: 2020-\/10-\/09)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix backtracing errors in {\ttfamily RNALalifold} for alignments with more than {\ttfamily 32768} columns
+\item Fix backtracing errors in {\ttfamily RNAalifold} and {\ttfamily RNALalifold} for rare cases when two alignment columns may pair due to covariance score threshold but still yield infinite energies due to energy model
+\item Refactored manpages/help options for {\ttfamily RNAplfold}, {\ttfamily RNAplot}, {\ttfamily RNApvmin}, {\ttfamily RNAsubopt}, and {\ttfamily RNAup}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix undefined behavior due to short int overflows when accessing alignment lengths with alignments larger than 32768 columns. This fixes occasional backtracing errors in {\ttfamily RNALalifold} and {\ttfamily \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}}
+\item API\+: Fix adding pscore to base pairs that yield INF energy in comparative global and local MFE prediction
+\item API\+: Add {\ttfamily \mbox{\hyperlink{group__units_ga085428efe4f99044bce8273c8b5db1ba}{vrna\+\_\+convert\+\_\+kcal\+\_\+to\+\_\+dcal()}}} and vice-\/versa function for safely converting integer to float representations of energy values
+\item SWIG\+: Add a reasonable {\ttfamily Python} interface for objects of type {\ttfamily vrna\+\_\+path\+\_\+t}
+\item SWIG\+: Add a wrapper for {\ttfamily \mbox{\hyperlink{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}{vrna\+\_\+seq\+\_\+encode()}}}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Move {\ttfamily units.\+h} include file to {\ttfamily \mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}}
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.14...v2.4.15}{\texttt{ Version 2.\+4.\+15}} (Release date\+: 2020-\/08-\/18)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix compilation of {\ttfamily Kinfold} with GCC 10
+\item Add {\ttfamily -\/-\/en-\/only} flag to {\ttfamily RNAsubopt} to allow for sorting by energy only
+\item Prevent {\ttfamily RNAcofold} to process input with more than two strands
+\item Add cutpoint marker to dot-\/plots created with {\ttfamily RNAcofold -\/a}
+\item Update {\ttfamily Kinfold} to version {\ttfamily 1.\+4}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix removal of strand delimiter in {\ttfamily vrna\+\_\+plot\+\_\+dp\+\_\+\+PS\+\_\+list()}
+\item API\+: Fix {\ttfamily \mbox{\hyperlink{group__combinatorics__utils_gae081ac655a76bd5c4b3d86c60b096b75}{vrna\+\_\+enumerate\+\_\+necklaces()}}}
+\item API\+: Fix bogus backtracing for co-\/folded structures in {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}} and {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}}}
+\item API\+: Fix storing co-\/folded structures for sorted output in {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}}
+\item API\+: Fix multibranch loop component hard constraints for multi-\/strand cases
+\item API\+: Prevent adding internal loop energy contributions to enclosed parts with {\ttfamily energy=INF}
+\item API\+: Adapt {\ttfamily \mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}}/vrna\+\_\+db\+\_\+unpack()} functions to produce comparable strings
+\item API\+: Add sorting modes {\ttfamily VRNA\+\_\+\+UNSORTED}, {\ttfamily VRNA\+\_\+\+SORT\+\_\+\+BY\+\_\+\+ENERGY\+\_\+\+LEXICOGRAPHIC\+\_\+\+ASC}, and {\ttfamily VRNA\+\_\+\+SORT\+\_\+\+BY\+\_\+\+ENERGY\+\_\+\+ASC} to {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}}
+\item API\+: Add {\ttfamily vrna\+\_\+strjoin()} function
+\item API\+: Add missing case to external loop hard constraints
+\item API\+: Make hard constrains strand-\/aware
+\item SWIG\+: Fix invalid memory access when using {\ttfamily MEA\+\_\+from\+\_\+plist()} in {\ttfamily Perl 5} or {\ttfamily Python}
+\item SWIG\+: Enable keyword argument features in {\ttfamily Python} interface of constructors for {\ttfamily fold\+\_\+compound}, {\ttfamily md}, {\ttfamily move}, {\ttfamily param}, and {\ttfamily exp\+\_\+param} objects
+\item SWIG\+: Enable autodoc feature for {\ttfamily Python} interface of constructors for {\ttfamily fold\+\_\+compound}, {\ttfamily md}, and {\ttfamily move} objects
+\item SWIG\+: Enable {\ttfamily to\+String} conversion for {\ttfamily Python} interface for objects of type {\ttfamily fold\+\_\+compound}, {\ttfamily md}, {\ttfamily move}, {\ttfamily params}, {\ttfamily exp\+\_\+params}, and {\ttfamily subopt\+\_\+solution}
+\item SWIG\+: Add (read-\/only) attributes {\ttfamily type}, {\ttfamily length}, {\ttfamily strands}, {\ttfamily params}, and {\ttfamily exp\+\_\+params} to objects of type {\ttfamily fold\+\_\+compound}
+\item SWIG\+: Make attributes of objects of type {\ttfamily param} and {\ttfamily exp\+\_\+param} read-\/only
+\item Add array of strand nicks to EPS dot plot files instead of single cutpoint
+\item Draw separator line for each strand nick in EPS dot-\/plots
+\item Update {\ttfamily libsvm} to version 3.\+24
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Disable Link-\/\+Time-\/\+Optimization ({\ttfamily LTO}) for third-\/party programs linking against {\ttfamily RNAlib} using {\ttfamily pkg-\/config}
+\item TESTS\+: Fix results dir path for out-\/of-\/tree builds
+\item TESTS\+: Set default timeout for library tests to 20s
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.13...v2.4.14}{\texttt{ Version 2.\+4.\+14}} (Release date\+: 2019-\/08-\/13)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix {\ttfamily RNApvmin} pertubation vector computation
+\item Add non-\/redundant sampling option to {\ttfamily RNApvmin}
+\item Add {\ttfamily RNAdos} program to compute density of states
+\item Add {\ttfamily -\/P DNA} convenience command line parameter to most programs to quickly load DNA parameters without any input file
+\item MAN\+: Add example section to man-\/page of {\ttfamily RNAalifold}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix memory leak in {\ttfamily \mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient()}}}
+\item API\+: Fix release of memory fir {\ttfamily vrna\+\_\+sequence\+\_\+remove\+\_\+all()}
+\item API\+: Fix soft-\/constraints application in {\ttfamily \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation()}}} that prevented proper computation of the pertubation vector
+\item API\+: Add 5\textquotesingle{} and 3\textquotesingle{} neighbor nucleotide encoding arrays and name string to {\ttfamily vrna\+\_\+seq\+\_\+t}
+\item API\+: Add new data structure for multiple sequence alignments
+\item API\+: Add {\ttfamily vrna\+\_\+sequence\+\_\+order\+\_\+update()} function
+\item API\+: Add non-\/redundant sampling mode to {\ttfamily \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation()}}} through passing negative sample-\/sizes
+\item API\+: Add v3.\+0 API functions for maximum expected accuracy (MEA) computation
+\item API\+: Include energy parameter sets into {\ttfamily RNAlib} and provide functions to load them at runtime
+\item API\+: Prepare sequence data in {\ttfamily vrna\+\_\+fold\+\_\+compound\+\_\+t} with {\ttfamily vrna\+\_\+sequence\+\_\+add()}
+\item API\+: Use {\ttfamily \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num()}}} instead of {\ttfamily \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}}} in {\ttfamily \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation()}}} to speed-\/up sample generation
+\item Reduce use of global variable {\ttfamily cut\+\_\+point} in {\ttfamily RNAlib}
+\item SWIG\+: Use {\ttfamily importlib} in favor of {\ttfamily imp} to determine Python 3 tag extension
+\item SWIG\+: Update various wrapper functions
+\item SWIG\+: Add wrappers for MEA computation with {\ttfamily \mbox{\hyperlink{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}{vrna\+\_\+\+MEA()}}} and {\ttfamily vrna\+\_\+\+MEA\+\_\+from\+\_\+plist}
+\item SWIG\+: Add wrappers for {\ttfamily \mbox{\hyperlink{group__thermodynamics_ga882c35d9dd775c1275593b3b6a966bec}{vrna\+\_\+pr\+\_\+structure()}}} and {\ttfamily \mbox{\hyperlink{group__thermodynamics_gaa88e17336daede0e6db4da1f3252c031}{vrna\+\_\+pr\+\_\+energy()}}}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item REFMAN\+: Fix La\+TeX code in {\ttfamily units.\+h} that prevented proper compilation with {\ttfamily pdflatex}
+\item Add an R script to create 2D landscape plots from {\ttfamily RNA2\+Dfold} output
+\item Add {\ttfamily gengetopt} to configure-\/time requirements to build man-\/pages
+\item Add new energy parameter file {\ttfamily rna\+\_\+misc\+\_\+special\+\_\+hairpins.\+par} with additional UV-\/melting derived parameters for Tri-\/ and Tetra-\/loops
+\item Update RNA Tutorial
+\item Colorize final configure script message
+\item REFMAN\+: Always use {\ttfamily pdflatex} to compile reference manual and tutorial
+\item EXAMPLES\+: Add Python script that performs computations equivalent to {\ttfamily RNAfold -\/p -\/-\/MEA}
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.12...v2.4.13}{\texttt{ Version 2.\+4.\+13}} (Release date\+: 2019-\/05-\/30)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix centroid structure prediction for {\ttfamily RNAcofold}
+\item Fix {\ttfamily -\/-\/no\+LP} option for {\ttfamily RNALalifold}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Refactor and fix collision handling in {\ttfamily vrna\+\_\+hash\+\_\+table\+\_\+t}
+\item API\+: Fix one access using wrong index for odd dangles in {\ttfamily loops/external.\+c}
+\item API\+: Add two missing {\ttfamily MLbase} contributions for MFE prediction in {\ttfamily loops/multibranch.\+c}
+\item API\+: Refactor multiloop MFE backtracking for odd dangles
+\item API\+: Add function {\ttfamily \mbox{\hyperlink{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}{vrna\+\_\+backtrack5()}}} to allow for MFE backtracking of sub-\/sequences starting at the 5\textquotesingle{}-\/end
+\item API\+: Reduce usage of global macro {\ttfamily TURN} by replacing it with {\ttfamily min\+\_\+loop\+\_\+size} field of {\ttfamily vrna\+\_\+md\+\_\+t}
+\item API\+: Add functions {\ttfamily \mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct()}}} and {\ttfamily \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub()}}} that may also return move lists instead of dot-\/bracket lists
+\item API\+: Add functions {\ttfamily \mbox{\hyperlink{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}{vrna\+\_\+pt\+\_\+pk\+\_\+remove()}}} and {\ttfamily \mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove()}}} that remove pseudoknots from an input structure
+\item API\+: Fix invalid memory access for lonely pair mode ({\ttfamily -\/-\/no\+LP}) in comparative sliding-\/window MFE prediction
+\item SWIG\+: Fix access to global variable {\ttfamily pf\+\_\+smooth} and {\ttfamily pf\+\_\+smooth} attribute in {\ttfamily model\+\_\+details} object
+\item SWIG\+: Fix Python reference counting for {\ttfamily Py\+\_\+\+None} in {\ttfamily interfaces/findpath.\+i} wrapper
+\item SWIG\+: Refactor reference counting for all Python2 and Python3 wrappers
+\item REFMAN\+: Larger updates and restructuring of reference manual
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Install example scripts and source code files, e.\+g. to \$prefix/share/\+Vienna\+RNA/examples
+\item Properly pass GSL, PTHREADS, and MPFR flags to sub-\/projects
+\item Fix {\ttfamily RNApuzzler} header file installation
+\item SWIG\+: Include Python 3.\+7 and 3.\+8 in list of autoconf-\/probed python interpreters
+\item SWIG\+: Fix wrapper building for {\ttfamily swig $>$= 4.\+0.\+0}
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.11...v2.4.12}{\texttt{ Version 2.\+4.\+12}} (Release date\+: 2019-\/04-\/16)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Add non-\/redundant stochastic backtracing option for {\ttfamily RNAalifold}
+\item Add {\ttfamily -\/-\/no\+DP} option to suppress dot-\/plot output in {\ttfamily RNAfold} and {\ttfamily RNAalifold}
+\item Add {\ttfamily RNApuzzler} (4) and {\ttfamily RNAturtle} (3) secondary structure layout algorithm options to {\ttfamily RNAfold} and {\ttfamily RNAplot}
+\item Update help/man page of {\ttfamily RNALfold}
+\item Allow for multiple input files and parallel input processing in {\ttfamily RNAheat}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix declaration of {\ttfamily vrna\+\_\+move\+\_\+apply\+\_\+db()}
+\item API\+: Fix {\ttfamily \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}}} lexicographical ordering in gradient walks
+\item API\+: Enable non-\/redundant stochastic backtracing for comparative structure prediction
+\item API\+: Enable stochastic backtracing for circular comparative structure prediction
+\item API\+: Enable stochastic backtracing of subsequences (5\textquotesingle{} prefixes) for comparative structure prediction
+\item API\+: Add {\ttfamily pf\+\_\+smooth} attribute to {\ttfamily vrna\+\_\+md\+\_\+t} data stucture to allow for disabling Boltzmann factor energy smoothing
+\item API\+: Add functions to allow for resuming non-\/redundant stochastic backtracing
+\item API\+: Add functions to retrieve multiple stochastically backtraced structures (list and callback variants)
+\item API\+: Add {\ttfamily vrna\+\_\+positional\+\_\+entropy} to compute vector of positional entropies
+\item API\+: Add {\ttfamily RNApuzzler} and {\ttfamily RNAturtle} secondary structure layout algorithm (Wiegreffe et al. 2018)
+\item API\+: Add v3.\+0 API for secondary structure layout/coordinate algorithms
+\item API\+: Add more helper/utility functions for {\ttfamily vrna\+\_\+move\+\_\+t} data structures
+\item API\+: Add callback-\/based neighborhood update function for (subsequent) {\ttfamily vrna\+\_\+move\+\_\+t} application
+\item API\+: Add abstract heap data structure available as {\ttfamily $<$\mbox{\hyperlink{heap_8h}{Vienna\+RNA/datastructures/heap.\+h}}$>$}
+\item API\+: Refactor and speed-\/up gradient walk implementation available as {\ttfamily \mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient()}}}
+\item API\+: Substitute {\ttfamily vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+sub()} alignment plot function by {\ttfamily \mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\+\_\+file\+\_\+\+PS\+\_\+aln\+\_\+slice()}}} that actually slices out a sub-\/alignment
+\item API\+: Rename {\ttfamily vrna\+\_\+annotate\+\_\+covar\+\_\+struct()} to {\ttfamily \mbox{\hyperlink{group__annotation__utils_ga01fad860df6c799264d1186c343b1d29}{vrna\+\_\+annotate\+\_\+covar\+\_\+db()}}} and add new function {\ttfamily vrna\+\_\+annotate\+\_\+covar\+\_\+db\+\_\+extended()} to support more bracket types
+\item API\+: Calling {\ttfamily \mbox{\hyperlink{group__energy__parameters_gac40dc82e48a72a97cfc58b9da08a7792}{vrna\+\_\+params\+\_\+reset()}}} now implies a call to {\ttfamily \mbox{\hyperlink{group__energy__parameters_gaa5409218068be84d7b50c78fbdaa85a9}{vrna\+\_\+exp\+\_\+params\+\_\+reset()}}} as well
+\item API\+: Move landscape implementations into separate directory, thus headers should be included as {\ttfamily $<$\mbox{\hyperlink{move_8h}{Vienna\+RNA/landscape/move.\+h}}$>$}, {\ttfamily $<$\mbox{\hyperlink{landscape_2neighbor_8h}{Vienna\+RNA/landscape/neighbor.\+h}}$>$}, etc.
+\item Ensure proper rescaling of energy parameters upon temperature changes
+\item Refactor soft constraints implementation in stochastic backtracing
+\item SWIG\+: Wrap all non-\/redundant stochastic backtracing functions to scripting language interface(s)
+\item SWIG\+: Refactor stochastic backtracing interface(s)
+\item SWIG\+: Add proper constructor for objects of type {\ttfamily vrna\+\_\+ep\+\_\+t}
+\item SWIG\+: Sanitize alignment plot function interface(s)
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Update Ubuntu/\+Debian and Open\+SUSE build instructions
+\item Reduce intra-\/package dependency on non-\/v3.\+0 API
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.10...v2.4.11}{\texttt{ Version 2.\+4.\+11}} (Release date\+: 2018-\/12-\/17)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Add {\ttfamily -\/-\/commands} option to {\ttfamily RNAsubopt}
+\item Add non-\/redundant Boltzmann sampling mode for {\ttfamily RNAsubopt}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix wrong access to base pair soft constraints in equilibrium probability computations
+\item API\+: Fix behavior of {\ttfamily \mbox{\hyperlink{group__alphabet__utils_gac12bf00123f88621c9be847b0879c1fb}{vrna\+\_\+nucleotide\+\_\+encode()}}} with lowercase characters in sequence
+\item API\+: Fix behavior of {\ttfamily encode\+\_\+char()} with lowercase characters in sequence
+\item API\+: Fix forbidden {\ttfamily GU} pairs behavior in pscore computation for comparative folding
+\item API\+: Fix potential errors due to uninitialized {\ttfamily next} pointers in {\ttfamily vrna\+\_\+move\+\_\+t} of {\ttfamily vrna\+\_\+eval\+\_\+move\+\_\+shift\+\_\+pt}
+\item API\+: Add {\ttfamily AVX 512} optimized version of MFE multibranch loop decomposition
+\item API\+: Add functions for CPU SIMD feature detection
+\item API\+: Add dispatcher to automatically delegate exterior-\//multibranch loop MFE decomposition to supported SIMD optimized implementation
+\item API\+: Add function {\ttfamily vrna\+\_\+dist\+\_\+mountain()} to compute mountain distance between two structures
+\item API\+: Add function {\ttfamily \mbox{\hyperlink{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}{vrna\+\_\+ensemble\+\_\+defect()}}} to compute ensemble defect given a target structure
+\item API\+: Add non-\/redundant Boltzmann sampling
+\item API\+: Change behavior of {\ttfamily \mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\+\_\+cstr\+\_\+free()}}} and {\ttfamily \mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\+\_\+cstr\+\_\+close()}}} to always flush output before unregistering the stream
+\item SWIG\+: Add interface for {\ttfamily \mbox{\hyperlink{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}{vrna\+\_\+loopidx\+\_\+from\+\_\+ptable()}}}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Activate compilation for compile-\/time supported SIMD optimized implementations by default
+\item Replace {\ttfamily -\/-\/enable-\/sse} configure script option with {\ttfamily -\/-\/disable-\/simd}
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.9...v2.4.10}{\texttt{ Version 2.\+4.\+10}} (Release date\+: 2018-\/09-\/26)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix wrong output filename for binary opening energies in {\ttfamily RNAplfold}
+\item Enable G-\/\+Quadruplex support for partition function computation in {\ttfamily RNAalifold}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item Fix broken SSE4.\+1 support for multibranch loop MFE computation that resulted in increased run times
+\item Fix redundant output issue in subopt backtracking with unusually high delta energies ($>$=INF)
+\item Restore default behavior of \textquotesingle{}$\vert$\textquotesingle{} symbol in dot-\/bracket hard constraint strings that got lost with version 2.\+2.\+0
+\item Add faster (cache-\/optimized) version of Nussinov Maximum Matching algorithm
+\item Change default linker-\/ and loop length computations for G-\/\+Quadruplex predictions in comparative prediction modes
+\item Add hard constraints warning for base pairs that violate the {\ttfamily min\+\_\+loop\+\_\+size} of the model
+\item Update {\ttfamily libsvm} to version 3.\+23
+\item API\+: Add functions to set auxiliary grammar extension rules
+\item API\+: Replace upper-\/triangular hard constraints matrix with full matrix for cache-\/optimized access
+\item API\+: Add G-\/\+Quadruplex prediction support for comparative partition function
+\item API\+: Remove {\ttfamily VRNA\+\_\+\+GQUAD\+\_\+\+MISMATCH\+\_\+\+PENALTY} and {\ttfamily VRNA\+\_\+\+GQUAD\+\_\+\+MISMATCH\+\_\+\+NUM\+\_\+\+ALI} macros
+\item SWIG\+: Fix invalid memory access in {\ttfamily \mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}}} method of fold\+\_\+compound object when writing to file
+\item SWIG\+: Add wrapper for Nussinov Maximum Matching algorithm
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item Add {\ttfamily -\/ftree-\/vectorize} compile flag by default if supported
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.8...v2.4.9}{\texttt{ Version 2.\+4.\+9}} (Release date\+: 2018-\/07-\/11)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix interactive mode behavior for multiple sequence alignment input in {\ttfamily RNAalifold}, {\ttfamily RNALalifold}
+\item Allow for Stockholm formatted multiple sequence alignment input in {\ttfamily RNAeval} and {\ttfamily RNAplot}
+\item Allow for multiple input files in {\ttfamily RNAeval} and {\ttfamily RNAplot}
+\item Allow for parallel processing of input batch jobs in {\ttfamily RNAeval} and {\ttfamily RNAplot}
+\item Add {\ttfamily -\/g} option to activate G-\/\+Quadruplex support in {\ttfamily RNAheat}
+\item Warn on unsatisfiable hard constraints from dot-\/bracket string input in {\ttfamily RNAfold}, {\ttfamily RNAcofold}, and {\ttfamily RNAalifold}
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item Fix parameter order bug in {\ttfamily vrna\+\_\+path\+\_\+findpath$\ast$} functions that resulted in too large search widths
+\item Fix wrong application of base pair soft constraints in partition function computations
+\item Fix position ruler string in EPS alignment output files
+\item Fix MFE backtracking errors that might appear under specific hard constrained base pair patterns
+\item Refrain from reading anything other than {\ttfamily \#=GC SS\+\_\+cons} to retrieve structures when parsing Stockholm 1.\+0 format
+\item Complete soft constraints additions to Boltzmann sampling implementation for single sequences
+\item Allow for disabling alignment wrapping in {\ttfamily vrna\+\_\+file\+\_\+\+PS\+\_\+aln$\ast$} functions
+\item Do not remove G-\/\+Quadruplex annotation from WUSS formatted structure strings upon calls to {\ttfamily vrna\+\_\+db\+\_\+from\+\_\+\+WUSS}
+\item Enable G-\/\+Quadruplex related average loop energy correction terms in verbose output of {\ttfamily vrna\+\_\+eval\+\_\+$\ast$} functions
+\item Speed-\/up backward compatibility layer for energy evaluation functions that unnecessarily slowed down third-\/party tools using the old API
+\item Allow for passing dot-\/bracket strings with `'\&\textquotesingle{}{\ttfamily strand-\/end identifier to simple}vrna\+\_\+eval\+\_\+$\ast${\ttfamily functions}
+\item {\ttfamily Remove implicit}exit()\`{} calls from global MFE backtracking implementation.
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.7...v2.4.8}{\texttt{ Version 2.\+4.\+8}} (Release date\+: 2018-\/06-\/23)}
+
+\doxysubsubsection*{Programs}
+
+
+\begin{DoxyItemize}
+\item Fix compilation of RNAforester with C++17 standard
+\item Fix tty input detection in RNAcofold
+\item Fix bad memory access with RNAcofold -\/p
+\end{DoxyItemize}
+
+\doxysubsubsection*{Library}
+
+
+\begin{DoxyItemize}
+\item API\+: Fix incorrect unpaired probability computations in \mbox{\hyperlink{group__part__func__window_ga7115d012988541a65ec323c5f17a334b}{vrna\+\_\+probs\+\_\+window()}}
+\item API\+: Fix potential out-\/of-\/bounds access situations (for circular RNA folding) in eval.\+c
+\item API\+: Fix comparative exterior internal loop partition function computation for circfold
+\item SWIG\+: Fix false-\/positive use of uninitialized value in Python3/file\+\_\+py3.\+i
+\end{DoxyItemize}
+
+\doxysubsubsection*{Package}
+
+
+\begin{DoxyItemize}
+\item TESTS\+: Add tests for special features in RNAalifold
+\item TESTS\+: Add test case for RNAcofold -\/p
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.6...v2.4.7}{\texttt{ Version 2.\+4.\+7}} (Release date\+: 2018-\/06-\/13)}
+
+
+\begin{DoxyItemize}
+\item Allow for parallel processing across multiple input files in RNAfold
+\item Allow for arbitrary number of input files in RNAalifold
+\item Allow for parallel processing of input data in RNAalifold
+\item Allow for arbitrary number of input files in RNAcofold
+\item Allow for parallel processing of input data in RNAcofold
+\item Enable parallel processing in RNAfold, RNAcofold, RNAalifold for MS Windows build
+\item Add centroid and MEA structure computation to RNAcofold
+\item Add configure time check for LTO capabilities of the linker
+\item Include ligand binding energies in centroid and MEA structure output of RNAfold
+\item Refactor ct2db program to process multiple structures from single .ct file
+\item API\+: Enable processing of comparative fold\+\_\+compound with vrna\+\_\+pr\+\_\+$\ast$() functions
+\item API\+: Refactor vrna\+\_\+ostream\+\_\+t to enable NULL input in \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\+\_\+ostream\+\_\+provide()}}
+\item API\+: Major refactoring in loop energy evaluations (MFE and PF)
+\item API\+: Make vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+el\+\_\+t and vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+s opaque pointers
+\item API\+: Make fold\+\_\+compound field {\ttfamily type} a const attribute
+\item API\+: Refactor MFE post-\/processing for circular RNAs
+\item API\+: Add motif name/id support for unstructured domains
+\item API\+: Remove major part of implicit exit() calls in RNAlib
+\item API\+: Add implementations of Boyer-\/\+Moore-\/\+Horspool search algorithm
+\item API\+: Add implementations to determine number of rotational symmetry for strings (of objects)
+\item API\+: Make vrna\+\_\+cmd\+\_\+t an opaque pointer
+\item API\+: Move headers for constraints, datastructures, io, loop energy evaluation, energy parameters, plotting, search, and utilities into separate subdirectories (backward compatibility is maintained)
+\item API\+: Add hash table data structure
+\item API\+: Fix discrepancy between comparative and single sequence --no\+LP predictions
+\item API\+: Add functions to replace \textquotesingle{}old API\textquotesingle{} interface of \mbox{\hyperlink{RNAstruct_8h}{RNAstruct.\+h}}
+\item API\+: Add functions to replace \textquotesingle{}old API\textquotesingle{} interface of \mbox{\hyperlink{aln__util_8h}{aln\+\_\+util.\+h}}
+\item API\+: Add generic soft constraints support to suboptimal structure prediction sensu Wuchty et al.
+\item SWIG\+: Refactor callback execution for Python 2 / 3 interface to reduce overhead
+\item SWIG\+: Fix configure-\/time check for Python 3 interface build
+\item SWIG\+: Fix Python 3 IO file stream to C FILE $\ast$ conversion
+\item Cosmetic changes in final configure notice
+\item Major changes in source tree structure of the library
+\item Add autoconf checks for maintainer tools
+\item Generate C strings from static Post\+Script files at configure time (for structure-\/ and dot plots)
+\item REFMAN\+: Large updates in API documentation and structure of reference manual
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.5...v2.4.6}{\texttt{ Version 2.\+4.\+6}} (Release date\+: 2018-\/04-\/19)}
+
+
+\begin{DoxyItemize}
+\item Stabilize rounding of free energy output in RNAalifold
+\item API\+: Fix potential rounding errors for comparative free energies in eval.\+c and mfe.\+c
+\item API\+: Fix regression in exterior loop dangling end contributions for comparative base pair probabilities and Boltzmann sampling (introduced with v2.\+4.\+4)
+\item API\+: Fix regression with hard constrained base pairs for comparative structure prediction (introduced with v2.\+4.\+4)
+\item TESTS\+: Add basic tests for RNAalifold executable
+\item TESTS\+: Ignore \textquotesingle{}frequency of MFE structure\textquotesingle{} in RNAcofold partition function checks
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.4...v2.4.5}{\texttt{ Version 2.\+4.\+5}} (Release date\+: 2018-\/04-\/17)}
+
+
+\begin{DoxyItemize}
+\item Allow for arbitrary number of input files in RNAfold
+\item Allow for parallel processing of input data in RNAfold (UNIX only, no Windows support yet)
+\item Add SHAPE reactivity support through commandline options for RNAplfold
+\item Fix unstructured domain motif detection in MFE, centroid, and MEA structures computed by RNAfold
+\item Limit allowed set of commands in command file for RNAcofold to hard and soft constraints
+\item API\+: Add functions to compute equilibrium probability of particular secondary structures
+\item API\+: Add dynamic string stream data type and associated functions
+\item API\+: Add priority-\/queue like data structure with unordered fill capability and ordered output callback execution
+\item API\+: Add functions to detect unstructured domain motifs in MFE, centroid, and MEA structures
+\item API\+: Fix bug in sliding-\/window partition function computation with SHAPE reactivity and Deigan et al. conversion method
+\item API\+: Fix application of \textquotesingle{}$<$\textquotesingle{} and \textquotesingle{}$>$\textquotesingle{} constraint symbols in dot-\/bracket provided constraints (was broken since v2.\+4.\+2)
+\item API\+: Fix MEA structure computation in the presence of unstructured domains
+\item API\+: Stabilize order of probability entries in EPS dot-\/plot files
+\item Fix compiler warnings on wrong type of printf() in naview.\+c
+\item Define VRNA\+\_\+\+VERSION macro as string literal and add macros for major, minor, and patch numbers
+\item Stabilize parallel make of Mac OS X installer
+\item Add energy parameter set from Langdon et al. 2018
+\item Add autoconf checks for POSIX threads compiler/linker support
+\item SWIG\+: Fix \textquotesingle{}next\textquotesingle{} is a perl keyword warnings for Perl5 wrapper
+\item SWIG\+: Catch errors and throw execptions whenever scripting language provided callback functions are not applicable or fail
+\item SWIG\+: Add keyword arguments and autodoc feature for Python/\+Python3 wrappers
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.3...v2.4.4}{\texttt{ Version 2.\+4.\+4}} (Release date\+: 2018-\/03-\/06)}
+
+
+\begin{DoxyItemize}
+\item Change verbose output for soft-\/constraints derived ligand binding motifs in RNAfold
+\item Allow for lowercase letters in ct2db input
+\item Fix bug in interior-\/like G-\/\+Quadruplex MFE computation for single sequences
+\item Fix autoconf switch to enable deprecation warnings
+\item Fix bug in eval\+\_\+int\+\_\+loop() that prevented propagation of energy evaluation for loops with nick in strands
+\item Fix several bugs for SHAPE reactivity related comparative partition function computations
+\item Fix annotation of Post\+Script output for soft-\/constraint derived ligand binding motifs in RNAfold
+\item Fix constraint indices for multibranch loops in unpaired probability computations of LPfold.\+c
+\item Fix dangling end contributions in comparative partition function for exterior loops
+\item API\+: Add simplified interface for \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}}
+\item API\+: Move concentraton dependent implementation for co-\/folding to separate compile unit
+\item API\+: Add new API functions for exterior loop evaluations
+\item API\+: Add simplified interfaces for energy evaluation with G-\/\+Quadruplexes and circular RNAs
+\item API\+: Add findpath functions that allow for specification of an upper bound for the saddle point
+\item Add configure-\/time linker check for Python3 interface
+\item Add automatic CPP suggestions for deprecated function substitutes
+\item Major restucturing and constraints feature additions in loop type dependent energy evaluation functions
+\item Major restructuring in MFE implementations
+\item Major restructuring in PF implementations
+\item Minor fixes in Boltzmann sampling implementation
+\item SWIG\+: Fix wrappers for findpath() implementation
+\item SWIG\+: Add tons of energy evaluation wrappers
+\item SWIG\+: Fix configure-\/time check of Perl5 interface build capabilities
+\item SWIG\+: Wrap functions from walk.\+c and neighbor.\+c
+\item DOC\+: Add some missing references to manpages of executable programs
+\item REFMAN\+: Heavy re-\/ordering of the RNAlib reference manual
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.2...v2.4.3}{\texttt{ Version 2.\+4.\+3}} (Release date\+: 2017-\/11-\/14)}
+
+
+\begin{DoxyItemize}
+\item Fix handling of dangling end contribution at sequence boundaries for sliding window base pair probability computations
+\item Fix handling of base pair hard constraints in sliding-\/window implementations
+\item Fix sliding-\/window pair probability computations with multibranch-\/loop unpaired constraints
+\item Fix sliding-\/window non-\/specific base pair hard constraint implementation
+\item Fix probability computation for stochastic backtracking in RNAsubopt --stoch\+BT\+\_\+en output
+\item Fix regression in comparative structure prediction for circular RNAs
+\item Fix LDFLAGS for scripting language interfaces in corresponding Makefiles
+\item Stabilize partition function scaling by always using sfact scaling factor from model details
+\item Add --pf\+\_\+scale commandling parameter to RNAplfold
+\item Add constraint framework for single sequence circular RNA structure prediction
+\item Add RNAfold test suite to check for working implementation of constraints for circular RNAs
+\item Add a brief contribution guideline CONTRIBUTING.\+md
+\item Prevent RNAplfold from creating inf/-\/inf output when solution set is empty with particular hard constraints
+\item Include RNAforester v2.\+0.\+1
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.1...v2.4.2}{\texttt{ Version 2.\+4.\+2}} (Release date\+: 2017-\/10-\/13)}
+
+
+\begin{DoxyItemize}
+\item Fix G-\/\+Quadruplex energy corrections in comparative structure energy evaluations
+\item Fix discrepancy in comparative exterior loop dangling end contribution of eval vs. MFE predictions
+\item Fix regression in RNAup unstructuredness and interaction energy computations
+\item Fix sequence length confusions when FASTA input contains carriage returns
+\item Fix build problems of RNAlocmin with older compilers
+\item Fix sliding-\/window hard constraints where single nucleotides are prohibited from pairing
+\item Fix dot-\/bracket output string length in sliding-\/window MFE with G-\/\+Quadruplexes
+\item Fix unpaired probability computations for separate individual loop types in LPfold.\+c
+\item Fix bad memory access in RNAsubopt with dot-\/bracket constraint
+\item Add full WUSS support for --SS\+\_\+cons constraint option in RNAalifold
+\item Add commandline option to RNALalifold that enables splitting of energy contributions into separate parts
+\item Add missing hard constraint cases to sliding-\/window partition function implementation
+\item Add CSV output option to RNAcofold
+\item Use the same model details for SCI computations in RNAalifold
+\item Abort computations in \mbox{\hyperlink{group__eval_gab12e6b1226227670322150df018734f8}{vrna\+\_\+eval\+\_\+structure\+\_\+v()}} if structure has unexpected length
+\item Use original MSA in all output generated by RNAalifold and RNALalifold
+\item API\+: Add new functions to convert dot-\/bracket like structure annotations
+\item API\+: Add various new utility functions for alignment handling and comparative structure predictions
+\item API\+: Add function \mbox{\hyperlink{group__string__utils_gac632775617f4b2df096bfe8efb53d07f}{vrna\+\_\+strsplit()}} to split string into tokens
+\item API\+: Do not convert sequences of input MSA to uppercase letters in \mbox{\hyperlink{group__file__formats__msa_gad4203a438622b2df7bc2f16578d54799}{vrna\+\_\+file\+\_\+msa\+\_\+read\+\_\+record()}}
+\item API\+: Rename vrna\+\_\+annotate\+\_\+bp\+\_\+covar() and vrna\+\_\+annotate\+\_\+pr\+\_\+covar()
+\item API\+: Add new no\+LP neighbor generation
+\item SWIG\+: Add wrapper for functions in file\+\_\+utils\+\_\+msa.\+h
+\item SWIG\+: Add wrappers for \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}} and \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5()}}
+\item SWIG\+: Add \mbox{\hyperlink{group__struct__utils__dot__bracket_ga45360c09fb6d04d96e42dcccbb66015b}{vrna\+\_\+db\+\_\+to\+\_\+element\+\_\+string()}} to scripting language interface
+\item REFMAN\+: Fix formula to image conversion in HTML output
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.4.0...v2.4.1}{\texttt{ Version 2.\+4.\+1}} (Release date\+: 2017-\/08-\/23)}
+
+
+\begin{DoxyItemize}
+\item Fix memory leak in fold\+\_\+compound methods of SWIG interface
+\item Fix memory leaks in double $\ast$$\ast$ returning functions of SWIG Perl5 interface
+\item Fix memory leak in vrna\+\_\+ep\+\_\+t to-\/string() function of SWIG interface
+\item Regression\+: Fix reverting pf\+\_\+scale to defaults after \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale()}}
+\item Regression\+: Fix homo-\/dimer partition function computation in RNAcofold
+\item Add unit tests for RNAcofold executable
+\item Add SHAPE reactivity support to RNAcofold
+\item Add SHAPE reactivity support to RNALalifold
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.3.5...v2.4.0}{\texttt{ Version 2.\+4.\+0}} (Release date\+: 2017-\/08-\/01)}
+
+
+\begin{DoxyItemize}
+\item Bump libsvm to version 3.\+22
+\item Print G-\/\+Quadruplex corrections in verbose mode of RNAeval
+\item Change behavior of RNAfold --outfile option to something more predictable
+\item Unify max\+\_\+bp\+\_\+span usage among sliding window prediction algorithms\+: RNAplfold, RNALfold, and RNALalifold now consider any base pair (i,j) with (j -\/ i + 1) $<$= max\+\_\+bp\+\_\+span
+\item Add SHAPE reactivity data support to RNALfold
+\item Add commands-\/file support for RNALfold, RNAplfold (hard/soft constraints)
+\item Add RNAlocmin -\/ Calculate local minima from structures via gradient walks
+\item Add RNA Bioinformatics tutorial (PDF version)
+\item Add hard constraints to sliding-\/window MFE implementations (RNALfold, RNALalifold)
+\item Add hard constraints to sliding-\/window PF implementations (RNAplfold)
+\item Add soft constraints to sliding-\/window MFE implementation for single sequences (RNALfold)
+\item Add soft constraints to sliding-\/window PF implementations (RNAplfold)
+\item Add SWIG interfaces for sliding-\/window MFE/\+PF implementations
+\item Add proper SWIG interface for alignment and structure plotting functions
+\item Add proper SWIG interface for duplexfold, duplex\+\_\+subopt, and its comparative variants
+\item Add SWIG wrapper for \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\+\_\+exp\+\_\+params\+\_\+rescale()}}
+\item Add explicit destructor for SWIG generated vrna\+\_\+md\+\_\+t objects
+\item Add SWIG perl5 typemap for simple nested STL vectors
+\item Add dummy field in \mbox{\hyperlink{structvrna__structured__domains__s}{vrna\+\_\+structured\+\_\+domains\+\_\+s}}
+\item Add note about SSE optimized code in reference manual
+\item Add SWIG interface for findpath implementation
+\item Add prepare() functions for ptypes-\/arrays and vrna\+\_\+(exp\+\_\+)param\+\_\+t
+\item Add warnings for ignored commands in function \mbox{\hyperlink{group__command__files_gac65d0fe86f7671a2d2b85dda1a3ddc16}{vrna\+\_\+commands\+\_\+apply()}}
+\item Add callback featured functions for sliding window MFE and PF implementations
+\item Change default behavior of adding soft constraints to a vrna\+\_\+fold\+\_\+compound\+\_\+t (store only)
+\item Several fixes with respect to G-\/\+Quadruplex prediction in sliding-\/window MFE recursions (single sequence and comparative implementation)
+\item Replace comparative sliding-\/window MFE recursions (All hits are reported to callback and can be filtered in a post-\/processing step)
+\item API\+: Remove E\+\_\+mb\+\_\+loop\+\_\+stack() and introduce new function \mbox{\hyperlink{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}{vrna\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+stack()}} as a replacement
+\item API\+: change data type of all constraint bit-\/flags from {\ttfamily char} to {\ttfamily unsigned char}
+\item API\+: change data type of a2s array in comparative structure prediction from {\ttfamily unsigned short} to {\ttfamily unsigned int}
+\item API\+: Change function parameter order in \mbox{\hyperlink{group__part__func__window_ga7115d012988541a65ec323c5f17a334b}{vrna\+\_\+probs\+\_\+window()}} to follow the style of other callback-\/aware functions in RNAlib
+\item Move sliding-\/window MFE implementations to new file mfe\+\_\+window.\+c
+\item Fix building PDF Reference manual with non-\/standard executable paths
+\item Fix redefinition of macro ON\+\_\+\+SAME\+\_\+\+STRAND() in subopt.\+c
+\item Fix dangling end issues in sliding-\/window MFE implementations
+\item Fix regression for --canonical\+BPonly switch in RNAfold/\+RNAcofold/\+RNAsubopt
+\item Fix building sliding-\/window MFE implementation without SVM support
+\item Fix parsing of STOCKHOLM 1.\+0 MSA files that contain MSA spanning multiple blocks
+\item Fix Alidot link in RNAalifold manpage
+\item Fix wrong pre-\/processor flags when enabling single-\/precision PF computations
+\item Fix unit testing perl5 interface by including builddir/tests in PERL5\+LIB path
+\item Fix buffer overflow in hairpin loop sequence motif extraction for circular RNAs
+\item Fix out-\/of-\/bounds memory access in neighbor.\+c
+\item Restore capability to compile stand-\/alone findpath utility
+\item Restore capability to use non-\/standard alphabets for structure prediction
+\item Restore old-\/\+API random number functions in SWIG interface
+\item Allow additional control characters in MAF MSA input that do not end a block
+\item Improve reference manual
+\item Make functions in \mbox{\hyperlink{pair__mat_8h_source}{pair\+\_\+mat.\+h}} static inline
+\item Prevent users from adding out-\/of-\/range base pair soft constraints
+\item Inline print functions in color\+\_\+output.\+inc
+\item Start documenting callback features in reference manual
+\item Re-\/write large portions of sliding-\/window PF implementation
+\item Introduce soft-\/constraint state flag
+\item Clean-\/up SWIG unit test framework
+\item Remove obsolete scripts ct2b.\+pl and colorrna.\+pl from src/\+Utils directory
+\item Remove old RNAfold tutorial
+\end{DoxyItemize}
+
+\doxysection*{Version 2.\+3.\+x}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.3.4...v2.3.5}{\texttt{ Version 2.\+3.\+5}} (Release date\+: 2017-\/04-\/14)}
+
+
+\begin{DoxyItemize}
+\item Fix duplication of output filename prefix in RNAfold
+\item Add V3.\+0 API for sliding window partition function (a.\+k.\+a. RNAPLfold)
+\item Add G-\/\+Quadruplex prediction to RNALalifold
+\item Add SWIG wrappers for callback-\/based sliding window comparative MFE prediction
+\item Add SSE4.\+1 multiloop decomposition for single sequence MFE prediction
+\item Enable RNAfold unit tests to run in paralllel
+\item Enable users to turn-\/off base pair probability computations in RNAcofold with -\/a option
+\item Split move set in neighbor.\+c
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.3.3...v2.3.4}{\texttt{ Version 2.\+3.\+4}} (Release date\+: 2017-\/03-\/10)}
+
+
+\begin{DoxyItemize}
+\item Fix G-\/\+Quadruplex probability computation for single sequences
+\item Fix double-\/free when using SHAPE reactivity data in RNAalifold
+\item Fix out-\/of-\/bounds access in strand\+\_\+number array
+\item Fix weighting of SHAPE reactivity data in consensus structure prediction when fewer data than sequences are present
+\item Fix z-\/score output in RNALfold
+\item Substitute field name \textquotesingle{}A0\textquotesingle{}/\textquotesingle{}B0\textquotesingle{} in data structure \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\+\_\+dimer\+\_\+conc\+\_\+s}} by \textquotesingle{}Ac\+\_\+start\textquotesingle{}/\textquotesingle{}Bc\+\_\+start\textquotesingle{} to avoid clashes with termios.\+h (Mac OSX Python wrapper bug)
+\item Minimize usage of \textquotesingle{}unsafe\textquotesingle{} sprintf() calls
+\item Enhance auto-\/id feature in executable programs
+\item Always sanitize output file names to avoid problems due to strange FASTA headers
+\item Lift restrictions of FASTA header length in RNAfold, RNAcofold, and RNAeval
+\item Add Vienna\+RNA/config.\+h with pre-\/processor definitions of configure time choices
+\item Add test-\/suite for RNAfold
+\item Add functions to procude colored EPS structure alignments
+\item Add function to write Stockholm 1.\+0 formatted alignments
+\item Add function to sanitize file names
+\item Add callback based implementation for sliding-\/window MFE prediction (single sequences, comparative structure prediction)
+\item Add fast API 3.\+0 implementations to generate structural neighbors and perform steepest descent / random walks (Thanks to Gregor!)
+\item Add parameter option to RNALalifold for colored EPS structure alignment and structure plot output
+\item Add parameter option to RNALalifold to write hits into Stockholm file
+\item Add parameter option to RNAalifold to write Stockholm 1.\+0 formatted output
+\item Add parameter option to RNAalifold to suppress stderr spam
+\item Add auto-\/id feature to RNAplot, RNALfold, RNAsubopt, RNAplfold, RNAheat
+\item Add SHAPE reactivity derived pseudo-\/energies as separate output in RNAalifold
+\item Add colored output to RNA2\+Dfold, RNALalifold, RNALfold, RNAduplex, RNAheat, RNAinverse, RNAplfold, and RNAsubopt
+\item Add command line parameters to RNAsubopt to allow for specification of input/output files
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.3.2...v2.3.3}{\texttt{ Version 2.\+3.\+3}} (Release date\+: 2017-\/01-\/24)}
+
+
+\begin{DoxyItemize}
+\item Fix multiloop contributions for comparative partition function
+\item Fix building python2 extension module for OSX
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.3.1...v2.3.2}{\texttt{ Version 2.\+3.\+2}} (Release date\+: 2017-\/01-\/18)}
+
+
+\begin{DoxyItemize}
+\item Fix pair probability plist creation with G-\/\+Quadruplexes
+\item Allow for specification of python2/3-\/config at configure time
+\item Fix init of vrna\+\_\+md\+\_\+t data structure after call to \mbox{\hyperlink{group__model__details_gabad896c3650d420f3f3ddefc69e2bceb}{set\+\_\+model\+\_\+details()}}
+\item Fix bug in consensus partition function with hard constraints that force nucleotides to be paired
+\item Fix compilation of functions that use ellipsis/va\+\_\+list
+\item Enable generic hard constraints by default
+\item Fix init of partition function DP matrices for unusually short RNAs
+\item Fix behavior of RNAplfold for unusually short RNAs
+\item Report SCI of 0 in RNAalifold when sum of single sequence MFEs is 0
+\item Avoid multiple includes of \mbox{\hyperlink{pair__mat_8h_source}{pair\+\_\+mat.\+h}}
+\item Add configure flag to build entirely static executables
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.3.0...v2.3.1}{\texttt{ Version 2.\+3.\+1}} (Release date\+: 2016-\/11-\/15)}
+
+
+\begin{DoxyItemize}
+\item Add description for how to use unstructured domains through command files to reference manual and RNAfold manpage
+\item Fix compilation issue for Windows platforms with MingW
+\item Add missing newline in non-\/\+TTY-\/color output of \mbox{\hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info()}}
+\item Fix regression in \mbox{\hyperlink{group__model__details_ga36ae40b8c3b82362f5798ad5b047b814}{vrna\+\_\+md\+\_\+update()}} that resulted in incomplete init of reverse-\/basepair type array
+\item Extend coverage of generic hard constraints for partition function computations
+\item Fix scaling of secondary structure in EPS plot such that it always fits into bounding box
+\item Several fixes and improvements for SWIG generated scripting language interface(s)
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.10...v2.3.0}{\texttt{ Version 2.\+3.\+0}} (Release date\+: 2016-\/11-\/01)}
+
+
+\begin{DoxyItemize}
+\item Add grammar extension with structured and unstructured domains
+\item Add default implementation for unstructured domains to allow for ligand/protein binding to unpaired structure segments (MFE and PF for single sequences)
+\item Introduced command files that subsume constraint definition files (currently used in RNAfold and RNAcofold)
+\item Replace explicit calls to asprintf() with portable equivalent functions in the library
+\item Fix configure script to deal with situations where Perl module can\textquotesingle{}t be build
+\item Fix bug in doc/\+Makefile.\+am that prevented HTML installation due to long argument list
+\item Added utility functions that deal with conversion between different units
+\item Bugfix in SWIG wrapped generic soft constraint feature
+\item Add \mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}} and subopt\+\_\+zuker() methods to SWIG wrapped fold\+\_\+compound objects
+\item Bugfix multiloop decomposition in MFE for circular RNAs
+\item Add separate function to compute pscore for alignments
+\item Renamed VRNA\+\_\+\+VC\+\_\+\+TYPE\+\_\+$\ast$ macros to VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+$\ast$
+\item Bugfix regression that prevented programs to fail on too long input sequences
+\item Extend EPS dot-\/plot in RNAfold to include motif/binding probabilities from unstructured domains
+\item Add variadic functions for error/warning/info message
+\item Add ID manipulation feature to RNAeval
+\item Extend API for soft constraint feature for more fine-\/grained control
+\item Add section on SWIG wrapped functions in reference manual
+\item Fix bug in interior loop computations when hard constraints result in non-\/canonical base pairs
+\end{DoxyItemize}
+
+\doxysection*{Version 2.\+2.\+x}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.9...v2.2.10}{\texttt{ Version 2.\+2.\+10}} (Release date\+: 2016-\/09-\/06)}
+
+
+\begin{DoxyItemize}
+\item Do not \textquotesingle{}forget\textquotesingle{} subopt results when output is not written to file handle and sorting is switched off
+\item Fix bad memory access in \mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}} with sorted output
+\item Add SWIG wrappers for \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}}
+\item Correctly show if C11 features are activated in configure status
+\item Fix autoconf checks to allow for cross compilation again
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.8...v2.2.9}{\texttt{ Version 2.\+2.\+9}} (Release date\+: 2016-\/09-\/01)}
+
+
+\begin{DoxyItemize}
+\item Fix bug in partition function scaling for backward compatibility of ali\+\_\+pf\+\_\+fold()
+\item Stabilize v3.\+0 API when building RNAlib and third party program linking against it with compilers that use different C/\+C++ standards
+\item Add details on how to link against RNAlib to the reference manual
+\item Fix RNAlib2.\+pc
+\item Fix bug for temperature setting in RNAplfold
+\item Use -\/fflat-\/lto-\/objects for static RNAlib library to allow linking without LTO
+\item Fix interpretation of \textquotesingle{}P\textquotesingle{} hard constraint for single nucleotides in constraint definition files
+\item Add \textquotesingle{}A\textquotesingle{} command for hard constraints
+\item Fix several hard constraint corner-\/cases in MFE and partition function computation when nucleotides must not be unpaired
+\item Fix order of hard constraints when read from input file
+\item Allow for non-\/canonical base pairs in MFE and partition function computations if hard constraints demand it
+\item Fix behavior of --without-\/swig configure script option
+\item Fix bug in hard constraints usage of exterior loop MFE prediction with odd dangles
+\item Add parsers for Clustal, Stockholm, FASTA, and MAF formatted alignment files
+\item Enable RNAalifold to use Clustal, Stockholm, FASTA, or MAF alignments as input
+\item Lift restriction of sequence number in alignments for RNAalifold
+\item Enable ANSI colors for TTY output in RNAfold, RNAcofold, RNAalifold, RNAsubopt, and warnings/errors issued by RNAlib
+\item Add various new commandline options to manipulate sequence/alignment IDs in RNAfold, RNAcofold and RNAalifold
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.7...v2.2.8}{\texttt{ Version 2.\+2.\+8}} (Release date\+: 2016-\/08-\/01)}
+
+
+\begin{DoxyItemize}
+\item Fix bad memory access in RNAalifold
+\item Fix regression in RNAalifold to restore covariance contribution ratio determination for circular RNA alignments
+\item Changed output of RNAsubopt in energy-\/band enumeration mode to print MFE and energy range in kcal/mol instead of 10cal/mol
+\item Include latest Kinfold sources that make use of v3.\+0 API, therefore speeding up runtime substantially
+\item Re-\/activate warnings in RNAeval when non-\/canonical base pairs are encountered
+\item Fix syntactic incompatibilities that potentially prevented compilation with compilers other than gcc
+\item dd function to compare nucleotides encoded in IUPAC format
+\item Fix regression in energy evaluation for circular RNA sequences
+\item Fix regression in suboptimal structure enumeration for circular RNAs
+\item Allow for P i-\/j k-\/l commands in constraint definition files
+\item Make free energy evaluation functions polymorphic
+\item Add free energy evaluation functions that allow for specifying verbosity level
+\item Secure functions in alphabet.\+c against NULL pointer arguments
+\item Fix incompatibility with swig $>$= 3.\+0.\+9
+\item Fix memory leak in swig-\/generated scripting language interface(s) for user-\/provided target language soft-\/constraint callbacks
+\item Expose additional functions to swig-\/generated scripting language interface(s)
+\item Build Python3 interface by default
+\item Start of more comprehensive scripting language interface documentation
+\item Fix linking of python2/python3 interfaces when libpython is in non-\/standard directory
+\item Restructured viennarna.\+spec for RPM based distributions
+\item Several syntactic changes in the implementation to minimize compiler warnings
+\item Fix --with-\/$\ast$/--without-\/$\ast$ and --enable-\/$\ast$/--disable-\/$\ast$ configure script behavior
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.6...v2.2.7}{\texttt{ Version 2.\+2.\+7}} (Release date\+: 2016-\/06-\/30)}
+
+
+\begin{DoxyItemize}
+\item Fix partition function scaling for long sequences in RNAfold, RNAalifold, and RNAup
+\item Fix backtracking issue in RNAcofold when --no\+LP option is activated
+\item Fix hard constraints issue for circular RNAs in generating suboptimal structures
+\item Rebuild reference manual only when actually required
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.5...v2.2.6}{\texttt{ Version 2.\+2.\+6}} (Release date\+: 2016-\/06-\/19)}
+
+
+\begin{DoxyItemize}
+\item Plugged memory leak in RNAcofold
+\item Fixed partition function rescaling bug in RNAup
+\item Fixed bug in RNALfold with window sizes larger than sequence length
+\item Re-\/added SCI parameter for RNAalifold
+\item Fixed backtracking issue for large G-\/quadruplexes in RNAalifold
+\item Fixed missing FASTA id in RNAeval output
+\item Added option to RNAalifold that allows to specify prefix for output files
+\item Several fixes and additional functions/methods in scripting language interface(s)
+\item Added version information for scripting language interface(s)
+\item Some changes to allow for compilation with newer compilers, such as gcc 6.\+1
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.4...v2.2.5}{\texttt{ Version 2.\+2.\+5}} (Release date\+: 2016-\/04-\/09)}
+
+
+\begin{DoxyItemize}
+\item Fixed regression in RNAcofold that prohibited output of concentration computations
+\item Fixed behavior of RNAfold and RNAcofold when hard constraints create empty solution set (programs now abort with error message)
+\item Added optional Python 3 interface
+\item Added RNA\+::\+Params Perl 5 sub-\/package
+\item Update RNA\+::\+Design Perl 5 sub-\/package
+\item Simplified usage of v3.\+0 API with default options
+\item Wrap more functions of v3.\+0 API in SWIG generated scripting language interfaces
+\item Plugged some memory leaks in SWIG generated scripting language interfaces
+\item Changed parameters of recursion status callback in vrna\+\_\+fold\+\_\+compound\+\_\+t
+\item Enable definition and binding of callback functions from within SWIG target language
+\item Added optional subpackage Kinwalker
+\item Added several configure options to ease building and packaging under Mac\+OS X
+\item Added new utility script RNAdesign.\+pl
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.3...v2.2.4}{\texttt{ Version 2.\+2.\+4}} (Release date\+: 2016-\/02-\/19)}
+
+
+\begin{DoxyItemize}
+\item Fixed bug in RNAsubopt that occasionally produced cofolded structures twice
+\item Removed debugging output in preparations of consensus structure prediction datastructures
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.2...v2.2.3}{\texttt{ Version 2.\+2.\+3}} (Release date\+: 2016-\/02-\/13)}
+
+
+\begin{DoxyItemize}
+\item Added postscipt annotations for found ligand motifs in RNAfold
+\item Added more documentation for the constraints features in RNAfold and RNAalifold
+\item Restore backward compatibility of \mbox{\hyperlink{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}{get\+\_\+alipf\+\_\+arrays()}}
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.1...v2.2.2}{\texttt{ Version 2.\+2.\+2}} (Release date\+: 2016-\/02-\/08)}
+
+
+\begin{DoxyItemize}
+\item Fix regression bug that occasionally prevented backtracking with RNAcofold --no\+LP
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.2.0...v2.2.1}{\texttt{ Version 2.\+2.\+1}} (Release date\+: 2016-\/02-\/06)}
+
+
+\begin{DoxyItemize}
+\item Fix regression bug that made RNAcofold -\/a unusable
+\item Fix regression bug that prohibited RNAfold to compute the MEA structure when G-\/\+Quadruplex support was switched on
+\item Fix bug in Kinfold to enable loading energy parameters from file
+\item Fix potential use of uninitialized value in RNApdist
+\item Add manpage for ct2db
+\item Fix MEA computation when G-\/\+Quadruplex support is activated
+\item Allow for vendor installation of the perl interface using INSTALLDIRS=vendor at configure time
+\item Install architecture dependent and independent files of the perl and python interface to their correct file system locations
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.9...v2.2.0}{\texttt{ Version 2.\+2.\+0}} (Release date\+: 2016-\/01-\/25)}
+
+
+\begin{DoxyItemize}
+\item RNAforester is now of version 2.\+0
+\item New program RNApvmin to compute pseudo-\/energy pertubation vector that minimizes discrepancy between observed and predicted pairing probabilities
+\item SHAPE reactivity support for RNAfold, RNAsubopt, and RNAalifold
+\item Ligand binding to hairpin-\/ and interior-\/loop motif support in RNAfold
+\item New commandline option to limit maximum base pair span for RNAfold, RNAsubopt, RNAcofold, and RNAalifold
+\item Bugfix in RNAheat to remove numerical instabilities
+\item Bugfix in RNAplex to allow for computation of interactions without length limitation
+\item Bugfix in RNAplot for simple layouts and hairpins of size 0
+\item (generic) hard-\/ and soft-\/constraints for MFE, partition function, base pair probabilities, stochastic backtracking, and suboptimal secondary structures of single sequences, sequence alignments, and sequence dimers
+\item libsvm version as required for z-\/scoring in RNALfold is now 3.\+20
+\item Stochastic backtracking for single sequences is faster due to usage of Boustrophedon scheme
+\item First polymorphic functions \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}, and \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}}.
+\item The FLT\+\_\+\+OR\+\_\+\+DBL macro is now a typedef
+\item New functions to convert between different secondary structure representations, such as helix lists, and RNAshapes abstractions
+\item First object-\/oriented interface for new API functions in the scripting language interfaces
+\item new Vienna\+RNA-\/perl submodule that augments the Perl interface to RNAlib
+\item Ligand binding to hairpin-\/ and interior-\/loop motif support in C-\/library and scripting language interfaces.
+\item Libraries are generated using libtool
+\item Linking of libraries and executables defaults to use Link Time Optimization (LTO)
+\item Large changes in directory structure of the source code files
+\end{DoxyItemize}
+
+\doxysection*{Version 2.\+1.\+x}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.8...v2.1.9}{\texttt{ Version 2.\+1.\+9}}}
+
+
+\begin{DoxyItemize}
+\item Fixed integer underflow bug in RNALfold
+\item Added Sequence Conservation index (SCI) option to RNAalifold
+\item Fixed bug in energy evaluation of dangling ends / terminal mismatches of exterior loops and multibranch loops
+\item Fixed bug in alifold partition function for circular RNAs
+\item Fixed bug in alifold that scrambled backtracing with activated G-\/\+Quadruplex support
+\item Fixed bug in alifold backtracking for larger G-\/\+Quadruplexes
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.7...v2.1.8}{\texttt{ Version 2.\+1.\+8}}}
+
+
+\begin{DoxyItemize}
+\item Repaired incorporation of RNAinverse user provided alphabet
+\item Fix missing FASTA ID in RNAeval output
+\item prevent race condition in parallel calls of \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}}
+\item Fixed memory bug in \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}} that occured using long sequences and activated G-\/\+Quad support
+\item Added latest version of switch.\+pl
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.6...v2.1.7}{\texttt{ Version 2.\+1.\+7}}}
+
+
+\begin{DoxyItemize}
+\item Fixed bug in RNALfold -\/z
+\item Python and Perl interface are compiling again under Mac\+OSX
+\item Fixed handling of C arrays in Python interface
+\item Added latest version of switch.\+pl
+\item Make relplot.\+pl work with RNAcofold output
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.5...v2.1.6}{\texttt{ Version 2.\+1.\+6}}}
+
+
+\begin{DoxyItemize}
+\item New commandline switches allow for elimination of non-\/canonical base pairs from constraint structures in RNAfold, RNAalifold and RNAsubopt
+\item updated moveset functions
+\item final fix for discrepancy of tri-\/loop evaluation between partition function and mfe
+\item pkg-\/config file now includes the Open\+MP linker flag if necessary
+\item New program ct2db allows for conversion of .ct files into dot-\/bracket notation (incl. pseudo-\/knot removal)
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.4...v2.1.5}{\texttt{ Version 2.\+1.\+5}}}
+
+
+\begin{DoxyItemize}
+\item Fix for discrepancy between special hairpin loop evaluation in partition functions and MFE
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.3...v2.1.4}{\texttt{ Version 2.\+1.\+4}}}
+
+
+\begin{DoxyItemize}
+\item Fix of G-\/quadruplex support in \mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}}
+\item Fix for discrepancy between special hairpin loop evaluation in partition functions and MFE
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.2...v2.1.3}{\texttt{ Version 2.\+1.\+3}}}
+
+
+\begin{DoxyItemize}
+\item RNAfold\+: Bugfix for ignoring user specified energy parameter files
+\item RNAcofold\+: Bugfix for crashing upon constrained folding without specifying a constraint structure
+\item RNAsubopt\+: Added G-\/quadruplex support
+\item RNAalifold\+: Added parameter option to specify base pair probability threshold in dotplot
+\item Fix of several G-\/quadruplex related bugs
+\item Added G-\/quadruplex support in \mbox{\hyperlink{group__subopt__wuchty_ga700f662506a233e42dd7fda74fafd40e}{subopt()}}
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.1...v2.1.2}{\texttt{ Version 2.\+1.\+2}}}
+
+
+\begin{DoxyItemize}
+\item RNAfold\+: Bugfix for randomly missing probabilities in dot-\/plot during batch job execution
+\item RNAeval\+: Bugfix for misinterpreted G-\/quadruplex containing sequences where the quadruplex starts at nucleotide 1
+\item RNAsubopt\+: Slight changes to the output of stochastic backtracking and zuker subopt
+\item Fix of some memory leaks
+\item Bugfixes in \mbox{\hyperlink{group__subopt__zuker_ga0d5104e3ecf119d8eabd40aa5fe47f90}{zukersubopt()}}, \mbox{\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()}}
+\item New threadsafe variants of putoutp\+U\+\_\+prob$\ast$() for LPfold()
+\item Provision of python2 interface support.
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.1.0...v2.1.1}{\texttt{ Version 2.\+1.\+1}}}
+
+
+\begin{DoxyItemize}
+\item Bugfix to restore backward compatibility with Vienna\+RNA Package 1.\+8.\+x API (this bug also affected proper usage of the the perl interface)
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.7...v2.1.0}{\texttt{ Version 2.\+1.\+0}}}
+
+
+\begin{DoxyItemize}
+\item G-\/\+Quadruplex support in RNAfold, RNAcofold, RNALfold, RNAalifold, RNAeval and RNAplot
+\item LPfold got a new option to output its computations in split-\/mode
+\item several G-\/\+Quadruplex related functions were introduced with this release
+\item several functions for moves in an RNA landscape were introduced
+\item new function in alipfold.\+c now enables access to the partition function matrices of \mbox{\hyperlink{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}{alipf\+\_\+fold()}}
+\item different numeric approach was implement for concentration dependend co-\/folding to avoid instabilities which occured under certain circumstances
+\end{DoxyItemize}
+
+\doxysection*{Version 2.\+0.\+x}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.6...v2.0.7}{\texttt{ Version 2.\+0.\+7}}}
+
+
+\begin{DoxyItemize}
+\item Bugfix for RNAplfold where segfault happened upon usage of -\/O option
+\item Corrected misbehavior of RNAeval and RNAplot in tty mode
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.5...v2.0.6}{\texttt{ Version 2.\+0.\+6}}}
+
+
+\begin{DoxyItemize}
+\item Bugfix for bad type casting with gcc under Mac\+OSX (resulted in accidental \char`\"{}sequence too long\char`\"{} errors)
+\item Bugfix for disappearing tri-\//hexaloop contributions when read in from certain parameter files
+\item Bugfix for RNALfold that segfaulted on short strange sequences like AT+ repeats
+\item Change of RNA2\+Dfold output format for stochastic backtracking
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.4...v2.0.5}{\texttt{ Version 2.\+0.\+5}}}
+
+
+\begin{DoxyItemize}
+\item Restored z-\/score computation capabilities in RNALfold
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.3...v2.0.4}{\texttt{ Version 2.\+0.\+4}}}
+
+
+\begin{DoxyItemize}
+\item Bugfix for RNAcofold partition function
+\item Perl wrapper compatibility to changed RNAlib has been restored
+\item Backward compatibility for partition function calls has been restored
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.2...v2.0.3}{\texttt{ Version 2.\+0.\+3}}}
+
+
+\begin{DoxyItemize}
+\item Bugfix for RNAalifold partition function and base pair probabilities in v2.\+0.\+3b
+\item Added Boltzmann factor scaling in RNAsubopt, RNAalifold, RNAplfold and RNAcofold
+\item Bugfix for alipfold() in v2.\+0.\+3b
+\item Restored threadsafety of folding matrix access in LPfold.\+c, alipfold.\+c, part\+\_\+func.\+c, part\+\_\+func\+\_\+co.\+c and part\+\_\+func\+\_\+up.\+c
+\item Added several new functions regarding threadsafe function calls in terms of concurrently changing the model details
+\item Added pkg-\/config file in the distribution to allow easy checks for certain RNAlib2 versions, compiler flags and linker flags.
+\end{DoxyItemize}
+
+\doxysubsection*{\href{https://github.com/ViennaRNA/ViennaRNA/compare/v2.0.1...v2.0.2}{\texttt{ Version 2.\+0.\+2}}}
+
+
+\begin{DoxyItemize}
+\item added support for Boltzmann factor scaling in RNAfold
+\item fixed fastaheader to filename bug
+\item plugged some memory leaks
+\end{DoxyItemize}
+
+\doxysubsection*{Version 2.\+0.\+1}
+
+
+\begin{DoxyItemize}
+\item First official release of version 2.\+0
+\item included latest bugfixes
+\end{DoxyItemize}
+
+\doxysection*{History}
+
+2011-\/03-\/10 Ronny Lorenz \href{mailto:ronny@tbi.univie.ac.at}{\texttt{ ronny@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item new naming scheme for all shipped energy parameter files
+\item fixed bugs that appear while compiling with gcc under Mac\+OS X
+\item fixed bug in RNAup --interaction-\/first where the longer of the first two sequences was taken as target
+\item added full FASTA input support to RNAfold, RNAcofold, RNAheat, RNAplfold RNALfoldz, RNAsubopt and RNALfold
+\end{DoxyItemize}
+
+2010-\/11-\/24 Ronny Lorenz \href{mailto:ronny@tbi.univie.ac.at}{\texttt{ ronny@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item first full pre-\/release of version 2.\+0
+\end{DoxyItemize}
+
+2009-\/11-\/03 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Fix memory corruption in \mbox{\hyperlink{group__plotting__utils__deprecated_ga821802c3685e37e15182341f6217470d}{PS\+\_\+color\+\_\+aln()}}
+\end{DoxyItemize}
+
+2009-\/09-\/09 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Fix bug in RNAplfold when -\/u and -\/L parameters are equal
+\item Fix double call to \mbox{\hyperlink{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}{free\+\_\+arrays()}} in RNAfold.\+c
+\item Improve drawing of cofolded structures
+\end{DoxyItemize}
+
+2009-\/05-\/14 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Fix occasional segfault in RNAalifold\textquotesingle{}s print\+\_\+aliout()
+\end{DoxyItemize}
+
+2009-\/02-\/24 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Add -\/MEA options to RNAfold and RNAalifold
+\item change energy\+\_\+of\+\_\+alistruct to return float not void
+\end{DoxyItemize}
+
+2009-\/02-\/24 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item RNAfold will draw structures unless -\/no\+PS is used (no more \char`\"{}structure too long\char`\"{} messages)
+\item Restore the \char`\"{}alifold.\+out\char`\"{} output from RNAalifold -\/p
+\item RNAalifold -\/circ did not work due to wrong return type
+\item Accessibility calculation with RNAplfold would give wrong results for u$<$=30
+\end{DoxyItemize}
+
+2008-\/12-\/03 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Add zuker style suboptimals to RNAsubopt (-\/z)
+\item \mbox{\hyperlink{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}{get\+\_\+line()}} should be much faster when reading huge sequences (e.\+g. whole chromosomes for RNALfold)
+\end{DoxyItemize}
+
+2008-\/08-\/12 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Add Ribosum matrices for covariance scoring in RNAalifold
+\end{DoxyItemize}
+
+2008-\/06-\/27 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Change RNAalifold to used berni\textquotesingle{}s new energy evaluation w/o gaps
+\item Add stochastic backtracking in RNAalifold
+\end{DoxyItemize}
+
+2008-\/07-\/04 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item modify output of RNAup (again). Program reading RNAup output will have to updated!
+\end{DoxyItemize}
+
+2008-\/07-\/02 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item RNAplfold now computes accessibilities for all regions up to a max length simultaneously. Slightly slower when only 1 value is needed, but much faster if all of them are wanted. This entails a new output format. Programs reading accessibility output from RNAplfold need to be updated!
+\end{DoxyItemize}
+
+2008-\/03-\/31 Stephan Bernhart \href{mailto:berni@tbi.univie.ac.at}{\texttt{ berni@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add cofolding to RNAsubopt
+\end{DoxyItemize}
+
+2008-\/01-\/08 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item ensure circfold works even for open chain
+\end{DoxyItemize}
+
+2007-\/12-\/13 Ulli Mueckstein \href{mailto:ulli@tbi.univie.ac.at}{\texttt{ ulli@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item upate RNAup related files RNAup can now include the intramolecular structure of both molecules and handles constraints.
+\end{DoxyItemize}
+
+2007-\/12-\/05 Ronny Lorenz \href{mailto:ronny@tbi.univie.ac.at}{\texttt{ ronny@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add circfold variants in part\+\_\+func.\+c alipfold.\+c subopt.\+c
+\end{DoxyItemize}
+
+2007-\/09-\/19 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item compute the controid structure of the ensemble in RNAfold -\/p
+\item fix a missing factor 2 in \mbox{\hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{mean\+\_\+bp\+\_\+dist()}}. CAUTION ensemble diversities returned by RNAfold -\/p are now twice as large as in earlier versions.
+\end{DoxyItemize}
+
+2007-\/09-\/04 Ivo Hofacker \href{mailto:ivo@blini.tbi.univie.ac.at}{\texttt{ ivo@blini.\+tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix a bug in \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}} where base number n-\/max-\/4 would never pair
+\end{DoxyItemize}
+
+2007-\/08-\/26 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add RNAaliduplex the alignment version of RNAduplex
+\item introduce a minimal distance between hits produced by duplex\+\_\+subopt()
+\end{DoxyItemize}
+
+2007-\/07-\/03 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add a \mbox{\hyperlink{group__eval__deprecated_ga507d4fd93f4b398d793ba2402731388d}{loop\+\_\+energy()}} function to compute energy of a single loop
+\end{DoxyItemize}
+
+2007-\/06-\/23 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add ali\+Lfold() and RNALalifold, alignment variant of \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}}
+\end{DoxyItemize}
+
+2007-\/04-\/30 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add RNAup to distribution
+\end{DoxyItemize}
+
+2007-\/04-\/15 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix segfault in colorps output (thanks to Andres Varon)
+\end{DoxyItemize}
+
+2007-\/03-\/03 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item avoid unnormalized doubles in scale\mbox{[}\mbox{]}, big speedup for \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} on very long sequences
+\end{DoxyItemize}
+
+2007-\/02-\/03 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item RNAalifold can now produce colored structure plots and alignment plots
+\end{DoxyItemize}
+
+2007-\/02-\/01 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Fix segfault in RNAplfold because of missing prototype
+\end{DoxyItemize}
+
+2006-\/12-\/01 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item RNAduplex would segfault when no structure base pairs are possible
+\end{DoxyItemize}
+
+2006-\/08-\/22 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add computation stacking probabilities using RNAfold -\/p2
+\item add -\/no\+PS option for NRAfold to supress drawing structures
+\end{DoxyItemize}
+
+2006-\/08-\/09 Stephan Bernhart \href{mailto:berni@tbi.univie.ac.at}{\texttt{ berni@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item RNAplfold can now compute probabilites of unpaired regions (scanning version of RNAup)
+\end{DoxyItemize}
+
+2006-\/06-\/14 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item compile library with -\/fpic (if available) for use as shared library in the Perl module.
+\item fix another bug when calling \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}} repeatedly
+\item fix switch cmdline parsing in RNAalifold (-\/mis implied -\/4)
+\item fix bug in \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} with dangles=0
+\end{DoxyItemize}
+
+2006-\/05-\/08 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix segfault in \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}} when calling repeatedly
+\item fix structure parsing in RNAstruct.\+c (thanks to Michael Pheasant for reporting both bugs)
+\item add duplexfold() and \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}} to Perl module
+\item distinguish window size and max pair span in LPfold
+\end{DoxyItemize}
+
+2006-\/04-\/05 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix performance bug in \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold()}}
+\item use relative error for termination of Newton iteration
+\end{DoxyItemize}
+
+2006-\/03-\/02 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add circular folding in \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}}
+\end{DoxyItemize}
+
+2006-\/01-\/18 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item cleanup berni partition cofold code, including several bug fixes
+\end{DoxyItemize}
+
+2006-\/01-\/16 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item update RNAplfold to working version
+\item add PS\+\_\+dot\+\_\+plot\+\_\+turn() in PS\+\_\+dot.\+c
+\end{DoxyItemize}
+
+2005-\/11-\/07 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add new utilities colorna and coloraln
+\end{DoxyItemize}
+
+2005-\/10-\/11 Christoph Flamm \href{mailto:xtof@tbi.univie.ac.at}{\texttt{ xtof@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item adapt \mbox{\hyperlink{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}{PS\+\_\+rna\+\_\+plot()}} for drawing co-\/folded structures
+\end{DoxyItemize}
+
+2005-\/07-\/24 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix a few memory problems in structure comparison routines
+\end{DoxyItemize}
+
+2005-\/04-\/30 Ivo Hofacker \href{mailto:ivo@blini.tbi.univie.ac.at}{\texttt{ ivo@blini.\+tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add folding of circular RNAs
+\end{DoxyItemize}
+
+2005-\/03-\/11 Ivo Hofacker \href{mailto:ivo@blini.tbi.univie.ac.at}{\texttt{ ivo@blini.\+tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add -\/mis option to RNAalifold to give \char`\"{}most informative     sequence\char`\"{} as consensus
+\end{DoxyItemize}
+
+2005-\/02-\/10 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item move \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}} into the library
+\end{DoxyItemize}
+
+2004-\/12-\/22 Stephan Bernhart \href{mailto:berni@tbi.univie.ac.at}{\texttt{ berni@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add partition function version of RNAcofold
+\end{DoxyItemize}
+
+2004-\/12-\/23 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add RNApaln for fast structural alignments (RNApdist improvement)
+\end{DoxyItemize}
+
+2004-\/08-\/12 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix constrained folding in stochastic backtracking
+\end{DoxyItemize}
+
+2004-\/07-\/21 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add RNAduplex, to compute hybrid structures without intra-\/molecular pairs
+\end{DoxyItemize}
+
+2004-\/02-\/09 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item fix bug in fold that caused segfaults when using Intel compiler
+\item add computation of ensemble diversity to RNAfold
+\end{DoxyItemize}
+
+2003-\/09-\/10 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add annotation options to RNAplot
+\end{DoxyItemize}
+
+2003-\/08-\/04 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item stochastic backtracking finally works. Try e.\+g. RNAsubopt -\/p 10
+\end{DoxyItemize}
+
+2003-\/07-\/18 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add relplot.\+pl and rotate\+\_\+ss.\+pl utilities for reliability annotation and rotation of rna structure plots
+\end{DoxyItemize}
+
+2003-\/01-\/29 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add RNALfold program to compute locally optimal structures with maximum pair span.
+\item add RNAcofold for computing hybrid structure
+\end{DoxyItemize}
+
+2002-\/11-\/07 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item change \mbox{\hyperlink{profiledist_8h_a904c7eaf4a2413567c00ac4891749d18}{Make\+\_\+bp\+\_\+profile()}} and \mbox{\hyperlink{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}{profile\+\_\+edit\+\_\+distance()}} to use simple (float $\ast$) arrays; makes Perl access much easier. RNApdist -\/B now works again
+\end{DoxyItemize}
+
+2002-\/10-\/28 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Improved Perl module with pod documentation; allow to write things like (\$structure, \$energy) = RNA\+::fold(\$seq); Compatibility warning\+: the ptrvalue() and related functions are gone, see the pod documentation for alternatives.
+\end{DoxyItemize}
+
+2002-\/10-\/29 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item added svg structure plots in PS\+\_\+dot.\+c and RNAplot
+\end{DoxyItemize}
+
+2002-\/08-\/15 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item Improve reading of clustal files (alifold)
+\item add a sample alifold.\+cgi script
+\end{DoxyItemize}
+
+2001-\/09-\/18 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item moved suboptimal folding into the library, thus it\textquotesingle{}s now accessible from the Perl module
+\end{DoxyItemize}
+
+2001-\/08-\/31 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item added co-\/folding support in \mbox{\hyperlink{group__eval__deprecated_gac2b37fea2145c94d925a3f33378ef87b}{energy\+\_\+of\+\_\+struct()}}, and thus RNAeval
+\end{DoxyItemize}
+
+2001-\/04-\/30 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item switch from handcrafted makefiles to automake and autoconf
+\end{DoxyItemize}
+
+2001-\/04-\/05 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item added PS\+\_\+rna\+\_\+plot\+\_\+a to produce structure plots with annotation
+\end{DoxyItemize}
+
+2001-\/03-\/03 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add alifold; predict consensus structures from alignment
+\end{DoxyItemize}
+
+2000-\/09-\/28 Ivo Hofacker \href{mailto:ivo@tbi.univie.ac.at}{\texttt{ ivo@tbi.\+univie.\+ac.\+at}}
+
+
+\begin{DoxyItemize}
+\item add -\/d3 option to RNAfold for co-\/axial stacking 
+\end{DoxyItemize}

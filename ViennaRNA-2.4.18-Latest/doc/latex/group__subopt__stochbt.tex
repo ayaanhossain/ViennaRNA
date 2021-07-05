@@ -1,0 +1,793 @@
+\hypertarget{group__subopt__stochbt}{}\doxysection{Random Structure Samples from the Ensemble}
+\label{group__subopt__stochbt}\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+
+
+Functions to draw random structure samples from the ensemble according to their equilibrium probability.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to draw random structure samples from the ensemble according to their equilibrium probability. 
+
+Collaboration diagram for Random Structure Samples from the Ensemble\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__subopt__stochbt}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__kl__neighborhood__stochbt}{Stochastic Backtracking of Structures from Distance Based Partitioning}}
+\begin{DoxyCompactList}\small\item\em Contains functions related to stochastic backtracking from a specified distance class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__subopt__stochbt__deprecated}{Deprecated Interface for Stochastic Backtracking}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}~0
+\begin{DoxyCompactList}\small\item\em Boltzmann sampling flag indicating default backtracing mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}~1
+\begin{DoxyCompactList}\small\item\em Boltzmann sampling flag indicating non-\/redundant backtracing mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}}(const char $\ast$stucture, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback for Boltzmann sampling. \end{DoxyCompactList}\item 
+typedef struct vrna\+\_\+pbacktrack\+\_\+memory\+\_\+s $\ast$ \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Boltzmann sampling memory data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure of a subsequence from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, unsigned int num\+\_\+samples, unsigned int length, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int length, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\begin{DoxyCompactList}\small\item\em Sample a secondary structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int num\+\_\+samples, \mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$cb, void $\ast$data, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$nr\+\_\+mem, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free}} (\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} s)
+\begin{DoxyCompactList}\small\item\em Release memory occupied by a Boltzmann sampling memory data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}\label{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!VRNA\_PBACKTRACK\_DEFAULT@{VRNA\_PBACKTRACK\_DEFAULT}}
+\index{VRNA\_PBACKTRACK\_DEFAULT@{VRNA\_PBACKTRACK\_DEFAULT}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PBACKTRACK\_DEFAULT}{VRNA\_PBACKTRACK\_DEFAULT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT~0}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Boltzmann sampling flag indicating default backtracing mode. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}\label{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!VRNA\_PBACKTRACK\_NON\_REDUNDANT@{VRNA\_PBACKTRACK\_NON\_REDUNDANT}}
+\index{VRNA\_PBACKTRACK\_NON\_REDUNDANT@{VRNA\_PBACKTRACK\_NON\_REDUNDANT}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PBACKTRACK\_NON\_REDUNDANT}{VRNA\_PBACKTRACK\_NON\_REDUNDANT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT~1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Boltzmann sampling flag indicating non-\/redundant backtracing mode. 
+
+This flag will turn the Boltzmann sampling into non-\/redundant backtracing mode along the lines of Michalik et al. 2017 \cite{michalik:2017}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}\label{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_boltzmann\_sampling\_callback@{vrna\_boltzmann\_sampling\_callback}}
+\index{vrna\_boltzmann\_sampling\_callback@{vrna\_boltzmann\_sampling\_callback}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_boltzmann\_sampling\_callback}{vrna\_boltzmann\_sampling\_callback}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback(const char $\ast$stucture, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Callback for Boltzmann sampling. 
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\mbox{\hyperlink{callbacks__callbacks000001}{Notes on Callback Functions}}]This function will be called for each secondary structure that has been successfully backtraced from the partition function DP matrices. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em data} & Some arbitrary, auxiliary data address as provided to the calling function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}\label{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack\_mem\_t@{vrna\_pbacktrack\_mem\_t}}
+\index{vrna\_pbacktrack\_mem\_t@{vrna\_pbacktrack\_mem\_t}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_mem\_t}{vrna\_pbacktrack\_mem\_t}}
+{\footnotesize\ttfamily typedef struct vrna\+\_\+pbacktrack\+\_\+memory\+\_\+s$\ast$ \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Boltzmann sampling memory data structure. 
+
+This structure is required for properly resuming a previous sampling round in specialized Boltzmann sampling, such as non-\/redundant backtracking.
+
+Initialize with {\ttfamily NULL} and pass its address to the corresponding functions \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, etc.
+
+\begin{DoxyNote}{Note}
+Do not forget to release memory occupied by this data structure before losing its context! Use \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free()}}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}\label{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack5@{vrna\_pbacktrack5}}
+\index{vrna\_pbacktrack5@{vrna\_pbacktrack5}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack5()}{vrna\_pbacktrack5()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+pbacktrack5 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Sample a secondary structure of a subsequence from the Boltzmann ensemble according its probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a secondary structure. The parameter {\ttfamily length} specifies the length of the substructure starting from the 5\textquotesingle{} end.
+
+The structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em length} & The length of the subsequence to consider (starting with 5\textquotesingle{} end) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation (or NULL on error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000005}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}\label{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack5\_num@{vrna\_pbacktrack5\_num}}
+\index{vrna\_pbacktrack5\_num@{vrna\_pbacktrack5\_num}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack5\_num()}{vrna\_pbacktrack5\_num()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ vrna\+\_\+pbacktrack5\+\_\+num (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{unsigned int}]{length,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures. The parameter {\ttfamily length} specifies the length of the substructure starting from the 5\textquotesingle{} end.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em length} & The length of the subsequence to consider (starting with 5\textquotesingle{} end) \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of secondary structure samples in dot-\/bracket notation terminated by NULL (or NULL on error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000007}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}\label{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack5\_cb@{vrna\_pbacktrack5\_cb}}
+\index{vrna\_pbacktrack5\_cb@{vrna\_pbacktrack5\_cb}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack5\_cb()}{vrna\_pbacktrack5\_cb()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+pbacktrack5\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{unsigned int}]{length,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$}]{cb,  }\item[{void $\ast$}]{data,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures. The parameter {\ttfamily length} specifies the length of the substructure starting from the 5\textquotesingle{} end.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+In contrast to \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5()}} and \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num()}} this function yields the structure samples through a callback mechanism.
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5()}}, \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em length} & The length of the subsequence to consider (starting with 5\textquotesingle{} end) \\
+\hline
+{\em cb} & The callback that receives the sampled structure \\
+\hline
+{\em data} & A data structure passed through to the callback {\ttfamily cb} \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of structures actually backtraced
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000009}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}\label{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack5\_resume@{vrna\_pbacktrack5\_resume}}
+\index{vrna\_pbacktrack5\_resume@{vrna\_pbacktrack5\_resume}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack5\_resume()}{vrna\_pbacktrack5\_resume()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ vrna\+\_\+pbacktrack5\+\_\+resume (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{unsigned int}]{length,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$}]{nr\+\_\+mem,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures. The parameter {\ttfamily length} specifies the length of the substructure starting from the 5\textquotesingle{} end.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+In contrast to \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}} this function allows for resuming a previous sampling round in specialized Boltzmann sampling, such as non-\/redundant backtracking. For that purpose, the user passes the address of a Boltzmann sampling data structure (\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}) which will be re-\/used in each round of sampling, i.\+e. each successive call to \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}} or \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}.
+
+A successive sample call to this function may look like\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}} nonredundant\_memory = NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample the first 100 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\_pbacktrack5\_resume}}(fc,}
+\DoxyCodeLine{                        100,}
+\DoxyCodeLine{                        fc-\/>length,}
+\DoxyCodeLine{                        \&nonredundant\_memory,}
+\DoxyCodeLine{                        options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample another 500 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\_pbacktrack5\_resume}}(fc,}
+\DoxyCodeLine{                        500,}
+\DoxyCodeLine{                        fc-\/>length,}
+\DoxyCodeLine{                        \&nonredundant\_memory,}
+\DoxyCodeLine{                        options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// release memory occupied by the non-\/redundant memory data structure}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\_pbacktrack\_mem\_free}}(nonredundant\_memory);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}, \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em length} & The length of the subsequence to consider (starting with 5\textquotesingle{} end) \\
+\hline
+{\em nr\+\_\+mem} & The address of the Boltzmann sampling memory data structure \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of secondary structure samples in dot-\/bracket notation terminated by NULL (or NULL on error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000011}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the list of structures, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}\label{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack5\_resume\_cb@{vrna\_pbacktrack5\_resume\_cb}}
+\index{vrna\_pbacktrack5\_resume\_cb@{vrna\_pbacktrack5\_resume\_cb}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack5\_resume\_cb()}{vrna\_pbacktrack5\_resume\_cb()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{unsigned int}]{length,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$}]{cb,  }\item[{void $\ast$}]{data,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$}]{nr\+\_\+mem,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples for a subsequence from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures. The parameter {\ttfamily length} specifies the length of the substructure starting from the 5\textquotesingle{} end.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+In contrast to \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}} this function yields the structure samples through a callback mechanism.
+
+A successive sample call to this function may look like\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}} nonredundant\_memory = NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample the first 100 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\_pbacktrack5\_resume\_cb}}(fc,}
+\DoxyCodeLine{                           100,}
+\DoxyCodeLine{                           fc-\/>length,}
+\DoxyCodeLine{                           \&callback\_function,}
+\DoxyCodeLine{                           (\textcolor{keywordtype}{void} *)\&callback\_data,}
+\DoxyCodeLine{                           \&nonredundant\_memory,}
+\DoxyCodeLine{                           options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample another 500 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\_pbacktrack5\_resume\_cb}}(fc,}
+\DoxyCodeLine{                           500,}
+\DoxyCodeLine{                           fc-\/>length,}
+\DoxyCodeLine{                           \&callback\_function,}
+\DoxyCodeLine{                           (\textcolor{keywordtype}{void} *)\&callback\_data,}
+\DoxyCodeLine{                           \&nonredundant\_memory,}
+\DoxyCodeLine{                           options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// release memory occupied by the non-\/redundant memory data structure}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\_pbacktrack\_mem\_free}}(nonredundant\_memory);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}, \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em length} & The length of the subsequence to consider (starting with 5\textquotesingle{} end) \\
+\hline
+{\em cb} & The callback that receives the sampled structure \\
+\hline
+{\em data} & A data structure passed through to the callback {\ttfamily cb} \\
+\hline
+{\em nr\+\_\+mem} & The address of the Boltzmann sampling memory data structure \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of structures actually backtraced
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000013}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the number of structures backtraced, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}\label{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack@{vrna\_pbacktrack}}
+\index{vrna\_pbacktrack@{vrna\_pbacktrack}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack()}{vrna\_pbacktrack()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+pbacktrack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Sample a secondary structure from the Boltzmann ensemble according its probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a secondary structure.
+
+The structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5()}}, \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation (or NULL on error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000006}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}\label{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack\_num@{vrna\_pbacktrack\_num}}
+\index{vrna\_pbacktrack\_num@{vrna\_pbacktrack\_num}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_num()}{vrna\_pbacktrack\_num()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ vrna\+\_\+pbacktrack\+\_\+num (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga30c3ddff868c44eecfdb07d99a2422ba}{vrna\+\_\+pbacktrack5\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of secondary structure samples in dot-\/bracket notation terminated by NULL (or NULL on error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000008}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}\label{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack\_cb@{vrna\_pbacktrack\_cb}}
+\index{vrna\_pbacktrack\_cb@{vrna\_pbacktrack\_cb}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_cb()}{vrna\_pbacktrack\_cb()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+pbacktrack\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$}]{cb,  }\item[{void $\ast$}]{data,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+In contrast to \mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}} and \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num()}} this function yields the structure samples through a callback mechanism.
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga594844ac73c4e66e00d6791b31540634}{vrna\+\_\+pbacktrack()}}, \mbox{\hyperlink{group__subopt__stochbt_ga596ed9bcd86f629a7c7c59c58b297db5}{vrna\+\_\+pbacktrack\+\_\+num()}}, \mbox{\hyperlink{group__subopt__stochbt_ga626beb5b5b962d7e7c8433cd2cfd4e93}{vrna\+\_\+pbacktrack5\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em cb} & The callback that receives the sampled structure \\
+\hline
+{\em data} & A data structure passed through to the callback {\ttfamily cb} \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of structures actually backtraced
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000010}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound} where the last argument {\ttfamily options} is optional with default value {\ttfamily options = VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}\label{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack\_resume@{vrna\_pbacktrack\_resume}}
+\index{vrna\_pbacktrack\_resume@{vrna\_pbacktrack\_resume}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_resume()}{vrna\_pbacktrack\_resume()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ vrna\+\_\+pbacktrack\+\_\+resume (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$}]{nr\+\_\+mem,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+In contrast to \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}} this function allows for resuming a previous sampling round in specialized Boltzmann sampling, such as non-\/redundant backtracking. For that purpose, the user passes the address of a Boltzmann sampling data structure (\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}) which will be re-\/used in each round of sampling, i.\+e. each successive call to \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}} or \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}.
+
+A successive sample call to this function may look like\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}} nonredundant\_memory = NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample the first 100 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\_pbacktrack\_resume}}(fc,}
+\DoxyCodeLine{                       100,}
+\DoxyCodeLine{                       \&nonredundant\_memory,}
+\DoxyCodeLine{                       options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample another 500 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\_pbacktrack\_resume}}(fc,}
+\DoxyCodeLine{                       500,}
+\DoxyCodeLine{                       \&nonredundant\_memory,}
+\DoxyCodeLine{                       options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// release memory occupied by the non-\/redundant memory data structure}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\_pbacktrack\_mem\_free}}(nonredundant\_memory);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}, \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em nr\+\_\+mem} & The address of the Boltzmann sampling memory data structure \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of secondary structure samples in dot-\/bracket notation terminated by NULL (or NULL on error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000012}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the list of structures, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}\label{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack\_resume\_cb@{vrna\_pbacktrack\_resume\_cb}}
+\index{vrna\_pbacktrack\_resume\_cb@{vrna\_pbacktrack\_resume\_cb}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_resume\_cb()}{vrna\_pbacktrack\_resume\_cb()}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{num\+\_\+samples,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gad5bd9c8b195dd9cde15389f0042f0e44}{vrna\+\_\+boltzmann\+\_\+sampling\+\_\+callback}} $\ast$}]{cb,  }\item[{void $\ast$}]{data,  }\item[{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}} $\ast$}]{nr\+\_\+mem,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Obtain a set of secondary structure samples from the Boltzmann ensemble according their probability. 
+
+Perform a probabilistic (stochastic) backtracing in the partition function DP arrays to obtain a set of {\ttfamily num\+\_\+samples} secondary structures.
+
+Any structure $ s $ with free energy $ E(s) $ is picked from the Boltzmann distributed ensemble according to its probability \[ p(s) = \frac{exp(-E(s) / kT)}{Z} \] with partition function $ Z = \sum_s exp(-E(s) / kT) $, Boltzmann constant $ k $ and thermodynamic temperature $ T $.
+
+Using the {\ttfamily options} flag one can switch between regular (\mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}) backtracing mode, and non-\/redundant sampling (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}) along the lines of Michalik et al. 2017 \cite{michalik:2017}.
+
+In contrast to \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}} this function yields the structure samples through a callback mechanism.
+
+A successive sample call to this function may look like\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\_pbacktrack\_mem\_t}} nonredundant\_memory = NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample the first 100 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\_pbacktrack5\_resume\_cb}}(fc,}
+\DoxyCodeLine{                           100,}
+\DoxyCodeLine{                           \&callback\_function,}
+\DoxyCodeLine{                           (\textcolor{keywordtype}{void} *)\&callback\_data,}
+\DoxyCodeLine{                           \&nonredundant\_memory,}
+\DoxyCodeLine{                           options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// sample another 500 structures}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\_pbacktrack5\_resume\_cb}}(fc,}
+\DoxyCodeLine{                           500,}
+\DoxyCodeLine{                           \&callback\_function,}
+\DoxyCodeLine{                           (\textcolor{keywordtype}{void} *)\&callback\_data,}
+\DoxyCodeLine{                           \&nonredundant\_memory,}
+\DoxyCodeLine{                           options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// release memory occupied by the non-\/redundant memory data structure}}
+\DoxyCodeLine{\mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\_pbacktrack\_mem\_free}}(nonredundant\_memory);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyPrecond}{Precondition}
+Unique multiloop decomposition has to be active upon creation of {\ttfamily fc} with \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} or similar. This can be done easily by passing \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} a model details parameter with \mbox{\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{vrna\+\_\+md\+\_\+t.\+uniq\+\_\+\+ML}} = 1. 
+
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} has to be called first to fill the partition function matrices
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+In non-\/redundant sampling mode (\mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}), this function may not yield the full number of requested samples. This may happen if a) the number of requested structures is larger than the total number of structuresin the ensemble, b) numeric instabilities prevent the backtracking function to enumerate structures with high free energies, or c) any other error occurs.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga843fa953a15337b15cc68401adad84d7}{vrna\+\_\+pbacktrack\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}, \mbox{\hyperlink{group__subopt__stochbt_ga760aa2fb2d5e3d7521a11454a21e9b9f}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__subopt__stochbt_ga9d580ce645aa0c38b69afdf56c332200}{VRNA\+\_\+\+PBACKTRACK\+\_\+\+NON\+\_\+\+REDUNDANT}}, \mbox{\hyperlink{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure \\
+\hline
+{\em num\+\_\+samples} & The size of the sample set, i.\+e. number of structures \\
+\hline
+{\em cb} & The callback that receives the sampled structure \\
+\hline
+{\em data} & A data structure passed through to the callback {\ttfamily cb} \\
+\hline
+{\em nr\+\_\+mem} & The address of the Boltzmann sampling memory data structure \\
+\hline
+{\em options} & A bitwise OR-\/flag indicating the backtracing mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of structures actually backtraced
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000014}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack()}}}} to objects of type {\itshape fold\+\_\+compound}. In addition to the number of structures backtraced, this function also returns the {\ttfamily nr\+\_\+mem} data structure as first element. See also \mbox{\hyperlink{examples_python_examples_python_pbacktrack}{Python Examples -\/ Boltzmann Sampling}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}\label{group__subopt__stochbt_gae64fbdef59e7f503d7e920aac279212b}} 
+\index{Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}!vrna\_pbacktrack\_mem\_free@{vrna\_pbacktrack\_mem\_free}}
+\index{vrna\_pbacktrack\_mem\_free@{vrna\_pbacktrack\_mem\_free}!Random Structure Samples from the Ensemble@{Random Structure Samples from the Ensemble}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_mem\_free()}{vrna\_pbacktrack\_mem\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+pbacktrack\+\_\+mem\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}}]{s }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{boltzmann__sampling_8h}{Vienna\+RNA/boltzmann\+\_\+sampling.\+h}}$>$}
+
+
+
+Release memory occupied by a Boltzmann sampling memory data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__stochbt_gaa59c30efbed96bf9aaf8005584c72e63}{vrna\+\_\+pbacktrack\+\_\+mem\+\_\+t}}, \mbox{\hyperlink{group__subopt__stochbt_gac5d7065196975b803daeb4e094ba1cb9}{vrna\+\_\+pbacktrack5\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga4a91dc092580faf7799476e8dd76e0ac}{vrna\+\_\+pbacktrack5\+\_\+resume\+\_\+cb()}}, \mbox{\hyperlink{group__subopt__stochbt_gae175129ece546fe7c092f27072e039d1}{vrna\+\_\+pbacktrack\+\_\+resume()}}, \mbox{\hyperlink{group__subopt__stochbt_ga6fc5ce952995e53baef52cad5581c063}{vrna\+\_\+pbacktrack\+\_\+resume\+\_\+cb()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The non-\/redundancy memory data structure \\
+\hline
+\end{DoxyParams}

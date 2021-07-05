@@ -1,0 +1,150 @@
+\hypertarget{group__part__func__window__deprecated}{}\doxysection{Deprecated Interface for Local (Sliding Window) Partition Function Computation}
+\label{group__part__func__window__deprecated}\index{Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Local (Sliding Window) Partition Function Computation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__part__func__window__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{LPfold_8h}{LPfold.\+h}}
+\begin{DoxyCompactList}\small\item\em Partition function and equilibrium probability implementation for the sliding window algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__part__func__window__deprecated_ga5a019014d37fe6105131dfc2fc447880}{update\+\_\+pf\+\_\+params\+LP}} (int length)
+\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__window__deprecated_ga7cdf690583871f9c158a0f91d4785cb6}{pfl\+\_\+fold}} (char $\ast$sequence, int win\+Size, int pair\+Size, float cutoffb, double $\ast$$\ast$pU, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$dpp2, FILE $\ast$p\+Ufp, FILE $\ast$spup)
+\begin{DoxyCompactList}\small\item\em Compute partition functions for locally stable secondary structures. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__part__func__window__deprecated_gaedf355f07b3d83bc93f98712132571b0}\label{group__part__func__window__deprecated_gaedf355f07b3d83bc93f98712132571b0}} 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__window__deprecated_gaedf355f07b3d83bc93f98712132571b0}{pfl\+\_\+fold\+\_\+par}} (char $\ast$sequence, int win\+Size, int pair\+Size, float cutoffb, double $\ast$$\ast$pU, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$dpp2, FILE $\ast$p\+Ufp, FILE $\ast$spup, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Compute partition functions for locally stable secondary structures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__window__deprecated_ga0bcb751860bbf34e3dfee8c2fbdb3ef3}{putoutp\+U\+\_\+prob}} (double $\ast$$\ast$pU, int length, int ulength, FILE $\ast$fp, int energies)
+\begin{DoxyCompactList}\small\item\em Writes the unpaired probabilities (pU) or opening energies into a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__window__deprecated_ga9acb00ee10e96b1ca4ea394cd8bcec75}{putoutp\+U\+\_\+prob\+\_\+bin}} (double $\ast$$\ast$pU, int length, int ulength, FILE $\ast$fp, int energies)
+\begin{DoxyCompactList}\small\item\em Writes the unpaired probabilities (pU) or opening energies into a binary file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__part__func__window__deprecated_ga5a019014d37fe6105131dfc2fc447880}\label{group__part__func__window__deprecated_ga5a019014d37fe6105131dfc2fc447880}} 
+\index{Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}!update\_pf\_paramsLP@{update\_pf\_paramsLP}}
+\index{update\_pf\_paramsLP@{update\_pf\_paramsLP}!Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{update\_pf\_paramsLP()}{update\_pf\_paramsLP()}}
+{\footnotesize\ttfamily void update\+\_\+pf\+\_\+params\+LP (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{LPfold_8h}{Vienna\+RNA/\+LPfold.\+h}}$>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__window__deprecated_ga7cdf690583871f9c158a0f91d4785cb6}\label{group__part__func__window__deprecated_ga7cdf690583871f9c158a0f91d4785cb6}} 
+\index{Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}!pfl\_fold@{pfl\_fold}}
+\index{pfl\_fold@{pfl\_fold}!Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{pfl\_fold()}{pfl\_fold()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}}$\ast$ pfl\+\_\+fold (\begin{DoxyParamCaption}\item[{char $\ast$}]{sequence,  }\item[{int}]{win\+Size,  }\item[{int}]{pair\+Size,  }\item[{float}]{cutoffb,  }\item[{double $\ast$$\ast$}]{pU,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$}]{dpp2,  }\item[{FILE $\ast$}]{p\+Ufp,  }\item[{FILE $\ast$}]{spup }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{LPfold_8h}{Vienna\+RNA/\+LPfold.\+h}}$>$}
+
+
+
+Compute partition functions for locally stable secondary structures. 
+
+pfl\+\_\+fold computes partition functions for every window of size \textquotesingle{}win\+Size\textquotesingle{} possible in a RNA molecule, allowing only pairs with a span smaller than \textquotesingle{}pair\+Size\textquotesingle{}. It returns the mean pair probabilities averaged over all windows containing the pair in \textquotesingle{}pl\textquotesingle{}. \textquotesingle{}win\+Size\textquotesingle{} should always be $>$= \textquotesingle{}pair\+Size\textquotesingle{}. Note that in contrast to \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold()}}, bases outside of the window do not influence the structure at all. Only probabilities higher than \textquotesingle{}cutoffb\textquotesingle{} are kept.
+
+If \textquotesingle{}pU\textquotesingle{} is supplied (i.\+e is not the NULL pointer), \mbox{\hyperlink{group__part__func__window__deprecated_ga7cdf690583871f9c158a0f91d4785cb6}{pfl\+\_\+fold()}} will also compute the mean probability that regions of length \textquotesingle{}u\textquotesingle{} and smaller are unpaired. The parameter \textquotesingle{}u\textquotesingle{} is supplied in \textquotesingle{}pup\mbox{[}0\mbox{]}\mbox{[}0\mbox{]}\textquotesingle{}. On return the \textquotesingle{}pup\textquotesingle{} array will contain these probabilities, with the entry on \textquotesingle{}pup\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}\textquotesingle{} containing the mean probability that x and the y-\/1 preceding bases are unpaired. The \textquotesingle{}pU\textquotesingle{} array needs to be large enough to hold n+1 float$\ast$ entries, where n is the sequence length.
+
+If an array dpp2 is supplied, the probability of base pair (i,j) given that there already exists a base pair (i+1,j-\/1) is also computed and saved in this array. If p\+Ufp is given (i.\+e. not NULL), pU is not saved but put out imediately. If spup is given (i.\+e. is not NULL), the pair probabilities in pl are not saved but put out imediately.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & RNA sequence \\
+\hline
+{\em win\+Size} & size of the window \\
+\hline
+{\em pair\+Size} & maximum size of base pair \\
+\hline
+{\em cutoffb} & cutoffb for base pairs \\
+\hline
+{\em pU} & array holding all unpaired probabilities \\
+\hline
+{\em dpp2} & array of dependent pair probabilities \\
+\hline
+{\em p\+Ufp} & file pointer for pU \\
+\hline
+{\em spup} & file pointer for pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of pair probabilities 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__window__deprecated_ga0bcb751860bbf34e3dfee8c2fbdb3ef3}\label{group__part__func__window__deprecated_ga0bcb751860bbf34e3dfee8c2fbdb3ef3}} 
+\index{Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}!putoutpU\_prob@{putoutpU\_prob}}
+\index{putoutpU\_prob@{putoutpU\_prob}!Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{putoutpU\_prob()}{putoutpU\_prob()}}
+{\footnotesize\ttfamily void putoutp\+U\+\_\+prob (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{pU,  }\item[{int}]{length,  }\item[{int}]{ulength,  }\item[{FILE $\ast$}]{fp,  }\item[{int}]{energies }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{LPfold_8h}{Vienna\+RNA/\+LPfold.\+h}}$>$}
+
+
+
+Writes the unpaired probabilities (pU) or opening energies into a file. 
+
+Can write either the unpaired probabilities (accessibilities) pU or the opening energies -\/log(p\+U)kT into a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em pU} & pair probabilities \\
+\hline
+{\em length} & length of RNA sequence \\
+\hline
+{\em ulength} & maximum length of unpaired stretch \\
+\hline
+{\em fp} & file pointer of destination file \\
+\hline
+{\em energies} & switch to put out as opening energies \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__window__deprecated_ga9acb00ee10e96b1ca4ea394cd8bcec75}\label{group__part__func__window__deprecated_ga9acb00ee10e96b1ca4ea394cd8bcec75}} 
+\index{Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}!putoutpU\_prob\_bin@{putoutpU\_prob\_bin}}
+\index{putoutpU\_prob\_bin@{putoutpU\_prob\_bin}!Deprecated Interface for Local (Sliding Window) Partition Function Computation@{Deprecated Interface for Local (Sliding Window) Partition Function Computation}}
+\doxysubsubsection{\texorpdfstring{putoutpU\_prob\_bin()}{putoutpU\_prob\_bin()}}
+{\footnotesize\ttfamily void putoutp\+U\+\_\+prob\+\_\+bin (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{pU,  }\item[{int}]{length,  }\item[{int}]{ulength,  }\item[{FILE $\ast$}]{fp,  }\item[{int}]{energies }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{LPfold_8h}{Vienna\+RNA/\+LPfold.\+h}}$>$}
+
+
+
+Writes the unpaired probabilities (pU) or opening energies into a binary file. 
+
+Can write either the unpaired probabilities (accessibilities) pU or the opening energies -\/log(p\+U)kT into a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em pU} & pair probabilities \\
+\hline
+{\em length} & length of RNA sequence \\
+\hline
+{\em ulength} & maximum length of unpaired stretch \\
+\hline
+{\em fp} & file pointer of destination file \\
+\hline
+{\em energies} & switch to put out as opening energies \\
+\hline
+\end{DoxyParams}

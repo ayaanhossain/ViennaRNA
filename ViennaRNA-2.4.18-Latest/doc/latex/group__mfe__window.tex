@@ -1,0 +1,245 @@
+\hypertarget{group__mfe__window}{}\doxysection{Local (sliding window) MFE Prediction}
+\label{group__mfe__window}\index{Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}}
+
+
+Variations of the local (sliding window) Minimum Free Energy (MFE) prediction algorithm.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Variations of the local (sliding window) Minimum Free Energy (MFE) prediction algorithm. 
+
+We provide implementations for the local (sliding window) MFE prediction algorithm for
+\begin{DoxyItemize}
+\item Single sequences,
+\item Multiple sequence alignments (MSA), and
+\end{DoxyItemize}
+
+Note, that our implementation scans an RNA sequence (or MSA) from the 3\textquotesingle{} to the 5\textquotesingle{} end, and reports back locally optimal (consensus) structures, the corresponding free energy, and the position of the sliding window in global coordinates.
+
+For any particular RNA sequence (or MSA) multiple locally optimal (consensus) secondary structures may be predicted. Thus, we tried to implement an interface that allows for an effortless conversion of the corresponding hits into any target data structure. As a consequence, we provide two distinct ways to retrieve the corresponding predictions, either
+\begin{DoxyItemize}
+\item through directly writing to an open {\ttfamily FILE} stream on-\/the-\/fly, or
+\item through a callback function mechanism.
+\end{DoxyItemize}
+
+The latter allows one to store the results in any possible target data structure. Our implementations then pass the results through the user-\/implemented callback as soon as the prediction for a particular window is finished. Collaboration diagram for Local (sliding window) MFE Prediction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mfe__window}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__mfe__window__deprecated}{Deprecated Interface for Local (\+Sliding Window) MFE Prediction}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{mfe__window_8h}{mfe\+\_\+window.\+h}}
+\begin{DoxyCompactList}\small\item\em Compute local Minimum Free Energy (MFE) using a sliding window approach and backtrace corresponding secondary structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback}}(int start, int end, const char $\ast$structure, float en, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em The default callback for sliding window MFE structure predictions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Basic local (sliding window) MFE prediction interface}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local MFE prediction using a sliding window approach. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__mfe__window_gad4995894b294ddb8550af444a0decbd1}\label{group__mfe__window_gad4995894b294ddb8550af444a0decbd1}} 
+float {\bfseries vrna\+\_\+mfe\+\_\+window\+\_\+cb} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback}} $\ast$cb, void $\ast$data)
+\item 
+float \mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double min\+\_\+z, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local MFE prediction using a sliding window approach (with z-\/score cut-\/off) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__mfe__window_ga2762be816af3dbc18c256e44c1345e4f}\label{group__mfe__window_ga2762be816af3dbc18c256e44c1345e4f}} 
+float {\bfseries vrna\+\_\+mfe\+\_\+window\+\_\+zscore\+\_\+cb} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double min\+\_\+z, vrna\+\_\+mfe\+\_\+window\+\_\+zscore\+\_\+callback $\ast$cb, void $\ast$data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Simplified local MFE prediction using sequence(s) or multiple sequence alignment(s)}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}{vrna\+\_\+\+Lfold}} (const char $\ast$string, int window\+\_\+size, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local MFE prediction using a sliding window approach (simplified interface) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__mfe__window_ga8b70293ad3c9dd3dc384d06290bf8069}\label{group__mfe__window_ga8b70293ad3c9dd3dc384d06290bf8069}} 
+float {\bfseries vrna\+\_\+\+Lfold\+\_\+cb} (const char $\ast$string, int window\+\_\+size, \mbox{\hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback}} $\ast$cb, void $\ast$data)
+\item 
+float \mbox{\hyperlink{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}{vrna\+\_\+\+Lfoldz}} (const char $\ast$string, int window\+\_\+size, double min\+\_\+z, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local MFE prediction using a sliding window approach with z-\/score cut-\/off (simplified interface) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__mfe__window_ga41b18568b846f1db70cdf2fe83b0ed47}\label{group__mfe__window_ga41b18568b846f1db70cdf2fe83b0ed47}} 
+float {\bfseries vrna\+\_\+\+Lfoldz\+\_\+cb} (const char $\ast$string, int window\+\_\+size, double min\+\_\+z, vrna\+\_\+mfe\+\_\+window\+\_\+zscore\+\_\+callback $\ast$cb, void $\ast$data)
+\item 
+\mbox{\Hypertarget{group__mfe__window_gaa43d3de352753529a4578cb02cd8bc52}\label{group__mfe__window_gaa43d3de352753529a4578cb02cd8bc52}} 
+float {\bfseries vrna\+\_\+ali\+Lfold} (const char $\ast$$\ast$alignment, int maxdist, FILE $\ast$fp)
+\item 
+\mbox{\Hypertarget{group__mfe__window_ga09756293446a6ae67c783bc8d567d884}\label{group__mfe__window_ga09756293446a6ae67c783bc8d567d884}} 
+float {\bfseries vrna\+\_\+ali\+Lfold\+\_\+cb} (const char $\ast$$\ast$alignment, int maxdist, \mbox{\hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback}} $\ast$cb, void $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}\label{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}} 
+\index{Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}!vrna\_mfe\_window\_callback@{vrna\_mfe\_window\_callback}}
+\index{vrna\_mfe\_window\_callback@{vrna\_mfe\_window\_callback}!Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_mfe\_window\_callback}{vrna\_mfe\_window\_callback}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+mfe\+\_\+window\+\_\+callback(int start, int end, const char $\ast$structure, float en, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe__window_8h}{Vienna\+RNA/mfe\+\_\+window.\+h}}$>$}
+
+
+
+The default callback for sliding window MFE structure predictions. 
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\mbox{\hyperlink{callbacks__callbacks000005}{Notes on Callback Functions}}]This function will be called for each hit in a sliding window MFE prediction. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em start} & provides the first position of the hit (1-\/based, relative to entire sequence/alignment) \\
+\hline
+{\em end} & provides the last position of the hit (1-\/based, relative to the entire sequence/alignment) \\
+\hline
+{\em structure} & provides the (sub)structure in dot-\/bracket notation \\
+\hline
+{\em en} & is the free energy of the structure hit in kcal/mol \\
+\hline
+{\em data} & is some arbitrary data pointer passed through by the function executing the callback \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}\label{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}} 
+\index{Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}!vrna\_mfe\_window@{vrna\_mfe\_window}}
+\index{vrna\_mfe\_window@{vrna\_mfe\_window}!Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_mfe\_window()}{vrna\_mfe\_window()}}
+{\footnotesize\ttfamily float vrna\+\_\+mfe\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe__window_8h}{Vienna\+RNA/mfe\+\_\+window.\+h}}$>$}
+
+
+
+Local MFE prediction using a sliding window approach. 
+
+Computes minimum free energy structures using a sliding window approach, where base pairs may not span outside the window. In contrast to \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, where a maximum base pair span may be set using the \mbox{\hyperlink{group__model__details_a659e5fcc6e8c9f1a68e7de6548eef3b0}{vrna\+\_\+md\+\_\+t.\+max\+\_\+bp\+\_\+span}} attribute and one globally optimal structure is predicted, this function uses a sliding window to retrieve all locally optimal structures within each window. The size of the sliding window is set in the \mbox{\hyperlink{group__model__details_abea42f9229f8d8d6bcbedef316315bfc}{vrna\+\_\+md\+\_\+t.\+window\+\_\+size}} attribute, prior to the retrieval of the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} using \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} with option \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}}
+
+The predicted structures are written on-\/the-\/fly, either to stdout, if a NULL pointer is passed as file parameter, or to the corresponding filehandle.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}{vrna\+\_\+\+Lfold()}}, \mbox{\hyperlink{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}{vrna\+\_\+\+Lfoldz()}}, \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}}, \mbox{\hyperlink{group__model__details_a659e5fcc6e8c9f1a68e7de6548eef3b0}{vrna\+\_\+md\+\_\+t.\+max\+\_\+bp\+\_\+span}}, \mbox{\hyperlink{group__model__details_abea42f9229f8d8d6bcbedef316315bfc}{vrna\+\_\+md\+\_\+t.\+window\+\_\+size}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} with preallocated memory for the DP matrices \\
+\hline
+{\em file} & The output file handle where predictions are written to (maybe NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000093}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{mfe\+\_\+window()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}\label{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}} 
+\index{Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}!vrna\_mfe\_window\_zscore@{vrna\_mfe\_window\_zscore}}
+\index{vrna\_mfe\_window\_zscore@{vrna\_mfe\_window\_zscore}!Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_mfe\_window\_zscore()}{vrna\_mfe\_window\_zscore()}}
+{\footnotesize\ttfamily float vrna\+\_\+mfe\+\_\+window\+\_\+zscore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{double}]{min\+\_\+z,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe__window_8h}{Vienna\+RNA/mfe\+\_\+window.\+h}}$>$}
+
+
+
+Local MFE prediction using a sliding window approach (with z-\/score cut-\/off) 
+
+Computes minimum free energy structures using a sliding window approach, where base pairs may not span outside the window. This function is the z-\/score version of \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}, i.\+e. only predictions above a certain z-\/score cut-\/off value are printed. As for \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}, the size of the sliding window is set in the \mbox{\hyperlink{group__model__details_abea42f9229f8d8d6bcbedef316315bfc}{vrna\+\_\+md\+\_\+t.\+window\+\_\+size}} attribute, prior to the retrieval of the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} using \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} with option \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}}.
+
+The predicted structures are written on-\/the-\/fly, either to stdout, if a NULL pointer is passed as file parameter, or to the corresponding filehandle.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}{vrna\+\_\+\+Lfold()}}, \mbox{\hyperlink{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}{vrna\+\_\+\+Lfoldz()}}, \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}}, \mbox{\hyperlink{group__model__details_a659e5fcc6e8c9f1a68e7de6548eef3b0}{vrna\+\_\+md\+\_\+t.\+max\+\_\+bp\+\_\+span}}, \mbox{\hyperlink{group__model__details_abea42f9229f8d8d6bcbedef316315bfc}{vrna\+\_\+md\+\_\+t.\+window\+\_\+size}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} with preallocated memory for the DP matrices \\
+\hline
+{\em min\+\_\+z} & The minimal z-\/score for a predicted structure to appear in the output \\
+\hline
+{\em file} & The output file handle where predictions are written to (maybe NULL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}\label{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}} 
+\index{Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}!vrna\_Lfold@{vrna\_Lfold}}
+\index{vrna\_Lfold@{vrna\_Lfold}!Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_Lfold()}{vrna\_Lfold()}}
+{\footnotesize\ttfamily float vrna\+\_\+\+Lfold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{int}]{window\+\_\+size,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe__window_8h}{Vienna\+RNA/mfe\+\_\+window.\+h}}$>$}
+
+
+
+Local MFE prediction using a sliding window approach (simplified interface) 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}} computes the MFE and locally optimal secondary structure using default options. Structures are predicted using a sliding window approach, where base pairs may not span outside the window. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}, \mbox{\hyperlink{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}{vrna\+\_\+\+Lfoldz()}}, \mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The nucleic acid sequence \\
+\hline
+{\em window\+\_\+size} & The window size for locally optimal structures \\
+\hline
+{\em file} & The output file handle where predictions are written to (if NULL, output is written to stdout) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}\label{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}} 
+\index{Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}!vrna\_Lfoldz@{vrna\_Lfoldz}}
+\index{vrna\_Lfoldz@{vrna\_Lfoldz}!Local (sliding window) MFE Prediction@{Local (sliding window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{vrna\_Lfoldz()}{vrna\_Lfoldz()}}
+{\footnotesize\ttfamily float vrna\+\_\+\+Lfoldz (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{int}]{window\+\_\+size,  }\item[{double}]{min\+\_\+z,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe__window_8h}{Vienna\+RNA/mfe\+\_\+window.\+h}}$>$}
+
+
+
+Local MFE prediction using a sliding window approach with z-\/score cut-\/off (simplified interface) 
+
+This simplified interface to \mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore()}} computes the MFE and locally optimal secondary structure using default options. Structures are predicted using a sliding window approach, where base pairs may not span outside the window. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing. This function is the z-\/score version of \mbox{\hyperlink{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}{vrna\+\_\+\+Lfold()}}, i.\+e. only predictions above a certain z-\/score cut-\/off value are printed.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}, and the data structure \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore()}}, \mbox{\hyperlink{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}{vrna\+\_\+\+Lfold()}}, \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The nucleic acid sequence \\
+\hline
+{\em window\+\_\+size} & The window size for locally optimal structures \\
+\hline
+{\em min\+\_\+z} & The minimal z-\/score for a predicted structure to appear in the output \\
+\hline
+{\em file} & The output file handle where predictions are written to (if NULL, output is written to stdout) \\
+\hline
+\end{DoxyParams}

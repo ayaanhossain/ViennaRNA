@@ -1,0 +1,68 @@
+\hypertarget{mfe_8h_source}{}\doxysection{mfe.\+h}
+\label{mfe_8h_source}\index{ViennaRNA/mfe.h@{ViennaRNA/mfe.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_MFE\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_MFE\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00083 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00084}\mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{00084}} \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00085          \textcolor{keywordtype}{char}                 *structure);}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00097 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00098}\mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{00098}} \mbox{\hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\_mfe\_dimer}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00099                \textcolor{keywordtype}{char}                 *structure);}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00132 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00133}\mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{00133}} \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\_fold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00134           \textcolor{keywordtype}{char}        *structure);}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00159 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00160}\mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{00160}} \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\_circfold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00161               \textcolor{keywordtype}{char}        *structure);}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00185 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00186}\mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{00186}} \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\_alifold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences,}
+\DoxyCodeLine{00187              \textcolor{keywordtype}{char}       *structure);}
+\DoxyCodeLine{00188 }
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00214 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00215}\mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{00215}} \mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\_circalifold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences,}
+\DoxyCodeLine{00216                  \textcolor{keywordtype}{char}       *structure);}
+\DoxyCodeLine{00217 }
+\DoxyCodeLine{00218 }
+\DoxyCodeLine{00239 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00240}\mbox{\hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{00240}} \mbox{\hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{vrna\_cofold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00241             \textcolor{keywordtype}{char}        *structure);}
+\DoxyCodeLine{00242 }
+\DoxyCodeLine{00243 }
+\DoxyCodeLine{00263 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00264 vrna\_backtrack\_from\_intervals(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00265                               \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00266                               \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{sect}}                  bt\_stack[],}
+\DoxyCodeLine{00267                               \textcolor{keywordtype}{int}                   s);}
+\DoxyCodeLine{00268 }
+\DoxyCodeLine{00269 }
+\DoxyCodeLine{00291 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{mfe_8h_source_l00292}\mbox{\hyperlink{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}{00292}} \mbox{\hyperlink{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}{vrna\_backtrack5}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00293                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          length,}
+\DoxyCodeLine{00294                 \textcolor{keywordtype}{char}                  *structure);}
+\DoxyCodeLine{00295 }
+\DoxyCodeLine{00296 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00297 vrna\_backtrack\_window(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00298                       \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *Lfold\_filename,}
+\DoxyCodeLine{00299                       \textcolor{keywordtype}{long}                  file\_pos,}
+\DoxyCodeLine{00300                       \textcolor{keywordtype}{char}                  **structure,}
+\DoxyCodeLine{00301                       \textcolor{keywordtype}{double}                mfe);}
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00309 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,71 @@
+\hypertarget{concentrations_8h_source}{}\doxysection{concentrations.\+h}
+\label{concentrations_8h_source}\index{ViennaRNA/concentrations.h@{ViennaRNA/concentrations.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00001}\mbox{\hyperlink{group__pf__cofold_ga46244c7adf5040580291c45b465f4efa}{00001}} \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_CONCENTRATIONS\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_CONCENTRATIONS\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00028 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_s}} \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_t}};}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00036 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_s}} \mbox{\hyperlink{structvrna__dimer__conc__s}{ConcEnt}};}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00045}\mbox{\hyperlink{structvrna__dimer__conc__s}{00045}} \textcolor{keyword}{struct }\mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_s}} \{}
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00046}\mbox{\hyperlink{structvrna__dimer__conc__s_a6e64ce1afbc93756afef06c0e3ccce97}{00046}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{structvrna__dimer__conc__s_a6e64ce1afbc93756afef06c0e3ccce97}{Ac\_start}};   }
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00047}\mbox{\hyperlink{structvrna__dimer__conc__s_a5763381efee22a0bbec2f2d0754f7697}{00047}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{structvrna__dimer__conc__s_a5763381efee22a0bbec2f2d0754f7697}{Bc\_start}};   }
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00048}\mbox{\hyperlink{structvrna__dimer__conc__s_aef56a1fe8d7f07e7b5d9a65417dda8a4}{00048}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{structvrna__dimer__conc__s_aef56a1fe8d7f07e7b5d9a65417dda8a4}{ABc}};        }
+\DoxyCodeLine{00049   \textcolor{keywordtype}{double}  AAc;}
+\DoxyCodeLine{00050   \textcolor{keywordtype}{double}  BBc;}
+\DoxyCodeLine{00051   \textcolor{keywordtype}{double}  Ac;}
+\DoxyCodeLine{00052   \textcolor{keywordtype}{double}  Bc;}
+\DoxyCodeLine{00053 \};}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00075}\mbox{\hyperlink{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}{00075}} \mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_t}} *\mbox{\hyperlink{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}{vrna\_pf\_dimer\_concentrations}}(\textcolor{keywordtype}{double}                  FcAB,}
+\DoxyCodeLine{00076                                                 \textcolor{keywordtype}{double}                  FcAA,}
+\DoxyCodeLine{00077                                                 \textcolor{keywordtype}{double}                  FcBB,}
+\DoxyCodeLine{00078                                                 \textcolor{keywordtype}{double}                  FEA,}
+\DoxyCodeLine{00079                                                 \textcolor{keywordtype}{double}                  FEB,}
+\DoxyCodeLine{00080                                                 \textcolor{keyword}{const} \textcolor{keywordtype}{double}            *startconc,}
+\DoxyCodeLine{00081                                                 \textcolor{keyword}{const} \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *exp\_params);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00088 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 \textcolor{comment}{/*}}
+\DoxyCodeLine{00091 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00092 \textcolor{comment}{ \# DEPRECATED FUNCTIONS                          \#}}
+\DoxyCodeLine{00093 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00094 \textcolor{comment}{ */}}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00116 DEPRECATED(\mbox{\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_t}} *\mbox{\hyperlink{concentrations_8h_a163159722a422ba90335a601fc34b8fb}{get\_concentrations}}(\textcolor{keywordtype}{double} FEAB,}
+\DoxyCodeLine{00117                                                  \textcolor{keywordtype}{double} FEAA,}
+\DoxyCodeLine{00118                                                  \textcolor{keywordtype}{double} FEBB,}
+\DoxyCodeLine{00119                                                  \textcolor{keywordtype}{double} FEA,}
+\DoxyCodeLine{00120                                                  \textcolor{keywordtype}{double} FEB,}
+\DoxyCodeLine{00121                                                  \textcolor{keywordtype}{double} *startconc),}
+\DoxyCodeLine{\Hypertarget{concentrations_8h_source_l00122}\mbox{\hyperlink{concentrations_8h_a163159722a422ba90335a601fc34b8fb}{00122}}           \textcolor{stringliteral}{"{}Use vrna\_pf\_dimer\_concentrations() instead"{}});}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,10 @@
+<map id="Free Energy Evaluation" name="Free Energy Evaluation">
+<area shape="rect" id="node1" href="$group__eval__loops__ext.html" title="Functions to evaluate the free energy contributions for exterior loops." alt="" coords="328,5,435,31"/>
+<area shape="rect" id="node2" href="$group__eval__deprecated.html" title="Deprecated Energy Evaluation functions." alt="" coords="291,55,472,95"/>
+<area shape="rect" id="node3" title="Functions and variables related to free energy evaluation of sequence/structure pairs." alt="" coords="5,191,164,216"/>
+<area shape="rect" id="node4" href="$group__eval__move.html" title="Functions to evaluate the free energy change of a structure after application of (a set of) atomic mo..." alt="" coords="308,119,455,159"/>
+<area shape="rect" id="node5" href="$group__eval__loops.html" title="Functions to evaluate the free energy of particular types of loops." alt="" coords="308,199,455,239"/>
+<area shape="rect" id="node6" href="$group__eval__loops__int.html" title="Functions to evaluate the free energy contributions for internal loops." alt="" coords="329,280,433,305"/>
+<area shape="rect" id="node7" href="$group__eval__loops__hp.html" title="Functions to evaluate the free energy contributions for hairpin loops." alt="" coords="330,329,433,355"/>
+<area shape="rect" id="node8" href="$group__eval__loops__mb.html" title="Functions to evaluate the free energy contributions for mutlibranch loops." alt="" coords="317,379,445,404"/>
+</map>

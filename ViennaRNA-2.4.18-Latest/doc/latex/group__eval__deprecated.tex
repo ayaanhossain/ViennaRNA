@@ -1,0 +1,726 @@
+\hypertarget{group__eval__deprecated}{}\doxysection{Deprecated Interface for Free Energy Evaluation}
+\label{group__eval__deprecated}\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+
+
+Deprecated Energy Evaluation functions.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Deprecated Energy Evaluation functions. 
+
+Using the functions below is discouraged as they have been marked deprecated and will be removed from the library in the (near) future! Collaboration diagram for Deprecated Interface for Free Energy Evaluation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__eval__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__eval__deprecated_gaf93986cb3cb29770ec9cca69c9fab8cf}{energy\+\_\+of\+\_\+structure}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA using global model detail settings. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval__deprecated_gaf9d064d3c496de42eca6734a96fd2090}{energy\+\_\+of\+\_\+struct\+\_\+par}} (const char $\ast$string, const char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval__deprecated_gaeb14f3664aec67fc03268ac75253f0f8}{energy\+\_\+of\+\_\+circ\+\_\+structure}} (const char $\ast$string, const char $\ast$structure, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded circular RNA. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval__deprecated_ga3f01f9744ba6a40555eb4d81fc77f6df}{energy\+\_\+of\+\_\+circ\+\_\+struct\+\_\+par}} (const char $\ast$string, const char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded circular RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__deprecated_ga8831445966b761417e713360791299d8}{energy\+\_\+of\+\_\+structure\+\_\+pt}} (const char $\ast$string, short $\ast$ptable, short $\ast$s, short $\ast$s1, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__deprecated_ga49acb3d5627dc6823a7ce12d116d4c69}{energy\+\_\+of\+\_\+struct\+\_\+pt\+\_\+par}} (const char $\ast$string, short $\ast$ptable, short $\ast$s, short $\ast$s1, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int verbosity\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of an already folded RNA. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval__deprecated_ga539ecaed89730f7644c202f304d7529b}{energy\+\_\+of\+\_\+move}} (const char $\ast$string, const char $\ast$structure, int m1, int m2)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a move (closing or opening of a base pair) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__deprecated_ga49e0ee561be69faf0568213546f6a53f}{energy\+\_\+of\+\_\+move\+\_\+pt}} (short $\ast$pt, short $\ast$s, short $\ast$s1, int m1, int m2)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a move (closing or opening of a base pair) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__eval__deprecated_ga507d4fd93f4b398d793ba2402731388d}{loop\+\_\+energy}} (short $\ast$ptable, short $\ast$s, short $\ast$s1, int i)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a loop. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__eval__deprecated_gac2b37fea2145c94d925a3f33378ef87b}{energy\+\_\+of\+\_\+struct}} (const char $\ast$string, const char $\ast$structure)
+\item 
+int \mbox{\hyperlink{group__eval__deprecated_ga27ce6f68512d43bf1fe14a06c9d76d5c}{energy\+\_\+of\+\_\+struct\+\_\+pt}} (const char $\ast$string, short $\ast$ptable, short $\ast$s, short $\ast$s1)
+\item 
+float \mbox{\hyperlink{group__eval__deprecated_ga657222e2758c46bf13b416ef3032e417}{energy\+\_\+of\+\_\+circ\+\_\+struct}} (const char $\ast$string, const char $\ast$structure)
+\item 
+int \mbox{\hyperlink{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}{E\+\_\+\+Stem}} (int type, int si1, int sj1, int ext\+Loop, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\begin{DoxyCompactList}\small\item\em Compute the energy contribution of a stem branching off a loop-\/region. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__deprecated_ga446828a191c127861e76e2c84055f672}{exp\+\_\+\+E\+\_\+\+Ext\+Loop}} (int type, int si1, int sj1, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$P)
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__deprecated_gab0aa9833ab41875a91a9be8a5ffd7092}{exp\+\_\+\+E\+\_\+\+Stem}} (int type, int si1, int sj1, int ext\+Loop, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$P)
+\item 
+PRIVATE int \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\+\_\+\+Int\+Loop}} (int n1, int n2, int type, int type\+\_\+2, int si1, int sj1, int sp1, int sq1, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\item 
+PRIVATE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}{exp\+\_\+\+E\+\_\+\+Int\+Loop}} (int u1, int u2, int type, int type2, short si1, short sj1, short sp1, short sq1, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$P)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__eval__deprecated_gab9b2c3a37a5516614c06d0ab54b97cda}\label{group__eval__deprecated_gab9b2c3a37a5516614c06d0ab54b97cda}} 
+int \mbox{\hyperlink{group__eval__deprecated_gab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}}
+\begin{DoxyCompactList}\small\item\em first pos of second seq for cofolding \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__deprecated_ga567530678f6260a1a649a5beca5da4c5}\label{group__eval__deprecated_ga567530678f6260a1a649a5beca5da4c5}} 
+int \mbox{\hyperlink{group__eval__deprecated_ga567530678f6260a1a649a5beca5da4c5}{eos\+\_\+debug}}
+\begin{DoxyCompactList}\small\item\em verbose info from energy\+\_\+of\+\_\+struct \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__deprecated_gaf93986cb3cb29770ec9cca69c9fab8cf}\label{group__eval__deprecated_gaf93986cb3cb29770ec9cca69c9fab8cf}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_structure@{energy\_of\_structure}}
+\index{energy\_of\_structure@{energy\_of\_structure}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_structure()}{energy\_of\_structure()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA using global model detail settings. 
+
+If verbosity level is set to a value $>$0, energies of structure elements are printed to stdout
+
+\begin{DoxyNote}{Note}
+Open\+MP\+: This function relies on several global model settings variables and thus is not to be considered threadsafe. See \mbox{\hyperlink{group__eval__deprecated_gaf9d064d3c496de42eca6734a96fd2090}{energy\+\_\+of\+\_\+struct\+\_\+par()}} for a completely threadsafe implementation.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000049}{Deprecated}}]Use \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} or \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em structure} & secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & a flag to turn verbose output on/off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_gaf9d064d3c496de42eca6734a96fd2090}\label{group__eval__deprecated_gaf9d064d3c496de42eca6734a96fd2090}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_struct\_par@{energy\_of\_struct\_par}}
+\index{energy\_of\_struct\_par@{energy\_of\_struct\_par}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_struct\_par()}{energy\_of\_struct\_par()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+struct\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+If verbosity level is set to a value $>$0, energies of structure elements are printed to stdout
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000050}{Deprecated}}]Use \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} or \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em parameters} & A data structure containing the prescaled energy contributions and the model details. \\
+\hline
+{\em verbosity\+\_\+level} & A flag to turn verbose output on/off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_gaeb14f3664aec67fc03268ac75253f0f8}\label{group__eval__deprecated_gaeb14f3664aec67fc03268ac75253f0f8}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_circ\_structure@{energy\_of\_circ\_structure}}
+\index{energy\_of\_circ\_structure@{energy\_of\_circ\_structure}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_circ\_structure()}{energy\_of\_circ\_structure()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+circ\+\_\+structure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded circular RNA. 
+
+\begin{DoxyNote}{Note}
+Open\+MP\+: This function relies on several global model settings variables and thus is not to be considered threadsafe. See \mbox{\hyperlink{group__eval__deprecated_ga3f01f9744ba6a40555eb4d81fc77f6df}{energy\+\_\+of\+\_\+circ\+\_\+struct\+\_\+par()}} for a completely threadsafe implementation.
+\end{DoxyNote}
+If verbosity level is set to a value $>$0, energies of structure elements are printed to stdout
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000051}{Deprecated}}]Use \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} or \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em verbosity\+\_\+level} & A flag to turn verbose output on/off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga3f01f9744ba6a40555eb4d81fc77f6df}\label{group__eval__deprecated_ga3f01f9744ba6a40555eb4d81fc77f6df}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_circ\_struct\_par@{energy\_of\_circ\_struct\_par}}
+\index{energy\_of\_circ\_struct\_par@{energy\_of\_circ\_struct\_par}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_circ\_struct\_par()}{energy\_of\_circ\_struct\_par()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+circ\+\_\+struct\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded circular RNA. 
+
+If verbosity level is set to a value $>$0, energies of structure elements are printed to stdout
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000052}{Deprecated}}]Use \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} or \mbox{\hyperlink{group__eval_ga0928d699d310178f84ee2351034e5cb5}{vrna\+\_\+eval\+\_\+structure\+\_\+verbose()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em structure} & Secondary structure in dot-\/bracket notation \\
+\hline
+{\em parameters} & A data structure containing the prescaled energy contributions and the model details. \\
+\hline
+{\em verbosity\+\_\+level} & A flag to turn verbose output on/off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga8831445966b761417e713360791299d8}\label{group__eval__deprecated_ga8831445966b761417e713360791299d8}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_structure\_pt@{energy\_of\_structure\_pt}}
+\index{energy\_of\_structure\_pt@{energy\_of\_structure\_pt}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_structure\_pt()}{energy\_of\_structure\_pt()}}
+{\footnotesize\ttfamily int energy\+\_\+of\+\_\+structure\+\_\+pt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{short $\ast$}]{ptable,  }\item[{short $\ast$}]{s,  }\item[{short $\ast$}]{s1,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+If verbosity level is set to a value $>$0, energies of structure elements are printed to stdout
+
+\begin{DoxyNote}{Note}
+Open\+MP\+: This function relies on several global model settings variables and thus is not to be considered threadsafe. See \mbox{\hyperlink{group__eval__deprecated_ga49acb3d5627dc6823a7ce12d116d4c69}{energy\+\_\+of\+\_\+struct\+\_\+pt\+\_\+par()}} for a completely threadsafe implementation.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000053}{Deprecated}}]Use \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}} or \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em ptable} & the pair table of the secondary structure \\
+\hline
+{\em s} & encoded RNA sequence \\
+\hline
+{\em s1} & encoded RNA sequence \\
+\hline
+{\em verbosity\+\_\+level} & a flag to turn verbose output on/off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the free energy of the input structure given the input sequence in 10kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga49acb3d5627dc6823a7ce12d116d4c69}\label{group__eval__deprecated_ga49acb3d5627dc6823a7ce12d116d4c69}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_struct\_pt\_par@{energy\_of\_struct\_pt\_par}}
+\index{energy\_of\_struct\_pt\_par@{energy\_of\_struct\_pt\_par}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_struct\_pt\_par()}{energy\_of\_struct\_pt\_par()}}
+{\footnotesize\ttfamily int energy\+\_\+of\+\_\+struct\+\_\+pt\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{short $\ast$}]{ptable,  }\item[{short $\ast$}]{s,  }\item[{short $\ast$}]{s1,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters,  }\item[{int}]{verbosity\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate the free energy of an already folded RNA. 
+
+If verbosity level is set to a value $>$0, energies of structure elements are printed to stdout
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000054}{Deprecated}}]Use \mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}} or \mbox{\hyperlink{group__eval_ga8a517cfeeae8c376ae7b1e0c401d38b4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt\+\_\+verbose()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval_gadbd09372ddfd7a450bbd590c96a6bfe4}{vrna\+\_\+eval\+\_\+structure\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence in uppercase letters \\
+\hline
+{\em ptable} & The pair table of the secondary structure \\
+\hline
+{\em s} & Encoded RNA sequence \\
+\hline
+{\em s1} & Encoded RNA sequence \\
+\hline
+{\em parameters} & A data structure containing the prescaled energy contributions and the model details. \\
+\hline
+{\em verbosity\+\_\+level} & A flag to turn verbose output on/off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The free energy of the input structure given the input sequence in 10kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga539ecaed89730f7644c202f304d7529b}\label{group__eval__deprecated_ga539ecaed89730f7644c202f304d7529b}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_move@{energy\_of\_move}}
+\index{energy\_of\_move@{energy\_of\_move}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_move()}{energy\_of\_move()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+move (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{m1,  }\item[{int}]{m2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate energy of a move (closing or opening of a base pair) 
+
+If the parameters m1 and m2 are negative, it is deletion (opening) of a base pair, otherwise it is insertion (opening).
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000055}{Deprecated}}]Use \mbox{\hyperlink{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}{vrna\+\_\+eval\+\_\+move()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}{vrna\+\_\+eval\+\_\+move()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em structure} & secondary structure in dot-\/bracket notation \\
+\hline
+{\em m1} & first coordinate of base pair \\
+\hline
+{\em m2} & second coordinate of base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+energy change of the move in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga49e0ee561be69faf0568213546f6a53f}\label{group__eval__deprecated_ga49e0ee561be69faf0568213546f6a53f}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_move\_pt@{energy\_of\_move\_pt}}
+\index{energy\_of\_move\_pt@{energy\_of\_move\_pt}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_move\_pt()}{energy\_of\_move\_pt()}}
+{\footnotesize\ttfamily int energy\+\_\+of\+\_\+move\+\_\+pt (\begin{DoxyParamCaption}\item[{short $\ast$}]{pt,  }\item[{short $\ast$}]{s,  }\item[{short $\ast$}]{s1,  }\item[{int}]{m1,  }\item[{int}]{m2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate energy of a move (closing or opening of a base pair) 
+
+If the parameters m1 and m2 are negative, it is deletion (opening) of a base pair, otherwise it is insertion (opening).
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000056}{Deprecated}}]Use \mbox{\hyperlink{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}{vrna\+\_\+eval\+\_\+move\+\_\+pt()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}{vrna\+\_\+eval\+\_\+move\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & the pair table of the secondary structure \\
+\hline
+{\em s} & encoded RNA sequence \\
+\hline
+{\em s1} & encoded RNA sequence \\
+\hline
+{\em m1} & first coordinate of base pair \\
+\hline
+{\em m2} & second coordinate of base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+energy change of the move in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga507d4fd93f4b398d793ba2402731388d}\label{group__eval__deprecated_ga507d4fd93f4b398d793ba2402731388d}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!loop\_energy@{loop\_energy}}
+\index{loop\_energy@{loop\_energy}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{loop\_energy()}{loop\_energy()}}
+{\footnotesize\ttfamily int loop\+\_\+energy (\begin{DoxyParamCaption}\item[{short $\ast$}]{ptable,  }\item[{short $\ast$}]{s,  }\item[{short $\ast$}]{s1,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+
+
+Calculate energy of a loop. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000057}{Deprecated}}]Use \mbox{\hyperlink{group__eval__loops_ga730ba4df55c02fd530a0cddd49faf760}{vrna\+\_\+eval\+\_\+loop\+\_\+pt()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__loops_ga730ba4df55c02fd530a0cddd49faf760}{vrna\+\_\+eval\+\_\+loop\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em ptable} & the pair table of the secondary structure \\
+\hline
+{\em s} & encoded RNA sequence \\
+\hline
+{\em s1} & encoded RNA sequence \\
+\hline
+{\em i} & position of covering base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+free energy of the loop in 10cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_gac2b37fea2145c94d925a3f33378ef87b}\label{group__eval__deprecated_gac2b37fea2145c94d925a3f33378ef87b}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_struct@{energy\_of\_struct}}
+\index{energy\_of\_struct@{energy\_of\_struct}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_struct()}{energy\_of\_struct()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+struct (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+Calculate the free energy of an already folded RNA
+
+\begin{DoxyNote}{Note}
+This function is not entirely threadsafe! Depending on the state of the global variable \mbox{\hyperlink{group__eval__deprecated_ga567530678f6260a1a649a5beca5da4c5}{eos\+\_\+debug}} it prints energy information to stdout or not...~\newline
+ 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000058}{Deprecated}}]This function is deprecated and should not be used in future programs! Use \mbox{\hyperlink{group__eval__deprecated_gaf93986cb3cb29770ec9cca69c9fab8cf}{energy\+\_\+of\+\_\+structure()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__deprecated_gaf93986cb3cb29770ec9cca69c9fab8cf}{energy\+\_\+of\+\_\+structure}}, \mbox{\hyperlink{group__eval__deprecated_ga657222e2758c46bf13b416ef3032e417}{energy\+\_\+of\+\_\+circ\+\_\+struct()}}, \mbox{\hyperlink{group__eval__deprecated_ga27ce6f68512d43bf1fe14a06c9d76d5c}{energy\+\_\+of\+\_\+struct\+\_\+pt()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em structure} & secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga27ce6f68512d43bf1fe14a06c9d76d5c}\label{group__eval__deprecated_ga27ce6f68512d43bf1fe14a06c9d76d5c}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_struct\_pt@{energy\_of\_struct\_pt}}
+\index{energy\_of\_struct\_pt@{energy\_of\_struct\_pt}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_struct\_pt()}{energy\_of\_struct\_pt()}}
+{\footnotesize\ttfamily int energy\+\_\+of\+\_\+struct\+\_\+pt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{short $\ast$}]{ptable,  }\item[{short $\ast$}]{s,  }\item[{short $\ast$}]{s1 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+Calculate the free energy of an already folded RNA
+
+\begin{DoxyNote}{Note}
+This function is not entirely threadsafe! Depending on the state of the global variable \mbox{\hyperlink{group__eval__deprecated_ga567530678f6260a1a649a5beca5da4c5}{eos\+\_\+debug}} it prints energy information to stdout or not...~\newline
+ 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000059}{Deprecated}}]This function is deprecated and should not be used in future programs! Use \mbox{\hyperlink{group__eval__deprecated_ga8831445966b761417e713360791299d8}{energy\+\_\+of\+\_\+structure\+\_\+pt()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}{make\+\_\+pair\+\_\+table()}}, \mbox{\hyperlink{group__eval__deprecated_gaf93986cb3cb29770ec9cca69c9fab8cf}{energy\+\_\+of\+\_\+structure()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em ptable} & the pair table of the secondary structure \\
+\hline
+{\em s} & encoded RNA sequence \\
+\hline
+{\em s1} & encoded RNA sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the free energy of the input structure given the input sequence in 10kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga657222e2758c46bf13b416ef3032e417}\label{group__eval__deprecated_ga657222e2758c46bf13b416ef3032e417}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!energy\_of\_circ\_struct@{energy\_of\_circ\_struct}}
+\index{energy\_of\_circ\_struct@{energy\_of\_circ\_struct}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_circ\_struct()}{energy\_of\_circ\_struct()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+circ\+\_\+struct (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{eval_8h}{Vienna\+RNA/eval.\+h}}$>$}
+
+Calculate the free energy of an already folded circular RNA
+
+\begin{DoxyNote}{Note}
+This function is not entirely threadsafe! Depending on the state of the global variable \mbox{\hyperlink{group__eval__deprecated_ga567530678f6260a1a649a5beca5da4c5}{eos\+\_\+debug}} it prints energy information to stdout or not...~\newline
+ 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000060}{Deprecated}}]This function is deprecated and should not be used in future programs Use \mbox{\hyperlink{group__eval__deprecated_gaeb14f3664aec67fc03268ac75253f0f8}{energy\+\_\+of\+\_\+circ\+\_\+structure()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__deprecated_gaeb14f3664aec67fc03268ac75253f0f8}{energy\+\_\+of\+\_\+circ\+\_\+structure()}}, \mbox{\hyperlink{group__eval__deprecated_gac2b37fea2145c94d925a3f33378ef87b}{energy\+\_\+of\+\_\+struct()}}, \mbox{\hyperlink{group__eval__deprecated_ga27ce6f68512d43bf1fe14a06c9d76d5c}{energy\+\_\+of\+\_\+struct\+\_\+pt()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+{\em structure} & secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the free energy of the input structure given the input sequence in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}\label{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!E\_Stem@{E\_Stem}}
+\index{E\_Stem@{E\_Stem}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{E\_Stem()}{E\_Stem()}}
+{\footnotesize\ttfamily int E\+\_\+\+Stem (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{int}]{ext\+Loop,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+
+
+Compute the energy contribution of a stem branching off a loop-\/region. 
+
+This function computes the energy contribution of a stem that branches off a loop region. This can be the case in multiloops, when a stem branching off increases the degree of the loop but also {\itshape immediately interior base pairs} of an exterior loop contribute free energy. To switch the behavior of the function according to the evaluation of a multiloop-\/ or exterior-\/loop-\/stem, you pass the flag \textquotesingle{}ext\+Loop\textquotesingle{}. The returned energy contribution consists of a Terminal\+AU penalty if the pair type is greater than 2, dangling end contributions of mismatching nucleotides adjacent to the stem if only one of the si1, sj1 parameters is greater than 0 and mismatch energies if both mismatching nucleotides are positive values. Thus, to avoid incorporating dangling end or mismatch energies just pass a negative number, e.\+g. -\/1 to the mismatch argument.
+
+This is an illustration of how the energy contribution is assembled\+: 
+\begin{DoxyPre}
+      3'  5'
+      |   |
+      X -\/ Y
+5'-\/si1     sj1-\/3'
+\end{DoxyPre}
+
+
+Here, (X,Y) is the base pair that closes the stem that branches off a loop region. The nucleotides si1 and sj1 are the 5\textquotesingle{}-\/ and 3\textquotesingle{}-\/ mismatches, respectively. If the base pair type of (X,Y) is greater than 2 (i.\+e. an A-\/U or G-\/U pair, the Terminal\+AU penalty will be included in the energy contribution returned. If si1 and sj1 are both nonnegative numbers, mismatch energies will also be included. If one of si1 or sj1 is a negative value, only 5\textquotesingle{} or 3\textquotesingle{} dangling end contributions are taken into account. To prohibit any of these mismatch contributions to be incorporated, just pass a negative number to both, si1 and sj1. In case the argument ext\+Loop is 0, the returned energy contribution also includes the {\itshape internal-\/loop-\/penalty} of a multiloop stem with closing pair type.
+
+\begin{DoxySeeAlso}{See also}
+E\+\_\+\+MLstem() 
+
+E\+\_\+\+Ext\+Loop() 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This function is threadsafe
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000154}{Deprecated}}]Please use one of the functions \mbox{\hyperlink{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}{vrna\+\_\+\+E\+\_\+ext\+\_\+stem()}} and E\+\_\+\+MLstem() instead! Use the former for cases where {\ttfamily ext\+Loop} != 0 and the latter otherwise.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The pair type of the first base pair un the stem \\
+\hline
+{\em si1} & The 5\textquotesingle{}-\/mismatching nucleotide \\
+\hline
+{\em sj1} & The 3\textquotesingle{}-\/mismatching nucleotide \\
+\hline
+{\em ext\+Loop} & A flag that indicates whether the contribution reflects the one of an exterior loop or not \\
+\hline
+{\em P} & The data structure containing scaled energy parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Free energy of the branch off the loop in dcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga446828a191c127861e76e2c84055f672}\label{group__eval__deprecated_ga446828a191c127861e76e2c84055f672}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!exp\_E\_ExtLoop@{exp\_E\_ExtLoop}}
+\index{exp\_E\_ExtLoop@{exp\_E\_ExtLoop}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{exp\_E\_ExtLoop()}{exp\_E\_ExtLoop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} exp\+\_\+\+E\+\_\+\+Ext\+Loop (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+This is the partition function variant of E\+\_\+\+Ext\+Loop() \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000155}{Deprecated}}]Use \mbox{\hyperlink{group__eval__loops__ext_ga357484958d3cd677f88f16c75c8a5730}{vrna\+\_\+exp\+\_\+\+E\+\_\+ext\+\_\+stem()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+E\+\_\+\+Ext\+Loop() 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The Boltzmann weighted energy contribution of the introduced exterior-\/loop stem 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_gab0aa9833ab41875a91a9be8a5ffd7092}\label{group__eval__deprecated_gab0aa9833ab41875a91a9be8a5ffd7092}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!exp\_E\_Stem@{exp\_E\_Stem}}
+\index{exp\_E\_Stem@{exp\_E\_Stem}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{exp\_E\_Stem()}{exp\_E\_Stem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} exp\+\_\+\+E\+\_\+\+Stem (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{int}]{ext\+Loop,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{external_8h}{Vienna\+RNA/loops/external.\+h}}$>$}
+
+\doxysubsubsection*{Compute the Boltzmann weighted energy contribution of a stem branching off a loop-\/region}
+
+This is the partition function variant of \mbox{\hyperlink{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}{E\+\_\+\+Stem()}} \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}{E\+\_\+\+Stem()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This function is threadsafe
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The Boltzmann weighted energy contribution of the branch off the loop 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}\label{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!E\_IntLoop@{E\_IntLoop}}
+\index{E\_IntLoop@{E\_IntLoop}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{E\_IntLoop()}{E\_IntLoop()}}
+{\footnotesize\ttfamily PRIVATE int E\+\_\+\+Int\+Loop (\begin{DoxyParamCaption}\item[{int}]{n1,  }\item[{int}]{n2,  }\item[{int}]{type,  }\item[{int}]{type\+\_\+2,  }\item[{int}]{si1,  }\item[{int}]{sj1,  }\item[{int}]{sp1,  }\item[{int}]{sq1,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{internal_8h}{Vienna\+RNA/loops/internal.\+h}}$>$}
+
+\doxysubsubsection*{Compute the Energy of an interior-\/loop}
+
+This function computes the free energy $\Delta G$ of an interior-\/loop with the following structure\+: ~\newline
+ 
+\begin{DoxyPre}
+      3'  5'
+      |   |
+      U -\/ V
+  a\_n       b\_1
+   .        .
+   .        .
+   .        .
+  a\_1       b\_m
+      X -\/ Y
+      |   |
+      5'  3'
+\end{DoxyPre}
+ This general structure depicts an interior-\/loop that is closed by the base pair (X,Y). The enclosed base pair is (V,U) which leaves the unpaired bases a\+\_\+1-\/a\+\_\+n and b\+\_\+1-\/b\+\_\+n that constitute the loop. In this example, the length of the interior-\/loop is $(n+m)$ where n or m may be 0 resulting in a bulge-\/loop or base pair stack. The mismatching nucleotides for the closing pair (X,Y) are\+:~\newline
+ 5\textquotesingle{}-\/mismatch\+: a\+\_\+1~\newline
+ 3\textquotesingle{}-\/mismatch\+: b\+\_\+m~\newline
+ and for the enclosed base pair (V,U)\+:~\newline
+ 5\textquotesingle{}-\/mismatch\+: b\+\_\+1~\newline
+ 3\textquotesingle{}-\/mismatch\+: a\+\_\+n~\newline
+ \begin{DoxyNote}{Note}
+Base pairs are always denoted in 5\textquotesingle{}-\/$>$3\textquotesingle{} direction. Thus the enclosed base pair must be \textquotesingle{}turned arround\textquotesingle{} when evaluating the free energy of the interior-\/loop 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_ga541f2cf7436e9bc939b0a49b24baf987}{scale\+\_\+parameters()}} 
+
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This function is threadsafe
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em n1} & The size of the \textquotesingle{}left\textquotesingle{}-\/loop (number of unpaired nucleotides) \\
+\hline
+{\em n2} & The size of the \textquotesingle{}right\textquotesingle{}-\/loop (number of unpaired nucleotides) \\
+\hline
+{\em type} & The pair type of the base pair closing the interior loop \\
+\hline
+{\em type\+\_\+2} & The pair type of the enclosed base pair \\
+\hline
+{\em si1} & The 5\textquotesingle{}-\/mismatching nucleotide of the closing pair \\
+\hline
+{\em sj1} & The 3\textquotesingle{}-\/mismatching nucleotide of the closing pair \\
+\hline
+{\em sp1} & The 3\textquotesingle{}-\/mismatching nucleotide of the enclosed pair \\
+\hline
+{\em sq1} & The 5\textquotesingle{}-\/mismatching nucleotide of the enclosed pair \\
+\hline
+{\em P} & The datastructure containing scaled energy parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Free energy of the Interior-\/loop in dcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}\label{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}} 
+\index{Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}!exp\_E\_IntLoop@{exp\_E\_IntLoop}}
+\index{exp\_E\_IntLoop@{exp\_E\_IntLoop}!Deprecated Interface for Free Energy Evaluation@{Deprecated Interface for Free Energy Evaluation}}
+\doxysubsubsection{\texorpdfstring{exp\_E\_IntLoop()}{exp\_E\_IntLoop()}}
+{\footnotesize\ttfamily PRIVATE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} exp\+\_\+\+E\+\_\+\+Int\+Loop (\begin{DoxyParamCaption}\item[{int}]{u1,  }\item[{int}]{u2,  }\item[{int}]{type,  }\item[{int}]{type2,  }\item[{short}]{si1,  }\item[{short}]{sj1,  }\item[{short}]{sp1,  }\item[{short}]{sq1,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{internal_8h}{Vienna\+RNA/loops/internal.\+h}}$>$}
+
+\doxysubsubsection*{Compute Boltzmann weight $e^{-\Delta G/kT} $ of interior loop}
+
+multiply by scale\mbox{[}u1+u2+2\mbox{]} for scaling \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters_gabf3b9271c41dd3fac02d56e0b02b3344}{get\+\_\+scaled\+\_\+pf\+\_\+parameters()}} 
+
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} 
+
+\mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\+\_\+\+Int\+Loop()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This function is threadsafe
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em u1} & The size of the \textquotesingle{}left\textquotesingle{}-\/loop (number of unpaired nucleotides) \\
+\hline
+{\em u2} & The size of the \textquotesingle{}right\textquotesingle{}-\/loop (number of unpaired nucleotides) \\
+\hline
+{\em type} & The pair type of the base pair closing the interior loop \\
+\hline
+{\em type2} & The pair type of the enclosed base pair \\
+\hline
+{\em si1} & The 5\textquotesingle{}-\/mismatching nucleotide of the closing pair \\
+\hline
+{\em sj1} & The 3\textquotesingle{}-\/mismatching nucleotide of the closing pair \\
+\hline
+{\em sp1} & The 3\textquotesingle{}-\/mismatching nucleotide of the enclosed pair \\
+\hline
+{\em sq1} & The 5\textquotesingle{}-\/mismatching nucleotide of the enclosed pair \\
+\hline
+{\em P} & The datastructure containing scaled Boltzmann weights of the energy parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Boltzmann weight of the Interior-\/loop 
+\end{DoxyReturn}

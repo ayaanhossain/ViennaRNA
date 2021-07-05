@@ -1,0 +1,230 @@
+\hypertarget{group__paths}{}\doxysection{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}
+\label{group__paths}\index{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}}
+
+
+API for various RNA folding path algorithms.  
+
+
+
+
+\doxysubsection{Detailed Description}
+API for various RNA folding path algorithms. 
+
+This part of our API allows for generating RNA secondary structure (re-\/)folding paths between two secondary structures or simply starting from a single structure. This is most important if an estimate of the refolding energy barrier between two structures is required, or a structure\textquotesingle{}s corresponding local minimum needs to be determined, e.\+g. through a gradient-\/descent walk.
+
+This part of the interface is further split into the following sections\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__paths__direct}{Direct Refolding Paths between two Secondary Structures}}, and
+\item \mbox{\hyperlink{group__paths__walk}{Folding Paths that start at a single Secondary Structure}} 
+\end{DoxyItemize}Collaboration diagram for (Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__paths}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__paths__direct}{Direct Refolding Paths between two Secondary Structures}}
+\begin{DoxyCompactList}\small\item\em Heuristics to explore direct, optimal (re-\/)folding paths between two secondary structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__paths__walk}{Folding Paths that start at a single Secondary Structure}}
+\begin{DoxyCompactList}\small\item\em Implementation of gradient-\/ and random walks starting from a single secondary structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__paths__deprecated}{Deprecated Interface for (\+Re-\/)folding Paths, Saddle Points, and Energy Barriers}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{landscape_2findpath_8h}{findpath.\+h}}
+\begin{DoxyCompactList}\small\item\em A breadth-\/first search heuristic for optimal direct folding paths. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{paths_8h}{paths.\+h}}
+\begin{DoxyCompactList}\small\item\em API for computing (optimal) (re-\/)folding paths between secondary structures. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{landscape_2walk_8h}{walk.\+h}}
+\begin{DoxyCompactList}\small\item\em Methods to generate particular paths such as gradient or random walks through the energy landscape of an RNA sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em An element of a refolding path list.  \mbox{\hyperlink{group__paths_structvrna__path__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__paths_ga3e964156b52440b65fae5e2a48750d8e}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+DOT\+\_\+\+BRACKET}}~1U
+\begin{DoxyCompactList}\small\item\em Flag to indicate producing a (re-\/)folding path as list of dot-\/bracket structures. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths_gaa73703da105dc6c98957fb8247c93f1f}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+MOVES}}~2U
+\begin{DoxyCompactList}\small\item\em Flag to indicate producing a (re-\/)folding path as list of transition moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}\label{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}} 
+typedef struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}} \mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the refolding path data structure \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}\label{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}} 
+typedef struct vrna\+\_\+path\+\_\+options\+\_\+s $\ast$ \mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Options data structure for (re-\/)folding path implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__paths_ga3763dc16760d09277a1b1c3f3061d0c7}{vrna\+\_\+path\+\_\+free}} (\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$path)
+\begin{DoxyCompactList}\small\item\em Release (free) memory occupied by a (re-\/)folding path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__paths_gaa64a86b13cb165346a0d0c788781512a}{vrna\+\_\+path\+\_\+options\+\_\+free}} (\mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}} options)
+\begin{DoxyCompactList}\small\item\em Release (free) memory occupied by an options data structure for (re-\/)folding path implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_path\_s@{vrna\_path\_s}}\label{structvrna__path__s}
+\Hypertarget{group__paths_structvrna__path__s}
+\doxysubsubsection{struct vrna\+\_\+path\+\_\+s}
+An element of a refolding path list. 
+
+Usually, one has to deal with an array of \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}, e.\+g. returned from one of the refolding-\/path algorithms.
+
+Since in most cases the length of the list is not known in advance, such lists have an {\itshape end-\/of-\/list} marker, which is either\+:
+\begin{DoxyItemize}
+\item a value of {\itshape NULL} for \mbox{\hyperlink{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{vrna\+\_\+path\+\_\+s\+::s}} if \mbox{\hyperlink{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}{vrna\+\_\+path\+\_\+s\+::type}} = \mbox{\hyperlink{group__paths_ga3e964156b52440b65fae5e2a48750d8e}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+DOT\+\_\+\+BRACKET}}, or
+\item a \mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{vrna\+\_\+path\+\_\+s\+::move}} with zero in both fields \mbox{\hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{vrna\+\_\+move\+\_\+t\+::pos\+\_\+5}} and \mbox{\hyperlink{group__neighbors_a3849db905a45c4e399991df38705a36b}{vrna\+\_\+move\+\_\+t\+::pos\+\_\+3}} if \mbox{\hyperlink{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}{vrna\+\_\+path\+\_\+s\+::type}} = \mbox{\hyperlink{group__paths_gaa73703da105dc6c98957fb8247c93f1f}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+MOVES}}.
+\end{DoxyItemize}
+
+In the following we show an example for how to cover both cases of iteration\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\_path\_t}} *ptr = path; \textcolor{comment}{// path was returned from one of the refolding path functions, e.g. vrna\_path\_direct()}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (ptr) \{}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (ptr-\/>\mbox{\hyperlink{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}{type}} == \mbox{\hyperlink{group__paths_ga3e964156b52440b65fae5e2a48750d8e}{VRNA\_PATH\_TYPE\_DOT\_BRACKET}}) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (; ptr-\/>\mbox{\hyperlink{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{s}}; ptr++)}
+\DoxyCodeLine{      printf(\textcolor{stringliteral}{"{}\%s [\%6.2f]\(\backslash\)n"{}}, ptr-\/>\mbox{\hyperlink{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{s}}, ptr-\/>\mbox{\hyperlink{group__paths_ac25160bf31d28097358278f367e41227}{en}});}
+\DoxyCodeLine{  \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ptr-\/>\mbox{\hyperlink{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}{type}} == \mbox{\hyperlink{group__paths_gaa73703da105dc6c98957fb8247c93f1f}{VRNA\_PATH\_TYPE\_MOVES}}) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (; ptr-\/>\mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{move}}.\mbox{\hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{pos\_5}} != 0; ptr++)}
+\DoxyCodeLine{      printf(\textcolor{stringliteral}{"{}move \%d:\%d, dG = \%6.2f\(\backslash\)n"{}}, ptr-\/>\mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{move}}.\mbox{\hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{pos\_5}}, ptr-\/>\mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{move}}.\mbox{\hyperlink{group__neighbors_a3849db905a45c4e399991df38705a36b}{pos\_3}}, ptr-\/>\mbox{\hyperlink{group__paths_ac25160bf31d28097358278f367e41227}{en}});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths_ga3763dc16760d09277a1b1c3f3061d0c7}{vrna\+\_\+path\+\_\+free()}} 
+\end{DoxySeeAlso}
+
+
+Collaboration diagram for vrna\+\_\+path\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{structvrna__path__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}{type}}
+\begin{DoxyCompactList}\small\item\em The type of the path element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__paths_ac25160bf31d28097358278f367e41227}\label{group__paths_ac25160bf31d28097358278f367e41227}} 
+double \mbox{\hyperlink{group__paths_ac25160bf31d28097358278f367e41227}{en}}
+\begin{DoxyCompactList}\small\item\em Free energy of current structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}\label{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}} 
+char $\ast$ \mbox{\hyperlink{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{s}}
+\begin{DoxyCompactList}\small\item\em Secondary structure in dot-\/bracket notation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__paths_a13da6bb5167362199947765b06a84005}\label{group__paths_a13da6bb5167362199947765b06a84005}} 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} \mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{move}}
+\begin{DoxyCompactList}\small\item\em Move that transforms the previous structure into it\textquotesingle{}s next neighbor along the path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxyparagraph{Field Documentation}
+\mbox{\Hypertarget{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}\label{group__paths_a5fc9e0a7dc0e0f8ad67f24c18f2dc852}} 
+\index{vrna\_path\_s@{vrna\_path\_s}!type@{type}}
+\index{type@{type}!vrna\_path\_s@{vrna\_path\_s}}
+\doxysubparagraph{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+path\+\_\+s\+::type}
+
+
+
+The type of the path element. 
+
+A value of \mbox{\hyperlink{group__paths_ga3e964156b52440b65fae5e2a48750d8e}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+DOT\+\_\+\+BRACKET}} indicates that \mbox{\hyperlink{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{vrna\+\_\+path\+\_\+s\+::s}} consists of the secondary structure in dot-\/bracket notation, and \mbox{\hyperlink{group__paths_ac25160bf31d28097358278f367e41227}{vrna\+\_\+path\+\_\+s\+::en}} the corresponding free energy.~\newline
+ On the other hand, if the value is \mbox{\hyperlink{group__paths_gaa73703da105dc6c98957fb8247c93f1f}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+MOVES}}, \mbox{\hyperlink{group__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{vrna\+\_\+path\+\_\+s\+::s}} is {\itshape NULL} and \mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{vrna\+\_\+path\+\_\+s\+::move}} is set to the transition move that transforms a previous structure into it\textquotesingle{}s neighbor along the path. In this case, the attribute \mbox{\hyperlink{group__paths_ac25160bf31d28097358278f367e41227}{vrna\+\_\+path\+\_\+s\+::en}} states the change in free energy with respect to the structure before application of \mbox{\hyperlink{group__paths_a13da6bb5167362199947765b06a84005}{vrna\+\_\+path\+\_\+s\+::move}}. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__paths_ga3e964156b52440b65fae5e2a48750d8e}\label{group__paths_ga3e964156b52440b65fae5e2a48750d8e}} 
+\index{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}!VRNA\_PATH\_TYPE\_DOT\_BRACKET@{VRNA\_PATH\_TYPE\_DOT\_BRACKET}}
+\index{VRNA\_PATH\_TYPE\_DOT\_BRACKET@{VRNA\_PATH\_TYPE\_DOT\_BRACKET}!(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PATH\_TYPE\_DOT\_BRACKET}{VRNA\_PATH\_TYPE\_DOT\_BRACKET}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+DOT\+\_\+\+BRACKET~1U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{paths_8h}{Vienna\+RNA/landscape/paths.\+h}}$>$}
+
+
+
+Flag to indicate producing a (re-\/)folding path as list of dot-\/bracket structures. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}}, \mbox{\hyperlink{group__paths__direct_ga3790a24ca64d68acfa6e67b525151a5f}{vrna\+\_\+path\+\_\+options\+\_\+findpath()}}, \mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct()}}, \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths_gaa73703da105dc6c98957fb8247c93f1f}\label{group__paths_gaa73703da105dc6c98957fb8247c93f1f}} 
+\index{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}!VRNA\_PATH\_TYPE\_MOVES@{VRNA\_PATH\_TYPE\_MOVES}}
+\index{VRNA\_PATH\_TYPE\_MOVES@{VRNA\_PATH\_TYPE\_MOVES}!(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PATH\_TYPE\_MOVES}{VRNA\_PATH\_TYPE\_MOVES}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+MOVES~2U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{paths_8h}{Vienna\+RNA/landscape/paths.\+h}}$>$}
+
+
+
+Flag to indicate producing a (re-\/)folding path as list of transition moves. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}}, \mbox{\hyperlink{group__paths__direct_ga3790a24ca64d68acfa6e67b525151a5f}{vrna\+\_\+path\+\_\+options\+\_\+findpath()}}, \mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct()}}, \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__paths_ga3763dc16760d09277a1b1c3f3061d0c7}\label{group__paths_ga3763dc16760d09277a1b1c3f3061d0c7}} 
+\index{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}!vrna\_path\_free@{vrna\_path\_free}}
+\index{vrna\_path\_free@{vrna\_path\_free}!(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}}
+\doxysubsubsection{\texorpdfstring{vrna\_path\_free()}{vrna\_path\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+path\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{paths_8h}{Vienna\+RNA/landscape/paths.\+h}}$>$}
+
+
+
+Release (free) memory occupied by a (re-\/)folding path. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct()}}, \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub()}}, \mbox{\hyperlink{group__paths__direct_ga2fed8ff126f5becd82cedd81a25c9bf0}{vrna\+\_\+path\+\_\+findpath()}}, \mbox{\hyperlink{group__paths__direct_gad00765c2f269fddfa319310af22d4f67}{vrna\+\_\+path\+\_\+findpath\+\_\+ub()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The refolding path to be free\textquotesingle{}d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__paths_gaa64a86b13cb165346a0d0c788781512a}\label{group__paths_gaa64a86b13cb165346a0d0c788781512a}} 
+\index{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}!vrna\_path\_options\_free@{vrna\_path\_options\_free}}
+\index{vrna\_path\_options\_free@{vrna\_path\_options\_free}!(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima@{(Re-\/)folding Paths, Saddle Points, Energy Barriers, and Local Minima}}
+\doxysubsubsection{\texorpdfstring{vrna\_path\_options\_free()}{vrna\_path\_options\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+path\+\_\+options\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}}}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{paths_8h}{Vienna\+RNA/landscape/paths.\+h}}$>$}
+
+
+
+Release (free) memory occupied by an options data structure for (re-\/)folding path implementations. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__direct_ga3790a24ca64d68acfa6e67b525151a5f}{vrna\+\_\+path\+\_\+options\+\_\+findpath()}}, \mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct()}}, \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em options} & The options data structure to be free\textquotesingle{}d \\
+\hline
+\end{DoxyParams}

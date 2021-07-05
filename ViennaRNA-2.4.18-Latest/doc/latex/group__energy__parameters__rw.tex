@@ -1,0 +1,412 @@
+\hypertarget{group__energy__parameters__rw}{}\doxysection{Reading/\+Writing Energy Parameter Sets from/to File}
+\label{group__energy__parameters__rw}\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+
+
+Read and Write energy parameter sets from and to files or strings.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Read and Write energy parameter sets from and to files or strings. 
+
+Collaboration diagram for Reading/\+Writing Energy Parameter Sets from/to File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__energy__parameters__rw}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__energy__parameters__convert}{Converting Energy Parameter Files}}
+\begin{DoxyCompactList}\small\item\em Convert energy parameter files into the latest format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}~0
+\begin{DoxyCompactList}\small\item\em Default Energy Parameter File format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load}} (const char fname\mbox{[}$\,$\mbox{]}, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Load energy parameters from a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save}} (const char fname\mbox{[}$\,$\mbox{]}, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Save energy parameters to a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string}} (const char $\ast$string, const char $\ast$name, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Load energy paramters from string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults}} (void)
+\begin{DoxyCompactList}\small\item\em Load default RNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004}} (void)
+\begin{DoxyCompactList}\small\item\em Load Turner 2004 RNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999}} (void)
+\begin{DoxyCompactList}\small\item\em Load Turner 1999 RNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007}} (void)
+\begin{DoxyCompactList}\small\item\em Load Andronsecu 2007 RNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018}} (void)
+\begin{DoxyCompactList}\small\item\em Load Langdon 2018 RNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins}} (void)
+\begin{DoxyCompactList}\small\item\em Load Misc Special Hairpin RNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004}} (void)
+\begin{DoxyCompactList}\small\item\em Load Mathews 2004 DNA energy parameter set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999}} (void)
+\begin{DoxyCompactList}\small\item\em Load Mathews 1999 DNA energy parameter set. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{group__energy__parameters__rw_ga5abafd7bad6d506e18bed13b18123cfe}{last\+\_\+parameter\+\_\+file}} (void)
+\begin{DoxyCompactList}\small\item\em Get the file name of the parameter file that was most recently loaded. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters__rw_ga165a142a3c68fb6655c69ef4ab7cd749}{read\+\_\+parameter\+\_\+file}} (const char fname\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Read energy parameters from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__energy__parameters__rw_ga8a43459be386a7489feeab68dc2c6c76}{write\+\_\+parameter\+\_\+file}} (const char fname\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Write energy parameters to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}\label{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!VRNA\_PARAMETER\_FORMAT\_DEFAULT@{VRNA\_PARAMETER\_FORMAT\_DEFAULT}}
+\index{VRNA\_PARAMETER\_FORMAT\_DEFAULT@{VRNA\_PARAMETER\_FORMAT\_DEFAULT}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PARAMETER\_FORMAT\_DEFAULT}{VRNA\_PARAMETER\_FORMAT\_DEFAULT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT~0}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Default Energy Parameter File format. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}\label{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load@{vrna\_params\_load}}
+\index{vrna\_params\_load@{vrna\_params\_load}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load()}{vrna\_params\_load()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load (\begin{DoxyParamCaption}\item[{const char}]{fname\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load energy parameters from a file. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The path to the file containing the energy parameters \\
+\hline
+{\em options} & File format bit-\/mask (usually \mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000102}{SWIG Wrapper Notes}}]This function is available as overloaded function {\bfseries{params\+\_\+load}}(fname=\char`\"{}\char`\"{}, options=\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}). Here, the empty filename string indicates to load default RNA parameters, i.\+e. this is equivalent to calling \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}\label{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_save@{vrna\_params\_save}}
+\index{vrna\_params\_save@{vrna\_params\_save}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_save()}{vrna\_params\_save()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+save (\begin{DoxyParamCaption}\item[{const char}]{fname\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Save energy parameters to a file. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & A filename (path) for the file where the current energy parameters will be written to \\
+\hline
+{\em options} & File format bit-\/mask (usually \mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000103}{SWIG Wrapper Notes}}]This function is available as overloaded function {\bfseries{params\+\_\+save}}(fname, options=\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}). \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}\label{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_from\_string@{vrna\_params\_load\_from\_string}}
+\index{vrna\_params\_load\_from\_string@{vrna\_params\_load\_from\_string}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_from\_string()}{vrna\_params\_load\_from\_string()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{name,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load energy paramters from string. 
+
+The string must follow the default energy parameter file convention! The optional {\ttfamily name} argument allows one to specify a name for the parameter set which is stored internally.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A 0-\/terminated string containing energy parameters \\
+\hline
+{\em name} & A name for the parameter set in {\ttfamily string} (Maybe {\ttfamily NULL}) \\
+\hline
+{\em options} & File format bit-\/mask (usually \mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000104}{SWIG Wrapper Notes}}]This function is available as overloaded function {\bfseries{params\+\_\+load\+\_\+from\+\_\+string}}(string, name=\char`\"{}\char`\"{}, options=\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{VRNA\+\_\+\+PARAMETER\+\_\+\+FORMAT\+\_\+\+DEFAULT}}). \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}\label{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_defaults@{vrna\_params\_load\_defaults}}
+\index{vrna\_params\_load\_defaults@{vrna\_params\_load\_defaults}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_defaults()}{vrna\_params\_load\_defaults()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+defaults (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load default RNA energy parameter set. 
+
+This is a convenience function to load the Turner 2004 RNA free energy parameters. It\textquotesingle{}s the same as calling \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000105}{SWIG Wrapper Notes}}]This function is available as overloaded function {\bfseries{params\+\_\+load()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}\label{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_RNA\_Turner2004@{vrna\_params\_load\_RNA\_Turner2004}}
+\index{vrna\_params\_load\_RNA\_Turner2004@{vrna\_params\_load\_RNA\_Turner2004}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_RNA\_Turner2004()}{vrna\_params\_load\_RNA\_Turner2004()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Turner 2004 RNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000106}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}\label{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_RNA\_Turner1999@{vrna\_params\_load\_RNA\_Turner1999}}
+\index{vrna\_params\_load\_RNA\_Turner1999@{vrna\_params\_load\_RNA\_Turner1999}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_RNA\_Turner1999()}{vrna\_params\_load\_RNA\_Turner1999()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Turner 1999 RNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000107}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}\label{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_RNA\_Andronescu2007@{vrna\_params\_load\_RNA\_Andronescu2007}}
+\index{vrna\_params\_load\_RNA\_Andronescu2007@{vrna\_params\_load\_RNA\_Andronescu2007}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_RNA\_Andronescu2007()}{vrna\_params\_load\_RNA\_Andronescu2007()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Andronsecu 2007 RNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000108}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}\label{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_RNA\_Langdon2018@{vrna\_params\_load\_RNA\_Langdon2018}}
+\index{vrna\_params\_load\_RNA\_Langdon2018@{vrna\_params\_load\_RNA\_Langdon2018}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_RNA\_Langdon2018()}{vrna\_params\_load\_RNA\_Langdon2018()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Langdon 2018 RNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000109}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}\label{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_RNA\_misc\_special\_hairpins@{vrna\_params\_load\_RNA\_misc\_special\_hairpins}}
+\index{vrna\_params\_load\_RNA\_misc\_special\_hairpins@{vrna\_params\_load\_RNA\_misc\_special\_hairpins}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_RNA\_misc\_special\_hairpins()}{vrna\_params\_load\_RNA\_misc\_special\_hairpins()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Misc Special Hairpin RNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000110}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}\label{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_DNA\_Mathews2004@{vrna\_params\_load\_DNA\_Mathews2004}}
+\index{vrna\_params\_load\_DNA\_Mathews2004@{vrna\_params\_load\_DNA\_Mathews2004}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_DNA\_Mathews2004()}{vrna\_params\_load\_DNA\_Mathews2004()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Mathews 2004 DNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000111}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}\label{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!vrna\_params\_load\_DNA\_Mathews1999@{vrna\_params\_load\_DNA\_Mathews1999}}
+\index{vrna\_params\_load\_DNA\_Mathews1999@{vrna\_params\_load\_DNA\_Mathews1999}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{vrna\_params\_load\_DNA\_Mathews1999()}{vrna\_params\_load\_DNA\_Mathews1999()}}
+{\footnotesize\ttfamily int vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Load Mathews 1999 DNA energy parameter set. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}}, \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\+\_\+params\+\_\+load\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Turner1999()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Andronescu2007()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+\+Langdon2018()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\+\_\+params\+\_\+load\+\_\+\+RNA\+\_\+misc\+\_\+special\+\_\+hairpins()}}, \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\+\_\+params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews2004()}}, \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\+\_\+params\+\_\+load\+\_\+defaults()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Non-\/zero on success, 0 on failure
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000112}{SWIG Wrapper Notes}}]This function is available as function {\bfseries{params\+\_\+load\+\_\+\+DNA\+\_\+\+Mathews1999()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga5abafd7bad6d506e18bed13b18123cfe}\label{group__energy__parameters__rw_ga5abafd7bad6d506e18bed13b18123cfe}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!last\_parameter\_file@{last\_parameter\_file}}
+\index{last\_parameter\_file@{last\_parameter\_file}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{last\_parameter\_file()}{last\_parameter\_file()}}
+{\footnotesize\ttfamily const char$\ast$ last\+\_\+parameter\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Get the file name of the parameter file that was most recently loaded. 
+
+\begin{DoxyReturn}{Returns}
+The file name of the last parameter file, or NULL if parameters are still at defaults 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga165a142a3c68fb6655c69ef4ab7cd749}\label{group__energy__parameters__rw_ga165a142a3c68fb6655c69ef4ab7cd749}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!read\_parameter\_file@{read\_parameter\_file}}
+\index{read\_parameter\_file@{read\_parameter\_file}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{read\_parameter\_file()}{read\_parameter\_file()}}
+{\footnotesize\ttfamily void read\+\_\+parameter\+\_\+file (\begin{DoxyParamCaption}\item[{const char}]{fname\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Read energy parameters from a file. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000152}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\+\_\+params\+\_\+load()}} instead! \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The path to the file containing the energy parameters \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__energy__parameters__rw_ga8a43459be386a7489feeab68dc2c6c76}\label{group__energy__parameters__rw_ga8a43459be386a7489feeab68dc2c6c76}} 
+\index{Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}!write\_parameter\_file@{write\_parameter\_file}}
+\index{write\_parameter\_file@{write\_parameter\_file}!Reading/Writing Energy Parameter Sets from/to File@{Reading/Writing Energy Parameter Sets from/to File}}
+\doxysubsubsection{\texorpdfstring{write\_parameter\_file()}{write\_parameter\_file()}}
+{\footnotesize\ttfamily void write\+\_\+parameter\+\_\+file (\begin{DoxyParamCaption}\item[{const char}]{fname\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_8h}{Vienna\+RNA/params/io.\+h}}$>$}
+
+
+
+Write energy parameters to a file. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000153}{Deprecated}}]Use \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\+\_\+params\+\_\+save()}} instead! \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & A filename (path) for the file where the current energy parameters will be written to \\
+\hline
+\end{DoxyParams}

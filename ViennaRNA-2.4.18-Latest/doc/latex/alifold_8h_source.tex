@@ -1,0 +1,105 @@
+\hypertarget{alifold_8h_source}{}\doxysection{alifold.\+h}
+\label{alifold_8h_source}\index{ViennaRNA/alifold.h@{ViennaRNA/alifold.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_ALIFOLD\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_ALIFOLD\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{ribo_8h}{ViennaRNA/ribo.h}}>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{mfe_8h}{ViennaRNA/mfe.h}}>}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{part__func_8h}{ViennaRNA/part\_func.h}}>}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2alignments_8h}{ViennaRNA/utils/alignments.h}}>}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2structures_8h}{ViennaRNA/utils/structures.h}}>}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{boltzmann__sampling_8h}{ViennaRNA/boltzmann\_sampling.h}}>}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 \textcolor{comment}{/*}}
+\DoxyCodeLine{00035 \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00036 \textcolor{comment}{\# DEPRECATED FUNCTIONS                          \#}}
+\DoxyCodeLine{00037 \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00038 \textcolor{comment}{*/}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00063 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} **strings, \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00064}\mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{00064}}           \textcolor{stringliteral}{"{}Use vrna\_alifold() or vrna\_mfe() instead"{}});}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00077 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__mfe__global__deprecated_gadbd3b0b1c144cbfb4efe704b2b260f96}{circalifold}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} **strings, \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00078}\mbox{\hyperlink{group__mfe__global__deprecated_gadbd3b0b1c144cbfb4efe704b2b260f96}{00078}}           \textcolor{stringliteral}{"{}Use vrna\_alicircfold() or vrna\_mfe() instead"{}});}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00091 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{group__mfe__global__deprecated_ga72095e4554b5d577250ea14c42acc49e}{free\_alifold\_arrays}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00092}\mbox{\hyperlink{group__mfe__global__deprecated_ga72095e4554b5d577250ea14c42acc49e}{00092}}           \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 \textcolor{comment}{/* End group mfe\_global\_deprecated */}}
+\DoxyCodeLine{00112 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{alifold_8h_a1c48869c03b49a342bf4cbdd61900081}{energy\_of\_alistruct}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure, \textcolor{keywordtype}{int} n\_seq, \textcolor{keywordtype}{float} *energy),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00113}\mbox{\hyperlink{alifold_8h_a1c48869c03b49a342bf4cbdd61900081}{00113}}            \textcolor{stringliteral}{"{}Use vrna\_eval\_structure() and vrna\_eval\_covar\_structure() instead"{}});}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115 DEPRECATED(\textcolor{keywordtype}{float} energy\_of\_ali\_gquad\_structure(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure, \textcolor{keywordtype}{int} n\_seq, \textcolor{keywordtype}{float} *energy),}
+\DoxyCodeLine{00116           \textcolor{stringliteral}{"{}Use vrna\_eval\_structure() and vrna\_eval\_covar\_structure() instead"{}});}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00128 DEPRECATED(\textcolor{keyword}{extern}  \textcolor{keywordtype}{double}  \mbox{\hyperlink{alifold_8h_af3cbac6ff5d706d6e414677841ddf94c}{cv\_fact}},}
+\DoxyCodeLine{00129           \textcolor{stringliteral}{"{}Use the cv\_fact attribute of the vrna\_md\_t datastructure instead"{}});}
+\DoxyCodeLine{00140 DEPRECATED(\textcolor{keyword}{extern}  \textcolor{keywordtype}{double}  \mbox{\hyperlink{alifold_8h_a502948a122a2af5b914355b1f3ea2f61}{nc\_fact}},}
+\DoxyCodeLine{00141           \textcolor{stringliteral}{"{}Use the nc\_fact attribute of the vrna\_md\_t datastructure instead"{}});}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00162 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__part__func__global__deprecated_gab46954fb0ed3b6d5631e7f9b802978cd}{alipf\_fold\_par}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences,}
+\DoxyCodeLine{00163                       \textcolor{keywordtype}{char} *structure,}
+\DoxyCodeLine{00164                       \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} **pl,}
+\DoxyCodeLine{00165                       \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}} *parameters,}
+\DoxyCodeLine{00166                       \textcolor{keywordtype}{int} calculate\_bppm,}
+\DoxyCodeLine{00167                       \textcolor{keywordtype}{int} is\_constrained,}
+\DoxyCodeLine{00168                       \textcolor{keywordtype}{int} is\_circular),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00169}\mbox{\hyperlink{group__part__func__global__deprecated_gab46954fb0ed3b6d5631e7f9b802978cd}{00169}}           \textcolor{stringliteral}{"{}Use vrna\_pf\_alifold() or vrna\_pf() instead"{}});}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00187 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}{alipf\_fold}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences, \textcolor{keywordtype}{char} *structure, \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} **pl),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00188}\mbox{\hyperlink{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}{00188}}           \textcolor{stringliteral}{"{}Use vrna\_pf\_alifold() or vrna\_pf() instead"{}});}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00200 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}{alipf\_circ\_fold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences, \textcolor{keywordtype}{char} *structure, \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} **pl),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00201}\mbox{\hyperlink{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}{00201}}           \textcolor{stringliteral}{"{}Use vrna\_pf\_circalifold() or vrna\_pf() instead"{}});}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00220 DEPRECATED(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *\mbox{\hyperlink{group__part__func__global__deprecated_ga11b6ab8bd9be1821fea352b190a01cab}{export\_ali\_bppm}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00221}\mbox{\hyperlink{group__part__func__global__deprecated_ga11b6ab8bd9be1821fea352b190a01cab}{00221}}           \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t datastructure instead"{}});}
+\DoxyCodeLine{00222 }
+\DoxyCodeLine{00233 DEPRECATED(\textcolor{keywordtype}{void}  \mbox{\hyperlink{group__part__func__global__deprecated_ga0c0498f35686e26b38ee460d3db1a661}{free\_alipf\_arrays}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00234}\mbox{\hyperlink{group__part__func__global__deprecated_ga0c0498f35686e26b38ee460d3db1a661}{00234}}           \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00244 DEPRECATED(\textcolor{keywordtype}{char}  *\mbox{\hyperlink{group__part__func__global__deprecated_ga0df40248788f0fb17ebdc59d74116d1c}{alipbacktrack}}(\textcolor{keywordtype}{double} *prob),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00245}\mbox{\hyperlink{group__part__func__global__deprecated_ga0df40248788f0fb17ebdc59d74116d1c}{00245}}           \textcolor{stringliteral}{"{}Use the new API and vrna\_pbacktrack() instead"{}});}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00271 DEPRECATED(\textcolor{keywordtype}{int} \mbox{\hyperlink{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}{get\_alipf\_arrays}}(\textcolor{keywordtype}{short} ***S\_p,}
+\DoxyCodeLine{00272                      \textcolor{keywordtype}{short} ***S5\_p,}
+\DoxyCodeLine{00273                      \textcolor{keywordtype}{short} ***S3\_p,}
+\DoxyCodeLine{00274                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} ***a2s\_p,}
+\DoxyCodeLine{00275                      \textcolor{keywordtype}{char} ***Ss\_p,}
+\DoxyCodeLine{00276                      \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **qb\_p,}
+\DoxyCodeLine{00277                      \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **qm\_p,}
+\DoxyCodeLine{00278                      \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **q1k\_p,}
+\DoxyCodeLine{00279                      \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **qln\_p,}
+\DoxyCodeLine{00280                      \textcolor{keywordtype}{short} **pscore),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00281}\mbox{\hyperlink{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}{00281}}           \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t datastructure instead"{}});}
+\DoxyCodeLine{00282 }
+\DoxyCodeLine{00283 }
+\DoxyCodeLine{00284 \textcolor{comment}{/* End group part\_func\_global\_deprecated */}}
+\DoxyCodeLine{00298 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{alifold_8h_ac484c6bd429bafbd353b91044508d8e9}{update\_alifold\_params}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{alifold_8h_source_l00299}\mbox{\hyperlink{alifold_8h_ac484c6bd429bafbd353b91044508d8e9}{00299}}           \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t datastructure instead"{}});}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00303 }
+\DoxyCodeLine{00304 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,949 @@
+\hypertarget{group__fold__compound}{}\doxysection{The Fold Compound}
+\label{group__fold__compound}\index{The Fold Compound@{The Fold Compound}}
+
+
+This module provides interfaces that deal with the most basic data structure used in structure predicting and energy evaluating function of the RNAlib.  
+
+
+
+
+\doxysubsection{Detailed Description}
+This module provides interfaces that deal with the most basic data structure used in structure predicting and energy evaluating function of the RNAlib. 
+
+Throughout the entire RNAlib, the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, is used to group information and data that is required for structure prediction and energy evaluation. Here, you\textquotesingle{}ll find interface functions to create, modify, and delete \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structures. Collaboration diagram for The Fold Compound\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__fold__compound}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{fold__compound_8h}{fold\+\_\+compound.\+h}}
+\begin{DoxyCompactList}\small\item\em The Basic Fold Compound API. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em The most basic data structure required by many functions throughout the RNAlib.  \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__fold__compound_ga1a5053dc8acbb0111e852988726f07d6}{VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+PRE}}~(unsigned char)1
+\begin{DoxyCompactList}\small\item\em Status message indicating that MFE computations are about to begin. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__fold__compound_ga47c900ca76e56e59e2e83a06e0bde641}{VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+POST}}~(unsigned char)2
+\begin{DoxyCompactList}\small\item\em Status message indicating that MFE computations are finished. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__fold__compound_ga91795d35ebdb6f32be50459f24b3d114}{VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+PRE}}~(unsigned char)3
+\begin{DoxyCompactList}\small\item\em Status message indicating that Partition function computations are about to begin. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__fold__compound_ga1c6fa243533fd026e50f7d595eaaa565}{VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+POST}}~(unsigned char)4
+\begin{DoxyCompactList}\small\item\em Status message indicating that Partition function computations are finished. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}\label{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}} 
+\#define \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\+\_\+\+OPTION\+\_\+\+DEFAULT}}~0U
+\begin{DoxyCompactList}\small\item\em Option flag to specify default settings/requirements. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}{VRNA\+\_\+\+OPTION\+\_\+\+MFE}}~1U
+\begin{DoxyCompactList}\small\item\em Option flag to specify requirement of Minimum Free Energy (MFE) DP matrices and corresponding set of energy parameters. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}}~2U
+\begin{DoxyCompactList}\small\item\em Option flag to specify requirement of Partition Function (PF) DP matrices and corresponding set of Boltzmann factors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_ga8f681fa12b8d4b348bf58415fd1fc82f}\label{group__fold__compound_ga8f681fa12b8d4b348bf58415fd1fc82f}} 
+\#define \mbox{\hyperlink{group__fold__compound_ga8f681fa12b8d4b348bf58415fd1fc82f}{VRNA\+\_\+\+OPTION\+\_\+\+HYBRID}}~4U
+\begin{DoxyCompactList}\small\item\em Option flag to specify requirement of dimer DP matrices. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY}}~8U
+\begin{DoxyCompactList}\small\item\em Option flag to specify that neither MFE, nor PF DP matrices are required. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}\label{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}} 
+\#define \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}}~16U
+\begin{DoxyCompactList}\small\item\em Option flag to specify requirement of DP matrices for local folding approaches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}\label{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}} 
+typedef struct \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}} \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the fold\+\_\+compound data structure \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\+\_\+fc\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}}(void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to free memory allocated for auxiliary user-\/provided data. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status}}(unsigned char status, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to perform specific user-\/defined actions before, or after recursive computations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}{vrna\+\_\+fc\+\_\+type\+\_\+e}} \{ \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}
+, \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enumerator that is used to specify the type of a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound}} (const char $\ast$sequence, const \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Retrieve a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure for single sequences and hybridizing sequences. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative}} (const char $\ast$$\ast$sequences, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Retrieve a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure for sequence alignments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, void $\ast$data, \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}} $\ast$f)
+\begin{DoxyCompactList}\small\item\em Add auxiliary data to the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__fold__compound_ga680ddfe1e67d1459689b1e92c80b9c4c}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+callback}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status}} $\ast$f)
+\begin{DoxyCompactList}\small\item\em Add a recursion status callback to the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_fc\_s@{vrna\_fc\_s}}\label{structvrna__fc__s}
+\Hypertarget{group__fold__compound_structvrna__fc__s}
+\doxysubsubsection{struct vrna\+\_\+fc\+\_\+s}
+The most basic data structure required by many functions throughout the RNAlib. 
+
+\begin{DoxyNote}{Note}
+Please read the documentation of this data structure carefully! Some attributes are only available for specific types this data structure can adopt.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Reading/\+Writing from/to attributes that are not within the scope of the current type usually result in undefined behavior!
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+type}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}, \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000081}{SWIG Wrapper Notes}}]
+
+This data structure is wrapped as an object {\bfseries{fold\+\_\+compound}} with several related functions attached as methods.
+
+A new {\bfseries{fold\+\_\+compound}} can be obtained by calling one of its constructors\+:~\newline
+
+\begin{DoxyItemize}
+\item {\itshape fold\+\_\+compound(seq)} -- Initialize with a single sequence, or two concatenated sequences separated by an ampersand character \textquotesingle{}\&\textquotesingle{} (for cofolding)
+\item {\itshape fold\+\_\+compound(aln)} -- Initialize with a sequence alignment {\itshape aln} stored as a list of sequences (with gap characters)
+\end{DoxyItemize}The resulting object has a list of attached methods which in most cases directly correspond to functions that mainly operate on the corresponding {\itshape C} data structure\+:~\newline
+
+\begin{DoxyItemize}
+\item {\itshape \mbox{\hyperlink{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}{type()}}} -- Get the type of the {\itshape fold\+\_\+compound} (See \mbox{\hyperlink{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}{vrna\+\_\+fc\+\_\+type\+\_\+e}})
+\item {\itshape \mbox{\hyperlink{group__fold__compound_a95fbfed770b858e50c766505dc4bf998}{length()}}} -- Get the length of the sequence(s) or alignment stored within the {\itshape fold\+\_\+compound} 
+\end{DoxyItemize}\end{DoxyRefDesc}
+
+
+Collaboration diagram for vrna\+\_\+fc\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structvrna__fc__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{Indent}\textbf{ Common data fields}\par
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}{vrna\+\_\+fc\+\_\+type\+\_\+e}} \mbox{\hyperlink{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}{type}}
+\begin{DoxyCompactList}\small\item\em The type of the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a95fbfed770b858e50c766505dc4bf998}\label{group__fold__compound_a95fbfed770b858e50c766505dc4bf998}} 
+unsigned int \mbox{\hyperlink{group__fold__compound_a95fbfed770b858e50c766505dc4bf998}{length}}
+\begin{DoxyCompactList}\small\item\em The length of the sequence (or sequence alignment) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_ae1a7bbff0256577e2b22709bac11fdb4}\label{group__fold__compound_ae1a7bbff0256577e2b22709bac11fdb4}} 
+int \mbox{\hyperlink{group__fold__compound_ae1a7bbff0256577e2b22709bac11fdb4}{cutpoint}}
+\begin{DoxyCompactList}\small\item\em The position of the (cofold) cutpoint within the provided sequence. If there is no cutpoint, this field will be set to -\/1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a23304c5186dfae97bc69dc19d37f70c3}\label{group__fold__compound_a23304c5186dfae97bc69dc19d37f70c3}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a23304c5186dfae97bc69dc19d37f70c3}{strand\+\_\+number}}
+\begin{DoxyCompactList}\small\item\em The strand number a particular nucleotide is associated with. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a3bf15e0e44539f9f622fd09227bf3de1}\label{group__fold__compound_a3bf15e0e44539f9f622fd09227bf3de1}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a3bf15e0e44539f9f622fd09227bf3de1}{strand\+\_\+order}}
+\begin{DoxyCompactList}\small\item\em The strand order, i.\+e. permutation of current concatenated sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a571ee9a932f633c7d9167ae029573935}\label{group__fold__compound_a571ee9a932f633c7d9167ae029573935}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a571ee9a932f633c7d9167ae029573935}{strand\+\_\+start}}
+\begin{DoxyCompactList}\small\item\em The start position of a particular strand within the current concatenated sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_aaa1b51bc6eb47cc661fea834d7175a54}\label{group__fold__compound_aaa1b51bc6eb47cc661fea834d7175a54}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_aaa1b51bc6eb47cc661fea834d7175a54}{strand\+\_\+end}}
+\begin{DoxyCompactList}\small\item\em The end (last) position of a particular strand within the current concatenated sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_ad8962b97f5e5e233d9bfb5b16a691d26}\label{group__fold__compound_ad8962b97f5e5e233d9bfb5b16a691d26}} 
+unsigned int {\bfseries strands}
+\item 
+\mbox{\Hypertarget{group__fold__compound_a855b503aefd052430bf463d8518d2ff5}\label{group__fold__compound_a855b503aefd052430bf463d8518d2ff5}} 
+\mbox{\hyperlink{group__alphabet__utils_gaa35bee3061759495467070b47d0e1f22}{vrna\+\_\+seq\+\_\+t}} $\ast$ {\bfseries nucleotides}
+\item 
+\mbox{\Hypertarget{group__fold__compound_a0387efd460429ca0847c8009d327c0fb}\label{group__fold__compound_a0387efd460429ca0847c8009d327c0fb}} 
+\mbox{\hyperlink{group__alphabet__utils_structvrna__alignment__s}{vrna\+\_\+msa\+\_\+t}} $\ast$ {\bfseries alignment}
+\item 
+\mbox{\Hypertarget{group__fold__compound_aceaa904dbf50092d403ca99422e8f824}\label{group__fold__compound_aceaa904dbf50092d403ca99422e8f824}} 
+\mbox{\hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_aceaa904dbf50092d403ca99422e8f824}{hc}}
+\begin{DoxyCompactList}\small\item\em The hard constraints data structure used for structure prediction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_aca8be7bdc65bafe2172c6ee777f18568}\label{group__fold__compound_aca8be7bdc65bafe2172c6ee777f18568}} 
+\mbox{\hyperlink{group__dp__matrices_gae5aef35d016475e758f619b7bcb534f9}{vrna\+\_\+mx\+\_\+mfe\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_aca8be7bdc65bafe2172c6ee777f18568}{matrices}}
+\begin{DoxyCompactList}\small\item\em The MFE DP matrices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_afc38ed5a1028a2712d2365274bf49727}\label{group__fold__compound_afc38ed5a1028a2712d2365274bf49727}} 
+\mbox{\hyperlink{group__dp__matrices_ga68729ab3fed26bdd1806fa814f172fc1}{vrna\+\_\+mx\+\_\+pf\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_afc38ed5a1028a2712d2365274bf49727}{exp\+\_\+matrices}}
+\begin{DoxyCompactList}\small\item\em The PF DP matrices ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a19b8720c2c5321c1b97c830bd17566ea}\label{group__fold__compound_a19b8720c2c5321c1b97c830bd17566ea}} 
+\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_a19b8720c2c5321c1b97c830bd17566ea}{params}}
+\begin{DoxyCompactList}\small\item\em The precomputed free energy contributions for each type of loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a7052a5d24f6091b9c5f79edcc9456a12}\label{group__fold__compound_a7052a5d24f6091b9c5f79edcc9456a12}} 
+\mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_a7052a5d24f6091b9c5f79edcc9456a12}{exp\+\_\+params}}
+\begin{DoxyCompactList}\small\item\em The precomputed free energy contributions as Boltzmann factors ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_afdead4cf55c882d3497e779573e17e03}\label{group__fold__compound_afdead4cf55c882d3497e779573e17e03}} 
+int $\ast$ \mbox{\hyperlink{group__fold__compound_afdead4cf55c882d3497e779573e17e03}{iindx}}
+\begin{DoxyCompactList}\small\item\em DP matrix accessor ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a5037235dee512efd85ca543780bbca1a}\label{group__fold__compound_a5037235dee512efd85ca543780bbca1a}} 
+int $\ast$ \mbox{\hyperlink{group__fold__compound_a5037235dee512efd85ca543780bbca1a}{jindx}}
+\begin{DoxyCompactList}\small\item\em DP matrix accessor ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ User-\/defined data fields}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status}} $\ast$ \mbox{\hyperlink{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}{stat\+\_\+cb}}
+\begin{DoxyCompactList}\small\item\em Recursion status callback (usually called just before, and after recursive computations in the library. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__fold__compound_a20048e0c369e9f24b55423d600037c68}{auxdata}}
+\begin{DoxyCompactList}\small\item\em A pointer to auxiliary, user-\/defined data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}} $\ast$ \mbox{\hyperlink{group__fold__compound_a8e84dbabab016ecd74da6c38cb94e816}{free\+\_\+auxdata}}
+\begin{DoxyCompactList}\small\item\em A callback to free auxiliary user data whenever the fold\+\_\+compound itself is free\textquotesingle{}d. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Secondary Structure Decomposition (grammar) related data fields}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__fold__compound_ac25a84f2658de0d7a54cd710c16198b1}\label{group__fold__compound_ac25a84f2658de0d7a54cd710c16198b1}} 
+\mbox{\hyperlink{structvrna__structured__domains__s}{vrna\+\_\+sd\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_ac25a84f2658de0d7a54cd710c16198b1}{domains\+\_\+struc}}
+\begin{DoxyCompactList}\small\item\em Additional structured domains. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a4f70b6d32681fc8ca061236f21819ae7}\label{group__fold__compound_a4f70b6d32681fc8ca061236f21819ae7}} 
+\mbox{\hyperlink{group__domains__up_ga0009117b14d29143e8b18ab891f48c2d}{vrna\+\_\+ud\+\_\+t}} $\ast$ \mbox{\hyperlink{group__fold__compound_a4f70b6d32681fc8ca061236f21819ae7}{domains\+\_\+up}}
+\begin{DoxyCompactList}\small\item\em Additional unstructured domains. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a42f34f531718cead0550a1ed59785e6d}\label{group__fold__compound_a42f34f531718cead0550a1ed59785e6d}} 
+\mbox{\hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\+\_\+gr\+\_\+aux\+\_\+t}} $\ast$ {\bfseries aux\+\_\+grammar}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Data fields available for single/hybrid structure prediction}\par
+\end{Indent}
+\begin{Indent}\textbf{ Data fields for consensus structure prediction}\par
+\end{Indent}
+\begin{Indent}\textbf{ Additional data fields for Distance Class Partitioning}\par
+{\em These data fields are typically populated with meaningful data only if used in the context of Distance Class Partitioning }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__fold__compound_a426305721b16023f2f3247f7354d2c46}\label{group__fold__compound_a426305721b16023f2f3247f7354d2c46}} 
+unsigned int \mbox{\hyperlink{group__fold__compound_a426305721b16023f2f3247f7354d2c46}{max\+D1}}
+\begin{DoxyCompactList}\small\item\em Maximum allowed base pair distance to first reference. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a38695774fd396c892f9a70d39978b231}\label{group__fold__compound_a38695774fd396c892f9a70d39978b231}} 
+unsigned int \mbox{\hyperlink{group__fold__compound_a38695774fd396c892f9a70d39978b231}{max\+D2}}
+\begin{DoxyCompactList}\small\item\em Maximum allowed base pair distance to second reference. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_aa279ba4bd0ff541d435d3a049687f3ac}\label{group__fold__compound_aa279ba4bd0ff541d435d3a049687f3ac}} 
+short $\ast$ \mbox{\hyperlink{group__fold__compound_aa279ba4bd0ff541d435d3a049687f3ac}{reference\+\_\+pt1}}
+\begin{DoxyCompactList}\small\item\em A pairtable of the first reference structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a926ad253f5f0eed642bc227493d0278d}\label{group__fold__compound_a926ad253f5f0eed642bc227493d0278d}} 
+short $\ast$ \mbox{\hyperlink{group__fold__compound_a926ad253f5f0eed642bc227493d0278d}{reference\+\_\+pt2}}
+\begin{DoxyCompactList}\small\item\em A pairtable of the second reference structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a62a8d4ab8dadffbf09da917adff6c71e}\label{group__fold__compound_a62a8d4ab8dadffbf09da917adff6c71e}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a62a8d4ab8dadffbf09da917adff6c71e}{reference\+BPs1}}
+\begin{DoxyCompactList}\small\item\em Matrix containing number of basepairs of reference structure1 in interval \mbox{[}i,j\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a19187f33433e84683730dedff8544f71}\label{group__fold__compound_a19187f33433e84683730dedff8544f71}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a19187f33433e84683730dedff8544f71}{reference\+BPs2}}
+\begin{DoxyCompactList}\small\item\em Matrix containing number of basepairs of reference structure2 in interval \mbox{[}i,j\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a5c53e55583ce096148075bc240fc2bce}\label{group__fold__compound_a5c53e55583ce096148075bc240fc2bce}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a5c53e55583ce096148075bc240fc2bce}{bpdist}}
+\begin{DoxyCompactList}\small\item\em Matrix containing base pair distance of reference structure 1 and 2 on interval \mbox{[}i,j\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a0af5a888bac2ae32107da32776144504}\label{group__fold__compound_a0af5a888bac2ae32107da32776144504}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a0af5a888bac2ae32107da32776144504}{mm1}}
+\begin{DoxyCompactList}\small\item\em Maximum matching matrix, reference struct 1 disallowed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a54c0b979274b285a7e093ed54aa3252e}\label{group__fold__compound_a54c0b979274b285a7e093ed54aa3252e}} 
+unsigned int $\ast$ \mbox{\hyperlink{group__fold__compound_a54c0b979274b285a7e093ed54aa3252e}{mm2}}
+\begin{DoxyCompactList}\small\item\em Maximum matching matrix, reference struct 2 disallowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Additional data fields for local folding}\par
+{\em These data fields are typically populated with meaningful data only if used in the context of local folding }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__fold__compound_adacbf7cdfb47d3072683ab509de735f6}\label{group__fold__compound_adacbf7cdfb47d3072683ab509de735f6}} 
+int \mbox{\hyperlink{group__fold__compound_adacbf7cdfb47d3072683ab509de735f6}{window\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em window size for local folding sliding window approach \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_a2ecb8ff5e21190936a8a146be7a251ff}\label{group__fold__compound_a2ecb8ff5e21190936a8a146be7a251ff}} 
+char $\ast$$\ast$ \mbox{\hyperlink{group__fold__compound_a2ecb8ff5e21190936a8a146be7a251ff}{ptype\+\_\+local}}
+\begin{DoxyCompactList}\small\item\em Pair type array (for local folding) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__fold__compound_ab9e9e3fd24c960c6e2390be1a070e4c5}\label{group__fold__compound_ab9e9e3fd24c960c6e2390be1a070e4c5}} 
+vrna\+\_\+zsc\+\_\+dat\+\_\+t {\bfseries zscore\+\_\+data}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxyparagraph{Field Documentation}
+\mbox{\Hypertarget{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}\label{group__fold__compound_a391bcf8ac5997784aaf780cdd251c464}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!type@{type}}
+\index{type@{type}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}{vrna\+\_\+fc\+\_\+type\+\_\+e}} vrna\+\_\+fc\+\_\+s\+::type}
+
+
+
+The type of the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. 
+
+Currently possible values are \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}}, and \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}} \begin{DoxyWarning}{Warning}
+Do not edit this attribute, it will be automagically set by the corresponding get() methods for the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. The value specified in this attribute dictates the set of other attributes to use within this data structure. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}\label{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!stat\_cb@{stat\_cb}}
+\index{stat\_cb@{stat\_cb}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{stat\_cb}{stat\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status}}$\ast$ vrna\+\_\+fc\+\_\+s\+::stat\+\_\+cb}
+
+
+
+Recursion status callback (usually called just before, and after recursive computations in the library. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}, \mbox{\hyperlink{group__fold__compound_ga680ddfe1e67d1459689b1e92c80b9c4c}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+callback()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_a20048e0c369e9f24b55423d600037c68}\label{group__fold__compound_a20048e0c369e9f24b55423d600037c68}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!auxdata@{auxdata}}
+\index{auxdata@{auxdata}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{auxdata}{auxdata}}
+{\footnotesize\ttfamily void$\ast$ vrna\+\_\+fc\+\_\+s\+::auxdata}
+
+
+
+A pointer to auxiliary, user-\/defined data. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata()}}, \mbox{\hyperlink{group__fold__compound_a8e84dbabab016ecd74da6c38cb94e816}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+free\+\_\+auxdata}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_a8e84dbabab016ecd74da6c38cb94e816}\label{group__fold__compound_a8e84dbabab016ecd74da6c38cb94e816}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!free\_auxdata@{free\_auxdata}}
+\index{free\_auxdata@{free\_auxdata}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{free\_auxdata}{free\_auxdata}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}}$\ast$ vrna\+\_\+fc\+\_\+s\+::free\+\_\+auxdata}
+
+
+
+A callback to free auxiliary user data whenever the fold\+\_\+compound itself is free\textquotesingle{}d. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_a20048e0c369e9f24b55423d600037c68}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+auxdata}}, \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_a87f6abcda89cfb7a486c97e1f5371525}\label{group__fold__compound_a87f6abcda89cfb7a486c97e1f5371525}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!sequence@{sequence}}
+\index{sequence@{sequence}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{sequence}{sequence}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+fc\+\_\+s\+::sequence}
+
+
+
+The input sequence string. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_SINGLE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a9934bdb695d35a3544285cbcc19f9763}\label{group__fold__compound_a9934bdb695d35a3544285cbcc19f9763}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!sequence\_encoding@{sequence\_encoding}}
+\index{sequence\_encoding@{sequence\_encoding}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{sequence\_encoding}{sequence\_encoding}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+fc\+\_\+s\+::sequence\+\_\+encoding}
+
+
+
+Numerical encoding of the input sequence. 
+
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+sequence\+\_\+encode() 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_SINGLE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a3fbea559f1d1976b2d67c215cdeee0b2}\label{group__fold__compound_a3fbea559f1d1976b2d67c215cdeee0b2}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!ptype@{ptype}}
+\index{ptype@{ptype}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{ptype}{ptype}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+fc\+\_\+s\+::ptype}
+
+
+
+Pair type array. 
+
+Contains the numerical encoding of the pair type for each pair (i,j) used in MFE, Partition function and Evaluation computations. \begin{DoxyNote}{Note}
+This array is always indexed via jindx, in contrast to previously different indexing between mfe and pf variants! 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_SINGLE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\+\_\+idx\+\_\+col\+\_\+wise()}}, \mbox{\hyperlink{group__alphabet__utils_ga51a9e86a5f731f5f2f5584ee67cee4a8}{vrna\+\_\+ptypes()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_a7fe1235ce3d41287695f1ae1e283e8fc}\label{group__fold__compound_a7fe1235ce3d41287695f1ae1e283e8fc}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!ptype\_pf\_compat@{ptype\_pf\_compat}}
+\index{ptype\_pf\_compat@{ptype\_pf\_compat}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{ptype\_pf\_compat}{ptype\_pf\_compat}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+fc\+\_\+s\+::ptype\+\_\+pf\+\_\+compat}
+
+
+
+ptype array indexed via iindx 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000079}{Deprecated}}]This attribute will vanish in the future! It\textquotesingle{}s meant for backward compatibility only! \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_SINGLE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_ac7089e90460ad3990a308808c8044c9f}\label{group__fold__compound_ac7089e90460ad3990a308808c8044c9f}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!sc@{sc}}
+\index{sc@{sc}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{sc}{sc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__soft__constraints_ga75401ce219ef8dbcceb672db82d434c6}{vrna\+\_\+sc\+\_\+t}}$\ast$ vrna\+\_\+fc\+\_\+s\+::sc}
+
+
+
+The soft constraints for usage in structure prediction and evaluation. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_SINGLE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a965dbb42f2e13cace5aa3bbab4396530}\label{group__fold__compound_a965dbb42f2e13cace5aa3bbab4396530}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!sequences@{sequences}}
+\index{sequences@{sequences}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{sequences}{sequences}}
+{\footnotesize\ttfamily char$\ast$$\ast$ vrna\+\_\+fc\+\_\+s\+::sequences}
+
+
+
+The aligned sequences. 
+
+\begin{DoxyNote}{Note}
+The end of the alignment is indicated by a NULL pointer in the second dimension 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a614702ab74478e786272be44f8cebfe3}\label{group__fold__compound_a614702ab74478e786272be44f8cebfe3}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!n\_seq@{n\_seq}}
+\index{n\_seq@{n\_seq}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{n\_seq}{n\_seq}}
+{\footnotesize\ttfamily unsigned int vrna\+\_\+fc\+\_\+s\+::n\+\_\+seq}
+
+
+
+The number of sequences in the alignment. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_ac472afde64d8b3c8b84e4809fda7d814}\label{group__fold__compound_ac472afde64d8b3c8b84e4809fda7d814}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!cons\_seq@{cons\_seq}}
+\index{cons\_seq@{cons\_seq}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{cons\_seq}{cons\_seq}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+fc\+\_\+s\+::cons\+\_\+seq}
+
+
+
+The consensus sequence of the aligned sequences. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_aa3fab7ae38ebfed2028375221d295686}\label{group__fold__compound_aa3fab7ae38ebfed2028375221d295686}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!S\_cons@{S\_cons}}
+\index{S\_cons@{S\_cons}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{S\_cons}{S\_cons}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+fc\+\_\+s\+::\+S\+\_\+cons}
+
+
+
+Numerical encoding of the consensus sequence. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_aebb37297f92c7bd22aac6343f8f61d61}\label{group__fold__compound_aebb37297f92c7bd22aac6343f8f61d61}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!S@{S}}
+\index{S@{S}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{S}{S}}
+{\footnotesize\ttfamily short$\ast$$\ast$ vrna\+\_\+fc\+\_\+s\+::S}
+
+
+
+Numerical encoding of the sequences in the alignment. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a78d089b475e2230bd536b9a6ed8bb17c}\label{group__fold__compound_a78d089b475e2230bd536b9a6ed8bb17c}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!S5@{S5}}
+\index{S5@{S5}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{S5}{S5}}
+{\footnotesize\ttfamily short$\ast$$\ast$ vrna\+\_\+fc\+\_\+s\+::\+S5}
+
+
+
+S5\mbox{[}s\mbox{]}\mbox{[}i\mbox{]} holds next base 5\textquotesingle{} of i in sequence s. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_af6ab2a25b84d2308ee23f6b11b5fd52d}\label{group__fold__compound_af6ab2a25b84d2308ee23f6b11b5fd52d}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!S3@{S3}}
+\index{S3@{S3}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{S3}{S3}}
+{\footnotesize\ttfamily short$\ast$$\ast$ vrna\+\_\+fc\+\_\+s\+::\+S3}
+
+
+
+Sl\mbox{[}s\mbox{]}\mbox{[}i\mbox{]} holds next base 3\textquotesingle{} of i in sequence s. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_a14dc7755af6019ddbd0cf94b209e89dd}\label{group__fold__compound_a14dc7755af6019ddbd0cf94b209e89dd}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!pscore@{pscore}}
+\index{pscore@{pscore}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{pscore}{pscore}}
+{\footnotesize\ttfamily int$\ast$ vrna\+\_\+fc\+\_\+s\+::pscore}
+
+
+
+Precomputed array of pair types expressed as pairing scores. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_ad966c15907e6c2e32b0910c7a3154509}\label{group__fold__compound_ad966c15907e6c2e32b0910c7a3154509}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!pscore\_local@{pscore\_local}}
+\index{pscore\_local@{pscore\_local}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{pscore\_local}{pscore\_local}}
+{\footnotesize\ttfamily int$\ast$$\ast$ vrna\+\_\+fc\+\_\+s\+::pscore\+\_\+local}
+
+
+
+Precomputed array of pair types expressed as pairing scores. 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_abf5e82d14649b6179ae60ed7da6e4fc0}\label{group__fold__compound_abf5e82d14649b6179ae60ed7da6e4fc0}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!pscore\_pf\_compat@{pscore\_pf\_compat}}
+\index{pscore\_pf\_compat@{pscore\_pf\_compat}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{pscore\_pf\_compat}{pscore\_pf\_compat}}
+{\footnotesize\ttfamily short$\ast$ vrna\+\_\+fc\+\_\+s\+::pscore\+\_\+pf\+\_\+compat}
+
+
+
+Precomputed array of pair types expressed as pairing scores indexed via iindx. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000080}{Deprecated}}]This attribute will vanish in the future! \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__fold__compound_ac2b047fddabc51a76a96511174e47db1}\label{group__fold__compound_ac2b047fddabc51a76a96511174e47db1}} 
+\index{vrna\_fc\_s@{vrna\_fc\_s}!scs@{scs}}
+\index{scs@{scs}!vrna\_fc\_s@{vrna\_fc\_s}}
+\doxysubparagraph{\texorpdfstring{scs}{scs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__soft__constraints_ga75401ce219ef8dbcceb672db82d434c6}{vrna\+\_\+sc\+\_\+t}}$\ast$$\ast$ vrna\+\_\+fc\+\_\+s\+::scs}
+
+
+
+A set of soft constraints (for each sequence in the alignment) 
+
+\begin{DoxyWarning}{Warning}
+Only available if\begin{DoxyVerb}type==VRNA_FC_TYPE_COMPARATIVE \end{DoxyVerb}
+ 
+\end{DoxyWarning}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__fold__compound_ga1a5053dc8acbb0111e852988726f07d6}\label{group__fold__compound_ga1a5053dc8acbb0111e852988726f07d6}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_STATUS\_MFE\_PRE@{VRNA\_STATUS\_MFE\_PRE}}
+\index{VRNA\_STATUS\_MFE\_PRE@{VRNA\_STATUS\_MFE\_PRE}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STATUS\_MFE\_PRE}{VRNA\_STATUS\_MFE\_PRE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+PRE~(unsigned char)1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Status message indicating that MFE computations are about to begin. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+stat\+\_\+cb}}, \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold()}}, \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, \mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\+\_\+circalifold()}}, \mbox{\hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{vrna\+\_\+cofold()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_ga47c900ca76e56e59e2e83a06e0bde641}\label{group__fold__compound_ga47c900ca76e56e59e2e83a06e0bde641}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_STATUS\_MFE\_POST@{VRNA\_STATUS\_MFE\_POST}}
+\index{VRNA\_STATUS\_MFE\_POST@{VRNA\_STATUS\_MFE\_POST}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STATUS\_MFE\_POST}{VRNA\_STATUS\_MFE\_POST}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+POST~(unsigned char)2}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Status message indicating that MFE computations are finished. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+stat\+\_\+cb}}, \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, \mbox{\hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\+\_\+circfold()}}, \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\+\_\+alifold()}}, \mbox{\hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\+\_\+circalifold()}}, \mbox{\hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{vrna\+\_\+cofold()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_ga91795d35ebdb6f32be50459f24b3d114}\label{group__fold__compound_ga91795d35ebdb6f32be50459f24b3d114}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_STATUS\_PF\_PRE@{VRNA\_STATUS\_PF\_PRE}}
+\index{VRNA\_STATUS\_PF\_PRE@{VRNA\_STATUS\_PF\_PRE}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STATUS\_PF\_PRE}{VRNA\_STATUS\_PF\_PRE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+PRE~(unsigned char)3}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Status message indicating that Partition function computations are about to begin. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+stat\+\_\+cb}}, \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}, \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_ga1c6fa243533fd026e50f7d595eaaa565}\label{group__fold__compound_ga1c6fa243533fd026e50f7d595eaaa565}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_STATUS\_PF\_POST@{VRNA\_STATUS\_PF\_POST}}
+\index{VRNA\_STATUS\_PF\_POST@{VRNA\_STATUS\_PF\_POST}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STATUS\_PF\_POST}{VRNA\_STATUS\_PF\_POST}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+POST~(unsigned char)4}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Status message indicating that Partition function computations are finished. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_a87a83f6795b569000efcbe65acc3dd81}{vrna\+\_\+fold\+\_\+compound\+\_\+t.\+stat\+\_\+cb}}, \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}, \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}\label{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_OPTION\_MFE@{VRNA\_OPTION\_MFE}}
+\index{VRNA\_OPTION\_MFE@{VRNA\_OPTION\_MFE}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_OPTION\_MFE}{VRNA\_OPTION\_MFE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+OPTION\+\_\+\+MFE~1U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Option flag to specify requirement of Minimum Free Energy (MFE) DP matrices and corresponding set of energy parameters. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}\label{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_OPTION\_PF@{VRNA\_OPTION\_PF}}
+\index{VRNA\_OPTION\_PF@{VRNA\_OPTION\_PF}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_OPTION\_PF}{VRNA\_OPTION\_PF}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+OPTION\+\_\+\+PF~2U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Option flag to specify requirement of Partition Function (PF) DP matrices and corresponding set of Boltzmann factors. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}\label{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}} 
+\index{The Fold Compound@{The Fold Compound}!VRNA\_OPTION\_EVAL\_ONLY@{VRNA\_OPTION\_EVAL\_ONLY}}
+\index{VRNA\_OPTION\_EVAL\_ONLY@{VRNA\_OPTION\_EVAL\_ONLY}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{VRNA\_OPTION\_EVAL\_ONLY}{VRNA\_OPTION\_EVAL\_ONLY}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY~8U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Option flag to specify that neither MFE, nor PF DP matrices are required. 
+
+Use this flag in conjuntion with \mbox{\hyperlink{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}{VRNA\+\_\+\+OPTION\+\_\+\+MFE}}, and \mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}} to save memory for a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} obtained from \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, or \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}} in cases where only energy evaluation but no structure prediction is required.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}\label{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_callback\_free\_auxdata@{vrna\_callback\_free\_auxdata}}
+\index{vrna\_callback\_free\_auxdata@{vrna\_callback\_free\_auxdata}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_free\_auxdata}{vrna\_callback\_free\_auxdata}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+callback\+\_\+free\+\_\+auxdata(void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Callback to free memory allocated for auxiliary user-\/provided data. 
+
+This type of user-\/implemented function usually deletes auxiliary data structures. The user must take care to free all the memory occupied by the data structure passed.
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\mbox{\hyperlink{callbacks__callbacks000002}{Notes on Callback Functions}}]This callback is supposed to free memory occupied by an auxiliary data structure. It will be called when the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} is erased from memory through a call to \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} and will be passed the address of memory previously bound to the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} via \mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata()}}. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata()}}, \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}, \mbox{\hyperlink{group__fold__compound_ga680ddfe1e67d1459689b1e92c80b9c4c}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+callback()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data that needs to be free\textquotesingle{}d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__fold__compound_gac86036fa8cad1108832335063243cdc8}\label{group__fold__compound_gac86036fa8cad1108832335063243cdc8}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_callback\_recursion\_status@{vrna\_callback\_recursion\_status}}
+\index{vrna\_callback\_recursion\_status@{vrna\_callback\_recursion\_status}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_recursion\_status}{vrna\_callback\_recursion\_status}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+callback\+\_\+recursion\+\_\+status(unsigned char status, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Callback to perform specific user-\/defined actions before, or after recursive computations. 
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\mbox{\hyperlink{callbacks__callbacks000003}{Notes on Callback Functions}}]This function will be called to notify a third-\/party implementation about the status of a currently ongoing recursion. The purpose of this callback mechanism is to provide users with a simple way to ensure pre-\/ and post conditions for auxiliary mechanisms attached to our implementations. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata()}}, \mbox{\hyperlink{group__fold__compound_ga680ddfe1e67d1459689b1e92c80b9c4c}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+callback()}}, \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}, \mbox{\hyperlink{group__fold__compound_ga1a5053dc8acbb0111e852988726f07d6}{VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+PRE}}, \mbox{\hyperlink{group__fold__compound_ga47c900ca76e56e59e2e83a06e0bde641}{VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+POST}}, \mbox{\hyperlink{group__fold__compound_ga91795d35ebdb6f32be50459f24b3d114}{VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+PRE}}, \mbox{\hyperlink{group__fold__compound_ga1c6fa243533fd026e50f7d595eaaa565}{VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+POST}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em status} & The status indicator \\
+\hline
+{\em data} & The data structure that was assigned with \mbox{\hyperlink{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}{vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata()}} \\
+\hline
+{\em status} & The status indicator \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}\label{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_fc\_type\_e@{vrna\_fc\_type\_e}}
+\index{vrna\_fc\_type\_e@{vrna\_fc\_type\_e}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_fc\_type\_e}{vrna\_fc\_type\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__fold__compound_ga01a4ff86fa71deaaa5d1abbd95a1447d}{vrna\+\_\+fc\+\_\+type\+\_\+e}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+An enumerator that is used to specify the type of a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_FC\_TYPE\_SINGLE@{VRNA\_FC\_TYPE\_SINGLE}!The Fold Compound@{The Fold Compound}}\index{The Fold Compound@{The Fold Compound}!VRNA\_FC\_TYPE\_SINGLE@{VRNA\_FC\_TYPE\_SINGLE}}}\mbox{\Hypertarget{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}\label{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}} 
+VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE&Type is suitable for single, and hybridizing sequences \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_FC\_TYPE\_COMPARATIVE@{VRNA\_FC\_TYPE\_COMPARATIVE}!The Fold Compound@{The Fold Compound}}\index{The Fold Compound@{The Fold Compound}!VRNA\_FC\_TYPE\_COMPARATIVE@{VRNA\_FC\_TYPE\_COMPARATIVE}}}\mbox{\Hypertarget{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}\label{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}} 
+VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE&Type is suitable for sequence alignments (consensus structure prediction) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}\label{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_fold\_compound@{vrna\_fold\_compound}}
+\index{vrna\_fold\_compound@{vrna\_fold\_compound}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_fold\_compound()}{vrna\_fold\_compound()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}$\ast$ vrna\+\_\+fold\+\_\+compound (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{const \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md\+\_\+p,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Retrieve a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure for single sequences and hybridizing sequences. 
+
+This function provides an easy interface to obtain a prefilled \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} by passing a single sequence, or two contatenated sequences as input. For the latter, sequences need to be seperated by an \textquotesingle{}\&\textquotesingle{} character like this\+:\begin{DoxyVerb}char *sequence = "GGGG&CCCC"; \end{DoxyVerb}
+
+
+The optional parameter {\ttfamily md\+\_\+p} can be used to specify the model details for successive computations based on the content of the generated \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. Passing NULL will instruct the function to use default model details. The third parameter {\ttfamily options} may be used to specify dynamic programming (DP) matrix requirements.
+
+\doxysubparagraph*{Options}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\+\_\+\+OPTION\+\_\+\+DEFAULT}} -\/ Option flag to specify default settings/requirements.
+\item \mbox{\hyperlink{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}{VRNA\+\_\+\+OPTION\+\_\+\+MFE}} -\/ Option flag to specify requirement of Minimum Free Energy (MFE) DP matrices and corresponding set of energy parameters.
+\item \mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}} -\/ Option flag to specify requirement of Partition Function (PF) DP matrices and corresponding set of Boltzmann factors.
+\item \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}} -\/ Option flag to specify requirement of DP matrices for local folding approaches.
+\end{DoxyItemize}
+
+The above options may be OR-\/ed together.
+
+If you just need the folding compound serving as a container for your data, you can simply pass \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\+\_\+\+OPTION\+\_\+\+DEFAULT}} to the {\ttfamily option} parameter. This creates a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} without DP matrices, thus saving memory. Subsequent calls of any structure prediction function will then take care of allocating the memory required for the DP matrices. If you only intend to evaluate structures instead of actually predicting them, you may use the \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY}} macro. This will seriously speedup the creation of the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}.
+
+\begin{DoxyNote}{Note}
+The sequence string must be uppercase, and should contain only RNA (resp. DNA) alphabet depending on what energy parameter set is used
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & A single sequence, or two concatenated sequences seperated by an \textquotesingle{}\&\textquotesingle{} character \\
+\hline
+{\em md\+\_\+p} & An optional set of model details \\
+\hline
+{\em options} & The options for DP matrices memory allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A prefilled vrna\+\_\+fold\+\_\+compound\+\_\+t ready to be used for computations (may be {\ttfamily NULL} on error) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}\label{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_fold\_compound\_comparative@{vrna\_fold\_compound\_comparative}}
+\index{vrna\_fold\_compound\_comparative@{vrna\_fold\_compound\_comparative}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_fold\_compound\_comparative()}{vrna\_fold\_compound\_comparative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}$\ast$ vrna\+\_\+fold\+\_\+compound\+\_\+comparative (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md\+\_\+p,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Retrieve a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure for sequence alignments. 
+
+This function provides an easy interface to obtain a prefilled \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} by passing an alignment of sequences.
+
+The optional parameter {\ttfamily md\+\_\+p} can be used to specify the model details for successive computations based on the content of the generated \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. Passing NULL will instruct the function to use default model details. The third parameter {\ttfamily options} may be used to specify dynamic programming (DP) matrix requirements.
+
+\doxysubparagraph*{Options}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\+\_\+\+OPTION\+\_\+\+DEFAULT}} -\/ Option flag to specify default settings/requirements.
+\item \mbox{\hyperlink{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}{VRNA\+\_\+\+OPTION\+\_\+\+MFE}} -\/ Option flag to specify requirement of Minimum Free Energy (MFE) DP matrices and corresponding set of energy parameters.
+\item \mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}} -\/ Option flag to specify requirement of Partition Function (PF) DP matrices and corresponding set of Boltzmann factors.
+\item \mbox{\hyperlink{group__fold__compound_ga2b2a8009ccdccc3eb1571556261aee8e}{VRNA\+\_\+\+OPTION\+\_\+\+WINDOW}} -\/ Option flag to specify requirement of DP matrices for local folding approaches.
+\end{DoxyItemize}
+
+The above options may be OR-\/ed together.
+
+If you just need the folding compound serving as a container for your data, you can simply pass \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\+\_\+\+OPTION\+\_\+\+DEFAULT}} to the {\ttfamily option} parameter. This creates a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} without DP matrices, thus saving memory. Subsequent calls of any structure prediction function will then take care of allocating the memory required for the DP matrices. If you only intend to evaluate structures instead of actually predicting them, you may use the \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY}} macro. This will seriously speedup the creation of the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}.
+
+\begin{DoxyNote}{Note}
+The sequence strings must be uppercase, and should contain only RNA (resp. DNA) alphabet including gap characters depending on what energy parameter set is used.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}}, \mbox{\hyperlink{group__fold__compound_gae63be9127fe7dcc1f9bb14f5bb1064ee}{VRNA\+\_\+\+OPTION\+\_\+\+MFE}}, \mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}}, \mbox{\hyperlink{group__fold__compound_ga61469c423131552c8483229f8b6c7e0e}{VRNA\+\_\+\+OPTION\+\_\+\+EVAL\+\_\+\+ONLY}}, read\+\_\+clustal()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & A sequence alignment including \textquotesingle{}gap\textquotesingle{} characters \\
+\hline
+{\em md\+\_\+p} & An optional set of model details \\
+\hline
+{\em options} & The options for DP matrices memory allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A prefilled vrna\+\_\+fold\+\_\+compound\+\_\+t ready to be used for computations (may be {\ttfamily NULL} on error) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}\label{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_fold\_compound\_free@{vrna\_fold\_compound\_free}}
+\index{vrna\_fold\_compound\_free@{vrna\_fold\_compound\_free}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_fold\_compound\_free()}{vrna\_fold\_compound\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+fold\+\_\+compound\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Free memory occupied by a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}}, \mbox{\hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}}, \mbox{\hyperlink{group__dp__matrices_ga6a9422feb5dfe5c64050cebf447672d0}{vrna\+\_\+mx\+\_\+mfe\+\_\+free()}}, \mbox{\hyperlink{group__dp__matrices_ga2283e69fd139fb8e58d7ade3b5773f9c}{vrna\+\_\+mx\+\_\+pf\+\_\+free()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} that is to be erased from memory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}\label{group__fold__compound_gafc44c76a1aacf61bfccb8cd698772b98}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_fold\_compound\_add\_auxdata@{vrna\_fold\_compound\_add\_auxdata}}
+\index{vrna\_fold\_compound\_add\_auxdata@{vrna\_fold\_compound\_add\_auxdata}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_fold\_compound\_add\_auxdata()}{vrna\_fold\_compound\_add\_auxdata()}}
+{\footnotesize\ttfamily void vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+auxdata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{void $\ast$}]{data,  }\item[{\mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}} $\ast$}]{f }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Add auxiliary data to the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. 
+
+This function allows one to bind arbitrary data to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} which may later on be used by one of the callback functions, e.\+g. \mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}. To allow for proper cleanup of the memory occupied by this auxiliary data, the user may also provide a pointer to a cleanup function that free\textquotesingle{}s the corresponding memory. This function will be called automatically when the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} is free\textquotesingle{}d with \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}.
+
+\begin{DoxyNote}{Note}
+Before attaching the arbitrary data pointer, this function will call the \mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata()}} on any pre-\/existing data that is already attached.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold\+\_\+compound the arbitrary data pointer should be associated with \\
+\hline
+{\em data} & A pointer to an arbitrary data structure \\
+\hline
+{\em f} & A pointer to function that free\textquotesingle{}s memory occupied by the arbitrary data (May be NULL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__fold__compound_ga680ddfe1e67d1459689b1e92c80b9c4c}\label{group__fold__compound_ga680ddfe1e67d1459689b1e92c80b9c4c}} 
+\index{The Fold Compound@{The Fold Compound}!vrna\_fold\_compound\_add\_callback@{vrna\_fold\_compound\_add\_callback}}
+\index{vrna\_fold\_compound\_add\_callback@{vrna\_fold\_compound\_add\_callback}!The Fold Compound@{The Fold Compound}}
+\doxysubsubsection{\texorpdfstring{vrna\_fold\_compound\_add\_callback()}{vrna\_fold\_compound\_add\_callback()}}
+{\footnotesize\ttfamily void vrna\+\_\+fold\+\_\+compound\+\_\+add\+\_\+callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{\mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status}} $\ast$}]{f }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{fold__compound_8h}{Vienna\+RNA/fold\+\_\+compound.\+h}}$>$}
+
+
+
+Add a recursion status callback to the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. 
+
+Binding a recursion status callback function to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} allows one to perform arbitrary operations just before, or after an actual recursive computations, e.\+g. MFE prediction, is performed by the RNAlib. The callback function will be provided with a pointer to its \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, and a status message. Hence, it has complete access to all variables that incluence the recursive computations.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__fold__compound_gac86036fa8cad1108832335063243cdc8}{vrna\+\_\+callback\+\_\+recursion\+\_\+status()}}, \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}, \mbox{\hyperlink{group__fold__compound_ga1a5053dc8acbb0111e852988726f07d6}{VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+PRE}}, \mbox{\hyperlink{group__fold__compound_ga47c900ca76e56e59e2e83a06e0bde641}{VRNA\+\_\+\+STATUS\+\_\+\+MFE\+\_\+\+POST}}, \mbox{\hyperlink{group__fold__compound_ga91795d35ebdb6f32be50459f24b3d114}{VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+PRE}}, \mbox{\hyperlink{group__fold__compound_ga1c6fa243533fd026e50f7d595eaaa565}{VRNA\+\_\+\+STATUS\+\_\+\+PF\+\_\+\+POST}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold\+\_\+compound the callback function should be attached to \\
+\hline
+{\em f} & The pointer to the recursion status callback function \\
+\hline
+\end{DoxyParams}

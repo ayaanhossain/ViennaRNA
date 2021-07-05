@@ -1,0 +1,66 @@
+\hypertarget{heap_8h_source}{}\doxysection{heap.\+h}
+\label{heap_8h_source}\index{ViennaRNA/datastructures/heap.h@{ViennaRNA/datastructures/heap.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_HEAP\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_HEAP\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00025}\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{00025}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_heap\_s *\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}};}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00044}\mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{00044}} \textcolor{keyword}{typedef} int (\mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\_callback\_heap\_cmp}})(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *a,}
+\DoxyCodeLine{00045                                      \textcolor{keyword}{const} \textcolor{keywordtype}{void} *b,}
+\DoxyCodeLine{00046                                      \textcolor{keywordtype}{void}       *data);}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00056}\mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{00056}} \textcolor{keyword}{typedef} size\_t (\mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\_callback\_heap\_get\_pos}})(\textcolor{keyword}{const} \textcolor{keywordtype}{void}  *a,}
+\DoxyCodeLine{00057                                             \textcolor{keywordtype}{void}        *data);}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00067}\mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{00067}} \textcolor{keyword}{typedef} void (\mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\_callback\_heap\_set\_pos}})(\textcolor{keyword}{const} \textcolor{keywordtype}{void}  *a,}
+\DoxyCodeLine{00068                                           \textcolor{keywordtype}{size\_t}      pos,}
+\DoxyCodeLine{00069                                           \textcolor{keywordtype}{void}        *data);}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00105 \mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00106}\mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{00106}} \mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\_heap\_init}}(\textcolor{keywordtype}{size\_t}                     n,}
+\DoxyCodeLine{00107                \mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\_callback\_heap\_cmp}}     *cmp,}
+\DoxyCodeLine{00108                \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\_callback\_heap\_get\_pos}} *get\_entry\_pos,}
+\DoxyCodeLine{00109                \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\_callback\_heap\_set\_pos}} *set\_entry\_pos,}
+\DoxyCodeLine{00110                \textcolor{keywordtype}{void}                       *data);}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00120 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00121}\mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{00121}} \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\_heap\_free}}(\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}} h);}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00130 \textcolor{keywordtype}{size\_t}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00131}\mbox{\hyperlink{group__heap__utils_ga5d84774d7d7f000ab05724d54984c2ed}{00131}} \mbox{\hyperlink{group__heap__utils_ga5d84774d7d7f000ab05724d54984c2ed}{vrna\_heap\_size}}(\textcolor{keyword}{struct} vrna\_heap\_s *h);}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133 }
+\DoxyCodeLine{00143 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00144}\mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{00144}} \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\_heap\_insert}}(\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}}  h,}
+\DoxyCodeLine{00145                  \textcolor{keywordtype}{void}         *v);}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00159 \textcolor{keywordtype}{void} *}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00160}\mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{00160}} \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\_heap\_pop}}(\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}} h);}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00172 \textcolor{keyword}{const} \textcolor{keywordtype}{void} *}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00173}\mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{00173}} \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\_heap\_top}}(\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}} h);}
+\DoxyCodeLine{00174 }
+\DoxyCodeLine{00175 }
+\DoxyCodeLine{00189 \textcolor{keywordtype}{void} *}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00190}\mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{00190}} \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\_heap\_remove}}(\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}}  h,}
+\DoxyCodeLine{00191                  \textcolor{keyword}{const} \textcolor{keywordtype}{void}   *v);}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193 }
+\DoxyCodeLine{00210 \textcolor{keywordtype}{void} *}
+\DoxyCodeLine{\Hypertarget{heap_8h_source_l00211}\mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{00211}} \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\_heap\_update}}(\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\_heap\_t}}  h,}
+\DoxyCodeLine{00212                  \textcolor{keywordtype}{void}         *v);}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214 }
+\DoxyCodeLine{00219 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

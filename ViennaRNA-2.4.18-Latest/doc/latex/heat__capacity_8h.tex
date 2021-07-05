@@ -1,0 +1,48 @@
+\hypertarget{heat__capacity_8h}{}\doxysection{Vienna\+RNA/heat\+\_\+capacity.h File Reference}
+\label{heat__capacity_8h}\index{ViennaRNA/heat\_capacity.h@{ViennaRNA/heat\_capacity.h}}
+
+
+Compute heat capacity for an RNA.  
+
+
+Include dependency graph for heat\+\_\+capacity.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heat__capacity_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em A single result from heat capacity computations.  \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}}(float temp, float heat\+\_\+capacity, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em The callback for heat capacity predictions. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}} \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A single result from heat capacity computations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{Indent}\textbf{ Basic heat capacity function interface}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}} $\ast$ \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints)
+\begin{DoxyCompactList}\small\item\em Compute the specific heat for an RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}{vrna\+\_\+heat\+\_\+capacity\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints, \mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}} $\ast$cb, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Compute the specific heat for an RNA (callback variant) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Simplified heat capacity computation}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}} $\ast$ \mbox{\hyperlink{group__thermodynamics_ga0c2664e15dded704d805a9d2a625ff21}{vrna\+\_\+heat\+\_\+capacity\+\_\+simple}} (const char $\ast$sequence, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints)
+\begin{DoxyCompactList}\small\item\em Compute the specific heat for an RNA (simplified variant) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Compute heat capacity for an RNA. 
+
+This file includes the interface to all functions related to predicting the heat capacity for an RNA. 

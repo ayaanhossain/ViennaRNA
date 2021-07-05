@@ -1,0 +1,45 @@
+\hypertarget{LPfold_8h}{}\doxysection{Vienna\+RNA/\+LPfold.h File Reference}
+\label{LPfold_8h}\index{ViennaRNA/LPfold.h@{ViennaRNA/LPfold.h}}
+
+
+Partition function and equilibrium probability implementation for the sliding window algorithm.  
+
+
+Include dependency graph for LPfold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{LPfold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__part__func__window__deprecated_ga5a019014d37fe6105131dfc2fc447880}{update\+\_\+pf\+\_\+params\+LP}} (int length)
+\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__window__deprecated_ga7cdf690583871f9c158a0f91d4785cb6}{pfl\+\_\+fold}} (char $\ast$sequence, int win\+Size, int pair\+Size, float cutoffb, double $\ast$$\ast$pU, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$dpp2, FILE $\ast$p\+Ufp, FILE $\ast$spup)
+\begin{DoxyCompactList}\small\item\em Compute partition functions for locally stable secondary structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__part__func__window__deprecated_gaedf355f07b3d83bc93f98712132571b0}{pfl\+\_\+fold\+\_\+par}} (char $\ast$sequence, int win\+Size, int pair\+Size, float cutoffb, double $\ast$$\ast$pU, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$dpp2, FILE $\ast$p\+Ufp, FILE $\ast$spup, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Compute partition functions for locally stable secondary structures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__window__deprecated_ga0bcb751860bbf34e3dfee8c2fbdb3ef3}{putoutp\+U\+\_\+prob}} (double $\ast$$\ast$pU, int length, int ulength, FILE $\ast$fp, int energies)
+\begin{DoxyCompactList}\small\item\em Writes the unpaired probabilities (pU) or opening energies into a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__window__deprecated_ga9acb00ee10e96b1ca4ea394cd8bcec75}{putoutp\+U\+\_\+prob\+\_\+bin}} (double $\ast$$\ast$pU, int length, int ulength, FILE $\ast$fp, int energies)
+\begin{DoxyCompactList}\small\item\em Writes the unpaired probabilities (pU) or opening energies into a binary file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{LPfold_8h_ae85bf55053e9fb295208be322e0fa07a}{init\+\_\+pf\+\_\+fold\+LP}} (int length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Partition function and equilibrium probability implementation for the sliding window algorithm. 
+
+This file contains the implementation for sliding window partition function and equilibrium probabilities. It also provides the unpaired probability implementation from Bernhart et al. 2011 \cite{bernhart:2011} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{LPfold_8h_ae85bf55053e9fb295208be322e0fa07a}\label{LPfold_8h_ae85bf55053e9fb295208be322e0fa07a}} 
+\index{LPfold.h@{LPfold.h}!init\_pf\_foldLP@{init\_pf\_foldLP}}
+\index{init\_pf\_foldLP@{init\_pf\_foldLP}!LPfold.h@{LPfold.h}}
+\doxysubsubsection{\texorpdfstring{init\_pf\_foldLP()}{init\_pf\_foldLP()}}
+{\footnotesize\ttfamily void init\+\_\+pf\+\_\+fold\+LP (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+Dunno if this function was ever used by external programs linking to RNAlib, but it was declared PUBLIC before. Anyway, never use this function as it will be removed soon and does nothing at all 

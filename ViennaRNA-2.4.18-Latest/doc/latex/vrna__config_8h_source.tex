@@ -1,0 +1,94 @@
+\hypertarget{vrna__config_8h_source}{}\doxysection{vrna\+\_\+config.\+h}
+\label{vrna__config_8h_source}\index{ViennaRNA/vrna\_config.h@{ViennaRNA/vrna\_config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_CONFIG\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_CONFIG\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{comment}{/* version number */}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#define VRNA\_VERSION  "{}2.4.18"{}}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#define VRNA\_VERSION\_MAJOR  2}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#define VRNA\_VERSION\_MINOR  4}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#define VRNA\_VERSION\_PATCH  18}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{comment}{/*}}
+\DoxyCodeLine{00012 \textcolor{comment}{ * The following pre-\/processor definitions specify whether}}
+\DoxyCodeLine{00013 \textcolor{comment}{ * or not certain features were activated upon build-\/time}}
+\DoxyCodeLine{00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \textcolor{comment}{/*}}
+\DoxyCodeLine{00017 \textcolor{comment}{ * Build with deactivated C11 Features}}
+\DoxyCodeLine{00018 \textcolor{comment}{ *}}
+\DoxyCodeLine{00019 \textcolor{comment}{ * It this feature is missing, the next line defines}}
+\DoxyCodeLine{00020 \textcolor{comment}{ * 'VRNA\_DISABLE\_C11\_FEATURES'}}
+\DoxyCodeLine{00021 \textcolor{comment}{ */}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024 \textcolor{comment}{/*}}
+\DoxyCodeLine{00025 \textcolor{comment}{ * Build with OpenMP support}}
+\DoxyCodeLine{00026 \textcolor{comment}{ *}}
+\DoxyCodeLine{00027 \textcolor{comment}{ * If this feature is present, the next line defines}}
+\DoxyCodeLine{00028 \textcolor{comment}{ * 'VRNA\_WITH\_OPENMP'}}
+\DoxyCodeLine{00029 \textcolor{comment}{ */}}
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\#define VRNA\_WITH\_OPENMP}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \textcolor{comment}{/*}}
+\DoxyCodeLine{00033 \textcolor{comment}{ * Build with single precision partition function}}
+\DoxyCodeLine{00034 \textcolor{comment}{ *}}
+\DoxyCodeLine{00035 \textcolor{comment}{ * If this feature is present, the next line defines}}
+\DoxyCodeLine{00036 \textcolor{comment}{ * 'USE\_FLOAT\_PF'}}
+\DoxyCodeLine{00037 \textcolor{comment}{ */}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \textcolor{comment}{/*}}
+\DoxyCodeLine{00041 \textcolor{comment}{ * Build with Boustrophedon speedup in stochastic backtracking}}
+\DoxyCodeLine{00042 \textcolor{comment}{ *}}
+\DoxyCodeLine{00043 \textcolor{comment}{ * If this feature is present, the next line defines}}
+\DoxyCodeLine{00044 \textcolor{comment}{ * 'VRNA\_WITH\_BOUSTROPHEDON'}}
+\DoxyCodeLine{00045 \textcolor{comment}{ */}}
+\DoxyCodeLine{00046 \textcolor{preprocessor}{\#define VRNA\_WITH\_BOUSTROPHEDON}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048 \textcolor{comment}{/*}}
+\DoxyCodeLine{00049 \textcolor{comment}{ * Build with JSON input/output support}}
+\DoxyCodeLine{00050 \textcolor{comment}{ *}}
+\DoxyCodeLine{00051 \textcolor{comment}{ * If this feature is present, the next line defines}}
+\DoxyCodeLine{00052 \textcolor{comment}{ * 'VRNA\_WITH\_JSON\_SUPPORT'}}
+\DoxyCodeLine{00053 \textcolor{comment}{ */}}
+\DoxyCodeLine{00054 \textcolor{preprocessor}{\#define VRNA\_WITH\_JSON\_SUPPORT}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056 \textcolor{comment}{/*}}
+\DoxyCodeLine{00057 \textcolor{comment}{ * Build with Support Vector Machine (SVM) Z-\/score feature in RNALfold}}
+\DoxyCodeLine{00058 \textcolor{comment}{ *}}
+\DoxyCodeLine{00059 \textcolor{comment}{ * If this feature is present, the next line defines}}
+\DoxyCodeLine{00060 \textcolor{comment}{ * 'VRNA\_WITH\_SVM'}}
+\DoxyCodeLine{00061 \textcolor{comment}{ */}}
+\DoxyCodeLine{00062 \textcolor{preprocessor}{\#define VRNA\_WITH\_SVM}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064 \textcolor{comment}{/*}}
+\DoxyCodeLine{00065 \textcolor{comment}{ * Build with GSL minimizers}}
+\DoxyCodeLine{00066 \textcolor{comment}{ *}}
+\DoxyCodeLine{00067 \textcolor{comment}{ * If this feature is present, the next line defines}}
+\DoxyCodeLine{00068 \textcolor{comment}{ * 'VRNA\_WITH\_GSL'}}
+\DoxyCodeLine{00069 \textcolor{comment}{ */}}
+\DoxyCodeLine{00070 \textcolor{preprocessor}{\#define VRNA\_WITH\_GSL}}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072 \textcolor{comment}{/*}}
+\DoxyCodeLine{00073 \textcolor{comment}{ * Build with colored TTY output}}
+\DoxyCodeLine{00074 \textcolor{comment}{ *}}
+\DoxyCodeLine{00075 \textcolor{comment}{ * If this feature is missing, the next line defines}}
+\DoxyCodeLine{00076 \textcolor{comment}{ * 'VRNA\_WITHOUT\_TTY\_COLORS'}}
+\DoxyCodeLine{00077 \textcolor{comment}{ */}}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080 \textcolor{comment}{/*}}
+\DoxyCodeLine{00081 \textcolor{comment}{ * Build with Link Time Optimization support}}
+\DoxyCodeLine{00082 \textcolor{comment}{ *}}
+\DoxyCodeLine{00083 \textcolor{comment}{ * If this feature is enabled, the next line defines}}
+\DoxyCodeLine{00084 \textcolor{comment}{ * 'VRNA\_WITH\_LTO'}}
+\DoxyCodeLine{00085 \textcolor{comment}{ */}}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

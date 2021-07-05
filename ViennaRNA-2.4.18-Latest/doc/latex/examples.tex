@@ -1,0 +1,928 @@
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{examples_c}{C Examples}}
+\item \mbox{\hyperlink{examples_perl5}{Perl5 Examples}}
+\item \mbox{\hyperlink{examples_python}{Python Examples}} 
+\end{DoxyItemize}\hypertarget{examples_c}{}\doxysection{C Examples}\label{examples_c}
+\hypertarget{examples_c_ex_c_simple}{}\doxysubsection{Hello World Examples}\label{examples_c_ex_c_simple}
+\doxysubsection*{helloworld\+\_\+mfe.\+c }
+
+The following is an example showing the minimal requirements to compute the Minimum Free Energy (MFE) and corresponding secondary structure of an RNA sequence
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold_8h}{ViennaRNA/fold.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* The RNA sequence */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}  *seq = \textcolor{stringliteral}{"{}GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for MFE structure (length + 1) */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}  *structure = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{float} mfe = \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\_fold}}(seq, structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print sequence, structure and MFE */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}}, seq, structure, mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/helloworld\+\_\+mfe.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\doxysubsection*{helloworld\+\_\+mfe\+\_\+comparative.\+c }
+
+Instead of using a single sequence as done above, this example predicts a consensus structure for a multiple sequence alignment
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{alifold_8h}{ViennaRNA/alifold.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2alignments_8h}{ViennaRNA/utils/alignments.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* The RNA sequence alignment */}}
+\DoxyCodeLine{  \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequences[] = \{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGU"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGU"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}-\/-\/-\/CUCGACACCACU-\/-\/-\/GCCUCGGUUACCCAUCGGUGCAGUGCGGGU"{}},}
+\DoxyCodeLine{    NULL \textcolor{comment}{/* indicates end of alignment */}}
+\DoxyCodeLine{  \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* compute the consensus sequence */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}        *cons = consensus(sequences);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for MFE consensus structure (length + 1) */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}        *structure = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(sequences[0]) + 1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{float}       mfe = \mbox{\hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\_alifold}}(sequences, structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print consensus sequence, structure and MFE */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}}, cons, structure, mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(cons);}
+\DoxyCodeLine{  free(structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/helloworld\+\_\+mfe\+\_\+comparative.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\doxysubsection*{helloworld\+\_\+probabilities.\+c }
+
+This example shows how to compute the partition function and base pair probabilities with minimal implementation effort.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold_8h}{ViennaRNA/fold.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{part__func_8h}{ViennaRNA/part\_func.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* The RNA sequence */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}      *seq = \textcolor{stringliteral}{"{}GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for pairing propensity string (length + 1) */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}      *propensity = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* pointers for storing and navigating through base pair probabilities */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} *ptr, *pair\_probabilities = NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordtype}{float}     en = \mbox{\hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\_pf\_fold}}(seq, propensity, \&pair\_probabilities);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print sequence, pairing propensity string and ensemble free energy */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}}, seq, propensity, en);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print all base pairs with probability above 50\% */}}
+\DoxyCodeLine{  \textcolor{keywordflow}{for} (ptr = pair\_probabilities; ptr-\/>\mbox{\hyperlink{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}{i}} != 0; ptr++)}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (ptr-\/>\mbox{\hyperlink{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}{p}} > 0.5)}
+\DoxyCodeLine{      printf(\textcolor{stringliteral}{"{}p(\%d, \%d) = \%g\(\backslash\)n"{}}, ptr-\/>\mbox{\hyperlink{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}{i}}, ptr-\/>\mbox{\hyperlink{group__struct__utils__plist_acada5be62ed6843334a918ca543f0c0d}{j}}, ptr-\/>\mbox{\hyperlink{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}{p}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(pair\_probabilities);}
+\DoxyCodeLine{  free(propensity);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/helloworld\+\_\+probabilities.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\hypertarget{examples_c_ex_c_fc}{}\doxysubsection{First Steps with the Fold Compound}\label{examples_c_ex_c_fc}
+\doxysubsection*{fold\+\_\+compound\+\_\+mfe.\+c }
+
+Instead of calling the simple MFE folding interface \mbox{\hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\+\_\+fold()}}, this example shows how to first create a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} container with the RNA sequence to finally compute the MFE using this container. This is especially useful if non-\/default model settings are applied or the dynamic programming (DP) matrices of the MFE prediction are required for post-\/processing operations, or other tasks on the same sequence will be performed.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{strings_8h}{ViennaRNA/utils/strings.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{mfe_8h}{ViennaRNA/mfe.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* initialize random number generator */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Generate a random sequence of 50 nucleotides */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *seq = \mbox{\hyperlink{group__string__utils_ga4eeb3750dcf860b9f3158249f95dbd7f}{vrna\_random\_string}}(50, \textcolor{stringliteral}{"{}ACGU"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Create a fold compound for the sequence */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(seq, NULL, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for MFE structure (length + 1) */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *structure = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{float}                 mfe = \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}}(fc, structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print sequence, structure and MFE */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}}, seq, structure, mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(seq);}
+\DoxyCodeLine{  free(structure);}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\_fold\_compound\_free}}(fc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/fold\+\_\+compound\+\_\+mfe.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\doxysubsection*{fold\+\_\+compound\+\_\+md.\+c }
+
+In the following, we change the model settings (model details) to a temperature of 25 Degree Celcius, and activate G-\/\+Quadruplex precition.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{model_8h}{ViennaRNA/model.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{strings_8h}{ViennaRNA/utils/strings.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{mfe_8h}{ViennaRNA/mfe.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* initialize random number generator */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Generate a random sequence of 50 nucleotides */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}      *seq = \mbox{\hyperlink{group__string__utils_ga4eeb3750dcf860b9f3158249f95dbd7f}{vrna\_random\_string}}(50, \textcolor{stringliteral}{"{}ACGU"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for MFE structure (length + 1) */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}      *structure = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* create a new model details structure to store the Model Settings */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}} md;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* ALWAYS set default model settings first! */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\_md\_set\_default}}(\&md);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* change temperature and activate G-\/Quadruplex prediction */}}
+\DoxyCodeLine{  md.\mbox{\hyperlink{group__model__details_a5f7e5c2b65bada5188443470e576aa4b}{temperature}}  = 25.0; \textcolor{comment}{/* 25 Deg Celcius */}}
+\DoxyCodeLine{  md.\mbox{\hyperlink{group__model__details_af88a511a2b1f526b4c6213de6cb8fd6e}{gquad}}        = 1;    \textcolor{comment}{/* Turn-\/on G-\/Quadruples support */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* create a fold compound */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(seq, \&md, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{float}                 mfe = \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}}(fc, structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print sequence, structure and MFE */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}}, seq, structure, mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(structure);}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\_fold\_compound\_free}}(fc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/fold\+\_\+compound\+\_\+md.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\hypertarget{examples_c_ex_c_callbacks}{}\doxysubsection{Writing Callback Functions}\label{examples_c_ex_c_callbacks}
+\doxysubsection*{callback\+\_\+subopt.\+c }
+
+Here is a basic example how to use the callback mechanism in \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\+\_\+subopt\+\_\+cb()}}. It simply defines a callback function (see interface definition for \mbox{\hyperlink{group__subopt__wuchty_gaa0270c66d04f59e750401695b8282e04}{vrna\+\_\+subopt\+\_\+callback}}) that prints the result and increases a counter variable.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{strings_8h}{ViennaRNA/utils/strings.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{subopt_8h}{ViennaRNA/subopt.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}}
+\DoxyCodeLine{subopt\_callback(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *structure,}
+\DoxyCodeLine{                \textcolor{keywordtype}{float}       energy,}
+\DoxyCodeLine{                \textcolor{keywordtype}{void}        *data)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* simply print the result and increase the counter variable by 1 */}}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (structure)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%d.\(\backslash\)t\%s\(\backslash\)t\%6.2f\(\backslash\)n"{}}, (*((\textcolor{keywordtype}{int} *)data))++, structure, energy);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* initialize random number generator */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Generate a random sequence of 50 nucleotides */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *seq = \mbox{\hyperlink{group__string__utils_ga4eeb3750dcf860b9f3158249f95dbd7f}{vrna\_random\_string}}(50, \textcolor{stringliteral}{"{}ACGU"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Create a fold compound for the sequence */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(seq, NULL, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordtype}{int}                   counter = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{   *  call subopt to enumerate all secondary structures in an energy band of}}
+\DoxyCodeLine{\textcolor{comment}{   *  5 kcal/mol of the MFE and pass it the address of the callback and counter}}
+\DoxyCodeLine{\textcolor{comment}{   *  variable}}
+\DoxyCodeLine{\textcolor{comment}{   */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__subopt__wuchty_ga1053837e6b6f158093508f8a70998352}{vrna\_subopt\_cb}}(fc, 500, \&subopt\_callback, (\textcolor{keywordtype}{void} *)\&counter);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(seq);}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\_fold\_compound\_free}}(fc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/callback\+\_\+subopt.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\hypertarget{examples_c_ex_c_sc}{}\doxysubsection{Application of Soft Constraints}\label{examples_c_ex_c_sc}
+\doxysubsection*{soft\+\_\+constraints\+\_\+up.\+c }
+
+In this example, a random RNA sequence is generated to predict its MFE under the constraint that a particular nucleotide receives an additional bonus energy if it remains unpaired.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{strings_8h}{ViennaRNA/utils/strings.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{soft_8h}{ViennaRNA/constraints/soft.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{mfe_8h}{ViennaRNA/mfe.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{/* initialize random number generator */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Generate a random sequence of 50 nucleotides */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *seq = \mbox{\hyperlink{group__string__utils_ga4eeb3750dcf860b9f3158249f95dbd7f}{vrna\_random\_string}}(50, \textcolor{stringliteral}{"{}ACGU"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Create a fold compound for the sequence */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(seq, NULL, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* Add soft constraint of -\/1.7 kcal/mol to nucleotide 5 whenever it appears in an unpaired context */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__soft__constraints_ga750becf3afad46d05954e705c97a2125}{vrna\_sc\_add\_up}}(fc, 5, -\/1.7, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for MFE structure (length + 1) */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}  *structure = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 51);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{float} mfe = \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}}(fc, structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print seqeunce, structure and MFE */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}}, seq, structure, mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* cleanup memory */}}
+\DoxyCodeLine{  free(seq);}
+\DoxyCodeLine{  free(structure);}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\_fold\_compound\_free}}(fc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/soft\+\_\+constraints\+\_\+up.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\hypertarget{examples_c_ex_c_other}{}\doxysubsection{Other Examples}\label{examples_c_ex_c_other}
+\doxysubsection*{example1.\+c }
+
+A more extensive example including MFE, Partition Function, and Centroid structure prediction.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <\mbox{\hyperlink{data__structures_8h}{ViennaRNA/data\_structures.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <\mbox{\hyperlink{eval_8h}{ViennaRNA/eval.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <\mbox{\hyperlink{fold_8h}{ViennaRNA/fold.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <\mbox{\hyperlink{part__func_8h}{ViennaRNA/part\_func.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}}
+\DoxyCodeLine{main(\textcolor{keywordtype}{int}  argc,}
+\DoxyCodeLine{     \textcolor{keywordtype}{char} *argv[])}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *seq =}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}AGACGACAAGGUUGAAUCGCACCCACAGUCUAUGAGUCGGUGACAACAUUACGAAAGGCUGUAAAAUCAAUUAUUCACCACAGGGGGCCCCCGUGUCUAG"{}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *mfe\_structure  = \mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}                  *prob\_string    = \mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* get a vrna\_fold\_compound with default settings */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc = \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\_fold\_compound}}(seq, NULL, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* call MFE function */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{double}                mfe = (double)\mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}}(vc, mfe\_structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s (\%6.2f)\(\backslash\)n"{}}, seq, mfe\_structure, mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* rescale parameters for Boltzmann factors */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__energy__parameters_gad607bc3a5b5da16400e2ca4ea5560233}{vrna\_exp\_params\_rescale}}(vc, \&mfe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* call PF function */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} en = \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\_pf}}(vc, prob\_string);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print probability string and free energy of ensemble */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s (\%6.2f)\(\backslash\)n"{}}, prob\_string, en);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* compute centroid structure */}}
+\DoxyCodeLine{  \textcolor{keywordtype}{double}  dist;}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}    *cent = \mbox{\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{vrna\_centroid}}(vc, \&dist);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* print centroid structure, its free energy and mean distance to the ensemble */}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s (\%6.2f d=\%6.2f)\(\backslash\)n"{}}, cent, \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\_eval\_structure}}(vc, cent), dist);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* free centroid structure */}}
+\DoxyCodeLine{  free(cent);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* free pseudo dot-\/bracket probability string */}}
+\DoxyCodeLine{  free(prob\_string);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* free mfe structure */}}
+\DoxyCodeLine{  free(mfe\_structure);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* free memory occupied by vrna\_fold\_compound */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\_fold\_compound\_free}}(vc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/example1.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\hypertarget{examples_c_ex_c_deprecated}{}\doxysubsection{Deprecated Examples}\label{examples_c_ex_c_deprecated}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <math.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  <string.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}utils.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{fold__vars_8h}{fold\_vars.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{fold_8h}{fold.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{part__func_8h}{part\_func.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{inverse_8h}{inverse.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{RNAstruct_8h}{RNAstruct.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{treedist_8h}{treedist.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{stringdist_8h}{stringdist.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include  "{}\mbox{\hyperlink{profiledist_8h}{profiledist.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}}
+\DoxyCodeLine{main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{keywordtype}{char}        *seq1 = \textcolor{stringliteral}{"{}CGCAGGGAUACCCGCG"{}}, *seq2 = \textcolor{stringliteral}{"{}GCGCCCAUAGGGACGC"{}},}
+\DoxyCodeLine{              *struct1, *struct2, *xstruc;}
+\DoxyCodeLine{  \textcolor{keywordtype}{float}       e1, e2, tree\_dist, string\_dist, profile\_dist, kT;}
+\DoxyCodeLine{  \mbox{\hyperlink{structTree}{Tree}}        *T1, *T2;}
+\DoxyCodeLine{  \mbox{\hyperlink{structswString}{swString}}    *S1, *S2;}
+\DoxyCodeLine{  \textcolor{keywordtype}{float}       *pf1, *pf2;}
+\DoxyCodeLine{  \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  *bppm;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* fold at 30C instead of the default 37C */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}} = 30.;       \textcolor{comment}{/* must be set *before* initializing  */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* allocate memory for structure and fold */}}
+\DoxyCodeLine{  struct1 = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq1) + 1));}
+\DoxyCodeLine{  e1      = \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold}}(seq1, struct1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  struct2 = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq2) + 1));}
+\DoxyCodeLine{  e2      = \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold}}(seq2, struct2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \mbox{\hyperlink{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}{free\_arrays}}();      \textcolor{comment}{/* free arrays used in fold() */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* produce tree and string representations for comparison */}}
+\DoxyCodeLine{  xstruc  = \mbox{\hyperlink{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}{expand\_Full}}(struct1);}
+\DoxyCodeLine{  T1      = \mbox{\hyperlink{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{make\_tree}}(xstruc);}
+\DoxyCodeLine{  S1      = \mbox{\hyperlink{stringdist_8h_a3125991b3a403b3f89230474deb3f22e}{Make\_swString}}(xstruc);}
+\DoxyCodeLine{  free(xstruc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  xstruc  = \mbox{\hyperlink{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}{expand\_Full}}(struct2);}
+\DoxyCodeLine{  T2      = \mbox{\hyperlink{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{make\_tree}}(xstruc);}
+\DoxyCodeLine{  S2      = \mbox{\hyperlink{stringdist_8h_a3125991b3a403b3f89230474deb3f22e}{Make\_swString}}(xstruc);}
+\DoxyCodeLine{  free(xstruc);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* calculate tree edit distance and aligned structures with gaps */}}
+\DoxyCodeLine{  \mbox{\hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\_backtrack}}  = 1;}
+\DoxyCodeLine{  tree\_dist       = \mbox{\hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\_edit\_distance}}(T1, T2);}
+\DoxyCodeLine{  \mbox{\hyperlink{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{free\_tree}}(T1);}
+\DoxyCodeLine{  \mbox{\hyperlink{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{free\_tree}}(T2);}
+\DoxyCodeLine{  \mbox{\hyperlink{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}{unexpand\_aligned\_F}}(\mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}});}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s  \%3.2f\(\backslash\)n"{}}, \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[0], \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[1], tree\_dist);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* same thing using string edit (alignment) distance */}}
+\DoxyCodeLine{  string\_dist = \mbox{\hyperlink{stringdist_8h_a89e3c335ef17780576d7c0e713830db9}{string\_edit\_distance}}(S1, S2);}
+\DoxyCodeLine{  free(S1);}
+\DoxyCodeLine{  free(S2);}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s  mfe=\%5.2f\(\backslash\)n\%s  mfe=\%5.2f  dist=\%3.2f\(\backslash\)n"{}},}
+\DoxyCodeLine{         \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[0], e1, \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[1], e2, string\_dist);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* for longer sequences one should also set a scaling factor for}}
+\DoxyCodeLine{\textcolor{comment}{   * partition function folding, e.g: */}}
+\DoxyCodeLine{  kT        = (\mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}} + 273.15) * 1.98717 / 1000.; \textcolor{comment}{/* kT in kcal/mol */}}
+\DoxyCodeLine{  \mbox{\hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\_scale}}  = exp(-\/e1 / kT / strlen(seq1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{/* calculate partition function and base pair probabilities */}}
+\DoxyCodeLine{  e1 = \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\_fold}}(seq1, struct1);}
+\DoxyCodeLine{  \textcolor{comment}{/* get the base pair probability matrix for the previous run of pf\_fold() */}}
+\DoxyCodeLine{  bppm  = \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}}();}
+\DoxyCodeLine{  pf1   = \mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\_bp\_profile\_bppm}}(bppm, strlen(seq1));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  e2 = \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\_fold}}(seq2, struct2);}
+\DoxyCodeLine{  \textcolor{comment}{/* get the base pair probability matrix for the previous run of pf\_fold() */}}
+\DoxyCodeLine{  bppm  = \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}}();}
+\DoxyCodeLine{  pf2   = \mbox{\hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\_bp\_profile\_bppm}}(bppm, strlen(seq2));}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\_pf\_arrays}}();   \textcolor{comment}{/* free space allocated for pf\_fold() */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  profile\_dist = \mbox{\hyperlink{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}{profile\_edit\_distance}}(pf1, pf2);}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}\%s  free energy=\%5.2f\(\backslash\)n\%s  free energy=\%5.2f  dist=\%3.2f\(\backslash\)n"{}},}
+\DoxyCodeLine{         \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[0], e1, \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[1], e2, profile\_dist);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \mbox{\hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{free\_profile}}(pf1);}
+\DoxyCodeLine{  \mbox{\hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{free\_profile}}(pf2);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/example\+\_\+old.\+c} in the source code tarball 
+\end{DoxySeeAlso}
+\hypertarget{examples_perl5}{}\doxysection{Perl5 Examples}\label{examples_perl5}
+\doxysection*{Hello World Examples }
+
+\doxysubsection*{Using the flat interface }
+
+
+\begin{DoxyItemize}
+\item MFE prediction 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{use RNA;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# The RNA sequence}
+\DoxyCodeLine{my \$seq = "{}GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# compute minimum free energy (MFE) and corresponding structure}
+\DoxyCodeLine{my (\$ss, \$mfe) = RNA::fold(\$seq);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# print output}
+\DoxyCodeLine{printf "{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}, \$seq, \$ss, \$mfe;}
+
+\end{DoxyCodeInclude}
+
+\item comparative MFE prediction for sequence alignments 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{use RNA;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# The RNA sequence alignment}
+\DoxyCodeLine{my @sequences = (}
+\DoxyCodeLine{    "{}CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGU"{},}
+\DoxyCodeLine{    "{}CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGU"{},}
+\DoxyCodeLine{    "{}-\/-\/-\/CUCGACACCACU-\/-\/-\/GCCUCGGUUACCCAUCGGUGCAGUGCGGGU"{}}
+\DoxyCodeLine{);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# compute the consensus sequence}
+\DoxyCodeLine{my \$cons = RNA::consensus(\(\backslash\)@sequences);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# predict Minmum Free Energy and corresponding secondary structure}
+\DoxyCodeLine{my (\$ss, \$mfe) = RNA::alifold(\(\backslash\)@sequences);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# print output}
+\DoxyCodeLine{printf "{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}, \$cons, \$ss, \$mfe;}
+
+\end{DoxyCodeInclude}
+
+\end{DoxyItemize}
+
+\doxysubsection*{Using the object oriented interface }
+
+
+\begin{DoxyItemize}
+\item MFE prediction 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\#!/usr/bin/perl}
+\DoxyCodeLine{}
+\DoxyCodeLine{use warnings;}
+\DoxyCodeLine{use strict;}
+\DoxyCodeLine{}
+\DoxyCodeLine{use RNA;}
+\DoxyCodeLine{}
+\DoxyCodeLine{my \$seq1 = "{}CGCAGGGAUACCCGCG"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# create new fold\_compound object}
+\DoxyCodeLine{my \$fc = new RNA::fold\_compound(\$seq1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# compute minimum free energy (mfe) and corresponding structure}
+\DoxyCodeLine{my (\$ss, \$mfe) = \$fc-\/>mfe();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# print output}
+\DoxyCodeLine{printf "{}\%s [ \%6.2f ]\(\backslash\)n"{}, \$ss, \$mfe;}
+
+\end{DoxyCodeInclude}
+
+\end{DoxyItemize}
+
+\doxysection*{Changing the Model Settings }
+
+\doxysubsection*{Using the object oriented interface }
+
+
+\begin{DoxyItemize}
+\item MFE prediction at different temperature and dangle model 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{use RNA;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# The RNA sequence}
+\DoxyCodeLine{my \$seq = "{}GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# create a new model details structure}
+\DoxyCodeLine{my \$md = new RNA::md();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# change temperature and dangle model}
+\DoxyCodeLine{\$md-\/>\{temperature\} = 20.0; \# 20 Deg Celcius}
+\DoxyCodeLine{\$md-\/>\{dangles\}     = 1;    \# Dangle Model 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# create a fold compound}
+\DoxyCodeLine{my \$fc = new RNA::fold\_compound(\$seq, \$md);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# predict Minmum Free Energy and corresponding secondary structure}
+\DoxyCodeLine{my (\$ss, \$mfe) = \$fc-\/>mfe();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# print sequence, structure and MFE}
+\DoxyCodeLine{printf "{}\%s\(\backslash\)n\%s [ \%6.2f ]\(\backslash\)n"{}, \$seq, \$ss, \$mfe;}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ 
+\end{DoxyItemize}\hypertarget{examples_python}{}\doxysection{Python Examples}\label{examples_python}
+\label{examples_python_examples_python_mfe}%
+\Hypertarget{examples_python_examples_python_mfe}%
+ \doxysubsection*{MFE Prediction (flat interface) }
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} RNA}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# The RNA sequence}}
+\DoxyCodeLine{seq = \textcolor{stringliteral}{"{}GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute minimum free energy (MFE) and corresponding structure}}
+\DoxyCodeLine{(ss, mfe) = RNA.fold(seq)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# print output}}
+\DoxyCodeLine{\textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s [ \%6.2f ]"{}} \% (seq, ss, mfe)}
+
+\end{DoxyCodeInclude}
+
+
+\label{examples_python_examples_python_mfe_oo}%
+\Hypertarget{examples_python_examples_python_mfe_oo}%
+ \doxysubsection*{MFE Prediction (object oriented interface) }
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} RNA;}
+\DoxyCodeLine{}
+\DoxyCodeLine{sequence = \textcolor{stringliteral}{"{}CGCAGGGAUACCCGCG"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# create new fold\_compound object}}
+\DoxyCodeLine{fc = RNA.fold\_compound(sequence)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute minimum free energy (mfe) and corresponding structure}}
+\DoxyCodeLine{(ss, mfe) = fc.mfe()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# print output}}
+\DoxyCodeLine{\textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s [ \%6.2f ]"{}} \% (ss, mfe)}
+
+\end{DoxyCodeInclude}
+
+
+\label{examples_python_examples_python_subopt}%
+\Hypertarget{examples_python_examples_python_subopt}%
+ \doxysubsection*{Suboptimal Structure Prediction }
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} RNA}
+\DoxyCodeLine{}
+\DoxyCodeLine{sequence = \textcolor{stringliteral}{"{}GGGGAAAACCCC"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Set global switch for unique ML decomposition}}
+\DoxyCodeLine{RNA.cvar.uniq\_ML = 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{subopt\_data = \{ \textcolor{stringliteral}{'counter'} : 1, \textcolor{stringliteral}{'sequence'} : sequence \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Print a subopt result as FASTA record}}
+\DoxyCodeLine{\textcolor{keyword}{def }print\_subopt\_result(structure, energy, data):}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} structure == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{        \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}>subopt \%d"{}} \% data[\textcolor{stringliteral}{'counter'}]}
+\DoxyCodeLine{        \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% data[\textcolor{stringliteral}{'sequence'}]}
+\DoxyCodeLine{        \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s [\%6.2f]"{}} \% (structure, energy)}
+\DoxyCodeLine{        \textcolor{comment}{\# increase structure counter}}
+\DoxyCodeLine{        data[\textcolor{stringliteral}{'counter'}] = data[\textcolor{stringliteral}{'counter'}] + 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Create a 'fold\_compound' for our sequence}}
+\DoxyCodeLine{a = RNA.fold\_compound(sequence)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Enumerate all structures 500 dacal/mol = 5 kcal/mol arround}}
+\DoxyCodeLine{\textcolor{comment}{\# the MFE and print each structure using the function above}}
+\DoxyCodeLine{a.subopt\_cb(500, print\_subopt\_result, subopt\_data);}
+
+\end{DoxyCodeInclude}
+
+
+\label{examples_python_examples_python_pbacktrack}%
+\Hypertarget{examples_python_examples_python_pbacktrack}%
+ \doxysubsection*{Boltzmann Sampling (a.\+k.\+a. Probabilistic Backtracing) }
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} RNA}
+\DoxyCodeLine{}
+\DoxyCodeLine{sequence = \textcolor{stringliteral}{"{}UGGGAAUAGUCUCUUCCGAGUCUCGCGGGCGACGGGCGAUCUUCGAAAGUGGAAUCCGUACUUAUACCGCCUGUGCGGACUACUAUCCUGACCACAUAGU"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{A simple callback function that stores}}
+\DoxyCodeLine{\textcolor{stringliteral}{a structure sample into a list}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\textcolor{keyword}{def }store\_structure(s, data):}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} s:}
+\DoxyCodeLine{        data.append(s)}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{First we prepare a fold\_compound object}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# create model details}}
+\DoxyCodeLine{md = RNA.md()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# activate unique multibranch loop decomposition}}
+\DoxyCodeLine{md.uniq\_ML = 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# create fold compound object}}
+\DoxyCodeLine{fc = RNA.fold\_compound(sequence, md)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute MFE}}
+\DoxyCodeLine{(ss, mfe) = fc.mfe()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# rescale Boltzmann factors according to MFE}}
+\DoxyCodeLine{fc.exp\_params\_rescale(mfe)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute partition function to fill DP matrices}}
+\DoxyCodeLine{fc.pf()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{Now we are ready to perform Boltzmann sampling}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 1. backtrace a single sub-\/structure of length 10}}
+\DoxyCodeLine{\textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% fc.pbacktrack5(10)}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 2. backtrace a single sub-\/structure of length 50}}
+\DoxyCodeLine{\textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% fc.pbacktrack5(50)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 3. backtrace multiple sub-\/structures of length 10 at once}}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} fc.pbacktrack5(20, 10):}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 4. backtrace multiple sub-\/structures of length 50 at once}}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} fc.pbacktrack5(100, 50):}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 5. backtrace a single structure (full length)}}
+\DoxyCodeLine{\textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% fc.pbacktrack()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 6. backtrace multiple structures at once}}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} fc.pbacktrack(100):}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 7. backtrace multiple structures non-\/redundantly}}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} fc.pbacktrack(100, RNA.PBACKTRACK\_NON\_REDUNDANT):}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 8. backtrace multiple structures non-\/redundantly (with resume option)}}
+\DoxyCodeLine{num\_samples = 500}
+\DoxyCodeLine{iterations  = 15}
+\DoxyCodeLine{d           = \textcolor{keywordtype}{None} \textcolor{comment}{\# pbacktrack memory object}}
+\DoxyCodeLine{s\_list      = list()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0, iterations):}
+\DoxyCodeLine{    d, ss   = fc.pbacktrack(num\_samples, d, RNA.PBACKTRACK\_NON\_REDUNDANT)}
+\DoxyCodeLine{    s\_list  = s\_list + list(ss)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} s\_list:}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 9. backtrace multiple sub-\/structures of length 50 in callback mode}}
+\DoxyCodeLine{ss  = list()}
+\DoxyCodeLine{i   = fc.pbacktrack5(100, 50, store\_structure, ss)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} ss:}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 10. backtrace multiple full-\/length structures in callback mode}}
+\DoxyCodeLine{ss  = list()}
+\DoxyCodeLine{i   = fc.pbacktrack(100, store\_structure, ss)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} ss:}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 11. non-\/redundantly backtrace multiple full-\/length structures in callback mode}}
+\DoxyCodeLine{ss  = list()}
+\DoxyCodeLine{i   = fc.pbacktrack(100, store\_structure, ss, RNA.PBACKTRACK\_NON\_REDUNDANT)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} ss:}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# 12. non-\/redundantly backtrace multiple full length structures}}
+\DoxyCodeLine{\textcolor{comment}{\# in callback mode with resume option}}
+\DoxyCodeLine{ss = list()}
+\DoxyCodeLine{d  = \textcolor{keywordtype}{None} \textcolor{comment}{\# pbacktrack memory object}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0, iterations):}
+\DoxyCodeLine{    d, i = fc.pbacktrack(num\_samples, store\_structure, ss, d, RNA.PBACKTRACK\_NON\_REDUNDANT)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} s \textcolor{keywordflow}{in} ss:}
+\DoxyCodeLine{    \textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s"{}} \% s}
+
+\end{DoxyCodeInclude}
+
+
+\label{examples_python_examples_python_MEA}%
+\Hypertarget{examples_python_examples_python_MEA}%
+ \doxysubsection*{RNAfold -\/p --MEA equivalent }
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{\#!/usr/bin/python}}
+\DoxyCodeLine{\textcolor{comment}{\#}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{import} RNA}
+\DoxyCodeLine{}
+\DoxyCodeLine{seq = \textcolor{stringliteral}{"{}AUUUCCACUAGAGAAGGUCUAGAGUGUUUGUCGUUUGUCAGAAGUCCCUAUUCCAGGUACGAACACGGUGGAUAUGUUCGACGACAGGAUCGGCGCACUA"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# create fold\_compound data structure (required for all subsequently applied  algorithms)}}
+\DoxyCodeLine{fc = RNA.fold\_compound(seq)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute MFE and MFE structure}}
+\DoxyCodeLine{(mfe\_struct, mfe) = fc.mfe()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# rescale Boltzmann factors for partition function computation}}
+\DoxyCodeLine{fc.exp\_params\_rescale(mfe)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute partition function}}
+\DoxyCodeLine{(pp, pf) = fc.pf()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute centroid structure}}
+\DoxyCodeLine{(centroid\_struct, dist) = fc.centroid()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute free energy of centroid structure}}
+\DoxyCodeLine{centroid\_en = fc.eval\_structure(centroid\_struct)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute MEA structure}}
+\DoxyCodeLine{(MEA\_struct, MEA) = fc.MEA()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# compute free energy of MEA structure}}
+\DoxyCodeLine{MEA\_en = fc.eval\_structure(MEA\_struct)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# print everything like RNAfold -\/p -\/-\/MEA}}
+\DoxyCodeLine{print(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s (\%6.2f)"{}} \% (seq, mfe\_struct, mfe))}
+\DoxyCodeLine{print(\textcolor{stringliteral}{"{}\%s [\%6.2f]"{}} \% (pp, pf))}
+\DoxyCodeLine{print(\textcolor{stringliteral}{"{}\%s \{\%6.2f d=\%.2f\}"{}} \% (centroid\_struct, centroid\_en, dist))}
+\DoxyCodeLine{print(\textcolor{stringliteral}{"{}\%s \{\%6.2f MEA=\%.2f\}"{}} \% (MEA\_struct, MEA\_en, MEA))}
+\DoxyCodeLine{print(\textcolor{stringliteral}{"{} frequency of mfe structure in ensemble \%g; ensemble diversity \%-\/6.2f"{}} \% (fc.pr\_structure(mfe\_struct), fc.mean\_bp\_distance()))}
+
+\end{DoxyCodeInclude}
+
+
+\label{examples_python_examples_python_soft_constraints}%
+\Hypertarget{examples_python_examples_python_soft_constraints}%
+ \doxysubsection*{Fun with Soft Constraints }
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} RNA}
+\DoxyCodeLine{}
+\DoxyCodeLine{seq1 = \textcolor{stringliteral}{"{}CUCGUCGCCUUAAUCCAGUGCGGGCGCUAGACAUCUAGUUAUCGCCGCAA"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Turn-\/off dangles globally}}
+\DoxyCodeLine{RNA.cvar.dangles = 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Data structure that will be passed to our MaximumMatching() callback with two components:}}
+\DoxyCodeLine{\textcolor{comment}{\# 1. a 'dummy' fold\_compound to evaluate loop energies w/o constraints, 2. a fresh set of energy parameters}}
+\DoxyCodeLine{mm\_data = \{ \textcolor{stringliteral}{'dummy'}: RNA.fold\_compound(seq1), \textcolor{stringliteral}{'params'}: RNA.param() \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Nearest Neighbor Parameter reversal functions}}
+\DoxyCodeLine{revert\_NN = \{ }
+\DoxyCodeLine{    RNA.DECOMP\_PAIR\_HP:       \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ f.eval\_hp\_loop(i, j) -\/ 100,}
+\DoxyCodeLine{    RNA.DECOMP\_PAIR\_IL:       \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ f.eval\_int\_loop(i, j, k, l) -\/ 100,}
+\DoxyCodeLine{    RNA.DECOMP\_PAIR\_ML:       \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ p.MLclosing -\/ p.MLintern[0] -\/ (j -\/ i -\/ k + l -\/ 2) * p.MLbase -\/ 100,}
+\DoxyCodeLine{    RNA.DECOMP\_ML\_ML\_STEM:    \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ p.MLintern[0] -\/ (l -\/ k -\/ 1) * p.MLbase,}
+\DoxyCodeLine{    RNA.DECOMP\_ML\_STEM:       \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ p.MLintern[0] -\/ (j -\/ i -\/ k + l) * p.MLbase,}
+\DoxyCodeLine{    RNA.DECOMP\_ML\_ML:         \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ (j -\/ i -\/ k + l) * p.MLbase,}
+\DoxyCodeLine{    RNA.DECOMP\_ML\_ML\_ML:      \textcolor{keyword}{lambda} i, j, k, l, f, p: 0,}
+\DoxyCodeLine{    RNA.DECOMP\_ML\_UP:         \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ (j -\/ i + 1) * p.MLbase,}
+\DoxyCodeLine{    RNA.DECOMP\_EXT\_STEM:      \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ f.E\_ext\_loop(k, l),}
+\DoxyCodeLine{    RNA.DECOMP\_EXT\_EXT:       \textcolor{keyword}{lambda} i, j, k, l, f, p: 0,}
+\DoxyCodeLine{    RNA.DECOMP\_EXT\_STEM\_EXT:  \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ f.E\_ext\_loop(i, k),}
+\DoxyCodeLine{    RNA.DECOMP\_EXT\_EXT\_STEM:  \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ f.E\_ext\_loop(l, j),}
+\DoxyCodeLine{    RNA.DECOMP\_EXT\_EXT\_STEM1: \textcolor{keyword}{lambda} i, j, k, l, f, p: -\/ f.E\_ext\_loop(l, j-\/1),}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Maximum Matching callback function (will be called by RNAlib in each decomposition step)}}
+\DoxyCodeLine{\textcolor{keyword}{def }MaximumMatching(i, j, k, l, d, data):}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} revert\_NN[d](i, j, k, l, data[\textcolor{stringliteral}{'dummy'}], data[\textcolor{stringliteral}{'params'}])}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Create a 'fold\_compound' for our sequence}}
+\DoxyCodeLine{fc = RNA.fold\_compound(seq1)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Add maximum matching soft-\/constraints}}
+\DoxyCodeLine{fc.sc\_add\_f(MaximumMatching)}
+\DoxyCodeLine{fc.sc\_add\_data(mm\_data, \textcolor{keywordtype}{None})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# Call MFE algorithm}}
+\DoxyCodeLine{(s, mm) = fc.mfe()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\# print result}}
+\DoxyCodeLine{\textcolor{keywordflow}{print} \textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s (MM: \%d)\(\backslash\)n"{}} \%  (seq1, s, -\/mm)}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ 

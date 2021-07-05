@@ -1,0 +1,58 @@
+\hypertarget{plotting_2alignments_8h_source}{}\doxysection{alignments.\+h}
+\label{plotting_2alignments_8h_source}\index{ViennaRNA/plotting/alignments.h@{ViennaRNA/plotting/alignments.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PLOT\_ALN\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PLOT\_ALN\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00039 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{plotting_2alignments_8h_source_l00040}\mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{00040}} \mbox{\hyperlink{group__alignment__plots_ga3bb7409f5b73c2273f9f76cf8b754034}{vrna\_file\_PS\_aln}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   *filename,}
+\DoxyCodeLine{00041                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}   **seqs,}
+\DoxyCodeLine{00042                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}   **names,}
+\DoxyCodeLine{00043                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *structure,}
+\DoxyCodeLine{00044                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} columns);}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00065 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{plotting_2alignments_8h_source_l00066}\mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{00066}} \mbox{\hyperlink{group__alignment__plots_ga2b132dddeb2044e52dc39cf0ad8afaee}{vrna\_file\_PS\_aln\_slice}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   *filename,}
+\DoxyCodeLine{00067                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}   **seqs,}
+\DoxyCodeLine{00068                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}   **names,}
+\DoxyCodeLine{00069                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *structure,}
+\DoxyCodeLine{00070                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} start,}
+\DoxyCodeLine{00071                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} end,}
+\DoxyCodeLine{00072                        \textcolor{keywordtype}{int}          offset,}
+\DoxyCodeLine{00073                        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} columns);}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00080 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00089 DEPRECATED(\textcolor{keywordtype}{int} \mbox{\hyperlink{group__plotting__utils__deprecated_ga821802c3685e37e15182341f6217470d}{PS\_color\_aln}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *structure,}
+\DoxyCodeLine{00090                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *filename,}
+\DoxyCodeLine{00091                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seqs[],}
+\DoxyCodeLine{00092                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *names[]),}
+\DoxyCodeLine{\Hypertarget{plotting_2alignments_8h_source_l00093}\mbox{\hyperlink{group__plotting__utils__deprecated_ga821802c3685e37e15182341f6217470d}{00093}}            \textcolor{stringliteral}{"{}Use vrna\_file\_PS\_aln() instead!"{}});}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00102 DEPRECATED(\textcolor{keywordtype}{int} \mbox{\hyperlink{group__plotting__utils__deprecated_gaab48d4dac655d688abe921389ac2847c}{aliPS\_color\_aln}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure,}
+\DoxyCodeLine{00103                                \textcolor{keyword}{const} \textcolor{keywordtype}{char} *filename,}
+\DoxyCodeLine{00104                                \textcolor{keyword}{const} \textcolor{keywordtype}{char} *seqs[],}
+\DoxyCodeLine{00105                                \textcolor{keyword}{const} \textcolor{keywordtype}{char} *names[]),}
+\DoxyCodeLine{\Hypertarget{plotting_2alignments_8h_source_l00106}\mbox{\hyperlink{group__plotting__utils__deprecated_gaab48d4dac655d688abe921389ac2847c}{00106}}            \textcolor{stringliteral}{"{}Use vrna\_file\_PS\_aln() instead!"{}});}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

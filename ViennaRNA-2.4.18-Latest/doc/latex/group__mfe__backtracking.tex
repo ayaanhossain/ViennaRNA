@@ -1,0 +1,128 @@
+\hypertarget{group__mfe__backtracking}{}\doxysection{Backtracking MFE structures}
+\label{group__mfe__backtracking}\index{Backtracking MFE structures@{Backtracking MFE structures}}
+
+
+Backtracking related interfaces.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Backtracking related interfaces. 
+
+Collaboration diagram for Backtracking MFE structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mfe__backtracking}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}{vrna\+\_\+backtrack5}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, unsigned int length, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Backtrack an MFE (sub)structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mfe__backtracking_gae20d5805ddedc9b81d24735b11b6a9bf}{vrna\+\_\+\+BT\+\_\+hp\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int en, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp\+\_\+stack, int $\ast$stack\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Backtrack a hairpin loop closed by $ (i,j) $. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__mfe__backtracking_ga28015cfbd0afc759b94ff58cc241cb13}\label{group__mfe__backtracking_ga28015cfbd0afc759b94ff58cc241cb13}} 
+int \mbox{\hyperlink{group__mfe__backtracking_ga28015cfbd0afc759b94ff58cc241cb13}{vrna\+\_\+\+BT\+\_\+stack}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int $\ast$i, int $\ast$j, int $\ast$en, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp\+\_\+stack, int $\ast$stack\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Backtrack a stacked pair closed by $ (i,j) $. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__mfe__backtracking_ga90b5a5723173996fb40640ce7c95c07e}\label{group__mfe__backtracking_ga90b5a5723173996fb40640ce7c95c07e}} 
+int \mbox{\hyperlink{group__mfe__backtracking_ga90b5a5723173996fb40640ce7c95c07e}{vrna\+\_\+\+BT\+\_\+int\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int $\ast$i, int $\ast$j, int en, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp\+\_\+stack, int $\ast$stack\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Backtrack an interior loop closed by $ (i,j) $. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mfe__backtracking_ga5b62d56c9d47c1e8792b02cd6b95e78b}{vrna\+\_\+\+BT\+\_\+mb\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int $\ast$i, int $\ast$j, int $\ast$k, int en, int $\ast$component1, int $\ast$component2)
+\begin{DoxyCompactList}\small\item\em Backtrack the decomposition of a multi branch loop closed by $ (i,j) $. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}\label{group__mfe__backtracking_gaaee7355f060fe9eed8e687522567715e}} 
+\index{Backtracking MFE structures@{Backtracking MFE structures}!vrna\_backtrack5@{vrna\_backtrack5}}
+\index{vrna\_backtrack5@{vrna\_backtrack5}!Backtracking MFE structures@{Backtracking MFE structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_backtrack5()}{vrna\_backtrack5()}}
+{\footnotesize\ttfamily float vrna\+\_\+backtrack5 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{unsigned int}]{length,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{mfe_8h}{Vienna\+RNA/mfe.\+h}}$>$}
+
+
+
+Backtrack an MFE (sub)structure. 
+
+This function allows one to backtrack the MFE structure for a (sub)sequence
+
+\begin{DoxyNote}{Note}
+On error, the function returns \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}} / 100. and stores the empty string in {\ttfamily structure}.
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+Requires pre-\/filled MFE dynamic programming matrices, i.\+e. one has to call \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} prior to calling this function
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}}, \mbox{\hyperlink{group__subopt__stochbt_ga72ebbe45bcbce147a12f27f62b38db78}{vrna\+\_\+pbacktrack5()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & fold compound \\
+\hline
+{\em length} & The length of the subsequence, starting from the 5\textquotesingle{} end \\
+\hline
+{\em structure} & A pointer to the character array where the secondary structure in dot-\/bracket notation will be written to. (Must have size of at least \$p length + 1)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The minimum free energy (MFE) for the specified {\ttfamily length} in kcal/mol and a corresponding secondary structure in dot-\/bracket notation (stored in {\ttfamily structure})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000094}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{backtrack()}} to objects of type {\itshape fold\+\_\+compound} with default parameter {\ttfamily length} equal to the total length of the RNA. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__backtracking_gae20d5805ddedc9b81d24735b11b6a9bf}\label{group__mfe__backtracking_gae20d5805ddedc9b81d24735b11b6a9bf}} 
+\index{Backtracking MFE structures@{Backtracking MFE structures}!vrna\_BT\_hp\_loop@{vrna\_BT\_hp\_loop}}
+\index{vrna\_BT\_hp\_loop@{vrna\_BT\_hp\_loop}!Backtracking MFE structures@{Backtracking MFE structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_BT\_hp\_loop()}{vrna\_BT\_hp\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+BT\+\_\+hp\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{en,  }\item[{\mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$}]{bp\+\_\+stack,  }\item[{int $\ast$}]{stack\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hairpin_8h}{Vienna\+RNA/loops/hairpin.\+h}}$>$}
+
+
+
+Backtrack a hairpin loop closed by $ (i,j) $. 
+
+\begin{DoxyNote}{Note}
+This function is polymorphic! The provided \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} may be of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} or \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}} 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mfe__backtracking_ga5b62d56c9d47c1e8792b02cd6b95e78b}\label{group__mfe__backtracking_ga5b62d56c9d47c1e8792b02cd6b95e78b}} 
+\index{Backtracking MFE structures@{Backtracking MFE structures}!vrna\_BT\_mb\_loop@{vrna\_BT\_mb\_loop}}
+\index{vrna\_BT\_mb\_loop@{vrna\_BT\_mb\_loop}!Backtracking MFE structures@{Backtracking MFE structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_BT\_mb\_loop()}{vrna\_BT\_mb\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+BT\+\_\+mb\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int $\ast$}]{i,  }\item[{int $\ast$}]{j,  }\item[{int $\ast$}]{k,  }\item[{int}]{en,  }\item[{int $\ast$}]{component1,  }\item[{int $\ast$}]{component2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{multibranch_8h}{Vienna\+RNA/loops/multibranch.\+h}}$>$}
+
+
+
+Backtrack the decomposition of a multi branch loop closed by $ (i,j) $. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} filled with all relevant data for backtracking \\
+\hline
+{\em i} & 5\textquotesingle{} position of base pair closing the loop (will be set to 5\textquotesingle{} position of leftmost decomposed block upon successful backtracking) \\
+\hline
+{\em j} & 3\textquotesingle{} position of base pair closing the loop (will be set to 3\textquotesingle{} position of rightmost decomposed block upon successful backtracking) \\
+\hline
+{\em k} & Split position that delimits leftmost from rightmost block, \mbox{[}i,k\mbox{]} and \mbox{[}k+1, j\mbox{]}, respectively. (Will be set upon successful backtracking) \\
+\hline
+{\em en} & The energy contribution of the substructure enclosed by $ (i,j) $ \\
+\hline
+{\em component1} & Type of leftmost block (1 = ML, 2 = C) \\
+\hline
+{\em component2} & Type of rightmost block (1 = ML, 2 = C) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1, if backtracking succeeded, 0 otherwise. 
+\end{DoxyReturn}

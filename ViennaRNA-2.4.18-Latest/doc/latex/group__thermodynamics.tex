@@ -1,0 +1,533 @@
+\hypertarget{group__thermodynamics}{}\doxysection{Predicting various thermodynamic properties}
+\label{group__thermodynamics}\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+
+
+Compute various thermodynamic properties using the partition function.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Compute various thermodynamic properties using the partition function. 
+
+Many thermodynamic properties can be derived from the partition function \[ Q = \sum_{s \in \omega} e^{\frac{-E(s)}{kT}}. \] In particular, for nucleic acids in equilibrium the probabilty $ p(F) $ of a particular structural feature $ F $ follows Boltzmanns law, i.\+e. \[ p(F) \propto \sum_{s \mid F \in s} e^{\frac{-E(s)}{kT}}. \] The actual probabilities can then be obtained from the ratio of those structures containing $ F $ and {\itshape all} structures, i.\+e. \[ p(F) = \frac{1}{Q} \sum_{s \mid F \in s} e^{\frac{-E(s)}{kT}}. \]
+
+Consequently, a particular secondary structure $ s $ has equilibrium probability \[ p(s) = \frac{1}{Q} e^{\frac{-E(s)}{kT}} \] which can be easily computed once $ Q $ and $ E(s) $ are known.
+
+On the other hand, efficient dynamic programming algorithms exist to compute the equilibrium probabilities \[ p_{ij} = \frac{1}{Q} \sum_{s \mid (i,j) \in s} e^{\frac{-E(s)}{kT}} \] of base pairs $ (i,j) $ without the need for exhaustive enumeration of $ s $.
+
+This interface provides the functions for all thermodynamic property computations implemented in {\itshape RNAlib}. Collaboration diagram for Predicting various thermodynamic properties\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__thermodynamics}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{equilibrium__probs_8h}{equilibrium\+\_\+probs.\+h}}
+\begin{DoxyCompactList}\small\item\em Equilibrium Probability implementations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{heat__capacity_8h}{heat\+\_\+capacity.\+h}}
+\begin{DoxyCompactList}\small\item\em Compute heat capacity for an RNA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em A single result from heat capacity computations.  \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}}(float temp, float heat\+\_\+capacity, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em The callback for heat capacity predictions. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}} \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A single result from heat capacity computations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Base pair probabilities and derived computations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__thermodynamics_ga55e52b8027cf50c081c452c4dec6135d}\label{group__thermodynamics_ga55e52b8027cf50c081c452c4dec6135d}} 
+int {\bfseries vrna\+\_\+pairing\+\_\+probs} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\item 
+double \mbox{\hyperlink{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}} (int length, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Compute the Ensemble Defect for a given target structure provided as a {\bfseries{vrna\+\_\+ptable}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}{vrna\+\_\+ensemble\+\_\+defect}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the Ensemble Defect for a given target structure. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{group__thermodynamics_ga4ec346141028c7bcd15bc235c408b6e9}{vrna\+\_\+positional\+\_\+entropy}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\begin{DoxyCompactList}\small\item\em Compute a vector of positional entropies. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__thermodynamics_ga132664bf29fdc30bb5ea715491d1ab22}{vrna\+\_\+stack\+\_\+prob}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double cutoff)
+\begin{DoxyCompactList}\small\item\em Compute stacking probabilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Multimer probabilities computations}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__thermodynamics_gaa1e39e73afb51fbaf4ae38f0c066c46b}{vrna\+\_\+pf\+\_\+dimer\+\_\+probs}} (double FAB, double FA, double FB, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pr\+AB, const \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prA, const \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prB, int Alength, const \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$exp\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Compute Boltzmann probabilities of dimerization without homodimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Structure probability computations}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{group__thermodynamics_ga882c35d9dd775c1275593b3b6a966bec}{vrna\+\_\+pr\+\_\+structure}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the equilibrium probability of a particular secondary structure. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_gaa88e17336daede0e6db4da1f3252c031}{vrna\+\_\+pr\+\_\+energy}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double e)
+\end{DoxyCompactItemize}
+\doxysubsection*{Basic heat capacity function interface}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}} $\ast$ \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints)
+\begin{DoxyCompactList}\small\item\em Compute the specific heat for an RNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}{vrna\+\_\+heat\+\_\+capacity\+\_\+cb}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints, \mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}} $\ast$cb, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Compute the specific heat for an RNA (callback variant) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Simplified heat capacity computation}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}} $\ast$ \mbox{\hyperlink{group__thermodynamics_ga0c2664e15dded704d805a9d2a625ff21}{vrna\+\_\+heat\+\_\+capacity\+\_\+simple}} (const char $\ast$sequence, float T\+\_\+min, float T\+\_\+max, float T\+\_\+increment, unsigned int mpoints)
+\begin{DoxyCompactList}\small\item\em Compute the specific heat for an RNA (simplified variant) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_heat\_capacity\_s@{vrna\_heat\_capacity\_s}}\label{structvrna__heat__capacity__s}
+\Hypertarget{group__thermodynamics_structvrna__heat__capacity__s}
+\doxysubsubsection{struct vrna\+\_\+heat\+\_\+capacity\+\_\+s}
+A single result from heat capacity computations. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}} 
+\end{DoxySeeAlso}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__thermodynamics_a62ed3466ce614f4f1e729463fac41d72}\label{group__thermodynamics_a62ed3466ce614f4f1e729463fac41d72}} 
+float \mbox{\hyperlink{group__thermodynamics_a62ed3466ce614f4f1e729463fac41d72}{temperature}}
+\begin{DoxyCompactList}\small\item\em The temperature in \textdegree{}C. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__thermodynamics_a2987d5e5ef974d14a108ec1c7062562f}\label{group__thermodynamics_a2987d5e5ef974d14a108ec1c7062562f}} 
+float \mbox{\hyperlink{group__thermodynamics_a2987d5e5ef974d14a108ec1c7062562f}{heat\+\_\+capacity}}
+\begin{DoxyCompactList}\small\item\em The specific heat at this temperature in Kcal/(Mol $\ast$ K) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__thermodynamics_ga18316e4657502e9203931f924d93732f}\label{group__thermodynamics_ga18316e4657502e9203931f924d93732f}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_heat\_capacity\_callback@{vrna\_heat\_capacity\_callback}}
+\index{vrna\_heat\_capacity\_callback@{vrna\_heat\_capacity\_callback}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_heat\_capacity\_callback}{vrna\_heat\_capacity\_callback}}
+{\footnotesize\ttfamily typedef void() vrna\+\_\+heat\+\_\+capacity\+\_\+callback(float temp, float heat\+\_\+capacity, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heat__capacity_8h}{Vienna\+RNA/heat\+\_\+capacity.\+h}}$>$}
+
+
+
+The callback for heat capacity predictions. 
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\mbox{\hyperlink{callbacks__callbacks000004}{Notes on Callback Functions}}]This function will be called for each evaluated temperature in the heat capacity prediction. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}{vrna\+\_\+heat\+\_\+capacity\+\_\+cb()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em temp} & The current temperature this results corresponds to in \textdegree{}C \\
+\hline
+{\em heat\+\_\+capacity} & The heat capacity in Kcal/(Mol $\ast$ K) \\
+\hline
+{\em data} & Some arbitrary data pointer passed through by the function executing the callback \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}\label{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_heat\_capacity\_t@{vrna\_heat\_capacity\_t}}
+\index{vrna\_heat\_capacity\_t@{vrna\_heat\_capacity\_t}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_heat\_capacity\_t}{vrna\_heat\_capacity\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}} \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heat__capacity_8h}{Vienna\+RNA/heat\+\_\+capacity.\+h}}$>$}
+
+
+
+A single result from heat capacity computations. 
+
+This is a convenience typedef for \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}}, i.\+e. results as obtained from \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}\label{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_mean\_bp\_distance\_pr@{vrna\_mean\_bp\_distance\_pr}}
+\index{vrna\_mean\_bp\_distance\_pr@{vrna\_mean\_bp\_distance\_pr}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_mean\_bp\_distance\_pr()}{vrna\_mean\_bp\_distance\_pr()}}
+{\footnotesize\ttfamily double vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{pr }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. 
+
+\[ <d> = \sum_{a,b} p_a p_b d(S_a,S_b) \] this can be computed from the pair probs $ p_{ij} $ as \[ <d> = \sum_{ij} p_{ij}(1-p_{ij}) \]
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the sequence \\
+\hline
+{\em pr} & The matrix containing the base pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}\label{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_mean\_bp\_distance@{vrna\_mean\_bp\_distance}}
+\index{vrna\_mean\_bp\_distance@{vrna\_mean\_bp\_distance}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_mean\_bp\_distance()}{vrna\_mean\_bp\_distance()}}
+{\footnotesize\ttfamily double vrna\+\_\+mean\+\_\+bp\+\_\+distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble. 
+
+\[ <d> = \sum_{a,b} p_a p_b d(S_a,S_b) \] this can be computed from the pair probs $p_{ij}$ as \[ <d> = \sum_{ij} p_{ij}(1-p_{ij}) \]
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000115}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{\mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance()}}}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}\label{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_ensemble\_defect\_pt@{vrna\_ensemble\_defect\_pt}}
+\index{vrna\_ensemble\_defect\_pt@{vrna\_ensemble\_defect\_pt}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_ensemble\_defect\_pt()}{vrna\_ensemble\_defect\_pt()}}
+{\footnotesize\ttfamily double vrna\+\_\+ensemble\+\_\+defect\+\_\+pt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{const short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Compute the Ensemble Defect for a given target structure provided as a {\bfseries{vrna\+\_\+ptable}}. 
+
+Given a target structure $s$, compute the average dissimilarity of a randomly drawn structure from the ensemble, i.\+e.\+: \[ ED(s) = 1 - \frac{1}{n} \sum_{ij, (i,j) \in s} p_{ij} - \frac{1}{n} \sum_{i}(1 - s_i)q_i \] with sequence length $n$, the probability $p_{ij}$ of a base pair $(i,j)$, the probability $q_i = 1 - \sum_j p_{ij}$ of nucleotide $i$ being unpaired, and the indicator variable $s_i = 1$ if $\exists (i,j) \in s$, and $s_i = 0$ otherwise.
+
+\begin{DoxyPrecond}{Precondition}
+The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} input parameter {\ttfamily fc} must contain a valid base pair probability matrix. This means that partition function and base pair probabilities must have been computed using {\ttfamily fc} before execution of this function!
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}, vrna\+\_\+pairing\+\_\+probs(), \mbox{\hyperlink{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}{vrna\+\_\+ensemble\+\_\+defect()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold\+\_\+compound with pre-\/computed base pair probabilities \\
+\hline
+{\em pt} & A pair table representing a target structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ensemble defect with respect to the target structure, or -\/1. upon failure, e.\+g. pre-\/conditions are not met
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000116}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{ensemble\+\_\+defect()}} to objects of type {\itshape fold\+\_\+compound}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}\label{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_ensemble\_defect@{vrna\_ensemble\_defect}}
+\index{vrna\_ensemble\_defect@{vrna\_ensemble\_defect}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_ensemble\_defect()}{vrna\_ensemble\_defect()}}
+{\footnotesize\ttfamily double vrna\+\_\+ensemble\+\_\+defect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Compute the Ensemble Defect for a given target structure. 
+
+This is a wrapper around {\bfseries{\mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt()}}}}. Given a target structure $s$, compute the average dissimilarity of a randomly drawn structure from the ensemble, i.\+e.\+: \[ ED(s) = 1 - \frac{1}{n} \sum_{ij, (i,j) \in s} p_{ij} - \frac{1}{n} \sum_{i}(1 - s_i)q_i \] with sequence length $n$, the probability $p_{ij}$ of a base pair $(i,j)$, the probability $q_i = 1 - \sum_j p_{ij}$ of nucleotide $i$ being unpaired, and the indicator variable $s_i = 1$ if $\exists (i,j) \in s$, and $s_i = 0$ otherwise.
+
+\begin{DoxyPrecond}{Precondition}
+The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} input parameter {\ttfamily fc} must contain a valid base pair probability matrix. This means that partition function and base pair probabilities must have been computed using {\ttfamily fc} before execution of this function!
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}}, vrna\+\_\+pairing\+\_\+probs(), \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold\+\_\+compound with pre-\/computed base pair probabilities \\
+\hline
+{\em structure} & A target structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ensemble defect with respect to the target structure, or -\/1. upon failure, e.\+g. pre-\/conditions are not met
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000117}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{ensemble\+\_\+defect()}} to objects of type {\itshape fold\+\_\+compound}. Note that the SWIG wrapper takes a structure in dot-\/bracket notation and converts it into a pair table using \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}. The resulting pair table is then internally passed to \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt()}}. To control which kind of matching brackets will be used during conversion, the optional argument {\ttfamily options} can be used. See also the description of \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}} for available options. (default\+: {\bfseries{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}). \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_ga4ec346141028c7bcd15bc235c408b6e9}\label{group__thermodynamics_ga4ec346141028c7bcd15bc235c408b6e9}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_positional\_entropy@{vrna\_positional\_entropy}}
+\index{vrna\_positional\_entropy@{vrna\_positional\_entropy}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_positional\_entropy()}{vrna\_positional\_entropy()}}
+{\footnotesize\ttfamily double $\ast$ vrna\+\_\+positional\+\_\+entropy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Compute a vector of positional entropies. 
+
+This function computes the positional entropies from base pair probabilities as \[ S(i) = - \sum_j p_{ij} \log(p_{ij}) - q_i \log(q_i) \] with unpaired probabilities $ q_i = 1 - \sum_j p_{ij} $.
+
+Low entropy regions have little structural flexibility and the reliability of the predicted structure is high. High entropy implies many structural alternatives. While these alternatives may be functionally important, they make structure prediction more difficult and thus less reliable.
+
+\begin{DoxyPrecond}{Precondition}
+This function requires pre-\/computed base pair probabilities! Thus, \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} must be called beforehand.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & A fold\+\_\+compound with pre-\/computed base pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 1-\/based vector of positional entropies $ S(i) $. (position 0 contains the sequence length)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000118}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{positional\+\_\+entropy()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_ga132664bf29fdc30bb5ea715491d1ab22}\label{group__thermodynamics_ga132664bf29fdc30bb5ea715491d1ab22}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_stack\_prob@{vrna\_stack\_prob}}
+\index{vrna\_stack\_prob@{vrna\_stack\_prob}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_stack\_prob()}{vrna\_stack\_prob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}}$\ast$ vrna\+\_\+stack\+\_\+prob (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{double}]{cutoff }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Compute stacking probabilities. 
+
+For each possible base pair $(i,j)$, compute the probability of a stack $(i,j)$, $(i+1, j-1)$.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure with precomputed base pair probabilities \\
+\hline
+{\em cutoff} & A cutoff value that limits the output to stacks with $ p > \textrm{cutoff} $. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of stacks with enclosing base pair $(i,j)$ and probabiltiy $ p $ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__thermodynamics_gaa1e39e73afb51fbaf4ae38f0c066c46b}\label{group__thermodynamics_gaa1e39e73afb51fbaf4ae38f0c066c46b}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_pf\_dimer\_probs@{vrna\_pf\_dimer\_probs}}
+\index{vrna\_pf\_dimer\_probs@{vrna\_pf\_dimer\_probs}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_pf\_dimer\_probs()}{vrna\_pf\_dimer\_probs()}}
+{\footnotesize\ttfamily void vrna\+\_\+pf\+\_\+dimer\+\_\+probs (\begin{DoxyParamCaption}\item[{double}]{FAB,  }\item[{double}]{FA,  }\item[{double}]{FB,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{pr\+AB,  }\item[{const \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{prA,  }\item[{const \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{prB,  }\item[{int}]{Alength,  }\item[{const \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$}]{exp\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Compute Boltzmann probabilities of dimerization without homodimers. 
+
+Given the pair probabilities and free energies (in the null model) for a dimer AB and the two constituent monomers A and B, compute the conditional pair probabilities given that a dimer AB actually forms. Null model pair probabilities are given as a list as produced by \mbox{\hyperlink{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}{vrna\+\_\+plist\+\_\+from\+\_\+probs()}}, the dimer probabilities \textquotesingle{}pr\+AB\textquotesingle{} are modified in place.
+
+
+\begin{DoxyParams}{Parameters}
+{\em FAB} & free energy of dimer AB \\
+\hline
+{\em FA} & free energy of monomer A \\
+\hline
+{\em FB} & free energy of monomer B \\
+\hline
+{\em pr\+AB} & pair probabilities for dimer \\
+\hline
+{\em prA} & pair probabilities monomer \\
+\hline
+{\em prB} & pair probabilities monomer \\
+\hline
+{\em Alength} & Length of molecule A \\
+\hline
+{\em exp\+\_\+params} & The precomputed Boltzmann factors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__thermodynamics_ga882c35d9dd775c1275593b3b6a966bec}\label{group__thermodynamics_ga882c35d9dd775c1275593b3b6a966bec}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_pr\_structure@{vrna\_pr\_structure}}
+\index{vrna\_pr\_structure@{vrna\_pr\_structure}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_pr\_structure()}{vrna\_pr\_structure()}}
+{\footnotesize\ttfamily double vrna\+\_\+pr\+\_\+structure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+
+
+Compute the equilibrium probability of a particular secondary structure. 
+
+The probability $p(s)$ of a particular secondary structure $s$ can be computed as \[ p(s) = \frac{exp(-\beta E(s)}{Z} \] from the structures free energy $E(s)$ and the partition function \[ Z = \sum_s exp(-\beta E(s)),\quad\mathrm{with}\quad\beta = \frac{1}{RT} \] where $R$ is the gas constant and $T$ the thermodynamic temperature.
+
+\begin{DoxyPrecond}{Precondition}
+The fold compound {\ttfamily fc} must have went through a call to \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}} to fill the dynamic programming matrices with the corresponding partition function.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure with precomputed partition function \\
+\hline
+{\em structure} & The secondary structure to compute the probability for in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The probability of the input structure (range $[0:1]$)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000119}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{pr\+\_\+structure()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_gaa88e17336daede0e6db4da1f3252c031}\label{group__thermodynamics_gaa88e17336daede0e6db4da1f3252c031}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_pr\_energy@{vrna\_pr\_energy}}
+\index{vrna\_pr\_energy@{vrna\_pr\_energy}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_pr\_energy()}{vrna\_pr\_energy()}}
+{\footnotesize\ttfamily double vrna\+\_\+pr\+\_\+energy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{double}]{e }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{equilibrium__probs_8h}{Vienna\+RNA/equilibrium\+\_\+probs.\+h}}$>$}
+
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000120}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{pr\+\_\+energy()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}\label{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_heat\_capacity@{vrna\_heat\_capacity}}
+\index{vrna\_heat\_capacity@{vrna\_heat\_capacity}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_heat\_capacity()}{vrna\_heat\_capacity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}} $\ast$ vrna\+\_\+heat\+\_\+capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{float}]{T\+\_\+min,  }\item[{float}]{T\+\_\+max,  }\item[{float}]{T\+\_\+increment,  }\item[{unsigned int}]{mpoints }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heat__capacity_8h}{Vienna\+RNA/heat\+\_\+capacity.\+h}}$>$}
+
+
+
+Compute the specific heat for an RNA. 
+
+This function computes an RNAs specific heat in a given temperature range from the partition function by numeric differentiation. The result is returned as a list of pairs of temperature in \textdegree{}C and specific heat in Kcal/(Mol$\ast$K).
+
+Users can specify the temperature range for the computation from {\ttfamily T\+\_\+min} to {\ttfamily T\+\_\+max}, as well as the increment step size {\ttfamily T\+\_\+increment}. The latter also determines how many times the partition function is computed. Finally, the parameter {\ttfamily mpoints} determines how smooth the curve should be. The algorithm itself fits a parabola to $ 2 \cdot mpoints + 1 $ data points to calculate 2nd derivatives. Increasing this parameter produces a smoother curve.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}{vrna\+\_\+heat\+\_\+capacity\+\_\+cb()}}, \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}}, \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} with the RNA sequence to analyze \\
+\hline
+{\em T\+\_\+min} & Lowest temperature in \textdegree{}C \\
+\hline
+{\em T\+\_\+max} & Highest temperature in \textdegree{}C \\
+\hline
+{\em T\+\_\+increment} & Stepsize for temperature incrementation in \textdegree{}C (a reasonable choice might be 1\textdegree{}C) \\
+\hline
+{\em mpoints} & The number of interpolation points to calculate 2nd derivative (a reasonable choice might be 2, min\+: 1, max\+: 100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of pairs of temperatures and corresponding heat capacity or {\itshape NULL} upon any failure. The last entry of the list is indicated by a {\bfseries{temperature}} field set to a value smaller than {\ttfamily T\+\_\+min} 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000088}{SWIG Wrapper Notes}}]This function is attached as overloaded method {\bfseries{heat\+\_\+capacity()}} to objects of type {\itshape fold\+\_\+compound}. If the optional function arguments {\ttfamily T\+\_\+min}, {\ttfamily T\+\_\+max}, {\ttfamily T\+\_\+increment}, and {\ttfamily mpoints} are omitted, they default to 0.\+0, 100.\+0, 1.\+0 and 2, respectively. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}\label{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_heat\_capacity\_cb@{vrna\_heat\_capacity\_cb}}
+\index{vrna\_heat\_capacity\_cb@{vrna\_heat\_capacity\_cb}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_heat\_capacity\_cb()}{vrna\_heat\_capacity\_cb()}}
+{\footnotesize\ttfamily int vrna\+\_\+heat\+\_\+capacity\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{float}]{T\+\_\+min,  }\item[{float}]{T\+\_\+max,  }\item[{float}]{T\+\_\+increment,  }\item[{unsigned int}]{mpoints,  }\item[{\mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}} $\ast$}]{cb,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heat__capacity_8h}{Vienna\+RNA/heat\+\_\+capacity.\+h}}$>$}
+
+
+
+Compute the specific heat for an RNA (callback variant) 
+
+Similar to \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}}, this function computes an RNAs specific heat in a given temperature range from the partition function by numeric differentiation. Instead of returning a list of temperature/specific heat pairs, however, this function returns the individual results through a callback mechanism. The provided function will be called for each result and passed the corresponding temperature and specific heat values along with the arbitrary data as provided through the {\ttfamily data} pointer argument.
+
+Users can specify the temperature range for the computation from {\ttfamily T\+\_\+min} to {\ttfamily T\+\_\+max}, as well as the increment step size {\ttfamily T\+\_\+increment}. The latter also determines how many times the partition function is computed. Finally, the parameter {\ttfamily mpoints} determines how smooth the curve should be. The algorithm itself fits a parabola to $ 2 \cdot mpoints + 1 $ data points to calculate 2nd derivatives. Increasing this parameter produces a smoother curve.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}}, \mbox{\hyperlink{group__thermodynamics_ga18316e4657502e9203931f924d93732f}{vrna\+\_\+heat\+\_\+capacity\+\_\+callback}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} with the RNA sequence to analyze \\
+\hline
+{\em T\+\_\+min} & Lowest temperature in \textdegree{}C \\
+\hline
+{\em T\+\_\+max} & Highest temperature in \textdegree{}C \\
+\hline
+{\em T\+\_\+increment} & Stepsize for temperature incrementation in \textdegree{}C (a reasonable choice might be 1\textdegree{}C) \\
+\hline
+{\em mpoints} & The number of interpolation points to calculate 2nd derivative (a reasonable choice might be 2, min\+: 1, max\+: 100) \\
+\hline
+{\em cb} & The user-\/defined callback function that receives the individual results \\
+\hline
+{\em data} & An arbitrary data structure that will be passed to the callback in conjunction with the results \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon failure, and non-\/zero otherwise
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000089}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{heat\+\_\+capacity\+\_\+cb()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__thermodynamics_ga0c2664e15dded704d805a9d2a625ff21}\label{group__thermodynamics_ga0c2664e15dded704d805a9d2a625ff21}} 
+\index{Predicting various thermodynamic properties@{Predicting various thermodynamic properties}!vrna\_heat\_capacity\_simple@{vrna\_heat\_capacity\_simple}}
+\index{vrna\_heat\_capacity\_simple@{vrna\_heat\_capacity\_simple}!Predicting various thermodynamic properties@{Predicting various thermodynamic properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_heat\_capacity\_simple()}{vrna\_heat\_capacity\_simple()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}} $\ast$ vrna\+\_\+heat\+\_\+capacity\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{float}]{T\+\_\+min,  }\item[{float}]{T\+\_\+max,  }\item[{float}]{T\+\_\+increment,  }\item[{unsigned int}]{mpoints }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{heat__capacity_8h}{Vienna\+RNA/heat\+\_\+capacity.\+h}}$>$}
+
+
+
+Compute the specific heat for an RNA (simplified variant) 
+
+Similar to \mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}}, this function computes an RNAs specific heat in a given temperature range from the partition function by numeric differentiation. This simplified version, however, only requires the RNA sequence as input instead of a vrna\+\_\+fold\+\_\+compound\+\_\+t data structure. The result is returned as a list of pairs of temperature in \textdegree{}C and specific heat in Kcal/(Mol$\ast$K).
+
+Users can specify the temperature range for the computation from {\ttfamily T\+\_\+min} to {\ttfamily T\+\_\+max}, as well as the increment step size {\ttfamily T\+\_\+increment}. The latter also determines how many times the partition function is computed. Finally, the parameter {\ttfamily mpoints} determines how smooth the curve should be. The algorithm itself fits a parabola to $ 2 \cdot mpoints + 1 $ data points to calculate 2nd derivatives. Increasing this parameter produces a smoother curve.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__thermodynamics_gafd95c2350d67d8f4374369c19cf111f1}{vrna\+\_\+heat\+\_\+capacity()}}, \mbox{\hyperlink{group__thermodynamics_gaca54de116562d187484e3fa884aeb52c}{vrna\+\_\+heat\+\_\+capacity\+\_\+cb()}}, \mbox{\hyperlink{group__thermodynamics_ga99dc703d840310177ecf7aedf72b4409}{vrna\+\_\+heat\+\_\+capacity\+\_\+t}}, \mbox{\hyperlink{group__thermodynamics_structvrna__heat__capacity__s}{vrna\+\_\+heat\+\_\+capacity\+\_\+s}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The RNA sequence input (must be uppercase) \\
+\hline
+{\em T\+\_\+min} & Lowest temperature in \textdegree{}C \\
+\hline
+{\em T\+\_\+max} & Highest temperature in \textdegree{}C \\
+\hline
+{\em T\+\_\+increment} & Stepsize for temperature incrementation in \textdegree{}C (a reasonable choice might be 1\textdegree{}C) \\
+\hline
+{\em mpoints} & The number of interpolation points to calculate 2nd derivative (a reasonable choice might be 2, min\+: 1, max\+: 100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of pairs of temperatures and corresponding heat capacity or {\itshape NULL} upon any failure. The last entry of the list is indicated by a {\bfseries{temperature}} field set to a value smaller than {\ttfamily T\+\_\+min} 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000090}{SWIG Wrapper Notes}}]This function is available as overloaded function {\bfseries{heat\+\_\+capacity()}}. If the optional function arguments {\ttfamily T\+\_\+min}, {\ttfamily T\+\_\+max}, {\ttfamily T\+\_\+increment}, and {\ttfamily mpoints} are omitted, they default to 0.\+0, 100.\+0, 1.\+0 and 2, respectively. \end{DoxyRefDesc}

@@ -1,0 +1,437 @@
+\hypertarget{group__struct__utils__dot__bracket}{}\doxysection{Dot-\/\+Bracket Notation of Secondary Structures}
+\label{group__struct__utils__dot__bracket}\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+
+
+The Dot-\/\+Bracket notation as introduced already in the early times of the Vienna\+RNA Package denotes base pairs by matching pairs of parenthesis {\ttfamily ()} and unpaired nucleotides by dots {\ttfamily .}.  
+
+
+
+
+\doxysubsection{Detailed Description}
+The Dot-\/\+Bracket notation as introduced already in the early times of the Vienna\+RNA Package denotes base pairs by matching pairs of parenthesis {\ttfamily ()} and unpaired nucleotides by dots {\ttfamily .}. 
+
+As a simple example, consider a helix of size 4 enclosing a hairpin of size 4. In dot-\/bracket notation, this is annotated as
+
+{\ttfamily ((((....))))}
+
+{\bfseries{Extended Dot-\/\+Bracket Notation}}
+
+A more generalized version of the original Dot-\/\+Bracket notation may use additional pairs of brackets, such as {\ttfamily $<$$>$}, {\ttfamily \{\}}, and {\ttfamily \mbox{[}\mbox{]}}, and matching pairs of uppercase/lowercase letters. This allows for anotating pseudo-\/knots, since different pairs of brackets are not required to be nested.
+
+The follwing annotations of a simple structure with two crossing helices of size 4 are equivalent\+:
+
+{\ttfamily $<$$<$$<$$<$\mbox{[}\mbox{[}\mbox{[}\mbox{[}....$>$$>$$>$$>$\mbox{]}\mbox{]}\mbox{]}\mbox{]}}~\newline
+ {\ttfamily ((((AAAA....))))aaaa}~\newline
+ {\ttfamily AAAA\{\{\{\{....aaaa\}\}\}\}} Collaboration diagram for Dot-\/\+Bracket Notation of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{group__struct__utils__dot__bracket}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_ga7e3f630af8d69bb0e917145aacf2f96d}{VRNA\+\_\+\+BRACKETS\+\_\+\+ALPHA}}~4U
+\begin{DoxyCompactList}\small\item\em Bitflag to indicate secondary structure notations using uppercase/lowercase letters from the latin alphabet. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}~8U
+\begin{DoxyCompactList}\small\item\em Bitflag to indicate secondary structure notations using round brackets (parenthesis), {\ttfamily ()} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}{VRNA\+\_\+\+BRACKETS\+\_\+\+CLY}}~16U
+\begin{DoxyCompactList}\small\item\em Bitflag to indicate secondary structure notations using curly brackets, {\ttfamily \{\}} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANG}}~32U
+\begin{DoxyCompactList}\small\item\em Bitflag to indicate secondary structure notations using angular brackets, {\ttfamily $<$$>$} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}{VRNA\+\_\+\+BRACKETS\+\_\+\+SQR}}~64U
+\begin{DoxyCompactList}\small\item\em Bitflag to indicate secondary structure notations using square brackets, {\ttfamily \mbox{[}\mbox{]}} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}
+\begin{DoxyCompactList}\small\item\em Default bitmask to indicate secondary structure notation using any pair of brackets. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANY}}
+\begin{DoxyCompactList}\small\item\em Bitmask to indicate secondary structure notation using any pair of brackets or uppercase/lowercase alphabet letters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack}} (const char $\ast$struc)
+\begin{DoxyCompactList}\small\item\em Pack secondary secondary structure, 5\+:1 compression using base 3 encoding. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__dot__bracket_ga6490adff857d84ce06e6f379ae3a4512}{vrna\+\_\+db\+\_\+unpack}} (const char $\ast$packed)
+\begin{DoxyCompactList}\small\item\em Unpack secondary structure previously packed with \mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten}} (char $\ast$structure, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Substitute pairs of brackets in a string with parenthesis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to}} (char $\ast$string, const char target\mbox{[}3\mbox{]}, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Substitute pairs of brackets in a string with another type of pair characters. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf9ecd0d7877fecdbb0292e24f40283d5}{vrna\+\_\+db\+\_\+from\+\_\+ptable}} (short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Convert a pair table into dot-\/parenthesis notation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__dot__bracket_ga6a51a36b9245d0bac868c5cd172b9611}{vrna\+\_\+db\+\_\+from\+\_\+plist}} (\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$\mbox{\hyperlink{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}{pairs}}, unsigned int n)
+\begin{DoxyCompactList}\small\item\em Convert a list of base pairs into dot-\/bracket notation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__dot__bracket_ga45360c09fb6d04d96e42dcccbb66015b}{vrna\+\_\+db\+\_\+to\+\_\+element\+\_\+string}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Convert a secondary structure in dot-\/bracket notation to a nucleotide annotation of loop contexts. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove}} (const char $\ast$structure, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Remove pseudo-\/knots from an input structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga7e3f630af8d69bb0e917145aacf2f96d}\label{group__struct__utils__dot__bracket_ga7e3f630af8d69bb0e917145aacf2f96d}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_ALPHA@{VRNA\_BRACKETS\_ALPHA}}
+\index{VRNA\_BRACKETS\_ALPHA@{VRNA\_BRACKETS\_ALPHA}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_ALPHA}{VRNA\_BRACKETS\_ALPHA}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+ALPHA~4U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Bitflag to indicate secondary structure notations using uppercase/lowercase letters from the latin alphabet. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}\label{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_RND@{VRNA\_BRACKETS\_RND}}
+\index{VRNA\_BRACKETS\_RND@{VRNA\_BRACKETS\_RND}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_RND}{VRNA\_BRACKETS\_RND}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+RND~8U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Bitflag to indicate secondary structure notations using round brackets (parenthesis), {\ttfamily ()} 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}\label{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_CLY@{VRNA\_BRACKETS\_CLY}}
+\index{VRNA\_BRACKETS\_CLY@{VRNA\_BRACKETS\_CLY}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_CLY}{VRNA\_BRACKETS\_CLY}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+CLY~16U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Bitflag to indicate secondary structure notations using curly brackets, {\ttfamily \{\}} 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}\label{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_ANG@{VRNA\_BRACKETS\_ANG}}
+\index{VRNA\_BRACKETS\_ANG@{VRNA\_BRACKETS\_ANG}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_ANG}{VRNA\_BRACKETS\_ANG}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+ANG~32U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Bitflag to indicate secondary structure notations using angular brackets, {\ttfamily $<$$>$} 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}\label{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_SQR@{VRNA\_BRACKETS\_SQR}}
+\index{VRNA\_BRACKETS\_SQR@{VRNA\_BRACKETS\_SQR}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_SQR}{VRNA\_BRACKETS\_SQR}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+SQR~64U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Bitflag to indicate secondary structure notations using square brackets, {\ttfamily \mbox{[}\mbox{]}} 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}\label{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_DEFAULT@{VRNA\_BRACKETS\_DEFAULT}}
+\index{VRNA\_BRACKETS\_DEFAULT@{VRNA\_BRACKETS\_DEFAULT}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_DEFAULT}{VRNA\_BRACKETS\_DEFAULT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  (\mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\_BRACKETS\_RND}} | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_CLY | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_ANG | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_SQR)}
+
+\end{DoxyCode}
+
+
+Default bitmask to indicate secondary structure notation using any pair of brackets. 
+
+This set of matching brackets/parenthesis is always nested, i.\+e. pseudo-\/knot free, in WUSS format. However, in general different kinds of brackets are mostly used for annotating pseudo-\/knots. Thus special care has to be taken to remove pseudo-\/knots if this bitmask is used in functions that return secondary structures without pseudo-\/knots!
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove()}} \mbox{\hyperlink{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}{vrna\+\_\+pt\+\_\+pk\+\_\+remove()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}\label{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!VRNA\_BRACKETS\_ANY@{VRNA\_BRACKETS\_ANY}}
+\index{VRNA\_BRACKETS\_ANY@{VRNA\_BRACKETS\_ANY}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_BRACKETS\_ANY}{VRNA\_BRACKETS\_ANY}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+BRACKETS\+\_\+\+ANY}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  (\mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\_BRACKETS\_RND}} | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_CLY | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_ANG | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_SQR | \(\backslash\)}
+\DoxyCodeLine{   VRNA\_BRACKETS\_ALPHA)}
+
+\end{DoxyCode}
+
+
+Bitmask to indicate secondary structure notation using any pair of brackets or uppercase/lowercase alphabet letters. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}\label{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_pack@{vrna\_db\_pack}}
+\index{vrna\_db\_pack@{vrna\_db\_pack}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_pack()}{vrna\_db\_pack()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+pack (\begin{DoxyParamCaption}\item[{const char $\ast$}]{struc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Pack secondary secondary structure, 5\+:1 compression using base 3 encoding. 
+
+Returns a binary string encoding of the secondary structure using a 5\+:1 compression scheme. The string is NULL terminated and can therefore be used with standard string functions such as strcmp(). Useful for programs that need to keep many structures in memory.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__dot__bracket_ga6490adff857d84ce06e6f379ae3a4512}{vrna\+\_\+db\+\_\+unpack()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em struc} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The binary encoded structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga6490adff857d84ce06e6f379ae3a4512}\label{group__struct__utils__dot__bracket_ga6490adff857d84ce06e6f379ae3a4512}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_unpack@{vrna\_db\_unpack}}
+\index{vrna\_db\_unpack@{vrna\_db\_unpack}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_unpack()}{vrna\_db\_unpack()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+unpack (\begin{DoxyParamCaption}\item[{const char $\ast$}]{packed }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Unpack secondary structure previously packed with \mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}} 
+
+Translate a compressed binary string produced by \mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}} back into the familiar dot-\/bracket notation.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em packed} & The binary encoded packed secondary structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The unpacked secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}\label{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_flatten@{vrna\_db\_flatten}}
+\index{vrna\_db\_flatten@{vrna\_db\_flatten}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_flatten()}{vrna\_db\_flatten()}}
+{\footnotesize\ttfamily void vrna\+\_\+db\+\_\+flatten (\begin{DoxyParamCaption}\item[{char $\ast$}]{structure,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Substitute pairs of brackets in a string with parenthesis. 
+
+This function can be used to replace brackets of unusual types, such as angular brackets {\ttfamily $<$$>$} , to dot-\/bracket format. The {\ttfamily options} parameter is used tpo specify which types of brackets will be replaced by round parenthesis {\ttfamily }() .
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANG}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}{VRNA\+\_\+\+BRACKETS\+\_\+\+CLY}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}{VRNA\+\_\+\+BRACKETS\+\_\+\+SQR}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The structure string where brackets are flattened in-\/place \\
+\hline
+{\em options} & A bitmask to specify which types of brackets should be flattened out\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000133}{SWIG Wrapper Notes}}]This function flattens an input structure string in-\/place! The second parameter is optional and defaults to \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}.
+
+An overloaded version of this function exists, where an additional second parameter can be passed to specify the target brackets, i.\+e. the type of matching pair characters all brackets will be flattened to. Therefore, in the scripting language interface this function is a replacement for \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}\label{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_flatten\_to@{vrna\_db\_flatten\_to}}
+\index{vrna\_db\_flatten\_to@{vrna\_db\_flatten\_to}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_flatten\_to()}{vrna\_db\_flatten\_to()}}
+{\footnotesize\ttfamily void vrna\+\_\+db\+\_\+flatten\+\_\+to (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{const char}]{target\mbox{[}3\mbox{]},  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Substitute pairs of brackets in a string with another type of pair characters. 
+
+This function can be used to replace brackets in a structure annotation string, such as square brackets {\ttfamily }\mbox{[}\mbox{]} , to another type of pair characters, e.\+g. angular brackets {\ttfamily $<$$>$} .
+
+The {\ttfamily target} array must contain a character for the \textquotesingle{}pair open\textquotesingle{} annotation at position 0, and one for \textquotesingle{}pair close\textquotesingle{} at position 1. T{\ttfamily options} parameter is used to specify which types of brackets will be replaced by the new pairs.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANG}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}{VRNA\+\_\+\+BRACKETS\+\_\+\+CLY}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}{VRNA\+\_\+\+BRACKETS\+\_\+\+SQR}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The structure string where brackets are flattened in-\/place \\
+\hline
+{\em target} & The new pair characters the string will be flattened to \\
+\hline
+{\em options} & A bitmask to specify which types of brackets should be flattened out\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000134}{SWIG Wrapper Notes}}]This function is available as an overloaded version of \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_gaf9ecd0d7877fecdbb0292e24f40283d5}\label{group__struct__utils__dot__bracket_gaf9ecd0d7877fecdbb0292e24f40283d5}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_from\_ptable@{vrna\_db\_from\_ptable}}
+\index{vrna\_db\_from\_ptable@{vrna\_db\_from\_ptable}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_from\_ptable()}{vrna\_db\_from\_ptable()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+from\+\_\+ptable (\begin{DoxyParamCaption}\item[{short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a pair table into dot-\/parenthesis notation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & The pair table to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A char pointer to the dot-\/bracket string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga6a51a36b9245d0bac868c5cd172b9611}\label{group__struct__utils__dot__bracket_ga6a51a36b9245d0bac868c5cd172b9611}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_from\_plist@{vrna\_db\_from\_plist}}
+\index{vrna\_db\_from\_plist@{vrna\_db\_from\_plist}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_from\_plist()}{vrna\_db\_from\_plist()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+from\+\_\+plist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{pairs,  }\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a list of base pairs into dot-\/bracket notation. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__plist_gaf002d69024d709744664a8b9ca3dd77d}{vrna\+\_\+plist()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pairs} & A \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} containing the pairs to be included in the dot-\/bracket string \\
+\hline
+{\em n} & The length of the structure (number of nucleotides) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot-\/bracket string containing the provided base pairs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga45360c09fb6d04d96e42dcccbb66015b}\label{group__struct__utils__dot__bracket_ga45360c09fb6d04d96e42dcccbb66015b}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_to\_element\_string@{vrna\_db\_to\_element\_string}}
+\index{vrna\_db\_to\_element\_string@{vrna\_db\_to\_element\_string}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_to\_element\_string()}{vrna\_db\_to\_element\_string()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+to\+\_\+element\+\_\+string (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a secondary structure in dot-\/bracket notation to a nucleotide annotation of loop contexts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string annotating each nucleotide according to it\textquotesingle{}s structural context 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}\label{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}} 
+\index{Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}!vrna\_db\_pk\_remove@{vrna\_db\_pk\_remove}}
+\index{vrna\_db\_pk\_remove@{vrna\_db\_pk\_remove}!Dot-\/Bracket Notation of Secondary Structures@{Dot-\/Bracket Notation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_pk\_remove()}{vrna\_db\_pk\_remove()}}
+{\footnotesize\ttfamily char $\ast$ vrna\+\_\+db\+\_\+pk\+\_\+remove (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Remove pseudo-\/knots from an input structure. 
+
+This function removes pseudo-\/knots from an input structure by determining the minimum number of base pairs that need to be removed to make the structure pseudo-\/knot free.
+
+To accomplish that, we use a dynamic programming algorithm similar to the Nussinov maxmimum matching approach.
+
+The input structure must be in a dot-\/bracket string like form where crossing base pairs are denoted by the use of additional types of matching brackets, e.\+g. {\ttfamily $<$$>$}, {\ttfamily \{\}}, {\ttfamily }\mbox{[}\mbox{]}, {\ttfamily \{\}}. Furthermore, crossing pairs may be annotated by matching uppercase/lowercase letters from the alphabet {\ttfamily A-\/Z}. For the latter, the uppercase letter must be the 5\textquotesingle{} and the lowercase letter the 3\textquotesingle{} nucleotide of the base pair. The actual type of brackets to be recognized by this function must be specifed through the {\ttfamily options} parameter.
+
+\begin{DoxyNote}{Note}
+Brackets in the input structure string that are not covered by the {\ttfamily options} bitmask will be silently ignored!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__pair__table_gae8f31c859b48f97b8af889e914e4d040}{vrna\+\_\+pt\+\_\+pk\+\_\+remove()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gac92d5fa7c6625bce2670ece510a24fbd}{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga863e03f7f73f10fc9bbcbefbdda4bec8}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANG}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf41be40e79cb756c4e0bb8edb4d803d2}{VRNA\+\_\+\+BRACKETS\+\_\+\+CLY}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga60525d61d7496eeea490a37f3d6bf757}{VRNA\+\_\+\+BRACKETS\+\_\+\+SQR}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga7e3f630af8d69bb0e917145aacf2f96d}{VRNA\+\_\+\+BRACKETS\+\_\+\+ALPHA}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga559ebf76b1b289f85309f4206e99aa1a}{VRNA\+\_\+\+BRACKETS\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANY}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & Input structure in dot-\/bracket format that may include pseudo-\/knots \\
+\hline
+{\em options} & A bitmask to specify which types of brackets should be processed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input structure devoid of pseudo-\/knots in dot-\/bracket notation
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000135}{SWIG Wrapper Notes}}]This function is available as an overloaded function {\ttfamily db\+\_\+pk\+\_\+remove()} where the optional second parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__struct__utils__dot__bracket_ga013a9da903462d2f2b037f0c6ffb46e4}{VRNA\+\_\+\+BRACKETS\+\_\+\+ANY}}. \end{DoxyRefDesc}

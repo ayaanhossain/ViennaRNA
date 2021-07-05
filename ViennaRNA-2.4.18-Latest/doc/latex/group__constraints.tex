@@ -1,0 +1,651 @@
+\hypertarget{group__constraints}{}\doxysection{Constraining the RNA Folding Grammar}
+\label{group__constraints}\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+
+
+This module provides general functions that allow for an easy control of constrained secondary structure prediction and evaluation.  
+
+
+
+
+\doxysubsection{Detailed Description}
+This module provides general functions that allow for an easy control of constrained secondary structure prediction and evaluation. 
+
+Secondary Structure constraints can be subdivided into two groups\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__hard__constraints}{Hard Constraints}}, and
+\item \mbox{\hyperlink{group__soft__constraints}{Soft Constraints}}.
+\end{DoxyItemize}
+
+While Hard-\/\+Constraints directly influence the production rules used in the folding recursions by allowing, disallowing, or enforcing certain decomposition steps, Soft-\/constraints on the other hand are used to change position specific contributions in the recursions by adding bonuses/penalties in form of pseudo free energies to certain loop configurations.
+
+Secondary structure constraints are always applied at decomposition level, i.\+e. in each step of the recursive structure decomposition, for instance during MFE prediction. Below is a visualization of the decomposition scheme
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{recursions}}
+\end{DoxyImageNoCaption}
+
+
+For \mbox{\hyperlink{group__hard__constraints}{Hard Constraints}} the following option flags may be used to constrain the pairing behavior of single, or pairs of nucleotides\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+EXT\+\_\+\+LOOP}} -\/ Hard constraints flag, base pair in the exterior loop.
+\item \mbox{\hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+HP\+\_\+\+LOOP}} -\/ Hard constraints flag, base pair encloses hairpin loop.
+\item \mbox{\hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+INT\+\_\+\+LOOP}} -\/ Hard constraints flag, base pair encloses an interior loop.
+\item \mbox{\hyperlink{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+INT\+\_\+\+LOOP\+\_\+\+ENC}} -\/ Hard constraints flag, base pair encloses a multi branch loop.
+\item \mbox{\hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+MB\+\_\+\+LOOP}} -\/ Hard constraints flag, base pair is enclosed in an interior loop.
+\item \mbox{\hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+MB\+\_\+\+LOOP\+\_\+\+ENC}} -\/ Hard constraints flag, base pair is enclosed in a multi branch loop.
+\item \mbox{\hyperlink{hard_8h_a1aa55f2c6347e670e003b1a765632dad}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+ENFORCE}} -\/ Hard constraint flag to indicate enforcement of constraints.
+\item \mbox{\hyperlink{hard_8h_a9fcac36535850ff612c7e6b1305304a1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+NO\+\_\+\+REMOVE}} -\/ Hard constraint flag to indicate not to remove base pairs that conflict with a given constraint.
+\item \mbox{\hyperlink{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+CONTEXT\+\_\+\+ALL\+\_\+\+LOOPS}} -\/ Constraint context flag indicating any loop context.
+\end{DoxyItemize}
+
+However, for \mbox{\hyperlink{group__soft__constraints}{Soft Constraints}} we do not allow for simple loop type dependent constraining. But soft constraints are equipped with generic constraint support. This enables the user to pass arbitrary callback functions that return auxiliary energy contributions for evaluation the evaluation of any decomposition.
+
+The callback will then always be notified about the type of decomposition that is happening, and the corresponding delimiting sequence positions. The following decomposition steps are distinguished, and should be captured by the user\textquotesingle{}s implementation of the callback\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+HP}} -\/ Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step.
+\item \mbox{\hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+IL}} -\/ Indicator for interior loop decomposition step.
+\item \mbox{\hyperlink{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+ML}} -\/ Indicator for multibranch loop decomposition step.
+\item \mbox{\hyperlink{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+ML}} -\/ Indicator for decomposition of multibranch loop part.
+\item \mbox{\hyperlink{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+STEM}} -\/ Indicator for decomposition of multibranch loop part.
+\item \mbox{\hyperlink{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML}} -\/ Indicator for decomposition of multibranch loop part.
+\item \mbox{\hyperlink{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+UP}} -\/ Indicator for decomposition of multibranch loop part.
+\item \mbox{\hyperlink{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+STEM}} -\/ Indicator for decomposition of multibranch loop part.
+\item \mbox{\hyperlink{group__constraints_ga4fe48d575830b16c208e280e01ab1497}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL}} -\/ Indicator for decomposition of multibranch loop part.
+\item \mbox{\hyperlink{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+UP}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+EXT}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+EXT}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_gae7554cd3ff089360c02e4920229e221c}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+OUTSIDE}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM}} -\/ Indicator for decomposition of exterior loop part.
+\item \mbox{\hyperlink{group__constraints_ga2e75d7a77118735b32f25422d9686719}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM1}} -\/ Indicator for decomposition of exterior loop part.
+\end{DoxyItemize}
+
+Simplified interfaces to the soft constraints framework can be obtained by the implementations in the submodules
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__SHAPE__reactivities}{SHAPE Reactivity Data}} and
+\item \mbox{\hyperlink{group__constraints__ligand}{Incorporating Ligands Binding to Specific Sequence/\+Structure Motifs using Soft Constraints}}.
+\end{DoxyItemize}
+
+An implementation that generates soft constraints for unpaired nucleotides by minimizing the discrepancy between their predicted and expected pairing probability is available in submodule \mbox{\hyperlink{group__perturbation}{Generate Soft Constraints from Data}}. Collaboration diagram for Constraining the RNA Folding Grammar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__constraints}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__hard__constraints}{Hard Constraints}}
+\begin{DoxyCompactList}\small\item\em This module covers all functionality for hard constraints in secondary structure prediction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__soft__constraints}{Soft Constraints}}
+\begin{DoxyCompactList}\small\item\em Functions and data structures for secondary structure soft constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{constraints_2basic_8h}{basic.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions and data structures for constraining secondary structure predictions and evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+FILE}}~0
+\begin{DoxyCompactList}\small\item\em Flag for \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}} to indicate that constraints are present in a text file. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga62aa195893d02d1a79ca94952748df36}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+SOFT\+\_\+\+MFE}}~0
+\begin{DoxyCompactList}\small\item\em Indicate generation of constraints for MFE folding. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+SOFT\+\_\+\+PF}}~\mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}}
+\begin{DoxyCompactList}\small\item\em Indicate generation of constraints for partition function computation. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+HP}}~(unsigned char)1
+\begin{DoxyCompactList}\small\item\em Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+IL}}~(unsigned char)2
+\begin{DoxyCompactList}\small\item\em Indicator for interior loop decomposition step. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}{VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+ML}}~(unsigned char)3
+\begin{DoxyCompactList}\small\item\em Indicator for multibranch loop decomposition step. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+ML}}~(unsigned char)5
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+STEM}}~(unsigned char)6
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML}}~(unsigned char)7
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+UP}}~(unsigned char)8
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+STEM}}~(unsigned char)9
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga4fe48d575830b16c208e280e01ab1497}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL}}~(unsigned char)10
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}{VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL\+\_\+\+ENC}}~(unsigned char)11
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT}}~(unsigned char)12
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+UP}}~(unsigned char)13
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM}}~(unsigned char)14
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+EXT}}~(unsigned char)15
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+EXT}}~(unsigned char)16
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__constraints_gae7554cd3ff089360c02e4920229e221c}\label{group__constraints_gae7554cd3ff089360c02e4920229e221c}} 
+\#define \mbox{\hyperlink{group__constraints_gae7554cd3ff089360c02e4920229e221c}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+OUTSIDE}}~(unsigned char)17
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM}}~(unsigned char)18
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__constraints_ga2e75d7a77118735b32f25422d9686719}{VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM1}}~(unsigned char)19
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$constraint, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add constraints to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options}} (unsigned int option)
+\begin{DoxyCompactList}\small\item\em Print a help message for pseudo dot-\/bracket structure constraint characters to stdout. (constraint support is specified by option parameter) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all}} (void)
+\begin{DoxyCompactList}\small\item\em Print structure constraint characters to stdout (full constraint support) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}\label{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_CONSTRAINT\_FILE@{VRNA\_CONSTRAINT\_FILE}}
+\index{VRNA\_CONSTRAINT\_FILE@{VRNA\_CONSTRAINT\_FILE}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_CONSTRAINT\_FILE}{VRNA\_CONSTRAINT\_FILE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+CONSTRAINT\+\_\+\+FILE~0}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Flag for \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}} to indicate that constraints are present in a text file. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}} 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000156}{Deprecated}}]Use 0 instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__constraints_ga62aa195893d02d1a79ca94952748df36}\label{group__constraints_ga62aa195893d02d1a79ca94952748df36}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_CONSTRAINT\_SOFT\_MFE@{VRNA\_CONSTRAINT\_SOFT\_MFE}}
+\index{VRNA\_CONSTRAINT\_SOFT\_MFE@{VRNA\_CONSTRAINT\_SOFT\_MFE}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_CONSTRAINT\_SOFT\_MFE}{VRNA\_CONSTRAINT\_SOFT\_MFE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+CONSTRAINT\+\_\+\+SOFT\+\_\+\+MFE~0}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicate generation of constraints for MFE folding. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000157}{Deprecated}}]This flag has no meaning anymore, since constraints are now always stored! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}\label{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_CONSTRAINT\_SOFT\_PF@{VRNA\_CONSTRAINT\_SOFT\_PF}}
+\index{VRNA\_CONSTRAINT\_SOFT\_PF@{VRNA\_CONSTRAINT\_SOFT\_PF}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_CONSTRAINT\_SOFT\_PF}{VRNA\_CONSTRAINT\_SOFT\_PF}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+CONSTRAINT\+\_\+\+SOFT\+\_\+\+PF~\mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicate generation of constraints for partition function computation. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000158}{Deprecated}}]Use \mbox{\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{VRNA\+\_\+\+OPTION\+\_\+\+PF}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}\label{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_PAIR\_HP@{VRNA\_DECOMP\_PAIR\_HP}}
+\index{VRNA\_DECOMP\_PAIR\_HP@{VRNA\_DECOMP\_PAIR\_HP}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_PAIR\_HP}{VRNA\_DECOMP\_PAIR\_HP}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+HP~(unsigned char)1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a hairpin loop enclosed by the base pair $(i,j)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_hp}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gaeab04f34d7730cff2d651d782f95d857}\label{group__constraints_gaeab04f34d7730cff2d651d782f95d857}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_PAIR\_IL@{VRNA\_DECOMP\_PAIR\_IL}}
+\index{VRNA\_DECOMP\_PAIR\_IL@{VRNA\_DECOMP\_PAIR\_IL}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_PAIR\_IL}{VRNA\_DECOMP\_PAIR\_IL}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+IL~(unsigned char)2}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for interior loop decomposition step. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an interior loop enclosed by the base pair $(i,j)$, and enclosing the base pair $(k,l)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_il}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}\label{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_PAIR\_ML@{VRNA\_DECOMP\_PAIR\_ML}}
+\index{VRNA\_DECOMP\_PAIR\_ML@{VRNA\_DECOMP\_PAIR\_ML}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_PAIR\_ML}{VRNA\_DECOMP\_PAIR\_ML}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+PAIR\+\_\+\+ML~(unsigned char)3}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for multibranch loop decomposition step. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop enclosed by the base pair $(i,j)$, and consisting of some enclosed multi loop content from k to l.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}\label{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_ML\_ML@{VRNA\_DECOMP\_ML\_ML\_ML}}
+\index{VRNA\_DECOMP\_ML\_ML\_ML@{VRNA\_DECOMP\_ML\_ML\_ML}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_ML\_ML}{VRNA\_DECOMP\_ML\_ML\_ML}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+ML~(unsigned char)5}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be decomposed into two multibranch loop parts $[i:k]$, and $[l:j]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_ml_ml}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}\label{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_STEM@{VRNA\_DECOMP\_ML\_STEM}}
+\index{VRNA\_DECOMP\_ML\_STEM@{VRNA\_DECOMP\_ML\_STEM}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_STEM}{VRNA\_DECOMP\_ML\_STEM}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+STEM~(unsigned char)6}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be considered a single stem branching off with base pair $(k,l)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}\label{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_ML@{VRNA\_DECOMP\_ML\_ML}}
+\index{VRNA\_DECOMP\_ML\_ML@{VRNA\_DECOMP\_ML\_ML}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_ML}{VRNA\_DECOMP\_ML\_ML}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML~(unsigned char)7}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be decomposed into a (usually) smaller multibranch loop part $[k:l]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_ml}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}\label{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_UP@{VRNA\_DECOMP\_ML\_UP}}
+\index{VRNA\_DECOMP\_ML\_UP@{VRNA\_DECOMP\_ML\_UP}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_UP}{VRNA\_DECOMP\_ML\_UP}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+UP~(unsigned char)8}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be considered a multibranch loop part that only consists of unpaired nucleotides.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_up}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}\label{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_ML\_STEM@{VRNA\_DECOMP\_ML\_ML\_STEM}}
+\index{VRNA\_DECOMP\_ML\_ML\_STEM@{VRNA\_DECOMP\_ML\_ML\_STEM}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_ML\_STEM}{VRNA\_DECOMP\_ML\_ML\_STEM}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+ML\+\_\+\+STEM~(unsigned char)9}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will decomposed into a multibranch loop part $[i:k]$, and a stem with enclosing base pair $(l,j)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_ml_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga4fe48d575830b16c208e280e01ab1497}\label{group__constraints_ga4fe48d575830b16c208e280e01ab1497}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_COAXIAL@{VRNA\_DECOMP\_ML\_COAXIAL}}
+\index{VRNA\_DECOMP\_ML\_COAXIAL@{VRNA\_DECOMP\_ML\_COAXIAL}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_COAXIAL}{VRNA\_DECOMP\_ML\_COAXIAL}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL~(unsigned char)10}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, where two stems with enclosing pairs $(i,k)$ and $(l,j)$ are coaxially stacking onto each other.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_coaxial}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}\label{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_ML\_COAXIAL\_ENC@{VRNA\_DECOMP\_ML\_COAXIAL\_ENC}}
+\index{VRNA\_DECOMP\_ML\_COAXIAL\_ENC@{VRNA\_DECOMP\_ML\_COAXIAL\_ENC}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_ML\_COAXIAL\_ENC}{VRNA\_DECOMP\_ML\_COAXIAL\_ENC}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+ML\+\_\+\+COAXIAL\+\_\+\+ENC~(unsigned char)11}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, where two stems with enclosing pairs $(i,k)$ and $(l,j)$ are coaxially stacking onto each other.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_coaxial}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}\label{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_EXT@{VRNA\_DECOMP\_EXT\_EXT}}
+\index{VRNA\_DECOMP\_EXT\_EXT@{VRNA\_DECOMP\_EXT\_EXT}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_EXT}{VRNA\_DECOMP\_EXT\_EXT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT~(unsigned char)12}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into a (usually) smaller exterior loop part $[k:l]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}\label{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_UP@{VRNA\_DECOMP\_EXT\_UP}}
+\index{VRNA\_DECOMP\_EXT\_UP@{VRNA\_DECOMP\_EXT\_UP}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_UP}{VRNA\_DECOMP\_EXT\_UP}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+UP~(unsigned char)13}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be considered as an exterior loop component consisting of only unpaired nucleotides.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_up}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}\label{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_STEM@{VRNA\_DECOMP\_EXT\_STEM}}
+\index{VRNA\_DECOMP\_EXT\_STEM@{VRNA\_DECOMP\_EXT\_STEM}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_STEM}{VRNA\_DECOMP\_EXT\_STEM}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM~(unsigned char)14}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be considered a stem with enclosing pair $(k,l)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}\label{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_EXT\_EXT@{VRNA\_DECOMP\_EXT\_EXT\_EXT}}
+\index{VRNA\_DECOMP\_EXT\_EXT\_EXT@{VRNA\_DECOMP\_EXT\_EXT\_EXT}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_EXT\_EXT}{VRNA\_DECOMP\_EXT\_EXT\_EXT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+EXT~(unsigned char)15}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into two exterior loop parts $[i:k]$ and $[l:j]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext_ext}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}\label{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_STEM\_EXT@{VRNA\_DECOMP\_EXT\_STEM\_EXT}}
+\index{VRNA\_DECOMP\_EXT\_STEM\_EXT@{VRNA\_DECOMP\_EXT\_STEM\_EXT}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_STEM\_EXT}{VRNA\_DECOMP\_EXT\_STEM\_EXT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+STEM\+\_\+\+EXT~(unsigned char)16}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into a stem branching off with base pair $(i,k)$, and an exterior loop part $[l:j]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_stem_ext}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}\label{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_EXT\_STEM@{VRNA\_DECOMP\_EXT\_EXT\_STEM}}
+\index{VRNA\_DECOMP\_EXT\_EXT\_STEM@{VRNA\_DECOMP\_EXT\_EXT\_STEM}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_EXT\_STEM}{VRNA\_DECOMP\_EXT\_EXT\_STEM}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM~(unsigned char)18}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into an exterior loop part $[i:k]$, and a stem branching off with base pair $(l,j)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga2e75d7a77118735b32f25422d9686719}\label{group__constraints_ga2e75d7a77118735b32f25422d9686719}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!VRNA\_DECOMP\_EXT\_EXT\_STEM1@{VRNA\_DECOMP\_EXT\_EXT\_STEM1}}
+\index{VRNA\_DECOMP\_EXT\_EXT\_STEM1@{VRNA\_DECOMP\_EXT\_EXT\_STEM1}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{VRNA\_DECOMP\_EXT\_EXT\_STEM1}{VRNA\_DECOMP\_EXT\_EXT\_STEM1}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+DECOMP\+\_\+\+EXT\+\_\+\+EXT\+\_\+\+STEM1~(unsigned char)19}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into an exterior loop part $[i:k]$, and a stem branching off with base pair $(l,j-1)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext_stem1}}
+\end{DoxyImageNoCaption}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}\label{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!vrna\_constraints\_add@{vrna\_constraints\_add}}
+\index{vrna\_constraints\_add@{vrna\_constraints\_add}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{vrna\_constraints\_add()}{vrna\_constraints\_add()}}
+{\footnotesize\ttfamily void vrna\+\_\+constraints\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const char $\ast$}]{constraint,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{constraints_2basic_8h}{Vienna\+RNA/constraints/basic.\+h}}$>$}
+
+
+
+Add constraints to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} data structure. 
+
+Use this function to add/update the hard/soft constraints The function allows for passing a string \textquotesingle{}constraint\textquotesingle{} that can either be a filename that points to a constraints definition file or it may be a pseudo dot-\/bracket notation indicating hard constraints. For the latter, the user has to pass the \mbox{\hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB}} option. Also, the user has to specify, which characters are allowed to be interpreted as constraints by passing the corresponding options via the third parameter.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init()}}, \mbox{\hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}}, \mbox{\hyperlink{group__hard__constraints_ga5070f296c8af2baea10951525519464f}{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch()}}, \mbox{\hyperlink{group__hard__constraints_ga85481542ef1fcb6ed6ca3cef45e2451b}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}}, \mbox{\hyperlink{group__soft__constraints_ga9d977a1681356778cc66dceafbe5b032}{vrna\+\_\+sc\+\_\+init()}}, \mbox{\hyperlink{group__soft__constraints_gac922f25191e577767d94d7383d63aa9e}{vrna\+\_\+sc\+\_\+set\+\_\+up()}}, \mbox{\hyperlink{group__soft__constraints_ga0dc523c123207e53a894c0a815b541b7}{vrna\+\_\+sc\+\_\+set\+\_\+bp()}}, \mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan()}}, \mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam()}}, \mbox{\hyperlink{group__hard__constraints_ga696dcf77887d856c6f21ea266d8b9ca2}{vrna\+\_\+hc\+\_\+free()}}, \mbox{\hyperlink{group__soft__constraints_ga6d55446448d69346fc313b993c4fb3e8}{vrna\+\_\+sc\+\_\+free()}}, \mbox{\hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB}}, \mbox{\hyperlink{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+PIPE}}, \mbox{\hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+DOT}}, \mbox{\hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+X}}, \mbox{\hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+ANG\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+RND\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+INTRAMOL}}, \mbox{\hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+INTERMOL}}, \mbox{\hyperlink{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+GQUAD}}
+\end{DoxySeeAlso}
+The following is an example for adding hard constraints given in pseudo dot-\/bracket notation. Here, {\ttfamily vc} is the \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} object, {\ttfamily structure} is a char array with the hard constraint in dot-\/bracket notation, and {\ttfamily enforce\+Constraints} is a flag indicating whether or not constraints for base pairs should be enforced instead of just doing a removal of base pair that conflict with the constraint.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} constraint\_options = \mbox{\hyperlink{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}{VRNA\_CONSTRAINT\_DB\_DEFAULT}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{      \textcolor{keywordflow}{if} (enforceConstraints)}
+\DoxyCodeLine{        constraint\_options |= \mbox{\hyperlink{group__hard__constraints_ga29ebe940110d60ab798fdacbcdbbfb7d}{VRNA\_CONSTRAINT\_DB\_ENFORCE\_BP}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{      \textcolor{keywordflow}{if} (canonicalBPonly)}
+\DoxyCodeLine{        constraint\_options |= VRNA\_CONSTRAINT\_DB\_CANONICAL\_BP;}
+\DoxyCodeLine{}
+\DoxyCodeLine{      \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\_constraints\_add}}(fc, (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *)cstruc, constraint\_options);}
+
+\end{DoxyCodeInclude}
+ In constrat to the above, constraints may also be read from file\+:
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\_constraints\_add}}(fc, constraints\_file, \mbox{\hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT}});}
+
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}}, \mbox{\hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}}, \mbox{\hyperlink{group__hard__constraints_ga5070f296c8af2baea10951525519464f}{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch()}} vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+unspecific(), \mbox{\hyperlink{group__hard__constraints_ga85481542ef1fcb6ed6ca3cef45e2451b}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound \\
+\hline
+{\em constraint} & A string with either the filename of the constraint definitions or a pseudo dot-\/bracket notation of the hard constraint. May be NULL. \\
+\hline
+{\em options} & The option flags \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}\label{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!vrna\_message\_constraint\_options@{vrna\_message\_constraint\_options}}
+\index{vrna\_message\_constraint\_options@{vrna\_message\_constraint\_options}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{vrna\_message\_constraint\_options()}{vrna\_message\_constraint\_options()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+constraint\+\_\+options (\begin{DoxyParamCaption}\item[{unsigned int}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hard_8h}{Vienna\+RNA/constraints/hard.\+h}}$>$}
+
+
+
+Print a help message for pseudo dot-\/bracket structure constraint characters to stdout. (constraint support is specified by option parameter) 
+
+Currently available options are\+:~\newline
+\mbox{\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+PIPE}} (paired with another base)~\newline
+\mbox{\hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+DOT}} (no constraint at all)~\newline
+\mbox{\hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+X}} (base must not pair)~\newline
+\mbox{\hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+ANG\+\_\+\+BRACK}} (paired downstream/upstream)~\newline
+\mbox{\hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+RND\+\_\+\+BRACK}} (base i pairs base j)~\newline
+ pass a collection of options as one value like this\+: \begin{DoxyVerb}vrna_message_constraints(option_1 | option_2 | option_n) \end{DoxyVerb}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()}}, \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}}, \mbox{\hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB}}, \mbox{\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+PIPE}}, \mbox{\hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+DOT}}, \mbox{\hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+X}}, \mbox{\hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+ANG\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+RND\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+INTERMOL}}, \mbox{\hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+INTRAMOL}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em option} & Option switch that tells which constraint help will be printed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}\label{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}} 
+\index{Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}!vrna\_message\_constraint\_options\_all@{vrna\_message\_constraint\_options\_all}}
+\index{vrna\_message\_constraint\_options\_all@{vrna\_message\_constraint\_options\_all}!Constraining the RNA Folding Grammar@{Constraining the RNA Folding Grammar}}
+\doxysubsubsection{\texorpdfstring{vrna\_message\_constraint\_options\_all()}{vrna\_message\_constraint\_options\_all()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{hard_8h}{Vienna\+RNA/constraints/hard.\+h}}$>$}
+
+
+
+Print structure constraint characters to stdout (full constraint support) 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}}, \mbox{\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}}, \mbox{\hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB}}, \mbox{\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+PIPE}}, \mbox{\hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+DOT}}, \mbox{\hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+X}}, \mbox{\hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+ANG\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+RND\+\_\+\+BRACK}}, \mbox{\hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+INTERMOL}}, \mbox{\hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+DB\+\_\+\+INTRAMOL}} 
+\end{DoxySeeAlso}

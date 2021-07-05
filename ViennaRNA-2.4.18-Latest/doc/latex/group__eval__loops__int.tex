@@ -1,0 +1,70 @@
+\hypertarget{group__eval__loops__int}{}\doxysection{Internal Loops}
+\label{group__eval__loops__int}\index{Internal Loops@{Internal Loops}}
+
+
+Functions to evaluate the free energy contributions for internal loops.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to evaluate the free energy contributions for internal loops. 
+
+Collaboration diagram for Internal Loops\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__eval__loops__int}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{internal_8h}{internal.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of interior loops for MFE and partition function calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Basic free energy interface}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__eval__loops__int_gab927db1b264b253a9acd5e63ab5404a1}\label{group__eval__loops__int_gab927db1b264b253a9acd5e63ab5404a1}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+int\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\item 
+int \mbox{\hyperlink{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}{vrna\+\_\+eval\+\_\+int\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int k, int l)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy contribution of an interior loop with delimiting base pairs $(i,j)$ and $(k,l)$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__loops__int_gadad05dffc71e28377acdcedde9a3d9fc}\label{group__eval__loops__int_gadad05dffc71e28377acdcedde9a3d9fc}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+ext\+\_\+int\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int $\ast$ip, int $\ast$iq)
+\item 
+\mbox{\Hypertarget{group__eval__loops__int_ga75bade120c653de9959a1e0eab879ab9}\label{group__eval__loops__int_ga75bade120c653de9959a1e0eab879ab9}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+stack} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\end{DoxyCompactItemize}
+\doxysubsection*{Boltzmann weight (partition function) interface}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__eval__loops__int_gaa64bb3e28f557985a4d448f8fd86a115}\label{group__eval__loops__int_gaa64bb3e28f557985a4d448f8fd86a115}} 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+int\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\item 
+\mbox{\Hypertarget{group__eval__loops__int_ga51130eaa2debd3bb8e52de7a3de048ad}\label{group__eval__loops__int_ga51130eaa2debd3bb8e52de7a3de048ad}} 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+interior\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int k, int l)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}\label{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}} 
+\index{Internal Loops@{Internal Loops}!vrna\_eval\_int\_loop@{vrna\_eval\_int\_loop}}
+\index{vrna\_eval\_int\_loop@{vrna\_eval\_int\_loop}!Internal Loops@{Internal Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_eval\_int\_loop()}{vrna\_eval\_int\_loop()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+int\+\_\+loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k,  }\item[{int}]{l }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{internal_8h}{Vienna\+RNA/loops/internal.\+h}}$>$}
+
+
+
+Evaluate the free energy contribution of an interior loop with delimiting base pairs $(i,j)$ and $(k,l)$. 
+
+\begin{DoxyNote}{Note}
+This function is polymorphic, i.\+e. it accepts \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} of type \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+SINGLE}} as well as \mbox{\hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{VRNA\+\_\+\+FC\+\_\+\+TYPE\+\_\+\+COMPARATIVE}}
+\end{DoxyNote}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000052}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{eval\+\_\+int\+\_\+loop()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}

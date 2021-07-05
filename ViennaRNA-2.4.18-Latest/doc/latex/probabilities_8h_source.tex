@@ -1,0 +1,113 @@
+\hypertarget{probabilities_8h_source}{}\doxysection{probabilities.\+h}
+\label{probabilities_8h_source}\index{ViennaRNA/plotting/probabilities.h@{ViennaRNA/plotting/probabilities.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PLOT\_PROBABILITIES\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PLOT\_PROBABILITIES\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2structures_8h}{ViennaRNA/utils/structures.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_BP        1U}}
+\DoxyCodeLine{00033 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_ACC       2U}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_UD        4U}}
+\DoxyCodeLine{00036 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_UD\_LIN    8U}}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_SD        16U}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_SC\_MOTIF  32U}}
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_SC\_UP     64U}}
+\DoxyCodeLine{00042 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_SC\_BP     128U}}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044 \textcolor{preprocessor}{\#define VRNA\_PLOT\_PROBABILITIES\_DEFAULT   (VRNA\_PLOT\_PROBABILITIES\_BP \(\backslash\)}}
+\DoxyCodeLine{00045 \textcolor{preprocessor}{                                           | VRNA\_PLOT\_PROBABILITIES\_SD \(\backslash\)}}
+\DoxyCodeLine{00046 \textcolor{preprocessor}{                                           | VRNA\_PLOT\_PROBABILITIES\_SC\_MOTIF \(\backslash\)}}
+\DoxyCodeLine{00047 \textcolor{preprocessor}{                                           | VRNA\_PLOT\_PROBABILITIES\_UD\_LIN)}}
+\DoxyCodeLine{\Hypertarget{probabilities_8h_source_l00048}\mbox{\hyperlink{group__plotting__utils}{00048}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00049   \textcolor{keywordtype}{char}            *comment;}
+\DoxyCodeLine{00050   \textcolor{keywordtype}{char}            *title;}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052   \mbox{\hyperlink{group__data__structures_structvrna__data__linear__s}{vrna\_data\_lin\_t}} **top;}
+\DoxyCodeLine{00053   \textcolor{keywordtype}{char}            **top\_title;}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055   \mbox{\hyperlink{group__data__structures_structvrna__data__linear__s}{vrna\_data\_lin\_t}} **bottom;}
+\DoxyCodeLine{00056   \textcolor{keywordtype}{char}            **bottom\_title;}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00058   \mbox{\hyperlink{group__data__structures_structvrna__data__linear__s}{vrna\_data\_lin\_t}} **left;}
+\DoxyCodeLine{00059   \textcolor{keywordtype}{char}            **left\_title;}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   \mbox{\hyperlink{group__data__structures_structvrna__data__linear__s}{vrna\_data\_lin\_t}} **right;}
+\DoxyCodeLine{00062   \textcolor{keywordtype}{char}            **right\_title;}
+\DoxyCodeLine{00063 \} \mbox{\hyperlink{group__plotting__utils_structvrna__dotplot__auxdata__t}{vrna\_dotplot\_auxdata\_t}};}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00067 vrna\_plot\_dp\_EPS(\textcolor{keyword}{const} \textcolor{keywordtype}{char}             *filename,}
+\DoxyCodeLine{00068                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}             *sequence,}
+\DoxyCodeLine{00069                  \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}              *upper,}
+\DoxyCodeLine{00070                  \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}              *lower,}
+\DoxyCodeLine{00071                  \mbox{\hyperlink{group__plotting__utils_structvrna__dotplot__auxdata__t}{vrna\_dotplot\_auxdata\_t}} *auxdata,}
+\DoxyCodeLine{00072                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}           options);}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00076 vrna\_plot\_dp\_PS\_list(\textcolor{keywordtype}{char}   *seq,}
+\DoxyCodeLine{00077                      \textcolor{keywordtype}{int}    cp,}
+\DoxyCodeLine{00078                      \textcolor{keywordtype}{char}   *wastlfile,}
+\DoxyCodeLine{00079                      \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}  *pl,}
+\DoxyCodeLine{00080                      \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}  *mf,}
+\DoxyCodeLine{00081                      \textcolor{keywordtype}{char}   *comment);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00087 PS\_color\_dot\_plot(\textcolor{keywordtype}{char}  *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00088                   \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{cpair}} *pi,}
+\DoxyCodeLine{00089                   \textcolor{keywordtype}{char}  *filename);}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00093 PS\_color\_dot\_plot\_turn(\textcolor{keywordtype}{char}   *seq,}
+\DoxyCodeLine{00094                        \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{cpair}}  *pi,}
+\DoxyCodeLine{00095                        \textcolor{keywordtype}{char}   *filename,}
+\DoxyCodeLine{00096                        \textcolor{keywordtype}{int}    winSize);}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00100 PS\_dot\_plot\_turn(\textcolor{keywordtype}{char}   *seq,}
+\DoxyCodeLine{00101                  \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}  *pl,}
+\DoxyCodeLine{00102                  \textcolor{keywordtype}{char}   *filename,}
+\DoxyCodeLine{00103                  \textcolor{keywordtype}{int}    winSize);}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{\Hypertarget{probabilities_8h_source_l00125}\mbox{\hyperlink{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}{00125}} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}{PS\_dot\_plot\_list}}(\textcolor{keywordtype}{char}   *seq,}
+\DoxyCodeLine{00126                      \textcolor{keywordtype}{char}   *filename,}
+\DoxyCodeLine{00127                      \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}  *pl,}
+\DoxyCodeLine{00128                      \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}  *mf,}
+\DoxyCodeLine{00129                      \textcolor{keywordtype}{char}   *comment);}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00147 DEPRECATED(\textcolor{keywordtype}{int} \mbox{\hyperlink{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}{PS\_dot\_plot}}(\textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00148                            \textcolor{keywordtype}{char} *file),}
+\DoxyCodeLine{\Hypertarget{probabilities_8h_source_l00149}\mbox{\hyperlink{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}{00149}}            \textcolor{stringliteral}{"{}Use vrna\_plot\_dp\_EPS() instead"{}});}
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00157 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

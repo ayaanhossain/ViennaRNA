@@ -1,0 +1,5 @@
+<map id="Ligands Binding to RNA Structures" name="Ligands Binding to RNA Structures">
+<area shape="rect" id="node1" title="Simple Extensions to Model Ligand Binding to RNA Structures." alt="" coords="5,60,135,100"/>
+<area shape="rect" id="node2" href="$group__constraints__ligand.html" title=" " alt="" coords="183,5,364,75"/>
+<area shape="rect" id="node3" href="$group__ligands__up.html" title="Add ligand binding to loop regions using the Unstructured Domains feature." alt="" coords="195,99,352,139"/>
+</map>

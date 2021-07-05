@@ -1,0 +1,5 @@
+<map id="Structure Modules and Pseudoknots" name="Structure Modules and Pseudoknots">
+<area shape="rect" id="node1" title=" " alt="" coords="5,23,159,63"/>
+<area shape="rect" id="node2" href="$group__gquads.html" title="Various functions related to G&#45;quadruplex computations." alt="" coords="207,5,323,31"/>
+<area shape="rect" id="node3" href="$group__pseudoknots.html" title="Implementations to predict pseudoknotted structures." alt="" coords="215,55,314,80"/>
+</map>

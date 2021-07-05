@@ -1,0 +1,958 @@
+\hypertarget{group__plot__layout__utils}{}\doxysection{Layouts and Coordinates}
+\label{group__plot__layout__utils}\index{Layouts and Coordinates@{Layouts and Coordinates}}
+
+
+Functions to compute coordinate layouts for secondary structure plots.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to compute coordinate layouts for secondary structure plots. 
+
+Collaboration diagram for Layouts and Coordinates\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{group__plot__layout__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__layout__s}{vrna\+\_\+plot\+\_\+layout\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Options data structure for RNApuzzler algorithm implementation.  \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}~0
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape simple} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}~1
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Naview} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}}~2
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Circular} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}\label{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}} 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+TURTLE}}~3
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Turtle} \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}\label{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}} 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+PUZZLER}}~4
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape RNApuzzler} \cite{wiegreffe:2018}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__layout__s}{vrna\+\_\+plot\+\_\+layout\+\_\+s}} \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em RNA secondary structure figure layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout}} (const char $\ast$structure, unsigned int plot\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a {\itshape simple} secondary structure plot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape Naview Algorithm} \cite{bruccoleri:1988}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a {\itshape circular} secondary structure plot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape Turtle Algorithm} \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler}} (const char $\ast$structure, \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape RNApuzzler Algorithm} \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free}} (\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$layout)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by a figure layout data structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y, int plot\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y, int plot\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute coordinates of nucleotides mapped in equal distancies onto a unit circle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for a {\itshape Circular Plot} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape Naview} algorithm \cite{bruccoleri:1988}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape Naview} algorithm \cite{bruccoleri:1988}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y, double $\ast$$\ast$arc\+\_\+coords, \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape RNApuzzler} algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt}} (short const $\ast$const pair\+\_\+table, float $\ast$$\ast$x, float $\ast$$\ast$y, double $\ast$$\ast$arc\+\_\+coords, \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$puzzler)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape RNApuzzler} algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler}} (void)
+\begin{DoxyCompactList}\small\item\em Create an RNApuzzler options data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+free}} (\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by an RNApuzzler options data structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y, double $\ast$$\ast$arc\+\_\+coords)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape RNAturtle} algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt}} (short const $\ast$const pair\+\_\+table, float $\ast$$\ast$x, float $\ast$$\ast$y, double $\ast$$\ast$arc\+\_\+coords)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape RNAturtle} algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_plot\_layout\_s@{vrna\_plot\_layout\_s}}\label{structvrna__plot__layout__s}
+\Hypertarget{group__plot__layout__utils_structvrna__plot__layout__s}
+\doxysubsubsection{struct vrna\+\_\+plot\+\_\+layout\+\_\+s}
+\index{vrna\_plot\_options\_puzzler\_t@{vrna\_plot\_options\_puzzler\_t}}\label{structvrna__plot__options__puzzler__t}
+\Hypertarget{group__plot__layout__utils_structvrna__plot__options__puzzler__t}
+\doxysubsubsection{struct vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}
+Options data structure for RNApuzzler algorithm implementation. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}\label{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!VRNA\_PLOT\_TYPE\_SIMPLE@{VRNA\_PLOT\_TYPE\_SIMPLE}}
+\index{VRNA\_PLOT\_TYPE\_SIMPLE@{VRNA\_PLOT\_TYPE\_SIMPLE}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PLOT\_TYPE\_SIMPLE}{VRNA\_PLOT\_TYPE\_SIMPLE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE~0}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Definition of Plot type {\itshape simple} 
+
+This is the plot type definition for several RNA structure plotting functions telling them to use {\bfseries{Simple}} plotting algorithm
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}, \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}}, \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot()}}, \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}}, \mbox{\hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+RNA()}}, \mbox{\hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot()}}, \mbox{\hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}\label{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!VRNA\_PLOT\_TYPE\_NAVIEW@{VRNA\_PLOT\_TYPE\_NAVIEW}}
+\index{VRNA\_PLOT\_TYPE\_NAVIEW@{VRNA\_PLOT\_TYPE\_NAVIEW}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PLOT\_TYPE\_NAVIEW}{VRNA\_PLOT\_TYPE\_NAVIEW}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW~1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Definition of Plot type {\itshape Naview} 
+
+This is the plot type definition for several RNA structure plotting functions telling them to use {\bfseries{Naview}} plotting algorithm \cite{bruccoleri:1988}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}, \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}}, \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot()}}, \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}}, \mbox{\hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+RNA()}}, \mbox{\hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot()}}, \mbox{\hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}\label{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!VRNA\_PLOT\_TYPE\_CIRCULAR@{VRNA\_PLOT\_TYPE\_CIRCULAR}}
+\index{VRNA\_PLOT\_TYPE\_CIRCULAR@{VRNA\_PLOT\_TYPE\_CIRCULAR}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PLOT\_TYPE\_CIRCULAR}{VRNA\_PLOT\_TYPE\_CIRCULAR}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR~2}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Definition of Plot type {\itshape Circular} 
+
+This is the plot type definition for several RNA structure plotting functions telling them to produce a {\bfseries{Circular plot}}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}, \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a()}}, \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot()}}, \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}}, \mbox{\hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+RNA()}}, \mbox{\hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot()}}, \mbox{\hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}\label{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_t@{vrna\_plot\_layout\_t}}
+\index{vrna\_plot\_layout\_t@{vrna\_plot\_layout\_t}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_t}{vrna\_plot\_layout\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__layout__s}{vrna\+\_\+plot\+\_\+layout\+\_\+s}} \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+RNA secondary structure figure layout. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}\label{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout@{vrna\_plot\_layout}}
+\index{vrna\_plot\_layout@{vrna\_plot\_layout}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout()}{vrna\_plot\_layout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+layout (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{plot\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Create a layout (coordinates, etc.) for a secondary structure plot. 
+
+This function can be used to create a secondary structure nucleotide layout that is then further processed by an actual plotting function. The layout algorithm can be specified using the {\ttfamily plot\+\_\+type} parameter, and the following algorithms are currently supported\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+TURTLE}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+PUZZLER}}
+\end{DoxyItemize}
+
+Passing an unsupported selection leads to the default algorithm \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}
+
+\begin{DoxyNote}{Note}
+If only X-\/Y coordinates of the corresponding structure layout are required, consider using \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} instead!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em plot\+\_\+type} & The layout algorithm to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The layout data structure for the provided secondary structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}\label{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_simple@{vrna\_plot\_layout\_simple}}
+\index{vrna\_plot\_layout\_simple@{vrna\_plot\_layout\_simple}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_simple()}{vrna\_plot\_layout\_simple()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+layout\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Create a layout (coordinates, etc.) for a {\itshape simple} secondary structure plot. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}.
+
+\begin{DoxyNote}{Note}
+If only X-\/Y coordinates of the corresponding structure layout are required, consider using \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}} instead!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The layout data structure for the provided secondary structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}\label{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_naview@{vrna\_plot\_layout\_naview}}
+\index{vrna\_plot\_layout\_naview@{vrna\_plot\_layout\_naview}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_naview()}{vrna\_plot\_layout\_naview()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+layout\+\_\+naview (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape Naview Algorithm} \cite{bruccoleri:1988}. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}.
+
+\begin{DoxyNote}{Note}
+If only X-\/Y coordinates of the corresponding structure layout are required, consider using \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}} instead!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The layout data structure for the provided secondary structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}\label{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_circular@{vrna\_plot\_layout\_circular}}
+\index{vrna\_plot\_layout\_circular@{vrna\_plot\_layout\_circular}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_circular()}{vrna\_plot\_layout\_circular()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+layout\+\_\+circular (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Create a layout (coordinates, etc.) for a {\itshape circular} secondary structure plot. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}}.
+
+\begin{DoxyNote}{Note}
+If only X-\/Y coordinates of the corresponding structure layout are required, consider using \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}} instead!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The layout data structure for the provided secondary structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}\label{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_turtle@{vrna\_plot\_layout\_turtle}}
+\index{vrna\_plot\_layout\_turtle@{vrna\_plot\_layout\_turtle}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_turtle()}{vrna\_plot\_layout\_turtle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+layout\+\_\+turtle (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape Turtle Algorithm} \cite{wiegreffe:2018}. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+TURTLE}}.
+
+\begin{DoxyNote}{Note}
+If only X-\/Y coordinates of the corresponding structure layout are required, consider using \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}} instead!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The layout data structure for the provided secondary structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}\label{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_puzzler@{vrna\_plot\_layout\_puzzler}}
+\index{vrna\_plot\_layout\_puzzler@{vrna\_plot\_layout\_puzzler}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_puzzler()}{vrna\_plot\_layout\_puzzler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+layout\+\_\+puzzler (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape RNApuzzler Algorithm} \cite{wiegreffe:2018}. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+PUZZLER}}.
+
+\begin{DoxyNote}{Note}
+If only X-\/Y coordinates of the corresponding structure layout are required, consider using \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}} instead!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The layout data structure for the provided secondary structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}\label{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_layout\_free@{vrna\_plot\_layout\_free}}
+\index{vrna\_plot\_layout\_free@{vrna\_plot\_layout\_free}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_layout\_free()}{vrna\_plot\_layout\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+plot\+\_\+layout\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$}]{layout }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Free memory occupied by a figure layout data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}, \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout()}}, \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}, vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+layout()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em layout} & The layout data structure to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}\label{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords@{vrna\_plot\_coords}}
+\index{vrna\_plot\_coords@{vrna\_plot\_coords}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords()}{vrna\_plot\_coords()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y,  }\item[{int}]{plot\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot. 
+
+This function takes a secondary structure and computes X-\/Y coordinates for each nucleotide that then can be used to create a structure plot. The parameter {\ttfamily plot\+\_\+type} is used to select the underlying layout algorithm. Currently, the following selections are provided\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+TURTLE}}
+\item \mbox{\hyperlink{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+PUZZLER}}
+\end{DoxyItemize}
+
+Passing an unsupported selection leads to the default algorithm \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}
+
+Here is a simple example how to use this function, assuming variable {\ttfamily structure} contains a valid dot-\/bracket string\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float} *x, *y;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\_plot\_coords}}(structure, \&x, \&y)) \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}all fine"{}});}
+\DoxyCodeLine{\} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}some failure occured!"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{free(x);}
+\DoxyCodeLine{free(y);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}} \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+ & {\em plot\+\_\+type} & The layout algorithm to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}\label{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_pt@{vrna\_plot\_coords\_pt}}
+\index{vrna\_plot\_coords\_pt@{vrna\_plot\_coords\_pt}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_pt()}{vrna\_plot\_coords\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+pt (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y,  }\item[{int}]{plot\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot. 
+
+Same as \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} but takes a pair table with the structure information as input.
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt()}} \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pt} & The pair table that holds the secondary structure \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+ & {\em plot\+\_\+type} & The layout algorithm to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}\label{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_simple@{vrna\_plot\_coords\_simple}}
+\index{vrna\_plot\_coords\_simple@{vrna\_plot\_coords\_simple}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_simple()}{vrna\_plot\_coords\_simple()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+simple (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot the {\itshape Simple way} 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}.
+
+Here is a simple example how to use this function, assuming variable {\ttfamily structure} contains a valid dot-\/bracket string\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float} *x, *y;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (\mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\_plot\_coords\_simple}}(structure, \&x, \&y)) \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}all fine"{}});}
+\DoxyCodeLine{\} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}some failure occured!"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{free(x);}
+\DoxyCodeLine{free(y);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}\label{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_simple\_pt@{vrna\_plot\_coords\_simple\_pt}}
+\index{vrna\_plot\_coords\_simple\_pt@{vrna\_plot\_coords\_simple\_pt}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_simple\_pt()}{vrna\_plot\_coords\_simple\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot the {\itshape Simple way} 
+
+Same as \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}} but takes a pair table with the structure information as input.
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pt} & The pair table that holds the secondary structure \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}\label{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_circular@{vrna\_plot\_coords\_circular}}
+\index{vrna\_plot\_coords\_circular@{vrna\_plot\_coords\_circular}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_circular()}{vrna\_plot\_coords\_circular()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+circular (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Compute coordinates of nucleotides mapped in equal distancies onto a unit circle. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}}.
+
+In order to draw nice arcs using quadratic bezier curves that connect base pairs one may calculate a second tangential point $P^t$ in addition to the actual R\textsuperscript{2} coordinates. the simplest way to do so may be to compute a radius scaling factor $rs$ in the interval $[0,1]$ that weights the proportion of base pair span to the actual length of the sequence. This scaling factor can then be used to calculate the coordinates for $P^t$, i.\+e. \[ P^{t}_x[i] = X[i] * rs \] and \[ P^{t}_y[i] = Y[i] * rs \].
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}\label{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_circular\_pt@{vrna\_plot\_coords\_circular\_pt}}
+\index{vrna\_plot\_coords\_circular\_pt@{vrna\_plot\_coords\_circular\_pt}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_circular\_pt()}{vrna\_plot\_coords\_circular\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{layouts_8h}{Vienna\+RNA/plotting/layouts.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for a {\itshape Circular Plot} 
+
+Same as \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}} but takes a pair table with the structure information as input.
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pt} & The pair table that holds the secondary structure \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}\label{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_naview@{vrna\_plot\_coords\_naview}}
+\index{vrna\_plot\_coords\_naview@{vrna\_plot\_coords\_naview}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_naview()}{vrna\_plot\_coords\_naview()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+naview (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2naview_8h}{Vienna\+RNA/plotting/naview.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot using the {\itshape Naview} algorithm \cite{bruccoleri:1988}. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}.
+
+Here is a simple example how to use this function, assuming variable {\ttfamily structure} contains a valid dot-\/bracket string\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float} *x, *y;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (\mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\_plot\_coords\_naview}}(structure, \&x, \&y)) \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}all fine"{}});}
+\DoxyCodeLine{\} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}some failure occured!"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{free(x);}
+\DoxyCodeLine{free(y);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}\label{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_naview\_pt@{vrna\_plot\_coords\_naview\_pt}}
+\index{vrna\_plot\_coords\_naview\_pt@{vrna\_plot\_coords\_naview\_pt}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_naview\_pt()}{vrna\_plot\_coords\_naview\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{plotting_2naview_8h}{Vienna\+RNA/plotting/naview.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot using the {\itshape Naview} algorithm \cite{bruccoleri:1988}. 
+
+Same as \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}} but takes a pair table with the structure information as input.
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X and Y coordinates and assigns the pointers at addressess {\ttfamily x} and {\ttfamily y} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pt} & The pair table that holds the secondary structure \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}\label{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_puzzler@{vrna\_plot\_coords\_puzzler}}
+\index{vrna\_plot\_coords\_puzzler@{vrna\_plot\_coords\_puzzler}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_puzzler()}{vrna\_plot\_coords\_puzzler()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+puzzler (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y,  }\item[{double $\ast$$\ast$}]{arc\+\_\+coords,  }\item[{\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNApuzzler_8h}{Vienna\+RNA/plotting/\+RNApuzzler/\+RNApuzzler.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot using the {\itshape RNApuzzler} algorithm \cite{wiegreffe:2018}. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+PUZZLER}}.
+
+Here is a simple example how to use this function, assuming variable {\ttfamily structure} contains a valid dot-\/bracket string and using the default options ({\ttfamily options} = NULL)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}  *x, *y;}
+\DoxyCodeLine{\textcolor{keywordtype}{double} *arcs;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (\mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\_plot\_coords\_puzzler}}(structure, \&x, \&y, \&arcs, NULL)) \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}all fine"{}});}
+\DoxyCodeLine{\} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}some failure occured!"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{free(x);}
+\DoxyCodeLine{free(y);}
+\DoxyCodeLine{free(arcs);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X, Y and arc coordinates and assigns the pointers at addressess {\ttfamily x}, {\ttfamily y} and {\ttfamily arc\+\_\+coords} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em arc\+\_\+coords} & The address of a pointer that will hold arc coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+ & {\em options} & The options for the RNApuzzler algorithm (or NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}\label{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_puzzler\_pt@{vrna\_plot\_coords\_puzzler\_pt}}
+\index{vrna\_plot\_coords\_puzzler\_pt@{vrna\_plot\_coords\_puzzler\_pt}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_puzzler\_pt()}{vrna\_plot\_coords\_puzzler\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt (\begin{DoxyParamCaption}\item[{short const $\ast$const}]{pair\+\_\+table,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y,  }\item[{double $\ast$$\ast$}]{arc\+\_\+coords,  }\item[{\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$}]{puzzler }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNApuzzler_8h}{Vienna\+RNA/plotting/\+RNApuzzler/\+RNApuzzler.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot using the {\itshape RNApuzzler} algorithm \cite{wiegreffe:2018}. 
+
+Same as \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}} but takes a pair table with the structure information as input.
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X, Y and arc coordinates and assigns the pointers at addressess {\ttfamily x}, {\ttfamily y} and {\ttfamily arc\+\_\+coords} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pt} & The pair table that holds the secondary structure \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em arc\+\_\+coords} & The address of a pointer that will hold arc coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+ & {\em options} & The options for the RNApuzzler algorithm (or NULL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}\label{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_options\_puzzler@{vrna\_plot\_options\_puzzler}}
+\index{vrna\_plot\_options\_puzzler@{vrna\_plot\_options\_puzzler}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_options\_puzzler()}{vrna\_plot\_options\_puzzler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}}$\ast$ vrna\+\_\+plot\+\_\+options\+\_\+puzzler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNApuzzler_8h}{Vienna\+RNA/plotting/\+RNApuzzler/\+RNApuzzler.\+h}}$>$}
+
+
+
+Create an RNApuzzler options data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+free()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+An RNApuzzler options data structure with default settings 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}\label{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_options\_puzzler\_free@{vrna\_plot\_options\_puzzler\_free}}
+\index{vrna\_plot\_options\_puzzler\_free@{vrna\_plot\_options\_puzzler\_free}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_options\_puzzler\_free()}{vrna\_plot\_options\_puzzler\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNApuzzler_8h}{Vienna\+RNA/plotting/\+RNApuzzler/\+RNApuzzler.\+h}}$>$}
+
+
+
+Free memory occupied by an RNApuzzler options data structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em options} & A pointer to the options data structure to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}\label{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_turtle@{vrna\_plot\_coords\_turtle}}
+\index{vrna\_plot\_coords\_turtle@{vrna\_plot\_coords\_turtle}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_turtle()}{vrna\_plot\_coords\_turtle()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+turtle (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y,  }\item[{double $\ast$$\ast$}]{arc\+\_\+coords }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAturtle_8h}{Vienna\+RNA/plotting/\+RNApuzzler/\+RNAturtle.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot using the {\itshape RNAturtle} algorithm \cite{wiegreffe:2018}. 
+
+This function basically is a wrapper to \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}} that passes the {\ttfamily plot\+\_\+type} \mbox{\hyperlink{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+TURTLE}}.
+
+Here is a simple example how to use this function, assuming variable {\ttfamily structure} contains a valid dot-\/bracket string\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}  *x, *y;}
+\DoxyCodeLine{\textcolor{keywordtype}{double} *arcs;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (\mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\_plot\_coords\_turtle}}(structure, \&x, \&y, \&arcs)) \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}all fine"{}});}
+\DoxyCodeLine{\} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}some failure occured!"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{free(x);}
+\DoxyCodeLine{free(y);}
+\DoxyCodeLine{free(arcs);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X, Y and arc coordinates and assigns the pointers at addressess {\ttfamily x}, {\ttfamily y} and {\ttfamily arc\+\_\+coords} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords()}}, \mbox{\hyperlink{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular()}}, \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple()}}, \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\+\_\+plot\+\_\+coords\+\_\+naview()}}, \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em arc\+\_\+coords} & The address of a pointer that will hold arc coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}\label{group__plot__layout__utils_ga3d3531ebbca9054240c73bff115c4dcf}} 
+\index{Layouts and Coordinates@{Layouts and Coordinates}!vrna\_plot\_coords\_turtle\_pt@{vrna\_plot\_coords\_turtle\_pt}}
+\index{vrna\_plot\_coords\_turtle\_pt@{vrna\_plot\_coords\_turtle\_pt}!Layouts and Coordinates@{Layouts and Coordinates}}
+\doxysubsubsection{\texorpdfstring{vrna\_plot\_coords\_turtle\_pt()}{vrna\_plot\_coords\_turtle\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+plot\+\_\+coords\+\_\+turtle\+\_\+pt (\begin{DoxyParamCaption}\item[{short const $\ast$const}]{pair\+\_\+table,  }\item[{float $\ast$$\ast$}]{x,  }\item[{float $\ast$$\ast$}]{y,  }\item[{double $\ast$$\ast$}]{arc\+\_\+coords }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{RNAturtle_8h}{Vienna\+RNA/plotting/\+RNApuzzler/\+RNAturtle.\+h}}$>$}
+
+
+
+Compute nucleotide coordinates for secondary structure plot using the {\itshape RNAturtle} algorithm \cite{wiegreffe:2018}. 
+
+Same as \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}} but takes a pair table with the structure information as input.
+
+\begin{DoxyNote}{Note}
+On success, this function allocates memory for X, Y and arc coordinates and assigns the pointers at addressess {\ttfamily x}, {\ttfamily y} and {\ttfamily arc\+\_\+coords} to the corresponding memory locations. It\textquotesingle{}s the users responsibility to cleanup this memory after usage!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga195139110e2877b92c7f82d05b6dad19}{vrna\+\_\+plot\+\_\+coords\+\_\+turtle()}}, \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt()}}, \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\+\_\+plot\+\_\+coords\+\_\+naview\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pt} & The pair table that holds the secondary structure \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x} & The address of a pointer of X coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em y} & The address of a pointer of Y coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em arc\+\_\+coords} & The address of a pointer that will hold arc coordinates (pointer will point to memory, or NULL on failure) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the structure on success, 0 otherwise 
+\end{DoxyReturn}

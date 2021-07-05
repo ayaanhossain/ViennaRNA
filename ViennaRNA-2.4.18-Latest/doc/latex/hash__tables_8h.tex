@@ -1,0 +1,55 @@
+\hypertarget{hash__tables_8h}{}\doxysection{Vienna\+RNA/datastructures/hash\+\_\+tables.h File Reference}
+\label{hash__tables_8h}\index{ViennaRNA/datastructures/hash\_tables.h@{ViennaRNA/datastructures/hash\_tables.h}}
+
+
+Implementations of hash table functions.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__hash__table__utils_structvrna__ht__entry__db__t}{vrna\+\_\+ht\+\_\+entry\+\_\+db\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Default hash table entry.  \mbox{\hyperlink{group__hash__table__utils_structvrna__ht__entry__db__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{Indent}\textbf{ Dot-\/\+Bracket / Free Energy entries}\par
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__hash__table__utils_gac4ec0b8372d50d7347a63f140f340962}{vrna\+\_\+ht\+\_\+db\+\_\+comp}} (void $\ast$x, void $\ast$y)
+\begin{DoxyCompactList}\small\item\em Default hash table entry comparison. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__hash__table__utils_gad133721a3cd2f8ca259fe315d86035a7}{vrna\+\_\+ht\+\_\+db\+\_\+hash\+\_\+func}} (void $\ast$x, unsigned long hashtable\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Default hash function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__hash__table__utils_gabcdcd0d070b3dfd2634a09e7838acf66}{vrna\+\_\+ht\+\_\+db\+\_\+free\+\_\+entry}} (void $\ast$hash\+\_\+entry)
+\begin{DoxyCompactList}\small\item\em Default function to free memory occupied by a hash entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Abstract interface}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+hash\+\_\+table\+\_\+s $\ast$ \mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A hash table object. \end{DoxyCompactList}\item 
+typedef int() \mbox{\hyperlink{group__hash__table__utils_gace4adf608f9dc246f66f6264d30c0f8d}{vrna\+\_\+callback\+\_\+ht\+\_\+compare\+\_\+entries}}(void $\ast$x, void $\ast$y)
+\begin{DoxyCompactList}\small\item\em Callback function to compare two hash table entries. \end{DoxyCompactList}\item 
+typedef unsigned int() \mbox{\hyperlink{group__hash__table__utils_ga8533dc0cb44035d5fdb05e3c28922d2b}{vrna\+\_\+callback\+\_\+ht\+\_\+hash\+\_\+function}}(void $\ast$x, unsigned long hashtable\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Callback function to generate a hash key, i.\+e. hash function. \end{DoxyCompactList}\item 
+typedef int() \mbox{\hyperlink{group__hash__table__utils_ga3ff18cc70db8bb6f8cfee2c2b1542afc}{vrna\+\_\+callback\+\_\+ht\+\_\+free\+\_\+entry}}(void $\ast$x)
+\begin{DoxyCompactList}\small\item\em Callback function to free a hash table entry. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} \mbox{\hyperlink{group__hash__table__utils_ga37d1c7e13087a2b7c1b87fda34577c29}{vrna\+\_\+ht\+\_\+init}} (unsigned int b, \mbox{\hyperlink{group__hash__table__utils_gace4adf608f9dc246f66f6264d30c0f8d}{vrna\+\_\+callback\+\_\+ht\+\_\+compare\+\_\+entries}} $\ast$compare\+\_\+function, \mbox{\hyperlink{group__hash__table__utils_ga8533dc0cb44035d5fdb05e3c28922d2b}{vrna\+\_\+callback\+\_\+ht\+\_\+hash\+\_\+function}} $\ast$hash\+\_\+function, \mbox{\hyperlink{group__hash__table__utils_ga3ff18cc70db8bb6f8cfee2c2b1542afc}{vrna\+\_\+callback\+\_\+ht\+\_\+free\+\_\+entry}} $\ast$free\+\_\+hash\+\_\+entry)
+\begin{DoxyCompactList}\small\item\em Get an initialized hash table. \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{group__hash__table__utils_ga1d7a50bb20b32275e742ec575966412b}{vrna\+\_\+ht\+\_\+size}} (\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} ht)
+\begin{DoxyCompactList}\small\item\em Get the size of the hash table. \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{group__hash__table__utils_ga928e7a27a9d34d254ce3855f1ab1d190}{vrna\+\_\+ht\+\_\+collisions}} (struct vrna\+\_\+hash\+\_\+table\+\_\+s $\ast$ht)
+\begin{DoxyCompactList}\small\item\em Get the number of collisions in the hash table. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__hash__table__utils_ga38f124472c8e7e75f067d3b27b43da09}{vrna\+\_\+ht\+\_\+get}} (\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} ht, void $\ast$x)
+\begin{DoxyCompactList}\small\item\em Get an element from the hash table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__hash__table__utils_ga4d2189ce8048f031a15ca5e4b290d494}{vrna\+\_\+ht\+\_\+insert}} (\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} ht, void $\ast$x)
+\begin{DoxyCompactList}\small\item\em Insert an object into a hash table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__hash__table__utils_ga1162aa0d1bd82af7420bb727a87d3e2f}{vrna\+\_\+ht\+\_\+remove}} (\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} ht, void $\ast$x)
+\begin{DoxyCompactList}\small\item\em Remove an object from the hash table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__hash__table__utils_gab90583f8f7395e735c865ad2ebdb3c29}{vrna\+\_\+ht\+\_\+clear}} (\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} ht)
+\begin{DoxyCompactList}\small\item\em Clear the hash table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__hash__table__utils_ga479db024c70437aa2576d60b373c5262}{vrna\+\_\+ht\+\_\+free}} (\mbox{\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\+\_\+hash\+\_\+table\+\_\+t}} ht)
+\begin{DoxyCompactList}\small\item\em Free all memory occupied by the hash table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementations of hash table functions. 
+

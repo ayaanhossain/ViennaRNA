@@ -1,0 +1,91 @@
+\hypertarget{layouts_8h}{}\doxysection{Vienna\+RNA/plotting/layouts.h File Reference}
+\label{layouts_8h}\index{ViennaRNA/plotting/layouts.h@{ViennaRNA/plotting/layouts.h}}
+
+
+Secondary structure plot layout algorithms.  
+
+
+Include dependency graph for layouts.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{layouts_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{layouts_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__layout__s}{vrna\+\_\+plot\+\_\+layout\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{COORDINATE}}
+\begin{DoxyCompactList}\small\item\em this is a workarround for the SWIG Perl Wrapper RNA plot function that returns an array of type \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{COORDINATE}}  \mbox{\hyperlink{group__plotting__utils__deprecated_structCOORDINATE}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+SIMPLE}}~0
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape simple} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga94d4c863ecac2f220f76658afb92f964}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+NAVIEW}}~1
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Naview} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga8c9eac631348da92136c8363ecdd9fb9}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+CIRCULAR}}~2
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Circular} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga382c1c5c0b1943500aa4bb55b7658a33}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+TURTLE}}~3
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Turtle} \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__plot__layout__utils_ga64ec68055e241d11f659edb50f27ecae}{VRNA\+\_\+\+PLOT\+\_\+\+TYPE\+\_\+\+PUZZLER}}~4
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape RNApuzzler} \cite{wiegreffe:2018}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__layout__s}{vrna\+\_\+plot\+\_\+layout\+\_\+s}} \mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em RNA secondary structure figure layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga7953b759eada86c61b0a4aebe0dc67d1}{vrna\+\_\+plot\+\_\+layout}} (const char $\ast$structure, unsigned int plot\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga8b09019a429c7c2447be94901c7ed658}{vrna\+\_\+plot\+\_\+layout\+\_\+simple}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a {\itshape simple} secondary structure plot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_gab0e886afe200db9323e4e65d44738177}{vrna\+\_\+plot\+\_\+layout\+\_\+naview}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape Naview Algorithm} \cite{bruccoleri:1988}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga41d94adbd42e1a570d840756e6dd6909}{vrna\+\_\+plot\+\_\+layout\+\_\+circular}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a {\itshape circular} secondary structure plot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga4ecd3401e22933a44bf31d14320e59b1}{vrna\+\_\+plot\+\_\+layout\+\_\+turtle}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape Turtle Algorithm} \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga57f815d56c8c083c016381213f581f1e}{vrna\+\_\+plot\+\_\+layout\+\_\+puzzler}} (const char $\ast$structure, \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Create a layout (coordinates, etc.) for a secondary structure plot using the {\itshape RNApuzzler Algorithm} \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__plot__layout__utils_ga996128730020a2d7a7368b4248195931}{vrna\+\_\+plot\+\_\+layout\+\_\+free}} (\mbox{\hyperlink{group__plot__layout__utils_gac986fe092abc2a6a93ceb5141e4dd28b}{vrna\+\_\+plot\+\_\+layout\+\_\+t}} $\ast$layout)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by a figure layout data structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga2e2adbef0283a8ff2dfe5284eb1f4a6a}{vrna\+\_\+plot\+\_\+coords}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y, int plot\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaccd6a87cb324b7d680e5dd93e112738b}{vrna\+\_\+plot\+\_\+coords\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y, int plot\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaea0dada4d0113d16d4890bc0937292e6}{vrna\+\_\+plot\+\_\+coords\+\_\+simple}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga76788091848e73cfb24b31536e22b7dd}{vrna\+\_\+plot\+\_\+coords\+\_\+simple\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_ga47ff1fd92e9658361a758fdb03122911}{vrna\+\_\+plot\+\_\+coords\+\_\+circular}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute coordinates of nucleotides mapped in equal distancies onto a unit circle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gaeec80faa235f3ca489bc5e50adc41460}{vrna\+\_\+plot\+\_\+coords\+\_\+circular\+\_\+pt}} (const short $\ast$pt, float $\ast$$\ast$x, float $\ast$$\ast$y)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for a {\itshape Circular Plot} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_gaf4b9173e7d3fd361c3c85e6def194123}{simple\+\_\+xy\+\_\+coordinates}} (short $\ast$pair\+\_\+table, float $\ast$X, float $\ast$Y)
+\begin{DoxyCompactList}\small\item\em Calculate nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_gac4ea13d35308f09940178d2b05a248c2}{simple\+\_\+circplot\+\_\+coordinates}} (short $\ast$pair\+\_\+table, float $\ast$x, float $\ast$y)
+\begin{DoxyCompactList}\small\item\em Calculate nucleotide coordinates for {\itshape Circular Plot} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__plotting__utils__deprecated_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Switch for changing the secondary structure layout algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Secondary structure plot layout algorithms. 
+

@@ -1,0 +1,639 @@
+\hypertarget{internal_8h_source}{}\doxysection{internal.\+h}
+\label{internal_8h_source}\index{ViennaRNA/loops/internal.h@{ViennaRNA/loops/internal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_LOOPS\_INTERNAL\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_LOOPS\_INTERNAL\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <ViennaRNA/params/default.h>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{hard_8h}{ViennaRNA/constraints/hard.h}}>}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{soft_8h}{ViennaRNA/constraints/soft.h}}>}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# if defined(DEPRECATED)}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#   undef DEPRECATED}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00024 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00025 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\#ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{00028 \textcolor{preprocessor}{\# define INLINE inline}}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\# define INLINE}}
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00050 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00051 vrna\_E\_int\_loop(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00052                 \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00053                 \textcolor{keywordtype}{int}                   j);}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00063 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{internal_8h_source_l00064}\mbox{\hyperlink{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}{00064}} \mbox{\hyperlink{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}{vrna\_eval\_int\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00065                    \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00066                    \textcolor{keywordtype}{int}                  j,}
+\DoxyCodeLine{00067                    \textcolor{keywordtype}{int}                  k,}
+\DoxyCodeLine{00068                    \textcolor{keywordtype}{int}                  l);}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00072 vrna\_E\_ext\_int\_loop(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00073                     \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00074                     \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00075                     \textcolor{keywordtype}{int}                   *ip,}
+\DoxyCodeLine{00076                     \textcolor{keywordtype}{int}                   *iq);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00080 vrna\_E\_stack(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00081              \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00082              \textcolor{keywordtype}{int}                  j);}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085 \textcolor{comment}{/* End basic interface */}}
+\DoxyCodeLine{00095 \textcolor{comment}{/* j < i indicates circular folding, i.e. collect contributions for exterior int loops */}}
+\DoxyCodeLine{00096 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{00097 vrna\_exp\_E\_int\_loop(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00098                     \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00099                     \textcolor{keywordtype}{int}                   j);}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{00103 vrna\_exp\_E\_interior\_loop(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00104                          \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00105                          \textcolor{keywordtype}{int}                  j,}
+\DoxyCodeLine{00106                          \textcolor{keywordtype}{int}                  k,}
+\DoxyCodeLine{00107                          \textcolor{keywordtype}{int}                  l);}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 \textcolor{comment}{/* End partition function interface */}}
+\DoxyCodeLine{00128 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{internal_8h_source_l00129}\mbox{\hyperlink{group__mfe__backtracking_ga28015cfbd0afc759b94ff58cc241cb13}{00129}} \mbox{\hyperlink{group__mfe__backtracking_ga28015cfbd0afc759b94ff58cc241cb13}{vrna\_BT\_stack}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00130               \textcolor{keywordtype}{int}                   *i,}
+\DoxyCodeLine{00131               \textcolor{keywordtype}{int}                   *j,}
+\DoxyCodeLine{00132               \textcolor{keywordtype}{int}                   *en,}
+\DoxyCodeLine{00133               \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00134               \textcolor{keywordtype}{int}                   *stack\_count);}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00141 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{internal_8h_source_l00142}\mbox{\hyperlink{group__mfe__backtracking_ga90b5a5723173996fb40640ce7c95c07e}{00142}} \mbox{\hyperlink{group__mfe__backtracking_ga90b5a5723173996fb40640ce7c95c07e}{vrna\_BT\_int\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00143                  \textcolor{keywordtype}{int}                  *i,}
+\DoxyCodeLine{00144                  \textcolor{keywordtype}{int}                  *j,}
+\DoxyCodeLine{00145                  \textcolor{keywordtype}{int}                  en,}
+\DoxyCodeLine{00146                  \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}      *bp\_stack,}
+\DoxyCodeLine{00147                  \textcolor{keywordtype}{int}                  *stack\_count);}
+\DoxyCodeLine{00148 }
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00155 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00162 \textcolor{preprocessor}{\#ifdef ON\_SAME\_STRAND}}
+\DoxyCodeLine{00163 \textcolor{preprocessor}{\#undef ON\_SAME\_STRAND}}
+\DoxyCodeLine{00164 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166 \textcolor{preprocessor}{\#define ON\_SAME\_STRAND(I, J, C)  (((I) >= (C)) || ((J) < (C)))}}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00212 PRIVATE INLINE \textcolor{keywordtype}{int} \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\_IntLoop}}(\textcolor{keywordtype}{int}          n1,}
+\DoxyCodeLine{00213                              \textcolor{keywordtype}{int}          n2,}
+\DoxyCodeLine{00214                              \textcolor{keywordtype}{int}          type,}
+\DoxyCodeLine{00215                              \textcolor{keywordtype}{int}          type\_2,}
+\DoxyCodeLine{00216                              \textcolor{keywordtype}{int}          si1,}
+\DoxyCodeLine{00217                              \textcolor{keywordtype}{int}          sj1,}
+\DoxyCodeLine{00218                              \textcolor{keywordtype}{int}          sp1,}
+\DoxyCodeLine{00219                              \textcolor{keywordtype}{int}          sq1,}
+\DoxyCodeLine{00220                              \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P);}
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00222 }
+\DoxyCodeLine{00242 PRIVATE INLINE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} \mbox{\hyperlink{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}{exp\_E\_IntLoop}}(\textcolor{keywordtype}{int}               u1,}
+\DoxyCodeLine{00243                                         \textcolor{keywordtype}{int}               u2,}
+\DoxyCodeLine{00244                                         \textcolor{keywordtype}{int}               type,}
+\DoxyCodeLine{00245                                         \textcolor{keywordtype}{int}               type2,}
+\DoxyCodeLine{00246                                         \textcolor{keywordtype}{short}             si1,}
+\DoxyCodeLine{00247                                         \textcolor{keywordtype}{short}             sj1,}
+\DoxyCodeLine{00248                                         \textcolor{keywordtype}{short}             sp1,}
+\DoxyCodeLine{00249                                         \textcolor{keywordtype}{short}             sq1,}
+\DoxyCodeLine{00250                                         \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *P);}
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252 }
+\DoxyCodeLine{00253 PRIVATE INLINE \textcolor{keywordtype}{int} E\_IntLoop\_Co(\textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00254                                 \textcolor{keywordtype}{int}           type\_2,}
+\DoxyCodeLine{00255                                 \textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00256                                 \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00257                                 \textcolor{keywordtype}{int}           p,}
+\DoxyCodeLine{00258                                 \textcolor{keywordtype}{int}           q,}
+\DoxyCodeLine{00259                                 \textcolor{keywordtype}{int}           cutpoint,}
+\DoxyCodeLine{00260                                 \textcolor{keywordtype}{short}         si1,}
+\DoxyCodeLine{00261                                 \textcolor{keywordtype}{short}         sj1,}
+\DoxyCodeLine{00262                                 \textcolor{keywordtype}{short}         sp1,}
+\DoxyCodeLine{00263                                 \textcolor{keywordtype}{short}         sq1,}
+\DoxyCodeLine{00264                                 \textcolor{keywordtype}{int}           \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}},}
+\DoxyCodeLine{00265                                 \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P);}
+\DoxyCodeLine{00266 }
+\DoxyCodeLine{00267 }
+\DoxyCodeLine{00268 \textcolor{comment}{/*}}
+\DoxyCodeLine{00269 \textcolor{comment}{ *  ugly but fast interior loop evaluation}}
+\DoxyCodeLine{00270 \textcolor{comment}{ *}}
+\DoxyCodeLine{00271 \textcolor{comment}{ *  Avoid including this function in your own code. It only serves}}
+\DoxyCodeLine{00272 \textcolor{comment}{ *  as a fast inline block internally re-\/used throughout the RNAlib. It}}
+\DoxyCodeLine{00273 \textcolor{comment}{ *  evalutes the free energy of interior loops in single sequences or sequence}}
+\DoxyCodeLine{00274 \textcolor{comment}{ *  hybrids. Soft constraints are also applied if available.}}
+\DoxyCodeLine{00275 \textcolor{comment}{ *}}
+\DoxyCodeLine{00276 \textcolor{comment}{ *  NOTE: do not include into doxygen reference manual!}}
+\DoxyCodeLine{00277 \textcolor{comment}{ */}}
+\DoxyCodeLine{00278 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00279 ubf\_eval\_int\_loop(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00280                   \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00281                   \textcolor{keywordtype}{int}           p,}
+\DoxyCodeLine{00282                   \textcolor{keywordtype}{int}           q,}
+\DoxyCodeLine{00283                   \textcolor{keywordtype}{int}           i1,}
+\DoxyCodeLine{00284                   \textcolor{keywordtype}{int}           j1,}
+\DoxyCodeLine{00285                   \textcolor{keywordtype}{int}           p1,}
+\DoxyCodeLine{00286                   \textcolor{keywordtype}{int}           q1,}
+\DoxyCodeLine{00287                   \textcolor{keywordtype}{short}         si,}
+\DoxyCodeLine{00288                   \textcolor{keywordtype}{short}         sj,}
+\DoxyCodeLine{00289                   \textcolor{keywordtype}{short}         sp,}
+\DoxyCodeLine{00290                   \textcolor{keywordtype}{short}         sq,}
+\DoxyCodeLine{00291                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} type,}
+\DoxyCodeLine{00292                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} type\_2,}
+\DoxyCodeLine{00293                   \textcolor{keywordtype}{int}           *rtype,}
+\DoxyCodeLine{00294                   \textcolor{keywordtype}{int}           ij,}
+\DoxyCodeLine{00295                   \textcolor{keywordtype}{int}           cp,}
+\DoxyCodeLine{00296                   \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P,}
+\DoxyCodeLine{00297                   \mbox{\hyperlink{group__soft__constraints_structvrna__sc__s}{vrna\_sc\_t}}     *sc)}
+\DoxyCodeLine{00298 \{}
+\DoxyCodeLine{00299   \textcolor{keywordtype}{int} energy, u1, u2;}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301   u1  = p1 -\/ i;}
+\DoxyCodeLine{00302   u2  = j1 -\/ q;}
+\DoxyCodeLine{00303 }
+\DoxyCodeLine{00304   \textcolor{keywordflow}{if} ((cp < 0) || (ON\_SAME\_STRAND(i, p, cp) \&\& ON\_SAME\_STRAND(q, j, cp))) \{}
+\DoxyCodeLine{00305     \textcolor{comment}{/* regular interior loop */}}
+\DoxyCodeLine{00306     energy = \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\_IntLoop}}(u1, u2, type, type\_2, si, sj, sp, sq, P);}
+\DoxyCodeLine{00307   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00308     \textcolor{comment}{/* interior loop like cofold structure */}}
+\DoxyCodeLine{00309     \textcolor{keywordtype}{short} Si, Sj;}
+\DoxyCodeLine{00310     Si      = ON\_SAME\_STRAND(i, i1, cp) ? si : -\/1;}
+\DoxyCodeLine{00311     Sj      = ON\_SAME\_STRAND(j1, j, cp) ? sj : -\/1;}
+\DoxyCodeLine{00312     energy  = E\_IntLoop\_Co(rtype[type], rtype[type\_2],}
+\DoxyCodeLine{00313                            i, j, p, q,}
+\DoxyCodeLine{00314                            cp,}
+\DoxyCodeLine{00315                            Si, Sj,}
+\DoxyCodeLine{00316                            sp, sq,}
+\DoxyCodeLine{00317                            P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}},}
+\DoxyCodeLine{00318                            P);}
+\DoxyCodeLine{00319   \}}
+\DoxyCodeLine{00320 }
+\DoxyCodeLine{00321   \textcolor{comment}{/* add soft constraints */}}
+\DoxyCodeLine{00322   \textcolor{keywordflow}{if} (sc) \{}
+\DoxyCodeLine{00323     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}})}
+\DoxyCodeLine{00324       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[i1][u1]}
+\DoxyCodeLine{00325                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[q1][u2];}
+\DoxyCodeLine{00326 }
+\DoxyCodeLine{00327     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_ad139b8e06632e00cbcf3909815d0d03d}{energy\_bp}})}
+\DoxyCodeLine{00328       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_ad139b8e06632e00cbcf3909815d0d03d}{energy\_bp}}[ij];}
+\DoxyCodeLine{00329 }
+\DoxyCodeLine{00330     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}})}
+\DoxyCodeLine{00331       \textcolor{keywordflow}{if} (u1 + u2 == 0) \{}
+\DoxyCodeLine{00332         \textcolor{keywordtype}{int} a = sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[i]}
+\DoxyCodeLine{00333                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[p]}
+\DoxyCodeLine{00334                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[q]}
+\DoxyCodeLine{00335                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[j];}
+\DoxyCodeLine{00336         energy += a;}
+\DoxyCodeLine{00337       \}}
+\DoxyCodeLine{00338 }
+\DoxyCodeLine{00339     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_a32dc86090237888c75491bbd4861a04b}{f}})}
+\DoxyCodeLine{00340       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_a32dc86090237888c75491bbd4861a04b}{f}}(i, j, p, q, \mbox{\hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{VRNA\_DECOMP\_PAIR\_IL}}, sc-\/>\mbox{\hyperlink{group__soft__constraints_a7574680143df97b9029146c2150bf06d}{data}});}
+\DoxyCodeLine{00341   \}}
+\DoxyCodeLine{00342 }
+\DoxyCodeLine{00343   \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00344 \}}
+\DoxyCodeLine{00345 }
+\DoxyCodeLine{00346 }
+\DoxyCodeLine{00347 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00348 ubf\_eval\_int\_loop2(\textcolor{keywordtype}{int}            i,}
+\DoxyCodeLine{00349                    \textcolor{keywordtype}{int}            j,}
+\DoxyCodeLine{00350                    \textcolor{keywordtype}{int}            p,}
+\DoxyCodeLine{00351                    \textcolor{keywordtype}{int}            q,}
+\DoxyCodeLine{00352                    \textcolor{keywordtype}{int}            i1,}
+\DoxyCodeLine{00353                    \textcolor{keywordtype}{int}            j1,}
+\DoxyCodeLine{00354                    \textcolor{keywordtype}{int}            p1,}
+\DoxyCodeLine{00355                    \textcolor{keywordtype}{int}            q1,}
+\DoxyCodeLine{00356                    \textcolor{keywordtype}{short}          si,}
+\DoxyCodeLine{00357                    \textcolor{keywordtype}{short}          sj,}
+\DoxyCodeLine{00358                    \textcolor{keywordtype}{short}          sp,}
+\DoxyCodeLine{00359                    \textcolor{keywordtype}{short}          sq,}
+\DoxyCodeLine{00360                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}  type,}
+\DoxyCodeLine{00361                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}  type\_2,}
+\DoxyCodeLine{00362                    \textcolor{keywordtype}{int}            *rtype,}
+\DoxyCodeLine{00363                    \textcolor{keywordtype}{int}            ij,}
+\DoxyCodeLine{00364                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   *sn,}
+\DoxyCodeLine{00365                    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   *ss,}
+\DoxyCodeLine{00366                    \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}   *P,}
+\DoxyCodeLine{00367                    \mbox{\hyperlink{group__soft__constraints_structvrna__sc__s}{vrna\_sc\_t}}      *sc)}
+\DoxyCodeLine{00368 \{}
+\DoxyCodeLine{00369   \textcolor{keywordtype}{int} energy, u1, u2;}
+\DoxyCodeLine{00370 }
+\DoxyCodeLine{00371   u1  = p1 -\/ i;}
+\DoxyCodeLine{00372   u2  = j1 -\/ q;}
+\DoxyCodeLine{00373 }
+\DoxyCodeLine{00374   \textcolor{keywordflow}{if} ((sn[i] == sn[p]) \&\& (sn[q] == sn[j])) \{}
+\DoxyCodeLine{00375     \textcolor{comment}{/* regular interior loop */}}
+\DoxyCodeLine{00376     energy = \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\_IntLoop}}(u1, u2, type, type\_2, si, sj, sp, sq, P);}
+\DoxyCodeLine{00377   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00378     \textcolor{comment}{/* interior loop like cofold structure */}}
+\DoxyCodeLine{00379     \textcolor{keywordtype}{short} Si, Sj;}
+\DoxyCodeLine{00380     Si      = (sn[i1] == sn[i]) ? si : -\/1;}
+\DoxyCodeLine{00381     Sj      = (sn[j] == sn[j1]) ? sj : -\/1;}
+\DoxyCodeLine{00382     energy  = E\_IntLoop\_Co(rtype[type], rtype[type\_2],}
+\DoxyCodeLine{00383                            i, j, p, q,}
+\DoxyCodeLine{00384                            ss[1],}
+\DoxyCodeLine{00385                            Si, Sj,}
+\DoxyCodeLine{00386                            sp, sq,}
+\DoxyCodeLine{00387                            P-\/>\mbox{\hyperlink{group__energy__parameters_a7b84353eb9075c595bad4ceb871bcae7}{model\_details}}.\mbox{\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles}},}
+\DoxyCodeLine{00388                            P);}
+\DoxyCodeLine{00389   \}}
+\DoxyCodeLine{00390 }
+\DoxyCodeLine{00391   \textcolor{comment}{/* add soft constraints */}}
+\DoxyCodeLine{00392   \textcolor{keywordflow}{if} (sc) \{}
+\DoxyCodeLine{00393     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}})}
+\DoxyCodeLine{00394       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[i1][u1]}
+\DoxyCodeLine{00395                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[q1][u2];}
+\DoxyCodeLine{00396 }
+\DoxyCodeLine{00397     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_ad139b8e06632e00cbcf3909815d0d03d}{energy\_bp}})}
+\DoxyCodeLine{00398       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_ad139b8e06632e00cbcf3909815d0d03d}{energy\_bp}}[ij];}
+\DoxyCodeLine{00399 }
+\DoxyCodeLine{00400     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}})}
+\DoxyCodeLine{00401       \textcolor{keywordflow}{if} (u1 + u2 == 0) \{}
+\DoxyCodeLine{00402         \textcolor{keywordtype}{int} a = sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[i]}
+\DoxyCodeLine{00403                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[p]}
+\DoxyCodeLine{00404                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[q]}
+\DoxyCodeLine{00405                 + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[j];}
+\DoxyCodeLine{00406         energy += a;}
+\DoxyCodeLine{00407       \}}
+\DoxyCodeLine{00408 }
+\DoxyCodeLine{00409     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_a32dc86090237888c75491bbd4861a04b}{f}})}
+\DoxyCodeLine{00410       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_a32dc86090237888c75491bbd4861a04b}{f}}(i, j, p, q, \mbox{\hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{VRNA\_DECOMP\_PAIR\_IL}}, sc-\/>\mbox{\hyperlink{group__soft__constraints_a7574680143df97b9029146c2150bf06d}{data}});}
+\DoxyCodeLine{00411   \}}
+\DoxyCodeLine{00412 }
+\DoxyCodeLine{00413   \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00414 \}}
+\DoxyCodeLine{00415 }
+\DoxyCodeLine{00416 }
+\DoxyCodeLine{00417 \textcolor{comment}{/*}}
+\DoxyCodeLine{00418 \textcolor{comment}{ *  ugly but fast exterior interior loop evaluation}}
+\DoxyCodeLine{00419 \textcolor{comment}{ *}}
+\DoxyCodeLine{00420 \textcolor{comment}{ *  Avoid including this function in your own code. It only serves}}
+\DoxyCodeLine{00421 \textcolor{comment}{ *  as a fast inline block internally re-\/used throughout the RNAlib. It}}
+\DoxyCodeLine{00422 \textcolor{comment}{ *  evalutes the free energy of interior loops in single sequences or sequence}}
+\DoxyCodeLine{00423 \textcolor{comment}{ *  hybrids. Soft constraints are also applied if available.}}
+\DoxyCodeLine{00424 \textcolor{comment}{ *}}
+\DoxyCodeLine{00425 \textcolor{comment}{ *  NOTE: do not include into doxygen reference manual!}}
+\DoxyCodeLine{00426 \textcolor{comment}{ */}}
+\DoxyCodeLine{00427 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00428 ubf\_eval\_ext\_int\_loop(\textcolor{keywordtype}{int}           i,}
+\DoxyCodeLine{00429                       \textcolor{keywordtype}{int}           j,}
+\DoxyCodeLine{00430                       \textcolor{keywordtype}{int}           p,}
+\DoxyCodeLine{00431                       \textcolor{keywordtype}{int}           q,}
+\DoxyCodeLine{00432                       \textcolor{keywordtype}{int}           i1,}
+\DoxyCodeLine{00433                       \textcolor{keywordtype}{int}           j1,}
+\DoxyCodeLine{00434                       \textcolor{keywordtype}{int}           p1,}
+\DoxyCodeLine{00435                       \textcolor{keywordtype}{int}           q1,}
+\DoxyCodeLine{00436                       \textcolor{keywordtype}{short}         si,}
+\DoxyCodeLine{00437                       \textcolor{keywordtype}{short}         sj,}
+\DoxyCodeLine{00438                       \textcolor{keywordtype}{short}         sp,}
+\DoxyCodeLine{00439                       \textcolor{keywordtype}{short}         sq,}
+\DoxyCodeLine{00440                       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} type,}
+\DoxyCodeLine{00441                       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} type\_2,}
+\DoxyCodeLine{00442                       \textcolor{keywordtype}{int}           length,}
+\DoxyCodeLine{00443                       \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P,}
+\DoxyCodeLine{00444                       \mbox{\hyperlink{group__soft__constraints_structvrna__sc__s}{vrna\_sc\_t}}     *sc)}
+\DoxyCodeLine{00445 \{}
+\DoxyCodeLine{00446   \textcolor{keywordtype}{int} energy, u1, u2, u3;}
+\DoxyCodeLine{00447 }
+\DoxyCodeLine{00448   u1  = i1;}
+\DoxyCodeLine{00449   u2  = p1 -\/ j;}
+\DoxyCodeLine{00450   u3  = length -\/ q;}
+\DoxyCodeLine{00451 }
+\DoxyCodeLine{00452   energy = \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\_IntLoop}}(u2, u1 + u3, type, type\_2, si, sj, sp, sq, P);}
+\DoxyCodeLine{00453 }
+\DoxyCodeLine{00454   \textcolor{comment}{/* add soft constraints */}}
+\DoxyCodeLine{00455   \textcolor{keywordflow}{if} (sc) \{}
+\DoxyCodeLine{00456     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}) \{}
+\DoxyCodeLine{00457       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[j1][u2]}
+\DoxyCodeLine{00458                 + ((u3 > 0) ? sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[q1][u3] : 0)}
+\DoxyCodeLine{00459                 + ((u1 > 0) ? sc-\/>\mbox{\hyperlink{group__soft__constraints_a57e4dbb924ab11f304e3762a3a9b07a1}{energy\_up}}[1][u1] : 0);}
+\DoxyCodeLine{00460     \}}
+\DoxyCodeLine{00461 }
+\DoxyCodeLine{00462     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}})}
+\DoxyCodeLine{00463       \textcolor{keywordflow}{if} (u1 + u2 + u3 == 0)}
+\DoxyCodeLine{00464         energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[i]}
+\DoxyCodeLine{00465                   + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[p]}
+\DoxyCodeLine{00466                   + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[q]}
+\DoxyCodeLine{00467                   + sc-\/>\mbox{\hyperlink{group__soft__constraints_ac20dded6068e81acd0f1139092f66a22}{energy\_stack}}[j];}
+\DoxyCodeLine{00468 }
+\DoxyCodeLine{00469     \textcolor{keywordflow}{if} (sc-\/>\mbox{\hyperlink{group__soft__constraints_a32dc86090237888c75491bbd4861a04b}{f}})}
+\DoxyCodeLine{00470       energy += sc-\/>\mbox{\hyperlink{group__soft__constraints_a32dc86090237888c75491bbd4861a04b}{f}}(i, j, p, q, \mbox{\hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{VRNA\_DECOMP\_PAIR\_IL}}, sc-\/>\mbox{\hyperlink{group__soft__constraints_a7574680143df97b9029146c2150bf06d}{data}});}
+\DoxyCodeLine{00471   \}}
+\DoxyCodeLine{00472 }
+\DoxyCodeLine{00473   \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00474 \}}
+\DoxyCodeLine{00475 }
+\DoxyCodeLine{00476 }
+\DoxyCodeLine{00477 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{internal_8h_source_l00478}\mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{00478}} \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\_IntLoop}}(\textcolor{keywordtype}{int}           n1,}
+\DoxyCodeLine{00479           \textcolor{keywordtype}{int}           n2,}
+\DoxyCodeLine{00480           \textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00481           \textcolor{keywordtype}{int}           type\_2,}
+\DoxyCodeLine{00482           \textcolor{keywordtype}{int}           si1,}
+\DoxyCodeLine{00483           \textcolor{keywordtype}{int}           sj1,}
+\DoxyCodeLine{00484           \textcolor{keywordtype}{int}           sp1,}
+\DoxyCodeLine{00485           \textcolor{keywordtype}{int}           sq1,}
+\DoxyCodeLine{00486           \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P)}
+\DoxyCodeLine{00487 \{}
+\DoxyCodeLine{00488   \textcolor{comment}{/* compute energy of degree 2 loop (stack bulge or interior) */}}
+\DoxyCodeLine{00489   \textcolor{keywordtype}{int} nl, ns, u, energy;}
+\DoxyCodeLine{00490 }
+\DoxyCodeLine{00491   \textcolor{keywordflow}{if} (n1 > n2) \{}
+\DoxyCodeLine{00492     nl  = n1;}
+\DoxyCodeLine{00493     ns  = n2;}
+\DoxyCodeLine{00494   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00495     nl  = n2;}
+\DoxyCodeLine{00496     ns  = n1;}
+\DoxyCodeLine{00497   \}}
+\DoxyCodeLine{00498 }
+\DoxyCodeLine{00499   \textcolor{keywordflow}{if} (nl == 0)}
+\DoxyCodeLine{00500     \textcolor{keywordflow}{return} P-\/>stack[type][type\_2];  \textcolor{comment}{/* stack */}}
+\DoxyCodeLine{00501 }
+\DoxyCodeLine{00502   \textcolor{keywordflow}{if} (ns == 0) \{}
+\DoxyCodeLine{00503     \textcolor{comment}{/* bulge */}}
+\DoxyCodeLine{00504     energy = (nl <= \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}}) ? P-\/>bulge[nl] :}
+\DoxyCodeLine{00505              (P-\/>bulge[30] + (\textcolor{keywordtype}{int})(P-\/>lxc * log(nl / 30.)));}
+\DoxyCodeLine{00506     \textcolor{keywordflow}{if} (nl == 1) \{}
+\DoxyCodeLine{00507       energy += P-\/>stack[type][type\_2];}
+\DoxyCodeLine{00508     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00509       \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00510         energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00511 }
+\DoxyCodeLine{00512       \textcolor{keywordflow}{if} (type\_2 > 2)}
+\DoxyCodeLine{00513         energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00514     \}}
+\DoxyCodeLine{00515 }
+\DoxyCodeLine{00516     \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00517   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00518     \textcolor{comment}{/* interior loop */}}
+\DoxyCodeLine{00519     \textcolor{keywordflow}{if} (ns == 1) \{}
+\DoxyCodeLine{00520       \textcolor{keywordflow}{if} (nl == 1)                    \textcolor{comment}{/* 1x1 loop */}}
+\DoxyCodeLine{00521         \textcolor{keywordflow}{return} P-\/>int11[type][type\_2][si1][sj1];}
+\DoxyCodeLine{00522 }
+\DoxyCodeLine{00523       \textcolor{keywordflow}{if} (nl == 2) \{}
+\DoxyCodeLine{00524         \textcolor{comment}{/* 2x1 loop */}}
+\DoxyCodeLine{00525         \textcolor{keywordflow}{if} (n1 == 1)}
+\DoxyCodeLine{00526           energy = P-\/>int21[type][type\_2][si1][sq1][sj1];}
+\DoxyCodeLine{00527         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00528           energy = P-\/>int21[type\_2][type][sq1][si1][sp1];}
+\DoxyCodeLine{00529 }
+\DoxyCodeLine{00530         \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00531       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00532         \textcolor{comment}{/* 1xn loop */}}
+\DoxyCodeLine{00533         energy =}
+\DoxyCodeLine{00534           (nl + 1 <=}
+\DoxyCodeLine{00535            \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}}) ? (P-\/>internal\_loop[nl + 1]) : (P-\/>internal\_loop[30] +}
+\DoxyCodeLine{00536                                                     (int)(P-\/>lxc * log((nl + 1) / 30.)));}
+\DoxyCodeLine{00537         energy  += \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(MAX\_NINIO, (nl -\/ ns) * P-\/>ninio[2]);}
+\DoxyCodeLine{00538         energy  += P-\/>mismatch1nI[type][si1][sj1] + P-\/>mismatch1nI[type\_2][sq1][sp1];}
+\DoxyCodeLine{00539         \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00540       \}}
+\DoxyCodeLine{00541     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ns == 2) \{}
+\DoxyCodeLine{00542       \textcolor{keywordflow}{if} (nl == 2) \{}
+\DoxyCodeLine{00543         \textcolor{comment}{/* 2x2 loop */}}
+\DoxyCodeLine{00544         \textcolor{keywordflow}{return} P-\/>int22[type][type\_2][si1][sp1][sq1][sj1];}
+\DoxyCodeLine{00545       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (nl == 3) \{}
+\DoxyCodeLine{00546         \textcolor{comment}{/* 2x3 loop */}}
+\DoxyCodeLine{00547         energy  = P-\/>internal\_loop[5] + P-\/>ninio[2];}
+\DoxyCodeLine{00548         energy  += P-\/>mismatch23I[type][si1][sj1] + P-\/>mismatch23I[type\_2][sq1][sp1];}
+\DoxyCodeLine{00549         \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00550       \}}
+\DoxyCodeLine{00551     \}}
+\DoxyCodeLine{00552 }
+\DoxyCodeLine{00553     \{}
+\DoxyCodeLine{00554       \textcolor{comment}{/* generic interior loop (no else here!)*/}}
+\DoxyCodeLine{00555       u       = nl + ns;}
+\DoxyCodeLine{00556       energy  =}
+\DoxyCodeLine{00557         (u <=}
+\DoxyCodeLine{00558          \mbox{\hyperlink{constants_8h_ad1bd6eabac419670ddd3c9ed82145988}{MAXLOOP}}) ? (P-\/>internal\_loop[u]) : (P-\/>internal\_loop[30] + (int)(P-\/>lxc * log((u) / 30.)));}
+\DoxyCodeLine{00559 }
+\DoxyCodeLine{00560       energy += \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(MAX\_NINIO, (nl -\/ ns) * P-\/>ninio[2]);}
+\DoxyCodeLine{00561 }
+\DoxyCodeLine{00562       energy += P-\/>mismatchI[type][si1][sj1] + P-\/>mismatchI[type\_2][sq1][sp1];}
+\DoxyCodeLine{00563     \}}
+\DoxyCodeLine{00564   \}}
+\DoxyCodeLine{00565 }
+\DoxyCodeLine{00566   \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00567 \}}
+\DoxyCodeLine{00568 }
+\DoxyCodeLine{00569 }
+\DoxyCodeLine{00570 PRIVATE INLINE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{\Hypertarget{internal_8h_source_l00571}\mbox{\hyperlink{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}{00571}} \mbox{\hyperlink{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}{exp\_E\_IntLoop}}(\textcolor{keywordtype}{int}               u1,}
+\DoxyCodeLine{00572               \textcolor{keywordtype}{int}               u2,}
+\DoxyCodeLine{00573               \textcolor{keywordtype}{int}               type,}
+\DoxyCodeLine{00574               \textcolor{keywordtype}{int}               type2,}
+\DoxyCodeLine{00575               \textcolor{keywordtype}{short}             si1,}
+\DoxyCodeLine{00576               \textcolor{keywordtype}{short}             sj1,}
+\DoxyCodeLine{00577               \textcolor{keywordtype}{short}             sp1,}
+\DoxyCodeLine{00578               \textcolor{keywordtype}{short}             sq1,}
+\DoxyCodeLine{00579               \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *P)}
+\DoxyCodeLine{00580 \{}
+\DoxyCodeLine{00581   \textcolor{keywordtype}{int}     ul, us, no\_close = 0;}
+\DoxyCodeLine{00582   \textcolor{keywordtype}{double}  z           = 0.;}
+\DoxyCodeLine{00583   \textcolor{keywordtype}{int}     noGUclosure = P-\/>\mbox{\hyperlink{group__energy__parameters_ac18055127bccc27c1223f1d2f3b01b53}{model\_details}}.\mbox{\hyperlink{group__model__details_a7e883db1f33f8f3baa5c9b140350c78e}{noGUclosure}};}
+\DoxyCodeLine{00584 }
+\DoxyCodeLine{00585   \textcolor{keywordflow}{if} ((noGUclosure) \&\& ((type2 == 3) || (type2 == 4) || (type == 3) || (type == 4)))}
+\DoxyCodeLine{00586     no\_close = 1;}
+\DoxyCodeLine{00587 }
+\DoxyCodeLine{00588   \textcolor{keywordflow}{if} (u1 > u2) \{}
+\DoxyCodeLine{00589     ul  = u1;}
+\DoxyCodeLine{00590     us  = u2;}
+\DoxyCodeLine{00591   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00592     ul  = u2;}
+\DoxyCodeLine{00593     us  = u1;}
+\DoxyCodeLine{00594   \}}
+\DoxyCodeLine{00595 }
+\DoxyCodeLine{00596   \textcolor{keywordflow}{if} (ul == 0) \{}
+\DoxyCodeLine{00597     \textcolor{comment}{/* stack */}}
+\DoxyCodeLine{00598     z = P-\/>expstack[type][type2];}
+\DoxyCodeLine{00599   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!no\_close) \{}
+\DoxyCodeLine{00600     \textcolor{keywordflow}{if} (us == 0) \{}
+\DoxyCodeLine{00601       \textcolor{comment}{/* bulge */}}
+\DoxyCodeLine{00602       z = P-\/>expbulge[ul];}
+\DoxyCodeLine{00603       \textcolor{keywordflow}{if} (ul == 1) \{}
+\DoxyCodeLine{00604         z *= P-\/>expstack[type][type2];}
+\DoxyCodeLine{00605       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00606         \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00607           z *= P-\/>expTermAU;}
+\DoxyCodeLine{00608 }
+\DoxyCodeLine{00609         \textcolor{keywordflow}{if} (type2 > 2)}
+\DoxyCodeLine{00610           z *= P-\/>expTermAU;}
+\DoxyCodeLine{00611       \}}
+\DoxyCodeLine{00612 }
+\DoxyCodeLine{00613       \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})z;}
+\DoxyCodeLine{00614     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (us == 1) \{}
+\DoxyCodeLine{00615       \textcolor{keywordflow}{if} (ul == 1)                     \textcolor{comment}{/* 1x1 loop */}}
+\DoxyCodeLine{00616         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>expint11[type][type2][si1][sj1]);}
+\DoxyCodeLine{00617 }
+\DoxyCodeLine{00618       \textcolor{keywordflow}{if} (ul == 2) \{}
+\DoxyCodeLine{00619         \textcolor{comment}{/* 2x1 loop */}}
+\DoxyCodeLine{00620         \textcolor{keywordflow}{if} (u1 == 1)}
+\DoxyCodeLine{00621           \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>expint21[type][type2][si1][sq1][sj1]);}
+\DoxyCodeLine{00622         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00623           \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>expint21[type2][type][sq1][si1][sp1]);}
+\DoxyCodeLine{00624       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00625         \textcolor{comment}{/* 1xn loop */}}
+\DoxyCodeLine{00626         z = P-\/>expinternal[ul + us] * P-\/>expmismatch1nI[type][si1][sj1] *}
+\DoxyCodeLine{00627             P-\/>expmismatch1nI[type2][sq1][sp1];}
+\DoxyCodeLine{00628         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(z * P-\/>expninio[2][ul -\/ us]);}
+\DoxyCodeLine{00629       \}}
+\DoxyCodeLine{00630     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (us == 2) \{}
+\DoxyCodeLine{00631       \textcolor{keywordflow}{if} (ul == 2) \{}
+\DoxyCodeLine{00632         \textcolor{comment}{/* 2x2 loop */}}
+\DoxyCodeLine{00633         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(P-\/>expint22[type][type2][si1][sp1][sq1][sj1]);}
+\DoxyCodeLine{00634       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ul == 3) \{}
+\DoxyCodeLine{00635         \textcolor{comment}{/* 2x3 loop */}}
+\DoxyCodeLine{00636         z = P-\/>expinternal[5] * P-\/>expmismatch23I[type][si1][sj1] *}
+\DoxyCodeLine{00637             P-\/>expmismatch23I[type2][sq1][sp1];}
+\DoxyCodeLine{00638         \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(z * P-\/>expninio[2][1]);}
+\DoxyCodeLine{00639       \}}
+\DoxyCodeLine{00640     \}}
+\DoxyCodeLine{00641 }
+\DoxyCodeLine{00642     \textcolor{comment}{/* generic interior loop (no else here!)*/}}
+\DoxyCodeLine{00643     z = P-\/>expinternal[ul + us] * P-\/>expmismatchI[type][si1][sj1] *}
+\DoxyCodeLine{00644         P-\/>expmismatchI[type2][sq1][sp1];}
+\DoxyCodeLine{00645     \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})(z * P-\/>expninio[2][ul -\/ us]);}
+\DoxyCodeLine{00646   \}}
+\DoxyCodeLine{00647 }
+\DoxyCodeLine{00648   \textcolor{keywordflow}{return} (\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}})z;}
+\DoxyCodeLine{00649 \}}
+\DoxyCodeLine{00650 }
+\DoxyCodeLine{00651 }
+\DoxyCodeLine{00652 PRIVATE INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00653 E\_IntLoop\_Co(\textcolor{keywordtype}{int}          type,}
+\DoxyCodeLine{00654              \textcolor{keywordtype}{int}          type\_2,}
+\DoxyCodeLine{00655              \textcolor{keywordtype}{int}          i,}
+\DoxyCodeLine{00656              \textcolor{keywordtype}{int}          j,}
+\DoxyCodeLine{00657              \textcolor{keywordtype}{int}          p,}
+\DoxyCodeLine{00658              \textcolor{keywordtype}{int}          q,}
+\DoxyCodeLine{00659              \textcolor{keywordtype}{int}          cutpoint,}
+\DoxyCodeLine{00660              \textcolor{keywordtype}{short}        si1,}
+\DoxyCodeLine{00661              \textcolor{keywordtype}{short}        sj1,}
+\DoxyCodeLine{00662              \textcolor{keywordtype}{short}        sp1,}
+\DoxyCodeLine{00663              \textcolor{keywordtype}{short}        sq1,}
+\DoxyCodeLine{00664              \textcolor{keywordtype}{int}          \mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}},}
+\DoxyCodeLine{00665              \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P)}
+\DoxyCodeLine{00666 \{}
+\DoxyCodeLine{00667   \textcolor{keywordtype}{int} e, energy, ci, cj, cp, cq, d3, d5, d5\_2, d3\_2, tmm, tmm\_2;}
+\DoxyCodeLine{00668 }
+\DoxyCodeLine{00669   energy = 0;}
+\DoxyCodeLine{00670   \textcolor{keywordflow}{if} (type > 2)}
+\DoxyCodeLine{00671     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00672 }
+\DoxyCodeLine{00673   \textcolor{keywordflow}{if} (type\_2 > 2)}
+\DoxyCodeLine{00674     energy += P-\/>TerminalAU;}
+\DoxyCodeLine{00675 }
+\DoxyCodeLine{00676   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}})}
+\DoxyCodeLine{00677     \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00678 }
+\DoxyCodeLine{00679   ci  = ON\_SAME\_STRAND(i, i + 1, cutpoint);}
+\DoxyCodeLine{00680   cj  = ON\_SAME\_STRAND(j -\/ 1, j, cutpoint);}
+\DoxyCodeLine{00681   cp  = ON\_SAME\_STRAND(p -\/ 1, p, cutpoint);}
+\DoxyCodeLine{00682   cq  = ON\_SAME\_STRAND(q, q + 1, cutpoint);}
+\DoxyCodeLine{00683 }
+\DoxyCodeLine{00684   d3    = ci  ? P-\/>dangle3[type][si1]   : 0;}
+\DoxyCodeLine{00685   d5    = cj  ? P-\/>dangle5[type][sj1]   : 0;}
+\DoxyCodeLine{00686   d5\_2  = cp  ? P-\/>dangle5[type\_2][sp1] : 0;}
+\DoxyCodeLine{00687   d3\_2  = cq  ? P-\/>dangle3[type\_2][sq1] : 0;}
+\DoxyCodeLine{00688 }
+\DoxyCodeLine{00689   tmm   = (cj \&\& ci) ? P-\/>mismatchExt[type][sj1][si1]   : d5 + d3;}
+\DoxyCodeLine{00690   tmm\_2 = (cp \&\& cq) ? P-\/>mismatchExt[type\_2][sp1][sq1] : d5\_2 + d3\_2;}
+\DoxyCodeLine{00691 }
+\DoxyCodeLine{00692   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga72b511ed1201f7e23ec437e468790d74}{dangles}} == 2)}
+\DoxyCodeLine{00693     \textcolor{keywordflow}{return} energy + tmm + tmm\_2;}
+\DoxyCodeLine{00694 }
+\DoxyCodeLine{00695   \textcolor{comment}{/* now we may have non-\/double dangles only */}}
+\DoxyCodeLine{00696   \textcolor{keywordflow}{if} (p -\/ i > 2) \{}
+\DoxyCodeLine{00697     \textcolor{keywordflow}{if} (j -\/ q > 2) \{}
+\DoxyCodeLine{00698       \textcolor{comment}{/* all degrees of freedom */}}
+\DoxyCodeLine{00699       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(tmm, d5);}
+\DoxyCodeLine{00700       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3);}
+\DoxyCodeLine{00701       energy += e;}
+\DoxyCodeLine{00702       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(tmm\_2, d5\_2);}
+\DoxyCodeLine{00703       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3\_2);}
+\DoxyCodeLine{00704       energy += e;}
+\DoxyCodeLine{00705     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j -\/ q == 2) \{}
+\DoxyCodeLine{00706       \textcolor{comment}{/* all degrees of freedom in 5' part between i and p */}}
+\DoxyCodeLine{00707       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(tmm + d5\_2, d3 + d5\_2);}
+\DoxyCodeLine{00708       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5 + d5\_2);}
+\DoxyCodeLine{00709       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3 + tmm\_2);}
+\DoxyCodeLine{00710       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3 + d3\_2);}
+\DoxyCodeLine{00711       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, tmm\_2); \textcolor{comment}{/* no dangles on enclosing pair */}}
+\DoxyCodeLine{00712       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5\_2);  \textcolor{comment}{/* no dangles on enclosing pair */}}
+\DoxyCodeLine{00713       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3\_2);  \textcolor{comment}{/* no dangles on enclosing pair */}}
+\DoxyCodeLine{00714       energy += e;}
+\DoxyCodeLine{00715     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00716       \textcolor{comment}{/* no unpaired base between q and j */}}
+\DoxyCodeLine{00717       energy += d3 + d5\_2;}
+\DoxyCodeLine{00718     \}}
+\DoxyCodeLine{00719   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (p -\/ i == 2) \{}
+\DoxyCodeLine{00720     \textcolor{keywordflow}{if} (j -\/ q > 2) \{}
+\DoxyCodeLine{00721       \textcolor{comment}{/* all degrees of freedom in 3' part between q and j */}}
+\DoxyCodeLine{00722       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(tmm + d3\_2, d5 + d3\_2);}
+\DoxyCodeLine{00723       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5 + d3\_2);}
+\DoxyCodeLine{00724       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3 + d3\_2);}
+\DoxyCodeLine{00725       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5 + tmm\_2);}
+\DoxyCodeLine{00726       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, tmm\_2);}
+\DoxyCodeLine{00727       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5\_2);}
+\DoxyCodeLine{00728       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3\_2);}
+\DoxyCodeLine{00729       energy += e;}
+\DoxyCodeLine{00730     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j -\/ q == 2) \{}
+\DoxyCodeLine{00731       \textcolor{comment}{/* one possible dangling base between either side */}}
+\DoxyCodeLine{00732       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(tmm, tmm\_2);}
+\DoxyCodeLine{00733       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3);}
+\DoxyCodeLine{00734       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5);}
+\DoxyCodeLine{00735       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5\_2);}
+\DoxyCodeLine{00736       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3\_2);}
+\DoxyCodeLine{00737       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d3 + d3\_2);}
+\DoxyCodeLine{00738       e = \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(e, d5 + d5\_2);}
+\DoxyCodeLine{00739       energy += e;}
+\DoxyCodeLine{00740     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00741       \textcolor{comment}{/* one unpaired base between i and p */}}
+\DoxyCodeLine{00742       energy += \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(d3, d5\_2);}
+\DoxyCodeLine{00743     \}}
+\DoxyCodeLine{00744   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00745     \textcolor{comment}{/* no unpaired base between i and p */}}
+\DoxyCodeLine{00746     \textcolor{keywordflow}{if} (j -\/ q > 2) \{}
+\DoxyCodeLine{00747       \textcolor{comment}{/* all degrees of freedom in 3' part between q and j */}}
+\DoxyCodeLine{00748       energy += d5 + d3\_2;}
+\DoxyCodeLine{00749     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j -\/ q == 2) \{}
+\DoxyCodeLine{00750       \textcolor{comment}{/* one unpaired base between q and j */}}
+\DoxyCodeLine{00751       energy += \mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{MIN2}}(d5, d3\_2);}
+\DoxyCodeLine{00752     \}}
+\DoxyCodeLine{00753   \}}
+\DoxyCodeLine{00754 }
+\DoxyCodeLine{00755   \textcolor{keywordflow}{return} energy;}
+\DoxyCodeLine{00756 \}}
+\DoxyCodeLine{00757 }
+\DoxyCodeLine{00758 }
+\DoxyCodeLine{00763 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00764 }
+\DoxyCodeLine{00765 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

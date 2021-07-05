@@ -1,0 +1,48 @@
+\hypertarget{landscape_2walk_8h}{}\doxysection{Vienna\+RNA/landscape/walk.h File Reference}
+\label{landscape_2walk_8h}\index{ViennaRNA/landscape/walk.h@{ViennaRNA/landscape/walk.h}}
+
+
+Methods to generate particular paths such as gradient or random walks through the energy landscape of an RNA sequence.  
+
+
+Include dependency graph for walk.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{landscape_2walk_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{landscape_2walk_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}}~128
+\begin{DoxyCompactList}\small\item\em Option flag to request a steepest descent / gradient path. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths__walk_ga0b84bd36bfd783130297797c51dd85ae}{VRNA\+\_\+\+PATH\+\_\+\+RANDOM}}~256
+\begin{DoxyCompactList}\small\item\em Option flag to request a random walk path. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}}~512
+\begin{DoxyCompactList}\small\item\em Option flag to omit returning the transition path. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}}~(\mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}} $\vert$ \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}})
+\begin{DoxyCompactList}\small\item\em Option flag to request defaults (steepest descent / default move set) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Compute a path, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, short $\ast$pt, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Compute a steepest descent / gradient path, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}{vrna\+\_\+path\+\_\+random}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate a random walk / path of a given length, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Methods to generate particular paths such as gradient or random walks through the energy landscape of an RNA sequence. 
+

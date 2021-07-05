@@ -1,0 +1,57 @@
+\hypertarget{centroid_8h_source}{}\doxysection{centroid.\+h}
+\label{centroid_8h_source}\index{ViennaRNA/centroid.h@{ViennaRNA/centroid.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_CENTROID\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_CENTROID\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2structures_8h}{ViennaRNA/utils/structures.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00039 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{centroid_8h_source_l00040}\mbox{\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{00040}} \mbox{\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{vrna\_centroid}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00041               \textcolor{keywordtype}{double}                *dist);}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00060 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{centroid_8h_source_l00061}\mbox{\hyperlink{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}{00061}} \mbox{\hyperlink{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}{vrna\_centroid\_from\_plist}}(\textcolor{keywordtype}{int}        length,}
+\DoxyCodeLine{00062                          \textcolor{keywordtype}{double}     *dist,}
+\DoxyCodeLine{00063                          \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}  *pl);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00082 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{centroid_8h_source_l00083}\mbox{\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{00083}} \mbox{\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{vrna\_centroid\_from\_probs}}(\textcolor{keywordtype}{int}        length,}
+\DoxyCodeLine{00084                          \textcolor{keywordtype}{double}     *dist,}
+\DoxyCodeLine{00085                          \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *probs);}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00095 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{centroid_8h_a7dcc64bcefcf682396dd3bbea02416fe}{get\_centroid\_struct\_pl}}(\textcolor{keywordtype}{int}       length,}
+\DoxyCodeLine{00096                                         \textcolor{keywordtype}{double}    *dist,}
+\DoxyCodeLine{00097                                         \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} *pl),}
+\DoxyCodeLine{\Hypertarget{centroid_8h_source_l00098}\mbox{\hyperlink{centroid_8h_a7dcc64bcefcf682396dd3bbea02416fe}{00098}}            \textcolor{stringliteral}{"{}Use vrna\_centroid\_from\_plist() instead"{}});}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00105 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{centroid_8h_ac92486ce514677256f4a832dc518759c}{get\_centroid\_struct\_pr}}(\textcolor{keywordtype}{int}         length,}
+\DoxyCodeLine{00106                                         \textcolor{keywordtype}{double}      *dist,}
+\DoxyCodeLine{00107                                         \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  *\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}),}
+\DoxyCodeLine{\Hypertarget{centroid_8h_source_l00108}\mbox{\hyperlink{centroid_8h_ac92486ce514677256f4a832dc518759c}{00108}}            \textcolor{stringliteral}{"{}Use vrna\_centroid\_from\_probs() instead"{}});}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

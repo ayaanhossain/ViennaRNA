@@ -1,0 +1,125 @@
+\hypertarget{group__inverse__fold}{}\doxysection{Inverse Folding (Design)}
+\label{group__inverse__fold}\index{Inverse Folding (Design)@{Inverse Folding (Design)}}
+
+
+RNA sequence design.  
+
+
+
+
+\doxysubsection{Detailed Description}
+RNA sequence design. 
+
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{inverse_8h}{inverse.\+h}}
+\begin{DoxyCompactList}\small\item\em Inverse folding routines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{inverse\+\_\+fold}} (char $\ast$start, const char $\ast$target)
+\begin{DoxyCompactList}\small\item\em Find sequences with predefined structure. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}{inverse\+\_\+pf\+\_\+fold}} (char $\ast$start, const char $\ast$target)
+\begin{DoxyCompactList}\small\item\em Find sequence that maximizes probability of a predefined structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__inverse__fold_ga8f791e7740a5a28b9f6fafb4e60301d9}\label{group__inverse__fold_ga8f791e7740a5a28b9f6fafb4e60301d9}} 
+char $\ast$ \mbox{\hyperlink{group__inverse__fold_ga8f791e7740a5a28b9f6fafb4e60301d9}{symbolset}}
+\begin{DoxyCompactList}\small\item\em This global variable points to the allowed bases, initially \char`\"{}\+AUGC\char`\"{}. It can be used to design sequences from reduced alphabets. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__inverse__fold_ga7f17d3b169af048d32bb185039a9c09c}{final\+\_\+cost}}
+\item 
+int \mbox{\hyperlink{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}{give\+\_\+up}}
+\item 
+int \mbox{\hyperlink{group__inverse__fold_gafcfc65fba01b9cca5946726ed9057a63}{inv\+\_\+verbose}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}\label{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}} 
+\index{Inverse Folding (Design)@{Inverse Folding (Design)}!inverse\_fold@{inverse\_fold}}
+\index{inverse\_fold@{inverse\_fold}!Inverse Folding (Design)@{Inverse Folding (Design)}}
+\doxysubsubsection{\texorpdfstring{inverse\_fold()}{inverse\_fold()}}
+{\footnotesize\ttfamily float inverse\+\_\+fold (\begin{DoxyParamCaption}\item[{char $\ast$}]{start,  }\item[{const char $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{inverse_8h}{Vienna\+RNA/inverse.\+h}}$>$}
+
+
+
+Find sequences with predefined structure. 
+
+This function searches for a sequence with minimum free energy structure provided in the parameter \textquotesingle{}target\textquotesingle{}, starting with sequence \textquotesingle{}start\textquotesingle{}. It returns 0 if the search was successful, otherwise a structure distance in terms of the energy difference between the search result and the actual target \textquotesingle{}target\textquotesingle{} is returned. The found sequence is returned in \textquotesingle{}start\textquotesingle{}. If \mbox{\hyperlink{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}{give\+\_\+up}} is set to 1, the function will return as soon as it is clear that the search will be unsuccessful, this speeds up the algorithm if you are only interested in exact solutions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The start sequence \\
+\hline
+{\em target} & The target secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance to the target in case a search was unsuccessful, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}\label{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}} 
+\index{Inverse Folding (Design)@{Inverse Folding (Design)}!inverse\_pf\_fold@{inverse\_pf\_fold}}
+\index{inverse\_pf\_fold@{inverse\_pf\_fold}!Inverse Folding (Design)@{Inverse Folding (Design)}}
+\doxysubsubsection{\texorpdfstring{inverse\_pf\_fold()}{inverse\_pf\_fold()}}
+{\footnotesize\ttfamily float inverse\+\_\+pf\+\_\+fold (\begin{DoxyParamCaption}\item[{char $\ast$}]{start,  }\item[{const char $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{inverse_8h}{Vienna\+RNA/inverse.\+h}}$>$}
+
+
+
+Find sequence that maximizes probability of a predefined structure. 
+
+This function searches for a sequence with maximum probability to fold into the provided structure \textquotesingle{}target\textquotesingle{} using the partition function algorithm. It returns $-kT \cdot \log(p)$ where $p$ is the frequency of \textquotesingle{}target\textquotesingle{} in the ensemble of possible structures. This is usually much slower than \mbox{\hyperlink{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{inverse\+\_\+fold()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The start sequence \\
+\hline
+{\em target} & The target secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance to the target in case a search was unsuccessful, 0 otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__inverse__fold_ga7f17d3b169af048d32bb185039a9c09c}\label{group__inverse__fold_ga7f17d3b169af048d32bb185039a9c09c}} 
+\index{Inverse Folding (Design)@{Inverse Folding (Design)}!final\_cost@{final\_cost}}
+\index{final\_cost@{final\_cost}!Inverse Folding (Design)@{Inverse Folding (Design)}}
+\doxysubsubsection{\texorpdfstring{final\_cost}{final\_cost}}
+{\footnotesize\ttfamily float final\+\_\+cost\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{inverse_8h}{Vienna\+RNA/inverse.\+h}}$>$}
+
+when to stop \mbox{\hyperlink{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}{inverse\+\_\+pf\+\_\+fold()}} \mbox{\Hypertarget{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}\label{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}} 
+\index{Inverse Folding (Design)@{Inverse Folding (Design)}!give\_up@{give\_up}}
+\index{give\_up@{give\_up}!Inverse Folding (Design)@{Inverse Folding (Design)}}
+\doxysubsubsection{\texorpdfstring{give\_up}{give\_up}}
+{\footnotesize\ttfamily int give\+\_\+up\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{inverse_8h}{Vienna\+RNA/inverse.\+h}}$>$}
+
+default 0\+: try to minimize structure distance even if no exact solution can be found \mbox{\Hypertarget{group__inverse__fold_gafcfc65fba01b9cca5946726ed9057a63}\label{group__inverse__fold_gafcfc65fba01b9cca5946726ed9057a63}} 
+\index{Inverse Folding (Design)@{Inverse Folding (Design)}!inv\_verbose@{inv\_verbose}}
+\index{inv\_verbose@{inv\_verbose}!Inverse Folding (Design)@{Inverse Folding (Design)}}
+\doxysubsubsection{\texorpdfstring{inv\_verbose}{inv\_verbose}}
+{\footnotesize\ttfamily int inv\+\_\+verbose\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{inverse_8h}{Vienna\+RNA/inverse.\+h}}$>$}
+
+print out substructure on which \mbox{\hyperlink{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{inverse\+\_\+fold()}} fails 

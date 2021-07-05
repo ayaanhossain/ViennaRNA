@@ -1,0 +1,5 @@
+<map id="Command Files" name="Command Files">
+<area shape="rect" id="node1" title="Functions to parse and interpret the content of Command Files." alt="" coords="5,35,120,60"/>
+<area shape="rect" id="node2" href="$group__file__utils.html" title="Functions to parse, write, and convert various file formats and to deal with file system related issu..." alt="" coords="244,5,341,31"/>
+<area shape="rect" id="node3" href="$group__utils.html" title=" " alt="" coords="259,69,326,95"/>
+</map>

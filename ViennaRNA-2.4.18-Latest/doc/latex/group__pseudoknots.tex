@@ -1,0 +1,318 @@
+\hypertarget{group__pseudoknots}{}\doxysection{Pseudoknots}
+\label{group__pseudoknots}\index{Pseudoknots@{Pseudoknots}}
+
+
+Implementations to predict pseudoknotted structures.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Implementations to predict pseudoknotted structures. 
+
+Collaboration diagram for Pseudoknots\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{group__pseudoknots}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{pk__plex_8h}{pk\+\_\+plex.\+h}}
+\begin{DoxyCompactList}\small\item\em Heuristics for two-\/step pseudoknot forming interaction predictions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em A result of the RNA PKplex interaction prediction.  \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int() \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}}(const short $\ast$pt, int start\+\_\+5, int end\+\_\+5, int start\+\_\+3, int end\+\_\+3, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Pseudoknot loop scoring function prototype. \end{DoxyCompactList}\item 
+typedef struct vrna\+\_\+pk\+\_\+plex\+\_\+option\+\_\+s $\ast$ \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em RNA PKplex options object. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s}} \mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Convenience typedef for results of the RNA PKplex prediction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}} $\ast$ \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const int $\ast$$\ast$accessibility, \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} options)
+\begin{DoxyCompactList}\small\item\em Predict Pseudoknot interactions in terms of a two-\/step folding process. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \mbox{\hyperlink{group__pseudoknots_gaf5d94fd4c79d75b0a91b6abb18dbd09c}{vrna\+\_\+pk\+\_\+plex\+\_\+accessibility}} (const char $\ast$sequence, unsigned int \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}}, double cutoff)
+\begin{DoxyCompactList}\small\item\em Obtain a list of opening energies suitable for PKplex computations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} \mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults}} (void)
+\begin{DoxyCompactList}\small\item\em Default options for PKplex algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\+\_\+pk\+\_\+plex\+\_\+opt}} (unsigned int delta, unsigned int max\+\_\+interaction\+\_\+length, int pk\+\_\+penalty)
+\begin{DoxyCompactList}\small\item\em Simple options for PKplex algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun}} (unsigned int delta, unsigned int max\+\_\+interaction\+\_\+length, \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}} $\ast$scoring\+\_\+function, void $\ast$scoring\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Simple options for PKplex algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_pk\_plex\_result\_s@{vrna\_pk\_plex\_result\_s}}\label{structvrna__pk__plex__result__s}
+\Hypertarget{group__pseudoknots_structvrna__pk__plex__result__s}
+\doxysubsubsection{struct vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s}
+A result of the RNA PKplex interaction prediction. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}} 
+\end{DoxySeeAlso}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__pseudoknots_a31fe3dea3cb3799621cd111ab3e31629}\label{group__pseudoknots_a31fe3dea3cb3799621cd111ab3e31629}} 
+char $\ast$ \mbox{\hyperlink{group__pseudoknots_a31fe3dea3cb3799621cd111ab3e31629}{structure}}
+\begin{DoxyCompactList}\small\item\em Secondary Structure in dot-\/bracket notation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_a1a28780d20573e1e8e74137f74ebaa8b}\label{group__pseudoknots_a1a28780d20573e1e8e74137f74ebaa8b}} 
+double \mbox{\hyperlink{group__pseudoknots_a1a28780d20573e1e8e74137f74ebaa8b}{energy}}
+\begin{DoxyCompactList}\small\item\em Net free energy in kcal/mol. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_ad229d6898ffdb195b6442defdec35171}\label{group__pseudoknots_ad229d6898ffdb195b6442defdec35171}} 
+double \mbox{\hyperlink{group__pseudoknots_ad229d6898ffdb195b6442defdec35171}{d\+Gpk}}
+\begin{DoxyCompactList}\small\item\em Free energy of PK loop in kcal/mol. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_abb999a7a5a80f71d57a801d83901a596}\label{group__pseudoknots_abb999a7a5a80f71d57a801d83901a596}} 
+double \mbox{\hyperlink{group__pseudoknots_abb999a7a5a80f71d57a801d83901a596}{d\+Gint}}
+\begin{DoxyCompactList}\small\item\em Free energy of PK forming duplex interaction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_ad5c142b580ce0db3e2bb4ec7faa9cbdd}\label{group__pseudoknots_ad5c142b580ce0db3e2bb4ec7faa9cbdd}} 
+double \mbox{\hyperlink{group__pseudoknots_ad5c142b580ce0db3e2bb4ec7faa9cbdd}{d\+G1}}
+\begin{DoxyCompactList}\small\item\em Opening energy for the 5\textquotesingle{} interaction site used in the heuristic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_a3aaccf208713fe56d9a27d65062989cb}\label{group__pseudoknots_a3aaccf208713fe56d9a27d65062989cb}} 
+double \mbox{\hyperlink{group__pseudoknots_a3aaccf208713fe56d9a27d65062989cb}{d\+G2}}
+\begin{DoxyCompactList}\small\item\em Opening energy for the 3\textquotesingle{} interaction site used in the heuristic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_aeebb3e74fb4390b23aefaa50b98e4672}\label{group__pseudoknots_aeebb3e74fb4390b23aefaa50b98e4672}} 
+unsigned int \mbox{\hyperlink{group__pseudoknots_aeebb3e74fb4390b23aefaa50b98e4672}{start\+\_\+5}}
+\begin{DoxyCompactList}\small\item\em Start coordinate of the 5\textquotesingle{} interaction site. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_ae2a8ca7f4769a6595617649adbf6284f}\label{group__pseudoknots_ae2a8ca7f4769a6595617649adbf6284f}} 
+unsigned int \mbox{\hyperlink{group__pseudoknots_ae2a8ca7f4769a6595617649adbf6284f}{end\+\_\+5}}
+\begin{DoxyCompactList}\small\item\em End coordinate of the 5\textquotesingle{} interaction site. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_a364296aea56d85179a1576d83e5a4826}\label{group__pseudoknots_a364296aea56d85179a1576d83e5a4826}} 
+unsigned int \mbox{\hyperlink{group__pseudoknots_a364296aea56d85179a1576d83e5a4826}{start\+\_\+3}}
+\begin{DoxyCompactList}\small\item\em Start coordinate of the 3\textquotesingle{} interaction site. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__pseudoknots_a69f49f082cb148f0fbd5dd4fe84ab9bb}\label{group__pseudoknots_a69f49f082cb148f0fbd5dd4fe84ab9bb}} 
+unsigned int \mbox{\hyperlink{group__pseudoknots_a69f49f082cb148f0fbd5dd4fe84ab9bb}{end\+\_\+3}}
+\begin{DoxyCompactList}\small\item\em End coordinate of the 3\textquotesingle{} interaction site. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}\label{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_callback\_pk\_plex\_score@{vrna\_callback\_pk\_plex\_score}}
+\index{vrna\_callback\_pk\_plex\_score@{vrna\_callback\_pk\_plex\_score}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_callback\_pk\_plex\_score}{vrna\_callback\_pk\_plex\_score}}
+{\footnotesize\ttfamily typedef int() vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score(const short $\ast$pt, int start\+\_\+5, int end\+\_\+5, int start\+\_\+3, int end\+\_\+3, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Pseudoknot loop scoring function prototype. 
+
+This function is used to evaluate a formed pseudoknot (PK) interaction in \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}. It is supposed to take a PK-\/free secondary structure as input and coordinates of an additional interaction site. From this data, the energy (penalty) to score the PK loop is derived and returned in decakal/mol. Upon passing zero in any of the interaction site coordinates ({\ttfamily start\+\_\+5}, {\ttfamily end\+\_\+5}, {\ttfamily start\+\_\+3}, {\ttfamily end\+\_\+3}) or a {\itshape NULL} pointer in {\ttfamily pt}, the function must return a PK loop score. This minimum PK loop score is used in the first phase of the heuristic implemented in \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}} to assess whether a particular interaction is further taken into account in a later, more thorough evaluation step.
+
+The simplest scoring function would simply return a constant score for any PK loop, no matter what type of loop is formed and how large the loop is. This is the default if \mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults()}} or \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\+\_\+pk\+\_\+plex\+\_\+opt()}} is used to generate options for \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun()}}, \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & The secondary structure (without pseudoknot) in pair table notation \\
+\hline
+{\em start\+\_\+5} & The start coordinate of the 5\textquotesingle{} site of the pseudoknot interaction \\
+\hline
+{\em end\+\_\+5} & The end coordinate of the 5\textquotesingle{} site of the pseudoknot interaction \\
+\hline
+{\em start\+\_\+3} & The start coordinate of the 3\textquotesingle{} site of the pseudoknot interaction \\
+\hline
+{\em end\+\_\+3} & The end coordinate of the 3\textquotesingle{} site of the pseudoknot interaction \\
+\hline
+{\em data} & An arbitrary data structure passed from the calling function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The energy (penalty) of the resulting pseudoknot 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}\label{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex\_opt\_t@{vrna\_pk\_plex\_opt\_t}}
+\index{vrna\_pk\_plex\_opt\_t@{vrna\_pk\_plex\_opt\_t}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex\_opt\_t}{vrna\_pk\_plex\_opt\_t}}
+{\footnotesize\ttfamily typedef struct vrna\+\_\+pk\+\_\+plex\+\_\+option\+\_\+s$\ast$ \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+RNA PKplex options object. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults()}}, \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\+\_\+pk\+\_\+plex\+\_\+opt()}}, \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun()}}, \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}, \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}\label{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex\_t@{vrna\_pk\_plex\_t}}
+\index{vrna\_pk\_plex\_t@{vrna\_pk\_plex\_t}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex\_t}{vrna\_pk\_plex\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s}} \mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Convenience typedef for results of the RNA PKplex prediction. 
+
+\begin{DoxySeeAlso}{See also}
+\#vrna\+\_\+pk\+\_\+plex\+\_\+results\+\_\+s, \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}\label{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex@{vrna\_pk\_plex}}
+\index{vrna\_pk\_plex@{vrna\_pk\_plex}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex()}{vrna\_pk\_plex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pseudoknots_ga4b505034ccee4de966519afe8b3c120f}{vrna\+\_\+pk\+\_\+plex\+\_\+t}}$\ast$ vrna\+\_\+pk\+\_\+plex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{const int $\ast$$\ast$}]{accessibility,  }\item[{\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}}}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Predict Pseudoknot interactions in terms of a two-\/step folding process. 
+
+Computes simple pseudoknot interactions according to the PKplex algorithm. This simple heuristic first compiles a list of potential interaction sites that may form a pseudoknot. The resulting candidate interactions are then fixed and an PK-\/free MFE structure for the remainder of the sequence is computed.
+
+The {\ttfamily accessibility} argument is a list of opening energies for potential interaction sites. It is used in the first step of the algorithm to identify potential interactions. Upon passing {\itshape NULL}, the opening energies are determined automatically based on the current model settings.
+
+Depending on the {\ttfamily options}, the function can return the MFE (incl. PK loops) or suboptimal structures within an energy band around the MFE. The PK loop is internally scored by a scoring function that in the simplest cases assigns a constant value for each PK loop. More complicated scoring functions can be passed as well, see \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}} and \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun()}}.
+
+The function returns {\itshape NULL} on any error. Otherwise, a list of structures and interaction coordinates with corresponding energy contributions is returned. If no PK-\/interaction that satisfies the options is found, the list only consists of the PK-\/free MFE structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & fold compound with the input sequence and model settings \\
+\hline
+{\em accessibility} & An array of opening energies for the implemented heuristic (maybe {\itshape NULL}) \\
+\hline
+{\em options} & An \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} options data structure that determines the algorithm parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of potentially pseudoknotted structures (Last element in the list indicated by {\itshape NULL} value in \mbox{\hyperlink{group__pseudoknots_a31fe3dea3cb3799621cd111ab3e31629}{vrna\+\_\+pk\+\_\+plex\+\_\+result\+\_\+s.\+structure}}) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pseudoknots_gaf5d94fd4c79d75b0a91b6abb18dbd09c}\label{group__pseudoknots_gaf5d94fd4c79d75b0a91b6abb18dbd09c}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex\_accessibility@{vrna\_pk\_plex\_accessibility}}
+\index{vrna\_pk\_plex\_accessibility@{vrna\_pk\_plex\_accessibility}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex\_accessibility()}{vrna\_pk\_plex\_accessibility()}}
+{\footnotesize\ttfamily int$\ast$$\ast$ vrna\+\_\+pk\+\_\+plex\+\_\+accessibility (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{unsigned int}]{unpaired,  }\item[{double}]{cutoff }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Obtain a list of opening energies suitable for PKplex computations. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The RNA sequence \\
+\hline
+{\em unpaired} & The maximum number of unpaired nucleotides, i.\+e. length of interaction \\
+\hline
+{\em cutoff} & A cutoff value for unpaired probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Opening energies as required for \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}\label{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex\_opt\_defaults@{vrna\_pk\_plex\_opt\_defaults}}
+\index{vrna\_pk\_plex\_opt\_defaults@{vrna\_pk\_plex\_opt\_defaults}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex\_opt\_defaults()}{vrna\_pk\_plex\_opt\_defaults()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Default options for PKplex algorithm. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}, \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\+\_\+pk\+\_\+plex\+\_\+opt()}}, \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+An options data structure suitabe for PKplex computations 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}\label{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex\_opt@{vrna\_pk\_plex\_opt}}
+\index{vrna\_pk\_plex\_opt@{vrna\_pk\_plex\_opt}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex\_opt()}{vrna\_pk\_plex\_opt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} vrna\+\_\+pk\+\_\+plex\+\_\+opt (\begin{DoxyParamCaption}\item[{unsigned int}]{delta,  }\item[{unsigned int}]{max\+\_\+interaction\+\_\+length,  }\item[{int}]{pk\+\_\+penalty }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Simple options for PKplex algorithm. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}, \mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults()}}, \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Size of energy band around MFE for suboptimal results in dekacal/mol \\
+\hline
+{\em max\+\_\+interaction\+\_\+length} & Maximum length of interaction \\
+\hline
+{\em pk\+\_\+penalty} & Energy constant to score the PK forming loop \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An options data structure suitabe for PKplex computations 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}\label{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}} 
+\index{Pseudoknots@{Pseudoknots}!vrna\_pk\_plex\_opt\_fun@{vrna\_pk\_plex\_opt\_fun}}
+\index{vrna\_pk\_plex\_opt\_fun@{vrna\_pk\_plex\_opt\_fun}!Pseudoknots@{Pseudoknots}}
+\doxysubsubsection{\texorpdfstring{vrna\_pk\_plex\_opt\_fun()}{vrna\_pk\_plex\_opt\_fun()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+t}} vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+fun (\begin{DoxyParamCaption}\item[{unsigned int}]{delta,  }\item[{unsigned int}]{max\+\_\+interaction\+\_\+length,  }\item[{\mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}} $\ast$}]{scoring\+\_\+function,  }\item[{void $\ast$}]{scoring\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{pk__plex_8h}{Vienna\+RNA/pk\+\_\+plex.\+h}}$>$}
+
+
+
+Simple options for PKplex algorithm. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\+\_\+pk\+\_\+plex()}}, \mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\+\_\+pk\+\_\+plex\+\_\+opt\+\_\+defaults()}}, \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\+\_\+pk\+\_\+plex\+\_\+opt()}}, \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\+\_\+callback\+\_\+pk\+\_\+plex\+\_\+score}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Size of energy band around MFE for suboptimal results in dekacal/mol \\
+\hline
+{\em max\+\_\+interaction\+\_\+length} & Maximum length of interaction \\
+\hline
+{\em scoring\+\_\+function} & Energy evaluating function to score the PK forming loop \\
+\hline
+{\em scoring\+\_\+data} & An arbitrary data structure passed to the scoring function (maybe {\itshape NUL}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An options data structure suitabe for PKplex computations 
+\end{DoxyReturn}

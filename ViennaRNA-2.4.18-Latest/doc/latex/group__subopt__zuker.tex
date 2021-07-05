@@ -1,0 +1,105 @@
+\hypertarget{group__subopt__zuker}{}\doxysection{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}
+\label{group__subopt__zuker}\index{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__subopt__zuker}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{subopt_8h_a01ae9a0f27d245d89f705afd843fc457}{vrna\+\_\+subopt\+\_\+solution\+\_\+t}} $\ast$ \mbox{\hyperlink{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}{vrna\+\_\+subopt\+\_\+zuker}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Compute Zuker type suboptimal structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}} $\ast$ \mbox{\hyperlink{group__subopt__zuker_ga0d5104e3ecf119d8eabd40aa5fe47f90}{zukersubopt}} (const char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Compute Zuker type suboptimal structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}} $\ast$ \mbox{\hyperlink{group__subopt__zuker_gab6d0ea8cc1d02f6dd831ca81043c9eb8}{zukersubopt\+\_\+par}} (const char $\ast$string, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Compute Zuker type suboptimal structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}\label{group__subopt__zuker_gababde9d210eb433854f1e71da7815fbb}} 
+\index{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}!vrna\_subopt\_zuker@{vrna\_subopt\_zuker}}
+\index{vrna\_subopt\_zuker@{vrna\_subopt\_zuker}!Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}}
+\doxysubsubsection{\texorpdfstring{vrna\_subopt\_zuker()}{vrna\_subopt\_zuker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{subopt_8h_a01ae9a0f27d245d89f705afd843fc457}{vrna\+\_\+subopt\+\_\+solution\+\_\+t}} $\ast$ vrna\+\_\+subopt\+\_\+zuker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Compute Zuker type suboptimal structures. 
+
+Compute Suboptimal structures according to M. Zuker \cite{zuker:1989} , i.\+e. for every possible base pair the minimum energy structure containing the resp. base pair. Returns a list of these structures and their energies.
+
+\begin{DoxyNote}{Note}
+This function internally uses the cofold implementation to compute the suboptimal structures. For that purpose, the function doubles the sequence and enlarges the DP matrices, which in fact will grow by a factor of 4 during the computation! At the end of the structure prediction, everything will be re-\/set to its original requriements, i.\+e. normal sequence, normal (empty) DP matrices.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000002}{Bug}}]Due to resizing, any pre-\/existing constraints will be lost!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__wuchty_ga0f11d738fb8c8b1885a90c11c8931ff6}{vrna\+\_\+subopt()}}, \mbox{\hyperlink{group__subopt__zuker_ga0d5104e3ecf119d8eabd40aa5fe47f90}{zukersubopt()}}, \mbox{\hyperlink{group__subopt__zuker_gab6d0ea8cc1d02f6dd831ca81043c9eb8}{zukersubopt\+\_\+par()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & fold compound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of zuker suboptimal structures
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000142}{SWIG Wrapper Notes}}]This function is attached as method {\bfseries{subopt\+\_\+zuker()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__subopt__zuker_ga0d5104e3ecf119d8eabd40aa5fe47f90}\label{group__subopt__zuker_ga0d5104e3ecf119d8eabd40aa5fe47f90}} 
+\index{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}!zukersubopt@{zukersubopt}}
+\index{zukersubopt@{zukersubopt}!Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}}
+\doxysubsubsection{\texorpdfstring{zukersubopt()}{zukersubopt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}}$\ast$ zukersubopt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Compute Zuker type suboptimal structures. 
+
+Compute Suboptimal structures according to M. Zuker, i.\+e. for every possible base pair the minimum energy structure containing the resp. base pair. Returns a list of these structures and their energies.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000136}{Deprecated}}]use vrna\+\_\+zukersubopt() instead\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & RNA sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of zuker suboptimal structures 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__subopt__zuker_gab6d0ea8cc1d02f6dd831ca81043c9eb8}\label{group__subopt__zuker_gab6d0ea8cc1d02f6dd831ca81043c9eb8}} 
+\index{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}!zukersubopt\_par@{zukersubopt\_par}}
+\index{zukersubopt\_par@{zukersubopt\_par}!Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989@{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}}
+\doxysubsubsection{\texorpdfstring{zukersubopt\_par()}{zukersubopt\_par()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{subopt_8h_aa0f46ff02e1017469cf902d02ecd7f9a}{SOLUTION}}$\ast$ zukersubopt\+\_\+par (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{subopt_8h}{Vienna\+RNA/subopt.\+h}}$>$}
+
+
+
+Compute Zuker type suboptimal structures. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000137}{Deprecated}}]use vrna\+\_\+zukersubopt() instead\end{DoxyRefDesc}

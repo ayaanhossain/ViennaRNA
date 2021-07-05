@@ -1,0 +1,253 @@
+\hypertarget{snoop_8h_source}{}\doxysection{snoop.\+h}
+\label{snoop_8h_source}\index{ViennaRNA/snoop.h@{ViennaRNA/snoop.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_SNOOP\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_SNOOP\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00012 \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}} snoopfold(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00013                  \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00014                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  penalty,}
+\DoxyCodeLine{00015                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshloop,}
+\DoxyCodeLine{00016                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshLE,}
+\DoxyCodeLine{00017                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshRE,}
+\DoxyCodeLine{00018                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshDE,}
+\DoxyCodeLine{00019                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshD,}
+\DoxyCodeLine{00020                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00021                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem,}
+\DoxyCodeLine{00022                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00023                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00024                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s1,}
+\DoxyCodeLine{00025                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s1,}
+\DoxyCodeLine{00026                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d1,}
+\DoxyCodeLine{00027                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d2,}
+\DoxyCodeLine{00028                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fullStemEnergy);}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00036 \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}} *snoop\_subopt(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00037                      \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00038                      \textcolor{keywordtype}{int}        delta,}
+\DoxyCodeLine{00039                      \textcolor{keywordtype}{int}        w,}
+\DoxyCodeLine{00040                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  penalty,}
+\DoxyCodeLine{00041                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshloop,}
+\DoxyCodeLine{00042                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshLE,}
+\DoxyCodeLine{00043                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshRE,}
+\DoxyCodeLine{00044                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshDE,}
+\DoxyCodeLine{00045                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshTE,}
+\DoxyCodeLine{00046                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshSE,}
+\DoxyCodeLine{00047                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshD,}
+\DoxyCodeLine{00048                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  distance,}
+\DoxyCodeLine{00049                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00050                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem,}
+\DoxyCodeLine{00051                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00052                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00053                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s1,}
+\DoxyCodeLine{00054                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s1,}
+\DoxyCodeLine{00055                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d1,}
+\DoxyCodeLine{00056                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d2,}
+\DoxyCodeLine{00057                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fullStemEnergy);}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00065 \textcolor{keywordtype}{void} Lsnoop\_subopt(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00066                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00067                    \textcolor{keywordtype}{int}        delta,}
+\DoxyCodeLine{00068                    \textcolor{keywordtype}{int}        w,}
+\DoxyCodeLine{00069                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  penalty,}
+\DoxyCodeLine{00070                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshloop,}
+\DoxyCodeLine{00071                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshLE,}
+\DoxyCodeLine{00072                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshRE,}
+\DoxyCodeLine{00073                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshDE,}
+\DoxyCodeLine{00074                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshTE,}
+\DoxyCodeLine{00075                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshSE,}
+\DoxyCodeLine{00076                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshD,}
+\DoxyCodeLine{00077                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  distance,}
+\DoxyCodeLine{00078                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00079                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem,}
+\DoxyCodeLine{00080                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00081                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00082                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s1,}
+\DoxyCodeLine{00083                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s1,}
+\DoxyCodeLine{00084                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d1,}
+\DoxyCodeLine{00085                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d2,}
+\DoxyCodeLine{00086                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  alignment\_length,}
+\DoxyCodeLine{00087                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{00088                    \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fullStemEnergy);}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00096 \textcolor{keywordtype}{void} Lsnoop\_subopt\_list(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s1,}
+\DoxyCodeLine{00097                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s2,}
+\DoxyCodeLine{00098                         \textcolor{keywordtype}{int}         delta,}
+\DoxyCodeLine{00099                         \textcolor{keywordtype}{int}         w,}
+\DoxyCodeLine{00100                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   penalty,}
+\DoxyCodeLine{00101                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshloop,}
+\DoxyCodeLine{00102                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshLE,}
+\DoxyCodeLine{00103                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshRE,}
+\DoxyCodeLine{00104                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshDE,}
+\DoxyCodeLine{00105                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshTE,}
+\DoxyCodeLine{00106                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshSE,}
+\DoxyCodeLine{00107                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshD,}
+\DoxyCodeLine{00108                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   distance,}
+\DoxyCodeLine{00109                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   half\_stem,}
+\DoxyCodeLine{00110                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_half\_stem,}
+\DoxyCodeLine{00111                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s2,}
+\DoxyCodeLine{00112                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s2,}
+\DoxyCodeLine{00113                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s1,}
+\DoxyCodeLine{00114                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s1,}
+\DoxyCodeLine{00115                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d1,}
+\DoxyCodeLine{00116                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d2,}
+\DoxyCodeLine{00117                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   alignment\_length,}
+\DoxyCodeLine{00118                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *name,}
+\DoxyCodeLine{00119                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   fullStemEnergy);}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00127 \textcolor{keywordtype}{void} Lsnoop\_subopt\_list\_XS(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00128                            \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00129                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  **access\_s1,}
+\DoxyCodeLine{00130                            \textcolor{keywordtype}{int}        delta,}
+\DoxyCodeLine{00131                            \textcolor{keywordtype}{int}        w,}
+\DoxyCodeLine{00132                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  penalty,}
+\DoxyCodeLine{00133                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshloop,}
+\DoxyCodeLine{00134                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshLE,}
+\DoxyCodeLine{00135                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshRE,}
+\DoxyCodeLine{00136                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshDE,}
+\DoxyCodeLine{00137                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshTE,}
+\DoxyCodeLine{00138                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshSE,}
+\DoxyCodeLine{00139                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshD,}
+\DoxyCodeLine{00140                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  distance,}
+\DoxyCodeLine{00141                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00142                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem,}
+\DoxyCodeLine{00143                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00144                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00145                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s1,}
+\DoxyCodeLine{00146                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s1,}
+\DoxyCodeLine{00147                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d1,}
+\DoxyCodeLine{00148                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d2,}
+\DoxyCodeLine{00149                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  alignment\_length,}
+\DoxyCodeLine{00150                            \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{00151                            \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fullStemEnergy);}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00159 \textcolor{keywordtype}{void} snoop\_subopt\_XS(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00160                      \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00161                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  **access\_s1,}
+\DoxyCodeLine{00162                      \textcolor{keywordtype}{int}        delta,}
+\DoxyCodeLine{00163                      \textcolor{keywordtype}{int}        w,}
+\DoxyCodeLine{00164                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  penalty,}
+\DoxyCodeLine{00165                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshloop,}
+\DoxyCodeLine{00166                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshLE,}
+\DoxyCodeLine{00167                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshRE,}
+\DoxyCodeLine{00168                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshDE,}
+\DoxyCodeLine{00169                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshTE,}
+\DoxyCodeLine{00170                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshSE,}
+\DoxyCodeLine{00171                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshD,}
+\DoxyCodeLine{00172                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  distance,}
+\DoxyCodeLine{00173                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00174                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem,}
+\DoxyCodeLine{00175                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00176                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00177                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s1,}
+\DoxyCodeLine{00178                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s1,}
+\DoxyCodeLine{00179                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d1,}
+\DoxyCodeLine{00180                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_d2,}
+\DoxyCodeLine{00181                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  alignment\_length,}
+\DoxyCodeLine{00182                      \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{00183                      \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fullStemEnergy);}
+\DoxyCodeLine{00184 }
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00190 \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}} *alisnoop\_subopt(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  **s1,}
+\DoxyCodeLine{00191                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  **s2,}
+\DoxyCodeLine{00192                         \textcolor{keywordtype}{int}         delta,}
+\DoxyCodeLine{00193                         \textcolor{keywordtype}{int}         w,}
+\DoxyCodeLine{00194                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   penalty,}
+\DoxyCodeLine{00195                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshloop,}
+\DoxyCodeLine{00196                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshLE,}
+\DoxyCodeLine{00197                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshRE,}
+\DoxyCodeLine{00198                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshDE,}
+\DoxyCodeLine{00199                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshTE,}
+\DoxyCodeLine{00200                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshSE,}
+\DoxyCodeLine{00201                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshD,}
+\DoxyCodeLine{00202                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   distance,}
+\DoxyCodeLine{00203                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   half\_stem,}
+\DoxyCodeLine{00204                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_half\_stem,}
+\DoxyCodeLine{00205                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s2,}
+\DoxyCodeLine{00206                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s2,}
+\DoxyCodeLine{00207                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s1,}
+\DoxyCodeLine{00208                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s1,}
+\DoxyCodeLine{00209                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d1,}
+\DoxyCodeLine{00210                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d2);}
+\DoxyCodeLine{00211 }
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00218 \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}} *aliLsnoop\_subopt\_list(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  **s1,}
+\DoxyCodeLine{00219                               \textcolor{keyword}{const} \textcolor{keywordtype}{char}  **s2,}
+\DoxyCodeLine{00220                               \textcolor{keywordtype}{int}         delta,}
+\DoxyCodeLine{00221                               \textcolor{keywordtype}{int}         w,}
+\DoxyCodeLine{00222                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   penalty,}
+\DoxyCodeLine{00223                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshloop,}
+\DoxyCodeLine{00224                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshLE,}
+\DoxyCodeLine{00225                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshRE,}
+\DoxyCodeLine{00226                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshDE,}
+\DoxyCodeLine{00227                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshTE,}
+\DoxyCodeLine{00228                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshSE,}
+\DoxyCodeLine{00229                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshD,}
+\DoxyCodeLine{00230                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   distance,}
+\DoxyCodeLine{00231                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   half\_stem,}
+\DoxyCodeLine{00232                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_half\_stem,}
+\DoxyCodeLine{00233                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s2,}
+\DoxyCodeLine{00234                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s2,}
+\DoxyCodeLine{00235                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s1,}
+\DoxyCodeLine{00236                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s1,}
+\DoxyCodeLine{00237                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d1,}
+\DoxyCodeLine{00238                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d2,}
+\DoxyCodeLine{00239                               \textcolor{keyword}{const} \textcolor{keywordtype}{int}   alignment\_length);}
+\DoxyCodeLine{00240 }
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00247 \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}} alisnoopfold(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  **s1,}
+\DoxyCodeLine{00248                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}  **s2,}
+\DoxyCodeLine{00249                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   penalty,}
+\DoxyCodeLine{00250                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshloop,}
+\DoxyCodeLine{00251                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshLE,}
+\DoxyCodeLine{00252                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshRE,}
+\DoxyCodeLine{00253                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshDE,}
+\DoxyCodeLine{00254                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshD,}
+\DoxyCodeLine{00255                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   half\_stem,}
+\DoxyCodeLine{00256                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_half\_stem,}
+\DoxyCodeLine{00257                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s2,}
+\DoxyCodeLine{00258                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s2,}
+\DoxyCodeLine{00259                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s1,}
+\DoxyCodeLine{00260                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s1,}
+\DoxyCodeLine{00261                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d1,}
+\DoxyCodeLine{00262                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d2);}
+\DoxyCodeLine{00263 }
+\DoxyCodeLine{00264 }
+\DoxyCodeLine{00269 \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}} snoopfold\_XS(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s1,}
+\DoxyCodeLine{00270                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s2,}
+\DoxyCodeLine{00271                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   **access\_s1,}
+\DoxyCodeLine{00272                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   pos,}
+\DoxyCodeLine{00273                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_pos\_j,}
+\DoxyCodeLine{00274                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   penalty,}
+\DoxyCodeLine{00275                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshloop,}
+\DoxyCodeLine{00276                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshLE,}
+\DoxyCodeLine{00277                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshRE,}
+\DoxyCodeLine{00278                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshDE,}
+\DoxyCodeLine{00279                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshD,}
+\DoxyCodeLine{00280                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   half\_stem,}
+\DoxyCodeLine{00281                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_half\_stem,}
+\DoxyCodeLine{00282                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s2,}
+\DoxyCodeLine{00283                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s2,}
+\DoxyCodeLine{00284                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_s1,}
+\DoxyCodeLine{00285                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   max\_s1,}
+\DoxyCodeLine{00286                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d1,}
+\DoxyCodeLine{00287                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   min\_d2,}
+\DoxyCodeLine{00288                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}   fullStemEnergy);}
+\DoxyCodeLine{00289 }
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} snoop\_subopt\_sorted;}
+\DoxyCodeLine{00292 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00293 }
+\DoxyCodeLine{00294 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,41 @@
+\hypertarget{cofold_8h}{}\doxysection{Vienna\+RNA/cofold.h File Reference}
+\label{cofold_8h}\index{ViennaRNA/cofold.h@{ViennaRNA/cofold.h}}
+
+
+MFE implementations for RNA-\/\+RNA interaction.  
+
+
+Include dependency graph for cofold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cofold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy of two interacting RNA molecules. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga7612cfeeb1b793f1e4179b1eb53df1f3}{cofold\+\_\+par}} (const char $\ast$string, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int is\+\_\+constrained)
+\begin{DoxyCompactList}\small\item\em Compute the minimum free energy of two interacting RNA molecules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gaafb33d7473eb9af9d1b168ca8761c41a}{free\+\_\+co\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga4fcbf34e77b99bfbb2333d2ab0c41a57}{update\+\_\+cofold\+\_\+params}} (void)
+\begin{DoxyCompactList}\small\item\em Recalculate parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gaaadbd28b4e428710529ab4098fdacad3}{update\+\_\+cofold\+\_\+params\+\_\+par}} (\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga5f5bf4df35d0554f6ace9579f8744c48}{export\+\_\+cofold\+\_\+arrays\+\_\+gq}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$fc\+\_\+p, int $\ast$$\ast$ggg\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Export the arrays of partition function cofold (with gquadruplex support) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga5cb6b59983f1f74ccc00b9b9c4e84482}{export\+\_\+cofold\+\_\+arrays}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$fc\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Export the arrays of partition function cofold. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga4958b517c613e4d2afd5bce6c1060a79}{get\+\_\+monomere\+\_\+mfes}} (float $\ast$e1, float $\ast$e2)
+\begin{DoxyCompactList}\small\item\em get\+\_\+monomer\+\_\+free\+\_\+energies \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gafee0c32208aa2ac97338b6e3fbad7fa5}{initialize\+\_\+cofold}} (int length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MFE implementations for RNA-\/\+RNA interaction. 
+

@@ -1,0 +1,184 @@
+\hypertarget{group__aln__utils__deprecated}{}\doxysection{Deprecated Interface for Multiple Sequence Alignment Utilities}
+\label{group__aln__utils__deprecated}\index{Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Multiple Sequence Alignment Utilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__aln__utils__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s}} \mbox{\hyperlink{group__aln__utils__deprecated_ga7b61662a793ad0aa1ea38efc3a5baacc}{pair\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__aln__utils__deprecated_gaa2d600be90844094ec145ea14a314d2f}{get\+\_\+mpi}} (char $\ast$Alseq\mbox{[}$\,$\mbox{]}, int n\+\_\+seq, int length, int $\ast$mini)
+\begin{DoxyCompactList}\small\item\em Get the mean pairwise identity in steps from ?to?(ident) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__aln__utils__deprecated_gaa3e40277c837d6f7603afe319884c786}{encode\+\_\+ali\+\_\+sequence}} (const char $\ast$sequence, short $\ast$S, short $\ast$s5, short $\ast$s3, char $\ast$ss, unsigned short $\ast$as, int \mbox{\hyperlink{group__model__details_gaf9202a1a09f5828dc731e2d9a10fa111}{circ}})
+\begin{DoxyCompactList}\small\item\em Get arrays with encoded sequence of the alignment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__aln__utils__deprecated_ga8a560930f7f2582cc3967723a86cfdfa}{alloc\+\_\+sequence\+\_\+arrays}} (const char $\ast$$\ast$sequences, short $\ast$$\ast$$\ast$S, short $\ast$$\ast$$\ast$S5, short $\ast$$\ast$$\ast$S3, unsigned short $\ast$$\ast$$\ast$a2s, char $\ast$$\ast$$\ast$Ss, int \mbox{\hyperlink{group__model__details_gaf9202a1a09f5828dc731e2d9a10fa111}{circ}})
+\begin{DoxyCompactList}\small\item\em Allocate memory for sequence array used to deal with aligned sequences. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__aln__utils__deprecated_ga298a420a8c879202e2617b3f724fde38}{free\+\_\+sequence\+\_\+arrays}} (unsigned int n\+\_\+seq, short $\ast$$\ast$$\ast$S, short $\ast$$\ast$$\ast$S5, short $\ast$$\ast$$\ast$S3, unsigned short $\ast$$\ast$$\ast$a2s, char $\ast$$\ast$$\ast$Ss)
+\begin{DoxyCompactList}\small\item\em Free the memory of the sequence arrays used to deal with aligned sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__aln__utils__deprecated_ga7b61662a793ad0aa1ea38efc3a5baacc}\label{group__aln__utils__deprecated_ga7b61662a793ad0aa1ea38efc3a5baacc}} 
+\index{Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}!pair\_info@{pair\_info}}
+\index{pair\_info@{pair\_info}!Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}}
+\doxysubsubsection{\texorpdfstring{pair\_info}{pair\_info}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s}} \mbox{\hyperlink{group__aln__utils__deprecated_ga7b61662a793ad0aa1ea38efc3a5baacc}{pair\+\_\+info}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2alignments_8h}{Vienna\+RNA/utils/alignments.\+h}}$>$}
+
+
+
+Old typename of \mbox{\hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s}}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000180}{Deprecated}}]Use \mbox{\hyperlink{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{vrna\+\_\+pinfo\+\_\+t}} instead!\end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__aln__utils__deprecated_gaa2d600be90844094ec145ea14a314d2f}\label{group__aln__utils__deprecated_gaa2d600be90844094ec145ea14a314d2f}} 
+\index{Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}!get\_mpi@{get\_mpi}}
+\index{get\_mpi@{get\_mpi}!Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}}
+\doxysubsubsection{\texorpdfstring{get\_mpi()}{get\_mpi()}}
+{\footnotesize\ttfamily int get\+\_\+mpi (\begin{DoxyParamCaption}\item[{char $\ast$}]{Alseq\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+\_\+seq,  }\item[{int}]{length,  }\item[{int $\ast$}]{mini }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2alignments_8h}{Vienna\+RNA/utils/alignments.\+h}}$>$}
+
+
+
+Get the mean pairwise identity in steps from ?to?(ident) 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000181}{Deprecated}}]Use \mbox{\hyperlink{group__aln__utils_gade5a1f2d16e7fd9a57b37d8514f08e8e}{vrna\+\_\+aln\+\_\+mpi()}} as a replacement\end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em Alseq} & \\
+\hline
+{\em n\+\_\+seq} & The number of sequences in the alignment \\
+\hline
+{\em length} & The length of the alignment \\
+\hline
+{\em mini} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pairwise identity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__aln__utils__deprecated_gaa3e40277c837d6f7603afe319884c786}\label{group__aln__utils__deprecated_gaa3e40277c837d6f7603afe319884c786}} 
+\index{Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}!encode\_ali\_sequence@{encode\_ali\_sequence}}
+\index{encode\_ali\_sequence@{encode\_ali\_sequence}!Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}}
+\doxysubsubsection{\texorpdfstring{encode\_ali\_sequence()}{encode\_ali\_sequence()}}
+{\footnotesize\ttfamily void encode\+\_\+ali\+\_\+sequence (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{short $\ast$}]{S,  }\item[{short $\ast$}]{s5,  }\item[{short $\ast$}]{s3,  }\item[{char $\ast$}]{ss,  }\item[{unsigned short $\ast$}]{as,  }\item[{int}]{circ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2alignments_8h}{Vienna\+RNA/utils/alignments.\+h}}$>$}
+
+
+
+Get arrays with encoded sequence of the alignment. 
+
+this function assumes that in S, S5, s3, ss and as enough space is already allocated (size must be at least sequence length+2)
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The gapped sequence from the alignment \\
+\hline
+{\em S} & pointer to an array that holds encoded sequence \\
+\hline
+{\em s5} & pointer to an array that holds the next base 5\textquotesingle{} of alignment position i \\
+\hline
+{\em s3} & pointer to an array that holds the next base 3\textquotesingle{} of alignment position i \\
+\hline
+{\em ss} & \\
+\hline
+{\em as} & \\
+\hline
+{\em circ} & assume the molecules to be circular instead of linear (circ=0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__aln__utils__deprecated_ga8a560930f7f2582cc3967723a86cfdfa}\label{group__aln__utils__deprecated_ga8a560930f7f2582cc3967723a86cfdfa}} 
+\index{Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}!alloc\_sequence\_arrays@{alloc\_sequence\_arrays}}
+\index{alloc\_sequence\_arrays@{alloc\_sequence\_arrays}!Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}}
+\doxysubsubsection{\texorpdfstring{alloc\_sequence\_arrays()}{alloc\_sequence\_arrays()}}
+{\footnotesize\ttfamily void alloc\+\_\+sequence\+\_\+arrays (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{short $\ast$$\ast$$\ast$}]{S,  }\item[{short $\ast$$\ast$$\ast$}]{S5,  }\item[{short $\ast$$\ast$$\ast$}]{S3,  }\item[{unsigned short $\ast$$\ast$$\ast$}]{a2s,  }\item[{char $\ast$$\ast$$\ast$}]{Ss,  }\item[{int}]{circ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2alignments_8h}{Vienna\+RNA/utils/alignments.\+h}}$>$}
+
+
+
+Allocate memory for sequence array used to deal with aligned sequences. 
+
+Note that these arrays will also be initialized according to the sequence alignment given
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__aln__utils__deprecated_ga298a420a8c879202e2617b3f724fde38}{free\+\_\+sequence\+\_\+arrays()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & The aligned sequences \\
+\hline
+{\em S} & A pointer to the array of encoded sequences \\
+\hline
+{\em S5} & A pointer to the array that contains the next 5\textquotesingle{} nucleotide of a sequence position \\
+\hline
+{\em S3} & A pointer to the array that contains the next 3\textquotesingle{} nucleotide of a sequence position \\
+\hline
+{\em a2s} & A pointer to the array that contains the alignment to sequence position mapping \\
+\hline
+{\em Ss} & A pointer to the array that contains the ungapped sequence \\
+\hline
+{\em circ} & assume the molecules to be circular instead of linear (circ=0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__aln__utils__deprecated_ga298a420a8c879202e2617b3f724fde38}\label{group__aln__utils__deprecated_ga298a420a8c879202e2617b3f724fde38}} 
+\index{Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}!free\_sequence\_arrays@{free\_sequence\_arrays}}
+\index{free\_sequence\_arrays@{free\_sequence\_arrays}!Deprecated Interface for Multiple Sequence Alignment Utilities@{Deprecated Interface for Multiple Sequence Alignment Utilities}}
+\doxysubsubsection{\texorpdfstring{free\_sequence\_arrays()}{free\_sequence\_arrays()}}
+{\footnotesize\ttfamily void free\+\_\+sequence\+\_\+arrays (\begin{DoxyParamCaption}\item[{unsigned int}]{n\+\_\+seq,  }\item[{short $\ast$$\ast$$\ast$}]{S,  }\item[{short $\ast$$\ast$$\ast$}]{S5,  }\item[{short $\ast$$\ast$$\ast$}]{S3,  }\item[{unsigned short $\ast$$\ast$$\ast$}]{a2s,  }\item[{char $\ast$$\ast$$\ast$}]{Ss }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2alignments_8h}{Vienna\+RNA/utils/alignments.\+h}}$>$}
+
+
+
+Free the memory of the sequence arrays used to deal with aligned sequences. 
+
+This function frees the memory previously allocated with \mbox{\hyperlink{group__aln__utils__deprecated_ga8a560930f7f2582cc3967723a86cfdfa}{alloc\+\_\+sequence\+\_\+arrays()}}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__aln__utils__deprecated_ga8a560930f7f2582cc3967723a86cfdfa}{alloc\+\_\+sequence\+\_\+arrays()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+seq} & The number of aligned sequences \\
+\hline
+{\em S} & A pointer to the array of encoded sequences \\
+\hline
+{\em S5} & A pointer to the array that contains the next 5\textquotesingle{} nucleotide of a sequence position \\
+\hline
+{\em S3} & A pointer to the array that contains the next 3\textquotesingle{} nucleotide of a sequence position \\
+\hline
+{\em a2s} & A pointer to the array that contains the alignment to sequence position mapping \\
+\hline
+{\em Ss} & A pointer to the array that contains the ungapped sequence \\
+\hline
+\end{DoxyParams}

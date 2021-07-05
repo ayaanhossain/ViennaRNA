@@ -1,0 +1,7 @@
+<map id="Distance Based Partitioning of the Secondary Structure Space" name="Distance Based Partitioning of the Secondary Structure Space">
+<area shape="rect" id="node1" href="$group__kl__neighborhood__stochbt.html" title="Contains functions related to stochastic backtracking from a specified distance class." alt="" coords="493,5,679,60"/>
+<area shape="rect" id="node2" href="$group__class__fold.html" title=" " alt="" coords="5,91,160,131"/>
+<area shape="rect" id="node3" title=" " alt="" coords="208,91,431,131"/>
+<area shape="rect" id="node4" href="$group__kl__neighborhood__pf.html" title="Compute the partition function and stochastically sample secondary structures for a partitioning of t..." alt="" coords="503,84,669,139"/>
+<area shape="rect" id="node5" href="$group__kl__neighborhood__mfe.html" title="Compute the minimum free energy (MFE) and secondary structures for a partitioning of the secondary st..." alt="" coords="479,163,693,203"/>
+</map>

@@ -1,0 +1,66 @@
+\hypertarget{index_introduction}{}\doxysection{A Library for predicting and comparing RNA secondary structures}\label{index_introduction}
+The core of the Vienna\+RNA Package (\cite{lorenz:2011}, \cite{hofacker:1994}) is formed by a collection of routines for the prediction and comparison of RNA secondary structures. These routines can be accessed through stand-\/alone programs, such as {\ttfamily RNAfold}, {\ttfamily RNAdistance} etc., which should be sufficient for most users. For those who wish to develop their own programs we provide a library which can be ~\newline
+ linked to your own code.
+
+This document describes the library and will be primarily useful to programmers. However, it also contains details about the implementation that may be of interest to advanced users. The stand-\/alone programs are described in separate man pages. The latest version of the package including source code and html versions of the documentation can be found at ~\newline
+~\newline
+ \href{http://www.tbi.univie.ac.at/RNA}{\texttt{ http\+://www.\+tbi.\+univie.\+ac.\+at/\+RNA}}
+
+\begin{DoxyDate}{Date}
+1994-\/2020 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Ivo Hofacker, Peter Stadler, Ronny Lorenz, and so many more
+\end{DoxyAuthor}
+\hypertarget{index_license}{}\doxysection{License}\label{index_license}
+
+\begin{DoxyVerbInclude}
+			 Disclaimer and Copyright
+
+The programs, library and source code of the Vienna RNA Package are free
+software. They are distributed in the hope that they will be useful
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+Permission is granted for research, educational, and commercial use
+and modification so long as 1) the package and any derived works are not
+redistributed for any fee, other than media costs, 2) proper credit is
+given to the authors and the Institute for Theoretical Chemistry of the 
+University of Vienna.
+
+If you want to include this software in a commercial product, please contact 
+the authors. 
+
+\end{DoxyVerbInclude}
+\hypertarget{index_contributors}{}\doxysection{Contributors}\label{index_contributors}
+Over the past decades since the {\ttfamily Vienna\+RNA Package} first sprang to life as part of Ivo Hofackers PhD project, several different authors contributed more and more algorithm implementations. In 2008, Ronny Lorenz took over the extensive task to harmonize and simplify the already existing implementations for the sake of easier feature addition. This eventually lead to version 2.\+0 of the {\ttfamily Vienna\+RNA Package}. Since then, he (re-\/)implemented a large portion of the currently existing library features, such as the new, generalized constraints framework, RNA folding grammar domain extensions, and the major part of the scripting language interface. Below is a list of most people who contributed larger parts of the implementations\+:
+
+
+\begin{DoxyItemize}
+\item Juraj Michalik (non-\/redundant Boltzmann sampling)
+\item Gregor Entzian (neighbor, walk)
+\item Mario Koestl (worked on SWIG interface and related unit testing)
+\item Dominik Luntzer (pertubation fold)
+\item Stefan Badelt (cofold evaluation, RNAdesign.\+pl, cofold findpath extensions)
+\item Stefan Hammer (parts of SWIG interface and corresponding unit tests)
+\item Ronny Lorenz (circfold, version 2.\+0, generic constraints, grammar extensions, and much more)
+\item Hakim Tafer (RNAplex, RNAsnoop)
+\item Ulrike Mueckstein (RNAup)
+\item Stephan Bernhart (cofold, plfold, unpaired probabilities, alifold, and so many more)
+\item Ivo Hofacker, Peter Stadler, and Christoph Flamm (almost every implementation up to version 1.\+8.\+5)
+\end{DoxyItemize}
+
+We also want to thank the following people\+:
+
+
+\begin{DoxyItemize}
+\item Sebastian Bonhoeffer\textquotesingle{}s implementation of partition function folding served as a precursor to our part\+\_\+func.\+c
+\item Manfred Tacker hacked constrained folding into fold.\+c for the first time
+\item Martin Fekete made the first attempts at \char`\"{}alignment folding\char`\"{}
+\item Andrea Tanzer and Martin Raden (Mann) for not stopping to report bugs found through comprehensive usage of our applications and RNAlib
+\item Thanks also to everyone else who helped testing and finding bugs, especially Christoph Flamm, Martijn Huynen, Baerbel Krakhofer, and many more 
+\end{DoxyItemize}
+
+If you want to get involved in the development of the Vienna\+RNA Package yourself, please read the \mbox{\hyperlink{md_CONTRIBUTING}{Contributing page}}.
+
+ 

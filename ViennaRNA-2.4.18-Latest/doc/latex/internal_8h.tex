@@ -1,0 +1,60 @@
+\hypertarget{internal_8h}{}\doxysection{Vienna\+RNA/loops/internal.h File Reference}
+\label{internal_8h}\index{ViennaRNA/loops/internal.h@{ViennaRNA/loops/internal.h}}
+
+
+Energy evaluation of interior loops for MFE and partition function calculations.  
+
+
+Include dependency graph for internal.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{internal_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{internal_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__mfe__backtracking_ga28015cfbd0afc759b94ff58cc241cb13}{vrna\+\_\+\+BT\+\_\+stack}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int $\ast$i, int $\ast$j, int $\ast$en, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp\+\_\+stack, int $\ast$stack\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Backtrack a stacked pair closed by $ (i,j) $. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mfe__backtracking_ga90b5a5723173996fb40640ce7c95c07e}{vrna\+\_\+\+BT\+\_\+int\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int $\ast$i, int $\ast$j, int en, \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}} $\ast$bp\+\_\+stack, int $\ast$stack\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Backtrack an interior loop closed by $ (i,j) $. \end{DoxyCompactList}\item 
+PRIVATE int \mbox{\hyperlink{group__eval__deprecated_gaafbc187b7f78e8e82afb77dd6f3b8fc5}{E\+\_\+\+Int\+Loop}} (int n1, int n2, int type, int type\+\_\+2, int si1, int sj1, int sp1, int sq1, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$P)
+\item 
+PRIVATE \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__eval__deprecated_ga95de54d8a2a17645a95e0f34e189d9c9}{exp\+\_\+\+E\+\_\+\+Int\+Loop}} (int u1, int u2, int type, int type2, short si1, short sj1, short sp1, short sq1, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$P)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Basic free energy interface}\par
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries vrna\+\_\+\+E\+\_\+int\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\item 
+int \mbox{\hyperlink{group__eval__loops__int_gaab3547bfcdc39d89babbc7ed2a1a4b65}{vrna\+\_\+eval\+\_\+int\+\_\+loop}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int k, int l)
+\begin{DoxyCompactList}\small\item\em Evaluate the free energy contribution of an interior loop with delimiting base pairs $(i,j)$ and $(k,l)$. \end{DoxyCompactList}\item 
+int {\bfseries vrna\+\_\+\+E\+\_\+ext\+\_\+int\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int $\ast$ip, int $\ast$iq)
+\item 
+int {\bfseries vrna\+\_\+\+E\+\_\+stack} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Boltzmann weight (partition function) interface}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+int\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+interior\+\_\+loop} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int k, int l)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Energy evaluation of interior loops for MFE and partition function calculations. 
+
+, , 

@@ -1,0 +1,234 @@
+\hypertarget{group__alphabet__utils}{}\doxysection{Utilities to deal with Nucleotide Alphabets}
+\label{group__alphabet__utils}\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}
+
+
+Functions to cope with various aspects related to the nucleotide sequence alphabet.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to cope with various aspects related to the nucleotide sequence alphabet. 
+
+Collaboration diagram for Utilities to deal with Nucleotide Alphabets\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{group__alphabet__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{alphabet_8h}{alphabet.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions to process, convert, and generally handle different nucleotide and/or base pair alphabets. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{sequence_8h}{sequence.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions and data structures related to sequence representations ,. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__alphabet__utils_structvrna__sequence__s}{vrna\+\_\+sequence\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Data structure representing a nucleotide sequence.  \mbox{\hyperlink{group__alphabet__utils_structvrna__sequence__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__alphabet__utils_structvrna__alignment__s}{vrna\+\_\+alignment\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__alphabet__utils_gaa35bee3061759495467070b47d0e1f22}\label{group__alphabet__utils_gaa35bee3061759495467070b47d0e1f22}} 
+typedef struct \mbox{\hyperlink{group__alphabet__utils_structvrna__sequence__s}{vrna\+\_\+sequence\+\_\+s}} \mbox{\hyperlink{group__alphabet__utils_gaa35bee3061759495467070b47d0e1f22}{vrna\+\_\+seq\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for nucleotide sequence representation data structure \mbox{\hyperlink{group__alphabet__utils_structvrna__sequence__s}{vrna\+\_\+sequence\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__alphabet__utils_ga85cda3fcf5d6bd7ec090d3a96e808609}{vrna\+\_\+seq\+\_\+type\+\_\+e}} \{ \mbox{\hyperlink{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609ad8682ac290d0dd51022e3b82840e1a74}{VRNA\+\_\+\+SEQ\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609ac52309234beaf94e6a3bd1b9b69de9f4}{VRNA\+\_\+\+SEQ\+\_\+\+RNA}}
+, \mbox{\hyperlink{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609a4da1613644c3a3766ef1d6494f271332}{VRNA\+\_\+\+SEQ\+\_\+\+DNA}}
+ \}
+\begin{DoxyCompactList}\small\item\em A enumerator used in \mbox{\hyperlink{group__alphabet__utils_structvrna__sequence__s}{vrna\+\_\+sequence\+\_\+s}} to distinguish different nucleotide sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__alphabet__utils_ga51a9e86a5f731f5f2f5584ee67cee4a8}{vrna\+\_\+ptypes}} (const short $\ast$S, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Get an array of the numerical encoding for each possible base pair (i,j) \end{DoxyCompactList}\item 
+short $\ast$ \mbox{\hyperlink{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}{vrna\+\_\+seq\+\_\+encode}} (const char $\ast$sequence, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Get a numerical representation of the nucleotide sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__alphabet__utils_ga3cd79d21d53248ad2634c1c0d43e97d7}\label{group__alphabet__utils_ga3cd79d21d53248ad2634c1c0d43e97d7}} 
+short $\ast$ \mbox{\hyperlink{group__alphabet__utils_ga3cd79d21d53248ad2634c1c0d43e97d7}{vrna\+\_\+seq\+\_\+encode\+\_\+simple}} (const char $\ast$sequence, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Get a numerical representation of the nucleotide sequence (simple version) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__alphabet__utils_gac12bf00123f88621c9be847b0879c1fb}{vrna\+\_\+nucleotide\+\_\+encode}} (char c, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Encode a nucleotide character to numerical value. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{group__alphabet__utils_ga48ef585e697be9c8a08ed68c655e29b6}{vrna\+\_\+nucleotide\+\_\+decode}} (int enc, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md)
+\begin{DoxyCompactList}\small\item\em Decode a numerical representation of a nucleotide back into nucleotide alphabet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_sequence\_s@{vrna\_sequence\_s}}\label{structvrna__sequence__s}
+\Hypertarget{group__alphabet__utils_structvrna__sequence__s}
+\doxysubsubsection{struct vrna\+\_\+sequence\+\_\+s}
+Data structure representing a nucleotide sequence. \doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__alphabet__utils_aee11f4cc6f792cd36afab3bf7a30ca7b}\label{group__alphabet__utils_aee11f4cc6f792cd36afab3bf7a30ca7b}} 
+\mbox{\hyperlink{group__alphabet__utils_ga85cda3fcf5d6bd7ec090d3a96e808609}{vrna\+\_\+seq\+\_\+type\+\_\+e}} \mbox{\hyperlink{group__alphabet__utils_aee11f4cc6f792cd36afab3bf7a30ca7b}{type}}
+\begin{DoxyCompactList}\small\item\em The type of sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__alphabet__utils_aa885a2c52b3f87fb6c8f51a77a3430a7}\label{group__alphabet__utils_aa885a2c52b3f87fb6c8f51a77a3430a7}} 
+char $\ast$ \mbox{\hyperlink{group__alphabet__utils_aa885a2c52b3f87fb6c8f51a77a3430a7}{string}}
+\begin{DoxyCompactList}\small\item\em The string representation of the sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__alphabet__utils_a8010ad82da6766e859e6f25e275a1d89}\label{group__alphabet__utils_a8010ad82da6766e859e6f25e275a1d89}} 
+short $\ast$ \mbox{\hyperlink{group__alphabet__utils_a8010ad82da6766e859e6f25e275a1d89}{encoding}}
+\begin{DoxyCompactList}\small\item\em The integer representation of the sequence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__alphabet__utils_af60876d93312ce0b842574a14c3a9cdd}\label{group__alphabet__utils_af60876d93312ce0b842574a14c3a9cdd}} 
+unsigned int \mbox{\hyperlink{group__alphabet__utils_af60876d93312ce0b842574a14c3a9cdd}{length}}
+\begin{DoxyCompactList}\small\item\em The length of the sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\index{vrna\_alignment\_s@{vrna\_alignment\_s}}\label{structvrna__alignment__s}
+\Hypertarget{group__alphabet__utils_structvrna__alignment__s}
+\doxysubsubsection{struct vrna\+\_\+alignment\+\_\+s}
+
+
+Collaboration diagram for vrna\+\_\+alignment\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{structvrna__alignment__s__coll__graph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__alphabet__utils_ga85cda3fcf5d6bd7ec090d3a96e808609}\label{group__alphabet__utils_ga85cda3fcf5d6bd7ec090d3a96e808609}} 
+\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!vrna\_seq\_type\_e@{vrna\_seq\_type\_e}}
+\index{vrna\_seq\_type\_e@{vrna\_seq\_type\_e}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}
+\doxysubsubsection{\texorpdfstring{vrna\_seq\_type\_e}{vrna\_seq\_type\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__alphabet__utils_ga85cda3fcf5d6bd7ec090d3a96e808609}{vrna\+\_\+seq\+\_\+type\+\_\+e}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{sequence_8h}{Vienna\+RNA/sequence.\+h}}$>$}
+
+
+
+A enumerator used in \mbox{\hyperlink{group__alphabet__utils_structvrna__sequence__s}{vrna\+\_\+sequence\+\_\+s}} to distinguish different nucleotide sequences. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_SEQ\_UNKNOWN@{VRNA\_SEQ\_UNKNOWN}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!VRNA\_SEQ\_UNKNOWN@{VRNA\_SEQ\_UNKNOWN}}}\mbox{\Hypertarget{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609ad8682ac290d0dd51022e3b82840e1a74}\label{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609ad8682ac290d0dd51022e3b82840e1a74}} 
+VRNA\+\_\+\+SEQ\+\_\+\+UNKNOWN&Nucleotide sequence represents an Unkown type. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_SEQ\_RNA@{VRNA\_SEQ\_RNA}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!VRNA\_SEQ\_RNA@{VRNA\_SEQ\_RNA}}}\mbox{\Hypertarget{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609ac52309234beaf94e6a3bd1b9b69de9f4}\label{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609ac52309234beaf94e6a3bd1b9b69de9f4}} 
+VRNA\+\_\+\+SEQ\+\_\+\+RNA&Nucleotide sequence represents an RNA type. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_SEQ\_DNA@{VRNA\_SEQ\_DNA}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!VRNA\_SEQ\_DNA@{VRNA\_SEQ\_DNA}}}\mbox{\Hypertarget{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609a4da1613644c3a3766ef1d6494f271332}\label{group__alphabet__utils_gga85cda3fcf5d6bd7ec090d3a96e808609a4da1613644c3a3766ef1d6494f271332}} 
+VRNA\+\_\+\+SEQ\+\_\+\+DNA&Nucleotide sequence represents a DNA type. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__alphabet__utils_ga51a9e86a5f731f5f2f5584ee67cee4a8}\label{group__alphabet__utils_ga51a9e86a5f731f5f2f5584ee67cee4a8}} 
+\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!vrna\_ptypes@{vrna\_ptypes}}
+\index{vrna\_ptypes@{vrna\_ptypes}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}
+\doxysubsubsection{\texorpdfstring{vrna\_ptypes()}{vrna\_ptypes()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+ptypes (\begin{DoxyParamCaption}\item[{const short $\ast$}]{S,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alphabet_8h}{Vienna\+RNA/alphabet.\+h}}$>$}
+
+
+
+Get an array of the numerical encoding for each possible base pair (i,j) 
+
+\begin{DoxyNote}{Note}
+This array is always indexed in column-\/wise order, in contrast to previously different indexing between mfe and pf variants!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\+\_\+idx\+\_\+col\+\_\+wise()}}, \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}\label{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}} 
+\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!vrna\_seq\_encode@{vrna\_seq\_encode}}
+\index{vrna\_seq\_encode@{vrna\_seq\_encode}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}
+\doxysubsubsection{\texorpdfstring{vrna\_seq\_encode()}{vrna\_seq\_encode()}}
+{\footnotesize\ttfamily short $\ast$ vrna\+\_\+seq\+\_\+encode (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alphabet_8h}{Vienna\+RNA/alphabet.\+h}}$>$}
+
+
+
+Get a numerical representation of the nucleotide sequence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The input sequence in upper-\/case letters \\
+\hline
+{\em md} & A pointer to a \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} data structure that specifies the conversion type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of integer encodings for each sequence letter (1-\/based). Position 0 denotes the length of the list
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000132}{SWIG Wrapper Notes}}]In the target scripting language, this function is wrapped as overloaded function {\itshape seq\+\_\+encode()} where the last parameter, the {\itshape model\+\_\+details} data structure, is optional. If it is omitted, default model settings are applied, i.\+e. default nucleotide letter conversion. The wrapped function returns a list/tuple of integer representations of the input sequence. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__alphabet__utils_gac12bf00123f88621c9be847b0879c1fb}\label{group__alphabet__utils_gac12bf00123f88621c9be847b0879c1fb}} 
+\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!vrna\_nucleotide\_encode@{vrna\_nucleotide\_encode}}
+\index{vrna\_nucleotide\_encode@{vrna\_nucleotide\_encode}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}
+\doxysubsubsection{\texorpdfstring{vrna\_nucleotide\_encode()}{vrna\_nucleotide\_encode()}}
+{\footnotesize\ttfamily int vrna\+\_\+nucleotide\+\_\+encode (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alphabet_8h}{Vienna\+RNA/alphabet.\+h}}$>$}
+
+
+
+Encode a nucleotide character to numerical value. 
+
+This function encodes a nucleotide character to its numerical representation as required by many functions in RNAlib.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__alphabet__utils_ga48ef585e697be9c8a08ed68c655e29b6}{vrna\+\_\+nucleotide\+\_\+decode()}}, \mbox{\hyperlink{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}{vrna\+\_\+seq\+\_\+encode()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The nucleotide character to encode \\
+\hline
+{\em md} & The model details that determine the kind of encoding \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encoded nucleotide 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__alphabet__utils_ga48ef585e697be9c8a08ed68c655e29b6}\label{group__alphabet__utils_ga48ef585e697be9c8a08ed68c655e29b6}} 
+\index{Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}!vrna\_nucleotide\_decode@{vrna\_nucleotide\_decode}}
+\index{vrna\_nucleotide\_decode@{vrna\_nucleotide\_decode}!Utilities to deal with Nucleotide Alphabets@{Utilities to deal with Nucleotide Alphabets}}
+\doxysubsubsection{\texorpdfstring{vrna\_nucleotide\_decode()}{vrna\_nucleotide\_decode()}}
+{\footnotesize\ttfamily char vrna\+\_\+nucleotide\+\_\+decode (\begin{DoxyParamCaption}\item[{int}]{enc,  }\item[{\mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{alphabet_8h}{Vienna\+RNA/alphabet.\+h}}$>$}
+
+
+
+Decode a numerical representation of a nucleotide back into nucleotide alphabet. 
+
+This function decodes a numerical representation of a nucleotide character back into nucleotide alphabet
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__alphabet__utils_gac12bf00123f88621c9be847b0879c1fb}{vrna\+\_\+nucleotide\+\_\+encode()}}, \mbox{\hyperlink{group__alphabet__utils_gaa49a0ee0a2cbda1c863fa3a169d7bf8d}{vrna\+\_\+seq\+\_\+encode()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em enc} & The encoded nucleotide \\
+\hline
+{\em md} & The model details that determine the kind of decoding \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decoded nucleotide character 
+\end{DoxyReturn}

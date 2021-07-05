@@ -1,0 +1,58 @@
+\hypertarget{group__mfe__window__deprecated}{}\doxysection{Deprecated Interface for Local (Sliding Window) MFE Prediction}
+\label{group__mfe__window__deprecated}\index{Deprecated Interface for Local (Sliding Window) MFE Prediction@{Deprecated Interface for Local (Sliding Window) MFE Prediction}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Deprecated Interface for Local (Sliding Window) MFE Prediction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mfe__window__deprecated}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{Lfold_8h}{Lfold.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions for locally optimal MFE structure prediction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold}} (const char $\ast$string, const char $\ast$structure, int maxdist)
+\begin{DoxyCompactList}\small\item\em The local analog to \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__window__deprecated_ga9b568887c6091a54252729adcb35f6d2}{Lfoldz}} (const char $\ast$string, const char $\ast$structure, int maxdist, int zsc, double min\+\_\+z)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}\label{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}} 
+\index{Deprecated Interface for Local (Sliding Window) MFE Prediction@{Deprecated Interface for Local (Sliding Window) MFE Prediction}!Lfold@{Lfold}}
+\index{Lfold@{Lfold}!Deprecated Interface for Local (Sliding Window) MFE Prediction@{Deprecated Interface for Local (Sliding Window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{Lfold()}{Lfold()}}
+{\footnotesize\ttfamily float Lfold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{maxdist }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{Lfold_8h}{Vienna\+RNA/\+Lfold.\+h}}$>$}
+
+
+
+The local analog to \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}}. 
+
+Computes the minimum free energy structure including only base pairs with a span smaller than \textquotesingle{}maxdist\textquotesingle{}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000086}{Deprecated}}]Use \mbox{\hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window()}} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__mfe__window__deprecated_ga9b568887c6091a54252729adcb35f6d2}\label{group__mfe__window__deprecated_ga9b568887c6091a54252729adcb35f6d2}} 
+\index{Deprecated Interface for Local (Sliding Window) MFE Prediction@{Deprecated Interface for Local (Sliding Window) MFE Prediction}!Lfoldz@{Lfoldz}}
+\index{Lfoldz@{Lfoldz}!Deprecated Interface for Local (Sliding Window) MFE Prediction@{Deprecated Interface for Local (Sliding Window) MFE Prediction}}
+\doxysubsubsection{\texorpdfstring{Lfoldz()}{Lfoldz()}}
+{\footnotesize\ttfamily float Lfoldz (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{maxdist,  }\item[{int}]{zsc,  }\item[{double}]{min\+\_\+z }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{Lfold_8h}{Vienna\+RNA/\+Lfold.\+h}}$>$}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000087}{Deprecated}}]Use \mbox{\hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore()}} instead! \end{DoxyRefDesc}

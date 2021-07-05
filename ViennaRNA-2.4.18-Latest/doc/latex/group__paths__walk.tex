@@ -1,0 +1,232 @@
+\hypertarget{group__paths__walk}{}\doxysection{Folding Paths that start at a single Secondary Structure}
+\label{group__paths__walk}\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+
+
+Implementation of gradient-\/ and random walks starting from a single secondary structure.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Implementation of gradient-\/ and random walks starting from a single secondary structure. 
+
+Collaboration diagram for Folding Paths that start at a single Secondary Structure\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__paths__walk}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}}~128
+\begin{DoxyCompactList}\small\item\em Option flag to request a steepest descent / gradient path. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths__walk_ga0b84bd36bfd783130297797c51dd85ae}{VRNA\+\_\+\+PATH\+\_\+\+RANDOM}}~256
+\begin{DoxyCompactList}\small\item\em Option flag to request a random walk path. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}}~512
+\begin{DoxyCompactList}\small\item\em Option flag to omit returning the transition path. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}}~(\mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}} $\vert$ \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}})
+\begin{DoxyCompactList}\small\item\em Option flag to request defaults (steepest descent / default move set) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Compute a path, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, short $\ast$pt, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Compute a steepest descent / gradient path, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}{vrna\+\_\+path\+\_\+random}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate a random walk / path of a given length, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}\label{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!VRNA\_PATH\_STEEPEST\_DESCENT@{VRNA\_PATH\_STEEPEST\_DESCENT}}
+\index{VRNA\_PATH\_STEEPEST\_DESCENT@{VRNA\_PATH\_STEEPEST\_DESCENT}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PATH\_STEEPEST\_DESCENT}{VRNA\_PATH\_STEEPEST\_DESCENT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT~128}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Option flag to request a steepest descent / gradient path. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths__walk_ga0b84bd36bfd783130297797c51dd85ae}\label{group__paths__walk_ga0b84bd36bfd783130297797c51dd85ae}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!VRNA\_PATH\_RANDOM@{VRNA\_PATH\_RANDOM}}
+\index{VRNA\_PATH\_RANDOM@{VRNA\_PATH\_RANDOM}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PATH\_RANDOM}{VRNA\_PATH\_RANDOM}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PATH\+\_\+\+RANDOM~256}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Option flag to request a random walk path. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}\label{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!VRNA\_PATH\_NO\_TRANSITION\_OUTPUT@{VRNA\_PATH\_NO\_TRANSITION\_OUTPUT}}
+\index{VRNA\_PATH\_NO\_TRANSITION\_OUTPUT@{VRNA\_PATH\_NO\_TRANSITION\_OUTPUT}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PATH\_NO\_TRANSITION\_OUTPUT}{VRNA\_PATH\_NO\_TRANSITION\_OUTPUT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT~512}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Option flag to omit returning the transition path. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}}, \mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient()}}, \mbox{\hyperlink{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}{vrna\+\_\+path\+\_\+random()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}\label{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!VRNA\_PATH\_DEFAULT@{VRNA\_PATH\_DEFAULT}}
+\index{VRNA\_PATH\_DEFAULT@{VRNA\_PATH\_DEFAULT}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{VRNA\_PATH\_DEFAULT}{VRNA\_PATH\_DEFAULT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+PATH\+\_\+\+DEFAULT~(\mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}} $\vert$ \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Option flag to request defaults (steepest descent / default move set) 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}}, \mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}}, \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}\label{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!vrna\_path@{vrna\_path}}
+\index{vrna\_path@{vrna\_path}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{vrna\_path()}{vrna\_path()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ vrna\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{unsigned int}]{steps,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Compute a path, store the final structure, and return a list of transition moves from the start to the final structure. 
+
+This function computes, given a start structure in pair table format, a transition path, updates the pair table to the final structure of the path. Finally, if not requested otherwise by using the \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}} flag in the {\ttfamily options} field, this function returns a list of individual transitions that lead from the start to the final structure if requested.
+
+The currently available transition paths are
+\begin{DoxyItemize}
+\item Steepest Descent / Gradient walk (flag\+: \mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}})
+\item Random walk (flag\+: \mbox{\hyperlink{group__paths__walk_ga0b84bd36bfd783130297797c51dd85ae}{VRNA\+\_\+\+PATH\+\_\+\+RANDOM}})
+\end{DoxyItemize}
+
+The type of transitions must be set through the {\ttfamily options} parameter
+
+\begin{DoxyNote}{Note}
+Since the result is written to the input structure you may want to use \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}} before calling this function to keep the initial structure
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient()}}, \mbox{\hyperlink{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}{vrna\+\_\+path\+\_\+random()}}, \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} \mbox{\hyperlink{group__paths__walk_ga705cea2b3243a38a2d6e3b1e141ed061}{VRNA\+\_\+\+PATH\+\_\+\+STEEPEST\+\_\+\+DESCENT}}, \mbox{\hyperlink{group__paths__walk_ga0b84bd36bfd783130297797c51dd85ae}{VRNA\+\_\+\+PATH\+\_\+\+RANDOM}}, \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}, \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em pt} & The pair table containing the start structure. Used to update to the final structure after execution of this function \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & Options to modify the behavior of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of transition moves (default), or NULL (if options \& \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000143}{SWIG Wrapper Notes}}]This function is attached as an overloaded method {\itshape path()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}} if it is omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}\label{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!vrna\_path\_gradient@{vrna\_path\_gradient}}
+\index{vrna\_path\_gradient@{vrna\_path\_gradient}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{vrna\_path\_gradient()}{vrna\_path\_gradient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ vrna\+\_\+path\+\_\+gradient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Compute a steepest descent / gradient path, store the final structure, and return a list of transition moves from the start to the final structure. 
+
+This function computes, given a start structure in pair table format, a steepest descent path, updates the pair table to the final structure of the path. Finally, if not requested otherwise by using the \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}} flag in the {\ttfamily options} field, this function returns a list of individual transitions that lead from the start to the final structure if requested.
+
+\begin{DoxyNote}{Note}
+Since the result is written to the input structure you may want to use \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}} before calling this function to keep the initial structure
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}{vrna\+\_\+path\+\_\+random()}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}}, \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}, \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em pt} & The pair table containing the start structure. Used to update to the final structure after execution of this function \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & Options to modify the behavior of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of transition moves (default), or NULL (if options \& \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000144}{SWIG Wrapper Notes}}]This function is attached as an overloaded method {\itshape path\+\_\+gradient()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}} if it is omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}\label{group__paths__walk_ga98fdc3f5cfa36a12738c2ec1ce024570}} 
+\index{Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}!vrna\_path\_random@{vrna\_path\_random}}
+\index{vrna\_path\_random@{vrna\_path\_random}!Folding Paths that start at a single Secondary Structure@{Folding Paths that start at a single Secondary Structure}}
+\doxysubsubsection{\texorpdfstring{vrna\_path\_random()}{vrna\_path\_random()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$ vrna\+\_\+path\+\_\+random (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{unsigned int}]{steps,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{landscape_2walk_8h}{Vienna\+RNA/landscape/walk.\+h}}$>$}
+
+
+
+Generate a random walk / path of a given length, store the final structure, and return a list of transition moves from the start to the final structure. 
+
+This function generates, given a start structure in pair table format, a random walk / path, updates the pair table to the final structure of the path. Finally, if not requested otherwise by using the \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}} flag in the {\ttfamily options} field, this function returns a list of individual transitions that lead from the start to the final structure if requested.
+
+\begin{DoxyNote}{Note}
+Since the result is written to the input structure you may want to use \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}} before calling this function to keep the initial structure
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__paths__walk_ga9594d7424dbe301f0dd3f4900db0f05c}{vrna\+\_\+path\+\_\+gradient()}}, \mbox{\hyperlink{group__paths__walk_gaef7afadc36933b80706de49fe36e7b94}{vrna\+\_\+path()}}, \mbox{\hyperlink{group__struct__utils__pair__table_gab124ba58014a97d2fb8c21831e19f107}{vrna\+\_\+ptable()}}, \mbox{\hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound()}} \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}, \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}, \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em pt} & The pair table containing the start structure. Used to update to the final structure after execution of this function \\
+\hline
+\mbox{\texttt{ in}}  & {\em steps} & The length of the path, i.\+e. the total number of transitions / moves \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & Options to modify the behavior of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of transition moves (default), or NULL (if options \& \mbox{\hyperlink{group__paths__walk_ga1ee63e54ecf136491e12ff03ede2622d}{VRNA\+\_\+\+PATH\+\_\+\+NO\+\_\+\+TRANSITION\+\_\+\+OUTPUT}})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000145}{SWIG Wrapper Notes}}]This function is attached as an overloaded method {\itshape path\+\_\+gradient()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \mbox{\hyperlink{group__paths__walk_gaf1bb1f8fec8d24e3b821f621b19f77b4}{VRNA\+\_\+\+PATH\+\_\+\+DEFAULT}} if it is omitted. \end{DoxyRefDesc}

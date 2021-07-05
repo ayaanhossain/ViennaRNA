@@ -1,0 +1,81 @@
+\hypertarget{snofold_8h_source}{}\doxysection{snofold.\+h}
+\label{snofold_8h_source}\index{ViennaRNA/snofold.h@{ViennaRNA/snofold.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{comment}{/* function from fold.c */}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_SNOFOLD\_H}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_SNOFOLD\_H}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \textcolor{comment}{/* Normal fold */}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00014 \textcolor{keywordtype}{int}  snofold(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{00015              \textcolor{keywordtype}{char}       *structure,}
+\DoxyCodeLine{00016              \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_assym,}
+\DoxyCodeLine{00017              \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshold,}
+\DoxyCodeLine{00018              \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00019              \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00020              \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00021              \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem);}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00028 \textcolor{keywordtype}{void}   snofree\_arrays(\textcolor{keyword}{const} \textcolor{keywordtype}{int} length);  \textcolor{comment}{/* free arrays for mfe folding */}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 \textcolor{keywordtype}{void}   snoinitialize\_fold(\textcolor{keywordtype}{int} length);    \textcolor{comment}{/* allocate arrays for folding */}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 \textcolor{keywordtype}{void}   snoupdate\_fold\_params(\textcolor{keywordtype}{void});       \textcolor{comment}{/* recalculate parameters */}}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 \textcolor{keywordtype}{int}    snoloop\_energy(\textcolor{keywordtype}{short} *ptable,}
+\DoxyCodeLine{00038                       \textcolor{keywordtype}{short} *s,}
+\DoxyCodeLine{00039                       \textcolor{keywordtype}{short} *s1,}
+\DoxyCodeLine{00040                       \textcolor{keywordtype}{int}   i);}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043 \textcolor{keywordtype}{void}   snoexport\_fold\_arrays(\textcolor{keywordtype}{int}    **indx\_p,}
+\DoxyCodeLine{00044                              \textcolor{keywordtype}{int}    **mLoop\_p,}
+\DoxyCodeLine{00045                              \textcolor{keywordtype}{int}    **cLoop,}
+\DoxyCodeLine{00046                              \mbox{\hyperlink{group__data__structures_structnode}{folden}} ***fold\_p,}
+\DoxyCodeLine{00047                              \mbox{\hyperlink{group__data__structures_structnode}{folden}} ***fold\_p\_XS);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050 \textcolor{keywordtype}{char} *snobacktrack\_fold\_from\_pair(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00051                                   \textcolor{keywordtype}{int}         i,}
+\DoxyCodeLine{00052                                   \textcolor{keywordtype}{int}         j);}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 \textcolor{comment}{/* alifold */}}
+\DoxyCodeLine{00056 \textcolor{keywordtype}{float} alisnofold(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **strings,}
+\DoxyCodeLine{00057                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_assym,}
+\DoxyCodeLine{00058                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshloop,}
+\DoxyCodeLine{00059                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  min\_s2,}
+\DoxyCodeLine{00060                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_s2,}
+\DoxyCodeLine{00061                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  half\_stem,}
+\DoxyCodeLine{00062                  \textcolor{keyword}{const} \textcolor{keywordtype}{int}  max\_half\_stem);}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 \textcolor{keywordtype}{void}  alisnofree\_arrays(\textcolor{keyword}{const} \textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068 \textcolor{keywordtype}{char} *alisnobacktrack\_fold\_from\_pair(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequence,}
+\DoxyCodeLine{00069                                      \textcolor{keywordtype}{int}        i,}
+\DoxyCodeLine{00070                                      \textcolor{keywordtype}{int}        j,}
+\DoxyCodeLine{00071                                      \textcolor{keywordtype}{int}        *cov);}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} \mbox{\hyperlink{alifold_8h_af3cbac6ff5d706d6e414677841ddf94c}{cv\_fact}} \textcolor{comment}{/* =1 */};}
+\DoxyCodeLine{00075 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} \mbox{\hyperlink{alifold_8h_a502948a122a2af5b914355b1f3ea2f61}{nc\_fact}} \textcolor{comment}{/* =1 */};}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 \textcolor{comment}{/* max number of mismatch >>>>>..((   )).>>>> */}}
+\DoxyCodeLine{00078 \textcolor{preprocessor}{\#define MISMATCH 3}}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

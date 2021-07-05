@@ -1,0 +1,40 @@
+\hypertarget{datastructures_2char__stream_8h}{}\doxysection{Vienna\+RNA/datastructures/char\+\_\+stream.h File Reference}
+\label{datastructures_2char__stream_8h}\index{ViennaRNA/datastructures/char\_stream.h@{ViennaRNA/datastructures/char\_stream.h}}
+
+
+Implementation of a dynamic, buffered character stream.  
+
+
+Include dependency graph for char\+\_\+stream.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{datastructures_2char__stream_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{datastructures_2char__stream_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vrna\+\_\+cstr\+\_\+t \mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\+\_\+cstr}} (size\+\_\+t size, FILE $\ast$output)
+\begin{DoxyCompactList}\small\item\em Create a dynamic char $\ast$ stream data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\+\_\+cstr\+\_\+free}} (vrna\+\_\+cstr\+\_\+t buf)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by a dynamic char $\ast$ stream data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\+\_\+cstr\+\_\+close}} (vrna\+\_\+cstr\+\_\+t buf)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by a dynamic char $\ast$ stream and close the output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{vrna\+\_\+cstr\+\_\+fflush}} (struct vrna\+\_\+cstr\+\_\+s $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Flush the dynamic char $\ast$ output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of a dynamic, buffered character stream. 
+
+, 

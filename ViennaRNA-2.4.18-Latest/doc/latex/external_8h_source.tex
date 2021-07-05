@@ -1,0 +1,147 @@
+\hypertarget{external_8h_source}{}\doxysection{external.\+h}
+\label{external_8h_source}\index{ViennaRNA/loops/external.h@{ViennaRNA/loops/external.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_LOOPS\_EXTERNAL\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_LOOPS\_EXTERNAL\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# if defined(DEPRECATED)}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#   undef DEPRECATED}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00059 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00060}\mbox{\hyperlink{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}{00060}} \mbox{\hyperlink{group__eval__loops__ext_gaa0c313c90da11aa741dcd62746d85337}{vrna\_E\_ext\_stem}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  type,}
+\DoxyCodeLine{00061                 \textcolor{keywordtype}{int}           n5d,}
+\DoxyCodeLine{00062                 \textcolor{keywordtype}{int}           n3d,}
+\DoxyCodeLine{00063                 \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *p);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00085 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00086}\mbox{\hyperlink{group__eval__loops__ext_gace51f32d5b34b7003b51c948afc6c207}{00086}} \mbox{\hyperlink{group__eval__loops__ext_gace51f32d5b34b7003b51c948afc6c207}{vrna\_E\_ext\_loop}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00087                 \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00088                 \textcolor{keywordtype}{int}                   j);}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00092 vrna\_E\_ext\_loop\_5(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00096 vrna\_E\_ext\_loop\_3(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00097                   \textcolor{keywordtype}{int}                   i);}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100 \textcolor{comment}{/* End basic interface */}}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00116}\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{00116}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_mx\_pf\_aux\_el\_s *\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\_mx\_pf\_aux\_el\_t}};}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00136 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00137}\mbox{\hyperlink{group__eval__loops__ext_ga357484958d3cd677f88f16c75c8a5730}{00137}} \mbox{\hyperlink{group__eval__loops__ext_ga357484958d3cd677f88f16c75c8a5730}{vrna\_exp\_E\_ext\_stem}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}      type,}
+\DoxyCodeLine{00138                     \textcolor{keywordtype}{int}               n5d,}
+\DoxyCodeLine{00139                     \textcolor{keywordtype}{int}               n3d,}
+\DoxyCodeLine{00140                     \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *p);}
+\DoxyCodeLine{00141 }
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143 \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\_mx\_pf\_aux\_el\_t}}}
+\DoxyCodeLine{00144 vrna\_exp\_E\_ext\_fast\_init(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00148 vrna\_exp\_E\_ext\_fast\_rotate(\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\_mx\_pf\_aux\_el\_t}} aux\_mx);}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00152 vrna\_exp\_E\_ext\_fast\_free(\mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\_mx\_pf\_aux\_el\_t}} aux\_mx);}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154 }
+\DoxyCodeLine{00155 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{00156 vrna\_exp\_E\_ext\_fast(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00157                     \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00158                     \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00159                     \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\_mx\_pf\_aux\_el\_t}}   aux\_mx);}
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00163 vrna\_exp\_E\_ext\_fast\_update(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00164                            \textcolor{keywordtype}{int}                  j,}
+\DoxyCodeLine{00165                            \mbox{\hyperlink{group__eval__loops__ext_gaf9d5160c11ffad3ec258124a77fee13c}{vrna\_mx\_pf\_aux\_el\_t}}  aux\_mx);}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168 \textcolor{comment}{/* End partition function interface */}}
+\DoxyCodeLine{00182 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00183 vrna\_BT\_ext\_loop\_f5(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00184                     \textcolor{keywordtype}{int}                   *k,}
+\DoxyCodeLine{00185                     \textcolor{keywordtype}{int}                   *i,}
+\DoxyCodeLine{00186                     \textcolor{keywordtype}{int}                   *j,}
+\DoxyCodeLine{00187                     \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00188                     \textcolor{keywordtype}{int}                   *stack\_count);}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190 }
+\DoxyCodeLine{00191 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00192 vrna\_BT\_ext\_loop\_f3(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00193                     \textcolor{keywordtype}{int}                   *k,}
+\DoxyCodeLine{00194                     \textcolor{keywordtype}{int}                   maxdist,}
+\DoxyCodeLine{00195                     \textcolor{keywordtype}{int}                   *i,}
+\DoxyCodeLine{00196                     \textcolor{keywordtype}{int}                   *j,}
+\DoxyCodeLine{00197                     \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}}       *bp\_stack,}
+\DoxyCodeLine{00198                     \textcolor{keywordtype}{int}                   *stack\_count);}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200 }
+\DoxyCodeLine{00201 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00202 vrna\_BT\_ext\_loop\_f3\_pp(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00203                        \textcolor{keywordtype}{int}                  *i,}
+\DoxyCodeLine{00204                        \textcolor{keywordtype}{int}                  maxdist);}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206 }
+\DoxyCodeLine{00211 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00268 DEPRECATED(\textcolor{keywordtype}{int} \mbox{\hyperlink{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}{E\_Stem}}(\textcolor{keywordtype}{int}           type,}
+\DoxyCodeLine{00269                       \textcolor{keywordtype}{int}           si1,}
+\DoxyCodeLine{00270                       \textcolor{keywordtype}{int}           sj1,}
+\DoxyCodeLine{00271                       \textcolor{keywordtype}{int}           extLoop,}
+\DoxyCodeLine{00272                       \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}}  *P),}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00273}\mbox{\hyperlink{group__eval__deprecated_ga51f9851f3500c2aae66674142a6a2dd5}{00273}}            \textcolor{stringliteral}{"{}This function is obsolete. Use vrna\_E\_ext\_stem() or E\_MLstem() instead"{}});}
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{00276 DEPRECATED(\textcolor{keywordtype}{int} E\_ExtLoop(\textcolor{keywordtype}{int}          type,}
+\DoxyCodeLine{00277                          \textcolor{keywordtype}{int}          si1,}
+\DoxyCodeLine{00278                          \textcolor{keywordtype}{int}          sj1,}
+\DoxyCodeLine{00279                          \mbox{\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t}} *P),}
+\DoxyCodeLine{00280            \textcolor{stringliteral}{"{}Use vrna\_E\_ext\_stem() instead"{}});}
+\DoxyCodeLine{00281 }
+\DoxyCodeLine{00282 }
+\DoxyCodeLine{00290 DEPRECATED(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} \mbox{\hyperlink{group__eval__deprecated_ga446828a191c127861e76e2c84055f672}{exp\_E\_ExtLoop}}(\textcolor{keywordtype}{int}               type,}
+\DoxyCodeLine{00291                                     \textcolor{keywordtype}{int}               si1,}
+\DoxyCodeLine{00292                                     \textcolor{keywordtype}{int}               sj1,}
+\DoxyCodeLine{00293                                     \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *P),}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00294}\mbox{\hyperlink{group__eval__deprecated_ga446828a191c127861e76e2c84055f672}{00294}}            \textcolor{stringliteral}{"{}Use vrna\_exp\_E\_ext\_stem() instead"{}});}
+\DoxyCodeLine{00295 }
+\DoxyCodeLine{00296 }
+\DoxyCodeLine{00305 DEPRECATED(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} \mbox{\hyperlink{group__eval__deprecated_gab0aa9833ab41875a91a9be8a5ffd7092}{exp\_E\_Stem}}(\textcolor{keywordtype}{int}              type,}
+\DoxyCodeLine{00306                                  \textcolor{keywordtype}{int}              si1,}
+\DoxyCodeLine{00307                                  \textcolor{keywordtype}{int}              sj1,}
+\DoxyCodeLine{00308                                  \textcolor{keywordtype}{int}              extLoop,}
+\DoxyCodeLine{00309                                  \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}} *P),}
+\DoxyCodeLine{\Hypertarget{external_8h_source_l00310}\mbox{\hyperlink{group__eval__deprecated_gab0aa9833ab41875a91a9be8a5ffd7092}{00310}}            \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00311 }
+\DoxyCodeLine{00312 }
+\DoxyCodeLine{00313 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00314 }
+\DoxyCodeLine{00320 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

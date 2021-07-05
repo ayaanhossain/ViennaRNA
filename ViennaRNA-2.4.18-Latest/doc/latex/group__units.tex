@@ -1,0 +1,315 @@
+\hypertarget{group__units}{}\doxysection{Unit Conversion}
+\label{group__units}\index{Unit Conversion@{Unit Conversion}}
+
+
+Functions to convert between various physical units.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to convert between various physical units. 
+
+Collaboration diagram for Unit Conversion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{group__units}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{utils_2units_8h}{units.\+h}}
+\begin{DoxyCompactList}\small\item\em Physical Units and Functions to convert them into each other. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a0120f465758c5d3f0c416bb6b68ac008}{VRNA\+\_\+\+UNIT\+\_\+J}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5af992c2a5505ac9e419ea906752810141}{VRNA\+\_\+\+UNIT\+\_\+\+KJ}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a9aa5cffe20a1407ad113a9cd10a28287}{VRNA\+\_\+\+UNIT\+\_\+\+CAL\+\_\+\+IT}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a16f8d3c98e6baf1662c33f082e50e3aa}{VRNA\+\_\+\+UNIT\+\_\+\+DACAL\+\_\+\+IT}}
+, \newline
+\mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5aafecefeb1301d0d40ce7d4c60f5aaeeb}{VRNA\+\_\+\+UNIT\+\_\+\+KCAL\+\_\+\+IT}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5af9b9e10348e63083965843e9c4bd285b}{VRNA\+\_\+\+UNIT\+\_\+\+CAL}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a579ddb9fef9ec4b1a198b556715b549c}{VRNA\+\_\+\+UNIT\+\_\+\+DACAL}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a5a231fa4f1f62a1d6e5f9af020014b79}{VRNA\+\_\+\+UNIT\+\_\+\+KCAL}}
+, \newline
+\mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a40325b8627e91b92dc5481961e2193d5}{VRNA\+\_\+\+UNIT\+\_\+\+G\+\_\+\+TNT}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a32711a912cf18203c635a49ccf104a7a}{VRNA\+\_\+\+UNIT\+\_\+\+KG\+\_\+\+TNT}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a5186dbc0bc2a6fcce080753389e2759c}{VRNA\+\_\+\+UNIT\+\_\+\+T\+\_\+\+TNT}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5ad1e56199abf591432c1d75ecd3bd9702}{VRNA\+\_\+\+UNIT\+\_\+\+EV}}
+, \newline
+\mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a94309db45738a94c6a78ed1434346a7d}{VRNA\+\_\+\+UNIT\+\_\+\+WH}}
+, \mbox{\hyperlink{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a57b033a1f079079cac03c0866ab69ec9}{VRNA\+\_\+\+UNIT\+\_\+\+KWH}}
+ \}
+\begin{DoxyCompactList}\small\item\em Energy / Work Units. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a9b970a8dd20a98af000ac43e393a1d2d}{VRNA\+\_\+\+UNIT\+\_\+K}}
+, \mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a64b03f220d7256def88b3ed4a78440b2}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+C}}
+, \mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a56a659dc1a1e6c01a62c67ed8799fea9}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+F}}
+, \mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a71335b199e50c9ac773d4090018984bc}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+R}}
+, \newline
+\mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4ac3c83c399df537d213671bf6537bd400}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+N}}
+, \mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a8b047fe5980c99270a587e668c2a2d8b}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+\+DE}}
+, \mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a94dce0a5f2e13a3a3fd554d6b0cd6395}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+\+RE}}
+, \mbox{\hyperlink{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a405589efa7e654a6cfe148a992adc1d0}{VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+\+RO}}
+ \}
+\begin{DoxyCompactList}\small\item\em Temperature Units. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{group__units_gada3216e97b410928ba19a4487e5fe6f2}{vrna\+\_\+convert\+\_\+energy}} (double energy, \mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}} from, \mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}} to)
+\begin{DoxyCompactList}\small\item\em Convert between energy / work units. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__units_gaf1bb1db32eba33b9f306214f5955d0c2}{vrna\+\_\+convert\+\_\+temperature}} (double temp, \mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}} from, \mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}} to)
+\begin{DoxyCompactList}\small\item\em Convert between temperature units. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__units_ga085428efe4f99044bce8273c8b5db1ba}{vrna\+\_\+convert\+\_\+kcal\+\_\+to\+\_\+dcal}} (double energy)
+\begin{DoxyCompactList}\small\item\em Convert floating point energy value into integer representation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__units_gadef1b636dd61e48e9ad5ebd0d84fb17e}{vrna\+\_\+convert\+\_\+dcal\+\_\+to\+\_\+kcal}} (int energy)
+\begin{DoxyCompactList}\small\item\em Convert an integer representation of free energy in deka-\/cal/mol to kcal/mol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}\label{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}} 
+\index{Unit Conversion@{Unit Conversion}!vrna\_unit\_energy\_e@{vrna\_unit\_energy\_e}}
+\index{vrna\_unit\_energy\_e@{vrna\_unit\_energy\_e}!Unit Conversion@{Unit Conversion}}
+\doxysubsubsection{\texorpdfstring{vrna\_unit\_energy\_e}{vrna\_unit\_energy\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}$>$}
+
+
+
+Energy / Work Units. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__units_gada3216e97b410928ba19a4487e5fe6f2}{vrna\+\_\+convert\+\_\+energy()}} 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_J@{VRNA\_UNIT\_J}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_J@{VRNA\_UNIT\_J}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a0120f465758c5d3f0c416bb6b68ac008}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a0120f465758c5d3f0c416bb6b68ac008}} 
+VRNA\+\_\+\+UNIT\+\_\+J&Joule ( $ 1~J = 1~kg \cdot m^2 s^{-2} $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_KJ@{VRNA\_UNIT\_KJ}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_KJ@{VRNA\_UNIT\_KJ}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5af992c2a5505ac9e419ea906752810141}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5af992c2a5505ac9e419ea906752810141}} 
+VRNA\+\_\+\+UNIT\+\_\+\+KJ&Kilojoule ( $ 1~kJ = 1,000~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_CAL\_IT@{VRNA\_UNIT\_CAL\_IT}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_CAL\_IT@{VRNA\_UNIT\_CAL\_IT}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a9aa5cffe20a1407ad113a9cd10a28287}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a9aa5cffe20a1407ad113a9cd10a28287}} 
+VRNA\+\_\+\+UNIT\+\_\+\+CAL\+\_\+\+IT&Calorie (International (Steam) Table, $ 1~cal_{IT} = 4.1868~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DACAL\_IT@{VRNA\_UNIT\_DACAL\_IT}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DACAL\_IT@{VRNA\_UNIT\_DACAL\_IT}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a16f8d3c98e6baf1662c33f082e50e3aa}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a16f8d3c98e6baf1662c33f082e50e3aa}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DACAL\+\_\+\+IT&Decacolorie (International (Steam) Table, $ 1~dacal_{IT} = 10~cal_{IT} = 41.868~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_KCAL\_IT@{VRNA\_UNIT\_KCAL\_IT}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_KCAL\_IT@{VRNA\_UNIT\_KCAL\_IT}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5aafecefeb1301d0d40ce7d4c60f5aaeeb}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5aafecefeb1301d0d40ce7d4c60f5aaeeb}} 
+VRNA\+\_\+\+UNIT\+\_\+\+KCAL\+\_\+\+IT&Kilocalorie (International (Steam) Table, $ 1~kcal_{IT} = 4.1868~kJ $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_CAL@{VRNA\_UNIT\_CAL}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_CAL@{VRNA\_UNIT\_CAL}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5af9b9e10348e63083965843e9c4bd285b}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5af9b9e10348e63083965843e9c4bd285b}} 
+VRNA\+\_\+\+UNIT\+\_\+\+CAL&Calorie (Thermochemical, $ 1~cal_{th} = 4.184~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DACAL@{VRNA\_UNIT\_DACAL}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DACAL@{VRNA\_UNIT\_DACAL}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a579ddb9fef9ec4b1a198b556715b549c}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a579ddb9fef9ec4b1a198b556715b549c}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DACAL&Decacalorie (Thermochemical, $ 1~dacal_{th} = 10~cal_{th} = 41.84~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_KCAL@{VRNA\_UNIT\_KCAL}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_KCAL@{VRNA\_UNIT\_KCAL}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a5a231fa4f1f62a1d6e5f9af020014b79}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a5a231fa4f1f62a1d6e5f9af020014b79}} 
+VRNA\+\_\+\+UNIT\+\_\+\+KCAL&Kilocalorie (Thermochemical, $ 1~kcal_{th} = 4.184~kJ $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_G\_TNT@{VRNA\_UNIT\_G\_TNT}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_G\_TNT@{VRNA\_UNIT\_G\_TNT}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a40325b8627e91b92dc5481961e2193d5}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a40325b8627e91b92dc5481961e2193d5}} 
+VRNA\+\_\+\+UNIT\+\_\+\+G\+\_\+\+TNT&g TNT ( $ 1~g~\mathrm{TNT} = 1,000~cal_{th} = 4,184~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_KG\_TNT@{VRNA\_UNIT\_KG\_TNT}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_KG\_TNT@{VRNA\_UNIT\_KG\_TNT}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a32711a912cf18203c635a49ccf104a7a}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a32711a912cf18203c635a49ccf104a7a}} 
+VRNA\+\_\+\+UNIT\+\_\+\+KG\+\_\+\+TNT&kg TNT ( $ 1~kg~\mathrm{TNT} = 1,000~kcal_{th} = 4,184~kJ $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_T\_TNT@{VRNA\_UNIT\_T\_TNT}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_T\_TNT@{VRNA\_UNIT\_T\_TNT}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a5186dbc0bc2a6fcce080753389e2759c}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a5186dbc0bc2a6fcce080753389e2759c}} 
+VRNA\+\_\+\+UNIT\+\_\+\+T\+\_\+\+TNT&ton TNT ( $ 1~t~\mathrm{TNT} = 1,000,000~kcal_{th} = 4,184~MJ $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_EV@{VRNA\_UNIT\_EV}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_EV@{VRNA\_UNIT\_EV}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5ad1e56199abf591432c1d75ecd3bd9702}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5ad1e56199abf591432c1d75ecd3bd9702}} 
+VRNA\+\_\+\+UNIT\+\_\+\+EV&Electronvolt ( $ 1~eV = 1.602176565 \times 10^{-19}~J $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_WH@{VRNA\_UNIT\_WH}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_WH@{VRNA\_UNIT\_WH}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a94309db45738a94c6a78ed1434346a7d}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a94309db45738a94c6a78ed1434346a7d}} 
+VRNA\+\_\+\+UNIT\+\_\+\+WH&Watt hour ( $ 1~W \cdot h = 1~W \cdot 3,600 s = 3,600~J = 3.6~kJ $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_KWH@{VRNA\_UNIT\_KWH}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_KWH@{VRNA\_UNIT\_KWH}}}\mbox{\Hypertarget{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a57b033a1f079079cac03c0866ab69ec9}\label{group__units_gga1d2fd1e73caf995e4dc69072b33e6ba5a57b033a1f079079cac03c0866ab69ec9}} 
+VRNA\+\_\+\+UNIT\+\_\+\+KWH&Kilowatt hour ( $ 1~kW \cdot h = 1~kW \cdot 3,600~s = 3,600~kJ = 3.6~MJ $ ) \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}\label{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}} 
+\index{Unit Conversion@{Unit Conversion}!vrna\_unit\_temperature\_e@{vrna\_unit\_temperature\_e}}
+\index{vrna\_unit\_temperature\_e@{vrna\_unit\_temperature\_e}!Unit Conversion@{Unit Conversion}}
+\doxysubsubsection{\texorpdfstring{vrna\_unit\_temperature\_e}{vrna\_unit\_temperature\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}$>$}
+
+
+
+Temperature Units. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__units_gaf1bb1db32eba33b9f306214f5955d0c2}{vrna\+\_\+convert\+\_\+temperature()}} 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_K@{VRNA\_UNIT\_K}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_K@{VRNA\_UNIT\_K}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a9b970a8dd20a98af000ac43e393a1d2d}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a9b970a8dd20a98af000ac43e393a1d2d}} 
+VRNA\+\_\+\+UNIT\+\_\+K&Kelvin (K) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_C@{VRNA\_UNIT\_DEG\_C}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_C@{VRNA\_UNIT\_DEG\_C}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a64b03f220d7256def88b3ed4a78440b2}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a64b03f220d7256def88b3ed4a78440b2}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+C&Degree Celcius (\textdegree{}C) ( $ [^{\circ}C] = [K] - 273.15 $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_F@{VRNA\_UNIT\_DEG\_F}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_F@{VRNA\_UNIT\_DEG\_F}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a56a659dc1a1e6c01a62c67ed8799fea9}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a56a659dc1a1e6c01a62c67ed8799fea9}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+F&Degree Fahrenheit (\textdegree{}F) ( $ [^{\circ}F] = [K] \times \frac{9}{5} - 459.67 $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_R@{VRNA\_UNIT\_DEG\_R}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_R@{VRNA\_UNIT\_DEG\_R}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a71335b199e50c9ac773d4090018984bc}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a71335b199e50c9ac773d4090018984bc}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+R&Degree Rankine (\textdegree{}R) ( $ [^{\circ}R] = [K] \times \frac{9}{5} $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_N@{VRNA\_UNIT\_DEG\_N}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_N@{VRNA\_UNIT\_DEG\_N}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4ac3c83c399df537d213671bf6537bd400}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4ac3c83c399df537d213671bf6537bd400}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+N&Degree Newton (\textdegree{}N) ( $ [^{\circ}N] = ([K] - 273.15) \times \frac{33}{100} $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_DE@{VRNA\_UNIT\_DEG\_DE}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_DE@{VRNA\_UNIT\_DEG\_DE}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a8b047fe5980c99270a587e668c2a2d8b}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a8b047fe5980c99270a587e668c2a2d8b}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+\+DE&Degree Delisle (\textdegree{}De) ( $ [^{\circ}De] = (373.15 - [K]) \times \frac{3}{2} $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_RE@{VRNA\_UNIT\_DEG\_RE}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_RE@{VRNA\_UNIT\_DEG\_RE}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a94dce0a5f2e13a3a3fd554d6b0cd6395}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a94dce0a5f2e13a3a3fd554d6b0cd6395}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+\+RE&Degree R\'{e}aumur (\textdegree{}R\'{e}) ( $ [^{\circ}R{\acute e}] = ([K] - 273.15) \times \frac{4}{5} $ ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VRNA\_UNIT\_DEG\_RO@{VRNA\_UNIT\_DEG\_RO}!Unit Conversion@{Unit Conversion}}\index{Unit Conversion@{Unit Conversion}!VRNA\_UNIT\_DEG\_RO@{VRNA\_UNIT\_DEG\_RO}}}\mbox{\Hypertarget{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a405589efa7e654a6cfe148a992adc1d0}\label{group__units_ggadeca8d9e91ef85f1b652cc8aef63d7e4a405589efa7e654a6cfe148a992adc1d0}} 
+VRNA\+\_\+\+UNIT\+\_\+\+DEG\+\_\+\+RO&Degree R{\o}mer (\textdegree{}R{\o}) ( $ [^{\circ}\text{R{\o}}] = ([K] - 273.15) \times \frac{21}{40} + 7.5 $ ) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__units_gada3216e97b410928ba19a4487e5fe6f2}\label{group__units_gada3216e97b410928ba19a4487e5fe6f2}} 
+\index{Unit Conversion@{Unit Conversion}!vrna\_convert\_energy@{vrna\_convert\_energy}}
+\index{vrna\_convert\_energy@{vrna\_convert\_energy}!Unit Conversion@{Unit Conversion}}
+\doxysubsubsection{\texorpdfstring{vrna\_convert\_energy()}{vrna\_convert\_energy()}}
+{\footnotesize\ttfamily double vrna\+\_\+convert\+\_\+energy (\begin{DoxyParamCaption}\item[{double}]{energy,  }\item[{\mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}}}]{from,  }\item[{\mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}}}]{to }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}$>$}
+
+
+
+Convert between energy / work units. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__units_ga1d2fd1e73caf995e4dc69072b33e6ba5}{vrna\+\_\+unit\+\_\+energy\+\_\+e}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em energy} & Input energy value \\
+\hline
+{\em from} & Input unit \\
+\hline
+{\em to} & Output unit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energy value in Output unit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__units_gaf1bb1db32eba33b9f306214f5955d0c2}\label{group__units_gaf1bb1db32eba33b9f306214f5955d0c2}} 
+\index{Unit Conversion@{Unit Conversion}!vrna\_convert\_temperature@{vrna\_convert\_temperature}}
+\index{vrna\_convert\_temperature@{vrna\_convert\_temperature}!Unit Conversion@{Unit Conversion}}
+\doxysubsubsection{\texorpdfstring{vrna\_convert\_temperature()}{vrna\_convert\_temperature()}}
+{\footnotesize\ttfamily double vrna\+\_\+convert\+\_\+temperature (\begin{DoxyParamCaption}\item[{double}]{temp,  }\item[{\mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}}}]{from,  }\item[{\mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}}}]{to }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}$>$}
+
+
+
+Convert between temperature units. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__units_gadeca8d9e91ef85f1b652cc8aef63d7e4}{vrna\+\_\+unit\+\_\+temperature\+\_\+e}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em temp} & Input temperature value \\
+\hline
+{\em from} & Input unit \\
+\hline
+{\em to} & Output unit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Temperature value in Output unit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__units_ga085428efe4f99044bce8273c8b5db1ba}\label{group__units_ga085428efe4f99044bce8273c8b5db1ba}} 
+\index{Unit Conversion@{Unit Conversion}!vrna\_convert\_kcal\_to\_dcal@{vrna\_convert\_kcal\_to\_dcal}}
+\index{vrna\_convert\_kcal\_to\_dcal@{vrna\_convert\_kcal\_to\_dcal}!Unit Conversion@{Unit Conversion}}
+\doxysubsubsection{\texorpdfstring{vrna\_convert\_kcal\_to\_dcal()}{vrna\_convert\_kcal\_to\_dcal()}}
+{\footnotesize\ttfamily int vrna\+\_\+convert\+\_\+kcal\+\_\+to\+\_\+dcal (\begin{DoxyParamCaption}\item[{double}]{energy }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}$>$}
+
+
+
+Convert floating point energy value into integer representation. 
+
+This function converts a floating point value in kcal/mol into its corresponding deka-\/cal/mol integer representation as used throughout RNAlib.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__units_gadef1b636dd61e48e9ad5ebd0d84fb17e}{vrna\+\_\+convert\+\_\+dcal\+\_\+to\+\_\+kcal()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em energy} & The energy value in kcal/mol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The energy value in deka-\/cal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__units_gadef1b636dd61e48e9ad5ebd0d84fb17e}\label{group__units_gadef1b636dd61e48e9ad5ebd0d84fb17e}} 
+\index{Unit Conversion@{Unit Conversion}!vrna\_convert\_dcal\_to\_kcal@{vrna\_convert\_dcal\_to\_kcal}}
+\index{vrna\_convert\_dcal\_to\_kcal@{vrna\_convert\_dcal\_to\_kcal}!Unit Conversion@{Unit Conversion}}
+\doxysubsubsection{\texorpdfstring{vrna\_convert\_dcal\_to\_kcal()}{vrna\_convert\_dcal\_to\_kcal()}}
+{\footnotesize\ttfamily double vrna\+\_\+convert\+\_\+dcal\+\_\+to\+\_\+kcal (\begin{DoxyParamCaption}\item[{int}]{energy }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2units_8h}{Vienna\+RNA/utils/units.\+h}}$>$}
+
+
+
+Convert an integer representation of free energy in deka-\/cal/mol to kcal/mol. 
+
+This function converts a free energy value given as integer in deka-\/cal/mol into the corresponding floating point number in kcal/mol
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__units_ga085428efe4f99044bce8273c8b5db1ba}{vrna\+\_\+convert\+\_\+kcal\+\_\+to\+\_\+dcal()}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em energy} & The energy in deka-\/cal/mol \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The energy in kcal/mol 
+\end{DoxyReturn}
