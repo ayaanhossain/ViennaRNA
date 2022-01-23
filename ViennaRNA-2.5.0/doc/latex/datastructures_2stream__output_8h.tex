@@ -1,0 +1,39 @@
+\hypertarget{datastructures_2stream__output_8h}{}\doxysection{Vienna\+RNA/datastructures/stream\+\_\+output.h File Reference}
+\label{datastructures_2stream__output_8h}\index{ViennaRNA/datastructures/stream\_output.h@{ViennaRNA/datastructures/stream\_output.h}}
+
+
+An implementation of a buffered, ordered stream output data structure.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{datastructures_2stream__output_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+ordered\+\_\+stream\+\_\+s $\ast$ \mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em An ordered output stream structure with unordered insert capabilities. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\+\_\+callback\+\_\+stream\+\_\+output}}(void $\ast$auxdata, unsigned int i, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Ordered stream processing callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} \mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\+\_\+ostream\+\_\+init}} (\mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\+\_\+callback\+\_\+stream\+\_\+output}} $\ast$output, void $\ast$auxdata)
+\begin{DoxyCompactList}\small\item\em Get an initialized ordered output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{vrna\+\_\+ostream\+\_\+free}} (\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} dat)
+\begin{DoxyCompactList}\small\item\em Free an initialized ordered output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\+\_\+ostream\+\_\+request}} (\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} dat, unsigned int num)
+\begin{DoxyCompactList}\small\item\em Request index in ordered output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\+\_\+ostream\+\_\+provide}} (\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\+\_\+ostream\+\_\+t}} dat, unsigned int i, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Provide output stream data for a particular index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of a buffered, ordered stream output data structure. 
+
+, 

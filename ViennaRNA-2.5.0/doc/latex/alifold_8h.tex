@@ -1,0 +1,139 @@
+\hypertarget{alifold_8h}{}\doxysection{Vienna\+RNA/alifold.h File Reference}
+\label{alifold_8h}\index{ViennaRNA/alifold.h@{ViennaRNA/alifold.h}}
+
+
+Functions for comparative structure prediction using RNA sequence alignments.  
+
+
+Include dependency graph for alifold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{alifold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{alifold_8h_a1c48869c03b49a342bf4cbdd61900081}{energy\+\_\+of\+\_\+alistruct}} (const char $\ast$$\ast$sequences, const char $\ast$structure, int n\+\_\+seq, float $\ast$energy)
+\begin{DoxyCompactList}\small\item\em Calculate the free energy of a consensus structure given a set of aligned sequences. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{alifold_8h_ac484c6bd429bafbd353b91044508d8e9}{update\+\_\+alifold\+\_\+params}} (void)
+\begin{DoxyCompactList}\small\item\em Update the energy parameters for alifold function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold}} (const char $\ast$$\ast$strings, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute MFE and according consensus structure of an alignment of sequences. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_gadbd3b0b1c144cbfb4efe704b2b260f96}{circalifold}} (const char $\ast$$\ast$strings, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute MFE and according structure of an alignment of sequences assuming the sequences are circular instead of linear. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga72095e4554b5d577250ea14c42acc49e}{free\+\_\+alifold\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by MFE alifold functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_gab46954fb0ed3b6d5631e7f9b802978cd}{alipf\+\_\+fold\+\_\+par}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl, \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained, int is\+\_\+circular)
+\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_ga1a5f6cfb9d761fa862ce4edc7c369cd2}{alipf\+\_\+fold}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em The partition function version of \mbox{\hyperlink{group__mfe__global__deprecated_ga4cf00f0659e5f0480335d69e797f05b1}{alifold()}} works in analogy to \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}. Pair probabilities and information about sequence covariations are returned via the \textquotesingle{}pi\textquotesingle{} variable as a list of \mbox{\hyperlink{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{vrna\+\_\+pinfo\+\_\+t}} structs. The list is terminated by the first entry with pi.\+i = 0. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__part__func__global__deprecated_ga604a42ad64178279551ad3e4def3d603}{alipf\+\_\+circ\+\_\+fold}} (const char $\ast$$\ast$sequences, char $\ast$structure, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$$\ast$pl)
+\item 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_ga11b6ab8bd9be1821fea352b190a01cab}{export\+\_\+ali\+\_\+bppm}} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__part__func__global__deprecated_ga0c0498f35686e26b38ee460d3db1a661}{free\+\_\+alipf\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory occupied by folding matrices allocated by alipf\+\_\+fold, alipf\+\_\+circ\+\_\+fold, etc. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__part__func__global__deprecated_ga0df40248788f0fb17ebdc59d74116d1c}{alipbacktrack}} (double $\ast$prob)
+\begin{DoxyCompactList}\small\item\em Sample a consensus secondary structure from the Boltzmann ensemble according its probability. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__part__func__global__deprecated_ga5349960075b1847720a2e9df021e2675}{get\+\_\+alipf\+\_\+arrays}} (short $\ast$$\ast$$\ast$S\+\_\+p, short $\ast$$\ast$$\ast$S5\+\_\+p, short $\ast$$\ast$$\ast$S3\+\_\+p, unsigned short $\ast$$\ast$$\ast$a2s\+\_\+p, char $\ast$$\ast$$\ast$Ss\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qb\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qm\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$q1k\+\_\+p, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$$\ast$qln\+\_\+p, short $\ast$$\ast$pscore)
+\begin{DoxyCompactList}\small\item\em Get pointers to (almost) all relavant arrays used in alifold\textquotesingle{}s partition function computation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{alifold_8h_af3cbac6ff5d706d6e414677841ddf94c}{cv\+\_\+fact}}
+\begin{DoxyCompactList}\small\item\em This variable controls the weight of the covariance term in the energy function of alignment folding algorithms. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{alifold_8h_a502948a122a2af5b914355b1f3ea2f61}{nc\+\_\+fact}}
+\begin{DoxyCompactList}\small\item\em This variable controls the magnitude of the penalty for non-\/compatible sequences in the covariance term of alignment folding algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for comparative structure prediction using RNA sequence alignments. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{alifold_8h_a1c48869c03b49a342bf4cbdd61900081}\label{alifold_8h_a1c48869c03b49a342bf4cbdd61900081}} 
+\index{alifold.h@{alifold.h}!energy\_of\_alistruct@{energy\_of\_alistruct}}
+\index{energy\_of\_alistruct@{energy\_of\_alistruct}!alifold.h@{alifold.h}}
+\doxysubsubsection{\texorpdfstring{energy\_of\_alistruct()}{energy\_of\_alistruct()}}
+{\footnotesize\ttfamily float energy\+\_\+of\+\_\+alistruct (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{n\+\_\+seq,  }\item[{float $\ast$}]{energy }\end{DoxyParamCaption})}
+
+
+
+Calculate the free energy of a consensus structure given a set of aligned sequences. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000015}{Deprecated}}]Usage of this function is discouraged! Use \mbox{\hyperlink{group__eval_ga58f199f1438d794a265f3b27fc8ea631}{vrna\+\_\+eval\+\_\+structure()}}, and \mbox{\hyperlink{group__eval_ga6cea75c0eb9857fb59172be54cab09e0}{vrna\+\_\+eval\+\_\+covar\+\_\+structure()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & The NULL terminated array of sequences \\
+\hline
+{\em structure} & The consensus structure \\
+\hline
+{\em n\+\_\+seq} & The number of sequences in the alignment \\
+\hline
+{\em energy} & A pointer to an array of at least two floats that will hold the free energies (energy\mbox{[}0\mbox{]} will contain the free energy, energy\mbox{[}1\mbox{]} will be filled with the covariance energy term) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+free energy in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{alifold_8h_ac484c6bd429bafbd353b91044508d8e9}\label{alifold_8h_ac484c6bd429bafbd353b91044508d8e9}} 
+\index{alifold.h@{alifold.h}!update\_alifold\_params@{update\_alifold\_params}}
+\index{update\_alifold\_params@{update\_alifold\_params}!alifold.h@{alifold.h}}
+\doxysubsubsection{\texorpdfstring{update\_alifold\_params()}{update\_alifold\_params()}}
+{\footnotesize\ttfamily void update\+\_\+alifold\+\_\+params (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Update the energy parameters for alifold function. 
+
+Call this to recalculate the pair matrix and energy parameters after a change in folding parameters like \mbox{\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000025}{Deprecated}}]Usage of this function is discouraged! The new API uses \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} to lump all folding related necessities together, including the energy parameters. Use vrna\+\_\+update\+\_\+fold\+\_\+params() to update the energy parameters within a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyRefDesc}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{alifold_8h_af3cbac6ff5d706d6e414677841ddf94c}\label{alifold_8h_af3cbac6ff5d706d6e414677841ddf94c}} 
+\index{alifold.h@{alifold.h}!cv\_fact@{cv\_fact}}
+\index{cv\_fact@{cv\_fact}!alifold.h@{alifold.h}}
+\doxysubsubsection{\texorpdfstring{cv\_fact}{cv\_fact}}
+{\footnotesize\ttfamily double cv\+\_\+fact\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+This variable controls the weight of the covariance term in the energy function of alignment folding algorithms. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000016}{Deprecated}}]See \mbox{\hyperlink{group__model__details_a62ebefb9d0643e5c4c8a2ec84a105ce6}{vrna\+\_\+md\+\_\+t.\+cv\+\_\+fact}}, and \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} to avoid using global variables\end{DoxyRefDesc}
+
+
+Default is 1. \mbox{\Hypertarget{alifold_8h_a502948a122a2af5b914355b1f3ea2f61}\label{alifold_8h_a502948a122a2af5b914355b1f3ea2f61}} 
+\index{alifold.h@{alifold.h}!nc\_fact@{nc\_fact}}
+\index{nc\_fact@{nc\_fact}!alifold.h@{alifold.h}}
+\doxysubsubsection{\texorpdfstring{nc\_fact}{nc\_fact}}
+{\footnotesize\ttfamily double nc\+\_\+fact\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+This variable controls the magnitude of the penalty for non-\/compatible sequences in the covariance term of alignment folding algorithms. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000017}{Deprecated}}]See \mbox{\hyperlink{group__model__details_abcf568e6124bfcb2f847ff4eb0dfded6}{vrna\+\_\+md\+\_\+t.\+nc\+\_\+fact}}, and \mbox{\hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\+\_\+mfe()}} to avoid using global variables\end{DoxyRefDesc}
+
+
+Default is 1. 

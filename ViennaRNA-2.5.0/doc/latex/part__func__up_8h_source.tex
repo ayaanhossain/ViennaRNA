@@ -1,0 +1,51 @@
+\hypertarget{part__func__up_8h_source}{}\doxysection{part\+\_\+func\+\_\+up.\+h}
+\label{part__func__up_8h_source}\index{ViennaRNA/part\_func\_up.h@{ViennaRNA/part\_func\_up.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_UP\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_UP\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#define   RNA\_UP\_MODE\_1   1U}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#define   RNA\_UP\_MODE\_2   2U}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#define   RNA\_UP\_MODE\_3   4U}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{\Hypertarget{part__func__up_8h_source_l00061}\mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{00061}} \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *\mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\_unstru}}(\textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{00062                       \textcolor{keywordtype}{int} max\_w);}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{\Hypertarget{part__func__up_8h_source_l00106}\mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{00106}} \mbox{\hyperlink{group__data__structures_structinteract}{interact}} *\mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\_interact}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00107                       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00108                       \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *p\_c,}
+\DoxyCodeLine{00109                       \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *p\_c2,}
+\DoxyCodeLine{00110                       \textcolor{keywordtype}{int} max\_w,}
+\DoxyCodeLine{00111                       \textcolor{keywordtype}{char} *cstruc,}
+\DoxyCodeLine{00112                       \textcolor{keywordtype}{int} incr3,}
+\DoxyCodeLine{00113                       \textcolor{keywordtype}{int} incr5);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{\Hypertarget{part__func__up_8h_source_l00118}\mbox{\hyperlink{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}{00118}} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}{free\_interact}}(\mbox{\hyperlink{group__data__structures_structinteract}{interact}} *pin);}
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00123 \textcolor{keywordtype}{int} Up\_plot(\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *p\_c,}
+\DoxyCodeLine{00124             \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *p\_c\_sh,}
+\DoxyCodeLine{00125             \mbox{\hyperlink{group__data__structures_structinteract}{interact}} *pint,}
+\DoxyCodeLine{00126             \textcolor{keywordtype}{char} *ofile,}
+\DoxyCodeLine{00127             \textcolor{keywordtype}{int} **unpaired\_values,}
+\DoxyCodeLine{00128             \textcolor{keywordtype}{char} *select\_contrib,}
+\DoxyCodeLine{00129             \textcolor{keywordtype}{char} *head,}
+\DoxyCodeLine{00130             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} mode);}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00135 \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}}  *get\_pu\_contrib\_struct( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} n,}
+\DoxyCodeLine{00136                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} w);}
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{\Hypertarget{part__func__up_8h_source_l00141}\mbox{\hyperlink{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}{00141}} \textcolor{keywordtype}{void}        \mbox{\hyperlink{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}{free\_pu\_contrib\_struct}}(\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *pu);}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00144 free\_pu\_contrib(\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}} *pu);}
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00150 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00152 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

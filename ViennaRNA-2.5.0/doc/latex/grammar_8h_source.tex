@@ -1,0 +1,131 @@
+\hypertarget{grammar_8h_source}{}\doxysection{grammar.\+h}
+\label{grammar_8h_source}\index{ViennaRNA/grammar.h@{ViennaRNA/grammar.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_GRAMMAR\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_GRAMMAR\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \textcolor{keyword}{typedef} int (vrna\_callback\_gr\_rule)(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00019                                     \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00020                                     \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00021                                     \textcolor{keywordtype}{void}                  *data);}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024 \textcolor{keyword}{typedef} void (vrna\_callback\_gr\_rule\_aux)(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00025                                     \textcolor{keywordtype}{int}                   i,}
+\DoxyCodeLine{00026                                     \textcolor{keywordtype}{int}                   j,}
+\DoxyCodeLine{00027                                     \textcolor{keywordtype}{void}                  *data);}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} (vrna\_callback\_gr\_rule\_exp)(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00031                                                \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00032                                                \textcolor{keywordtype}{int}                  j,}
+\DoxyCodeLine{00033                                                \textcolor{keywordtype}{void}                 *data);}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036 \textcolor{keyword}{typedef} void (vrna\_callback\_gr\_rule\_aux\_exp)(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00037                                                \textcolor{keywordtype}{int}                  i,}
+\DoxyCodeLine{00038                                                \textcolor{keywordtype}{int}                  j,}
+\DoxyCodeLine{00039                                                \textcolor{keywordtype}{void}                 *data);}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042 \textcolor{keyword}{typedef} void (vrna\_callback\_gr\_cond)(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00043                                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}        stage,}
+\DoxyCodeLine{00044                                      \textcolor{keywordtype}{void}                 *data);}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047 \textcolor{keyword}{typedef} void (vrna\_callback\_gr\_free\_data)(\textcolor{keywordtype}{void} *data);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\_gr\_aux\_s}} \mbox{\hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\_gr\_aux\_t}};}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{\Hypertarget{grammar_8h_source_l00053}\mbox{\hyperlink{group__grammar}{00053}} \textcolor{keyword}{struct }\mbox{\hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\_gr\_aux\_s}} \{}
+\DoxyCodeLine{\Hypertarget{grammar_8h_source_l00054}\mbox{\hyperlink{group__grammar_ad4b601db6dc2e18854042b096ee780cc}{00054}}   vrna\_callback\_gr\_cond       *\mbox{\hyperlink{group__grammar_ad4b601db6dc2e18854042b096ee780cc}{cb\_proc}}; }
+\DoxyCodeLine{00056   vrna\_callback\_gr\_rule       *cb\_aux\_f;}
+\DoxyCodeLine{00057   vrna\_callback\_gr\_rule       *cb\_aux\_c;}
+\DoxyCodeLine{00058   vrna\_callback\_gr\_rule       *cb\_aux\_m;}
+\DoxyCodeLine{00059   vrna\_callback\_gr\_rule       *cb\_aux\_m1;}
+\DoxyCodeLine{00060   vrna\_callback\_gr\_rule\_aux       *cb\_aux;}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp\_f;}
+\DoxyCodeLine{00063   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp\_c;}
+\DoxyCodeLine{00064   vrna\_callback\_gr\_rule\_exp     *cb\_aux\_exp\_m;}
+\DoxyCodeLine{00065   vrna\_callback\_gr\_rule\_exp     *cb\_aux\_exp\_m1;}
+\DoxyCodeLine{00066   vrna\_callback\_gr\_rule\_aux\_exp   *cb\_aux\_exp;}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   \textcolor{keywordtype}{void}                        *data;}
+\DoxyCodeLine{00069   vrna\_callback\_gr\_free\_data  *free\_data;}
+\DoxyCodeLine{00070 \};}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00074 vrna\_gr\_set\_aux\_f(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00075                   vrna\_callback\_gr\_rule *cb);}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00079 vrna\_gr\_set\_aux\_exp\_f(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}      *fc,}
+\DoxyCodeLine{00080                       vrna\_callback\_gr\_rule\_exp *cb);}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00084 vrna\_gr\_set\_aux\_c(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00085                   vrna\_callback\_gr\_rule *cb);}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00089 vrna\_gr\_set\_aux\_exp\_c(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}      *fc,}
+\DoxyCodeLine{00090                       vrna\_callback\_gr\_rule\_exp *cb);}
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00094 vrna\_gr\_set\_aux\_m(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00095                   vrna\_callback\_gr\_rule *cb);}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00099 vrna\_gr\_set\_aux\_exp\_m(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}      *fc,}
+\DoxyCodeLine{00100                       vrna\_callback\_gr\_rule\_exp *cb);}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00104 vrna\_gr\_set\_aux\_m1(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}   *fc,}
+\DoxyCodeLine{00105                    vrna\_callback\_gr\_rule  *cb);}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00109 vrna\_gr\_set\_aux\_exp\_m1(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}       *fc,}
+\DoxyCodeLine{00110                        vrna\_callback\_gr\_rule\_exp  *cb);}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00114 vrna\_gr\_set\_aux(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *fc,}
+\DoxyCodeLine{00115                 vrna\_callback\_gr\_rule\_aux *cb);}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00119 vrna\_gr\_set\_aux\_exp(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}      *fc,}
+\DoxyCodeLine{00120                     vrna\_callback\_gr\_rule\_aux\_exp *cb);}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00124 vrna\_gr\_set\_data(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}       *fc,}
+\DoxyCodeLine{00125                  \textcolor{keywordtype}{void}                       *data,}
+\DoxyCodeLine{00126                  vrna\_callback\_gr\_free\_data *free\_data);}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00130 vrna\_gr\_set\_cond(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}   *fc,}
+\DoxyCodeLine{00131                  vrna\_callback\_gr\_cond  *cb);}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133 }
+\DoxyCodeLine{00134 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00135 vrna\_gr\_reset(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc);}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00147 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

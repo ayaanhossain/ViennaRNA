@@ -1,0 +1,42 @@
+\hypertarget{heap_8h}{}\doxysection{Vienna\+RNA/datastructures/heap.h File Reference}
+\label{heap_8h}\index{ViennaRNA/datastructures/heap.h@{ViennaRNA/datastructures/heap.h}}
+
+
+Implementation of an abstract heap data structure.  
+
+
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+heap\+\_\+s $\ast$ \mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em An abstract heap data structure. \end{DoxyCompactList}\item 
+typedef int() \mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\+\_\+callback\+\_\+heap\+\_\+cmp}}(const void $\ast$a, const void $\ast$b, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Heap compare function prototype. \end{DoxyCompactList}\item 
+typedef size\+\_\+t() \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}}(const void $\ast$a, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Retrieve the position of a particular heap entry within the heap. \end{DoxyCompactList}\item 
+typedef void() \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}}(const void $\ast$a, size\+\_\+t pos, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Store the position of a particular heap entry within the heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} \mbox{\hyperlink{group__heap__utils_gafd02db4841338bad6f551e3e2bd2161f}{vrna\+\_\+heap\+\_\+init}} (size\+\_\+t n, \mbox{\hyperlink{group__heap__utils_gac70f1b16e617c57128b1ac9361529795}{vrna\+\_\+callback\+\_\+heap\+\_\+cmp}} $\ast$cmp, \mbox{\hyperlink{group__heap__utils_ga15f9e17d8168f2d7edc43a282ff44f5e}{vrna\+\_\+callback\+\_\+heap\+\_\+get\+\_\+pos}} $\ast$get\+\_\+entry\+\_\+pos, \mbox{\hyperlink{group__heap__utils_ga00acf19f3af4792fb2f3b1d01b32fc61}{vrna\+\_\+callback\+\_\+heap\+\_\+set\+\_\+pos}} $\ast$set\+\_\+entry\+\_\+pos, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Initialize a heap data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__heap__utils_ga2a4915c6e66b8831644857df0715c3ce}{vrna\+\_\+heap\+\_\+free}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by a heap data structure. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__heap__utils_ga5d84774d7d7f000ab05724d54984c2ed}{vrna\+\_\+heap\+\_\+size}} (struct vrna\+\_\+heap\+\_\+s $\ast$h)
+\begin{DoxyCompactList}\small\item\em Get the size of a heap data structure, i.\+e. the number of stored elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__heap__utils_ga91cf0042c894de44c4eb7b47707260a8}{vrna\+\_\+heap\+\_\+insert}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h, void $\ast$v)
+\begin{DoxyCompactList}\small\item\em Insert an element into the heap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__heap__utils_ga3b6242f3a1194eb1df2d1fb40d630610}{vrna\+\_\+heap\+\_\+pop}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h)
+\begin{DoxyCompactList}\small\item\em Pop (remove and return) the object at the root of the heap. \end{DoxyCompactList}\item 
+const void $\ast$ \mbox{\hyperlink{group__heap__utils_ga534a8483824371019241e340c026111b}{vrna\+\_\+heap\+\_\+top}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h)
+\begin{DoxyCompactList}\small\item\em Get the object at the root of the heap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__heap__utils_ga5e181d5ef8557d502943b938620c7174}{vrna\+\_\+heap\+\_\+remove}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h, const void $\ast$v)
+\begin{DoxyCompactList}\small\item\em Remove an arbitrary element within the heap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{group__heap__utils_gabdd04b8719b3d85c5ad53ed7dec9700b}{vrna\+\_\+heap\+\_\+update}} (\mbox{\hyperlink{group__heap__utils_ga341ea87a651145b986792f6eb3e679c3}{vrna\+\_\+heap\+\_\+t}} h, void $\ast$v)
+\begin{DoxyCompactList}\small\item\em Update an arbitrary element within the heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of an abstract heap data structure. 
+

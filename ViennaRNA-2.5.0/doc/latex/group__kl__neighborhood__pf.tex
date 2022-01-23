@@ -1,0 +1,120 @@
+\hypertarget{group__kl__neighborhood__pf}{}\doxysection{Computing Partition Functions of a Distance Based Partitioning}
+\label{group__kl__neighborhood__pf}\index{Computing Partition Functions of a Distance Based Partitioning@{Computing Partition Functions of a Distance Based Partitioning}}
+
+
+Compute the partition function and stochastically sample secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Compute the partition function and stochastically sample secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures. 
+
+Collaboration diagram for Computing Partition Functions of a Distance Based Partitioning\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__kl__neighborhood__pf}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}  \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__kl__neighborhood__pf_ga95d3090db32590ccdb72b9915c8748f6}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}} $\ast$ \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int max\+Distance1, int max\+Distance2)
+\begin{DoxyCompactList}\small\item\em Compute the partition function for all distance classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_sol\_TwoD\_pf\_t@{vrna\_sol\_TwoD\_pf\_t}}\label{structvrna__sol__TwoD__pf__t}
+\Hypertarget{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}
+\doxysubsubsection{struct vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}
+Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} 
+
+This element contains the partition function for the appropriate kappa (k), lambda (l) neighborhood The datastructure contains two integer attributes \textquotesingle{}k\textquotesingle{} and \textquotesingle{}l\textquotesingle{} as well as an attribute \textquotesingle{}q\textquotesingle{} of type \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}
+
+A value of \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}} in k denotes the end of a list
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} 
+\end{DoxySeeAlso}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__kl__neighborhood__pf_ad1f23b46dc4ebd373abdeb0382d87b83}\label{group__kl__neighborhood__pf_ad1f23b46dc4ebd373abdeb0382d87b83}} 
+int \mbox{\hyperlink{group__kl__neighborhood__pf_ad1f23b46dc4ebd373abdeb0382d87b83}{k}}
+\begin{DoxyCompactList}\small\item\em Distance to first reference. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__kl__neighborhood__pf_a01133c264eff2c988d144e07803d1b8b}\label{group__kl__neighborhood__pf_a01133c264eff2c988d144e07803d1b8b}} 
+int \mbox{\hyperlink{group__kl__neighborhood__pf_a01133c264eff2c988d144e07803d1b8b}{l}}
+\begin{DoxyCompactList}\small\item\em Distance to second reference. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__kl__neighborhood__pf_a17ebbf425b8769ded74b5c7b85e58ee1}\label{group__kl__neighborhood__pf_a17ebbf425b8769ded74b5c7b85e58ee1}} 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} \mbox{\hyperlink{group__kl__neighborhood__pf_a17ebbf425b8769ded74b5c7b85e58ee1}{q}}
+\begin{DoxyCompactList}\small\item\em partition function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__kl__neighborhood__pf_ga95d3090db32590ccdb72b9915c8748f6}\label{group__kl__neighborhood__pf_ga95d3090db32590ccdb72b9915c8748f6}} 
+\index{Computing Partition Functions of a Distance Based Partitioning@{Computing Partition Functions of a Distance Based Partitioning}!vrna\_sol\_TwoD\_pf\_t@{vrna\_sol\_TwoD\_pf\_t}}
+\index{vrna\_sol\_TwoD\_pf\_t@{vrna\_sol\_TwoD\_pf\_t}!Computing Partition Functions of a Distance Based Partitioning@{Computing Partition Functions of a Distance Based Partitioning}}
+\doxysubsubsection{\texorpdfstring{vrna\_sol\_TwoD\_pf\_t}{vrna\_sol\_TwoD\_pf\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{2Dpfold_8h}{Vienna\+RNA/2\+Dpfold.\+h}}$>$}
+
+
+
+Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} 
+
+This element contains the partition function for the appropriate kappa (k), lambda (l) neighborhood The datastructure contains two integer attributes \textquotesingle{}k\textquotesingle{} and \textquotesingle{}l\textquotesingle{} as well as an attribute \textquotesingle{}q\textquotesingle{} of type \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}
+
+A value of \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}} in k denotes the end of a list
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}\label{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}} 
+\index{Computing Partition Functions of a Distance Based Partitioning@{Computing Partition Functions of a Distance Based Partitioning}!vrna\_pf\_TwoD@{vrna\_pf\_TwoD}}
+\index{vrna\_pf\_TwoD@{vrna\_pf\_TwoD}!Computing Partition Functions of a Distance Based Partitioning@{Computing Partition Functions of a Distance Based Partitioning}}
+\doxysubsubsection{\texorpdfstring{vrna\_pf\_TwoD()}{vrna\_pf\_TwoD()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}$\ast$ vrna\+\_\+pf\+\_\+\+TwoD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{max\+Distance1,  }\item[{int}]{max\+Distance2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{2Dpfold_8h}{Vienna\+RNA/2\+Dpfold.\+h}}$>$}
+
+
+
+Compute the partition function for all distance classes. 
+
+This function computes the partition functions for all distance classes according the two reference structures specified in the datastructure \textquotesingle{}vars\textquotesingle{}. Similar to \mbox{\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}} the arguments max\+Distance1 and max\+Distance2 specify the maximum distance to both reference structures. A value of \textquotesingle{}-\/1\textquotesingle{} in either of them makes the appropriate distance restrictionless, i.\+e. all basepair distancies to the reference are taken into account during computation. In case there is a restriction, the returned solution contains an entry where the attribute k=l=-\/1 contains the partition function for all structures exceeding the restriction. A value of \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}} in the attribute \textquotesingle{}k\textquotesingle{} of the returned list denotes the end of the list
+
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}}, \mbox{\hyperlink{group__fold__compound_ga283cf113a37614a75c1388c4ec6d7b2f}{vrna\+\_\+fold\+\_\+compound}} \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The datastructure containing all necessary folding attributes and matrices \\
+\hline
+{\em max\+Distance1} & The maximum basepair distance to reference1 (may be -\/1) \\
+\hline
+{\em max\+Distance2} & The maximum basepair distance to reference2 (may be -\/1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of partition funtions for the corresponding distance classes 
+\end{DoxyReturn}

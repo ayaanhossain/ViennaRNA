@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<u>Revision</u>: 70ea028f12e10f4d992a<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 28, 2021
+         (05:17:49 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Created release v19.22</p><pre class="files_changed"> dlib/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: a44ddd7452221733dec9<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Mar 22, 2021
+         (29:37:54 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add matrix pointwise_pow (#2329)</p><pre class="files_changed"> dlib/matrix/matrix_utilities.h          | 39 +++++++++++++++++++++++++++++++++
+ dlib/matrix/matrix_utilities_abstract.h | 21 ++++++++++++++++++
+ dlib/test/matrix4.cpp                   | 14 ++++++++++++
+ 3 files changed, 74 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 092fa3037f1004ead614<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Mar 08, 2021
+         (21:59:53 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add softmax function for matrix type (#2320)</p><pre class="files_changed"> dlib/matrix/matrix_math_functions.h          | 34 ++++++++++++++++++++++++++++
+ dlib/matrix/matrix_math_functions_abstract.h | 16 +++++++++++++
+ dlib/test/matrix.cpp                         | 17 ++++++++++++++
+ 3 files changed, 67 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 0697527acc9490f3141c<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Feb 16, 2021
+         (15:31:55 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix invalid assert</p><pre class="files_changed"> dlib/global_optimization/global_function_search.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 1b58bdc205234e753404<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Feb 13, 2021
+         (04:42:47 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">[SERIALIZATION] updated _abstract file (#2306)</p><pre class="files_changed"> dlib/vectorstream/vectorstream_abstract.h | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 479b69e68863def21ed0<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Feb 12, 2021
+         (03:13:05 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Serialization to and from vector&lt;int8_t&gt; and vector&lt;uint8_t&gt; (#2301)</p><pre class="files_changed"> dlib/serialize.h                 | 38 ++++++++++++++++++++++++
+ dlib/test/dnn.cpp                |  5 ++++
+ dlib/test/matrix.cpp             | 26 +++++++++++++++--
+ dlib/test/serialize.cpp          | 63 ++++++++++++++++++++++++++++++++++++++++
+ dlib/test/vectorstream.cpp       | 34 +++++++++++++++++++---
+ dlib/vectorstream/vectorstream.h | 49 ++++++++++++++++++++++++-------
+ 6 files changed, 199 insertions(+), 16 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 04a3534af1690b88f4aa<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Feb 11, 2021
+         (20:55:54 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix set_learning_rate_multipliers_range not working (#2304)</p><pre class="files_changed"> dlib/dnn/utilities.h |  4 ++--
+ dlib/test/dnn.cpp    | 22 +++++++++++++++++++++-
+ 2 files changed, 23 insertions(+), 3 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 42e6ace845fbccba5bd7<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Feb 09, 2021
+         (31:07:24 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Minor fix in the network size format (#2303)</p><pre class="files_changed"> dlib/dnn/trainer.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 9f6aefc0db01e1d2edca<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 28, 2021
+         (03:35:17 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add missing .get_final_data_gradient() for repeat layer</p><pre class="files_changed"> dlib/dnn/core.h | 3 +++
+ 1 file changed, 3 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 1516cf31c3ab05e6c62b<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Jan 18, 2021
+         (13:58:30 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">[MATRIX] bug fix. If you #include &lt;dlib/matrix.h&gt; in a header file you might get a compiler error saying ambiguous call to max(). This commit fixes that. (#2287)</p><pre class="files_changed"> dlib/pixel.h | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 22007f6665f5ea99ab63<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 18, 2021
+         (03:56:34 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">work around bug in visual studio</p><pre class="files_changed"> dlib/test/global_optimization.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: b8807922ddbe66ad7b06<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Jan 17, 2021
+         (18:22:06 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">FFT: added std::vector overloads for fft, ifft, fft_inplace and ifft_inplace (#2286)</p><pre class="files_changed"> dlib/matrix/matrix_fft.h          | 75 ++++++++++++++++++++++++++++++++++++++-
+ dlib/matrix/matrix_fft_abstract.h | 69 +++++++++++++++++++++++++++++++++++
+ dlib/test/fft.cpp                 | 74 ++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 217 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 044ff91b797e40e0b31c<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 17, 2021
+         (08:18:15 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">I'm finding there are other issues with gcc 4.8 now and it's old enough that we can just drop support for gcc 4.8.</p><pre class="files_changed"> dlib/global_optimization/find_max_global.h | 21 +--------------------
+ 1 file changed, 1 insertion(+), 20 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 95271cfe43ffceeadeb1<br><u>Author</u>: <a href="mailto:robertu94@users.noreply.github.com">Robert Underwood</a><br><u>Date</u>: Jan 17, 2021
+         (07:59:57 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Early termination for find_{min,max}_global (#2281)</p><pre class="files_changed"> dlib/global_optimization/find_max_global.h         | 16 ++++++---
+ .../global_optimization/find_max_global_abstract.h | 40 +++++++++++++++++-----
+ dlib/test/global_optimization.cpp                  | 18 +++++++---
+ 3 files changed, 58 insertions(+), 16 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 600e03655274f0e7f201<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 16, 2021
+         (05:13:52 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">work around bug in gcc 4.8</p><pre class="files_changed"> dlib/global_optimization/find_max_global.h | 21 ++++++++++++++++++++-
+ dlib/test/global_optimization.cpp          | 10 ++++++++++
+ 2 files changed, 30 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: df46c516b9e493e0e6fa<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 16, 2021
+         (-05:42:29 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Greatly simplify how all the overloads of find_*_global() are setup.</p><pre class="files_changed"> dlib/global_optimization/find_max_global.h         | 670 ++++++---------------
+ .../global_optimization/find_max_global_abstract.h | 540 +----------------
+ dlib/test/global_optimization.cpp                  |  13 +-
+ 3 files changed, 190 insertions(+), 1033 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 4c0b8b96906d3a1a1a14<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 16, 2021
+         (-05:41:30 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix compiler warning</p><pre class="files_changed"> dlib/cuda/cuda_dlib.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 0871081a231f06ac8652<br><u>Author</u>: <a href="mailto:robertu94@users.noreply.github.com">Robert Underwood</a><br><u>Date</u>: Jan 14, 2021
+         (17:05:15 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix find_min_global finding wrong answers (#2284)</p><pre class="files_changed"> dlib/global_optimization/find_max_global.h | 5 +++++
+ 1 file changed, 5 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 4a53742f8f6a071fb002<br><u>Author</u>: <a href="mailto:pkubaj@users.noreply.github.com">pkubaj</a><br><u>Date</u>: Jan 13, 2021
+         (00:55:28 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix build with clang on ppc64le (#2278)</p><pre class="files_changed"> dlib/simd/simd4f.h | 5 +++++
+ 1 file changed, 5 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 9e5c556740dc84616027<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Jan 06, 2021
+         (02:48:16 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix build errors in gcc 4.8</p><pre class="files_changed"> dlib/test/fft.cpp          | 3 +--
+ dlib/test/fftr_good_data.h | 4 ++--
+ 2 files changed, 3 insertions(+), 4 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 39eec294b01c96c708f7<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Jan 06, 2021
+         (03:19:05 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Arbitrary sized FFTs using modified kissFFT as default backend and MKL otherwise (#2253)</p><pre class="files_changed"> dlib/cmake_utils/find_blas.cmake  |    3 +
+ dlib/matrix/fft_size.h            |  220 +++
+ dlib/matrix/kiss_fft.h            |  746 +++++++++
+ dlib/matrix/matrix_fft.h          |  919 ++---------
+ dlib/matrix/matrix_fft_abstract.h |   75 +-
+ dlib/matrix/matrix_utilities.h    |   34 +
+ dlib/matrix/mkl_fft.h             |  243 +++
+ dlib/test/fft.cpp                 |  443 +++++-
+ dlib/test/fftr_good_data.h        | 3044 +++++++++++++++++++++++++++++++++++++
+ 9 files changed, 4880 insertions(+), 847 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 71dd9a6cd7f2512a82ff<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Jan 03, 2021
+         (31:29:09 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Remove GUI dependency from fonts (#2273)</p><pre class="files_changed"> dlib/CMakeLists.txt               | 2 +-
+ dlib/gui_widgets/fonts.cpp        | 2 ++
+ dlib/gui_widgets/fonts.h          | 9 ++++-----
+ dlib/gui_widgets/fonts_abstract.h | 8 +++++---
+ dlib/gui_widgets/nativefont.h     | 5 ++++-
+ dlib/image_transforms/draw.h      | 2 +-
+ 6 files changed, 17 insertions(+), 11 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 187b73f7dc0566c38665<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Dec 31, 2020
+         (11:28:53 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Draw string on images (#2270)</p><pre class="files_changed"> dlib/image_transforms/draw.h          | 99 +++++++++++++++++++++++++++++++++++
+ dlib/image_transforms/draw_abstract.h | 30 +++++++++++
+ dlib/test/image.cpp                   | 30 ++++++++++-
+ 3 files changed, 158 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 74baff132a68d2388a7d<br><u>Author</u>: <a href="mailto:stoperro@users.noreply.github.com">stoperro</a><br><u>Date</u>: Dec 28, 2020
+         (17:37:17 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fixed CUDA 11.1 compilation. (#2271)</p><pre class="files_changed"> dlib/cuda/cuda_dlib.cu | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 20378b0819e37ff8694e<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Dec 18, 2020
+         (15:12:12 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">make test run faster</p><pre class="files_changed"> dlib/test/rand.cpp | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 0fede57ed7ef756e9812<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Dec 16, 2020
+         (15:37:22 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Make the mmod loss not spam messages in the unit tests</p><pre class="files_changed"> dlib/dnn/loss.h          | 27 ++++++++++++++++++---------
+ dlib/dnn/loss_abstract.h |  5 +++++
+ dlib/test/dnn.cpp        |  1 +
+ 3 files changed, 24 insertions(+), 9 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: c5c761b5ad29ff7692d6<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Dec 13, 2020
+         (15:36:06 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix build error from ambiguous calls to call_if_valid()</p><pre class="files_changed"> dlib/metaprogramming.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 286ca71e1a521ef5f24b<br><u>Author</u>: <a href="mailto:akshaym@users.noreply.github.com">Akshay Naresh Modi</a><br><u>Date</u>: Dec 13, 2020
+         (03:57:41 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Release GIL before detecting faces (#2252)</p><pre class="files_changed"> tools/python/src/simple_object_detector_py.h | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 7b5b3750260347591746<br><u>Author</u>: <a href="mailto:parsa592323@gmail.com">Abdolkarim Saeedi</a><br><u>Date</u>: Dec 09, 2020
+         (19:37:45 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Update dnn_inception_ex.cpp (#2256)</p><pre class="files_changed"> examples/dnn_inception_ex.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: eb1f08ce6ab3ca6f9d10<br><u>Author</u>: <a href="mailto:yolenych@gmail.com">yuriio</a><br><u>Date</u>: Dec 07, 2020
+         (04:05:07 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Removed redundant calls that сause compilation nodiscard warnings. (#2251)</p><pre class="files_changed"> dlib/bigint/bigint_kernel_1.h | 5 ++---
+ dlib/bigint/bigint_kernel_2.h | 5 ++---
+ dlib/bigint/bigint_kernel_c.h | 5 ++---
+ 3 files changed, 6 insertions(+), 9 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: f42a6d23cc67c985fc9b<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Dec 04, 2020
+         (09:18:21 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Some systems manage to install cuda in a way that causes cmake to claim that cuda is available even though it knows it didn't find cublas, which is part of the standard cuda install.  So we need to add a check to see if cmake *really for realz* found cuda.</p><pre class="files_changed"> dlib/CMakeLists.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 0ff61299b77236c9125b<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Dec 04, 2020
+         (03:05:39 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Adding exponential and weibull distributions (#2247)</p><pre class="files_changed"> dlib/rand/rand_kernel_1.h        | 25 +++++++++++++++++++++++
+ dlib/rand/rand_kernel_abstract.h | 21 +++++++++++++++++++
+ dlib/test/rand.cpp               | 44 ++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 90 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: e58da5135c15f0dcc404<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Nov 29, 2020
+         (09:53:08 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">minor cleanup</p><pre class="files_changed"> dlib/data_io/cifar.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: d3b0213118769069c1e7<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 30, 2020
+         (13:47:34 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add CIFAR-10 dataset loader (#2245)</p><pre class="files_changed"> dlib/CMakeLists.txt           |   1 +
+ dlib/all/source.cpp           |   1 +
+ dlib/data_io.h                |   1 +
+ dlib/data_io/cifar.cpp        | 106 ++++++++++++++++++++++++++++++++++++++++++
+ dlib/data_io/cifar.h          |  31 ++++++++++++
+ dlib/data_io/cifar_abstract.h |  51 ++++++++++++++++++++
+ dlib/data_io/mnist.cpp        |   8 ++--
+ 7 files changed, 195 insertions(+), 4 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: d9e58d66cfe15f8189dd<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Nov 25, 2020
+         (03:09:38 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fixes bug when (de)serializing vector&lt;complex&lt;float&gt;&gt; (#2244)</p><pre class="files_changed"> dlib/serialize.h        | 106 ++++++++++++++++++++++++------------------------
+ dlib/test/serialize.cpp |  11 +++--
+ 2 files changed, 61 insertions(+), 56 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: a7627cbd07cb196fb9f8<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 25, 2020
+         (21:07:04 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Rename function to disable_duplicative_biases (#2246)</p><pre class="files_changed"> dlib/dnn/layers.h               | 2 +-
+ dlib/dnn/layers_abstract.h      | 2 +-
+ dlib/test/dnn.cpp               | 6 +++---
+ examples/dnn_dcgan_train_ex.cpp | 4 ++--
+ 4 files changed, 7 insertions(+), 7 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: b6bf8aefee5692c8da0a<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 22, 2020
+         (16:09:06 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add support for matrix serialization to python API (#2241)</p><pre class="files_changed"> tools/python/src/matrix.cpp | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: d7644ef2b7234520ddcf<br><u>Author</u>: <a href="mailto:frankier@users.noreply.github.com">Frankie Robertson</a><br><u>Date</u>: Nov 22, 2020
+         (02:07:28 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Expose get_face_chip_details to Python (#2238)</p><pre class="files_changed"> tools/python/src/image2.cpp | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 96a75568be7701dedb94<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 18, 2020
+         (31:26:12 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix unused parameter warning in visitor_net_to_xml (#2240)</p><pre class="files_changed"> dlib/dnn/utilities.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 820fd353d25b0c8cb206<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 17, 2020
+         (21:17:29 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Make dnn_trainer print the minibatch size to ostream (#2236)</p><pre class="files_changed"> dlib/dnn/trainer.h | 1 +
+ 1 file changed, 1 insertion(+)</pre><hr class="fullhr"><u>Revision</u>: 375f117222e13152c00f<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 15, 2020
+         (30:55:54 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add custom ostream to console progress indicator (#2234)</p><pre class="files_changed"> dlib/console_progress_indicator.h | 36 +++++++++++++++++++-----------------
+ 1 file changed, 19 insertions(+), 17 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 2ef8e3ac14671cf8a356<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Nov 13, 2020
+         (21:39:15 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Update to pybind11 v2.2.4 (closes #1806) (#2229)</p><pre class="files_changed"> dlib/external/pybind11/CMakeLists.txt              |  2 +
+ dlib/external/pybind11/README.md                   |  2 +-
+ dlib/external/pybind11/include/pybind11/cast.h     | 14 +++---
+ .../pybind11/include/pybind11/detail/common.h      | 15 ++++---
+ .../pybind11/include/pybind11/detail/internals.h   | 44 +++++++++++++++++--
+ dlib/external/pybind11/include/pybind11/eigen.h    |  8 ----
+ dlib/external/pybind11/include/pybind11/iostream.h |  2 +-
+ dlib/external/pybind11/include/pybind11/numpy.h    |  7 +--
+ dlib/external/pybind11/include/pybind11/pybind11.h | 50 +++++++++++-----------
+ dlib/external/pybind11/include/pybind11/stl.h      | 10 ++++-
+ dlib/external/pybind11/tools/pybind11Tools.cmake   |  7 +++
+ 11 files changed, 106 insertions(+), 55 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 93b992d79024b68544cf<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Nov 08, 2020
+         (05:25:01 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">slightly improve tests</p><pre class="files_changed"> dlib/test/pixel.cpp | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 3f163bd4332351d8e93c<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Nov 08, 2020
+         (05:22:40 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix pixels being rounded to int values in some cases (#2228)</p><pre class="files_changed"> dlib/matrix/matrix_utilities.h |  2 +-
+ dlib/test/image.cpp            | 17 +++++++++++++++++
+ dlib/test/pixel.cpp            |  8 +++++---
+ 3 files changed, 23 insertions(+), 4 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 83921b390e6cf7575b99<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Oct 21, 2020
+         (31:15:08 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Remove an unused variable and old commented code (#2217)</p><pre class="files_changed"> dlib/cuda/cuda_dlib.cu | 3 ---
+ 1 file changed, 3 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 3c82c2259c558d2ae9bb<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Oct 20, 2020
+         (29:56:55 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add Layer Normalization (#2213)</p><pre class="files_changed"> dlib/cuda/cpu_dlib.cpp          | 171 +++++++++++++++++++++++++++++++++++++
+ dlib/cuda/cpu_dlib.h            |  24 ++++++
+ dlib/cuda/cuda_dlib.cu          | 163 +++++++++++++++++++++++++++++++++++
+ dlib/cuda/cuda_dlib.h           |  26 +++++-
+ dlib/cuda/tensor_tools.cpp      |  34 ++++++++
+ dlib/cuda/tensor_tools.h        |  24 ++++++
+ dlib/dnn/layers.h               | 185 ++++++++++++++++++++++++++++++++++++++--
+ dlib/dnn/layers_abstract.h      | 149 +++++++++++++++++++++++++++++++-
+ dlib/test/dnn.cpp               | 102 ++++++++++++++++++++++
+ examples/dnn_dcgan_train_ex.cpp |   4 +-
+ 10 files changed, 869 insertions(+), 13 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 5074850356e76a4c601c<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Oct 14, 2020
+         (30:17:30 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix backtracking when losses stay at inf (fixes #2206) (#2209)</p><pre class="files_changed"> dlib/dnn/trainer.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: a1f158379e2f328e8697<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Oct 10, 2020
+         (30:42:10 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Do not use sqrt_2 in device code (fixes #2208) (#2210)</p><pre class="files_changed"> dlib/cuda/cpu_dlib.cpp | 2 +-
+ dlib/cuda/cuda_dlib.cu | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 3ba004f875d02c4c326f<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Oct 09, 2020
+         (20:45:23 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add GELU activation layer (#2204)</p><pre class="files_changed"> dlib/cuda/cpu_dlib.cpp     | 41 ++++++++++++++++++++++++++
+ dlib/cuda/cpu_dlib.h       | 13 +++++++++
+ dlib/cuda/cuda_dlib.cu     | 54 ++++++++++++++++++++++++++++++++++
+ dlib/cuda/cuda_dlib.h      | 13 +++++++++
+ dlib/cuda/tensor_tools.cpp | 27 +++++++++++++++++
+ dlib/cuda/tensor_tools.h   | 34 ++++++++++++++++++++++
+ dlib/dnn/layers.h          | 72 ++++++++++++++++++++++++++++++++++++++++++++++
+ dlib/dnn/layers_abstract.h | 38 ++++++++++++++++++++++++
+ dlib/test/dnn.cpp          | 33 +++++++++++++++++++++
+ 9 files changed, 325 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: f4f8bff95ec84d441953<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Oct 08, 2020
+         (18:33:35 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix cmake not finding openblas</p><pre class="files_changed"> dlib/cmake_utils/find_blas.cmake | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: c45d166a2592059d573e<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Oct 06, 2020
+         (19:20:37 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Test cuda losses (#2199)</p><pre class="files_changed"> dlib/cuda/cpu_dlib.h          | 142 +++++++++++++++++++++++++++++++++++++-----
+ dlib/dnn/loss.h               | 130 ++++----------------------------------
+ dlib/dnn/misc.h               |  43 +++++++++++++
+ dlib/dnn/utilities.h          |  17 -----
+ dlib/dnn/utilities_abstract.h |   2 +
+ dlib/test/dnn.cpp             |  56 +++++++++++++++--
+ 6 files changed, 235 insertions(+), 155 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: d78d273a459107f12424<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Sep 30, 2020
+         (30:04:28 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add loss multiclass log per pixel weighted cuda (#2194)</p><pre class="files_changed"> dlib/cuda/cpu_dlib.h     | 77 ++++++++++++++++++++++++++++++++++++++++++++++++
+ dlib/cuda/cuda_dlib.cu   | 48 ++++++++++++++++++++++++++++++
+ dlib/cuda/cuda_dlib.h    | 77 ++++++++++++++++++++++++++++++++++++++++++++++++
+ dlib/dnn/loss.h          | 63 ++++++++-------------------------------
+ dlib/dnn/loss_abstract.h |  3 +-
+ dlib/dnn/misc.h          | 28 ++++++++++++++++++
+ dlib/test/dnn.cpp        | 12 ++++++++
+ 7 files changed, 256 insertions(+), 52 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 4125a7bb1f07ceff1b91<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Sep 25, 2020
+         (14:27:30 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">DLIB (de)serialization : enhanced STL container support (#2185)</p><pre class="files_changed"> dlib/serialize.h        | 660 +++++++++++++++++++++++++++++++++++++++++++++++-
+ dlib/test/serialize.cpp |  91 ++++++-
+ 2 files changed, 737 insertions(+), 14 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 5408b17f74081520f1f4<br><u>Author</u>: <a href="mailto:34294278+aviezab@users.noreply.github.com">aviezab</a><br><u>Date</u>: Sep 25, 2020
+         (25:48:48 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Linux Distro Detection to fix issue number #2159 #154 (#2169)</p><pre class="files_changed"> dlib/cmake_utils/find_blas.cmake | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 0419b816893f314b67db<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 25, 2020
+         (03:41:26 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Let python users give up to 35 parameters when using the global optimizer.</p><pre class="files_changed"> tools/python/src/global_optimization.cpp | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 20a1477209e1fd28b0f1<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 19, 2020
+         (03:21:52 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">update docs</p><pre class="files_changed"> dlib/serialize.h | 10 ++++++++++
+ 1 file changed, 10 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: ab346ddfa640bb0a8b75<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Sep 19, 2020
+         (13:16:21 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Extended proxy_(de)serialize objects to work with stringstream, ostringstream, istringstream and vector&lt;char&gt; (#2181)</p><pre class="files_changed"> dlib/serialize.h        | 111 ++++++++++++++++++++++++++++++++++--------------
+ dlib/test/serialize.cpp |  47 +++++++++++++++++---
+ 2 files changed, 119 insertions(+), 39 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: fa818b9a964cba9a093d<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Sep 18, 2020
+         (20:54:06 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">use DLIB_CASSERT to avoid unused variable warning in release compilation (#2182)</p><pre class="files_changed"> dlib/vectorstream/vectorstream.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: d4fe74b5a82ef21e7216<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Sep 17, 2020
+         (02:37:36 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">vectorstream updates: added seekoff and seekpos (#2179)</p><pre class="files_changed"> dlib/test/vectorstream.cpp       | 81 ++++++++++++++++++++++++++++++++++------
+ dlib/vectorstream/vectorstream.h | 41 +++++++++++++++-----
+ 2 files changed, 101 insertions(+), 21 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: cdeb2e067cf99ce52b60<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 12, 2020
+         (17:52:21 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">add some docs</p><pre class="files_changed"> dlib/serialize.h | 102 +++++++++++++++++++++++++++++++++++++++----------------
+ 1 file changed, 73 insertions(+), 29 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 12a82f6542ee0fcb66f5<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Sep 13, 2020
+         (03:18:46 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Macro for generating default serialisation functions (#2177)</p><pre class="files_changed"> dlib/serialize.h        | 72 ++++++++++++++++++++++++++++++++++++++++++++++++-
+ dlib/test/serialize.cpp | 50 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 121 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 9d60949a3a937f33acfc<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Sep 12, 2020
+         (29:55:24 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add scale_prev layer (#2171)</p><pre class="files_changed"> dlib/dnn/layers.h          | 122 +++++++++++++++++++++++++++++++++++++++++++++
+ dlib/dnn/layers_abstract.h |  74 +++++++++++++++++++++++++++
+ dlib/test/dnn.cpp          |  53 ++++++++++++++++++++
+ 3 files changed, 249 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 77e6255fdd2a6ecfbaf7<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Sep 08, 2020
+         (29:16:15 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add error message for mismatched tensor sizes in dnn_trainer (#2165)</p><pre class="files_changed"> dlib/dnn/trainer.h | 5 +++++
+ 1 file changed, 5 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: 40c3e48818b6decb97d3<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 06, 2020
+         (06:42:56 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Simplified more uses of layer visiting and fixed constness bug</p><pre class="files_changed"> dlib/dnn/core.h      | 24 ++++++++++++++++----
+ dlib/dnn/utilities.h | 36 +++++-------------------------
+ dlib/test/dnn.cpp    | 62 ++++++++++++++++++++++++++++++++++++++++++----------
+ 3 files changed, 76 insertions(+), 46 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 5ec60a91c4aa0fc17a73<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Sep 06, 2020
+         (31:27:50 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Show how to use the new visitors with lambdas (#2162)</p><pre class="files_changed"> examples/dnn_dcgan_train_ex.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 393db2490b8e7fbe0dbe<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 06, 2020
+         (04:57:44 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">switch this to C++11 code</p><pre class="files_changed"> dlib/test/metaprogramming.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 5bcbe617eb27407bd211<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 06, 2020
+         (04:45:23 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">make type_safe_union movable and also support holding movable types in a natural way.</p><pre class="files_changed"> dlib/test/type_safe_union.cpp                      | 36 ++++++++++++++++++++++
+ dlib/type_safe_union/type_safe_union_kernel.h      | 27 +++++++++++-----
+ .../type_safe_union_kernel_abstract.h              | 25 ++++++++++++---
+ 3 files changed, 76 insertions(+), 12 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: afe19fcb8bef83335274<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 05, 2020
+         (14:33:04 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Made the DNN layer visiting routines more convenient.</p><pre class="files_changed"> dlib/dnn/core.h                   | 279 +++++++++++++++++++-------------------
+ dlib/dnn/core_abstract.h          |  81 ++++++++++-
+ dlib/dnn/trainer.h                |   2 +-
+ dlib/test/dnn.cpp                 |  16 ++-
+ examples/dnn_introduction3_ex.cpp |  22 ++-
+ 5 files changed, 236 insertions(+), 164 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 7dcc7b4ebc65a5ae860e<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 05, 2020
+         (10:38:24 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Added call_if_valid()</p><pre class="files_changed"> dlib/metaprogramming.h        | 40 ++++++++++++++++++++++++++++++++++++++++
+ dlib/test/metaprogramming.cpp | 37 +++++++++++++++++++++++++++++++++++++
+ 2 files changed, 77 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: e7ec6b777757d0c589cb<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Sep 03, 2020
+         (19:59:19 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add visitor to remove bias from bn_ layer inputs (#closes 2155) (#2156)</p><pre class="files_changed"> dlib/dnn/core.h                 |  22 ++++
+ dlib/dnn/core_abstract.h        |  14 +++
+ dlib/dnn/layers.h               | 224 ++++++++++++++++++++++++++++++----------
+ dlib/dnn/layers_abstract.h      |  64 ++++++++++++
+ examples/dnn_dcgan_train_ex.cpp |  43 +++-----
+ 5 files changed, 282 insertions(+), 85 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: ed22f0400aa3b8b3a3ce<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 02, 2020
+         (17:48:30 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Make dnn_trainer use robust statistic to determine if the loss is exploding and if it should backtrack.</p><pre class="files_changed"> dlib/dnn/trainer.h | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 0bb6ce36d8ebd16fe755<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 02, 2020
+         (17:47:58 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">dnn_trainer prints number of steps executed when print to ostream</p><pre class="files_changed"> dlib/dnn/trainer.h | 1 +
+ 1 file changed, 1 insertion(+)</pre><hr class="fullhr"><u>Revision</u>: 76cc8e3b6bbb74a9b68f<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 02, 2020
+         (17:42:44 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add probability_values_are_increasing() and probability_values_are_increasing_robust()</p><pre class="files_changed"> dlib/statistics/running_gradient.h          | 44 +++++++++++++++++++++++++++++
+ dlib/statistics/running_gradient_abstract.h | 39 +++++++++++++++++++++++++
+ dlib/test/statistics.cpp                    | 10 +++++++
+ 3 files changed, 93 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: c14ba4847e76f78a2f78<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 01, 2020
+         (05:30:52 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Rename POSIX macro to DLIB_POSIX to avoid name clashes with some libraries.</p><pre class="files_changed"> dlib/dir_nav/dir_nav_kernel_2.cpp   | 4 ++--
+ dlib/gui_core/gui_core_kernel_2.cpp | 4 ++--
+ dlib/gui_widgets/nativefont.h       | 4 ++--
+ dlib/misc_api/misc_api_kernel_2.cpp | 4 ++--
+ dlib/platform.h                     | 8 ++++----
+ dlib/sockets/sockets_kernel_2.cpp   | 4 ++--
+ dlib/threads/threads_kernel_2.cpp   | 4 ++--
+ 7 files changed, 16 insertions(+), 16 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 4b92804dc2fe6642a360<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Sep 01, 2020
+         (02:58:35 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Use the box with bounding box regression applied to do NMS in the loss.</p><pre class="files_changed"> dlib/dnn/loss.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 0e721e5cae66214a57fa<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Aug 29, 2020
+         (05:09:54 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix bug in bounding box regression loss.</p><pre class="files_changed"> dlib/dnn/loss.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: c9809e067f9e9c33aa1f<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Aug 29, 2020
+         (21:04:24 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Add missing input/output mappings to mult_prev (#2154)</p><pre class="files_changed"> dlib/dnn/layers.h          | 3 +++
+ dlib/dnn/layers_abstract.h | 2 ++
+ 2 files changed, 5 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: b401185aa5a59bfff8eb<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Aug 23, 2020
+         (18:22:40 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix a warning and add some more error handling.</p><pre class="files_changed"> dlib/dnn/loss.h          | 5 +++++
+ dlib/dnn/loss_abstract.h | 5 +++--
+ dlib/test/dnn.cpp        | 6 ++++--
+ 3 files changed, 12 insertions(+), 4 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: dd06c1169b55fc1f8994<br><u>Author</u>: <a href="mailto:1671644+arrufat@users.noreply.github.com">Adrià Arrufat</a><br><u>Date</u>: Aug 24, 2020
+         (20:15:16 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">loss multibinary log (#2141)</p><pre class="files_changed"> dlib/dnn/loss.h          | 118 +++++++++++++++++++++++++++++++++++++++++++++++
+ dlib/dnn/loss_abstract.h |  83 +++++++++++++++++++++++++++++++++
+ dlib/test/dnn.cpp        |  64 +++++++++++++++++++++++++
+ 3 files changed, 265 insertions(+)</pre><hr class="fullhr"><u>Revision</u>: d7ca478b799762bae42c<br><u>Author</u>: <a href="mailto:juha.reunanen@tomaattinen.com">Juha Reunanen</a><br><u>Date</u>: Aug 20, 2020
+         (17:43:14 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Problem: With certain batch size / device count combinations, batches were generated with size = 1, causing problems when using batch normalization. (#2152)</p><pre class="files_changed"> dlib/dnn/trainer.h | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: bea99ceed046f5433c3f<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Aug 19, 2020
+         (15:48:14 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">switch to a name less likely to conflict with third party code</p><pre class="files_changed"> dlib/assert.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: a9592b07fd0658491d1f<br><u>Author</u>: <a href="mailto:juha.reunanen@tomaattinen.com">Juha Reunanen</a><br><u>Date</u>: Aug 20, 2020
+         (05:38:35 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Minor typo fixes (#2150)</p><pre class="files_changed"> dlib/cuda/cudnn_dlibapi.cpp | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 2a870e329cbe6e551f6a<br><u>Author</u>: <a href="mailto:samaldana@users.noreply.github.com">samaldana</a><br><u>Date</u>: Aug 20, 2020
+         (03:37:57 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Fix warning for zero variadic macro arguments. (#2151)</p><pre class="files_changed"> dlib/assert.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: f3b4fc548dd5fe83cdaf<br><u>Author</u>: <a href="mailto:45853521+pfeatherstone@users.noreply.github.com">pfeatherstone</a><br><u>Date</u>: Aug 18, 2020
+         (01:15:53 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Added "get_random_complex_gaussian" to dlib::rand (#2149)</p><pre class="files_changed"> dlib/rand/rand_kernel_1.h        | 28 ++++++++++++++++++----------
+ dlib/rand/rand_kernel_abstract.h |  9 +++++++++
+ 2 files changed, 27 insertions(+), 10 deletions(-)</pre><hr class="fullhr"><u>Revision</u>: 59b44849bd00b00e37d9<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Aug 13, 2020
+         (03:47:59 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">fix typo, doesn't really matter, but still</p><pre class="files_changed"> dlib/global_optimization/find_max_global.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 02e70ce3cac806cfed20<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Aug 08, 2020
+         (11:30:37 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Record last changeset and set PATCH version to 99</p><pre class="files_changed"> dlib/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre><hr class="fullhr"><u>Revision</u>: 9117bd784328d9ac40ff<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Aug 08, 2020
+         (11:26:07 UTC)
+      <br><p xmlns:gcse="googleCustomSearch" style="margin:0.4em">Created release v19.21</p><pre class="files_changed"> dlib/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)</pre><hr class="fullhr">

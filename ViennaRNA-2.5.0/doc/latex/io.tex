@@ -1,0 +1,571 @@
+Below, you\textquotesingle{}ll find a listing of different sections that introduce the most common notations of sequence and structure data, specifications of bioinformatics sequence and structure file formats, and various output file formats produced by our library.
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{rna_structure_notations}{RNA Structure Notations}} describes the different notations and representations of RNA secondary structures
+\item \mbox{\hyperlink{file_formats}{File Formats}} gives an overview of the file formats compatible with our library
+\item \mbox{\hyperlink{plots}{Plotting}} shows the different (Post\+Script) plotting functions for RNA secondary structures, feature probabilities, and multiple sequence alignments 
+\end{DoxyItemize}\hypertarget{rna_structure_notations}{}\doxysection{RNA Structure Notations}\label{rna_structure_notations}
+\hypertarget{rna_structure_notations_sec_structure_representations}{}\doxysubsection{Representations of Secondary Structures}\label{rna_structure_notations_sec_structure_representations}
+The standard representation of a secondary structure in our library is the \mbox{\hyperlink{rna_structure_notations_dot-bracket-notation}{Dot-\/\+Bracket Notation (a.\+k.\+a. Dot-\/\+Parenthesis Notation)}}, where matching brackets symbolize base pairs and unpaired bases are shown as dots. Based on that notation, more elaborate representations have been developed to include additional information, such as the loop context a nucleotide belongs to and to annotated pseudo-\/knots.\hypertarget{rna_structure_notations_dot-bracket-notation}{}\doxysubsubsection{Dot-\/\+Bracket Notation (a.\+k.\+a. Dot-\/\+Parenthesis Notation)}\label{rna_structure_notations_dot-bracket-notation}
+The Dot-\/\+Bracket notation as introduced already in the early times of the Vienna\+RNA Package denotes base pairs by matching pairs of parenthesis {\ttfamily ()} and unpaired nucleotides by dots {\ttfamily .}.
+
+As a simple example, consider a helix of size 4 enclosing a hairpin of size 4. In dot-\/bracket notation, this is annotated as
+
+{\ttfamily ((((....))))}
+
+{\bfseries{Extended Dot-\/\+Bracket Notation}}
+
+A more generalized version of the original Dot-\/\+Bracket notation may use additional pairs of brackets, such as {\ttfamily $<$$>$}, {\ttfamily \{\}}, and {\ttfamily \mbox{[}\mbox{]}}, and matching pairs of uppercase/lowercase letters. This allows for anotating pseudo-\/knots, since different pairs of brackets are not required to be nested.
+
+The follwing annotations of a simple structure with two crossing helices of size 4 are equivalent\+:
+
+{\ttfamily $<$$<$$<$$<$\mbox{[}\mbox{[}\mbox{[}\mbox{[}....$>$$>$$>$$>$\mbox{]}\mbox{]}\mbox{]}\mbox{]}}~\newline
+ {\ttfamily ((((AAAA....))))aaaa}~\newline
+ {\ttfamily AAAA\{\{\{\{....aaaa\}\}\}\}} \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__dot__bracket_ga55c4783060a1464f862f858d5599c9e1}{vrna\+\_\+db\+\_\+pack()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga6490adff857d84ce06e6f379ae3a4512}{vrna\+\_\+db\+\_\+unpack()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gafd1304f5a86e2e3f1425e725cde44fa2}{vrna\+\_\+db\+\_\+flatten()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga690425199c8b71545e7196e3af1436f8}{vrna\+\_\+db\+\_\+flatten\+\_\+to()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_gaf9ecd0d7877fecdbb0292e24f40283d5}{vrna\+\_\+db\+\_\+from\+\_\+ptable()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga6a51a36b9245d0bac868c5cd172b9611}{vrna\+\_\+db\+\_\+from\+\_\+plist()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga45360c09fb6d04d96e42dcccbb66015b}{vrna\+\_\+db\+\_\+to\+\_\+element\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga97dbebaa3fc49524cf5afa338a6c52ee}{vrna\+\_\+db\+\_\+pk\+\_\+remove()}}
+\end{DoxySeeAlso}
+\hypertarget{rna_structure_notations_wuss-notation}{}\doxysubsubsection{Washington University Secondary Structure (\+WUSS) notation}\label{rna_structure_notations_wuss-notation}
+The WUSS notation, as frequently used for consensus secondary structures in \mbox{\hyperlink{file_formats_msa-formats-stockholm}{Stockholm 1.\+0 format}}.
+
+This notation allows for a fine-\/grained annotation of base pairs and unpaired nucleotides, including pseudo-\/knots. Below, you\textquotesingle{}ll find a list of secondary structure elements and their corresponding WUSS annotation (See also the infernal user guide at \href{http://eddylab.org/infernal/Userguide.pdf}{\texttt{ http\+://eddylab.\+org/infernal/\+Userguide.\+pdf}}) 
+\begin{DoxyItemize}
+\item {\bfseries{Base pairs}}~\newline
+ Nested base pairs are annotated by matching pairs of the symbols {\ttfamily $<$$>$}, {\ttfamily ()}, {\ttfamily \{\}}, and {\ttfamily \mbox{[}\mbox{]}}. Each of the matching pairs of parenthesis have their special meaning, however, when used as input in our programs, e.\+g. structure constraint, these details are usually ignored. Furthermore, base pairs that constitute as pseudo-\/knot are denoted by letters from the latin alphabet and are, if not denoted otherwise, ignored entirely in our programs.
+\item {\bfseries{Hairpin loops}}~\newline
+ Unpaired nucleotides that constitute the hairpin loop are indicated by underscores, {\ttfamily \+\_\+}.
+
+Example\+: {\ttfamily $<$$<$$<$$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$$>$$>$$>$}
+\item {\bfseries{Bulges and interior loops}}~\newline
+ Residues that constitute a bulge or interior loop are denoted by dashes, {\ttfamily -\/}.
+
+Example\+: {\ttfamily (((-\/-\/$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$-\/)))}
+\item {\bfseries{Multibranch loops}}~\newline
+ Unpaired nucleotides in multibranch loops are indicated by commas {\ttfamily ,}.
+
+Example\+: {\ttfamily (((,,$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$,$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$)))}
+\item {\bfseries{External residues}}~\newline
+ Single stranded nucleotides in the exterior loop, i.\+e. not enclosed by any other pair are denoted by colons, {\ttfamily \+:}.
+
+Example\+: {\ttfamily $<$$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$$>$\+::\+:}
+\item {\bfseries{Insertions}}~\newline
+ In cases where an alignment represents the consensus with a known structure, insertions relative to the known structure are denoted by periods, {\ttfamily .}. Regions where local structural alignment was invoked, leaving regions of both target and query sequence unaligned, are indicated by tildes, {\ttfamily $\sim$}. \begin{DoxyNote}{Note}
+These symbols only appear in alignments of a known (query) structure annotation to a target sequence of unknown structure.
+\end{DoxyNote}
+
+\item {\bfseries{Pseudo-\/knots}}~\newline
+ The WUSS notation allows for annotation of pseudo-\/knots using pairs of upper-\/case/lower-\/case letters. \begin{DoxyNote}{Note}
+Our programs and library functions usually ignore pseudo-\/knots entirely treating them as unpaired nucleotides, if not stated otherwise.
+\end{DoxyNote}
+Example\+: {\ttfamily $<$$<$$<$\+\_\+\+AAA\+\_\+\+\_\+\+\_\+$>$$>$$>$aaa} 
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__wuss_ga02ca70cffb2d864f7b2d95d92218bae0}{vrna\+\_\+db\+\_\+from\+\_\+\+WUSS()}}
+\end{DoxySeeAlso}
+\hypertarget{rna_structure_notations_shapes-notation}{}\doxysubsubsection{Abstract Shapes}\label{rna_structure_notations_shapes-notation}
+Abstract Shapes, introduced by Giegerich et al. in (2004) \cite{giegerich:2004}, collapse the secondary structure while retaining the nestedness of helices and hairpin loops.
+
+The abstract shapes representation abstracts the structure from individual base pairs and their corresponding location in the sequence, while retaining the inherent nestedness of helices and hairpin loops.
+
+Below is a description of what is included in the abstract shapes abstraction for each respective level together with an example structure\+: \begin{DoxyVerb}CGUCUUAAACUCAUCACCGUGUGGAGCUGCGACCCUUCCCUAGAUUCGAAGACGAG
+((((((...(((..(((...))))))...(((..((.....))..)))))))))..
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Shape Level   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Shape Level   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result    }\\\cline{1-3}
+\endhead
+1   &Most accurate -\/ all loops and all unpaired   &{\ttfamily \mbox{[}\+\_\+\mbox{[}\+\_\+\mbox{[}\mbox{]}\mbox{]}\+\_\+\mbox{[}\+\_\+\mbox{[}\mbox{]}\+\_\+\mbox{]}\mbox{]}\+\_\+}    \\\cline{1-3}
+2   &Nesting pattern for all loop types and unpaired regions in external loop and multiloop   &{\ttfamily \mbox{[}\mbox{[}\+\_\+\mbox{[}\mbox{]}\mbox{]}\mbox{[}\+\_\+\mbox{[}\mbox{]}\+\_\+\mbox{]}\mbox{]}}    \\\cline{1-3}
+3   &Nesting pattern for all loop types but no unpaired regions   &{\ttfamily \mbox{[}\mbox{[}\mbox{[}\mbox{]}\mbox{]}\mbox{[}\mbox{[}\mbox{]}\mbox{]}\mbox{]}}    \\\cline{1-3}
+4   &Helix nesting pattern in external loop and multiloop   &{\ttfamily \mbox{[}\mbox{[}\mbox{]}\mbox{[}\mbox{[}\mbox{]}\mbox{]}\mbox{]}}    \\\cline{1-3}
+5   &Most abstract -\/ helix nesting pattern and no unpaired regions   &{\ttfamily \mbox{[}\mbox{[}\mbox{]}\mbox{[}\mbox{]}\mbox{]}}   \\\cline{1-3}
+\end{longtabu}
+
+
+\begin{DoxyNote}{Note}
+Our implementations also provide the special Shape Level 0, which does not collapse any structural features but simply convert base pairs and unpaired nucleotides into their corresponding set of symbols for abstract shapes. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__abstract__shapes_gafca0add98ede22bf2c22608878c61b22}{vrna\+\_\+abstract\+\_\+shapes()}}, \mbox{\hyperlink{group__struct__utils__abstract__shapes_ga2fd59087e1c4e3d460e5823ba6d693b4}{vrna\+\_\+abstract\+\_\+shapes\+\_\+pt()}}
+\end{DoxySeeAlso}
+\hypertarget{rna_structure_notations_sec_structure_representations_tree}{}\doxysubsubsection{Tree Representations of Secondary Structures}\label{rna_structure_notations_sec_structure_representations_tree}
+Secondary structures can be readily represented as trees, where internal nodes represent base pairs, and leaves represent unpaired nucleotides. The dot-\/bracket structure string already is a tree represented by a string of parenthesis (base pairs) and dots for the leaf nodes (unpaired nucleotides).
+
+Alternatively, one may find representations with two types of node labels, {\ttfamily P} for paired and {\ttfamily U} for unpaired; a dot is then replaced by {\ttfamily (U)}, and each closed bracket is assigned an additional identifier {\ttfamily P}. We call this the expanded notation. In \cite{fontana:1993b} a condensed representation of the secondary structure is proposed, the so-\/called homeomorphically irreducible tree (HIT) representation. Here a stack is represented as a single pair of matching brackets labeled {\ttfamily P} and weighted by the number of base pairs. Correspondingly, a contiguous strain of unpaired bases is shown as one pair of matching brackets labeled {\ttfamily U} and weighted by its length. Generally any string consisting of matching brackets and identifiers is equivalent to a plane tree with as many different types of nodes as there are identifiers.
+
+Bruce Shapiro proposed a coarse grained representation \cite{shapiro:1988}, which, does not retain the full information of the secondary structure. He represents the different structure elements by single matching brackets and labels them as
+
+
+\begin{DoxyItemize}
+\item {\ttfamily H} (hairpin loop),
+\item {\ttfamily I} (interior loop),
+\item {\ttfamily B} (bulge),
+\item {\ttfamily M} (multi-\/loop), and
+\item {\ttfamily S} (stack).
+\end{DoxyItemize}
+
+We extend his alphabet by an extra letter for external elements {\ttfamily E}. Again these identifiers may be followed by a weight corresponding to the number of unpaired bases or base pairs in the structure element. All tree representations (except for the dot-\/bracket form) can be encapsulated into a virtual root (labeled {\ttfamily R}).
+
+The following example illustrates the different linear tree representations used by the package\+:
+
+Consider the secondary structure represented by the dot-\/bracket string (full tree) {\ttfamily .((..(((...)))..((..)))).} which is the most convenient condensed notation used by our programs and library functions.
+
+Then, the following tree representations are equivalent\+:
+
+
+\begin{DoxyItemize}
+\item Expanded tree\+:~\newline
+ {\ttfamily ((U)(((U)(U)((((U)(U)(U)P)P)P)(U)(U)(((U)(U)P)P)P)P)(U)R)}
+\item HIT representation (Fontana et al. 1993 \cite{fontana:1993b})\+:~\newline
+ {\ttfamily ((U1)((U2)((U3)P3)(U2)((U2)P2)P2)(U1)R)}
+\item Coarse Grained \mbox{\hyperlink{structTree}{Tree}} Representation (Shapiro 1988 \cite{shapiro:1988})\+:
+\begin{DoxyItemize}
+\item Short (with root node {\ttfamily R}, without stem nodes {\ttfamily S})\+:~\newline
+ {\ttfamily ((H)((H)M)R)}
+\item Full (with root node {\ttfamily R})\+:~\newline
+ {\ttfamily (((((H)S)((H)S)M)S)R)}
+\item Extended (with root node {\ttfamily R}, with external nodes {\ttfamily E})\+:~\newline
+ {\ttfamily ((((((H)S)((H)S)M)S)E)R)}
+\item Weighted (with root node {\ttfamily R}, with external nodes {\ttfamily E})\+:~\newline
+ {\ttfamily ((((((H3)S3)((H2)S2)M4)S2)E2)R)}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+The Expanded tree is rather clumsy and mostly included for the sake of completeness. The different versions of Coarse Grained \mbox{\hyperlink{structTree}{Tree}} Representations are variatios of Shapiro\textquotesingle{}s linear tree notation.
+
+For the output of aligned structures from string editing, different representations are needed, where we put the label on both sides. The above examples for tree representations would then look like\+:
+
+\begin{DoxyVerb}*  a) (UU)(P(P(P(P(UU)(UU)(P(P(P(UU)(UU)(UU)P)P)P)(UU)(UU)(P(P(UU)(U...
+*  b) (UU)(P2(P2(U2U2)(P2(U3U3)P3)(U2U2)(P2(U2U2)P2)P2)(UU)P2)(UU)
+*  c) (B(M(HH)(HH)M)B)
+*     (S(B(S(M(S(HH)S)(S(HH)S)M)S)B)S)
+*     (E(S(B(S(M(S(HH)S)(S(HH)S)M)S)B)S)E)
+*  d) (R(E2(S2(B1(S2(M4(S3(H3)S3)((H2)S2)M4)S2)B1)S2)E2)R)
+*  \end{DoxyVerb}
+
+
+Aligned structures additionally contain the gap character {\ttfamily \+\_\+}. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__tree_gaa31da26a3f582ddc35a84ff1b9c0a2b0}{vrna\+\_\+tree\+\_\+string\+\_\+unweight()}}, \mbox{\hyperlink{group__struct__utils__tree_ga99d280319a7fd3f87e9f0d8c44520774}{vrna\+\_\+tree\+\_\+string\+\_\+to\+\_\+db()}}
+\end{DoxySeeAlso}
+\hypertarget{rna_structure_notations_structure_notations_examples}{}\doxysubsection{Examples for Structure Parsing and Conversion}\label{rna_structure_notations_structure_notations_examples}
+\hypertarget{rna_structure_notations_structure_notations_api}{}\doxysubsection{Structure Parsing and Conversion API}\label{rna_structure_notations_structure_notations_api}
+Several functions are provided for parsing structures and converting to different representations.
+
+\begin{DoxyVerb}char  *expand_Full(const char *structure)
+\end{DoxyVerb}
+ Convert the full structure from bracket notation to the expanded notation including root.
+
+\begin{DoxyVerb}char *b2HIT (const char *structure)
+\end{DoxyVerb}
+ Converts the full structure from bracket notation to the HIT notation including root.
+
+\begin{DoxyVerb}char *b2C (const char *structure)
+\end{DoxyVerb}
+ Converts the full structure from bracket notation to the a coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers.
+
+\begin{DoxyVerb}char *b2Shapiro (const char *structure)
+\end{DoxyVerb}
+ Converts the full structure from bracket notation to the {\itshape weighted} coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} \textquotesingle{}S\textquotesingle{} \textquotesingle{}E\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers.
+
+\begin{DoxyVerb}char  *expand_Shapiro (const char *coarse);
+\end{DoxyVerb}
+ Inserts missing \textquotesingle{}S\textquotesingle{} identifiers in unweighted coarse grained structures as obtained from \mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2\+C()}}.
+
+\begin{DoxyVerb}char *add_root (const char *structure)
+\end{DoxyVerb}
+ Adds a root to an un-\/rooted tree in any except bracket notation.
+
+\begin{DoxyVerb}char  *unexpand_Full (const char *ffull)
+\end{DoxyVerb}
+ Restores the bracket notation from an expanded full or HIT tree, that is any tree using only identifiers \textquotesingle{}U\textquotesingle{} \textquotesingle{}P\textquotesingle{} and \textquotesingle{}R\textquotesingle{}.
+
+\begin{DoxyVerb}char  *unweight (const char *wcoarse)
+\end{DoxyVerb}
+ Strip weights from any weighted tree.
+
+\begin{DoxyVerb}void   unexpand_aligned_F (char *align[2])
+\end{DoxyVerb}
+ Converts two aligned structures in expanded notation.
+
+\begin{DoxyVerb}void   parse_structure (const char *structure)
+\end{DoxyVerb}
+ Collects a statistic of structure elements of the full structure in bracket notation.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{RNAstruct_8h}{RNAstruct.\+h}} for prototypes and more detailed description 
+\end{DoxySeeAlso}
+\hypertarget{file_formats}{}\doxysection{File Formats}\label{file_formats}
+\hypertarget{file_formats_msa-formats}{}\doxysubsection{File formats for Multiple Sequence Alignments (\+MSA)}\label{file_formats_msa-formats}
+\hypertarget{file_formats_msa-formats-clustal}{}\doxysubsubsection{Clustal\+W format}\label{file_formats_msa-formats-clustal}
+The {\itshape ClustalW} format is a relatively simple text file containing a single multiple sequence alignment of DNA, RNA, or protein sequences. It was first used as an output format for the {\itshape clustalw} programs, but nowadays it may also be generated by various other sequence alignment tools. The specification is straight forward\+:
+
+
+\begin{DoxyItemize}
+\item The first line starts with the words\begin{DoxyVerb}CLUSTAL W \end{DoxyVerb}
+ or \begin{DoxyVerb}CLUSTALW \end{DoxyVerb}
+
+\item After the above header there is at least one empty line
+\item Finally, one or more blocks of sequence data are following, where each block is separated by at least one empty line
+\end{DoxyItemize}Each line in a blocks of sequence data consists of the sequence name followed by the sequence symbols, separated by at least one whitespace character. Usually, the length of a sequence in one block does not exceed 60 symbols. Optionally, an additional whitespace separated cumulative residue count may follow the sequence symbols. Optionally, a block may be followed by a line depicting the degree of conservation of the respective alignment columns.
+
+\begin{DoxyNote}{Note}
+Sequence names and the sequences must not contain whitespace characters! Allowed gap symbols are the hyphen {\itshape }(\char`\"{}-\/\char`\"{}), and dot {\itshape }(\char`\"{}.\char`\"{}).
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Please note that many programs that output this format tend to truncate the sequence names to a limited number of characters, for instance the first 15 characters. This can destroy the uniqueness of identifiers in your MSA.
+\end{DoxyWarning}
+Here is an example alignment in ClustalW format\+: 
+\begin{DoxyVerbInclude}
+CLUSTAL W (1.83) multiple sequence alignment
+
+
+AL031296.1/85969-86120      CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGUAACAAUACUUAC
+AANU01225121.1/438-603      CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGUGACAAUACUUAC
+AAWR02037329.1/29294-29150  ---CUCGACACCACU---GCCUCGGUUACCCAUCGGUGCAGUGCGGGUAGUAGUACCAAU
+
+AL031296.1/85969-86120      UCUCGUUGGUGAUAAGGAACAGCU
+AANU01225121.1/438-603      UCUCGUUGGUGAUAAGGAACAGCU
+AAWR02037329.1/29294-29150  GCUAAUUAGUUGUGAGGACCAACU 
+\end{DoxyVerbInclude}
+\hypertarget{file_formats_msa-formats-stockholm}{}\doxysubsubsection{Stockholm 1.\+0 format}\label{file_formats_msa-formats-stockholm}
+Here is an example alignment in Stockholm 1.\+0 format\+: 
+\begin{DoxyVerbInclude}
+# STOCKHOLM 1.0
+
+#=GF AC   RF01293
+#=GF ID   ACA59
+#=GF DE   Small nucleolar RNA ACA59
+#=GF AU   Wilkinson A
+#=GF SE   Predicted; WAR; Wilkinson A
+#=GF SS   Predicted; WAR; Wilkinson A
+#=GF GA   43.00
+#=GF TC   44.90
+#=GF NC   40.30
+#=GF TP   Gene; snRNA; snoRNA; HACA-box;
+#=GF BM   cmbuild -F CM SEED
+#=GF CB   cmcalibrate --mpi CM
+#=GF SM   cmsearch --cpu 4 --verbose --nohmmonly -E 1000 -Z 549862.597050 CM SEQDB
+#=GF DR   snoRNABase; ACA59;
+#=GF DR   SO; 0001263; ncRNA_gene;
+#=GF DR   GO; 0006396; RNA processing;
+#=GF DR   GO; 0005730; nucleolus;
+#=GF RN   [1]
+#=GF RM   15199136
+#=GF RT   Human box H/ACA pseudouridylation guide RNA machinery.
+#=GF RA   Kiss AM, Jady BE, Bertrand E, Kiss T
+#=GF RL   Mol Cell Biol. 2004;24:5797-5807.
+#=GF WK   Small_nucleolar_RNA
+#=GF SQ   3
+
+
+AL031296.1/85969-86120     CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGUAACAAUACUUACUCUCGUUGGUGAUAAGGAACAGCU
+AANU01225121.1/438-603     CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGUGACAAUACUUACUCUCGUUGGUGAUAAGGAACAGCU
+AAWR02037329.1/29294-29150 ---CUCGACACCACU---GCCUCGGUUACCCAUCGGUGCAGUGCGGGUAGUAGUACCAAUGCUAAUUAGUUGUGAGGACCAACU
+#=GC SS_cons               -----((((,<<<<<<<<<___________>>>>>>>>>,,,,<<<<<<<______>>>>>>>,,,,,))))::::::::::::
+#=GC RF                    CUGCcccaCAaCacuuguGCCUCaGUUACcCauagguGuAGUGaGgGuggcAaUACccaCcCucgUUgGuggUaAGGAaCAgCU
+//
+\end{DoxyVerbInclude}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{rna_structure_notations_wuss-notation}{Washington University Secondary Structure (WUSS) notation}} on legal characters for the consensus secondary structure line {\itshape SS\+\_\+cons} and their interpretation
+\end{DoxySeeAlso}
+\hypertarget{file_formats_msa-formats-fasta}{}\doxysubsubsection{FASTA (\+Pearson) format}\label{file_formats_msa-formats-fasta}
+\begin{DoxyNote}{Note}
+Sequence names must not contain whitespace characters. Otherwise, the parts after the first whitespace will be dropped. The only allowed gap character is the hyphen {\itshape }(\char`\"{}-\/\char`\"{}).
+\end{DoxyNote}
+Here is an example alignment in FASTA format\+: 
+\begin{DoxyVerbInclude}
+>AL031296.1/85969-86120
+CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGUAACAAUACUUAC
+UCUCGUUGGUGAUAAGGAACAGCU
+>AANU01225121.1/438-603
+CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGUGACAAUACUUAC
+UCUCGUUGGUGAUAAGGAACAGCU
+>AAWR02037329.1/29294-29150
+---CUCGACACCACU---GCCUCGGUUACCCAUCGGUGCAGUGCGGGUAGUAGUACCAAU
+GCUAAUUAGUUGUGAGGACCAACU
+\end{DoxyVerbInclude}
+\hypertarget{file_formats_msa-formats-maf}{}\doxysubsubsection{MAF format}\label{file_formats_msa-formats-maf}
+The multiple alignment format (MAF) is usually used to store multiple alignments on DNA level between entire genomes. It consists of independent blocks of aligned sequences which are annotated by their genomic location. Consequently, an MAF formatted MSA file may contain multiple records. MAF files start with a line \begin{DoxyVerb}##maf
+\end{DoxyVerb}
+ which is optionally extended by whitespace delimited key=value pairs. Lines starting with the character (\char`\"{}\#\char`\"{}) are considered comments and usually ignored.
+
+A MAF block starts with character (\char`\"{}a\char`\"{}) at the beginning of a line, optionally followed by whitespace delimited key=value pairs. The next lines start with character (\char`\"{}s\char`\"{}) and contain sequence information of the form \begin{DoxyVerb}s src start size strand srcSize sequence
+\end{DoxyVerb}
+ where
+\begin{DoxyItemize}
+\item {\itshape src} is the name of the sequence source
+\item {\itshape start} is the start of the aligned region within the source (0-\/based)
+\item {\itshape size} is the length of the aligned region without gap characters
+\item {\itshape strand} is either (\char`\"{}+\char`\"{}) or (\char`\"{}-\/\char`\"{}), depicting the location of the aligned region relative to the source
+\item {\itshape src\+Size} is the size of the entire sequence source, e.\+g. the full chromosome
+\item {\itshape sequence} is the aligned sequence including gaps depicted by the hyphen (\char`\"{}-\/\char`\"{})
+\end{DoxyItemize}Here is an example alignment in MAF format (bluntly taken from the \href{https://cgwb.nci.nih.gov/FAQ/FAQformat.html\#format5}{\texttt{ UCSC Genome browser website}})\+: 
+\begin{DoxyVerbInclude}
+##maf version=1 scoring=tba.v8 
+# tba.v8 (((human chimp) baboon) (mouse rat)) 
+# multiz.v7
+# maf_project.v5 _tba_right.maf3 mouse _tba_C
+# single_cov2.v4 single_cov2 /dev/stdin
+                   
+a score=23262.0     
+s hg16.chr7    27578828 38 + 158545518 AAA-GGGAATGTTAACCAAATGA---ATTGTCTCTTACGGTG
+s panTro1.chr6 28741140 38 + 161576975 AAA-GGGAATGTTAACCAAATGA---ATTGTCTCTTACGGTG
+s baboon         116834 38 +   4622798 AAA-GGGAATGTTAACCAAATGA---GTTGTCTCTTATGGTG
+s mm4.chr6     53215344 38 + 151104725 -AATGGGAATGTTAAGCAAACGA---ATTGTCTCTCAGTGTG
+s rn3.chr4     81344243 40 + 187371129 -AA-GGGGATGCTAAGCCAATGAGTTGTTGTCTCTCAATGTG
+                   
+a score=5062.0                    
+s hg16.chr7    27699739 6 + 158545518 TAAAGA
+s panTro1.chr6 28862317 6 + 161576975 TAAAGA
+s baboon         241163 6 +   4622798 TAAAGA 
+s mm4.chr6     53303881 6 + 151104725 TAAAGA
+s rn3.chr4     81444246 6 + 187371129 taagga
+
+a score=6636.0
+s hg16.chr7    27707221 13 + 158545518 gcagctgaaaaca
+s panTro1.chr6 28869787 13 + 161576975 gcagctgaaaaca
+s baboon         249182 13 +   4622798 gcagctgaaaaca
+s mm4.chr6     53310102 13 + 151104725 ACAGCTGAAAATA
+
+\end{DoxyVerbInclude}
+\hypertarget{file_formats_constraint-formats}{}\doxysubsection{File formats to manipulate the RNA folding grammar}\label{file_formats_constraint-formats}
+\hypertarget{file_formats_constraint-formats-file}{}\doxysubsubsection{Command Files}\label{file_formats_constraint-formats-file}
+The RNAlib and many programs of the Vienna\+RNA Package can parse and apply data from so-\/called command files. These commands may refer to structure constraints or even extensions of the RNA folding grammar (such as \mbox{\hyperlink{group__domains__up}{Unstructured Domains}}). Commands are given as a line of whitespace delimited data fields. The syntax we use extends the constraint definitions used in the \href{http://mfold.rna.albany.edu/?q=mfold}{\texttt{ mfold}} / \href{http://mfold.rna.albany.edu/?q=DINAMelt/software}{\texttt{ UNAfold}} software, where each line begins with a command character followed by a set of positions.~\newline
+However, we introduce several new commands, and allow for an optional loop type context specifier in form of a sequence of characters, and an orientation flag that enables one to force a nucleotide to pair upstream, or downstream.\hypertarget{file_formats_constraint_commands}{}\doxyparagraph{Constraint commands}\label{file_formats_constraint_commands}
+The following set of commands is recognized\+:
+\begin{DoxyItemize}
+\item {\ttfamily F} $ \ldots $ Force
+\item {\ttfamily P} $ \ldots $ Prohibit
+\item {\ttfamily C} $ \ldots $ Conflicts/\+Context dependency
+\item {\ttfamily A} $ \ldots $ Allow (for non-\/canonical pairs)
+\item {\ttfamily E} $ \ldots $ Soft constraints for unpaired position(s), or base pair(s)
+\end{DoxyItemize}\hypertarget{file_formats_domain_commands}{}\doxyparagraph{RNA folding grammar exensions}\label{file_formats_domain_commands}
+
+\begin{DoxyItemize}
+\item {\ttfamily UD} $ \ldots $ Add ligand binding using the \mbox{\hyperlink{group__domains__up}{Unstructured Domains}} feature
+\end{DoxyItemize}\hypertarget{file_formats_command_file_loop_types}{}\doxyparagraph{Specification of the loop type context}\label{file_formats_command_file_loop_types}
+The optional loop type context specifier {\ttfamily }\mbox{[}LOOP\mbox{]} may be a combination of the following\+:
+\begin{DoxyItemize}
+\item {\ttfamily E} $ \ldots $ Exterior loop
+\item {\ttfamily H} $ \ldots $ Hairpin loop
+\item {\ttfamily I} $ \ldots $ Interior loop
+\item {\ttfamily M} $ \ldots $ Multibranch loop
+\item {\ttfamily A} $ \ldots $ All loops
+\end{DoxyItemize}
+
+For structure constraints, we additionally allow one to address base pairs enclosed by a particular kind of loop, which results in the specifier {\ttfamily }\mbox{[}WHERE\mbox{]} which consists of {\ttfamily }\mbox{[}LOOP\mbox{]} plus the following character\+:
+\begin{DoxyItemize}
+\item {\ttfamily i} $ \ldots $ enclosed pair of an Interior loop
+\item {\ttfamily m} $ \ldots $ enclosed pair of a Multibranch loop
+\end{DoxyItemize}
+
+If no {\ttfamily }\mbox{[}LOOP\mbox{]} or {\ttfamily }\mbox{[}WHERE\mbox{]} flags are set, all contexts are considered (equivalent to {\ttfamily A} )\hypertarget{file_formats_const_file_orientation}{}\doxyparagraph{Controlling the orientation of base pairing}\label{file_formats_const_file_orientation}
+For particular nucleotides that are forced to pair, the following {\ttfamily }\mbox{[}ORIENTATION\mbox{]} flags may be used\+:
+\begin{DoxyItemize}
+\item {\ttfamily U} $ \ldots $ Upstream
+\item {\ttfamily D} $ \ldots $ Downstream
+\end{DoxyItemize}
+
+If no {\ttfamily }\mbox{[}ORIENTATION\mbox{]} flag is set, both directions are considered.\hypertarget{file_formats_const_file_seq_coords}{}\doxyparagraph{Sequence coordinates}\label{file_formats_const_file_seq_coords}
+Sequence positions of nucleotides/base pairs are $ 1- $ based and consist of three positions $ i $, $ j $, and $ k $. Alternativly, four positions may be provided as a pair of two position ranges $ [i:j] $, and $ [k:l] $ using the \textquotesingle{}-\/\textquotesingle{} sign as delimiter within each range, i.\+e. $ i-j $, and $ k-l $.\hypertarget{file_formats_const_file_syntax}{}\doxyparagraph{Valid constraint commands}\label{file_formats_const_file_syntax}
+Below are resulting general cases that are considered {\itshape valid} constraints\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{\char`\"{}\+Forcing a range of nucleotide positions to be paired\char`\"{}}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{F i 0 k [WHERE] [ORIENTATION] }
+
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ Enforces the set of $ k $ consecutive nucleotides starting at position $ i $ to be paired. The optional loop type specifier {\ttfamily }\mbox{[}WHERE\mbox{]} allows to force them to appear as closing/enclosed pairs of certain types of loops.
+\item {\bfseries{\char`\"{}\+Forcing a set of consecutive base pairs to form\char`\"{}}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}F i j k [WHERE] \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Enforces the base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $ to form. The optional loop type specifier {\ttfamily }\mbox{[}WHERE\mbox{]} allows to specify in which loop context the base pair must appear.
+\item {\bfseries{\char`\"{}\+Prohibiting a range of nucleotide positions to be paired\char`\"{}}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}P i 0 k [WHERE] \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Prohibit a set of $ k $ consecutive nucleotides to participate in base pairing, i.\+e. make these positions unpaired. The optional loop type specifier {\ttfamily }\mbox{[}WHERE\mbox{]} allows to force the nucleotides to appear within the loop of specific types.
+\item {\bfseries{\char`\"{}\+Probibiting a set of consecutive base pairs to form\char`\"{}}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}P i j k [WHERE] \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Probibit the base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $ to form. The optional loop type specifier {\ttfamily }\mbox{[}WHERE\mbox{]} allows to specify the type of loop they are disallowed to be the closing or an enclosed pair of.
+\item {\bfseries{\char`\"{}\+Prohibiting two ranges of nucleotides to pair with each other\char`\"{}}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}P i-j k-l [WHERE] \end{DoxyVerb}
+ Description\+:~\newline
+ Prohibit any nucleotide $ p \in [i:j] $ to pair with any other nucleotide $ q \in [k:l] $. The optional loop type specifier {\ttfamily }\mbox{[}WHERE\mbox{]} allows to specify the type of loop they are disallowed to be the closing or an enclosed pair of.
+\item {\bfseries{\char`\"{}\+Enforce a loop context for a range of nucleotide positions\char`\"{}}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}C i 0 k [WHERE] \end{DoxyVerb}
+ Description\+:~\newline
+ This command enforces nucleotides to be unpaired similar to {\itshape prohibiting} nucleotides to be paired, as described above. It too marks the corresponding nucleotides to be unpaired, however, the {\ttfamily }\mbox{[}WHERE\mbox{]} flag can be used to enforce specfic loop types the nucleotides must appear in.
+\item {\bfseries{\char`\"{}\+Remove pairs that conflict with a set of consecutive base pairs\char`\"{}}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}C i j k \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Remove all base pairs that conflict with a set of consecutive base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $. Two base pairs $ (i,j) $ and $ (p,q) $ conflict with each other if $ i < p < j < q $, or $ p < i < q < j $.
+\item {\bfseries{\char`\"{}\+Allow a set of consecutive (non-\/canonical) base pairs to form\char`\"{}}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{A i j k [WHERE] }
+
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ This command enables the formation of the consecutive base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $, no matter if they are {\itshape canonical}, or {\itshape non-\/canonical}. In contrast to the above {\ttfamily F} and {\ttfamily W} commands, which remove conflicting base pairs, the {\ttfamily A} command does not. Therefore, it may be used to allow {\itshape non-\/canoncial} base pair interactions. Since the RNAlib does not contain free energy contributions $ E_{ij} $ for non-\/canonical base pairs $ (i,j) $, they are scored as the {\itshape maximum} of similar, known contributions. In terms of a {\itshape Nussinov} like scoring function the free energy of non-\/canonical base pairs is therefore estimated as \[ E_{ij} = \min \left[ \max_{(i,k) \in \{GC, CG, AU, UA, GU, UG\}} E_{ik}, \max_{(k,j) \in \{GC, CG, AU, UA, GU, UG\}} E_{kj} \right]. \] The optional loop type specifier {\ttfamily }\mbox{[}WHERE\mbox{]} allows to specify in which loop context the base pair may appear.
+\item {\bfseries{\char`\"{}\+Apply pseudo free energy to a range of unpaired nucleotide positions\char`\"{}}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{E i 0 k e }
+
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ Use this command to apply a pseudo free energy of $ e $ to the set of $ k $ consecutive nucleotides, starting at position $ i $. The pseudo free energy is applied only if these nucleotides are considered unpaired in the recursions, or evaluations, and is expected to be given in $ kcal / mol $.
+\item {\bfseries{\char`\"{}\+Apply pseudo free energy to a set of consecutive base pairs\char`\"{}}}\+:~\newline
+ Syntax
+\begin{DoxyCode}{0}
+\DoxyCodeLine{E i j k e }
+
+\end{DoxyCode}
+~\newline
+ Use this command to apply a pseudo free energy of $ e $ to the set of base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $. Energies are expected to be given in $ kcal / mol $.
+\end{DoxyEnumerate}\hypertarget{file_formats_domains_syntax}{}\doxyparagraph{Valid domain extensions commands}\label{file_formats_domains_syntax}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{\char`\"{}\+Add ligand binding to unpaired motif (a.\+k.\+a. unstructured domains)\char`\"{}}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UD m e [LOOP] }
+
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ Add ligand binding to unpaired sequence motif $ m $ (given in IUPAC format, capital letters) with binding energy $ e $ in particular loop type(s).~\newline
+ Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UD  AAA   -\/5.0    A}
+
+\end{DoxyCode}
+~\newline
+ The above example applies a binding free energy of $ -5 kcal/mol $ for a motif AAA that may be present in all loop types. 
+\end{DoxyEnumerate}\hypertarget{plots}{}\doxysection{Plotting}\label{plots}
+Create Plots of Secondary Structures, Feature Motifs, and Sequence Alignments\hypertarget{plots_utils_ss}{}\doxysubsection{Producing secondary structure graphs}\label{plots_utils_ss}
+\begin{DoxyVerb}int PS_rna_plot ( char *string,
+                  char *structure,
+                  char *file)
+\end{DoxyVerb}
+ Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}.
+
+\begin{DoxyVerb}int PS_rna_plot_a (
+            char *string,
+            char *structure,
+            char *file,
+            char *pre,
+            char *post)
+\end{DoxyVerb}
+ Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}.
+
+\begin{DoxyVerb}int gmlRNA (char *string,
+            char *structure,
+            char *ssfile,
+            char option)
+\end{DoxyVerb}
+ Produce a secondary structure graph in Graph Meta Language (gml) and write it to a file.
+
+\begin{DoxyVerb}int ssv_rna_plot (char *string,
+                  char *structure,
+                  char *ssfile)
+\end{DoxyVerb}
+ Produce a secondary structure graph in SStruct\+View format.
+
+\begin{DoxyVerb}int svg_rna_plot (char *string,
+                  char *structure,
+                  char *ssfile)
+\end{DoxyVerb}
+ Produce a secondary structure plot in SVG format and write it to a file.
+
+\begin{DoxyVerb}int xrna_plot ( char *string,
+                char *structure,
+                char *ssfile)
+\end{DoxyVerb}
+ Produce a secondary structure plot for further editing in XRNA.
+
+\begin{DoxyVerb}int rna_plot_type
+\end{DoxyVerb}
+ Switch for changing the secondary structure layout algorithm.
+
+Two low-\/level functions provide direct access to the graph lauyouting algorithms\+:
+
+\begin{DoxyVerb}int simple_xy_coordinates ( short *pair_table,
+                            float *X,
+                            float *Y)
+\end{DoxyVerb}
+ Calculate nucleotide coordinates for secondary structure plot the {\itshape Simple way}
+
+\begin{DoxyVerb}int naview_xy_coordinates ( short *pair_table,
+                            float *X,
+                            float *Y)
+\end{DoxyVerb}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{PS__dot_8h}{PS\+\_\+dot.\+h}} and naview.\+h for more detailed descriptions.
+\end{DoxySeeAlso}
+\hypertarget{plots_utils_dot}{}\doxysubsection{Producing (colored) dot plots for base pair probabilities}\label{plots_utils_dot}
+\begin{DoxyVerb}int PS_color_dot_plot ( char *string,
+                        cpair *pi,
+                        char *filename)
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}int PS_color_dot_plot_turn (char *seq,
+                            cpair *pi,
+                            char *filename,
+                            int winSize)
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}int PS_dot_plot_list (char *seq,
+                      char *filename,
+                      plist *pl,
+                      plist *mf,
+                      char *comment)
+\end{DoxyVerb}
+ Produce a postscript dot-\/plot from two pair lists.
+
+\begin{DoxyVerb}int PS_dot_plot_turn (char *seq,
+                      struct plist *pl,
+                      char *filename,
+                      int winSize)
+\end{DoxyVerb}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{PS__dot_8h}{PS\+\_\+dot.\+h}} for more detailed descriptions.
+\end{DoxySeeAlso}
+\hypertarget{plots_utils_aln}{}\doxysubsection{Producing (colored) alignments}\label{plots_utils_aln}
+\begin{DoxyVerb}int PS_color_aln (
+            const char *structure,
+            const char *filename,
+            const char *seqs[],
+            const char *names[])
+\end{DoxyVerb}
+ Produce Post\+Script sequence alignment color-\/annotated by consensus structure. 

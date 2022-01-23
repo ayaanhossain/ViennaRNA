@@ -1,0 +1,62 @@
+\hypertarget{equilibrium__probs_8h}{}\doxysection{Vienna\+RNA/equilibrium\+\_\+probs.h File Reference}
+\label{equilibrium__probs_8h}\index{ViennaRNA/equilibrium\_probs.h@{ViennaRNA/equilibrium\_probs.h}}
+
+
+Equilibrium Probability implementations.  
+
+
+Include dependency graph for equilibrium\+\_\+probs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{equilibrium__probs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{equilibrium__probs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{Indent}\textbf{ Base pair probabilities and derived computations}\par
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries vrna\+\_\+pairing\+\_\+probs} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, char $\ast$structure)
+\item 
+double \mbox{\hyperlink{group__thermodynamics_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}} (int length, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_ga20b7a56fa9e451461805fd968c6cd909}{vrna\+\_\+ensemble\+\_\+defect\+\_\+pt}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Compute the Ensemble Defect for a given target structure provided as a {\bfseries{vrna\+\_\+ptable}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_gaaf197722d1faa86af5e7b4240acafdee}{vrna\+\_\+ensemble\+\_\+defect}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the Ensemble Defect for a given target structure. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{group__thermodynamics_ga4ec346141028c7bcd15bc235c408b6e9}{vrna\+\_\+positional\+\_\+entropy}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\begin{DoxyCompactList}\small\item\em Compute a vector of positional entropies. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__thermodynamics_ga132664bf29fdc30bb5ea715491d1ab22}{vrna\+\_\+stack\+\_\+prob}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double cutoff)
+\begin{DoxyCompactList}\small\item\em Compute stacking probabilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Multimer probabilities computations}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__thermodynamics_gaa1e39e73afb51fbaf4ae38f0c066c46b}{vrna\+\_\+pf\+\_\+dimer\+\_\+probs}} (double FAB, double FA, double FB, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pr\+AB, const \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prA, const \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$prB, int Alength, const \mbox{\hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t}} $\ast$exp\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Compute Boltzmann probabilities of dimerization without homodimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Structure probability computations}\par
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{group__thermodynamics_ga882c35d9dd775c1275593b3b6a966bec}{vrna\+\_\+pr\+\_\+structure}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the equilibrium probability of a particular secondary structure. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__thermodynamics_gaa88e17336daede0e6db4da1f3252c031}{vrna\+\_\+pr\+\_\+energy}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double e)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Equilibrium Probability implementations. 
+
+This file includes various implementations for equilibrium probability computations based on the partition function of an RNA sequence, two concatenated sequences, or a sequence alignment. 

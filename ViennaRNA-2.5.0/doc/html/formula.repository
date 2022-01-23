@@ -1,0 +1,192 @@
+\_form#0=15x3:$\ldots$
+\_form#1=15x3:$ \ldots $
+\_form#2=17x10:$ 1- $
+\_form#3=6x10:$ i $
+\_form#4=7x12:$ j $
+\_form#5=7x11:$ k $
+\_form#6=29x15:$ [i:j] $
+\_form#7=30x15:$ [k:l] $
+\_form#8=29x12:$ i-j $
+\_form#9=29x11:$ k-l $
+\_form#10=202x15:$ (i,j), \ldots, (i+(k-1), j-(k-1)) $
+\_form#11=54x15:$ p \in [i:j] $
+\_form#12=54x15:$ q \in [k:l] $
+\_form#13=26x15:$ (i,j) $
+\_form#14=29x15:$ (p,q) $
+\_form#15=81x12:$ i < p < j < q $
+\_form#16=80x12:$ p < i < q < j $
+\_form#17=18x14:$ E_{ij} $
+\_form#18=448x34:\[ E_{ij} = \min \left[ \max_{(i,k) \in \{GC, CG, AU, UA, GU, UG\}} E_{ik}, \max_{(k,j) \in \{GC, CG, AU, UA, GU, UG\}} E_{kj} \right]. \]
+\_form#19=6x7:$ e $
+\_form#20=55x15:$ kcal / mol $
+\_form#21=14x7:$ m $
+\_form#22=73x15:$ -5 kcal/mol $
+\_form#23=25x15:$p(s)$
+\_form#24=6x7:$s$
+\_form#25=26x15:$E(s)$
+\_form#26=171x29:\[ p(s) \propto e^{-\beta E(s)} \text{ with } \beta = \frac{1}{kT} \]
+\_form#27=131x19:$k \approx 1.987 \cdot 10^{-3} \frac{kcal}{mol~K}$
+\_form#28=11x10:$T$
+\_form#29=95x32:\[ Z = \sum_{s \in \Omega} e^{-\beta E(s)} \]
+\_form#30=10x11:$\Omega$
+\_form#31=91x33:\[ p(s) = \frac{e^{-\beta E(s)}}{Z} \]
+\_form#32=10x11:$Z$
+\_form#33=99x15:$q1k(k) = Q(1, k)$
+\_form#34=92x15:$qln(l) = Q(l, n)$
+\_form#35=6x7:$ s $
+\_form#36=26x15:$ E(s) $
+\_form#37=140x30:\[ p(s) = \frac{exp(-E(s) / kT)}{Z} \]
+\_form#38=146x15:$ Z = \sum_s exp(-E(s) / kT) $
+\_form#39=11x10:$ T $
+\_form#40=70x15:$ [start:end] $
+\_form#41=121x14:$ 1 \leq start < end \leq n$
+\_form#42=10x7:$ n $
+\_form#43=52x11:$ s_{start,end} $
+\_form#44=73x15:$ E(s_{start, end}) $
+\_form#45=234x34:\[ p(s_{start,end}) = \frac{exp(-E(s_{start,end}) / kT)}{Z_{start,end}} \]
+\_form#46=279x18:$ Z_{start,end} = \sum_{s_{start,end}} exp(-E(s_{start,end}) / kT) $
+\_form#47=257x18:$ <d(S)> = \sum_{(i,j) \in S} (1-p_{ij}) + \sum_{(i,j) \notin S} p_{ij} $
+\_form#48=55x12:$p_ij>0.5$
+\_form#49=7x11:$k$
+\_form#50=65x15:$ [start, end] $
+\_form#51=83x14:$ start, \ldots, end $
+\_form#52=301x14:\[ start, end, start + 1, end - 1, start + 2, end - 2, \ldots \]
+\_form#53=92x33:\[ Q = \sum_{s \in \omega} e^{\frac{-E(s)}{kT}}. \]
+\_form#54=29x15:$ p(F) $
+\_form#55=11x10:$ F $
+\_form#56=121x36:\[ p(F) \propto \sum_{s \mid F \in s} e^{\frac{-E(s)}{kT}}. \]
+\_form#57=136x40:\[ p(F) = \frac{1}{Q} \sum_{s \mid F \in s} e^{\frac{-E(s)}{kT}}. \]
+\_form#58=92x32:\[ p(s) = \frac{1}{Q} e^{\frac{-E(s)}{kT}} \]
+\_form#59=11x14:$ Q $
+\_form#60=132x40:\[ p_{ij} = \frac{1}{Q} \sum_{s \mid (i,j) \in s} e^{\frac{-E(s)}{kT}} \]
+\_form#61=150x33:\[ <d> = \sum_{a,b} p_a p_b d(S_a,S_b) \]
+\_form#62=17x11:$ p_{ij} $
+\_form#63=139x32:\[ <d> = \sum_{ij} p_{ij}(1-p_{ij}) \]
+\_form#64=17x11:$p_{ij}$
+\_form#65=265x40:\[ ED(s) = 1 - \frac{1}{n} \sum_{ij, (i,j) \in s} p_{ij} - \frac{1}{n} \sum_{i}(1 - s_i)q_i \]
+\_form#66=10x7:$n$
+\_form#67=26x15:$(i,j)$
+\_form#68=91x18:$q_i = 1 - \sum_j p_{ij}$
+\_form#69=6x10:$i$
+\_form#70=36x12:$s_i = 1$
+\_form#71=58x15:$\exists (i,j) \in s$
+\_form#72=36x12:$s_i = 0$
+\_form#73=210x32:\[ S(i) = - \sum_j p_{ij} \log(p_{ij}) - q_i \log(q_i) \]
+\_form#74=91x18:$ q_i = 1 - \sum_j p_{ij} $
+\_form#75=23x15:$ S(i) $
+\_form#76=74x15:$(i+1, j-1)$
+\_form#77=62x14:$ p > \textrm{cutoff} $
+\_form#78=8x10:$ p $
+\_form#79=120x30:\[ p(s) = \frac{exp(-\beta E(s)}{Z} \]
+\_form#80=239x36:\[ Z = \sum_s exp(-\beta E(s)),\quad\mathrm{with}\quad\beta = \frac{1}{RT} \]
+\_form#81=11x11:$R$
+\_form#82=32x15:$[0:1]$
+\_form#83=21x12:$ \ge 1 $
+\_form#84=11x10:$E$
+\_form#85=61x15:$10 cal/mol$
+\_form#86=85x15:$q = exp(-\beta E)$
+\_form#87=47x18:$\beta = \frac{1}{RT}$
+\_form#88=10x11:$\Sigma$
+\_form#89=100x15:$ \Sigma = \{A,U,C,G\} $
+\_form#90=121x15:$\mathrm{strlen}(\mathrm{sequence})+1$
+\_form#91=89x12:$ 2 \cdot mpoints + 1 $
+\_form#92=72x15:$-kT \cdot \log(p)$
+\_form#93=8x10:$p$
+\_form#94=171x33:\[ A(S) = \sum_{(i,j) \in S} 2 \gamma p_{ij} + \sum_{i \notin S} p^u_i \]
+\_form#95=10x10:$\gamma$
+\_form#96=103x15:$ exp(-E / (b \cdot kT))$
+\_form#97=132x15:$exp{((-F/kT)/length)}$
+\_form#98=11x10:$F$
+\_form#99=11x14:$Q$
+\_form#100=109x15:$G = -RT \cdot \log(Q) $
+\_form#101=160x18:$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$
+\_form#102=19x12:$p_ij$
+\_form#103=143x18:$<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+\_form#104=98x11:$\Delta G = - RT \ln Z$
+\_form#105=44x11:$ N \times M $
+\_form#106=12x11:$N$
+\_form#107=15x11:$M$
+\_form#108=55x15:$X[100][5]$
+\_form#109=252x22:$ F(\vec\epsilon) = \sum_{i = 1}^n{ \frac{\epsilon_i^2}{\tau^2} } + \sum_{i = 1}^n{ \frac{(p_i(\vec\epsilon) - q_i)^2}{\sigma^2} } \to min $
+\_form#110=248x21:$ F(\vec\epsilon) = \sum_{i = 1}^n{ \frac{|\epsilon_i|}{\tau^2} } + \sum_{i = 1}^n{ \frac{|p_i(\vec\epsilon) - q_i|}{\sigma^2} } \to min $
+\_form#111=249x41:\[ F(\vec\epsilon) = \sum_{\mu}{ \frac{\epsilon_{\mu}^2}{\tau^2} } + \sum_{i = 1}^n{ \frac{(p_i(\vec\epsilon) - q_i)^2}{\sigma^2} } \to \min. \]
+\_form#112=34x15:$f(i,j)$
+\_form#113=23x15:$[i,j]$
+\_form#114=7x12:$j$
+\_form#115=23x15:$ [i,j] $
+\_form#116=77x15:$ exp(-E / kT) $
+\_form#117=11x10:$ E $
+\_form#118=133x18:$\hat{q}[i,j] = q[i,j] / s^{(j-i+1)}$
+\_form#119=219x15:$ s = exp((sfact * MFE) / kT / length )$
+\_form#120=88x15:$ exp(-\Delta G / kT) $
+\_form#121=69x14:$ e^{-E/(\alpha \cdot K \cdot T)} $
+\_form#122=22x11:$\Delta G$
+\_form#123=94x17:$10^{-2} * \mathrm{kcal}/\mathrm{mol}$
+\_form#124=52x14:$e^{-\Delta G/kT} $
+\_form#125=39x15:$(i - 1)$
+\_form#126=40x15:$(j+1)$
+\_form#127=17x10:$-1$
+\_form#128=48x11:$size + 2$
+\_form#129=28x15:$(k,l)$
+\_form#130=47x15:$(n+m)$
+\_form#131=29x15:$[i:j]$
+\_form#132=30x15:$[i:k]$
+\_form#133=29x15:$[l:j]$
+\_form#134=30x15:$[k:l]$
+\_form#135=26x15:$(l,j)$
+\_form#136=28x15:$(i,k)$
+\_form#137=50x15:$(l,j-1)$
+\_form#138=32x12:$ d < 0 $
+\_form#139=32x12:$ d > 0 $
+\_form#140=43x11:$ d == 0 $
+\_form#141=300x15:\[ \Delta G_{\text{SHAPE}}(i) = m \ln(\text{SHAPE reactivity}(i)+1)+ b \]
+\_form#142=6x11:$ b $
+\_form#143=10x10:$ q_i $
+\_form#144=168x15:\[ \Delta G_{\text{SHAPE}}(x,i) = \beta\ |x_i - q_i| \]
+\_form#145=39x12:$ x_i=0 $
+\_form#146=39x12:$ x_i=1 $
+\_form#147=10x14:$ \beta $
+\_form#148=47x15:$ |x_i - q_i| $
+\_form#149=11x14:$ \hat{E} $
+\_form#150=62x15:$ dacal/mol $
+\_form#151=147x15:$ 1 dacal/mol = 10 cal/mol $
+\_form#152=77x18:$ exp(- \hat{E} / kT) $
+\_form#153=47x15:$ cal/mol $
+\_form#154=32x12:$E_{max}$
+\_form#155=92x12:$E_{saddle} < E_{max}$
+\_form#156=14x10:$ 10 $
+\_form#157=15x12:$P^t$
+\_form#158=14x7:$rs$
+\_form#159=26x15:$[0,1]$
+\_form#160=98x17:\[ P^{t}_x[i] = X[i] * rs \]
+\_form#161=95x18:\[ P^{t}_y[i] = Y[i] * rs \]
+\_form#162=96x17:$ P^{t}_x[i] = X[i] * rs$
+\_form#163=95x18:$P^{t}_y[i] = Y[i] * rs$
+\_form#164=127x15:$ H = - \sum_c p_c \cdot \log_2 p_c $
+\_form#165=186x15:$ p(i,j) = S_i + S_j - p_ij*ln(p_ij) $
+\_form#166=113x15:$ 1~J = 1~kg \cdot m^2 s^{-2} $
+\_form#167=94x14:$ 1~kJ = 1,000~J $
+\_form#168=113x14:$ 1~cal_{IT} = 4.1868~J $
+\_form#169=195x14:$ 1~dacal_{IT} = 10~cal_{IT} = 41.868~J $
+\_form#170=128x14:$ 1~kcal_{IT} = 4.1868~kJ $
+\_form#171=103x14:$ 1~cal_{th} = 4.184~J $
+\_form#172=183x14:$ 1~dacal_{th} = 10~cal_{th} = 41.84~J $
+\_form#173=118x14:$ 1~kcal_{th} = 4.184~kJ $
+\_form#174=204x14:$ 1~g~\mathrm{TNT} = 1,000~cal_{th} = 4,184~J $
+\_form#175=226x14:$ 1~kg~\mathrm{TNT} = 1,000~kcal_{th} = 4,184~kJ $
+\_form#176=250x14:$ 1~t~\mathrm{TNT} = 1,000,000~kcal_{th} = 4,184~MJ $
+\_form#177=183x12:$ 1~eV = 1.602176565 \times 10^{-19}~J $
+\_form#178=260x14:$ 1~W \cdot h = 1~W \cdot 3,600 s = 3,600~J = 3.6~kJ $
+\_form#179=296x14:$ 1~kW \cdot h = 1~kW \cdot 3,600~s = 3,600~kJ = 3.6~MJ $
+\_form#180=118x15:$ [^{\circ}C] = [K] - 273.15 $
+\_form#181=144x18:$ [^{\circ}F] = [K] \times \frac{9}{5} - 459.67 $
+\_form#182=87x18:$ [^{\circ}R] = [K] \times \frac{9}{5} $
+\_form#183=165x18:$ [^{\circ}N] = ([K] - 273.15) \times \frac{33}{100} $
+\_form#184=161x18:$ [^{\circ}De] = (373.15 - [K]) \times \frac{3}{2} $
+\_form#185=160x18:$ [^{\circ}R{\acute e}] = ([K] - 273.15) \times \frac{4}{5} $
+\_form#186=199x18:$ [^{\circ}\text{R{\o}}] = ([K] - 273.15) \times \frac{21}{40} + 7.5 $
+\_form#187=45x10:$x == y $
+\_form#188=36x12:$2^b -1$
+\_form#189=81x12:$ 1 \leq i < j \leq n $
+\_form#190=6x10:$i $
+\_form#191=56x12:$ 1 \leq i \leq n $

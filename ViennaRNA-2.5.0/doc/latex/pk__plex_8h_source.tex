@@ -1,0 +1,65 @@
+\hypertarget{pk__plex_8h_source}{}\doxysection{pk\+\_\+plex.\+h}
+\label{pk__plex_8h_source}\index{ViennaRNA/pk\_plex.h@{ViennaRNA/pk\_plex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PK\_PLEX\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PK\_PLEX\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00045}\mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{00045}} \textcolor{keyword}{typedef} int (\mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\_callback\_pk\_plex\_score}})(\textcolor{keyword}{const} \textcolor{keywordtype}{short} *pt,}
+\DoxyCodeLine{00046                                           \textcolor{keywordtype}{int}         start\_5,}
+\DoxyCodeLine{00047                                           \textcolor{keywordtype}{int}         end\_5,}
+\DoxyCodeLine{00048                                           \textcolor{keywordtype}{int}         start\_3,}
+\DoxyCodeLine{00049                                           \textcolor{keywordtype}{int}         end\_3,}
+\DoxyCodeLine{00050                                           \textcolor{keywordtype}{void}        *data);}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00058}\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{00058}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_pk\_plex\_option\_s *\mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\_pk\_plex\_opt\_t}};}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00065 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\_pk\_plex\_result\_s}} \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\_pk\_plex\_t}};}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00074}\mbox{\hyperlink{group__pseudoknots}{00074}} \textcolor{keyword}{struct }\mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\_pk\_plex\_result\_s}} \{}
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00075}\mbox{\hyperlink{group__pseudoknots_a31fe3dea3cb3799621cd111ab3e31629}{00075}}   \textcolor{keywordtype}{char}          *\mbox{\hyperlink{group__pseudoknots_a31fe3dea3cb3799621cd111ab3e31629}{structure}}; }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00076}\mbox{\hyperlink{group__pseudoknots_a1a28780d20573e1e8e74137f74ebaa8b}{00076}}   \textcolor{keywordtype}{double}        \mbox{\hyperlink{group__pseudoknots_a1a28780d20573e1e8e74137f74ebaa8b}{energy}};     }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00077}\mbox{\hyperlink{group__pseudoknots_ad229d6898ffdb195b6442defdec35171}{00077}}   \textcolor{keywordtype}{double}        \mbox{\hyperlink{group__pseudoknots_ad229d6898ffdb195b6442defdec35171}{dGpk}};       }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00078}\mbox{\hyperlink{group__pseudoknots_abb999a7a5a80f71d57a801d83901a596}{00078}}   \textcolor{keywordtype}{double}        \mbox{\hyperlink{group__pseudoknots_abb999a7a5a80f71d57a801d83901a596}{dGint}};      }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00079}\mbox{\hyperlink{group__pseudoknots_ad5c142b580ce0db3e2bb4ec7faa9cbdd}{00079}}   \textcolor{keywordtype}{double}        \mbox{\hyperlink{group__pseudoknots_ad5c142b580ce0db3e2bb4ec7faa9cbdd}{dG1}};        }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00080}\mbox{\hyperlink{group__pseudoknots_a3aaccf208713fe56d9a27d65062989cb}{00080}}   \textcolor{keywordtype}{double}        \mbox{\hyperlink{group__pseudoknots_a3aaccf208713fe56d9a27d65062989cb}{dG2}};        }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00081}\mbox{\hyperlink{group__pseudoknots_aeebb3e74fb4390b23aefaa50b98e4672}{00081}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  \mbox{\hyperlink{group__pseudoknots_aeebb3e74fb4390b23aefaa50b98e4672}{start\_5}};    }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00082}\mbox{\hyperlink{group__pseudoknots_ae2a8ca7f4769a6595617649adbf6284f}{00082}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  \mbox{\hyperlink{group__pseudoknots_ae2a8ca7f4769a6595617649adbf6284f}{end\_5}};      }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00083}\mbox{\hyperlink{group__pseudoknots_a364296aea56d85179a1576d83e5a4826}{00083}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  \mbox{\hyperlink{group__pseudoknots_a364296aea56d85179a1576d83e5a4826}{start\_3}};    }
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00084}\mbox{\hyperlink{group__pseudoknots_a69f49f082cb148f0fbd5dd4fe84ab9bb}{00084}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  \mbox{\hyperlink{group__pseudoknots_a69f49f082cb148f0fbd5dd4fe84ab9bb}{end\_3}};      }
+\DoxyCodeLine{00085 \};}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00116 \mbox{\hyperlink{group__pseudoknots_structvrna__pk__plex__result__s}{vrna\_pk\_plex\_t}} *}
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00117}\mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{00117}} \mbox{\hyperlink{group__pseudoknots_ga2ac2baaedebca166f0000b7e61067a7c}{vrna\_pk\_plex}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00118              \textcolor{keyword}{const} \textcolor{keywordtype}{int}            **accessibility,}
+\DoxyCodeLine{00119              \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\_pk\_plex\_opt\_t}}   options);}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00132 \textcolor{keywordtype}{int} **}
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00133}\mbox{\hyperlink{group__pseudoknots_gaf5d94fd4c79d75b0a91b6abb18dbd09c}{00133}} \mbox{\hyperlink{group__pseudoknots_gaf5d94fd4c79d75b0a91b6abb18dbd09c}{vrna\_pk\_plex\_accessibility}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   *sequence,}
+\DoxyCodeLine{00134                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}},}
+\DoxyCodeLine{00135                            \textcolor{keywordtype}{double}       cutoff);}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00145 \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\_pk\_plex\_opt\_t}}}
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00146}\mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{00146}} \mbox{\hyperlink{group__pseudoknots_gaa6a5f5e20804ba729134eb8ad0c8da54}{vrna\_pk\_plex\_opt\_defaults}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148 }
+\DoxyCodeLine{00159 \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\_pk\_plex\_opt\_t}}}
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00160}\mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{00160}} \mbox{\hyperlink{group__pseudoknots_ga8f224a6aa666fd7444b225f676471992}{vrna\_pk\_plex\_opt}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} delta,}
+\DoxyCodeLine{00161                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} max\_interaction\_length,}
+\DoxyCodeLine{00162                  \textcolor{keywordtype}{int}          pk\_penalty);}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00176 \mbox{\hyperlink{group__pseudoknots_gab5afc6c459727dbdc37257711f062090}{vrna\_pk\_plex\_opt\_t}}}
+\DoxyCodeLine{\Hypertarget{pk__plex_8h_source_l00177}\mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{00177}} \mbox{\hyperlink{group__pseudoknots_ga2b0f46d082053d7543cf31237f32b433}{vrna\_pk\_plex\_opt\_fun}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                 delta,}
+\DoxyCodeLine{00178                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                 max\_interaction\_length,}
+\DoxyCodeLine{00179                      \mbox{\hyperlink{group__pseudoknots_ga7c413e55ee5117ef87193461241319c3}{vrna\_callback\_pk\_plex\_score}}  *scoring\_function,}
+\DoxyCodeLine{00180                      \textcolor{keywordtype}{void}                         *scoring\_data);}
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{00182 }
+\DoxyCodeLine{00187 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

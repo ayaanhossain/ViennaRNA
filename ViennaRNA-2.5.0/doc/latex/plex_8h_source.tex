@@ -1,0 +1,76 @@
+\hypertarget{plex_8h_source}{}\doxysection{plex.\+h}
+\label{plex_8h_source}\index{ViennaRNA/plex.h@{ViennaRNA/plex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PLEX\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PLEX\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__subopt__wuchty_ga873cf8ed69e0437f8efa8b1fec854a0e}{subopt\_sorted}};}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00013 \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}** Lduplexfold(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00014                       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00015                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,}
+\DoxyCodeLine{00016                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} extension\_cost,}
+\DoxyCodeLine{00017                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,}
+\DoxyCodeLine{00018                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,}
+\DoxyCodeLine{00019                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,}
+\DoxyCodeLine{00020                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,}
+\DoxyCodeLine{00021                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,}
+\DoxyCodeLine{00022                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,}
+\DoxyCodeLine{00023                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00028 \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}** Lduplexfold\_XS( \textcolor{keyword}{const} \textcolor{keywordtype}{char}*s1,}
+\DoxyCodeLine{00029                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2,}
+\DoxyCodeLine{00030                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s1,}
+\DoxyCodeLine{00031                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s2,}
+\DoxyCodeLine{00032                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,}
+\DoxyCodeLine{00033                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,}
+\DoxyCodeLine{00034                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,}
+\DoxyCodeLine{00035                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,}
+\DoxyCodeLine{00036                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,}
+\DoxyCodeLine{00037                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,}
+\DoxyCodeLine{00038                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,}
+\DoxyCodeLine{00039                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);\textcolor{comment}{/* , const int target\_dead, const int query\_dead); */}}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00044 \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}** Lduplexfold\_C(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,}
+\DoxyCodeLine{00045                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,}
+\DoxyCodeLine{00046                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,}
+\DoxyCodeLine{00047                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} extension\_cost,}
+\DoxyCodeLine{00048                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,}
+\DoxyCodeLine{00049                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,}
+\DoxyCodeLine{00050                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,}
+\DoxyCodeLine{00051                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* structure,}
+\DoxyCodeLine{00052                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,}
+\DoxyCodeLine{00053                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,}
+\DoxyCodeLine{00054                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,}
+\DoxyCodeLine{00055                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00061 \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}** Lduplexfold\_CXS(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*s1,}
+\DoxyCodeLine{00062                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2,}
+\DoxyCodeLine{00063                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s1,}
+\DoxyCodeLine{00064                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s2,}
+\DoxyCodeLine{00065                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,}
+\DoxyCodeLine{00066                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,}
+\DoxyCodeLine{00067                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,}
+\DoxyCodeLine{00068                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,}
+\DoxyCodeLine{00069                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* structure,}
+\DoxyCodeLine{00070                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,}
+\DoxyCodeLine{00071                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,}
+\DoxyCodeLine{00072                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,}
+\DoxyCodeLine{00073                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b); \textcolor{comment}{/*, const int target\_dead, const int query\_dead); */}}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 \textcolor{keywordtype}{int}      arraySize(\mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}** array);}
+\DoxyCodeLine{00079 \textcolor{keywordtype}{void}     freeDuplexT(\mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}** array);}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

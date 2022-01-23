@@ -1,0 +1,71 @@
+\hypertarget{lists_8h_source}{}\doxysection{lists.\+h}
+\label{lists_8h_source}\index{ViennaRNA/datastructures/lists.h@{ViennaRNA/datastructures/lists.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{00002 \textcolor{comment}{  \$Log: lists.h,v \$}}
+\DoxyCodeLine{00003 \textcolor{comment}{  Revision 1.2  2000/10/10 08:50:01  ivo}}
+\DoxyCodeLine{00004 \textcolor{comment}{  some annotation for lclint}}
+\DoxyCodeLine{00005 \textcolor{comment}{}}
+\DoxyCodeLine{00006 \textcolor{comment}{  Revision 1.1  1997/08/04 21:05:32  walter}}
+\DoxyCodeLine{00007 \textcolor{comment}{  Initial revision}}
+\DoxyCodeLine{00008 \textcolor{comment}{}}
+\DoxyCodeLine{00009 \textcolor{comment}{*/}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#ifndef \_\_LIST\_H}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#define \_\_LIST\_H}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Macros and type definitions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{\Hypertarget{lists_8h_source_l00016}\mbox{\hyperlink{structLST__BUCKET}{00016}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structLST__BUCKET}{LST\_BUCKET}} \{}
+\DoxyCodeLine{00017   \textcolor{keyword}{struct }\mbox{\hyperlink{structLST__BUCKET}{LST\_BUCKET}} *next;}
+\DoxyCodeLine{00018 \}}
+\DoxyCodeLine{00019 \mbox{\hyperlink{structLST__BUCKET}{LST\_BUCKET}};}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{\Hypertarget{lists_8h_source_l00021}\mbox{\hyperlink{structLIST}{00021}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00022   \textcolor{keywordtype}{int} count;      \textcolor{comment}{/* Number of elements currently in list */}}
+\DoxyCodeLine{00023   \mbox{\hyperlink{structLST__BUCKET}{LST\_BUCKET}} *head;   \textcolor{comment}{/* Pointer to head element of list      */}}
+\DoxyCodeLine{00024   \mbox{\hyperlink{structLST__BUCKET}{LST\_BUCKET}} *z;    \textcolor{comment}{/* Pointer to last node of list         */}}
+\DoxyCodeLine{00025   \mbox{\hyperlink{structLST__BUCKET}{LST\_BUCKET}} hz[2];   \textcolor{comment}{/* Space for head and z nodes           */}}
+\DoxyCodeLine{00026 \}}
+\DoxyCodeLine{00027 \mbox{\hyperlink{structLIST}{LIST}};}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 \textcolor{comment}{/* Return a pointer to the user space given the address of the header of}}
+\DoxyCodeLine{00030 \textcolor{comment}{ * a node.}}
+\DoxyCodeLine{00031 \textcolor{comment}{ */}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \textcolor{preprocessor}{\#define LST\_USERSPACE(h)  ((void*)((LST\_BUCKET*)(h) + 1))}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 \textcolor{comment}{/* Return a pointer to the header of a node, given the address of the}}
+\DoxyCodeLine{00036 \textcolor{comment}{ * user space.}}
+\DoxyCodeLine{00037 \textcolor{comment}{ */}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039 \textcolor{preprocessor}{\#define LST\_HEADER(n)   ((LST\_BUCKET*)(n) -\/ 1)}}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041 \textcolor{comment}{/* Return a pointer to the user space of the list's head node. This user}}
+\DoxyCodeLine{00042 \textcolor{comment}{ * space does not actually exist, but it is useful to be able to address}}
+\DoxyCodeLine{00043 \textcolor{comment}{ * it to enable insertion at the start of the list.}}
+\DoxyCodeLine{00044 \textcolor{comment}{ */}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046 \textcolor{preprocessor}{\#define LST\_HEAD(l)   LST\_USERSPACE((l)-\/>head)}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048 \textcolor{comment}{/* Determine if a list is empty}}
+\DoxyCodeLine{00049 \textcolor{comment}{ */}}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 \textcolor{preprocessor}{\#define LST\_EMPTY(l)    ((l)-\/>count == 0)}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Function Prototypes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 \textcolor{comment}{/*@only@*/}\textcolor{comment}{/*@out@*/} \textcolor{keywordtype}{void} *lst\_newnode (\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{00056 \textcolor{keywordtype}{void} lst\_freenode (\textcolor{comment}{/*@only@*/} \textcolor{keywordtype}{void} *\mbox{\hyperlink{group__data__structures_structnode}{node}});}
+\DoxyCodeLine{00057 \textcolor{comment}{/*@only@*/}\textcolor{comment}{/*@out@*/}  \mbox{\hyperlink{structLIST}{LIST}} *lst\_init (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00058 \textcolor{keywordtype}{void} lst\_kill (\mbox{\hyperlink{structLIST}{LIST}} * l, \textcolor{keywordtype}{void} (*freeNode) ());}
+\DoxyCodeLine{00059 \textcolor{keywordtype}{void} lst\_insertafter (\mbox{\hyperlink{structLIST}{LIST}} * l, \textcolor{comment}{/*@keep@*/} \textcolor{keywordtype}{void} *\mbox{\hyperlink{group__data__structures_structnode}{node}}, \textcolor{keywordtype}{void} *after);}
+\DoxyCodeLine{00060 \textcolor{keywordtype}{void} *lst\_deletenext (\textcolor{comment}{/*@only@*/} \mbox{\hyperlink{structLIST}{LIST}} * l, \textcolor{keywordtype}{void} *\mbox{\hyperlink{group__data__structures_structnode}{node}});}
+\DoxyCodeLine{00061 \textcolor{comment}{/*@dependent@*/} \textcolor{keywordtype}{void} *lst\_first (\mbox{\hyperlink{structLIST}{LIST}} * l);}
+\DoxyCodeLine{00062 \textcolor{comment}{/*@dependent@*/} \textcolor{keywordtype}{void} *lst\_next (\textcolor{keywordtype}{void} *prev);}
+\DoxyCodeLine{00063 \textcolor{keywordtype}{void} lst\_mergesort (\mbox{\hyperlink{structLIST}{LIST}} * l, \textcolor{keywordtype}{int} (*cmp\_func) ());}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

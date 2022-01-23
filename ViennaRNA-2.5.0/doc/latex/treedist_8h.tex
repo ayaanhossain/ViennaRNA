@@ -1,0 +1,88 @@
+\hypertarget{treedist_8h}{}\doxysection{Vienna\+RNA/treedist.h File Reference}
+\label{treedist_8h}\index{ViennaRNA/treedist.h@{ViennaRNA/treedist.h}}
+
+
+Functions for \mbox{\hyperlink{structTree}{Tree}} Edit Distances.  
+
+
+Include dependency graph for treedist.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{treedist_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTree}{Tree}} $\ast$ \mbox{\hyperlink{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{make\+\_\+tree}} (char $\ast$struc)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{structTree}{Tree}} ( essentially the postorder list ) of the structure \textquotesingle{}struc\textquotesingle{}, for use in \mbox{\hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance}} (\mbox{\hyperlink{structTree}{Tree}} $\ast$T1, \mbox{\hyperlink{structTree}{Tree}} $\ast$T2)
+\begin{DoxyCompactList}\small\item\em Calculates the edit distance of the two trees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{treedist_8h_a21ad4de3ba4055aeef08b28c9ad48894}\label{treedist_8h_a21ad4de3ba4055aeef08b28c9ad48894}} 
+void \mbox{\hyperlink{treedist_8h_a21ad4de3ba4055aeef08b28c9ad48894}{print\+\_\+tree}} (\mbox{\hyperlink{structTree}{Tree}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Print a tree (mainly for debugging) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{free\+\_\+tree}} (\mbox{\hyperlink{structTree}{Tree}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated for \mbox{\hyperlink{structTree}{Tree}} t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for \mbox{\hyperlink{structTree}{Tree}} Edit Distances. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}\label{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}} 
+\index{treedist.h@{treedist.h}!make\_tree@{make\_tree}}
+\index{make\_tree@{make\_tree}!treedist.h@{treedist.h}}
+\doxysubsubsection{\texorpdfstring{make\_tree()}{make\_tree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTree}{Tree}}$\ast$ make\+\_\+tree (\begin{DoxyParamCaption}\item[{char $\ast$}]{struc }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{structTree}{Tree}} ( essentially the postorder list ) of the structure \textquotesingle{}struc\textquotesingle{}, for use in \mbox{\hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em struc} & may be any rooted structure representation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{treedist_8h_a3b21f1925f7071f46d93431a835217bb}\label{treedist_8h_a3b21f1925f7071f46d93431a835217bb}} 
+\index{treedist.h@{treedist.h}!tree\_edit\_distance@{tree\_edit\_distance}}
+\index{tree\_edit\_distance@{tree\_edit\_distance}!treedist.h@{treedist.h}}
+\doxysubsubsection{\texorpdfstring{tree\_edit\_distance()}{tree\_edit\_distance()}}
+{\footnotesize\ttfamily float tree\+\_\+edit\+\_\+distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTree}{Tree}} $\ast$}]{T1,  }\item[{\mbox{\hyperlink{structTree}{Tree}} $\ast$}]{T2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the edit distance of the two trees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T1} & \\
+\hline
+{\em T2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}\label{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}} 
+\index{treedist.h@{treedist.h}!free\_tree@{free\_tree}}
+\index{free\_tree@{free\_tree}!treedist.h@{treedist.h}}
+\doxysubsubsection{\texorpdfstring{free\_tree()}{free\_tree()}}
+{\footnotesize\ttfamily void free\+\_\+tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTree}{Tree}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Free the memory allocated for \mbox{\hyperlink{structTree}{Tree}} t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,106 @@
+\hypertarget{group__up__cofold}{}\doxysection{Partition Function for two Hybridized Sequences as a Stepwise Process}
+\label{group__up__cofold}\index{Partition Function for two Hybridized Sequences as a Stepwise Process@{Partition Function for two Hybridized Sequences as a Stepwise Process}}
+
+
+RNA-\/\+RNA interaction as a stepwise process.  
+
+
+
+
+\doxysubsection{Detailed Description}
+RNA-\/\+RNA interaction as a stepwise process. 
+
+In this approach to cofolding the interaction between two RNA molecules is seen as a stepwise process. In a first step, the target molecule has to adopt a structure in which a binding site is accessible. In a second step, the ligand molecule will hybridize with a region accessible to an interaction. Consequently the algorithm is designed as a two step process\+: The first step is the calculation of the probability that a region within the target is unpaired, or equivalently, the calculation of the free energy needed to expose a region. In the second step we compute the free energy of an interaction for every possible binding site. Collaboration diagram for Partition Function for two Hybridized Sequences as a Stepwise Process\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__up__cofold}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$ \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru}} (char $\ast$sequence, int max\+\_\+w)
+\begin{DoxyCompactList}\small\item\em Calculate the partition function over all unpaired regions of a maximal length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_structinteract}{interact}} $\ast$ \mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\+\_\+interact}} (const char $\ast$s1, const char $\ast$s2, \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$p\+\_\+c, \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$p\+\_\+c2, int max\+\_\+w, char $\ast$cstruc, int incr3, int incr5)
+\begin{DoxyCompactList}\small\item\em Calculates the probability of a local interaction between two sequences. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}\label{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}} 
+void \mbox{\hyperlink{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}{free\+\_\+interact}} (\mbox{\hyperlink{group__data__structures_structinteract}{interact}} $\ast$pin)
+\begin{DoxyCompactList}\small\item\em Frees the output of function \mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\+\_\+interact()}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}\label{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}} 
+void \mbox{\hyperlink{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}{free\+\_\+pu\+\_\+contrib\+\_\+struct}} (\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$pu)
+\begin{DoxyCompactList}\small\item\em Frees the output of function \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}\label{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}} 
+\index{Partition Function for two Hybridized Sequences as a Stepwise Process@{Partition Function for two Hybridized Sequences as a Stepwise Process}!pf\_unstru@{pf\_unstru}}
+\index{pf\_unstru@{pf\_unstru}!Partition Function for two Hybridized Sequences as a Stepwise Process@{Partition Function for two Hybridized Sequences as a Stepwise Process}}
+\doxysubsubsection{\texorpdfstring{pf\_unstru()}{pf\_unstru()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}$\ast$ pf\+\_\+unstru (\begin{DoxyParamCaption}\item[{char $\ast$}]{sequence,  }\item[{int}]{max\+\_\+w }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__up_8h}{Vienna\+RNA/part\+\_\+func\+\_\+up.\+h}}$>$}
+
+
+
+Calculate the partition function over all unpaired regions of a maximal length. 
+
+You have to call function \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}} providing the same sequence before calling \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru()}}. If you want to calculate unpaired regions for a constrained structure, set variable \textquotesingle{}structure\textquotesingle{} in function \textquotesingle{}\mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}}\textquotesingle{} to the constrain string. It returns a \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} struct containing four arrays of dimension \mbox{[}i = 1 to length(sequence)\mbox{]}\mbox{[}j = 0 to u-\/1\mbox{]} containing all possible contributions to the probabilities of unpaired regions of maximum length u. Each array in \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} contains one of the contributions to the total probability of being unpaired\+: The probability of being unpaired within an exterior loop is in array \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}-\/$>$E, the probability of being unpaired within a hairpin loop is in array \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}-\/$>$H, the probability of being unpaired within an interior loop is in array \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}-\/$>$I and probability of being unpaired within a multi-\/loop is in array \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}-\/$>$M. The total probability of being unpaired is the sum of the four arrays of \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}.
+
+This function frees everything allocated automatically. To free the output structure call free\+\_\+pu\+\_\+contrib().
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & \\
+\hline
+{\em max\+\_\+w} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}\label{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}} 
+\index{Partition Function for two Hybridized Sequences as a Stepwise Process@{Partition Function for two Hybridized Sequences as a Stepwise Process}!pf\_interact@{pf\_interact}}
+\index{pf\_interact@{pf\_interact}!Partition Function for two Hybridized Sequences as a Stepwise Process@{Partition Function for two Hybridized Sequences as a Stepwise Process}}
+\doxysubsubsection{\texorpdfstring{pf\_interact()}{pf\_interact()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__data__structures_structinteract}{interact}}$\ast$ pf\+\_\+interact (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2,  }\item[{\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$}]{p\+\_\+c,  }\item[{\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$}]{p\+\_\+c2,  }\item[{int}]{max\+\_\+w,  }\item[{char $\ast$}]{cstruc,  }\item[{int}]{incr3,  }\item[{int}]{incr5 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func__up_8h}{Vienna\+RNA/part\+\_\+func\+\_\+up.\+h}}$>$}
+
+
+
+Calculates the probability of a local interaction between two sequences. 
+
+The function considers the probability that the region of interaction is unpaired within \textquotesingle{}s1\textquotesingle{} and \textquotesingle{}s2\textquotesingle{}. The longer sequence has to be given as \textquotesingle{}s1\textquotesingle{}. The shorter sequence has to be given as \textquotesingle{}s2\textquotesingle{}. Function \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru()}} has to be called for \textquotesingle{}s1\textquotesingle{} and \textquotesingle{}s2\textquotesingle{}, where the probabilities of being unpaired have to be given in \textquotesingle{}p\+\_\+c\textquotesingle{} and \textquotesingle{}p\+\_\+c2\textquotesingle{}, respectively. If you do not want to include the probabilities of being unpaired for \textquotesingle{}s2\textquotesingle{} set \textquotesingle{}p\+\_\+c2\textquotesingle{} to NULL. If variable \textquotesingle{}cstruc\textquotesingle{} is not NULL, constrained folding is done\+: The available constrains for intermolecular interaction are\+: \textquotesingle{}.\textquotesingle{} (no constrain), \textquotesingle{}x\textquotesingle{} (the base has no intermolecular interaction) and \textquotesingle{}$\vert$\textquotesingle{} (the corresponding base has to be paired intermolecularily).~\newline
+The parameter \textquotesingle{}w\textquotesingle{} determines the maximal length of the interaction. The parameters \textquotesingle{}incr5\textquotesingle{} and \textquotesingle{}incr3\textquotesingle{} allows inclusion of unpaired residues left (\textquotesingle{}incr5\textquotesingle{}) and right (\textquotesingle{}incr3\textquotesingle{}) of the region of interaction in \textquotesingle{}s1\textquotesingle{}. If the \textquotesingle{}incr\textquotesingle{} options are used, function \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru()}} has to be called with w=w+incr5+incr3 for the longer sequence \textquotesingle{}s1\textquotesingle{}.
+
+It returns a structure of type \mbox{\hyperlink{group__data__structures_structinteract}{interact}} which contains the probability of the best local interaction including residue i in Pi and the minimum free energy in Gi, where i is the position in sequence \textquotesingle{}s1\textquotesingle{}. The member Gikjl of structure \mbox{\hyperlink{group__data__structures_structinteract}{interact}} is the best interaction between region \mbox{[}k,i\mbox{]} k$<$i in longer sequence \textquotesingle{}s1\textquotesingle{} and region \mbox{[}j,l\mbox{]} j$<$l in \textquotesingle{}s2\textquotesingle{}. Gikjl\+\_\+wo is Gikjl without the probability of beeing unpaired.~\newline
+Use \mbox{\hyperlink{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}{free\+\_\+interact()}} to free the returned structure, all other stuff is freed inside \mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\+\_\+interact()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & \\
+\hline
+{\em s2} & \\
+\hline
+{\em p\+\_\+c} & \\
+\hline
+{\em p\+\_\+c2} & \\
+\hline
+{\em max\+\_\+w} & \\
+\hline
+{\em cstruc} & \\
+\hline
+{\em incr3} & \\
+\hline
+{\em incr5} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

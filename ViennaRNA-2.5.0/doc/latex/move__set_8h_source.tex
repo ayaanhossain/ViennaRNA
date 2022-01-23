@@ -1,0 +1,97 @@
+\hypertarget{move__set_8h_source}{}\doxysection{move\+\_\+set.\+h}
+\label{move__set_8h_source}\index{ViennaRNA/move\_set.h@{ViennaRNA/move\_set.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef \_\_MOVE\_SET\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define \_\_MOVE\_SET\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{move__set_8h_source_l00009}\mbox{\hyperlink{struct__struct__en}{00009}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct__struct__en}{\_struct\_en}}\{}
+\DoxyCodeLine{00010   \textcolor{keywordtype}{int} energy;        \textcolor{comment}{/* energy in 10kcal/mol*/}}
+\DoxyCodeLine{00011   \textcolor{keywordtype}{short} *structure;  \textcolor{comment}{/* structure in energy\_of\_move format*/}}
+\DoxyCodeLine{00012 \} \mbox{\hyperlink{struct__struct__en}{struct\_en}};}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \textcolor{comment}{/* prints structure*/}}
+\DoxyCodeLine{00015 \textcolor{keywordtype}{void} print\_stren(FILE *out, \mbox{\hyperlink{struct__struct__en}{struct\_en}} *str);}
+\DoxyCodeLine{00016 \textcolor{keywordtype}{void} print\_str(FILE *out, \textcolor{keywordtype}{short} *str);}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \textcolor{comment}{/* copying functions*/}}
+\DoxyCodeLine{00019 \textcolor{keywordtype}{void} copy\_arr(\textcolor{keywordtype}{short} *dest, \textcolor{keywordtype}{short} *src); \textcolor{comment}{/*just copy*/}}
+\DoxyCodeLine{00020 \textcolor{keywordtype}{short} *allocopy(\textcolor{keywordtype}{short} *src);            \textcolor{comment}{/*copy and make space*/}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022 \textcolor{keyword}{enum} MOVE\_TYPE \{GRADIENT, FIRST, ADAPTIVE\};}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024 \textcolor{comment}{/* walking methods (verbose\_lvl 0-\/2, shifts = use shift moves? noLP = no lone pairs? (not compatible with shifts))}}
+\DoxyCodeLine{00025 \textcolor{comment}{    input:    seq -\/ sequence}}
+\DoxyCodeLine{00026 \textcolor{comment}{              ptable -\/ structure encoded with make\_pair\_table() from pair\_mat.h}}
+\DoxyCodeLine{00027 \textcolor{comment}{              s, s1 -\/ sequence encoded with encode\_sequence from pair\_mat.h}}
+\DoxyCodeLine{00028 \textcolor{comment}{    methods:  deepest -\/ lowest energy structure is used}}
+\DoxyCodeLine{00029 \textcolor{comment}{              first -\/ first found lower energy structure is used}}
+\DoxyCodeLine{00030 \textcolor{comment}{              rand -\/ random lower energy structure is used}}
+\DoxyCodeLine{00031 \textcolor{comment}{    returns local minima structure in ptable and its energy in 10kcal/mol as output */}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \textcolor{keywordtype}{int} move\_gradient( \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00034                   \textcolor{keywordtype}{short} *ptable,}
+\DoxyCodeLine{00035                   \textcolor{keywordtype}{short} *s,}
+\DoxyCodeLine{00036                   \textcolor{keywordtype}{short} *s1,}
+\DoxyCodeLine{00037                   \textcolor{keywordtype}{int} verbosity\_level,}
+\DoxyCodeLine{00038                   \textcolor{keywordtype}{int} shifts,}
+\DoxyCodeLine{00039                   \textcolor{keywordtype}{int} noLP);}
+\DoxyCodeLine{00040 \textcolor{keywordtype}{int} move\_first( \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00041                 \textcolor{keywordtype}{short} *ptable,}
+\DoxyCodeLine{00042                 \textcolor{keywordtype}{short} *s,}
+\DoxyCodeLine{00043                 \textcolor{keywordtype}{short} *s1,}
+\DoxyCodeLine{00044                 \textcolor{keywordtype}{int} verbosity\_level,}
+\DoxyCodeLine{00045                 \textcolor{keywordtype}{int} shifts,}
+\DoxyCodeLine{00046                 \textcolor{keywordtype}{int} noLP);}
+\DoxyCodeLine{00047 \textcolor{keywordtype}{int} move\_adaptive(  \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00048                 \textcolor{keywordtype}{short} *ptable,}
+\DoxyCodeLine{00049                 \textcolor{keywordtype}{short} *s,}
+\DoxyCodeLine{00050                 \textcolor{keywordtype}{short} *s1,}
+\DoxyCodeLine{00051                 \textcolor{keywordtype}{int} verbosity\_level);}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053 \textcolor{comment}{/* standardized method that encapsulates above "{}\_pt"{} methods}}
+\DoxyCodeLine{00054 \textcolor{comment}{  input:  seq -\/ sequence}}
+\DoxyCodeLine{00055 \textcolor{comment}{          struc -\/ structure in dot-\/bracket notation}}
+\DoxyCodeLine{00056 \textcolor{comment}{          type -\/ type of move selection according to MOVE\_TYPE enum}}
+\DoxyCodeLine{00057 \textcolor{comment}{  return: energy of LM}}
+\DoxyCodeLine{00058 \textcolor{comment}{          structure of LM in struc in bracket-\/dot notation}}
+\DoxyCodeLine{00059 \textcolor{comment}{*/}}
+\DoxyCodeLine{00060 \textcolor{keywordtype}{int} move\_standard(\textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00061                   \textcolor{keywordtype}{char} *struc,}
+\DoxyCodeLine{00062                   \textcolor{keyword}{enum} MOVE\_TYPE type,}
+\DoxyCodeLine{00063                   \textcolor{keywordtype}{int} verbosity\_level,}
+\DoxyCodeLine{00064                   \textcolor{keywordtype}{int} shifts,}
+\DoxyCodeLine{00065                   \textcolor{keywordtype}{int} noLP);}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068 \textcolor{comment}{/* browse\_neighbours and perform funct function on each of them (used mainly for user specified flooding)}}
+\DoxyCodeLine{00069 \textcolor{comment}{    input:    seq -\/ sequence}}
+\DoxyCodeLine{00070 \textcolor{comment}{              ptable -\/ structure encoded with make\_pair\_table() from pair\_mat.h}}
+\DoxyCodeLine{00071 \textcolor{comment}{              s, s1 -\/ sequence encoded with encode\_sequence from pair\_mat.h}}
+\DoxyCodeLine{00072 \textcolor{comment}{              funct -\/ function (structure from neighbourhood, structure from input) toperform on every structure in neigbourhood (if the function returns non-\/zero, the iteration through neighbourhood stops.)}}
+\DoxyCodeLine{00073 \textcolor{comment}{    returns energy of the structure funct sets as second argument*/}}
+\DoxyCodeLine{00074 \textcolor{keywordtype}{int} browse\_neighs\_pt( \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00075                    \textcolor{keywordtype}{short} *ptable,}
+\DoxyCodeLine{00076                    \textcolor{keywordtype}{short} *s,}
+\DoxyCodeLine{00077                    \textcolor{keywordtype}{short} *s1,}
+\DoxyCodeLine{00078                    \textcolor{keywordtype}{int} verbosity\_level,}
+\DoxyCodeLine{00079                    \textcolor{keywordtype}{int} shifts,}
+\DoxyCodeLine{00080                    \textcolor{keywordtype}{int} noLP,}
+\DoxyCodeLine{00081                    \textcolor{keywordtype}{int} (*funct) (\mbox{\hyperlink{struct__struct__en}{struct\_en}}*, \mbox{\hyperlink{struct__struct__en}{struct\_en}}*));}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 \textcolor{keywordtype}{int} browse\_neighs( \textcolor{keywordtype}{char} *seq,}
+\DoxyCodeLine{00084                    \textcolor{keywordtype}{char} *struc,}
+\DoxyCodeLine{00085                    \textcolor{keywordtype}{int} verbosity\_level,}
+\DoxyCodeLine{00086                    \textcolor{keywordtype}{int} shifts,}
+\DoxyCodeLine{00087                    \textcolor{keywordtype}{int} noLP,}
+\DoxyCodeLine{00088                    \textcolor{keywordtype}{int} (*funct) (\mbox{\hyperlink{struct__struct__en}{struct\_en}}*, \mbox{\hyperlink{struct__struct__en}{struct\_en}}*));}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+
+\end{DoxyCode}

@@ -1,0 +1,5 @@
+<map id="ViennaRNA/landscape/paths.h" name="ViennaRNA/landscape/paths.h">
+<area shape="rect" id="node1" title="API for computing (optimal) (re&#45;)folding paths between secondary structures." alt="" coords="5,5,160,47"/>
+<area shape="rect" id="node2" href="$landscape_2findpath_8h.html" title="A breadth&#45;first search heuristic for optimal direct folding paths." alt="" coords="5,95,160,136"/>
+<area shape="rect" id="node3" href="$findpath_8h.html" title="Use ViennaRNA/landscape/findpath.h instead." alt="" coords="7,184,159,211"/>
+</map>

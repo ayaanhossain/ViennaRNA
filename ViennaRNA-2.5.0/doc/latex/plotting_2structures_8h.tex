@@ -1,0 +1,49 @@
+\hypertarget{plotting_2structures_8h}{}\doxysection{Vienna\+RNA/plotting/structures.h File Reference}
+\label{plotting_2structures_8h}\index{ViennaRNA/plotting/structures.h@{ViennaRNA/plotting/structures.h}}
+
+
+Various functions for plotting RNA secondary structures.  
+
+
+Include dependency graph for structures.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plotting_2structures_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plotting_2structures_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot}} (const char $\ast$seq, const char $\ast$structure, const char $\ast$file, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+PS\+\_\+rnaplot\+\_\+a}} (const char $\ast$seq, const char $\ast$structure, const char $\ast$file, const char $\ast$pre, const char $\ast$post, \mbox{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t}} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+RNA}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile, char option)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Graph Meta Language (gml) and write it to a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in SStruct\+View format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure plot in SVG format and write it to a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure plot for further editing in XRNA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}{PS\+\_\+rna\+\_\+plot}} (char $\ast$string, char $\ast$structure, char $\ast$file)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}{PS\+\_\+rna\+\_\+plot\+\_\+a}} (char $\ast$string, char $\ast$structure, char $\ast$file, char $\ast$pre, char $\ast$post)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}{PS\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad}} (char $\ast$string, char $\ast$structure, char $\ast$ssfile, char $\ast$pre, char $\ast$post)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{} (detect and draw g-\/quadruplexes) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Various functions for plotting RNA secondary structures. 
+

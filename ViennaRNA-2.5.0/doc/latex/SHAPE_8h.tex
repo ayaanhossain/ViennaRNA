@@ -1,0 +1,68 @@
+\hypertarget{SHAPE_8h}{}\doxysection{Vienna\+RNA/constraints/\+SHAPE.h File Reference}
+\label{SHAPE_8h}\index{ViennaRNA/constraints/SHAPE.h@{ViennaRNA/constraints/SHAPE.h}}
+
+
+This module provides function to incorporate SHAPE reactivity data into the folding recursions by means of soft constraints.  
+
+
+Include dependency graph for SHAPE.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SHAPE_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{SHAPE_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const double $\ast$reactivities, double m, double b, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add SHAPE reactivity data as soft constraints (Deigan et al. method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+deigan\+\_\+ali}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$$\ast$shape\+\_\+files, const int $\ast$shape\+\_\+file\+\_\+association, double m, double b, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add SHAPE reactivity data from files as soft constraints for consensus structure prediction (Deigan et al. method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\+\_\+sc\+\_\+add\+\_\+\+SHAPE\+\_\+zarringhalam}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const double $\ast$reactivities, double b, double default\+\_\+value, const char $\ast$shape\+\_\+conversion, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add SHAPE reactivity data as soft constraints (Zarringhalam et al. method) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{SHAPE_8h_a71b84eb0dd69e5c256f4ecf8f78cf314}{vrna\+\_\+sc\+\_\+\+SHAPE\+\_\+parse\+\_\+method}} (const char $\ast$method\+\_\+string, char $\ast$method, float $\ast$param\+\_\+1, float $\ast$param\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Parse a character string and extract the encoded SHAPE reactivity conversion method and possibly the parameters for conversion into pseudo free energies. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}{vrna\+\_\+sc\+\_\+\+SHAPE\+\_\+to\+\_\+pr}} (const char $\ast$shape\+\_\+conversion, double $\ast$values, int length, double default\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Convert SHAPE reactivity values to probabilities for being unpaired. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module provides function to incorporate SHAPE reactivity data into the folding recursions by means of soft constraints. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{SHAPE_8h_a71b84eb0dd69e5c256f4ecf8f78cf314}\label{SHAPE_8h_a71b84eb0dd69e5c256f4ecf8f78cf314}} 
+\index{SHAPE.h@{SHAPE.h}!vrna\_sc\_SHAPE\_parse\_method@{vrna\_sc\_SHAPE\_parse\_method}}
+\index{vrna\_sc\_SHAPE\_parse\_method@{vrna\_sc\_SHAPE\_parse\_method}!SHAPE.h@{SHAPE.h}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_SHAPE\_parse\_method()}{vrna\_sc\_SHAPE\_parse\_method()}}
+{\footnotesize\ttfamily int vrna\+\_\+sc\+\_\+\+SHAPE\+\_\+parse\+\_\+method (\begin{DoxyParamCaption}\item[{const char $\ast$}]{method\+\_\+string,  }\item[{char $\ast$}]{method,  }\item[{float $\ast$}]{param\+\_\+1,  }\item[{float $\ast$}]{param\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Parse a character string and extract the encoded SHAPE reactivity conversion method and possibly the parameters for conversion into pseudo free energies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em method\+\_\+string} & The string that contains the encoded SHAPE reactivity conversion method \\
+\hline
+{\em method} & A pointer to the memory location where the method character will be stored \\
+\hline
+{\em param\+\_\+1} & A pointer to the memory location where the first parameter of the corresponding method will be stored \\
+\hline
+{\em param\+\_\+2} & A pointer to the memory location where the second parameter of the corresponding method will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on successful extraction of the method, 0 on errors 
+\end{DoxyReturn}

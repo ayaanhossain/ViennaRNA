@@ -1,0 +1,63 @@
+\hypertarget{dist__vars_8h}{}\doxysection{Vienna\+RNA/dist\+\_\+vars.h File Reference}
+\label{dist__vars_8h}\index{ViennaRNA/dist\_vars.h@{ViennaRNA/dist\_vars.h}}
+
+
+Global variables for Distance-\/\+Package.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{dist__vars_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPostorder__list}{Postorder\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Postorder data structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTree}{Tree}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structTree}{Tree}} data structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structswString}{sw\+String}}
+\begin{DoxyCompactList}\small\item\em Some other data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\+\_\+backtrack}}
+\begin{DoxyCompactList}\small\item\em Produce an alignment of the two structures being compared by tracing the editing path giving the minimum distance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}\label{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}} 
+char $\ast$ \mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\+\_\+line}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Contains the two aligned structures after a call to one of the distance functions with \mbox{\hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\+\_\+backtrack}} set to 1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dist__vars_8h_ab65d8ff14c6937612212526a60f59b3c}{cost\+\_\+matrix}}
+\begin{DoxyCompactList}\small\item\em Specify the cost matrix to be used for distance calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global variables for Distance-\/\+Package. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}\label{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}} 
+\index{dist\_vars.h@{dist\_vars.h}!edit\_backtrack@{edit\_backtrack}}
+\index{edit\_backtrack@{edit\_backtrack}!dist\_vars.h@{dist\_vars.h}}
+\doxysubsubsection{\texorpdfstring{edit\_backtrack}{edit\_backtrack}}
+{\footnotesize\ttfamily int edit\+\_\+backtrack\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Produce an alignment of the two structures being compared by tracing the editing path giving the minimum distance. 
+
+set to 1 if you want backtracking \mbox{\Hypertarget{dist__vars_8h_ab65d8ff14c6937612212526a60f59b3c}\label{dist__vars_8h_ab65d8ff14c6937612212526a60f59b3c}} 
+\index{dist\_vars.h@{dist\_vars.h}!cost\_matrix@{cost\_matrix}}
+\index{cost\_matrix@{cost\_matrix}!dist\_vars.h@{dist\_vars.h}}
+\doxysubsubsection{\texorpdfstring{cost\_matrix}{cost\_matrix}}
+{\footnotesize\ttfamily int cost\+\_\+matrix\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Specify the cost matrix to be used for distance calculations. 
+
+if 0, use the default cost matrix (upper matrix in example), otherwise use Shapiro\textquotesingle{}s costs (lower matrix). 

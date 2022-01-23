@@ -1,0 +1,192 @@
+\hypertarget{pair__mat_8h_source}{}\doxysection{pair\+\_\+mat.\+h}
+\label{pair__mat_8h_source}\index{ViennaRNA/pair\_mat.h@{ViennaRNA/pair\_mat.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PAIR\_MAT\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PAIR\_MAT\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <ctype.h>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}}>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__vars_8h}{ViennaRNA/fold\_vars.h}}>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#define NBASES 8}}
+\DoxyCodeLine{00009 \textcolor{comment}{/*@notnull@*/}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#ifndef INLINE}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\# ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#  define INLINE inline}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\#  define INLINE}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} Law\_and\_Order[]         = \textcolor{stringliteral}{"{}\_ACGUTXKI"{}};}
+\DoxyCodeLine{00020 \textcolor{keyword}{static} \textcolor{keywordtype}{int}        BP\_pair[NBASES][NBASES] =}
+\DoxyCodeLine{00021   \textcolor{comment}{/* \_  A  C  G  U  X  K  I */}}
+\DoxyCodeLine{00022 \{ \{ 0, 0, 0, 0, 0, 0, 0, 0 \},}
+\DoxyCodeLine{00023   \{ 0, 0, 0, 0, 5, 0, 0, 5 \},}
+\DoxyCodeLine{00024   \{ 0, 0, 0, 1, 0, 0, 0, 0 \},}
+\DoxyCodeLine{00025   \{ 0, 0, 2, 0, 3, 0, 0, 0 \},}
+\DoxyCodeLine{00026   \{ 0, 6, 0, 4, 0, 0, 0, 6 \},}
+\DoxyCodeLine{00027   \{ 0, 0, 0, 0, 0, 0, 2, 0 \},}
+\DoxyCodeLine{00028   \{ 0, 0, 0, 0, 0, 1, 0, 0 \},}
+\DoxyCodeLine{00029   \{ 0, 6, 0, 0, 5, 0, 0, 0 \} \};}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#define MAXALPHA 20       }\textcolor{comment}{/* maximal length of alphabet */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \textcolor{keyword}{static} \textcolor{keywordtype}{short}  alias[\mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}} + 1];}
+\DoxyCodeLine{00034 \textcolor{keyword}{static} \textcolor{keywordtype}{int}    pair[\mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}} + 1][\mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}} + 1];}
+\DoxyCodeLine{00035 \textcolor{comment}{/* rtype[pair[i][j]]:=pair[j][i] */}}
+\DoxyCodeLine{00036 \textcolor{keyword}{static} \textcolor{keywordtype}{int}    rtype[8] = \{}
+\DoxyCodeLine{00037   0, 2, 1, 4, 3, 6, 5, 7}
+\DoxyCodeLine{00038 \};}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\#ifdef \_OPENMP}}
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#pragma omp threadprivate(Law\_and\_Order, BP\_pair, alias, pair, rtype)}}
+\DoxyCodeLine{00042 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044 \textcolor{comment}{/* for backward compatibility */}}
+\DoxyCodeLine{00045 \textcolor{preprocessor}{\#define ENCODE(c) encode\_char(c)}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047 \textcolor{keyword}{static} INLINE \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00048 encode\_char(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{00049 \{}
+\DoxyCodeLine{00050   \textcolor{comment}{/* return numerical representation of base used e.g. in pair[][] */}}
+\DoxyCodeLine{00051   \textcolor{keywordtype}{int} code;}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   c = toupper(c);}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}} > 0) \{}
+\DoxyCodeLine{00056     code = (int)(c -\/ \textcolor{charliteral}{'A'}) + 1;}
+\DoxyCodeLine{00057   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00058     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *pos;}
+\DoxyCodeLine{00059     pos = strchr(Law\_and\_Order, c);}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{if} (pos == NULL)}
+\DoxyCodeLine{00061       code = 0;}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00063       code = (int)(pos -\/ Law\_and\_Order);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065     \textcolor{keywordflow}{if} (code > 5)}
+\DoxyCodeLine{00066       code = 0;}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068     \textcolor{keywordflow}{if} (code > 4)}
+\DoxyCodeLine{00069       code-\/-\/;           \textcolor{comment}{/* make T and U equivalent */}}
+\DoxyCodeLine{00070   \}}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072   \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{00073 \}}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 \textcolor{comment}{/*@+boolint +charint@*/}}
+\DoxyCodeLine{00077 \textcolor{comment}{/*@null@*/}}
+\DoxyCodeLine{00078 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} *\mbox{\hyperlink{group__model__details_ga2695d91cc535d09c2eae5c3884e2ec64}{nonstandards}};}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080 \textcolor{keyword}{static} INLINE \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00081 make\_pair\_matrix(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00082 \{}
+\DoxyCodeLine{00083   \textcolor{keywordtype}{int} i, j;}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085   \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}} == 0) \{}
+\DoxyCodeLine{00086     \textcolor{keywordflow}{for} (i = 0; i < 5; i++)}
+\DoxyCodeLine{00087       alias[i] = (\textcolor{keywordtype}{short})i;}
+\DoxyCodeLine{00088     alias[5]  = 3;  \textcolor{comment}{/* X <-\/> G */}}
+\DoxyCodeLine{00089     alias[6]  = 2;  \textcolor{comment}{/* K <-\/> C */}}
+\DoxyCodeLine{00090     alias[7]  = 0;  \textcolor{comment}{/* I <-\/> default base '@' */}}
+\DoxyCodeLine{00091     \textcolor{keywordflow}{for} (i = 0; i < NBASES; i++)}
+\DoxyCodeLine{00092       \textcolor{keywordflow}{for} (j = 0; j < NBASES; j++)}
+\DoxyCodeLine{00093         pair[i][j] = BP\_pair[i][j];}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_gabf380d09e4f1ab94fc6af57cf0ad5d32}{noGU}})}
+\DoxyCodeLine{00095       pair[3][4] = pair[4][3] = 0;}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_ga2695d91cc535d09c2eae5c3884e2ec64}{nonstandards}} != NULL) \{}
+\DoxyCodeLine{00098       \textcolor{comment}{/* allow nonstandard bp's */}}
+\DoxyCodeLine{00099       \textcolor{keywordflow}{for} (i = 0; i < (int)strlen(\mbox{\hyperlink{group__model__details_ga2695d91cc535d09c2eae5c3884e2ec64}{nonstandards}}); i += 2)}
+\DoxyCodeLine{00100         pair[encode\_char(\mbox{\hyperlink{group__model__details_ga2695d91cc535d09c2eae5c3884e2ec64}{nonstandards}}[i])]}
+\DoxyCodeLine{00101         [encode\_char(\mbox{\hyperlink{group__model__details_ga2695d91cc535d09c2eae5c3884e2ec64}{nonstandards}}[i + 1])] = 7;}
+\DoxyCodeLine{00102     \}}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104     \textcolor{keywordflow}{for} (i = 0; i < NBASES; i++)}
+\DoxyCodeLine{00105       \textcolor{keywordflow}{for} (j = 0; j < NBASES; j++)}
+\DoxyCodeLine{00106         rtype[pair[i][j]] = pair[j][i];}
+\DoxyCodeLine{00107   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00108     \textcolor{keywordflow}{for} (i = 0; i <= \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; i++)}
+\DoxyCodeLine{00109       \textcolor{keywordflow}{for} (j = 0; j <= \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; j++)}
+\DoxyCodeLine{00110         pair[i][j] = 0;}
+\DoxyCodeLine{00111     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}} == 1) \{}
+\DoxyCodeLine{00112       \textcolor{keywordflow}{for} (i = 1; i < \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; ) \{}
+\DoxyCodeLine{00113         alias[i++]  = 3;      \textcolor{comment}{/* A <-\/> G */}}
+\DoxyCodeLine{00114         alias[i++]  = 2;      \textcolor{comment}{/* B <-\/> C */}}
+\DoxyCodeLine{00115       \}}
+\DoxyCodeLine{00116       \textcolor{keywordflow}{for} (i = 1; i < \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; i++) \{}
+\DoxyCodeLine{00117         pair[i][i + 1] = 2;       \textcolor{comment}{/* AB <-\/> GC */}}
+\DoxyCodeLine{00118         i++;}
+\DoxyCodeLine{00119         pair[i][i -\/ 1] = 1;       \textcolor{comment}{/* BA <-\/> CG */}}
+\DoxyCodeLine{00120       \}}
+\DoxyCodeLine{00121     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}} == 2) \{}
+\DoxyCodeLine{00122       \textcolor{keywordflow}{for} (i = 1; i < \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; ) \{}
+\DoxyCodeLine{00123         alias[i++]  = 1;      \textcolor{comment}{/* A <-\/> A*/}}
+\DoxyCodeLine{00124         alias[i++]  = 4;      \textcolor{comment}{/* B <-\/> U */}}
+\DoxyCodeLine{00125       \}}
+\DoxyCodeLine{00126       \textcolor{keywordflow}{for} (i = 1; i < \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; i++) \{}
+\DoxyCodeLine{00127         pair[i][i + 1] = 5;       \textcolor{comment}{/* AB <-\/> AU */}}
+\DoxyCodeLine{00128         i++;}
+\DoxyCodeLine{00129         pair[i][i -\/ 1] = 6;       \textcolor{comment}{/* BA <-\/> UA */}}
+\DoxyCodeLine{00130       \}}
+\DoxyCodeLine{00131     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}} == 3) \{}
+\DoxyCodeLine{00132       \textcolor{keywordflow}{for} (i = 1; i < \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}} -\/ 2; ) \{}
+\DoxyCodeLine{00133         alias[i++]  = 3;    \textcolor{comment}{/* A <-\/> G */}}
+\DoxyCodeLine{00134         alias[i++]  = 2;    \textcolor{comment}{/* B <-\/> C */}}
+\DoxyCodeLine{00135         alias[i++]  = 1;    \textcolor{comment}{/* C <-\/> A */}}
+\DoxyCodeLine{00136         alias[i++]  = 4;    \textcolor{comment}{/* D <-\/> U */}}
+\DoxyCodeLine{00137       \}}
+\DoxyCodeLine{00138       \textcolor{keywordflow}{for} (i = 1; i < \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}} -\/ 2; i++) \{}
+\DoxyCodeLine{00139         pair[i][i + 1] = 2;     \textcolor{comment}{/* AB <-\/> GC */}}
+\DoxyCodeLine{00140         i++;}
+\DoxyCodeLine{00141         pair[i][i -\/ 1] = 1;     \textcolor{comment}{/* BA <-\/> CG */}}
+\DoxyCodeLine{00142         i++;}
+\DoxyCodeLine{00143         pair[i][i + 1] = 5;     \textcolor{comment}{/* CD <-\/> AU */}}
+\DoxyCodeLine{00144         i++;}
+\DoxyCodeLine{00145         pair[i][i -\/ 1] = 6;     \textcolor{comment}{/* DC <-\/> UA */}}
+\DoxyCodeLine{00146       \}}
+\DoxyCodeLine{00147     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00148       \mbox{\hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\_message\_error}}(\textcolor{stringliteral}{"{}What energy\_set are YOU using??"{}});}
+\DoxyCodeLine{00149     \}}
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151     \textcolor{keywordflow}{for} (i = 0; i <= \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; i++)}
+\DoxyCodeLine{00152       \textcolor{keywordflow}{for} (j = 0; j <= \mbox{\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}}; j++)}
+\DoxyCodeLine{00153         rtype[pair[i][j]] = pair[j][i];}
+\DoxyCodeLine{00154   \}}
+\DoxyCodeLine{00155 \}}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158 \textcolor{keyword}{static} INLINE \textcolor{keywordtype}{short} *}
+\DoxyCodeLine{00159 encode\_sequence(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00160                 \textcolor{keywordtype}{short}       how)}
+\DoxyCodeLine{00161 \{}
+\DoxyCodeLine{00162   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  i, l = (\textcolor{keywordtype}{unsigned} int)strlen(sequence);}
+\DoxyCodeLine{00163   \textcolor{keywordtype}{short}         *S = (\textcolor{keywordtype}{short} *)\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{short}) * (l + 2));}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165   \textcolor{keywordflow}{switch} (how) \{}
+\DoxyCodeLine{00166     \textcolor{comment}{/* standard encoding as always used for S */}}
+\DoxyCodeLine{00167     \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00168       \textcolor{keywordflow}{for} (i = 1; i <= l; i++)    \textcolor{comment}{/* make numerical encoding of sequence */}}
+\DoxyCodeLine{00169         S[i] = (\textcolor{keywordtype}{short})encode\_char(sequence[i -\/ 1]);}
+\DoxyCodeLine{00170       S[l + 1]  = S[1];}
+\DoxyCodeLine{00171       S[0]      = (short)l;}
+\DoxyCodeLine{00172       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00173     \textcolor{comment}{/* encoding for mismatches of nostandard bases (normally used for S1) */}}
+\DoxyCodeLine{00174     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00175       \textcolor{keywordflow}{for} (i = 1; i <= l; i++)}
+\DoxyCodeLine{00176         S[i] = alias[(\textcolor{keywordtype}{short})encode\_char(sequence[i -\/ 1])];}
+\DoxyCodeLine{00177       S[l + 1]  = S[1];}
+\DoxyCodeLine{00178       S[0]      = S[l];}
+\DoxyCodeLine{00179       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00180   \}}
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{00182   \textcolor{keywordflow}{return} S;}
+\DoxyCodeLine{00183 \}}
+\DoxyCodeLine{00184 }
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00186 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VIENNA\_RNA\_PACKAGE\_PAIR\_MAT\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,55 @@
+\hypertarget{Lfold_8h_source}{}\doxysection{Lfold.\+h}
+\label{Lfold_8h_source}\index{ViennaRNA/Lfold.h@{ViennaRNA/Lfold.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_LFOLD\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_LFOLD\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{mfe__window_8h}{ViennaRNA/mfe\_window.h}}>}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00036 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{Lfold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00037                        \textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure,}
+\DoxyCodeLine{00038                        \textcolor{keywordtype}{int}        maxdist),}
+\DoxyCodeLine{\Hypertarget{Lfold_8h_source_l00039}\mbox{\hyperlink{group__mfe__window__deprecated_gafdd1e11b5c7ad443b9f86b818e67bab4}{00039}}            \textcolor{stringliteral}{"{}Use vrna\_Lfold() or vrna\_Lfold\_cb() instead"{}});}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#ifdef VRNA\_WITH\_SVM}}
+\DoxyCodeLine{00049 DEPRECATED(\textcolor{keywordtype}{float} \mbox{\hyperlink{group__mfe__window__deprecated_ga9b568887c6091a54252729adcb35f6d2}{Lfoldz}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00050                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *structure,}
+\DoxyCodeLine{00051                         \textcolor{keywordtype}{int}         maxdist,}
+\DoxyCodeLine{00052                         \textcolor{keywordtype}{int}         zsc,}
+\DoxyCodeLine{00053                         \textcolor{keywordtype}{double}      min\_z),}
+\DoxyCodeLine{\Hypertarget{Lfold_8h_source_l00054}\mbox{\hyperlink{group__mfe__window__deprecated_ga9b568887c6091a54252729adcb35f6d2}{00054}}            \textcolor{stringliteral}{"{}Use vrna\_Lfoldz() or vrna\_Lfoldz\_cb() instead"{}});}
+\DoxyCodeLine{00055 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00062 DEPRECATED(\textcolor{keywordtype}{float} aliLfold(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  **AS,}
+\DoxyCodeLine{00063                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *structure,}
+\DoxyCodeLine{00064                           \textcolor{keywordtype}{int}         maxdist),}
+\DoxyCodeLine{00065            \textcolor{stringliteral}{"{}Use vrna\_aliLfold() or vrna\_aliLfold\_cb() instead"{}});}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00074 DEPRECATED(\textcolor{keywordtype}{float} aliLfold\_cb(\textcolor{keyword}{const} \textcolor{keywordtype}{char}               **AS,}
+\DoxyCodeLine{00075                              \textcolor{keywordtype}{int}                      maxdist,}
+\DoxyCodeLine{00076                              \mbox{\hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\_mfe\_window\_callback}} *cb,}
+\DoxyCodeLine{00077                              \textcolor{keywordtype}{void}                     *data),}
+\DoxyCodeLine{00078            \textcolor{stringliteral}{"{}Use vrna\_aliLfold() or vrna\_aliLfold\_cb() instead"{}});}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

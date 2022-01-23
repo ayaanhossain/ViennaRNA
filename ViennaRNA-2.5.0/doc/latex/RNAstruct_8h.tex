@@ -1,0 +1,63 @@
+\hypertarget{RNAstruct_8h}{}\doxysection{Vienna\+RNA/\+RNAstruct.h File Reference}
+\label{RNAstruct_8h}\index{ViennaRNA/RNAstruct.h@{ViennaRNA/RNAstruct.h}}
+
+
+Parsing and Coarse Graining of Structures.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga07b7e90e712559a1992fba3ac6d21bbd}{b2\+HIT}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Converts the full structure from bracket notation to the HIT notation including root. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2C}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Converts the full structure from bracket notation to the a coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga5cd2feb367feeacad0c03cb7ddba5f10}{b2\+Shapiro}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Converts the full structure from bracket notation to the {\itshape weighted} coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} \textquotesingle{}S\textquotesingle{} \textquotesingle{}E\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga880d33066dd95441e5fbb73c57ed1c3e}{add\+\_\+root}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Adds a root to an un-\/rooted tree in any except bracket notation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_gabe3d815b420dc4553bfb23511198b4c6}{expand\+\_\+\+Shapiro}} (const char $\ast$coarse)
+\begin{DoxyCompactList}\small\item\em Inserts missing \textquotesingle{}S\textquotesingle{} identifiers in unweighted coarse grained structures as obtained from \mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2\+C()}}. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}{expand\+\_\+\+Full}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Convert the full structure from bracket notation to the expanded notation including root. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga260c4b622093b76a883bf96628280de1}{unexpand\+\_\+\+Full}} (const char $\ast$ffull)
+\begin{DoxyCompactList}\small\item\em Restores the bracket notation from an expanded full or HIT tree, that is any tree using only identifiers \textquotesingle{}U\textquotesingle{} \textquotesingle{}P\textquotesingle{} and \textquotesingle{}R\textquotesingle{}. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__deprecated_ga09a80253ac7b6bae606871ba7c6e5136}{unweight}} (const char $\ast$wcoarse)
+\begin{DoxyCompactList}\small\item\em Strip weights from any weighted tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}{unexpand\+\_\+aligned\+\_\+F}} (char $\ast$align\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts two aligned structures in expanded notation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__struct__utils__deprecated_ga3c79042e6bf6f01706bf30ec9e69e8ac}{parse\+\_\+structure}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Collects a statistic of structure elements of the full structure in bracket notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga365a3fad38b21ca8606cb556f2896218}{loop\+\_\+size}} \mbox{[}2000\mbox{]}
+\begin{DoxyCompactList}\small\item\em contains a list of all loop sizes. loop\+\_\+size\mbox{[}0\mbox{]} contains the number of external bases. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga3fce53616c021cbc724fc80b8c1ebeb5}{helix\+\_\+size}} \mbox{[}2000\mbox{]}
+\begin{DoxyCompactList}\small\item\em contains a list of all stack sizes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga0518a287aa4a870508cea819029778ab}{loop\+\_\+degree}} \mbox{[}2000\mbox{]}
+\begin{DoxyCompactList}\small\item\em contains the corresponding list of loop degrees. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga439fcb9f8d4f9f4d2227fde5fbfecb30}{loops}}
+\begin{DoxyCompactList}\small\item\em contains the number of loops ( and therefore of stacks ). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}}
+\begin{DoxyCompactList}\small\item\em contains the number of unpaired bases. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}{pairs}}
+\begin{DoxyCompactList}\small\item\em contains the number of base pairs in the last parsed structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parsing and Coarse Graining of Structures. 
+
+Example\+: \begin{DoxyVerb}*   .((..(((...)))..((..)))).   is the bracket or full tree
+*   becomes expanded:   - expand_Full() -
+*   ((U)(((U)(U)((((U)(U)(U)P)P)P)(U)(U)(((U)(U)P)P)P)P)(U)R)
+*   HIT:                - b2HIT() -
+*   ((U1)((U2)((U3)P3)(U2)((U2)P2)P2)(U1)R)
+*   Coarse:             - b2C() -
+*   ((H)((H)M)R)
+*   becomes expanded:   - expand_Shapiro() -
+*   (((((H)S)((H)S)M)S)R)
+*   weighted Shapiro:   - b2Shapiro() -
+*   ((((((H3)S3)((H2)S2)M4)S2)E2)R)
+*  \end{DoxyVerb}
+ 

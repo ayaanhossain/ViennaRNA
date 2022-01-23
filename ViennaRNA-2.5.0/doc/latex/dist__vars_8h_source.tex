@@ -1,0 +1,40 @@
+\hypertarget{dist__vars_8h_source}{}\doxysection{dist\+\_\+vars.\+h}
+\label{dist__vars_8h_source}\index{ViennaRNA/dist\_vars.h@{ViennaRNA/dist\_vars.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_DIST\_VARS\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_DIST\_VARS\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00017 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}   \mbox{\hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\_backtrack}};}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00023 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} *\mbox{\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}}[4];}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00031 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \mbox{\hyperlink{dist__vars_8h_ab65d8ff14c6937612212526a60f59b3c}{cost\_matrix}};}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \textcolor{comment}{/*  Global type defs for Distance-\/Package */}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{\Hypertarget{dist__vars_8h_source_l00038}\mbox{\hyperlink{structPostorder__list}{00038}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00039                  \textcolor{keywordtype}{int}  type;}
+\DoxyCodeLine{00040                  \textcolor{keywordtype}{int}  weight;}
+\DoxyCodeLine{00041                  \textcolor{keywordtype}{int}  father;}
+\DoxyCodeLine{00042                  \textcolor{keywordtype}{int}  sons;}
+\DoxyCodeLine{00043                  \textcolor{keywordtype}{int}  leftmostleaf;}
+\DoxyCodeLine{00044                \} \mbox{\hyperlink{structPostorder__list}{Postorder\_list}};}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{\Hypertarget{dist__vars_8h_source_l00049}\mbox{\hyperlink{structTree}{00049}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00050                  \mbox{\hyperlink{structPostorder__list}{Postorder\_list}} *postorder\_list;}
+\DoxyCodeLine{00051                  \textcolor{keywordtype}{int}            *keyroots;}
+\DoxyCodeLine{00052                \} \mbox{\hyperlink{structTree}{Tree}};}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{\Hypertarget{dist__vars_8h_source_l00057}\mbox{\hyperlink{structswString}{00057}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00058                  \textcolor{keywordtype}{int}    type;}
+\DoxyCodeLine{00059                  \textcolor{keywordtype}{int}    sign;}
+\DoxyCodeLine{00060                  \textcolor{keywordtype}{float}  weight;}
+\DoxyCodeLine{00061                \} \mbox{\hyperlink{structswString}{swString}};}
+\DoxyCodeLine{00062 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

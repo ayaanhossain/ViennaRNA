@@ -1,0 +1,5 @@
+<map id="ViennaRNA/landscape/neighbor.h" name="ViennaRNA/landscape/neighbor.h">
+<area shape="rect" id="node1" title="Methods to compute the neighbors of an RNA secondary structure." alt="" coords="89,5,244,47"/>
+<area shape="rect" id="node2" href="$neighbor_8h.html" title="Use ViennaRNA/landscape/neighbor.h instead." alt="" coords="5,95,160,121"/>
+<area shape="rect" id="node3" href="$walk_8h.html" title="Use ViennaRNA/landscape/walk.h instead." alt="" coords="184,95,317,121"/>
+</map>

@@ -1,0 +1,60 @@
+\hypertarget{move_8h}{}\doxysection{Vienna\+RNA/landscape/move.h File Reference}
+\label{move_8h}\index{ViennaRNA/landscape/move.h@{ViennaRNA/landscape/move.h}}
+
+
+Methods to operate with structural neighbors of RNA secondary structures.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{move_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em An atomic representation of the transition / move from one structure to its neighbor.  \mbox{\hyperlink{group__neighbors_structvrna__move__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}}~4
+\begin{DoxyCompactList}\small\item\em Option flag indicating insertion move. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}}~8
+\begin{DoxyCompactList}\small\item\em Option flag indicating deletion move. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{VRNA\+\_\+\+MOVESET\+\_\+\+SHIFT}}~16
+\begin{DoxyCompactList}\small\item\em Option flag indicating shift move. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_ga258084b251b218fba9398826435a4393}{VRNA\+\_\+\+MOVESET\+\_\+\+NO\+\_\+\+LP}}~32
+\begin{DoxyCompactList}\small\item\em Option flag indicating moves without lonely base pairs. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{VRNA\+\_\+\+MOVESET\+\_\+\+DEFAULT}}~(\mbox{\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{VRNA\+\_\+\+MOVESET\+\_\+\+INSERTION}} $\vert$ \mbox{\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{VRNA\+\_\+\+MOVESET\+\_\+\+DELETION}})
+\begin{DoxyCompactList}\small\item\em Option flag indicating default move set, i.\+e. insertions/deletion of a base pair. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+s}} \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A single move that transforms a secondary structure into one of its neighbors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} \mbox{\hyperlink{group__neighbors_gaeff6157398a2073f587416fa9ec94789}{vrna\+\_\+move\+\_\+init}} (int pos\+\_\+5, int pos\+\_\+3)
+\begin{DoxyCompactList}\small\item\em Create an atomic move. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__neighbors_gad085062ae3aa7ee20783debe4a906fad}{vrna\+\_\+move\+\_\+list\+\_\+free}} (\mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$moves)
+\item 
+void \mbox{\hyperlink{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}{vrna\+\_\+move\+\_\+apply}} (short $\ast$pt, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Apply a particular move / transition to a secondary structure, i.\+e. transform a structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga9cf75e9c6551f46ea568abf4f7fd11cd}{vrna\+\_\+move\+\_\+is\+\_\+removal}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Test whether a move is a base pair removal. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga613d33e6fa8e784d76b34bb07458f398}{vrna\+\_\+move\+\_\+is\+\_\+insertion}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Test whether a move is a base pair insertion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga31a8c4c2db9f54cb8f2d2cdf3b725d4d}{vrna\+\_\+move\+\_\+is\+\_\+shift}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Test whether a move is a base pair shift. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__neighbors_ga7aa139b99eec837e646973ffa23b6a9d}{vrna\+\_\+move\+\_\+compare}} (const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$a, const \mbox{\hyperlink{group__neighbors_ga08630e00206cd163ea29c462bf5f4755}{vrna\+\_\+move\+\_\+t}} $\ast$b, const short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Compare two moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Methods to operate with structural neighbors of RNA secondary structures. 
+

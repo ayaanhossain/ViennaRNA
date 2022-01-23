@@ -1,0 +1,5 @@
+<map id="Internal Loops" name="Internal Loops">
+<area shape="rect" id="node1" href="$group__eval.html" title="Functions and variables related to free energy evaluation of sequence/structure pairs." alt="" coords="211,81,369,106"/>
+<area shape="rect" id="node2" href="$group__eval__loops.html" title="Functions to evaluate the free energy of particular types of loops." alt="" coords="217,5,363,45"/>
+<area shape="rect" id="node3" title="Functions to evaluate the free energy contributions for internal loops." alt="" coords="5,46,109,71"/>
+</map>

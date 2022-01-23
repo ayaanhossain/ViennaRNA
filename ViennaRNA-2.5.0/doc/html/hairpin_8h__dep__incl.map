@@ -1,0 +1,6 @@
+<map id="ViennaRNA/loops/hairpin.h" name="ViennaRNA/loops/hairpin.h">
+<area shape="rect" id="node1" title="Energy evaluation of hairpin loops for MFE and partition function calculations." alt="" coords="103,5,282,32"/>
+<area shape="rect" id="node2" href="$hairpin__loops_8h.html" title="Use ViennaRNA/loops/hairpin.h instead." alt="" coords="5,80,188,107"/>
+<area shape="rect" id="node3" href="$all_8h.html" title="Energy evaluation for MFE and partition function calculations." alt="" coords="213,80,367,107"/>
+<area shape="rect" id="node4" href="$loop__energies_8h.html" title="Use ViennaRNA/loops/all.h instead." alt="" coords="197,155,383,181"/>
+</map>

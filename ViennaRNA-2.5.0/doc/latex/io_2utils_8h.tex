@@ -1,0 +1,46 @@
+\hypertarget{io_2utils_8h}{}\doxysection{Vienna\+RNA/io/utils.h File Reference}
+\label{io_2utils_8h}\index{ViennaRNA/io/utils.h@{ViennaRNA/io/utils.h}}
+
+
+Several utilities for file handling.  
+
+
+Include dependency graph for utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{io_2utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{io_2utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__file__utils_ga4382a56d2fee9ed738364b99329edc7c}{vrna\+\_\+file\+\_\+copy}} (FILE $\ast$from, FILE $\ast$to)
+\begin{DoxyCompactList}\small\item\em Inefficient `cp'. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__file__utils_gad16c270b70a77c753088b29de8a802dc}{vrna\+\_\+read\+\_\+line}} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Read a line of arbitrary length from a stream. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__utils_gacfa44a974272a4d42c5d391cc780a0ec}{vrna\+\_\+mkdir\+\_\+p}} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Recursivly create a directory tree. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__file__utils_ga8d0f8f84f1e2628172cf3c8648b2e507}{vrna\+\_\+basename}} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Extract the filename from a file path. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__file__utils_gae006d31b088d52d8aace86948def5fe8}{vrna\+\_\+dirname}} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Extract the directory part of a file path. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__file__utils_ga72eae0a472bad905b6facccf5b453a76}{vrna\+\_\+filename\+\_\+sanitize}} (const char $\ast$name, const char $\ast$replacement)
+\begin{DoxyCompactList}\small\item\em Sanitize a file name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__utils_ga80cf1f4bb5704622f72f2911f48aee55}{vrna\+\_\+file\+\_\+exists}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Check if a file already exists in the file system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Several utilities for file handling. 
+
+, 

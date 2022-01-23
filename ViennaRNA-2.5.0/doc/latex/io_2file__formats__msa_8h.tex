@@ -1,0 +1,65 @@
+\hypertarget{io_2file__formats__msa_8h}{}\doxysection{Vienna\+RNA/io/file\+\_\+formats\+\_\+msa.h File Reference}
+\label{io_2file__formats__msa_8h}\index{ViennaRNA/io/file\_formats\_msa.h@{ViennaRNA/io/file\_formats\_msa.h}}
+
+
+Functions dealing with file formats for Multiple Sequence Alignments (MSA)  
+
+
+Include dependency graph for file\+\_\+formats\+\_\+msa.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{io_2file__formats__msa_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{io_2file__formats__msa_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga79a23de2c7249f2cccd762e475c81859}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+CLUSTAL}}~1U
+\begin{DoxyCompactList}\small\item\em Option flag indicating ClustalW formatted files. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga62be992445cd8ab2ad7a8fded944338b}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+STOCKHOLM}}~2U
+\begin{DoxyCompactList}\small\item\em Option flag indicating Stockholm 1.\+0 formatted files. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_gacf6274a2c825f34e4131404665b00604}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+FASTA}}~4U
+\begin{DoxyCompactList}\small\item\em Option flag indicating FASTA (Pearson) formatted files. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_gab3186d774c01570d2a47d0308eec4927}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+MAF}}~8U
+\begin{DoxyCompactList}\small\item\em Option flag indicating MAF formatted files. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga494488a771aa0c602fb4cf445be34d47}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+MIS}}~16U
+\begin{DoxyCompactList}\small\item\em Option flag indicating most informative sequence (MIS) output. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga4acc255373831856a8417b68de8a94c0}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+DEFAULT}}
+\begin{DoxyCompactList}\small\item\em Option flag indicating the set of default file formats. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga229fb3778ecabea4782902b69fa48fd1}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+NOCHECK}}~4096U
+\begin{DoxyCompactList}\small\item\em Option flag to disable validation of the alignment. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_gabdc948f547e550125de3e7c65878400c}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+UNKNOWN}}~8192U
+\begin{DoxyCompactList}\small\item\em Return flag of \mbox{\hyperlink{group__file__formats__msa_gade4fa8136ebb2d0f7eb3f8b59a8658e3}{vrna\+\_\+file\+\_\+msa\+\_\+detect\+\_\+format()}} to indicate unknown or malformatted alignment. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga1577ea0f497d9c501549c863a4f2c089}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+APPEND}}~16384U
+\begin{DoxyCompactList}\small\item\em Option flag indicating to append data to a multiple sequence alignment file rather than overwriting it. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_ga73aa3701a22c5acfcb2e8927287a0554}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+QUIET}}~32768U
+\begin{DoxyCompactList}\small\item\em Option flag to suppress unnecessary spam messages on {\ttfamily stderr} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats__msa_gad98ca08968d19f221f29d2a1faf26887}{VRNA\+\_\+\+FILE\+\_\+\+FORMAT\+\_\+\+MSA\+\_\+\+SILENT}}~65536U
+\begin{DoxyCompactList}\small\item\em Option flag to completely silence any warnings on {\ttfamily stderr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__file__formats__msa_gad02d5d12bda54611c915a1019323b7be}{vrna\+\_\+file\+\_\+msa\+\_\+read}} (const char $\ast$filename, char $\ast$$\ast$$\ast$names, char $\ast$$\ast$$\ast$aln, char $\ast$$\ast$id, char $\ast$$\ast$structure, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Read a multiple sequence alignment from file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__formats__msa_gad4203a438622b2df7bc2f16578d54799}{vrna\+\_\+file\+\_\+msa\+\_\+read\+\_\+record}} (FILE $\ast$fp, char $\ast$$\ast$$\ast$names, char $\ast$$\ast$$\ast$aln, char $\ast$$\ast$id, char $\ast$$\ast$structure, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Read a multiple sequence alignment from file handle. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__file__formats__msa_gade4fa8136ebb2d0f7eb3f8b59a8658e3}{vrna\+\_\+file\+\_\+msa\+\_\+detect\+\_\+format}} (const char $\ast$filename, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Detect the format of a multiple sequence alignment file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__formats__msa_gaccca55b71d34def88e18ed9a51ccb2bf}{vrna\+\_\+file\+\_\+msa\+\_\+write}} (const char $\ast$filename, const char $\ast$$\ast$names, const char $\ast$$\ast$aln, const char $\ast$id, const char $\ast$structure, const char $\ast$source, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Write multiple sequence alignment file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions dealing with file formats for Multiple Sequence Alignments (MSA) 
+
+, , 

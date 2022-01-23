@@ -1,0 +1,13 @@
+<map id="Secondary Structure Utilities" name="Secondary Structure Utilities">
+<area shape="rect" id="node1" href="$group__struct__utils__plist.html" title=" " alt="" coords="331,5,498,45"/>
+<area shape="rect" id="node2" href="$group__struct__utils__tree.html" title="Secondary structures can be readily represented as trees, where internal nodes represent base pairs,..." alt="" coords="331,69,498,109"/>
+<area shape="rect" id="node3" href="$group__struct__utils__dot__bracket.html" title="The Dot&#45;Bracket notation as introduced already in the early times of the ViennaRNA Package denotes ba..." alt="" coords="331,133,498,173"/>
+<area shape="rect" id="node4" href="$group__struct__utils__abstract__shapes.html" title="Abstract Shapes, introduced by Giegerich et al. in (2004) , collapse the secondary structure while re..." alt="" coords="309,197,520,237"/>
+<area shape="rect" id="node5" title="Functions to create, parse, convert, manipulate, and compare secondary structure representations." alt="" coords="120,261,261,301"/>
+<area shape="rect" id="node6" href="$group__struct__utils__pair__table.html" title=" " alt="" coords="329,261,501,301"/>
+<area shape="rect" id="node8" href="$group__struct__utils__metrics.html" title=" " alt="" coords="321,325,509,365"/>
+<area shape="rect" id="node9" href="$group__struct__utils__helix__list.html" title=" " alt="" coords="330,389,499,429"/>
+<area shape="rect" id="node10" href="$group__struct__utils__deprecated.html" title=" " alt="" coords="333,454,497,509"/>
+<area shape="rect" id="node11" href="$group__struct__utils__wuss.html" title="The WUSS notation, as frequently used for consensus secondary structures in Stockholm 1...." alt="" coords="338,533,491,587"/>
+<area shape="rect" id="node7" href="$group__utils.html" title=" " alt="" coords="5,269,72,294"/>
+</map>

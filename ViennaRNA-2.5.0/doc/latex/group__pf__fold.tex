@@ -1,0 +1,76 @@
+\hypertarget{group__pf__fold}{}\doxysection{Partition Function and Equilibrium Properties}
+\label{group__pf__fold}\index{Partition Function and Equilibrium Properties@{Partition Function and Equilibrium Properties}}
+
+
+Compute the partition function to assess various equilibrium properties.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Compute the partition function to assess various equilibrium properties. 
+
+Similar to our \mbox{\hyperlink{group__mfe}{Minimum Free Energy (MFE) Algorithms}}, we provide two different flavors for partition function computations\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__part__func__global}{Global Partition Function and Equilibrium Probabilities}} -\/ to compute the partition function for a full length sequence
+\item \mbox{\hyperlink{group__part__func__window}{Local (sliding window) Partition Function and Equilibrium Probabilities}} -\/ to compute the partition function of each window using a sliding window approach
+\end{DoxyItemize}
+
+While the global partition function approach supports predictions using single sequences as well as consensus partition functions for multiple sequence alignments (MSA), we currently do not support MSA input for the local variant.
+
+Comparative prediction computes an average of the free energy contributions plus an additional covariance pseudo-\/energy term, exactly as we do for the \mbox{\hyperlink{group__mfe}{Minimum Free Energy (MFE) Algorithms}} implementation.
+
+Boltzmann weights for the free energy contributions of individual loops can be found in \mbox{\hyperlink{group__eval__loops}{Energy Evaluation for Individual Loops}}.
+
+Our implementations also provide a stochastic backtracking procedure to draw \mbox{\hyperlink{group__subopt__stochbt}{Random Structure Samples from the Ensemble}} according to their equilibrium probabilty. Collaboration diagram for Partition Function and Equilibrium Properties\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__pf__fold}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__part__func__global}{Global Partition Function and Equilibrium Probabilities}}
+\begin{DoxyCompactList}\small\item\em Variations of the global partition function algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__part__func__window}{Local (sliding window) Partition Function and Equilibrium Probabilities}}
+\begin{DoxyCompactList}\small\item\em Scanning version using a sliding window approach to compute equilibrium probabilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{concentrations_8h}{concentrations.\+h}}
+\begin{DoxyCompactList}\small\item\em Concentration computations for RNA-\/\+RNA interactions. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{part__func_8h}{part\+\_\+func.\+h}}
+\begin{DoxyCompactList}\small\item\em Partition function implementations. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{part__func__window_8h}{part\+\_\+func\+\_\+window.\+h}}
+\begin{DoxyCompactList}\small\item\em Partition function and equilibrium probability implementation for the sliding window algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}{vrna\+\_\+pf\+\_\+float\+\_\+precision}} (void)
+\begin{DoxyCompactList}\small\item\em Find out whether partition function computations are using single precision floating points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}\label{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}} 
+\index{Partition Function and Equilibrium Properties@{Partition Function and Equilibrium Properties}!vrna\_pf\_float\_precision@{vrna\_pf\_float\_precision}}
+\index{vrna\_pf\_float\_precision@{vrna\_pf\_float\_precision}!Partition Function and Equilibrium Properties@{Partition Function and Equilibrium Properties}}
+\doxysubsubsection{\texorpdfstring{vrna\_pf\_float\_precision()}{vrna\_pf\_float\_precision()}}
+{\footnotesize\ttfamily int vrna\+\_\+pf\+\_\+float\+\_\+precision (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{part__func_8h}{Vienna\+RNA/part\+\_\+func.\+h}}$>$}
+
+
+
+Find out whether partition function computations are using single precision floating points. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+1 if single precision is used, 0 otherwise 
+\end{DoxyReturn}

@@ -1,0 +1,48 @@
+\hypertarget{commands_8h_source}{}\doxysection{commands.\+h}
+\label{commands_8h_source}\index{ViennaRNA/commands.h@{ViennaRNA/commands.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_COMMANDS\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_COMMANDS\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00018}\mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{00018}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_command\_s *\mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\_cmd\_t}};}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00027}\mbox{\hyperlink{group__command__files_gac54dec838d7b6bebd5df85f71702d324}{00027}} \textcolor{preprocessor}{\#define VRNA\_CMD\_PARSE\_HC      1U}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00032}\mbox{\hyperlink{group__command__files_ga8cad3c1f83e6f149829c49a186a83e21}{00032}} \textcolor{preprocessor}{\#define VRNA\_CMD\_PARSE\_SC      2U}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00037}\mbox{\hyperlink{group__command__files_ga6c6409780698826b04ebfed9151d7649}{00037}} \textcolor{preprocessor}{\#define VRNA\_CMD\_PARSE\_UD      4U}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00042}\mbox{\hyperlink{group__command__files_gaf5e20210173cdb83bf70256a454f284b}{00042}} \textcolor{preprocessor}{\#define VRNA\_CMD\_PARSE\_SD      8U}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00047}\mbox{\hyperlink{group__command__files_ga0a6c88e21e366dca14958d69cd024008}{00047}} \textcolor{preprocessor}{\#define VRNA\_CMD\_PARSE\_DEFAULTS (VRNA\_CMD\_PARSE\_HC \(\backslash\)}}
+\DoxyCodeLine{00048 \textcolor{preprocessor}{                                 | VRNA\_CMD\_PARSE\_SC \(\backslash\)}}
+\DoxyCodeLine{00049 \textcolor{preprocessor}{                                 | VRNA\_CMD\_PARSE\_UD \(\backslash\)}}
+\DoxyCodeLine{00050 \textcolor{preprocessor}{                                 | VRNA\_CMD\_PARSE\_SD \(\backslash\)}}
+\DoxyCodeLine{00051 \textcolor{preprocessor}{                                 )}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053 \textcolor{preprocessor}{\#define VRNA\_CMD\_PARSE\_SILENT   16U}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00068 \mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\_cmd\_t}}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00069}\mbox{\hyperlink{group__command__files_gae5f56400ed43683338f7bf1c1102655a}{00069}} \mbox{\hyperlink{group__command__files_gae5f56400ed43683338f7bf1c1102655a}{vrna\_file\_commands\_read}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}    *filename,}
+\DoxyCodeLine{00070                         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}  options);}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00086 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00087}\mbox{\hyperlink{group__command__files_gadbe8c9622f7bcc6dcbe3448b98df8656}{00087}} \mbox{\hyperlink{group__command__files_gadbe8c9622f7bcc6dcbe3448b98df8656}{vrna\_file\_commands\_apply}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *vc,}
+\DoxyCodeLine{00088                          \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *filename,}
+\DoxyCodeLine{00089                          \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         options);}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00100 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00101}\mbox{\hyperlink{group__command__files_gac65d0fe86f7671a2d2b85dda1a3ddc16}{00101}} \mbox{\hyperlink{group__command__files_gac65d0fe86f7671a2d2b85dda1a3ddc16}{vrna\_commands\_apply}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00102                     \mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\_cmd\_t}}            commands,}
+\DoxyCodeLine{00103                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}          options);}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00112 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{commands_8h_source_l00113}\mbox{\hyperlink{group__command__files_ga3dc372dcbb43d2c4c91b5ef79b460428}{00113}} \mbox{\hyperlink{group__command__files_ga3dc372dcbb43d2c4c91b5ef79b460428}{vrna\_commands\_free}}(\mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\_cmd\_t}} commands);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00120 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

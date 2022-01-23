@@ -1,0 +1,6 @@
+<map id="ViennaRNA/datastructures/char_stream.h" name="ViennaRNA/datastructures/char_stream.h">
+<area shape="rect" id="node1" title="Implementation of a dynamic, buffered character stream." alt="" coords="95,5,273,47"/>
+<area shape="rect" id="node2" href="$char__stream_8h.html" title="Use ViennaRNA/datastructures/char_stream.h instead." alt="" coords="5,95,184,121"/>
+<area shape="rect" id="node3" href="$eval_8h.html" title="Functions and variables related to energy evaluation of sequence/structure pairs." alt="" coords="208,95,339,121"/>
+<area shape="rect" id="node4" href="$fold_8h.html" title="MFE calculations for single RNA sequences." alt="" coords="210,169,337,196"/>
+</map>

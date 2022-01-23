@@ -1,0 +1,48 @@
+\hypertarget{ali__plex_8h_source}{}\doxysection{ali\+\_\+plex.\+h}
+\label{ali__plex_8h_source}\index{ViennaRNA/ali\_plex.h@{ViennaRNA/ali\_plex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_ALI\_PLEX\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_ALI\_PLEX\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00011 \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}} **aliLduplexfold(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1[],}
+\DoxyCodeLine{00012                          \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2[],}
+\DoxyCodeLine{00013                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  threshold,}
+\DoxyCodeLine{00014                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  extension\_cost,}
+\DoxyCodeLine{00015                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  alignment\_length,}
+\DoxyCodeLine{00016                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  delta,}
+\DoxyCodeLine{00017                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fast,}
+\DoxyCodeLine{00018                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  il\_a,}
+\DoxyCodeLine{00019                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  il\_b,}
+\DoxyCodeLine{00020                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  b\_a,}
+\DoxyCodeLine{00021                          \textcolor{keyword}{const} \textcolor{keywordtype}{int}  b\_b);}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00027 \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}} **aliLduplexfold\_XS(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s1[],}
+\DoxyCodeLine{00028                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s2[],}
+\DoxyCodeLine{00029                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   **access\_s1,}
+\DoxyCodeLine{00030                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   **access\_s2,}
+\DoxyCodeLine{00031                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   threshold,}
+\DoxyCodeLine{00032                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   alignment\_length,}
+\DoxyCodeLine{00033                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   delta,}
+\DoxyCodeLine{00034                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   fast,}
+\DoxyCodeLine{00035                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   il\_a,}
+\DoxyCodeLine{00036                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   il\_b,}
+\DoxyCodeLine{00037                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   b\_a,}
+\DoxyCodeLine{00038                             \textcolor{keyword}{const} \textcolor{keywordtype}{int}   b\_b);}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041 \textcolor{comment}{/*}}
+\DoxyCodeLine{00042 \textcolor{comment}{ * extern duplexT aliduplexfold(const char *s1[], const char *s2[], const int extension\_cost);}}
+\DoxyCodeLine{00043 \textcolor{comment}{ * extern duplexT aliduplexfold\_XS(const char *s1[], const char *s2[],const int **access\_s1,}}
+\DoxyCodeLine{00044 \textcolor{comment}{ * const int **access\_s2, const int i\_pos, const int j\_pos, const int threshold);}}
+\DoxyCodeLine{00045 \textcolor{comment}{ */}}
+\DoxyCodeLine{00046 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

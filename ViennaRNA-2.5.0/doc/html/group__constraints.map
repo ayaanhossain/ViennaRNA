@@ -1,0 +1,6 @@
+<map id="Constraining the RNA Folding Grammar" name="Constraining the RNA Folding Grammar">
+<area shape="rect" id="node1" title="This module provides general functions that allow for an easy control of constrained secondary struct..." alt="" coords="233,23,384,63"/>
+<area shape="rect" id="node3" href="$group__soft__constraints.html" title="Functions and data structures for secondary structure soft constraints." alt="" coords="434,5,551,31"/>
+<area shape="rect" id="node4" href="$group__hard__constraints.html" title="This module covers all functionality for hard constraints in secondary structure prediction." alt="" coords="432,55,553,80"/>
+<area shape="rect" id="node2" href="$group__grammar.html" title="The RNA folding grammar as implemented in RNAlib." alt="" coords="5,31,185,56"/>
+</map>

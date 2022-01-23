@@ -1,0 +1,49 @@
+\hypertarget{perturbation__fold_8h}{}\doxysection{Vienna\+RNA/perturbation\+\_\+fold.h File Reference}
+\label{perturbation__fold_8h}\index{ViennaRNA/perturbation\_fold.h@{ViennaRNA/perturbation\_fold.h}}
+
+
+Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments.  
+
+
+Include dependency graph for perturbation\+\_\+fold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{perturbation__fold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__perturbation_ga81e10993d1ae728e4e02022b33155a12}{VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+QUADRATIC}}~0
+\begin{DoxyCompactList}\small\item\em Use the sum of squared aberrations as objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_gac070dfb9cafaeb14d5652bd9adf0f6b1}{VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+ABSOLUTE}}~1
+\begin{DoxyCompactList}\small\item\em Use the sum of absolute aberrations as objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_gae5126200d80dbb282f46083fffc606bf}{VRNA\+\_\+\+MINIMIZER\+\_\+\+DEFAULT}}~0
+\begin{DoxyCompactList}\small\item\em Use a custom implementation of the gradient descent algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_gab1d89db58e8c497795a5005f5dbc8c4a}{VRNA\+\_\+\+MINIMIZER\+\_\+\+CONJUGATE\+\_\+\+FR}}~1
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the Fletcher-\/\+Reeves conjugate gradient algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga5aaeafe1b0aa77a5cda18943ff94b02f}{VRNA\+\_\+\+MINIMIZER\+\_\+\+CONJUGATE\+\_\+\+PR}}~2
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the Polak-\/\+Ribiere conjugate gradient algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga9be8a702cddf58235571ace11cc41b22}{VRNA\+\_\+\+MINIMIZER\+\_\+\+VECTOR\+\_\+\+BFGS}}~3
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the vector Broyden-\/\+Fletcher-\/\+Goldfarb-\/\+Shanno algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga7b0a65c6c92fa1d8012383ba9d3dcb4f}{VRNA\+\_\+\+MINIMIZER\+\_\+\+VECTOR\+\_\+\+BFGS2}}~4
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the vector Broyden-\/\+Fletcher-\/\+Goldfarb-\/\+Shanno algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga9ecd2144c2ebed7533233da3986521b0}{VRNA\+\_\+\+MINIMIZER\+\_\+\+STEEPEST\+\_\+\+DESCENT}}~5
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the steepest descent algorithm to minimize the objective function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\+\_\+callback}}) (int iteration, double score, double $\ast$epsilon)
+\begin{DoxyCompactList}\small\item\em Callback for following the progress of the minimization process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const double $\ast$q\+\_\+prob\+\_\+unpaired, int objective\+\_\+function, double sigma\+\_\+squared, double tau\+\_\+squared, int algorithm, int sample\+\_\+size, double $\ast$epsilon, double initial\+Step\+Size, double min\+Step\+Size, double min\+Improvement, double minimizer\+Tolerance, \mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\+\_\+callback}} callback)
+\begin{DoxyCompactList}\small\item\em Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments. 
+

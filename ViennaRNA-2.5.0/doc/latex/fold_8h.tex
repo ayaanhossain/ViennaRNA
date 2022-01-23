@@ -1,0 +1,49 @@
+\hypertarget{fold_8h}{}\doxysection{Vienna\+RNA/fold.h File Reference}
+\label{fold_8h}\index{ViennaRNA/fold.h@{ViennaRNA/fold.h}}
+
+
+MFE calculations for single RNA sequences.  
+
+
+Include dependency graph for fold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\+\_\+par}} (const char $\ast$sequence, char $\ast$structure, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters, int is\+\_\+constrained, int is\+\_\+circular)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of an RNA sequence. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}{circfold}} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute minimum free energy and an appropriate secondary structure of a circular RNA sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}{free\+\_\+arrays}} (void)
+\begin{DoxyCompactList}\small\item\em Free arrays for mfe folding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga41bf8f6fa15b94471f7095cad9f0ccf3}{update\+\_\+fold\+\_\+params}} (void)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gae66dc422efb8f5d56717d92d6002a9f8}{update\+\_\+fold\+\_\+params\+\_\+par}} (\mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga99641b8dbb40891da5490d3cc271e607}{export\+\_\+fold\+\_\+arrays}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga6606ec0ec964ea506fdadb997a1a5328}{export\+\_\+fold\+\_\+arrays\+\_\+par}} (int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$$\ast$P\+\_\+p)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga04d5d639fd4473ca766436a9bae5665c}{export\+\_\+circfold\+\_\+arrays}} (int $\ast$Fc\+\_\+p, int $\ast$Fc\+H\+\_\+p, int $\ast$Fc\+I\+\_\+p, int $\ast$Fc\+M\+\_\+p, int $\ast$$\ast$f\+M2\+\_\+p, int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_ga004bb901e7fd2f8d5ae68f9530318ce1}{export\+\_\+circfold\+\_\+arrays\+\_\+par}} (int $\ast$Fc\+\_\+p, int $\ast$Fc\+H\+\_\+p, int $\ast$Fc\+I\+\_\+p, int $\ast$Fc\+M\+\_\+p, int $\ast$$\ast$f\+M2\+\_\+p, int $\ast$$\ast$f5\+\_\+p, int $\ast$$\ast$c\+\_\+p, int $\ast$$\ast$f\+ML\+\_\+p, int $\ast$$\ast$f\+M1\+\_\+p, int $\ast$$\ast$indx\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \mbox{\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t}} $\ast$$\ast$P\+\_\+p)
+\item 
+int \mbox{\hyperlink{group__mfe__global__deprecated_ga2163034a25c6115d894b199e97e03f6c}{Loop\+Energy}} (int n1, int n2, int type, int type\+\_\+2, int si1, int sj1, int sp1, int sq1)
+\item 
+int \mbox{\hyperlink{group__mfe__global__deprecated_gab327ce11972f5ac069d52c8dedfdb700}{HairpinE}} (int size, int type, int si1, int sj1, const char $\ast$string)
+\item 
+void \mbox{\hyperlink{group__mfe__global__deprecated_gac3f0a28d9cb609d388b155445073fd20}{initialize\+\_\+fold}} (int length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MFE calculations for single RNA sequences. 
+

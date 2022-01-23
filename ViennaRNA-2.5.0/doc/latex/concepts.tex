@@ -1,0 +1,358 @@
+This is an overview of the concepts and algorithms for which implementations can be found in this library.
+
+Almost all of them rely on the physics based Nearest Neighbor Model for RNA secondary structure prediction.
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{secondary_structures}{RNA Structure}} gives an introduction into the different layers of abstraction for RNA structures
+\item \mbox{\hyperlink{distance_measures}{Distance Measures}} introduces different metrics to allow for the comparison of secondary structures
+\item \mbox{\hyperlink{energy_evaluation}{Free Energy of Secondary Structures}} shows how the stability of a secondary structure can be quantified in terms of free energy
+\item \mbox{\hyperlink{folding_grammar}{Secondary Structure Folding Grammar}} explains the basic recursive decomposition scheme that is applied in secondary structure prediction
+\item \mbox{\hyperlink{secondary_structure_landscape}{RNA Secondary Structure Landscapes}} describes how transition paths between secondary structures span a landscape like graph
+\item \mbox{\hyperlink{mfe_algorithm}{Minimum Free Energy Algorithm(s)}} compute the most stable conformation in thermodynamic equilibrium
+\item \mbox{\hyperlink{pf_algorithm}{Partition Function and Equilibrium Probabilitiy Algorithm(s)}} enable one to apply statistical mechanics to derive equilibrium probabilities of structure features
+\item \mbox{\hyperlink{suboptimal_structures}{Suboptimals and (other) Representative Structures}} allow for alternative description and enumeration of the structure ensemble
+\item \mbox{\hyperlink{rip}{RNA-\/\+RNA Interaction}} introduces how to model the interaction between RNA molecules
+\item \mbox{\hyperlink{local_vs_global}{Locally Stable Secondary Structures}} offer insights into structuredness of long sequences and entire genomes
+\item \mbox{\hyperlink{consensus_structures}{Comparative Structure Prediction}} augment structure prediction with evolutionary conservation of homologous sequences
+\item \mbox{\hyperlink{classified_dp}{Classified DP variations}} perform an {\itshape a priori} partitioning of the structure ensemble and compute various properties for the resulting classes.
+\item \mbox{\hyperlink{design}{RNA Sequence Design}} constitutes the inverse problem of structure prediction
+\item \mbox{\hyperlink{structure_probing_data}{Experimental Structure Probing Data}} can be used to guide structure prediction, for instance using SHAPE reactivity data
+\item \mbox{\hyperlink{ligand_binding}{Ligand Binding}} adds more complexity to structure prediction by modelling the interaction between small chemical compounds or proteins and the RNA
+\item \mbox{\hyperlink{structure_motifs}{(Tertiary) Structure Motifs}} extend the abstraction of secondary structure beyond canonical base pair formation 
+\end{DoxyItemize}\hypertarget{secondary_structures}{}\doxysection{RNA Structure}\label{secondary_structures}
+\hypertarget{secondary_structures_structures}{}\doxysubsection{RNA Structures}\label{secondary_structures_structures}
+\hypertarget{secondary_structures_structure_abstraction}{}\doxysubsection{Levels of Structure Abstraction}\label{secondary_structures_structure_abstraction}
+\hypertarget{secondary_structures_abstraction_primary}{}\doxysubsubsection{Primary Structure}\label{secondary_structures_abstraction_primary}
+\hypertarget{secondary_structures_abstraction_secondary}{}\doxysubsubsection{Secondary Structure}\label{secondary_structures_abstraction_secondary}
+\hypertarget{secondary_structures_abstraction_tertiary}{}\doxysubsubsection{Tertiary Structure}\label{secondary_structures_abstraction_tertiary}
+\hypertarget{secondary_structures_abstraction_quarternary}{}\doxysubsubsection{Quarternary Structure}\label{secondary_structures_abstraction_quarternary}
+\hypertarget{secondary_structures_pseudo-knots}{}\doxysubsubsection{Pseudo-\/\+Knots}\label{secondary_structures_pseudo-knots}
+\hypertarget{distance_measures}{}\doxysection{Distance Measures}\label{distance_measures}
+A simple measure of dissimilarity between secondary structures of equal length is the base pair distance, given by the number of pairs present in only one of the two structures being compared. I.\+e. the number of base pairs that have to be opened or closed to transform one structure into the other. It is therefore particularly useful for comparing structures on the same sequence. It is implemented by
+
+\begin{DoxyVerb}int bp_distance(const char *str1,
+                const char *str2)
+\end{DoxyVerb}
+ Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2.
+
+For other cases a distance measure that allows for gaps is preferable. We can define distances between structures as edit distances between trees or their string representations. In the case of string distances this is the same as \char`\"{}sequence alignment\char`\"{}. Given a set of edit operations and edit costs, the edit distance is given by the minimum sum of the costs along an edit path converting one object into the other. Edit distances like these always define a metric. The edit operations used by us are insertion, deletion and replacement of nodes. String editing does not pay attention to the matching of brackets, while in tree editing matching brackets represent a single node of the tree. \mbox{\hyperlink{structTree}{Tree}} editing is therefore usually preferable, although somewhat slower. String edit distances are always smaller or equal to tree edit distances.
+
+The different level of detail in the structure representations defined above naturally leads to different measures of distance. For full structures we use a cost of 1 for deletion or insertion of an unpaired base and 2 for a base pair. Replacing an unpaired base for a pair incurs a cost of 1.
+
+Two cost matrices are provided for coarse grained structures\+:
+
+\begin{DoxyVerb}/*  Null,   H,   B,   I,   M,   S,   E    */
+   {   0,   2,   2,   2,   2,   1,   1},   /* Null replaced */
+   {   2,   0,   2,   2,   2, INF, INF},   /* H    replaced */
+   {   2,   2,   0,   1,   2, INF, INF},   /* B    replaced */
+   {   2,   2,   1,   0,   2, INF, INF},   /* I    replaced */
+   {   2,   2,   2,   2,   0, INF, INF},   /* M    replaced */
+   {   1, INF, INF, INF, INF,   0, INF},   /* S    replaced */
+   {   1, INF, INF, INF, INF, INF,   0},   /* E    replaced */
+
+
+/* Null,   H,   B,   I,   M,   S,   E   */
+   {   0, 100,   5,   5,  75,   5,   5},   /* Null replaced */
+   { 100,   0,   8,   8,   8, INF, INF},   /* H    replaced */
+   {   5,   8,   0,   3,   8, INF, INF},   /* B    replaced */
+   {   5,   8,   3,   0,   8, INF, INF},   /* I    replaced */
+   {  75,   8,   8,   8,   0, INF, INF},   /* M    replaced */
+   {   5, INF, INF, INF, INF,   0, INF},   /* S    replaced */
+   {   5, INF, INF, INF, INF, INF,   0},   /* E    replaced */
+\end{DoxyVerb}
+
+
+The lower matrix uses the costs given in \cite{shapiro:1990}. All distance functions use the following global variables\+:
+
+\begin{DoxyVerb}int  cost_matrix;
+\end{DoxyVerb}
+ Specify the cost matrix to be used for distance calculations.
+
+\begin{DoxyVerb}int   edit_backtrack;
+\end{DoxyVerb}
+ Produce an alignment of the two structures being compared by tracing the editing path giving the minimum distance.
+
+\begin{DoxyVerb}char *aligned_line[4];
+\end{DoxyVerb}
+ Contains the two aligned structures after a call to one of the distance functions with \mbox{\hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\+\_\+backtrack}} set to 1.
+
+\begin{DoxySeeAlso}{See also}
+utils.\+h, \mbox{\hyperlink{dist__vars_8h}{dist\+\_\+vars.\+h}} and \mbox{\hyperlink{stringdist_8h}{stringdist.\+h}} for more details
+\end{DoxySeeAlso}
+\hypertarget{distance_measures_sec_tree_edit_distance}{}\doxysubsection{Functions for Tree Edit Distances}\label{distance_measures_sec_tree_edit_distance}
+\begin{DoxyVerb}Tree   *make_tree (char *struc)
+\end{DoxyVerb}
+ Constructs a \mbox{\hyperlink{structTree}{Tree}} ( essentially the postorder list ) of the structure \textquotesingle{}struc\textquotesingle{}, for use in \mbox{\hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}}.
+
+\begin{DoxyVerb}float   tree_edit_distance (Tree *T1,
+                            Tree *T2) 
+\end{DoxyVerb}
+ Calculates the edit distance of the two trees.
+
+\begin{DoxyVerb}void    free_tree(Tree *t)
+\end{DoxyVerb}
+ Free the memory allocated for \mbox{\hyperlink{structTree}{Tree}} t.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{dist__vars_8h}{dist\+\_\+vars.\+h}} and \mbox{\hyperlink{treedist_8h}{treedist.\+h}} for prototypes and more detailed descriptions
+\end{DoxySeeAlso}
+\hypertarget{distance_measures_sec_string_alignment}{}\doxysubsection{Functions for String Alignment}\label{distance_measures_sec_string_alignment}
+\begin{DoxyVerb}swString *Make_swString (char *string)
+\end{DoxyVerb}
+ Convert a structure into a format suitable for \mbox{\hyperlink{stringdist_8h_a89e3c335ef17780576d7c0e713830db9}{string\+\_\+edit\+\_\+distance()}}.
+
+\begin{DoxyVerb}float     string_edit_distance (swString *T1,
+                                swString *T2)
+\end{DoxyVerb}
+ Calculate the string edit distance of T1 and T2.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{dist__vars_8h}{dist\+\_\+vars.\+h}} and \mbox{\hyperlink{stringdist_8h}{stringdist.\+h}} for prototypes and more detailed descriptions
+\end{DoxySeeAlso}
+\hypertarget{distance_measures_sec_compare_base_pair_probs}{}\doxysubsection{Functions for Comparison of Base Pair Probabilities}\label{distance_measures_sec_compare_base_pair_probs}
+For comparison of base pair probability matrices, the matrices are first condensed into probability profiles which are the compared by alignment.
+
+\begin{DoxyVerb}float *Make_bp_profile_bppm ( double *bppm,
+                              int length)
+\end{DoxyVerb}
+ condense pair probability matrix into a vector containing probabilities for unpaired, upstream paired and downstream paired.
+
+\begin{DoxyVerb}float profile_edit_distance ( const float *T1,
+                              const float *T2)
+\end{DoxyVerb}
+ Align the 2 probability profiles T1, T2~\newline
+.
+
+\begin{DoxySeeAlso}{See also}
+Profile\+Dist.\+h for prototypes and more details of the above functions 
+\end{DoxySeeAlso}
+\hypertarget{energy_evaluation}{}\doxysection{Free Energy of Secondary Structures}\label{energy_evaluation}
+A description on how secondary structures are decomposed into individual loops to eventually evaluate their stability in terms of free energy.\hypertarget{energy_evaluation_sec_loop_decomposition}{}\doxysubsection{Secondary Structure Loop Decomposition}\label{energy_evaluation_sec_loop_decomposition}
+Each base pair in a secondary structure closes a loop, thereby directly enclosing unpaired nucleotides, and/or further base pairs. Our implementation distinguishes four basic types of loops\+:
+
+
+\begin{DoxyItemize}
+\item hairpin loops
+\item interior loops
+\item multibranch loops
+\item exterior loop
+\end{DoxyItemize}
+
+While the exterior loop is a special case without a closing pair, the other loops are determined by the number of base pairs involved in the loop formation, i.\+e. hairpin loops are 1-\/loops, since only a single base pair delimits the loop. interior loops are 2-\/loops due to their enclosing, and enclosed base pair. All loops where more than two base pairs are involved, are termed multibranch loops.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{loop_types}}
+\end{DoxyImageNoCaption}
+
+
+Any secondary structure can be decomposed into its loops. Each of the loops then can be scored in terms of free energy, and the free energy of an entire secondary structure is simply the sum of free energies of its loops.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{loop_decomposition}}
+\end{DoxyImageNoCaption}
+\hypertarget{energy_evaluation_sec_loop_decomposition_api}{}\doxysubsubsection{Free Energy Evaluation API}\label{energy_evaluation_sec_loop_decomposition_api}
+While we implement some functions that decompose a secondary structure into its individual loops, the majority of methods provided in {\bfseries{RNAlib}} are dedicated to free energy evaluation. The corresponding modules are\+:
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__eval}{Free Energy Evaluation}}, \mbox{\hyperlink{group__eval__loops}{Energy Evaluation for Individual Loops}}
+\end{DoxySeeAlso}
+\hypertarget{energy_evaluation_sec_energy_parameters}{}\doxysubsection{Free Energy Parameters}\label{energy_evaluation_sec_energy_parameters}
+For secondary structure free energy evaluation we usually utilize the set of Nearest Neighbor Parameters also used in other software, such as {\itshape UNAfold} and {\itshape RNAstructure}. While the {\itshape RNAlib} already contains a compiled-\/in set of the latest {\itshape Turner 2004 Free Energy Parameters}, we defined a file format that allows to change these parameters at runtime. The {\ttfamily Vienna\+RNA Package} already comes with a set of parameter files containing
+
+
+\begin{DoxyItemize}
+\item Turner 1999 RNA parameters
+\item Mathews 1999 DNA parameters
+\item Andronescu 2007 RNA parameters
+\item Mathews 2004 DNA parameters
+\end{DoxyItemize}\hypertarget{energy_evaluation_sec_energy_parameters_api}{}\doxysubsubsection{Free Energy Parameters Modification API}\label{energy_evaluation_sec_energy_parameters_api}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__energy__parameters}{Energy Parameters}}, \mbox{\hyperlink{group__energy__parameters__rw}{Reading/\+Writing Energy Parameter Sets from/to File}}
+\end{DoxySeeAlso}
+\hypertarget{energy_evaluation_sec_model_details}{}\doxysubsection{Fine-\/tuning of the Energy Evaluation Model}\label{energy_evaluation_sec_model_details}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__model__details}{Fine-\/tuning of the Implemented Models}}
+\end{DoxySeeAlso}
+ \hypertarget{folding_grammar}{}\doxysection{Secondary Structure Folding Grammar}\label{folding_grammar}
+A description of the basic grammar to generate secondary structures, used for almost all prediction algorithms in our library and how to modify it.\hypertarget{folding_grammar_sec_recursions}{}\doxysubsection{Secondary Structure Folding Recurrences}\label{folding_grammar_sec_recursions}
+To predict secondary structures composed of the four distinguished loop types introduced before, all algorithms implemented in {\itshape RNAlib} follow a specific decomposition scheme, also known as the {\itshape RNA folding grammar}, or {\itshape Secondary Structure Folding Recurrences}.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{recursions}}
+\end{DoxyImageNoCaption}
+
+
+However, compared to other RNA secondary structure prediction libraries, our implementation allows for a fine-\/grained control of the above recursions by constraining both, the individual derivations of the grammar as well as the evaluation of particular loop contributions. Furthermore, we provide a mechanism to extend the above grammar with additional derivation rules, so-\/called {\itshape Domains}.\hypertarget{folding_grammar_sec_domains}{}\doxysubsection{Additional Structural Domains}\label{folding_grammar_sec_domains}
+Some applications of RNA secondary structure prediction require an extension of the {\itshape regular RNA folding grammar}. For instance one would like to include proteins and other ligands binding to unpaired loop regions while competing with conventional base pairing. Another application could be that one may want to include the formation of self-\/enclosed structural modules, such as {\itshape G-\/quadruplexes}. For such applications, we provide a pair of additional domains that extend the regular RNA folding grammar, \mbox{\hyperlink{group__domains__struc}{Structured Domains}} and \mbox{\hyperlink{group__domains__up}{Unstructured Domains}}.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{GCrecursion}}
+\end{DoxyImageNoCaption}
+
+
+While unstructured domains are usually determined by a more or less precise sequence motif, e.\+g. the binding site for a protein, structured domains are considered self-\/enclosed modules with a more or less complex pairing pattern. Our extension with these two domains introduces two production rules to fill additional dynamic processing matrices {\ttfamily S} and {\ttfamily U} where we store the pre-\/computed contributions of structured domains ({\ttfamily S}), and unstructured domains ({\ttfamily U}).\hypertarget{folding_grammar_sec_domains_structured}{}\doxysubsubsection{Structured Domains}\label{folding_grammar_sec_domains_structured}
+Usually, structured domains represent self-\/enclosed structural modules that exhibit a more or less complex base pairing pattern. This can be more or less well-\/defined 3D motifs, such as {\itshape G-\/\+Quadruplexes}, or loops with additional non-\/canonical base pair interactions, such as {\itshape kink-\/turns}.
+
+\begin{DoxyNote}{Note}
+Currently, our implementation only provides the specialized case of {\itshape G-\/\+Quadruplexes}.
+\end{DoxyNote}
+\hypertarget{folding_grammar_sec_domains_up}{}\doxysubsubsection{Unstructured Domains}\label{folding_grammar_sec_domains_up}
+Unstructured domains appear in the production rules of the RNA folding grammar wherever new unpaired nucleotides are attached to a growing substructure (see also \cite{lorenz:2016b})\+:  
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Crecursion}}
+\end{DoxyImageNoCaption}
+
+
+The white boxes represent the stretch of RNA bound to the ligand and represented by a more or less specific sequence motif. The motif itself is considered unable to form base pairs. The additional production rule {\itshape U} is used to precompute the contribution of unpaired stretches possibly bound by one or more ligands. The auxiliary DP matrix for this production rule is filled right before processing the other (regular) production rules of the RNA folding grammar.\hypertarget{folding_grammar_sec_domains_api}{}\doxysubsubsection{Domain Extension API}\label{folding_grammar_sec_domains_api}
+For the sake of flexibility, each of the domains is associated with a specific data structure serving as an abstract interface to the extension. The interface uses callback functions to
+
+
+\begin{DoxyItemize}
+\item pre-\/compute arbitrary data, e.\+g. filling up additional dynamic programming matrices, and
+\item evaluate the contribution of a paired or unpaired structural feature of the RNA.
+\end{DoxyItemize}
+
+Implementations of these callbacks are separate for regular free energy evaluation, e.\+g. MFE prediction, and partition function applications. A data structure holding arbitrary data required for the callback functions can be associated to the domain as well. While {\itshape RNAlib} comes with a default implementation for structured and unstructured domains, the system is entirely user-\/customizable.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__domains__up}{Unstructured Domains}}, \mbox{\hyperlink{group__domains__struc}{Structured Domains}}, \mbox{\hyperlink{group__gquads}{G-\/\+Quadruplexes}}, \mbox{\hyperlink{group__ligands__up}{Ligands Binding to Unstructured Domains}}
+\end{DoxySeeAlso}
+\hypertarget{folding_grammar_sec_constraints}{}\doxysubsection{Constraints on the Folding Grammar}\label{folding_grammar_sec_constraints}
+Secondary Structure constraints can be subdivided into two groups\+:
+
+
+\begin{DoxyItemize}
+\item Hard Constraints
+\item Soft Constraints
+\end{DoxyItemize}
+
+While Hard-\/\+Constraints directly influence the production rules used in the folding recursions by allowing, disallowing, or enforcing certain decomposition steps, Soft-\/constraints on the other hand are used to change position specific contributions in the recursions by adding bonuses/penalties in form of pseudo free energies to certain loop configurations.
+
+\begin{DoxyNote}{Note}
+Secondary structure constraints are always applied at decomposition level, i.\+e. in each step of the recursive structure decomposition, for instance during MFE prediction.
+\end{DoxyNote}
+\hypertarget{folding_grammar_sec_constraints_hard_api}{}\doxysubsubsection{Hard Constraints API}\label{folding_grammar_sec_constraints_hard_api}
+Hard constraints as implemented in our library can be specified for individual loop types, i.\+e. the atomic derivations of the RNA folding grammar rules. Hence, the pairing behavior of both, single nucleotides and pairs of bases, can be constrained in every loop context separately. Additionally, an abstract implementation using a callback mechanism allows for full control of more complex hard constraints.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__hard__constraints}{Hard Constraints}}
+\end{DoxySeeAlso}
+\hypertarget{folding_grammar_sec_constraints_soft_api}{}\doxysubsubsection{Soft Constraints API}\label{folding_grammar_sec_constraints_soft_api}
+For the sake of memory efficiency, we do not implement a loop context aware version of soft constraints. The {\itshape static} soft constraints as implemented only distinguish unpaired from paired nucleotides. This is usually sufficient for most use-\/case scenarios. However, similar to hard constraints, an abstract soft constraints implementation using a callback mechanism exists, that allows for any soft constraint that is compatible with the RNA folding grammar. Thus, loop contexts and even individual derivation rules can be addressed separately for maximum flexibility in soft-\/constraints application.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__soft__constraints}{Soft Constraints}}, \mbox{\hyperlink{group__constraints__ligand}{Incorporating Ligands Binding to Specific Sequence/\+Structure Motifs using Soft Constraints}}, \mbox{\hyperlink{group__SHAPE__reactivities}{SHAPE Reactivity Data}}
+\end{DoxySeeAlso}
+ \hypertarget{secondary_structure_landscape}{}\doxysection{RNA Secondary Structure Landscapes}\label{secondary_structure_landscape}
+A description of the implicit landscape-\/like network of structures that appears upon modelling the transition of one structure into another\hypertarget{secondary_structure_landscape_landscape_neighborhood}{}\doxysubsection{The Neighborhood of a Secondary Structure}\label{secondary_structure_landscape_landscape_neighborhood}
+\hypertarget{secondary_structure_landscape_landscape_api}{}\doxysubsection{The Secondary Structure Landscape API}\label{secondary_structure_landscape_landscape_api}
+ \hypertarget{mfe_algorithm}{}\doxysection{Minimum Free Energy Algorithm(s)}\label{mfe_algorithm}
+Computing the Minimum Free Energy (MFE), i.\+e. the most stable conformation in thermodynamic equilibrium\hypertarget{mfe_algorithm_zuker_algorithm}{}\doxysubsection{Zuker\textquotesingle{}s Algorithm}\label{mfe_algorithm_zuker_algorithm}
+Our library provides fast dynamic programming Minimum Free Energy (MFE) folding algorithms derived from the decomposition scheme as described by \char`\"{}\+Zuker \& Stiegler (1981)\char`\"{} \cite{zuker:1981}.\hypertarget{mfe_algorithm_circular_folding}{}\doxysubsection{MFE for circular RNAs}\label{mfe_algorithm_circular_folding}
+Folding of {\itshape circular} RNA sequences is handled as a post-\/processing step of the forward recursions. See \cite{hofacker:2006} for further details.\hypertarget{mfe_algorithm_mfe_algorithm_api}{}\doxysubsection{MFE Algorithm API}\label{mfe_algorithm_mfe_algorithm_api}
+We provide interfaces for the prediction of
+
+
+\begin{DoxyItemize}
+\item MFE and corresponding secondary structure for single sequences,
+\item consensus MFE structures of sequence alignments, and
+\item MFE structure for two hybridized RNA strands
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mfe}{Minimum Free Energy (MFE) Algorithms}}, \mbox{\hyperlink{group__cofold}{RNA-\/\+RNA Interaction}}, \mbox{\hyperlink{group__kl__neighborhood__mfe}{Computing MFE representatives of a Distance Based Partitioning}}
+\end{DoxySeeAlso}
+ \hypertarget{pf_algorithm}{}\doxysection{Partition Function and Equilibrium Probabilitiy Algorithm(s)}\label{pf_algorithm}
+\hypertarget{pf_algorithm_sec_pf_intro}{}\doxysubsection{Equilibrium Ensemble Statistics}\label{pf_algorithm_sec_pf_intro}
+In contrast to methods that compute the property of a single structure in the ensemble, e.\+g. \mbox{\hyperlink{mfe_algorithm}{Minimum Free Energy Algorithm(s)}} , the partition function algorithms always consider the entire equilibrium ensemble. For that purpose, the Mc\+Caskill algorithm \cite{mccaskill:1990} and its variants can be used to efficiently compute
+
+
+\begin{DoxyItemize}
+\item the partition function, and from that
+\item various equilibrium probabilities, for instance base pair probabilities, probabilities of individual structure motifs, and many more.
+\end{DoxyItemize}
+
+The principal idea behind this approach is that in equilibrium, statistical mechanics and polymer theory tells us that the frequency or probability $p(s)$ of a particular state $s$ depends on its energy $E(s)$ and follows a Boltzmann distribution, i.\+e. \[ p(s) \propto e^{-\beta E(s)} \text{ with } \beta = \frac{1}{kT} \] where $k \approx 1.987 \cdot 10^{-3} \frac{kcal}{mol~K}$ is the Boltzmann constant, and $T$ the thermodynamic temperature. From that relation, the actual probability of state $s$ can then be obtained using a proper scaling factor, the {\itshape canonical partition function} \[ Z = \sum_{s \in \Omega} e^{-\beta E(s)} \] where $\Omega$ is the finite set of all states. Finally, the equilibrium probability of state $s$ can be computed as \[ p(s) = \frac{e^{-\beta E(s)}}{Z} \]
+
+Instead of enumerating all states exhaustively to compute $Z$ one can apply the \mbox{\hyperlink{folding_grammar_sec_recursions}{Secondary Structure Folding Recurrences}} again for an efficient computation in cubic time. An {\itshape outside} variant of the same recursions is then used to compute probabilities for base pairs, stretches of consecutive unpaired nucleotides, or structural motifs.
+
+\begin{DoxySeeAlso}{See also}
+Further details of the Partition function and Base Pair Probability algorithm can be obtained from Mc\+Caskill 1990 \cite{mccaskill:1990}
+\end{DoxySeeAlso}
+\hypertarget{pf_algorithm_sec_pf_api}{}\doxysubsection{Partition Function and Equilibrium Probability API}\label{pf_algorithm_sec_pf_api}
+We implement a wide variety of variants of the partition function algorithm according to Mc\+Caskill 1990 \cite{mccaskill:1990}. See the corresponding submodules for specific implementation details.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pf__fold}{Partition Function and Equilibrium Properties}}, \mbox{\hyperlink{group__cofold}{RNA-\/\+RNA Interaction}}, \mbox{\hyperlink{group__up__cofold}{Partition Function for two Hybridized Sequences as a Stepwise Process}}, \mbox{\hyperlink{group__kl__neighborhood__pf}{Computing Partition Functions of a Distance Based Partitioning}}
+\end{DoxySeeAlso}
+ \hypertarget{suboptimal_structures}{}\doxysection{Suboptimals and (other) Representative Structures}\label{suboptimal_structures}
+\hypertarget{suboptimal_structures_sec_suboptimals}{}\doxysubsection{Suboptimal Secondary Structures}\label{suboptimal_structures_sec_suboptimals}
+\hypertarget{suboptimal_structures_sec_samples}{}\doxysubsection{Sampling Secondary Structures from the Ensemble}\label{suboptimal_structures_sec_samples}
+\hypertarget{suboptimal_structures_sec_suboptimals_api}{}\doxysubsection{Structure Enumeration and Sampling API}\label{suboptimal_structures_sec_suboptimals_api}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__subopt__zuker}{Suboptimal Structures sensu Stiegler et al. 1984 / Zuker et al. 1989}}, \mbox{\hyperlink{group__subopt__wuchty}{Suboptimal Structures within an Energy Band around the MFE}}, \mbox{\hyperlink{group__subopt__stochbt}{Random Structure Samples from the Ensemble}}, \mbox{\hyperlink{group__mea__fold}{Compute the Structure with Maximum Expected Accuracy (MEA)}}, \mbox{\hyperlink{group__centroid__fold}{Compute the Centroid Structure}}
+\end{DoxySeeAlso}
+ \hypertarget{rip}{}\doxysection{RNA-\/\+RNA Interaction}\label{rip}
+\hypertarget{rip_rip_intro}{}\doxysubsection{$<$br$>$}\label{rip_rip_intro}
+The function of an RNA molecule often depends on its interaction with other RNAs. The following routines therefore allows one to predict structures formed by two RNA molecules upon hybridization.\hypertarget{rip_rip_concat}{}\doxysubsection{Concatenating RNA sequences}\label{rip_rip_concat}
+One approach to co-\/folding two RNAs consists of concatenating the two sequences and keeping track of the concatenation point in all energy evaluations. Correspondingly, many of the \mbox{\hyperlink{group__mfe__global__deprecated_gabc8517f22cfe70595ee81fc837910d52}{cofold()}} and \mbox{\hyperlink{group__part__func__global__deprecated_gae5c1e7331718669bdae7a86de2be6184}{co\+\_\+pf\+\_\+fold()}} routines take one sequence string as argument and use the the global variable \mbox{\hyperlink{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}} to mark the concatenation point. Note that while the {\itshape RNAcofold} program uses the \textquotesingle{}\&\textquotesingle{} character to mark the chain break in its input, you should not use an \textquotesingle{}\&\textquotesingle{} when using the library routines (set \mbox{\hyperlink{fold__vars_8h_ab9b2c3a37a5516614c06d0ab54b97cda}{cut\+\_\+point}} instead).\hypertarget{rip_rip_stepwise}{}\doxysubsection{RNA-\/\+RNA interaction as a Stepwise Process}\label{rip_rip_stepwise}
+In a second approach to co-\/folding two RNAs, cofolding is seen as a stepwise process. In the first step the probability of an unpaired region is calculated and in a second step this probability of an unpaired region is multiplied with the probability of an interaction between the two RNAs. This approach is implemented for the interaction between a long target sequence and a short ligand RNA. Function \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru()}} calculates the partition function over all unpaired regions in the input sequence. Function \mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\+\_\+interact()}}, which calculates the partition function over all possible interactions between two sequences, needs both sequence as separate strings as input.\hypertarget{rip_rip_api}{}\doxysubsection{RNA-\/\+RNA Interaction API}\label{rip_rip_api}
+ \hypertarget{local_vs_global}{}\doxysection{Locally Stable Secondary Structures}\label{local_vs_global}
+\hypertarget{local_vs_global_local_intro}{}\doxysubsection{local\+\_\+intro}\label{local_vs_global_local_intro}
+\hypertarget{local_vs_global_local_mfe}{}\doxysubsection{local\+\_\+mfe}\label{local_vs_global_local_mfe}
+\hypertarget{local_vs_global_local_pf}{}\doxysubsection{local\+\_\+pf}\label{local_vs_global_local_pf}
+\hypertarget{local_vs_global_local_api}{}\doxysubsection{Locally Stable Secondary Structure API}\label{local_vs_global_local_api}
+ \hypertarget{consensus_structures}{}\doxysection{Comparative Structure Prediction}\label{consensus_structures}
+\hypertarget{consensus_structures_consensus_structure_intro}{}\doxysubsection{Incorporate Evolutionary Information}\label{consensus_structures_consensus_structure_intro}
+Consensus structures can be predicted by a modified version of the \mbox{\hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()}} algorithm that takes a set of aligned sequences instead of a single sequence. The energy function consists of the mean energy averaged over the sequences, plus a covariance term that favors pairs with consistent and compensatory mutations and penalizes pairs that cannot be formed by all structures. For details see \cite{hofacker:2002} and \cite{bernhart:2008}.\hypertarget{consensus_structures_consensus_structure_api}{}\doxysubsection{Comparative Structure Prediction API}\label{consensus_structures_consensus_structure_api}
+ \hypertarget{classified_dp}{}\doxysection{Classified DP variations}\label{classified_dp}
+\hypertarget{classified_dp_classified_dp_intro}{}\doxysubsection{The Idea of Classified Dynamic Programming}\label{classified_dp_classified_dp_intro}
+Usually, thermodynamic properties using the basic recursions for \mbox{\hyperlink{mfe_algorithm}{Minimum Free Energy Algorithm(s)}}, \mbox{\hyperlink{pf_algorithm}{Partition Function and Equilibrium Probabilitiy Algorithm(s)}}, and so forth, are computed over the entire structure space. However, sometimes it is desired to partition the structure space {\itshape a priori} and compute the above properties for each of the resulting partitions. This approach directly leads to {\itshape Classified Dynamic Programming}.\hypertarget{classified_dp_distance_classes}{}\doxysubsection{Distance Class Partitioning}\label{classified_dp_distance_classes}
+The secondary structure space is divided into partitions according to the base pair distance to two given reference structures and all relevant properties are calculated for each of the resulting partitions.
+
+\begin{DoxySeeAlso}{See also}
+For further details, we refer to Lorenz et al. 2009 \cite{lorenz:2009}
+\end{DoxySeeAlso}
+\hypertarget{classified_dp_density_of_states}{}\doxysubsection{Density of States (\+DOS)}\label{classified_dp_density_of_states}
+\hypertarget{classified_dp_classified_dp_api}{}\doxysubsection{Classified DP API}\label{classified_dp_classified_dp_api}
+ \hypertarget{design}{}\doxysection{RNA Sequence Design}\label{design}
+\hypertarget{design_design_intro}{}\doxysubsection{Generate Sequences that fold into particular Secondary Structures}\label{design_design_intro}
+\hypertarget{design_design_api}{}\doxysubsection{RNA Sequence Design API}\label{design_design_api}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__inverse__fold}{Inverse Folding (Design)}}
+\end{DoxySeeAlso}
+ \hypertarget{structure_probing_data}{}\doxysection{Experimental Structure Probing Data}\label{structure_probing_data}
+\hypertarget{structure_probing_data_structure_probing_intro}{}\doxysubsection{Guide the Structure Prediction using Experimental Data}\label{structure_probing_data_structure_probing_intro}
+\hypertarget{structure_probing_data_structure_probing_SHAPE}{}\doxysubsubsection{SHAPE reactivities}\label{structure_probing_data_structure_probing_SHAPE}
+\hypertarget{structure_probing_data_structure_probing_api}{}\doxysubsection{Structure Probing Data API}\label{structure_probing_data_structure_probing_api}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__probing__data}{Experimental Structure Probing Data}}, \mbox{\hyperlink{group__SHAPE__reactivities}{SHAPE Reactivity Data}}, \mbox{\hyperlink{group__perturbation}{Generate Soft Constraints from Data}}
+\end{DoxySeeAlso}
+ \hypertarget{ligand_binding}{}\doxysection{Ligand Binding}\label{ligand_binding}
+\hypertarget{ligand_binding_ligand_binding_intro}{}\doxysubsection{Small Molecules and Proteins that bind to specific RNA Structures}\label{ligand_binding_ligand_binding_intro}
+\hypertarget{ligand_binding_ligand_binding_api}{}\doxysubsection{ligand\+\_\+binding\+\_\+api}\label{ligand_binding_ligand_binding_api}
+In our library, we provide two different ways to incorporate ligand binding to RNA structures\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__ligands__up}{Ligands Binding to Unstructured Domains}}, and
+\item \mbox{\hyperlink{group__constraints__ligand}{Incorporating Ligands Binding to Specific Sequence/\+Structure Motifs using Soft Constraints}}
+\end{DoxyItemize}
+
+The first approach is implemented as an actual extension of the folding grammar. It adds auxiliary derivation rules for each case when consecutive unpaired nucleotides are evaluated. Therefore, this model is applicable to ligand binding to any loop context.
+
+The second approach, on the other hand, uses the soft-\/constraints feature to change the energy evaluation of hairpin-\/ or interior-\/loops. Hence, it can only be appleid when a ligand binds to a hairpin-\/like, or interior-\/loop like motif.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__ligands__up}{Ligands Binding to Unstructured Domains}}, \mbox{\hyperlink{group__constraints__ligand}{Incorporating Ligands Binding to Specific Sequence/\+Structure Motifs using Soft Constraints}}
+\end{DoxySeeAlso}
+ \hypertarget{structure_motifs}{}\doxysection{(Tertiary) Structure Motifs}\label{structure_motifs}
+\hypertarget{structure_motifs_structure_motifs_intro}{}\doxysubsection{Incorporating Higher-\/\+Order (\+Tertiary) Structure Motifs}\label{structure_motifs_structure_motifs_intro}
+\hypertarget{structure_motifs_structure_motif_gquad}{}\doxysubsection{RNA G-\/\+Quadruplexes}\label{structure_motifs_structure_motif_gquad}
+\hypertarget{structure_motifs_structure_motif_api}{}\doxysubsection{(\+Tertiary) Structure Motif API}\label{structure_motifs_structure_motif_api}
+ 

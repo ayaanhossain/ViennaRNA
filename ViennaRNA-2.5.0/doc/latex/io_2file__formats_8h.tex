@@ -1,0 +1,57 @@
+\hypertarget{io_2file__formats_8h}{}\doxysection{Vienna\+RNA/io/file\+\_\+formats.h File Reference}
+\label{io_2file__formats_8h}\index{ViennaRNA/io/file\_formats.h@{ViennaRNA/io/file\_formats.h}}
+
+
+Read and write different file formats for RNA sequences, structures.  
+
+
+Include dependency graph for file\+\_\+formats.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{io_2file__formats_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{io_2file__formats_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__file__formats_gabec89c09874528c6cb73140a4c3d86d7}{VRNA\+\_\+\+OPTION\+\_\+\+MULTILINE}}~32U
+\begin{DoxyCompactList}\small\item\em Tell a function that an input is assumed to span several lines. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__file__formats_ga7d725ef525b29891abef3f1ed42599a4}{VRNA\+\_\+\+CONSTRAINT\+\_\+\+MULTILINE}}~32U
+\begin{DoxyCompactList}\small\item\em parse multiline constraint \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__file__formats_gaaface7db12fadc3d271641c4515ab6e4}{vrna\+\_\+file\+\_\+helixlist}} (const char $\ast$seq, const char $\ast$db, float energy, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure as helix list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_gab69682373ccca1e0e28cc967eec07745}{vrna\+\_\+file\+\_\+connect}} (const char $\ast$seq, const char $\ast$db, float energy, const char $\ast$identifier, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure as connect table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_ga9b462e6f202594af5d3fa56e280d633f}{vrna\+\_\+file\+\_\+bpseq}} (const char $\ast$seq, const char $\ast$db, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure in bpseq format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}{vrna\+\_\+file\+\_\+json}} (const char $\ast$seq, const char $\ast$db, double energy, const char $\ast$identifier, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print a secondary structure in jsonformat. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record}} (char $\ast$$\ast$header, char $\ast$$\ast$sequence, char $\ast$$\ast$$\ast$rest, FILE $\ast$file, unsigned int options)
+\item 
+char $\ast$ \mbox{\hyperlink{group__file__formats_gad37cbb63a05eed63ba25c91628409be0}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+structure}} (const char $\ast$$\ast$lines, unsigned int length, unsigned int option)
+\begin{DoxyCompactList}\small\item\em Extract a dot-\/bracket structure string from (multiline)character array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__formats_ga646ebf45450a69a7f2533f9ecd283a32}{vrna\+\_\+file\+\_\+\+SHAPE\+\_\+read}} (const char $\ast$file\+\_\+name, int length, double default\+\_\+value, char $\ast$sequence, double $\ast$values)
+\begin{DoxyCompactList}\small\item\em Read data from a given SHAPE reactivity input file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__file__formats_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint}} (char $\ast$$\ast$cstruc, const char $\ast$$\ast$lines, unsigned int option)
+\begin{DoxyCompactList}\small\item\em Extract a hard constraint encoded as pseudo dot-\/bracket string. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{group__file__formats_gafd194a69af9d92b5b0412a7627ac1595}{read\+\_\+record}} (char $\ast$$\ast$header, char $\ast$$\ast$sequence, char $\ast$$\ast$$\ast$rest, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Get a data record from stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Read and write different file formats for RNA sequences, structures. 
+
+, 

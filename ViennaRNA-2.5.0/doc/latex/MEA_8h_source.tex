@@ -1,0 +1,60 @@
+\hypertarget{MEA_8h_source}{}\doxysection{MEA.\+h}
+\label{MEA_8h_source}\index{ViennaRNA/MEA.h@{ViennaRNA/MEA.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_MEA\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_MEA\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00035 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{MEA_8h_source_l00036}\mbox{\hyperlink{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}{00036}} \mbox{\hyperlink{group__mea__fold_ga9b87b664ef014c1266aa50d5bc39f2ac}{vrna\_MEA}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00037          \textcolor{keywordtype}{double}               gamma,}
+\DoxyCodeLine{00038          \textcolor{keywordtype}{float}                *mea);}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00065 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{MEA_8h_source_l00066}\mbox{\hyperlink{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}{00066}} \mbox{\hyperlink{group__mea__fold_ga26afeef667f7013a743d1d1ebe42666a}{vrna\_MEA\_from\_plist}}(\mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}   *\mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}},}
+\DoxyCodeLine{00067                     \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00068                     \textcolor{keywordtype}{double}      gamma,}
+\DoxyCodeLine{00069                     \mbox{\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}}   *md,}
+\DoxyCodeLine{00070                     \textcolor{keywordtype}{float}       *mea);}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00076 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00077 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00078 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00079 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00080 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00081 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00082 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00083 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00084 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00085 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00103 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00104            \mbox{\hyperlink{group__mea__fold_ga396ec6144c6a74fcbab4cea6b42d76c3}{MEA}}(\mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}  *p,}
+\DoxyCodeLine{00105                \textcolor{keywordtype}{char}   *structure,}
+\DoxyCodeLine{00106                \textcolor{keywordtype}{double} gamma),}
+\DoxyCodeLine{\Hypertarget{MEA_8h_source_l00107}\mbox{\hyperlink{group__mea__fold_ga396ec6144c6a74fcbab4cea6b42d76c3}{00107}}            \textcolor{stringliteral}{"{}Use vrna\_MEA() or vrna\_MEA\_from\_plist() instead!"{}});}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00111            MEA\_seq(\mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}}            *p,}
+\DoxyCodeLine{00112                    \textcolor{keyword}{const} \textcolor{keywordtype}{char}       *sequence,}
+\DoxyCodeLine{00113                    \textcolor{keywordtype}{char}             *structure,}
+\DoxyCodeLine{00114                    \textcolor{keywordtype}{double}           gamma,}
+\DoxyCodeLine{00115                    \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}} *pf),}
+\DoxyCodeLine{00116            \textcolor{stringliteral}{"{}Use vrna\_MEA() or vrna\_MEA\_from\_plist() instead!"{}});}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

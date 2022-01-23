@@ -1,0 +1,177 @@
+\hypertarget{group__search__utils}{}\doxysection{Search Algorithms}
+\label{group__search__utils}\index{Search Algorithms@{Search Algorithms}}
+
+
+Implementations of various search algorithms to detect strings of objects within other strings of objects.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Implementations of various search algorithms to detect strings of objects within other strings of objects. 
+
+Collaboration diagram for Search Algorithms\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{group__search__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{BoyerMoore_8h}{Boyer\+Moore.\+h}}
+\begin{DoxyCompactList}\small\item\em Variants of the Boyer-\/\+Moore string search algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int $\ast$ \mbox{\hyperlink{group__search__utils_ga8af89ab58905851f3dbd52624227d372}{vrna\+\_\+search\+\_\+\+BMH\+\_\+num}} (const unsigned int $\ast$needle, size\+\_\+t needle\+\_\+size, const unsigned int $\ast$haystack, size\+\_\+t haystack\+\_\+size, size\+\_\+t start, size\+\_\+t $\ast$badchars, unsigned char cyclic)
+\begin{DoxyCompactList}\small\item\em Search for a string of elements in a larger string of elements using the Boyer-\/\+Moore-\/\+Horspool algorithm. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{group__search__utils_ga72574a7cf9786d825ce73f7f7748d3c4}{vrna\+\_\+search\+\_\+\+BMH}} (const char $\ast$needle, size\+\_\+t needle\+\_\+size, const char $\ast$haystack, size\+\_\+t haystack\+\_\+size, size\+\_\+t start, size\+\_\+t $\ast$badchars, unsigned char cyclic)
+\begin{DoxyCompactList}\small\item\em Search for an ASCII pattern within a larger ASCII string using the Boyer-\/\+Moore-\/\+Horspool algorithm. \end{DoxyCompactList}\item 
+size\+\_\+t $\ast$ \mbox{\hyperlink{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT\+\_\+num}} (const unsigned int $\ast$pattern, size\+\_\+t pattern\+\_\+size, unsigned int num\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Retrieve a Boyer-\/\+Moore Bad Character Table for a pattern of elements represented by natural numbers. \end{DoxyCompactList}\item 
+size\+\_\+t $\ast$ \mbox{\hyperlink{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT}} (const char $\ast$pattern)
+\begin{DoxyCompactList}\small\item\em Retrieve a Boyer-\/\+Moore Bad Character Table for a NULL-\/terminated pattern of ASCII characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__search__utils_ga8af89ab58905851f3dbd52624227d372}\label{group__search__utils_ga8af89ab58905851f3dbd52624227d372}} 
+\index{Search Algorithms@{Search Algorithms}!vrna\_search\_BMH\_num@{vrna\_search\_BMH\_num}}
+\index{vrna\_search\_BMH\_num@{vrna\_search\_BMH\_num}!Search Algorithms@{Search Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_search\_BMH\_num()}{vrna\_search\_BMH\_num()}}
+{\footnotesize\ttfamily const unsigned int$\ast$ vrna\+\_\+search\+\_\+\+BMH\+\_\+num (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{needle,  }\item[{size\+\_\+t}]{needle\+\_\+size,  }\item[{const unsigned int $\ast$}]{haystack,  }\item[{size\+\_\+t}]{haystack\+\_\+size,  }\item[{size\+\_\+t}]{start,  }\item[{size\+\_\+t $\ast$}]{badchars,  }\item[{unsigned char}]{cyclic }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{BoyerMoore_8h}{Vienna\+RNA/search/\+Boyer\+Moore.\+h}}$>$}
+
+
+
+Search for a string of elements in a larger string of elements using the Boyer-\/\+Moore-\/\+Horspool algorithm. 
+
+To speed-\/up subsequent searches with this function, the Bad Character Table should be precomputed and passed as argument {\ttfamily badchars}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT\+\_\+num()}}, \mbox{\hyperlink{group__search__utils_ga72574a7cf9786d825ce73f7f7748d3c4}{vrna\+\_\+search\+\_\+\+BMH()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em needle} & The pattern of object representations to search for \\
+\hline
+{\em needle\+\_\+size} & The size (length) of the pattern provided in {\ttfamily needle} \\
+\hline
+{\em haystack} & The string of objects the search will be performed on \\
+\hline
+{\em haystack\+\_\+size} & The size (length) of the {\ttfamily haystack} string \\
+\hline
+{\em start} & The position within {\ttfamily haystack} where to start the search \\
+\hline
+{\em badchars} & A pre-\/computed Bad Character Table obtained from \mbox{\hyperlink{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT\+\_\+num()}} (If NULL, a Bad Character Table will be generated automatically) \\
+\hline
+{\em cyclic} & Allow for cyclic matches if non-\/zero, stop search at end of haystack otherwise \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first occurence of {\ttfamily needle} within {\ttfamily haystack} after position {\ttfamily start} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__search__utils_ga72574a7cf9786d825ce73f7f7748d3c4}\label{group__search__utils_ga72574a7cf9786d825ce73f7f7748d3c4}} 
+\index{Search Algorithms@{Search Algorithms}!vrna\_search\_BMH@{vrna\_search\_BMH}}
+\index{vrna\_search\_BMH@{vrna\_search\_BMH}!Search Algorithms@{Search Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_search\_BMH()}{vrna\_search\_BMH()}}
+{\footnotesize\ttfamily const char$\ast$ vrna\+\_\+search\+\_\+\+BMH (\begin{DoxyParamCaption}\item[{const char $\ast$}]{needle,  }\item[{size\+\_\+t}]{needle\+\_\+size,  }\item[{const char $\ast$}]{haystack,  }\item[{size\+\_\+t}]{haystack\+\_\+size,  }\item[{size\+\_\+t}]{start,  }\item[{size\+\_\+t $\ast$}]{badchars,  }\item[{unsigned char}]{cyclic }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{BoyerMoore_8h}{Vienna\+RNA/search/\+Boyer\+Moore.\+h}}$>$}
+
+
+
+Search for an ASCII pattern within a larger ASCII string using the Boyer-\/\+Moore-\/\+Horspool algorithm. 
+
+To speed-\/up subsequent searches with this function, the Bad Character Table should be precomputed and passed as argument {\ttfamily badchars}. Furthermore, both, the lengths of {\ttfamily needle} and the length of {\ttfamily haystack} should be pre-\/computed and must be passed along with each call.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT()}}, \mbox{\hyperlink{group__search__utils_ga8af89ab58905851f3dbd52624227d372}{vrna\+\_\+search\+\_\+\+BMH\+\_\+num()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em needle} & The NULL-\/terminated ASCII pattern to search for \\
+\hline
+{\em needle\+\_\+size} & The size (length) of the pattern provided in {\ttfamily needle} \\
+\hline
+{\em haystack} & The NULL-\/terminated ASCII string of the search will be performed on \\
+\hline
+{\em haystack\+\_\+size} & The size (length) of the {\ttfamily haystack} string \\
+\hline
+{\em start} & The position within {\ttfamily haystack} where to start the search \\
+\hline
+{\em badchars} & A pre-\/computed Bad Character Table obtained from \mbox{\hyperlink{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT()}} (If NULL, a Bad Character Table will be generated automatically) \\
+\hline
+{\em cyclic} & Allow for cyclic matches if non-\/zero, stop search at end of haystack otherwise \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first occurence of {\ttfamily needle} within {\ttfamily haystack} after position {\ttfamily start} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}\label{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}} 
+\index{Search Algorithms@{Search Algorithms}!vrna\_search\_BM\_BCT\_num@{vrna\_search\_BM\_BCT\_num}}
+\index{vrna\_search\_BM\_BCT\_num@{vrna\_search\_BM\_BCT\_num}!Search Algorithms@{Search Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_search\_BM\_BCT\_num()}{vrna\_search\_BM\_BCT\_num()}}
+{\footnotesize\ttfamily size\+\_\+t$\ast$ vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT\+\_\+num (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{pattern,  }\item[{size\+\_\+t}]{pattern\+\_\+size,  }\item[{unsigned int}]{num\+\_\+max }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{BoyerMoore_8h}{Vienna\+RNA/search/\+Boyer\+Moore.\+h}}$>$}
+
+
+
+Retrieve a Boyer-\/\+Moore Bad Character Table for a pattern of elements represented by natural numbers. 
+
+\begin{DoxyNote}{Note}
+We store the maximum number representation of an element {\ttfamily num\+\_\+max} at position {\ttfamily 0}. So the actual bad character table {\ttfamily T} starts at {\ttfamily T}\mbox{[}1\mbox{]} for an element represented by number {\ttfamily 0}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__search__utils_ga8af89ab58905851f3dbd52624227d372}{vrna\+\_\+search\+\_\+\+BMH\+\_\+num()}}, \mbox{\hyperlink{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & The pattern of element representations used in the subsequent search \\
+\hline
+{\em pattern\+\_\+size} & The size (length) of the pattern provided in {\ttfamily pattern} \\
+\hline
+{\em num\+\_\+max} & The maximum number representation of an element, i.\+e. the size of the alphabet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bad Character Table for use in our Boyer-\/\+Moore search algorithm implementation(s) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}\label{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}} 
+\index{Search Algorithms@{Search Algorithms}!vrna\_search\_BM\_BCT@{vrna\_search\_BM\_BCT}}
+\index{vrna\_search\_BM\_BCT@{vrna\_search\_BM\_BCT}!Search Algorithms@{Search Algorithms}}
+\doxysubsubsection{\texorpdfstring{vrna\_search\_BM\_BCT()}{vrna\_search\_BM\_BCT()}}
+{\footnotesize\ttfamily size\+\_\+t$\ast$ vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pattern }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{BoyerMoore_8h}{Vienna\+RNA/search/\+Boyer\+Moore.\+h}}$>$}
+
+
+
+Retrieve a Boyer-\/\+Moore Bad Character Table for a NULL-\/terminated pattern of ASCII characters. 
+
+\begin{DoxyNote}{Note}
+We store the maximum number representation of an element, i.\+e. {\ttfamily 127} at position {\ttfamily 0}. So the actual bad character table {\ttfamily T} starts at {\ttfamily T}\mbox{[}1\mbox{]} for an element represented by ASCII code {\ttfamily 0}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__search__utils_ga72574a7cf9786d825ce73f7f7748d3c4}{vrna\+\_\+search\+\_\+\+BMH()}}, \mbox{\hyperlink{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT\+\_\+num()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & The NULL-\/terminated pattern of ASCII characters used in the subsequent search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bad Character Table for use in our Boyer-\/\+Moore search algorithm implementation(s) 
+\end{DoxyReturn}

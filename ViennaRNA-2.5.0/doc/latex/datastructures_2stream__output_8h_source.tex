@@ -1,0 +1,40 @@
+\hypertarget{datastructures_2stream__output_8h_source}{}\doxysection{stream\+\_\+output.\+h}
+\label{datastructures_2stream__output_8h_source}\index{ViennaRNA/datastructures/stream\_output.h@{ViennaRNA/datastructures/stream\_output.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_STREAM\_OUTPUT\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_STREAM\_OUTPUT\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{datastructures_2stream__output_8h_source_l00018}\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{00018}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_ordered\_stream\_s *\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t}};}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{\Hypertarget{datastructures_2stream__output_8h_source_l00034}\mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{00034}} \textcolor{keyword}{typedef} void (\mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\_callback\_stream\_output}})(\textcolor{keywordtype}{void}         *auxdata,}
+\DoxyCodeLine{00035                                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i,}
+\DoxyCodeLine{00036                                            \textcolor{keywordtype}{void}         *data);}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00047 \mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t}}}
+\DoxyCodeLine{\Hypertarget{datastructures_2stream__output_8h_source_l00048}\mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{00048}} \mbox{\hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\_ostream\_init}}(\mbox{\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\_callback\_stream\_output}} *output,}
+\DoxyCodeLine{00049                   \textcolor{keywordtype}{void}                        *auxdata);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00059 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2stream__output_8h_source_l00060}\mbox{\hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{00060}} \mbox{\hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{vrna\_ostream\_free}}(\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t}} dat);}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00064 vrna\_ostream\_threadsafe(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00079 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2stream__output_8h_source_l00080}\mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{00080}} \mbox{\hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\_ostream\_request}}(\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t}} dat,}
+\DoxyCodeLine{00081                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   num);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00096 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2stream__output_8h_source_l00097}\mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{00097}} \mbox{\hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\_ostream\_provide}}(\mbox{\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t}} dat,}
+\DoxyCodeLine{00098                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   i,}
+\DoxyCodeLine{00099                      \textcolor{keywordtype}{void}           *data);}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00107 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,4 @@
+<map id="vrna_path_s" name="vrna_path_s">
+<area shape="rect" id="node1" title="An element of a refolding path list." alt="" coords="9,95,102,121"/>
+<area shape="rect" id="node2" href="$group__neighbors.html#structvrna__move__s" title="An atomic representation of the transition / move from one structure to its neighbor." alt="" coords="5,5,105,32"/>
+</map>

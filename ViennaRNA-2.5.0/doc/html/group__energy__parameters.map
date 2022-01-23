@@ -1,0 +1,5 @@
+<map id="Energy Parameters" name="Energy Parameters">
+<area shape="rect" id="node1" title="All relevant functions to retrieve and copy pre&#45;calculated energy parameter sets as well as reading/w..." alt="" coords="233,13,368,38"/>
+<area shape="rect" id="node2" href="$group__energy__parameters__rw.html" title="Read and Write energy parameter sets from and to files or strings." alt="" coords="416,5,603,45"/>
+<area shape="rect" id="node3" href="$group__grammar.html" title="The RNA folding grammar as implemented in RNAlib." alt="" coords="5,13,185,38"/>
+</map>

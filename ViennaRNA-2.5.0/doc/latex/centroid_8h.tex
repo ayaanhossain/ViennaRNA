@@ -1,0 +1,68 @@
+\hypertarget{centroid_8h}{}\doxysection{Vienna\+RNA/centroid.h File Reference}
+\label{centroid_8h}\index{ViennaRNA/centroid.h@{ViennaRNA/centroid.h}}
+
+
+Centroid structure computation.  
+
+
+Include dependency graph for centroid.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{centroid_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{centroid_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{vrna\+\_\+centroid}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, double $\ast$dist)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}{vrna\+\_\+centroid\+\_\+from\+\_\+plist}} (int length, double $\ast$dist, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pl)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{vrna\+\_\+centroid\+\_\+from\+\_\+probs}} (int length, double $\ast$dist, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$probs)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{centroid_8h_a7dcc64bcefcf682396dd3bbea02416fe}{get\+\_\+centroid\+\_\+struct\+\_\+pl}} (int length, double $\ast$dist, \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$pl)
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{centroid_8h_ac92486ce514677256f4a832dc518759c}{get\+\_\+centroid\+\_\+struct\+\_\+pr}} (int length, double $\ast$dist, \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Get the centroid structure of the ensemble. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Centroid structure computation. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{centroid_8h_a7dcc64bcefcf682396dd3bbea02416fe}\label{centroid_8h_a7dcc64bcefcf682396dd3bbea02416fe}} 
+\index{centroid.h@{centroid.h}!get\_centroid\_struct\_pl@{get\_centroid\_struct\_pl}}
+\index{get\_centroid\_struct\_pl@{get\_centroid\_struct\_pl}!centroid.h@{centroid.h}}
+\doxysubsubsection{\texorpdfstring{get\_centroid\_struct\_pl()}{get\_centroid\_struct\_pl()}}
+{\footnotesize\ttfamily char$\ast$ get\+\_\+centroid\+\_\+struct\+\_\+pl (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{double $\ast$}]{dist,  }\item[{\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+Get the centroid structure of the ensemble. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000027}{Deprecated}}]This function was renamed to \mbox{\hyperlink{group__centroid__fold_ga13881673a0b214d42a59140ef5764dbb}{vrna\+\_\+centroid\+\_\+from\+\_\+plist()}} \end{DoxyRefDesc}
+\mbox{\Hypertarget{centroid_8h_ac92486ce514677256f4a832dc518759c}\label{centroid_8h_ac92486ce514677256f4a832dc518759c}} 
+\index{centroid.h@{centroid.h}!get\_centroid\_struct\_pr@{get\_centroid\_struct\_pr}}
+\index{get\_centroid\_struct\_pr@{get\_centroid\_struct\_pr}!centroid.h@{centroid.h}}
+\doxysubsubsection{\texorpdfstring{get\_centroid\_struct\_pr()}{get\_centroid\_struct\_pr()}}
+{\footnotesize\ttfamily char$\ast$ get\+\_\+centroid\+\_\+struct\+\_\+pr (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{double $\ast$}]{dist,  }\item[{\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$}]{pr }\end{DoxyParamCaption})}
+
+
+
+Get the centroid structure of the ensemble. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000028}{Deprecated}}]This function was renamed to \mbox{\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{vrna\+\_\+centroid\+\_\+from\+\_\+probs()}} \end{DoxyRefDesc}

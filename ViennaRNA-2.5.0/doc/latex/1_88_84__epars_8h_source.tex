@@ -1,0 +1,337 @@
+\hypertarget{1_88_84__epars_8h_source}{}\doxysection{1.8.4\+\_\+epars.\+h}
+\label{1_88_84__epars_8h_source}\index{ViennaRNA/params/1.8.4\_epars.h@{ViennaRNA/params/1.8.4\_epars.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_OLD\_EPARS\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_OLD\_EPARS\_\_}}
+\DoxyCodeLine{00039 \textcolor{preprocessor}{\#define K0        273.15}}
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\#ifdef INF}}
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#undef INF}}
+\DoxyCodeLine{00042 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043 \textcolor{preprocessor}{\#define INF       1000000}}
+\DoxyCodeLine{00044 \textcolor{preprocessor}{\#define NBPAIRS   7}}
+\DoxyCodeLine{00045 \textcolor{preprocessor}{\#define NST       0     }\textcolor{comment}{/* Energy for nonstandard stacked pairs */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00046 \textcolor{preprocessor}{\#define DEF       -\/50   }\textcolor{comment}{/* Default terminal mismatch, used for I */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00047                         \textcolor{comment}{/* and any non\_pairing bases */}}
+\DoxyCodeLine{00048 \textcolor{preprocessor}{\#define NSM       0     }\textcolor{comment}{/* terminal mismatch for non standard pairs */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050 PRIVATE \textcolor{keywordtype}{double} Tmeasure\_184 = 37 + \mbox{\hyperlink{constants_8h_a307c72605e3713972b4f4fb2d53ea20e}{K0}};  \textcolor{comment}{/* temperature of param measurements */}}
+\DoxyCodeLine{00051 PRIVATE \textcolor{keywordtype}{double} lxc37\_184    = 107.856;  \textcolor{comment}{/* parameter for logarithmic loop}}
+\DoxyCodeLine{00052 \textcolor{comment}{                                           energy extrapolation */}}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054 PRIVATE \textcolor{keywordtype}{int} stack37\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1] =}
+\DoxyCodeLine{00055 \textcolor{comment}{/*          CG     GC     GU     UG     AU     UA  */}}
+\DoxyCodeLine{00056 \{ \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}\},}
+\DoxyCodeLine{00057   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/240,  -\/330,  -\/210,  -\/140,  -\/210,  -\/210, NST\},}
+\DoxyCodeLine{00058   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/330,  -\/340,  -\/250,  -\/150,  -\/220,  -\/240, NST\},}
+\DoxyCodeLine{00059   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/210,  -\/250,   130,   -\/50,  -\/140,  -\/130, NST\},}
+\DoxyCodeLine{00060   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/140,  -\/150,   -\/50,    30,   -\/60,  -\/100, NST\},}
+\DoxyCodeLine{00061   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/210,  -\/220,  -\/140,   -\/60,  -\/110,   -\/90, NST\},}
+\DoxyCodeLine{00062   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/210,  -\/240,  -\/130,  -\/100,   -\/90,  -\/130, NST\},}
+\DoxyCodeLine{00063   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   NST,   NST,   NST,   NST,   NST,   NST, NST\}\};}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 \textcolor{comment}{/* enthalpies (0.01*kcal/mol at 37 C) for stacked pairs */}}
+\DoxyCodeLine{00066 \textcolor{comment}{/* different from mfold-\/2.3, which uses values from mfold-\/2.2 */}}
+\DoxyCodeLine{00067 PRIVATE \textcolor{keywordtype}{int} enthalpies\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1] =}
+\DoxyCodeLine{00068 \textcolor{comment}{/*          CG     GC     GU     UG     AU     UA  */}}
+\DoxyCodeLine{00069 \{ \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}\},}
+\DoxyCodeLine{00070   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/1060, -\/1340, -\/1210,  -\/560, -\/1050, -\/1040, NST\},}
+\DoxyCodeLine{00071   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/1340, -\/1490, -\/1260,  -\/830, -\/1140, -\/1240, NST\},}
+\DoxyCodeLine{00072   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/1210, -\/1260, -\/1460, -\/1350,  -\/880, -\/1280, NST\},}
+\DoxyCodeLine{00073   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/560,  -\/830, -\/1350,  -\/930,  -\/320,  -\/700, NST\},}
+\DoxyCodeLine{00074   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/1050, -\/1140,  -\/880,  -\/320,  -\/940,  -\/680, NST\},}
+\DoxyCodeLine{00075   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/1040, -\/1240, -\/1280,  -\/700,  -\/680,  -\/770, NST\},}
+\DoxyCodeLine{00076   \{  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},   NST,   NST,   NST,   NST,   NST,   NST, NST\}\};}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079 \textcolor{comment}{/* old values are here just for comparison */}}
+\DoxyCodeLine{00080 PRIVATE \textcolor{keywordtype}{int} oldhairpin37\_184[31] = \{ \textcolor{comment}{/* from ViennaRNA 1.3 */}}
+\DoxyCodeLine{00081   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, 410, 490, 440, 470, 500, 510, 520, 531,}
+\DoxyCodeLine{00082        542, 551, 560, 568, 575, 582, 589, 595, 601, 606,}
+\DoxyCodeLine{00083        611, 616, 621, 626, 630, 634, 638, 642, 646, 650\};}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085 PRIVATE \textcolor{keywordtype}{int} hairpin37\_184[31] = \{}
+\DoxyCodeLine{00086   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, 570, 560, 560, 540, 590, 560, 640, 650,}
+\DoxyCodeLine{00087        660, 670, 678, 686, 694, 701, 707, 713, 719, 725,}
+\DoxyCodeLine{00088        730, 735, 740, 744, 749, 753, 757, 761, 765, 769\};}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 PRIVATE \textcolor{keywordtype}{int} oldbulge37\_184[31] = \{}
+\DoxyCodeLine{00091   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, 390, 310, 350, 420, 480, 500, 516, 531, 543, 555,}
+\DoxyCodeLine{00092        565, 574, 583, 591, 598, 605, 612, 618, 624, 630,}
+\DoxyCodeLine{00093        635, 640, 645, 649, 654, 658, 662, 666, 670, 673\};}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 PRIVATE \textcolor{keywordtype}{int} bulge37\_184[31] = \{}
+\DoxyCodeLine{00096   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, 380, 280, 320, 360, 400, 440, 459, 470, 480, 490,}
+\DoxyCodeLine{00097        500, 510, 519, 527, 534, 541, 548, 554, 560, 565,}
+\DoxyCodeLine{00098   571, 576, 580, 585, 589, 594, 598, 602, 605, 609\};}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100 PRIVATE \textcolor{keywordtype}{int} oldinternal\_loop37\_184[31] = \{}
+\DoxyCodeLine{00101   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, 410, 510, 490, 530, 570, 587, 601, 614, 625,}
+\DoxyCodeLine{00102        635, 645, 653, 661, 669, 676, 682, 688, 694, 700,}
+\DoxyCodeLine{00103        705, 710, 715, 720, 724, 728, 732, 736, 740, 744\};}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105 PRIVATE \textcolor{keywordtype}{int} internal\_loop37\_184[31] = \{}
+\DoxyCodeLine{00106   \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, 410, 510, 170, 180, 200, 220, 230, 240, 250,}
+\DoxyCodeLine{00107        260, 270, 278, 286, 294, 301, 307, 313, 319, 325,}
+\DoxyCodeLine{00108        330, 335, 340, 345, 349, 353, 357, 361, 365, 369\};}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 \textcolor{comment}{/* terminal mismatches */}}
+\DoxyCodeLine{00111 \textcolor{comment}{/* mismatch free energies for interior loops at 37C */}}
+\DoxyCodeLine{00112 PRIVATE \textcolor{keywordtype}{int} mismatchI37\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5][5] =}
+\DoxyCodeLine{00113 \{ \textcolor{comment}{/* @@ */}}
+\DoxyCodeLine{00114   \{\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\}\},}
+\DoxyCodeLine{00115   \{ \textcolor{comment}{/* CG */}}
+\DoxyCodeLine{00116    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00117    \{   0,    0,    0, -\/110,    0\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00118    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00119    \{   0, -\/110,    0,    0,    0\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00120    \{   0,    0,    0,    0,  -\/70\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00121   \{ \textcolor{comment}{/* GC */}}
+\DoxyCodeLine{00122    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00123    \{   0,    0,    0, -\/110,    0\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00124    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00125    \{   0, -\/110,    0,    0,    0\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00126    \{   0,    0,    0,    0,  -\/70\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00127   \{ \textcolor{comment}{/* GU */}}
+\DoxyCodeLine{00128    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00129    \{   0,   70,   70,  -\/40,   70\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00130    \{   0,   70,   70,   70,   70\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00131    \{   0,  -\/40,   70,   70,   70\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00132    \{   0,   70,   70,   70,    0\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00133   \{ \textcolor{comment}{/* UG */}}
+\DoxyCodeLine{00134    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00135    \{   0,   70,   70,  -\/40,   70\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00136    \{   0,   70,   70,   70,   70\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00137    \{   0,  -\/40,   70,   70,   70\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00138    \{   0,   70,   70,   70,    0\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00139   \{ \textcolor{comment}{/* AU */}}
+\DoxyCodeLine{00140    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00141    \{   0,   70,   70,  -\/40,   70\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00142    \{   0,   70,   70,   70,   70\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00143    \{   0,  -\/40,   70,   70,   70\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00144    \{   0,   70,   70,   70,    0\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00145   \{ \textcolor{comment}{/* UA */}}
+\DoxyCodeLine{00146    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00147    \{   0,   70,   70,  -\/40,   70\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00148    \{   0,   70,   70,   70,   70\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00149    \{   0,  -\/40,   70,   70,   70\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00150    \{   0,   70,   70,   70,    0\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00151   \{ \textcolor{comment}{/* @@ */}}
+\DoxyCodeLine{00152    \{ 90, 90, 90, 90, 90\},\{ 90, 90, 90, 90,-\/20\},\{ 90, 90, 90, 90, 90\},}
+\DoxyCodeLine{00153    \{ 90,-\/20, 90, 90, 90\},\{ 90, 90, 90, 90, 20\}\}}
+\DoxyCodeLine{00154 \};}
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{00156 \textcolor{comment}{/* mismatch free energies for hairpins at 37C */}}
+\DoxyCodeLine{00157 PRIVATE \textcolor{keywordtype}{int} mismatchH37\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5][5] =}
+\DoxyCodeLine{00158 \{ \textcolor{comment}{/* @@ */}}
+\DoxyCodeLine{00159   \{\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\}\},}
+\DoxyCodeLine{00160   \{ \textcolor{comment}{/* CG */}}
+\DoxyCodeLine{00161    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00162    \{ -\/90, -\/150, -\/150, -\/140, -\/180\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00163    \{ -\/90, -\/100,  -\/90, -\/290,  -\/80\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00164    \{ -\/90, -\/220, -\/200, -\/160, -\/110\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00165    \{ -\/90, -\/170, -\/140, -\/180, -\/200\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00166   \{ \textcolor{comment}{/* GC */}}
+\DoxyCodeLine{00167    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00168    \{ -\/70, -\/110, -\/150, -\/130, -\/210\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00169    \{ -\/70, -\/110,  -\/70, -\/240,  -\/50\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00170    \{ -\/70, -\/240, -\/290, -\/140, -\/120\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00171    \{ -\/70, -\/190, -\/100, -\/220, -\/150\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00172   \{ \textcolor{comment}{/* GU */}}
+\DoxyCodeLine{00173    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00174    \{   0,   20,  -\/50,  -\/30,  -\/30\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00175    \{   0,  -\/10,  -\/20, -\/150,  -\/20\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00176    \{   0,  -\/90, -\/110,  -\/30,    0\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00177    \{   0,  -\/30,  -\/30,  -\/40, -\/110\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00178   \{ \textcolor{comment}{/* UG */}}
+\DoxyCodeLine{00179    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00180    \{   0,  -\/50,  -\/30,  -\/60,  -\/50\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00181    \{   0,  -\/20,  -\/10, -\/170,    0\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00182    \{   0,  -\/80, -\/120,  -\/30,  -\/70\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00183    \{   0,  -\/60,  -\/10,  -\/60,  -\/80\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00184   \{ \textcolor{comment}{/* AU */}}
+\DoxyCodeLine{00185    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00186    \{   0,  -\/30,  -\/50,  -\/30,  -\/30\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00187    \{   0,  -\/10,  -\/20, -\/150,  -\/20\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00188    \{   0, -\/110, -\/120,  -\/20,   20\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00189    \{   0,  -\/30,  -\/30,  -\/60, -\/110\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00190   \{ \textcolor{comment}{/* UA */}}
+\DoxyCodeLine{00191    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00192    \{   0,  -\/50,  -\/30,  -\/60,  -\/50\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00193    \{   0,  -\/20,  -\/10, -\/120,   -\/0\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00194    \{   0, -\/140, -\/120,  -\/70,  -\/20\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00195    \{   0,  -\/30,  -\/10,  -\/50,  -\/80\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00196   \{ \textcolor{comment}{/* @@ */}}
+\DoxyCodeLine{00197    \{  0,  0,  0,  0,  0\},\{  0,  0,  0,  0,  0\},\{  0,  0,  0,  0,  0\},}
+\DoxyCodeLine{00198    \{  0,  0,  0,  0,  0\},\{  0,  0,  0,  0,  0\}\}}
+\DoxyCodeLine{00199 \};}
+\DoxyCodeLine{00200 }
+\DoxyCodeLine{00201 \textcolor{comment}{/* mismatch energies in multiloops */}}
+\DoxyCodeLine{00202 PRIVATE \textcolor{keywordtype}{int} mismatchM37\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5][5];}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204 \textcolor{comment}{/* these are probably junk */}}
+\DoxyCodeLine{00205 \textcolor{comment}{/* mismatch enthalpies for temperature scaling */}}
+\DoxyCodeLine{00206 PRIVATE \textcolor{keywordtype}{int} mism\_H\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5][5] =}
+\DoxyCodeLine{00207 \{ \textcolor{comment}{/* no pair */}}
+\DoxyCodeLine{00208   \{\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\},\{0,0,0,0,0\}\},}
+\DoxyCodeLine{00209   \{ \textcolor{comment}{/* CG */}}
+\DoxyCodeLine{00210    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00211    \{ DEF,-\/1030, -\/950,-\/1030,-\/1030\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00212    \{ DEF, -\/520, -\/450, -\/520, -\/670\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00213    \{ DEF, -\/940, -\/940, -\/940, -\/940\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00214    \{ DEF, -\/810, -\/740, -\/810, -\/860\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00215   \{ \textcolor{comment}{/* GC */}}
+\DoxyCodeLine{00216    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00217    \{ DEF, -\/520, -\/880, -\/560, -\/880\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00218    \{ DEF, -\/720, -\/310, -\/310, -\/390\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00219    \{ DEF, -\/710, -\/740, -\/620, -\/740\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00220    \{ DEF, -\/500, -\/500, -\/500, -\/570\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00221   \{ \textcolor{comment}{/* GU */}}
+\DoxyCodeLine{00222    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00223    \{ DEF, -\/430, -\/600, -\/600, -\/600\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00224    \{ DEF, -\/260, -\/240, -\/240, -\/240\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00225    \{ DEF, -\/340, -\/690, -\/690, -\/690\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00226    \{ DEF, -\/330, -\/330, -\/330, -\/330\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00227   \{ \textcolor{comment}{/* UG */}}
+\DoxyCodeLine{00228    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00229    \{ DEF, -\/720, -\/790, -\/960, -\/810\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00230    \{ DEF, -\/480, -\/480, -\/360, -\/480\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00231    \{ DEF, -\/660, -\/810, -\/920, -\/810\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00232    \{ DEF, -\/550, -\/440, -\/550, -\/360\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00233   \{ \textcolor{comment}{/* AU */}}
+\DoxyCodeLine{00234    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00235    \{ DEF, -\/430, -\/600, -\/600, -\/600\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00236    \{ DEF, -\/260, -\/240, -\/240, -\/240\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00237    \{ DEF, -\/340, -\/690, -\/690, -\/690\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00238    \{ DEF, -\/330, -\/330, -\/330, -\/330\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00239   \{ \textcolor{comment}{/* UA */}}
+\DoxyCodeLine{00240    \{   0,    0,    0,    0,    0\}, \textcolor{comment}{/* @@  @A  @C  @G  @U */}}
+\DoxyCodeLine{00241    \{ DEF, -\/400, -\/630, -\/890, -\/590\}, \textcolor{comment}{/* A@  AA  AC  AG  AU */}}
+\DoxyCodeLine{00242    \{ DEF, -\/430, -\/510, -\/200, -\/180\}, \textcolor{comment}{/* C@  CA  CC  CG  CU */}}
+\DoxyCodeLine{00243    \{ DEF, -\/380, -\/680, -\/890, -\/680\}, \textcolor{comment}{/* G@  GA  GC  GG  GU */}}
+\DoxyCodeLine{00244    \{ DEF, -\/280, -\/140, -\/280, -\/140\}\},\textcolor{comment}{/* U@  UA  UC  UG  UU */}}
+\DoxyCodeLine{00245   \{ \textcolor{comment}{/* nonstandard pair */}}
+\DoxyCodeLine{00246    \{DEF,DEF,DEF,DEF,DEF\},\{DEF,DEF,DEF,DEF,DEF\},\{DEF,DEF,DEF,DEF,DEF\},}
+\DoxyCodeLine{00247    \{DEF,DEF,DEF,DEF,DEF\},\{DEF,DEF,DEF,DEF,DEF\}\}}
+\DoxyCodeLine{00248 \};}
+\DoxyCodeLine{00249 }
+\DoxyCodeLine{00250 \textcolor{comment}{/* 5' dangling ends (unpaird base stacks on first paired base) */}}
+\DoxyCodeLine{00251 PRIVATE \textcolor{keywordtype}{int} dangle5\_37\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5]=}
+\DoxyCodeLine{00252 \{\textcolor{comment}{/*   @     A     C     G     U   */}}
+\DoxyCodeLine{00253    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}\}, \textcolor{comment}{/* no pair */}}
+\DoxyCodeLine{00254    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/50,  -\/30,  -\/20,  -\/10\}, \textcolor{comment}{/* CG  (stacks on C) */}}
+\DoxyCodeLine{00255    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/20,  -\/30,   -\/0,   -\/0\}, \textcolor{comment}{/* GC  (stacks on G) */}}
+\DoxyCodeLine{00256    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/30,  -\/30,  -\/40,  -\/20\}, \textcolor{comment}{/* GU */}}
+\DoxyCodeLine{00257    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/30,  -\/10,  -\/20,  -\/20\}, \textcolor{comment}{/* UG */}}
+\DoxyCodeLine{00258    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/30,  -\/30,  -\/40,  -\/20\}, \textcolor{comment}{/* AU */}}
+\DoxyCodeLine{00259    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/30,  -\/10,  -\/20,  -\/20\}, \textcolor{comment}{/* UA */}}
+\DoxyCodeLine{00260    \{   0,    0,     0,    0,   0\}  \textcolor{comment}{/*  @ */}}
+\DoxyCodeLine{00261 \};}
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263 \textcolor{comment}{/* 3' dangling ends (unpaired base stacks on second paired base */}}
+\DoxyCodeLine{00264 PRIVATE \textcolor{keywordtype}{int} dangle3\_37\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5]=}
+\DoxyCodeLine{00265 \{\textcolor{comment}{/*   @     A     C     G     U   */}}
+\DoxyCodeLine{00266    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}\},  \textcolor{comment}{/* no pair */}}
+\DoxyCodeLine{00267    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/110,  -\/40, -\/130,  -\/60\},  \textcolor{comment}{/* CG  (stacks on G) */}}
+\DoxyCodeLine{00268    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}, -\/170,  -\/80, -\/170, -\/120\},  \textcolor{comment}{/* GC */}}
+\DoxyCodeLine{00269    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/70,  -\/10,  -\/70,  -\/10\},  \textcolor{comment}{/* GU */}}
+\DoxyCodeLine{00270    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/80,  -\/50,  -\/80,  -\/60\},  \textcolor{comment}{/* UG */}}
+\DoxyCodeLine{00271    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/70,  -\/10,  -\/70,  -\/10\},  \textcolor{comment}{/* AU */}}
+\DoxyCodeLine{00272    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  -\/80,  -\/50,  -\/80,  -\/60\},  \textcolor{comment}{/* UA */}}
+\DoxyCodeLine{00273    \{   0,    0,     0,    0,   0\}   \textcolor{comment}{/*  @ */}}
+\DoxyCodeLine{00274 \};}
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{00276 \textcolor{comment}{/* enthalpies for temperature scaling */}}
+\DoxyCodeLine{00277 PRIVATE \textcolor{keywordtype}{int} dangle3\_H\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5] =}
+\DoxyCodeLine{00278 \{\textcolor{comment}{/*   @     A     C     G     U   */}}
+\DoxyCodeLine{00279    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}\},  \textcolor{comment}{/* no pair */}}
+\DoxyCodeLine{00280    \{   0, -\/740, -\/280, -\/640, -\/360\},}
+\DoxyCodeLine{00281    \{   0, -\/900, -\/410, -\/860, -\/750\},}
+\DoxyCodeLine{00282    \{   0, -\/740, -\/240, -\/720, -\/490\},}
+\DoxyCodeLine{00283    \{   0, -\/490,  -\/90, -\/550, -\/230\},}
+\DoxyCodeLine{00284    \{   0, -\/570,  -\/70, -\/580, -\/220\},}
+\DoxyCodeLine{00285    \{   0, -\/490,  -\/90, -\/550, -\/230\},}
+\DoxyCodeLine{00286    \{   0,    0,    0,    0,   0\}}
+\DoxyCodeLine{00287 \};}
+\DoxyCodeLine{00288 }
+\DoxyCodeLine{00289 PRIVATE \textcolor{keywordtype}{int} dangle5\_H\_184[\mbox{\hyperlink{constants_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}}+1][5] =}
+\DoxyCodeLine{00290 \{\textcolor{comment}{/*   @     A     C     G     U   */}}
+\DoxyCodeLine{00291    \{ \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}},  \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}\},  \textcolor{comment}{/* no pair */}}
+\DoxyCodeLine{00292    \{   0, -\/240,  330,   80, -\/140\},}
+\DoxyCodeLine{00293    \{   0, -\/160,   70, -\/460,  -\/40\},}
+\DoxyCodeLine{00294    \{   0,  160,  220,   70,  310\},}
+\DoxyCodeLine{00295    \{   0, -\/150,  510,   10,  100\},}
+\DoxyCodeLine{00296    \{   0,  160,  220,   70,  310\},}
+\DoxyCodeLine{00297    \{   0,  -\/50,  690,  -\/60,  -\/60\},}
+\DoxyCodeLine{00298    \{   0,    0,    0,    0,   0\}}
+\DoxyCodeLine{00299 \};}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301 }
+\DoxyCodeLine{00302 \textcolor{comment}{/* constants for linearly destabilizing contributions for multi-\/loops}}
+\DoxyCodeLine{00303 \textcolor{comment}{   F = ML\_closing + ML\_intern*k + ML\_BASE*u  */}}
+\DoxyCodeLine{00304 \textcolor{comment}{/* old versions erroneously used ML\_intern*(k-\/1) */}}
+\DoxyCodeLine{00305 PRIVATE \textcolor{keywordtype}{int} ML\_BASE37\_184 = 0;}
+\DoxyCodeLine{00306 PRIVATE \textcolor{keywordtype}{int} ML\_closing37\_184 = 340;}
+\DoxyCodeLine{00307 PRIVATE \textcolor{keywordtype}{int} ML\_intern37\_184 =  40;}
+\DoxyCodeLine{00308 }
+\DoxyCodeLine{00309 \textcolor{comment}{/* Ninio-\/correction for asymmetric internal loops with branches n1 and n2 */}}
+\DoxyCodeLine{00310 \textcolor{comment}{/*    ninio\_energy = min\{max\_ninio, |n1-\/n2|*F\_ninio[min\{4.0, n1, n2\}] \} */}}
+\DoxyCodeLine{00311 PRIVATE \textcolor{keywordtype}{int} MAX\_NINIO\_184 = 300;                   \textcolor{comment}{/* maximum correction */}}
+\DoxyCodeLine{00312 PRIVATE \textcolor{keywordtype}{int} F\_ninio37\_184[5] = \{ 0, 40, 50, 20, 10 \};      \textcolor{comment}{/* only F[2] used */}}
+\DoxyCodeLine{00313 }
+\DoxyCodeLine{00314 \textcolor{comment}{/* stabilizing contribution due to special hairpins of size 4 (tetraloops) */}}
+\DoxyCodeLine{00315 }
+\DoxyCodeLine{00316 PRIVATE \textcolor{keywordtype}{char} Tetraloops\_184[1400] =  \textcolor{comment}{/* place for up to 200 tetra loops */}}
+\DoxyCodeLine{00317   \textcolor{stringliteral}{"{}GGGGAC "{}}}
+\DoxyCodeLine{00318   \textcolor{stringliteral}{"{}GGUGAC "{}}}
+\DoxyCodeLine{00319   \textcolor{stringliteral}{"{}CGAAAG "{}}}
+\DoxyCodeLine{00320   \textcolor{stringliteral}{"{}GGAGAC "{}}}
+\DoxyCodeLine{00321   \textcolor{stringliteral}{"{}CGCAAG "{}}}
+\DoxyCodeLine{00322   \textcolor{stringliteral}{"{}GGAAAC "{}}}
+\DoxyCodeLine{00323   \textcolor{stringliteral}{"{}CGGAAG "{}}}
+\DoxyCodeLine{00324   \textcolor{stringliteral}{"{}CUUCGG "{}}}
+\DoxyCodeLine{00325   \textcolor{stringliteral}{"{}CGUGAG "{}}}
+\DoxyCodeLine{00326   \textcolor{stringliteral}{"{}CGAAGG "{}}}
+\DoxyCodeLine{00327   \textcolor{stringliteral}{"{}CUACGG "{}}}
+\DoxyCodeLine{00328   \textcolor{stringliteral}{"{}GGCAAC "{}}}
+\DoxyCodeLine{00329   \textcolor{stringliteral}{"{}CGCGAG "{}}}
+\DoxyCodeLine{00330   \textcolor{stringliteral}{"{}UGAGAG "{}}}
+\DoxyCodeLine{00331   \textcolor{stringliteral}{"{}CGAGAG "{}}}
+\DoxyCodeLine{00332   \textcolor{stringliteral}{"{}AGAAAU "{}}}
+\DoxyCodeLine{00333   \textcolor{stringliteral}{"{}CGUAAG "{}}}
+\DoxyCodeLine{00334   \textcolor{stringliteral}{"{}CUAACG "{}}}
+\DoxyCodeLine{00335   \textcolor{stringliteral}{"{}UGAAAG "{}}}
+\DoxyCodeLine{00336   \textcolor{stringliteral}{"{}GGAAGC "{}}}
+\DoxyCodeLine{00337   \textcolor{stringliteral}{"{}GGGAAC "{}}}
+\DoxyCodeLine{00338   \textcolor{stringliteral}{"{}UGAAAA "{}}}
+\DoxyCodeLine{00339   \textcolor{stringliteral}{"{}AGCAAU "{}}}
+\DoxyCodeLine{00340   \textcolor{stringliteral}{"{}AGUAAU "{}}}
+\DoxyCodeLine{00341   \textcolor{stringliteral}{"{}CGGGAG "{}}}
+\DoxyCodeLine{00342   \textcolor{stringliteral}{"{}AGUGAU "{}}}
+\DoxyCodeLine{00343   \textcolor{stringliteral}{"{}GGCGAC "{}}}
+\DoxyCodeLine{00344   \textcolor{stringliteral}{"{}GGGAGC "{}}}
+\DoxyCodeLine{00345   \textcolor{stringliteral}{"{}GUGAAC "{}}}
+\DoxyCodeLine{00346   \textcolor{stringliteral}{"{}UGGAAA "{}}}
+\DoxyCodeLine{00347 ;}
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00349 PRIVATE \textcolor{keywordtype}{int}   TETRA\_ENERGY37\_184[200] = \{}
+\DoxyCodeLine{00350   -\/300, -\/300, -\/300, -\/300, -\/300, -\/300, -\/300, -\/300, -\/300, -\/250, -\/250, -\/250,}
+\DoxyCodeLine{00351   -\/250, -\/250, -\/200, -\/200, -\/200, -\/200, -\/200, -\/150, -\/150, -\/150, -\/150, -\/150,}
+\DoxyCodeLine{00352   -\/150, -\/150, -\/150, -\/150, -\/150, -\/150\};}
+\DoxyCodeLine{00353 }
+\DoxyCodeLine{00354 PRIVATE \textcolor{keywordtype}{int}   TETRA\_ENTH37\_184   = -\/400;}
+\DoxyCodeLine{00355 }
+\DoxyCodeLine{00356 PRIVATE \textcolor{keywordtype}{char} Triloops\_184[241] = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00357 }
+\DoxyCodeLine{00358 PRIVATE \textcolor{keywordtype}{int} Triloop\_E37\_184[40];}
+\DoxyCodeLine{00359 }
+\DoxyCodeLine{00360 \textcolor{comment}{/* penalty for AU (or GU) terminating helix) */}}
+\DoxyCodeLine{00361 \textcolor{comment}{/* mismatches already contain these */}}
+\DoxyCodeLine{00362 PRIVATE \textcolor{keywordtype}{int} TerminalAU\_184 = 50;}
+\DoxyCodeLine{00363 }
+\DoxyCodeLine{00364 \textcolor{comment}{/* penalty for forming a bi-\/molecular duplex */}}
+\DoxyCodeLine{00365 PRIVATE \textcolor{keywordtype}{int} DuplexInit\_184 = 410;}
+\DoxyCodeLine{00366 }
+\DoxyCodeLine{00367 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\hypertarget{RNAstruct_8h_source}{}\doxysection{RNAstruct.\+h}
+\label{RNAstruct_8h_source}\index{ViennaRNA/RNAstruct.h@{ViennaRNA/RNAstruct.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_RNASTRUCT\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_RNASTRUCT\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\#define STRUC     2000}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00052 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga07b7e90e712559a1992fba3ac6d21bbd}{b2HIT}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00053}\mbox{\hyperlink{group__struct__utils__deprecated_ga07b7e90e712559a1992fba3ac6d21bbd}{00053}}            \textcolor{stringliteral}{"{}Use vrna\_db\_to\_tree\_string() instead!"{}});             \textcolor{comment}{/* Full   -\/> HIT    [incl. root] */}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00066 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{b2C}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00067}\mbox{\hyperlink{group__struct__utils__deprecated_ga9c80d92391f2833549a8b6dac92233f0}{00067}}            \textcolor{stringliteral}{"{}Use vrna\_db\_to\_tree\_string() instead!"{}});               \textcolor{comment}{/* Full   -\/> Coarse [incl. root] */}}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00081 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga5cd2feb367feeacad0c03cb7ddba5f10}{b2Shapiro}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00082}\mbox{\hyperlink{group__struct__utils__deprecated_ga5cd2feb367feeacad0c03cb7ddba5f10}{00082}}            \textcolor{stringliteral}{"{}Use vrna\_db\_to\_tree\_string() instead!"{}});         \textcolor{comment}{/* Full -\/> weighted Shapiro [i.r.] */}}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00091 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga880d33066dd95441e5fbb73c57ed1c3e}{add\_root}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00092}\mbox{\hyperlink{group__struct__utils__deprecated_ga880d33066dd95441e5fbb73c57ed1c3e}{00092}}            \textcolor{stringliteral}{"{}"{}});                   \textcolor{comment}{/* \{Tree\} -\/> (\{Tree\}R)          */}}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00102 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_gabe3d815b420dc4553bfb23511198b4c6}{expand\_Shapiro}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *coarse),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00103}\mbox{\hyperlink{group__struct__utils__deprecated_gabe3d815b420dc4553bfb23511198b4c6}{00103}}            \textcolor{stringliteral}{"{}Use vrna\_db\_to\_tree\_string() instead!"{}});}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00106 \textcolor{comment}{/* add S for stacks to coarse struct */}}
+\DoxyCodeLine{00114 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}{expand\_Full}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00115}\mbox{\hyperlink{group__struct__utils__deprecated_ga78d73cd54a068ef2812812771cdddc6f}{00115}}            \textcolor{stringliteral}{"{}Use vrna\_db\_to\_tree\_string() instead!"{}});       \textcolor{comment}{/* Full   -\/> FFull         */}}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00125 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga260c4b622093b76a883bf96628280de1}{unexpand\_Full}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *ffull),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00126}\mbox{\hyperlink{group__struct__utils__deprecated_ga260c4b622093b76a883bf96628280de1}{00126}}            \textcolor{stringliteral}{"{}Use vrna\_tree\_string\_to\_db() instead!"{}});         \textcolor{comment}{/* FFull  -\/> Full          */}}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00135 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__struct__utils__deprecated_ga09a80253ac7b6bae606871ba7c6e5136}{unweight}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *wcoarse),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00136}\mbox{\hyperlink{group__struct__utils__deprecated_ga09a80253ac7b6bae606871ba7c6e5136}{00136}}            \textcolor{stringliteral}{"{}Use vrna\_tree\_string\_unweight() instead!"{}});            \textcolor{comment}{/* remove weights from coarse struct */}}
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{00148 DEPRECATED(\textcolor{keywordtype}{void}   \mbox{\hyperlink{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}{unexpand\_aligned\_F}}(\textcolor{keywordtype}{char} *align[2]),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00149}\mbox{\hyperlink{group__struct__utils__deprecated_ga1054c4477d53b31d79d4cb132100e87a}{00149}}            \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00162 DEPRECATED(\textcolor{keywordtype}{void}   \mbox{\hyperlink{group__struct__utils__deprecated_ga3c79042e6bf6f01706bf30ec9e69e8ac}{parse\_structure}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure),}
+\DoxyCodeLine{\Hypertarget{RNAstruct_8h_source_l00163}\mbox{\hyperlink{group__struct__utils__deprecated_ga3c79042e6bf6f01706bf30ec9e69e8ac}{00163}}            \textcolor{stringliteral}{"{}"{}});  \textcolor{comment}{/* make structure statistics */}}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00170 DEPRECATED(\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_ga365a3fad38b21ca8606cb556f2896218}{loop\_size}}[STRUC],}
+\DoxyCodeLine{00171            \textcolor{stringliteral}{"{}"{}});         \textcolor{comment}{/* loop sizes of a structure */}}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00176 DEPRECATED(\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_ga3fce53616c021cbc724fc80b8c1ebeb5}{helix\_size}}[STRUC],}
+\DoxyCodeLine{00177            \textcolor{stringliteral}{"{}"{}});        \textcolor{comment}{/* helix sizes of a structure */}}
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{00182 DEPRECATED(\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_ga0518a287aa4a870508cea819029778ab}{loop\_degree}}[STRUC],}
+\DoxyCodeLine{00183            \textcolor{stringliteral}{"{}"{}});       \textcolor{comment}{/* loop degrees of a structure */}}
+\DoxyCodeLine{00184 }
+\DoxyCodeLine{00188 DEPRECATED(\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_ga439fcb9f8d4f9f4d2227fde5fbfecb30}{loops}},}
+\DoxyCodeLine{00189            \textcolor{stringliteral}{"{}"{}});                    \textcolor{comment}{/* n of loops and stacks */}}
+\DoxyCodeLine{00190 }
+\DoxyCodeLine{00194 DEPRECATED(\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_gadd2f952597e02d66e1116a9d11d252d6}{unpaired}},}
+\DoxyCodeLine{00195            \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00196 }
+\DoxyCodeLine{00200 DEPRECATED(\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__struct__utils__deprecated_ga6341cbb704924824e0236c1dce791032}{pairs}},}
+\DoxyCodeLine{00201            \textcolor{stringliteral}{"{}"{}});          \textcolor{comment}{/* n of unpaired digits and pairs */}}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00207 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,24 @@
+\hypertarget{BoyerMoore_8h}{}\doxysection{Vienna\+RNA/search/\+Boyer\+Moore.h File Reference}
+\label{BoyerMoore_8h}\index{ViennaRNA/search/BoyerMoore.h@{ViennaRNA/search/BoyerMoore.h}}
+
+
+Variants of the Boyer-\/\+Moore string search algorithm.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int $\ast$ \mbox{\hyperlink{group__search__utils_ga8af89ab58905851f3dbd52624227d372}{vrna\+\_\+search\+\_\+\+BMH\+\_\+num}} (const unsigned int $\ast$needle, size\+\_\+t needle\+\_\+size, const unsigned int $\ast$haystack, size\+\_\+t haystack\+\_\+size, size\+\_\+t start, size\+\_\+t $\ast$badchars, unsigned char cyclic)
+\begin{DoxyCompactList}\small\item\em Search for a string of elements in a larger string of elements using the Boyer-\/\+Moore-\/\+Horspool algorithm. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{group__search__utils_ga72574a7cf9786d825ce73f7f7748d3c4}{vrna\+\_\+search\+\_\+\+BMH}} (const char $\ast$needle, size\+\_\+t needle\+\_\+size, const char $\ast$haystack, size\+\_\+t haystack\+\_\+size, size\+\_\+t start, size\+\_\+t $\ast$badchars, unsigned char cyclic)
+\begin{DoxyCompactList}\small\item\em Search for an ASCII pattern within a larger ASCII string using the Boyer-\/\+Moore-\/\+Horspool algorithm. \end{DoxyCompactList}\item 
+size\+\_\+t $\ast$ \mbox{\hyperlink{group__search__utils_gad315a442e099c86c5dbf6c1c7933223d}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT\+\_\+num}} (const unsigned int $\ast$pattern, size\+\_\+t pattern\+\_\+size, unsigned int num\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Retrieve a Boyer-\/\+Moore Bad Character Table for a pattern of elements represented by natural numbers. \end{DoxyCompactList}\item 
+size\+\_\+t $\ast$ \mbox{\hyperlink{group__search__utils_ga1d675ef5dcdcc8c33a1b79956a246697}{vrna\+\_\+search\+\_\+\+BM\+\_\+\+BCT}} (const char $\ast$pattern)
+\begin{DoxyCompactList}\small\item\em Retrieve a Boyer-\/\+Moore Bad Character Table for a NULL-\/terminated pattern of ASCII characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Variants of the Boyer-\/\+Moore string search algorithm. 
+
+, 

@@ -1,0 +1,227 @@
+\hypertarget{group__perturbation}{}\doxysection{Generate Soft Constraints from Data}
+\label{group__perturbation}\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+
+
+Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments. 
+
+Collaboration diagram for Generate Soft Constraints from Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__perturbation}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{perturbation__fold_8h}{perturbation\+\_\+fold.\+h}}
+\begin{DoxyCompactList}\small\item\em Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__perturbation_ga81e10993d1ae728e4e02022b33155a12}{VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+QUADRATIC}}~0
+\begin{DoxyCompactList}\small\item\em Use the sum of squared aberrations as objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_gac070dfb9cafaeb14d5652bd9adf0f6b1}{VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+ABSOLUTE}}~1
+\begin{DoxyCompactList}\small\item\em Use the sum of absolute aberrations as objective function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__perturbation_gae5126200d80dbb282f46083fffc606bf}\label{group__perturbation_gae5126200d80dbb282f46083fffc606bf}} 
+\#define \mbox{\hyperlink{group__perturbation_gae5126200d80dbb282f46083fffc606bf}{VRNA\+\_\+\+MINIMIZER\+\_\+\+DEFAULT}}~0
+\begin{DoxyCompactList}\small\item\em Use a custom implementation of the gradient descent algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_gab1d89db58e8c497795a5005f5dbc8c4a}{VRNA\+\_\+\+MINIMIZER\+\_\+\+CONJUGATE\+\_\+\+FR}}~1
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the Fletcher-\/\+Reeves conjugate gradient algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga5aaeafe1b0aa77a5cda18943ff94b02f}{VRNA\+\_\+\+MINIMIZER\+\_\+\+CONJUGATE\+\_\+\+PR}}~2
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the Polak-\/\+Ribiere conjugate gradient algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga9be8a702cddf58235571ace11cc41b22}{VRNA\+\_\+\+MINIMIZER\+\_\+\+VECTOR\+\_\+\+BFGS}}~3
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the vector Broyden-\/\+Fletcher-\/\+Goldfarb-\/\+Shanno algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga7b0a65c6c92fa1d8012383ba9d3dcb4f}{VRNA\+\_\+\+MINIMIZER\+\_\+\+VECTOR\+\_\+\+BFGS2}}~4
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the vector Broyden-\/\+Fletcher-\/\+Goldfarb-\/\+Shanno algorithm to minimize the objective function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__perturbation_ga9ecd2144c2ebed7533233da3986521b0}{VRNA\+\_\+\+MINIMIZER\+\_\+\+STEEPEST\+\_\+\+DESCENT}}~5
+\begin{DoxyCompactList}\small\item\em Use the GNU Scientific Library implementation of the steepest descent algorithm to minimize the objective function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\+\_\+callback}}) (int iteration, double score, double $\ast$epsilon)
+\begin{DoxyCompactList}\small\item\em Callback for following the progress of the minimization process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const double $\ast$q\+\_\+prob\+\_\+unpaired, int objective\+\_\+function, double sigma\+\_\+squared, double tau\+\_\+squared, int algorithm, int sample\+\_\+size, double $\ast$epsilon, double initial\+Step\+Size, double min\+Step\+Size, double min\+Improvement, double minimizer\+Tolerance, \mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\+\_\+callback}} callback)
+\begin{DoxyCompactList}\small\item\em Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__perturbation_ga81e10993d1ae728e4e02022b33155a12}\label{group__perturbation_ga81e10993d1ae728e4e02022b33155a12}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC@{VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC}}
+\index{VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC@{VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC}{VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+QUADRATIC~0}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the sum of squared aberrations as objective function. 
+
+$ F(\vec\epsilon) = \sum_{i = 1}^n{ \frac{\epsilon_i^2}{\tau^2} } + \sum_{i = 1}^n{ \frac{(p_i(\vec\epsilon) - q_i)^2}{\sigma^2} } \to min $ \mbox{\Hypertarget{group__perturbation_gac070dfb9cafaeb14d5652bd9adf0f6b1}\label{group__perturbation_gac070dfb9cafaeb14d5652bd9adf0f6b1}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE@{VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE}}
+\index{VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE@{VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE}{VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+ABSOLUTE~1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the sum of absolute aberrations as objective function. 
+
+$ F(\vec\epsilon) = \sum_{i = 1}^n{ \frac{|\epsilon_i|}{\tau^2} } + \sum_{i = 1}^n{ \frac{|p_i(\vec\epsilon) - q_i|}{\sigma^2} } \to min $ \mbox{\Hypertarget{group__perturbation_gab1d89db58e8c497795a5005f5dbc8c4a}\label{group__perturbation_gab1d89db58e8c497795a5005f5dbc8c4a}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_MINIMIZER\_CONJUGATE\_FR@{VRNA\_MINIMIZER\_CONJUGATE\_FR}}
+\index{VRNA\_MINIMIZER\_CONJUGATE\_FR@{VRNA\_MINIMIZER\_CONJUGATE\_FR}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MINIMIZER\_CONJUGATE\_FR}{VRNA\_MINIMIZER\_CONJUGATE\_FR}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MINIMIZER\+\_\+\+CONJUGATE\+\_\+\+FR~1}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the GNU Scientific Library implementation of the Fletcher-\/\+Reeves conjugate gradient algorithm to minimize the objective function. 
+
+Please note that this algorithm can only be used when the GNU Scientific Library is available on your system \mbox{\Hypertarget{group__perturbation_ga5aaeafe1b0aa77a5cda18943ff94b02f}\label{group__perturbation_ga5aaeafe1b0aa77a5cda18943ff94b02f}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_MINIMIZER\_CONJUGATE\_PR@{VRNA\_MINIMIZER\_CONJUGATE\_PR}}
+\index{VRNA\_MINIMIZER\_CONJUGATE\_PR@{VRNA\_MINIMIZER\_CONJUGATE\_PR}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MINIMIZER\_CONJUGATE\_PR}{VRNA\_MINIMIZER\_CONJUGATE\_PR}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MINIMIZER\+\_\+\+CONJUGATE\+\_\+\+PR~2}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the GNU Scientific Library implementation of the Polak-\/\+Ribiere conjugate gradient algorithm to minimize the objective function. 
+
+Please note that this algorithm can only be used when the GNU Scientific Library is available on your system \mbox{\Hypertarget{group__perturbation_ga9be8a702cddf58235571ace11cc41b22}\label{group__perturbation_ga9be8a702cddf58235571ace11cc41b22}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_MINIMIZER\_VECTOR\_BFGS@{VRNA\_MINIMIZER\_VECTOR\_BFGS}}
+\index{VRNA\_MINIMIZER\_VECTOR\_BFGS@{VRNA\_MINIMIZER\_VECTOR\_BFGS}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MINIMIZER\_VECTOR\_BFGS}{VRNA\_MINIMIZER\_VECTOR\_BFGS}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MINIMIZER\+\_\+\+VECTOR\+\_\+\+BFGS~3}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the GNU Scientific Library implementation of the vector Broyden-\/\+Fletcher-\/\+Goldfarb-\/\+Shanno algorithm to minimize the objective function. 
+
+Please note that this algorithm can only be used when the GNU Scientific Library is available on your system \mbox{\Hypertarget{group__perturbation_ga7b0a65c6c92fa1d8012383ba9d3dcb4f}\label{group__perturbation_ga7b0a65c6c92fa1d8012383ba9d3dcb4f}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_MINIMIZER\_VECTOR\_BFGS2@{VRNA\_MINIMIZER\_VECTOR\_BFGS2}}
+\index{VRNA\_MINIMIZER\_VECTOR\_BFGS2@{VRNA\_MINIMIZER\_VECTOR\_BFGS2}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MINIMIZER\_VECTOR\_BFGS2}{VRNA\_MINIMIZER\_VECTOR\_BFGS2}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MINIMIZER\+\_\+\+VECTOR\+\_\+\+BFGS2~4}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the GNU Scientific Library implementation of the vector Broyden-\/\+Fletcher-\/\+Goldfarb-\/\+Shanno algorithm to minimize the objective function. 
+
+Please note that this algorithm can only be used when the GNU Scientific Library is available on your system \mbox{\Hypertarget{group__perturbation_ga9ecd2144c2ebed7533233da3986521b0}\label{group__perturbation_ga9ecd2144c2ebed7533233da3986521b0}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!VRNA\_MINIMIZER\_STEEPEST\_DESCENT@{VRNA\_MINIMIZER\_STEEPEST\_DESCENT}}
+\index{VRNA\_MINIMIZER\_STEEPEST\_DESCENT@{VRNA\_MINIMIZER\_STEEPEST\_DESCENT}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{VRNA\_MINIMIZER\_STEEPEST\_DESCENT}{VRNA\_MINIMIZER\_STEEPEST\_DESCENT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+MINIMIZER\+\_\+\+STEEPEST\+\_\+\+DESCENT~5}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Use the GNU Scientific Library implementation of the steepest descent algorithm to minimize the objective function. 
+
+Please note that this algorithm can only be used when the GNU Scientific Library is available on your system 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}\label{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!progress\_callback@{progress\_callback}}
+\index{progress\_callback@{progress\_callback}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{progress\_callback}{progress\_callback}}
+{\footnotesize\ttfamily typedef void($\ast$ progress\+\_\+callback) (int iteration, double score, double $\ast$epsilon)}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Callback for following the progress of the minimization process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iteration} & The number of the current iteration \\
+\hline
+{\em score} & The score of the objective function \\
+\hline
+{\em epsilon} & The perturbation vector yielding the reported score \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}\label{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}} 
+\index{Generate Soft Constraints from Data@{Generate Soft Constraints from Data}!vrna\_sc\_minimize\_pertubation@{vrna\_sc\_minimize\_pertubation}}
+\index{vrna\_sc\_minimize\_pertubation@{vrna\_sc\_minimize\_pertubation}!Generate Soft Constraints from Data@{Generate Soft Constraints from Data}}
+\doxysubsubsection{\texorpdfstring{vrna\_sc\_minimize\_pertubation()}{vrna\_sc\_minimize\_pertubation()}}
+{\footnotesize\ttfamily void vrna\+\_\+sc\+\_\+minimize\+\_\+pertubation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{const double $\ast$}]{q\+\_\+prob\+\_\+unpaired,  }\item[{int}]{objective\+\_\+function,  }\item[{double}]{sigma\+\_\+squared,  }\item[{double}]{tau\+\_\+squared,  }\item[{int}]{algorithm,  }\item[{int}]{sample\+\_\+size,  }\item[{double $\ast$}]{epsilon,  }\item[{double}]{initial\+Step\+Size,  }\item[{double}]{min\+Step\+Size,  }\item[{double}]{min\+Improvement,  }\item[{double}]{minimizer\+Tolerance,  }\item[{\mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\+\_\+callback}}}]{callback }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{perturbation__fold_8h}{Vienna\+RNA/perturbation\+\_\+fold.\+h}}$>$}
+
+
+
+Find a vector of perturbation energies that minimizes the discripancies between predicted and observed pairing probabilities and the amount of neccessary adjustments. 
+
+Use an iterative minimization algorithm to find a vector of perturbation energies whose incorporation as soft constraints shifts the predicted pairing probabilities closer to the experimentally observed probabilities. The algorithm aims to minimize an objective function that penalizes discripancies between predicted and observed pairing probabilities and energy model adjustments, i.\+e. an appropriate vector of perturbation energies satisfies \[ F(\vec\epsilon) = \sum_{\mu}{ \frac{\epsilon_{\mu}^2}{\tau^2} } + \sum_{i = 1}^n{ \frac{(p_i(\vec\epsilon) - q_i)^2}{\sigma^2} } \to \min. \]
+
+An initialized fold compound and an array containing the observed probability for each nucleotide to be unbound are required as input data. The parameters objective\+\_\+function, sigma\+\_\+squared and tau\+\_\+squared are responsible for adjusting the aim of the objective function. Dependend on which type of objective function is selected, either squared or absolute aberrations are contributing to the objective function. The ratio of the parameters sigma\+\_\+squared and tau\+\_\+squared can be used to adjust the algorithm to find a solution either close to the thermodynamic prediction (sigma\+\_\+squared $>$$>$ tau\+\_\+squared) or close to the experimental data (tau\+\_\+squared $>$$>$ sigma\+\_\+squared). The minimization can be performed by makeing use of a custom gradient descent implementation or using one of the minimizing algorithms provided by the GNU Scientific Library. All algorithms require the evaluation of the gradient of the objective function, which includes the evaluation of conditional pairing probabilites. Since an exact evaluation is expensive, the probabilities can also be estimated from sampling by setting an appropriate sample size. The found vector of perturbation energies will be stored in the array epsilon. The progress of the minimization process can be tracked by implementing and passing a callback function.
+
+\begin{DoxySeeAlso}{See also}
+For further details we refere to \cite{washietl:2012}.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & Pointer to a fold compound \\
+\hline
+{\em q\+\_\+prob\+\_\+unpaired} & Pointer to an array containing the probability to be unpaired for each nucleotide \\
+\hline
+{\em objective\+\_\+function} & The type of objective function to be used (VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+QUADRATIC / VRNA\+\_\+\+OBJECTIVE\+\_\+\+FUNCTION\+\_\+\+LINEAR) \\
+\hline
+{\em sigma\+\_\+squared} & A factor used for weighting the objective function. More weight on this factor will lead to a solution close to the null vector. \\
+\hline
+{\em tau\+\_\+squared} & A factor used for weighting the objective function. More weight on this factor will lead to a solution close to the data provided in q\+\_\+prob\+\_\+unpaired. \\
+\hline
+{\em algorithm} & The minimization algorithm (VRNA\+\_\+\+MINIMIZER\+\_\+$\ast$) \\
+\hline
+{\em sample\+\_\+size} & The number of sampled sequences used for estimating the pairing probabilities. A value $<$= 0 will lead to an exact evaluation. \\
+\hline
+{\em epsilon} & A pointer to an array used for storing the calculated vector of perturbation energies \\
+\hline
+{\em callback} & A pointer to a callback function used for reporting the current minimization progress \\
+\hline
+\end{DoxyParams}

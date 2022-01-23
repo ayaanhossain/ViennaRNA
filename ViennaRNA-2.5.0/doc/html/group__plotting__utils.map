@@ -1,0 +1,8 @@
+<map id="Plotting" name="Plotting">
+<area shape="rect" id="node1" href="$group__plot__layout__utils.html" title="Functions to compute coordinate layouts for secondary structure plots." alt="" coords="156,5,323,31"/>
+<area shape="rect" id="node2" href="$group__plotting__utils__deprecated.html" title=" " alt="" coords="167,55,311,95"/>
+<area shape="rect" id="node3" title="Functions for Creating Secondary Structure Plots, Dot&#45;Plots, and More." alt="" coords="5,120,72,145"/>
+<area shape="rect" id="node4" href="$group__utils.html" title=" " alt="" coords="206,123,273,148"/>
+<area shape="rect" id="node5" href="$group__alignment__plots.html" title="Functions to generate Alignment plots with annotated consensus structure." alt="" coords="182,175,297,200"/>
+<area shape="rect" id="node6" href="$group__annotation__utils.html" title="Functions to generate annotations for Secondary Structure Plots, Dot&#45;Plots, and Others." alt="" coords="197,224,281,249"/>
+</map>

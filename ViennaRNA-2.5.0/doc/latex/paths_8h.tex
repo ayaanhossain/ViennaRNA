@@ -1,0 +1,62 @@
+\hypertarget{paths_8h}{}\doxysection{Vienna\+RNA/landscape/paths.h File Reference}
+\label{paths_8h}\index{ViennaRNA/landscape/paths.h@{ViennaRNA/landscape/paths.h}}
+
+
+API for computing (optimal) (re-\/)folding paths between secondary structures.  
+
+
+Include dependency graph for paths.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{paths_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{paths_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em An element of a refolding path list.  \mbox{\hyperlink{group__paths_structvrna__path__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__paths_ga3e964156b52440b65fae5e2a48750d8e}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+DOT\+\_\+\+BRACKET}}~1U
+\begin{DoxyCompactList}\small\item\em Flag to indicate producing a (re-\/)folding path as list of dot-\/bracket structures. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__paths_gaa73703da105dc6c98957fb8247c93f1f}{VRNA\+\_\+\+PATH\+\_\+\+TYPE\+\_\+\+MOVES}}~2U
+\begin{DoxyCompactList}\small\item\em Flag to indicate producing a (re-\/)folding path as list of transition moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}} \mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the refolding path data structure \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct vrna\+\_\+path\+\_\+options\+\_\+s $\ast$ \mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Options data structure for (re-\/)folding path implementations. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}} \mbox{\hyperlink{group__paths__deprecated_gab6b8737d5377e70a7815d04aae7fd884}{path\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__paths_ga3763dc16760d09277a1b1c3f3061d0c7}{vrna\+\_\+path\+\_\+free}} (\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$path)
+\begin{DoxyCompactList}\small\item\em Release (free) memory occupied by a (re-\/)folding path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__paths_gaa64a86b13cb165346a0d0c788781512a}{vrna\+\_\+path\+\_\+options\+\_\+free}} (\mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}} options)
+\begin{DoxyCompactList}\small\item\em Release (free) memory occupied by an options data structure for (re-\/)folding path implementations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}} \mbox{\hyperlink{group__paths__direct_ga3790a24ca64d68acfa6e67b525151a5f}{vrna\+\_\+path\+\_\+options\+\_\+findpath}} (int width, unsigned int type)
+\begin{DoxyCompactList}\small\item\em Create options data structure for findpath direct (re-\/)folding path heuristic. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__direct_gacba096caf9a6fe134f33a5afcf2248d8}{vrna\+\_\+path\+\_\+direct}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$s1, const char $\ast$s2, \mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}} options)
+\begin{DoxyCompactList}\small\item\em Determine an optimal direct (re-\/)folding path between two secondary structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}} $\ast$ \mbox{\hyperlink{group__paths__direct_ga51d9edaeb42d1d178ea8ba46ccd4c8c0}{vrna\+\_\+path\+\_\+direct\+\_\+ub}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, const char $\ast$s1, const char $\ast$s2, int maxE, \mbox{\hyperlink{group__paths_gaa99d8ec48f64de53eda0d51b1ed0d3d1}{vrna\+\_\+path\+\_\+options\+\_\+t}} options)
+\begin{DoxyCompactList}\small\item\em Determine an optimal direct (re-\/)folding path between two secondary structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+API for computing (optimal) (re-\/)folding paths between secondary structures. 
+

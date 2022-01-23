@@ -1,0 +1,85 @@
+\hypertarget{group__struct__utils__metrics}{}\doxysection{Distance measures between Secondary Structures}
+\label{group__struct__utils__metrics}\index{Distance measures between Secondary Structures@{Distance measures between Secondary Structures}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Distance measures between Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__struct__utils__metrics}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__struct__utils__metrics_gae08cbd5ff44b7d77a271ceb79c12cfef}{vrna\+\_\+bp\+\_\+distance\+\_\+pt}} (const short $\ast$pt1, const short $\ast$pt2)
+\begin{DoxyCompactList}\small\item\em Compute the \char`\"{}base pair\char`\"{} distance between two pair tables pt1 and pt2 of secondary structures. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__struct__utils__metrics_ga65bdfbac6a16bf30286e8a3f7d15f60a}{vrna\+\_\+bp\+\_\+distance}} (const char $\ast$str1, const char $\ast$str2)
+\begin{DoxyCompactList}\small\item\em Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__metrics_gae08cbd5ff44b7d77a271ceb79c12cfef}\label{group__struct__utils__metrics_gae08cbd5ff44b7d77a271ceb79c12cfef}} 
+\index{Distance measures between Secondary Structures@{Distance measures between Secondary Structures}!vrna\_bp\_distance\_pt@{vrna\_bp\_distance\_pt}}
+\index{vrna\_bp\_distance\_pt@{vrna\_bp\_distance\_pt}!Distance measures between Secondary Structures@{Distance measures between Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_bp\_distance\_pt()}{vrna\_bp\_distance\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+bp\+\_\+distance\+\_\+pt (\begin{DoxyParamCaption}\item[{const short $\ast$}]{pt1,  }\item[{const short $\ast$}]{pt2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Compute the \char`\"{}base pair\char`\"{} distance between two pair tables pt1 and pt2 of secondary structures. 
+
+The pair tables should have the same length. dist = number of base pairs in one structure but not in the other same as edit distance with open-\/pair close-\/pair as move-\/set
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__metrics_ga65bdfbac6a16bf30286e8a3f7d15f60a}{vrna\+\_\+bp\+\_\+distance()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pt1} & First structure in dot-\/bracket notation \\
+\hline
+{\em pt2} & Second structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base pair distance between pt1 and pt2
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000142}{SWIG Wrapper Notes}}]This function is available as an overloaded method {\bfseries{\mbox{\hyperlink{group__struct__utils__deprecated_ga6ebbcd29a754f0e4f1a66d1fd84184db}{bp\+\_\+distance()}}}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__struct__utils__metrics_ga65bdfbac6a16bf30286e8a3f7d15f60a}\label{group__struct__utils__metrics_ga65bdfbac6a16bf30286e8a3f7d15f60a}} 
+\index{Distance measures between Secondary Structures@{Distance measures between Secondary Structures}!vrna\_bp\_distance@{vrna\_bp\_distance}}
+\index{vrna\_bp\_distance@{vrna\_bp\_distance}!Distance measures between Secondary Structures@{Distance measures between Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_bp\_distance()}{vrna\_bp\_distance()}}
+{\footnotesize\ttfamily int vrna\+\_\+bp\+\_\+distance (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str1,  }\item[{const char $\ast$}]{str2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Compute the \char`\"{}base pair\char`\"{} distance between two secondary structures s1 and s2. 
+
+This is a wrapper around {\bfseries{\mbox{\hyperlink{group__struct__utils__metrics_gae08cbd5ff44b7d77a271ceb79c12cfef}{vrna\+\_\+bp\+\_\+distance\+\_\+pt()}}}}. The sequences should have the same length. dist = number of base pairs in one structure but not in the other same as edit distance with open-\/pair close-\/pair as move-\/set
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__metrics_gae08cbd5ff44b7d77a271ceb79c12cfef}{vrna\+\_\+bp\+\_\+distance\+\_\+pt()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em str1} & First structure in dot-\/bracket notation \\
+\hline
+{\em str2} & Second structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base pair distance between str1 and str2
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{SWIG Wrapper Notes}
+\item[\mbox{\hyperlink{wrappers__wrappers000143}{SWIG Wrapper Notes}}]This function is available as an overloaded method {\bfseries{\mbox{\hyperlink{group__struct__utils__deprecated_ga6ebbcd29a754f0e4f1a66d1fd84184db}{bp\+\_\+distance()}}}}. Note that the SWIG wrapper takes two structure in dot-\/bracket notation and converts them into pair tables using \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}}. The resulting pair tables are then internally passed to \mbox{\hyperlink{group__struct__utils__metrics_gae08cbd5ff44b7d77a271ceb79c12cfef}{vrna\+\_\+bp\+\_\+distance\+\_\+pt()}}. To control which kind of matching brackets will be used during conversion, the optional argument {\ttfamily options} can be used. See also the description of \mbox{\hyperlink{group__struct__utils__pair__table_ga2c4f27a8e277f21f0d2cc10bc9a99420}{vrna\+\_\+ptable\+\_\+from\+\_\+string()}} for available options. (default\+: {\bfseries{VRNA\+\_\+\+BRACKETS\+\_\+\+RND}}). \end{DoxyRefDesc}

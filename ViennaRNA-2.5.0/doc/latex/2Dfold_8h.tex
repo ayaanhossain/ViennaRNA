@@ -1,0 +1,49 @@
+\hypertarget{2Dfold_8h}{}\doxysection{Vienna\+RNA/2\+Dfold.h File Reference}
+\label{2Dfold_8h}\index{ViennaRNA/2Dfold.h@{ViennaRNA/2Dfold.h}}
+
+
+MFE structures for base pair distance classes.  
+
+
+Include dependency graph for 2Dfold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{2Dfold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}}  \mbox{\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Variables compound for 2Dfold MFE folding.  \mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}} \mbox{\hyperlink{group__kl__neighborhood__mfe_ga2ab9478dc2f8d94ab38ca8b3308d1c1e}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}} \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} \mbox{\hyperlink{group__kl__neighborhood__mfe_gad18b01ec62ac426567b9a235fe754548}{Two\+Dfold\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Variables compound for 2Dfold MFE folding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}} $\ast$ \mbox{\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int distance1, int distance2)
+\begin{DoxyCompactList}\small\item\em Compute MFE\textquotesingle{}s and representative for distance partitioning. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__kl__neighborhood__mfe_ga15a96fc96f4f4c2e01a11b3e17d1ef43}{vrna\+\_\+backtrack5\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int k, int l, unsigned int j)
+\begin{DoxyCompactList}\small\item\em Backtrack a minimum free energy structure from a 5\textquotesingle{} section of specified length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} $\ast$ \mbox{\hyperlink{group__kl__neighborhood__mfe_gac9284f132cf0eaa0a2f43590eda05488}{get\+\_\+\+Two\+Dfold\+\_\+variables}} (const char $\ast$seq, const char $\ast$structure1, const char $\ast$structure2, int \mbox{\hyperlink{group__model__details_gaf9202a1a09f5828dc731e2d9a10fa111}{circ}})
+\begin{DoxyCompactList}\small\item\em Get a structure of type \mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} prefilled with current global settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__kl__neighborhood__mfe_ga05bf4f31d216b1b160fd2d3d68e9b487}{destroy\+\_\+\+Two\+Dfold\+\_\+variables}} (\mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} $\ast$our\+\_\+variables)
+\begin{DoxyCompactList}\small\item\em Destroy a \mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} datastructure without memory loss. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}} $\ast$ \mbox{\hyperlink{group__kl__neighborhood__mfe_ga7fc5e3e92fe97914ca4eccd33c01c2a7}{Two\+Dfold\+List}} (\mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} $\ast$vars, int distance1, int distance2)
+\begin{DoxyCompactList}\small\item\em Compute MFE\textquotesingle{}s and representative for distance partitioning. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__kl__neighborhood__mfe_gaf4dc05bf8fc1ea53acd7aeb798ba80c2}{Two\+Dfold\+\_\+backtrack\+\_\+f5}} (unsigned int j, int k, int l, \mbox{\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}} $\ast$vars)
+\begin{DoxyCompactList}\small\item\em Backtrack a minimum free energy structure from a 5\textquotesingle{} section of specified length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MFE structures for base pair distance classes. 
+

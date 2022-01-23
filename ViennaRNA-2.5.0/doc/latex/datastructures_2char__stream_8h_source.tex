@@ -1,0 +1,211 @@
+\hypertarget{datastructures_2char__stream_8h_source}{}\doxysection{char\+\_\+stream.\+h}
+\label{datastructures_2char__stream_8h_source}\index{ViennaRNA/datastructures/char\_stream.h@{ViennaRNA/datastructures/char\_stream.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_CHAR\_STREAM\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_CHAR\_STREAM\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#include <stdarg.h>}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 \textcolor{comment}{/* below is our own implementation of a dynamic char * stream */}}
+\DoxyCodeLine{00020 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_cstr\_s *vrna\_cstr\_t;}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00030 vrna\_cstr\_t}
+\DoxyCodeLine{\Hypertarget{datastructures_2char__stream_8h_source_l00031}\mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{00031}} \mbox{\hyperlink{group__buffer__utils_gadb2818f368e10a3b60a96bb3c80228d2}{vrna\_cstr}}(\textcolor{keywordtype}{size\_t}  size,}
+\DoxyCodeLine{00032           FILE    *output);}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00042 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2char__stream_8h_source_l00043}\mbox{\hyperlink{group__buffer__utils_gacf6e3934e61bea12bdc38a8f97b0c75d}{00043}} \mbox{\hyperlink{group__buffer__utils_gacf6e3934e61bea12bdc38a8f97b0c75d}{vrna\_cstr\_discard}}(\textcolor{keyword}{struct} vrna\_cstr\_s *buf);}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00056 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2char__stream_8h_source_l00057}\mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{00057}} \mbox{\hyperlink{group__buffer__utils_ga7ec48ec280f699928c70428cc245dc77}{vrna\_cstr\_free}}(vrna\_cstr\_t buf);}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00071 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2char__stream_8h_source_l00072}\mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{00072}} \mbox{\hyperlink{group__buffer__utils_ga5a3f6a0a73b3d2d38fe011cdaed0ad28}{vrna\_cstr\_close}}(vrna\_cstr\_t buf);}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00088 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{datastructures_2char__stream_8h_source_l00089}\mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{00089}} \mbox{\hyperlink{group__buffer__utils_gab59ad4781f7de960bdd1af5b1965c94b}{vrna\_cstr\_fflush}}(\textcolor{keyword}{struct} vrna\_cstr\_s *buf);}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{00093 vrna\_cstr\_string(vrna\_cstr\_t buf);}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00097 vrna\_cstr\_vprintf(vrna\_cstr\_t buf,}
+\DoxyCodeLine{00098                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,}
+\DoxyCodeLine{00099                   va\_list     args);}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00103 vrna\_cstr\_printf(vrna\_cstr\_t  buf,}
+\DoxyCodeLine{00104                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *format,}
+\DoxyCodeLine{00105                  ...);}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00109 vrna\_cstr\_message\_info(vrna\_cstr\_t  buf,}
+\DoxyCodeLine{00110                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *format,}
+\DoxyCodeLine{00111                        ...);}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00115 vrna\_cstr\_message\_vinfo(vrna\_cstr\_t buf,}
+\DoxyCodeLine{00116                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,}
+\DoxyCodeLine{00117                         va\_list     args);}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00120 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00121 vrna\_cstr\_message\_warning(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00122                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,}
+\DoxyCodeLine{00123                           ...);}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00127 vrna\_cstr\_message\_vwarning(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00128                            \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,}
+\DoxyCodeLine{00129                            va\_list            args);}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00133 vrna\_cstr\_print\_fasta\_header(vrna\_cstr\_t  buf,}
+\DoxyCodeLine{00134                              \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *head);}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00138 vrna\_cstr\_printf\_structure(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00139                            \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *structure,}
+\DoxyCodeLine{00140                            \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,}
+\DoxyCodeLine{00141                            ...);}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143 }
+\DoxyCodeLine{00144 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00145 vrna\_cstr\_vprintf\_structure(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00146                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *structure,}
+\DoxyCodeLine{00147                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,}
+\DoxyCodeLine{00148                             va\_list             args);}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00152 vrna\_cstr\_printf\_comment(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00153                          \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,}
+\DoxyCodeLine{00154                          ...);}
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00158 vrna\_cstr\_vprintf\_comment(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00159                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,}
+\DoxyCodeLine{00160                           va\_list             args);}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00164 vrna\_cstr\_printf\_thead(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00165                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,}
+\DoxyCodeLine{00166                        ...);}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168 }
+\DoxyCodeLine{00169 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00170 vrna\_cstr\_vprintf\_thead(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00171                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,}
+\DoxyCodeLine{00172                         va\_list             args);}
+\DoxyCodeLine{00173 }
+\DoxyCodeLine{00174 }
+\DoxyCodeLine{00175 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00176 vrna\_cstr\_printf\_tbody(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00177                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,}
+\DoxyCodeLine{00178                        ...);}
+\DoxyCodeLine{00179 }
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{00181 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00182 vrna\_cstr\_vprintf\_tbody(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00183                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,}
+\DoxyCodeLine{00184                         va\_list             args);}
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00186 }
+\DoxyCodeLine{00187 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00188 vrna\_cstr\_print\_eval\_sd\_corr(\textcolor{keyword}{struct} vrna\_cstr\_s *buf);}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190 }
+\DoxyCodeLine{00191 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00192 vrna\_cstr\_print\_eval\_ext\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00193                               \textcolor{keywordtype}{int}                 energy);}
+\DoxyCodeLine{00194 }
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{00196 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00197 vrna\_cstr\_print\_eval\_hp\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00198                              \textcolor{keywordtype}{int}                i,}
+\DoxyCodeLine{00199                              \textcolor{keywordtype}{int}                j,}
+\DoxyCodeLine{00200                              \textcolor{keywordtype}{char}               si,}
+\DoxyCodeLine{00201                              \textcolor{keywordtype}{char}               sj,}
+\DoxyCodeLine{00202                              \textcolor{keywordtype}{int}                energy);}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204 }
+\DoxyCodeLine{00205 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00206 vrna\_cstr\_print\_eval\_hp\_loop\_revert(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00207                                     \textcolor{keywordtype}{int}                 i,}
+\DoxyCodeLine{00208                                     \textcolor{keywordtype}{int}                 j,}
+\DoxyCodeLine{00209                                     \textcolor{keywordtype}{char}                si,}
+\DoxyCodeLine{00210                                     \textcolor{keywordtype}{char}                sj,}
+\DoxyCodeLine{00211                                     \textcolor{keywordtype}{int}                 energy);}
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00215 vrna\_cstr\_print\_eval\_int\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00216                               \textcolor{keywordtype}{int}                 i,}
+\DoxyCodeLine{00217                               \textcolor{keywordtype}{int}                 j,}
+\DoxyCodeLine{00218                               \textcolor{keywordtype}{char}                si,}
+\DoxyCodeLine{00219                               \textcolor{keywordtype}{char}                sj,}
+\DoxyCodeLine{00220                               \textcolor{keywordtype}{int}                 k,}
+\DoxyCodeLine{00221                               \textcolor{keywordtype}{int}                 l,}
+\DoxyCodeLine{00222                               \textcolor{keywordtype}{char}                sk,}
+\DoxyCodeLine{00223                               \textcolor{keywordtype}{char}                sl,}
+\DoxyCodeLine{00224                               \textcolor{keywordtype}{int}                 energy);}
+\DoxyCodeLine{00225 }
+\DoxyCodeLine{00226 }
+\DoxyCodeLine{00227 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00228 vrna\_cstr\_print\_eval\_int\_loop\_revert(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00229                                      \textcolor{keywordtype}{int}                i,}
+\DoxyCodeLine{00230                                      \textcolor{keywordtype}{int}                j,}
+\DoxyCodeLine{00231                                      \textcolor{keywordtype}{char}               si,}
+\DoxyCodeLine{00232                                      \textcolor{keywordtype}{char}               sj,}
+\DoxyCodeLine{00233                                      \textcolor{keywordtype}{int}                k,}
+\DoxyCodeLine{00234                                      \textcolor{keywordtype}{int}                l,}
+\DoxyCodeLine{00235                                      \textcolor{keywordtype}{char}               sk,}
+\DoxyCodeLine{00236                                      \textcolor{keywordtype}{char}               sl,}
+\DoxyCodeLine{00237                                      \textcolor{keywordtype}{int}                energy);}
+\DoxyCodeLine{00238 }
+\DoxyCodeLine{00239 }
+\DoxyCodeLine{00240 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00241 vrna\_cstr\_print\_eval\_mb\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00242                              \textcolor{keywordtype}{int}                i,}
+\DoxyCodeLine{00243                              \textcolor{keywordtype}{int}                j,}
+\DoxyCodeLine{00244                              \textcolor{keywordtype}{char}               si,}
+\DoxyCodeLine{00245                              \textcolor{keywordtype}{char}               sj,}
+\DoxyCodeLine{00246                              \textcolor{keywordtype}{int}                energy);}
+\DoxyCodeLine{00247 }
+\DoxyCodeLine{00248 }
+\DoxyCodeLine{00249 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00250 vrna\_cstr\_print\_eval\_mb\_loop\_revert(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,}
+\DoxyCodeLine{00251                                     \textcolor{keywordtype}{int}                 i,}
+\DoxyCodeLine{00252                                     \textcolor{keywordtype}{int}                 j,}
+\DoxyCodeLine{00253                                     \textcolor{keywordtype}{char}                si,}
+\DoxyCodeLine{00254                                     \textcolor{keywordtype}{char}                sj,}
+\DoxyCodeLine{00255                                     \textcolor{keywordtype}{int}                 energy);}
+\DoxyCodeLine{00256 }
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00259 vrna\_cstr\_print\_eval\_gquad(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,}
+\DoxyCodeLine{00260                            \textcolor{keywordtype}{int}                i,}
+\DoxyCodeLine{00261                            \textcolor{keywordtype}{int}                L,}
+\DoxyCodeLine{00262                            \textcolor{keywordtype}{int}                l[3],}
+\DoxyCodeLine{00263                            \textcolor{keywordtype}{int}                energy);}
+\DoxyCodeLine{00264 }
+\DoxyCodeLine{00265 }
+\DoxyCodeLine{00270 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,6 @@
+<map id="Global MFE Prediction" name="Global MFE Prediction">
+<area shape="rect" id="node1" href="$group__mfe__global__deprecated.html" title=" " alt="" coords="259,5,435,45"/>
+<area shape="rect" id="node2" title="Variations of the global Minimum Free Energy (MFE) prediction algorithm." alt="" coords="5,78,159,103"/>
+<area shape="rect" id="node3" href="$group__mfe.html" title="Predicting the Minimum Free Energy (MFE) and a corresponding (consensus) secondary structure." alt="" coords="272,69,423,109"/>
+<area shape="rect" id="node4" href="$group__kl__neighborhood__mfe.html" title="Compute the minimum free energy (MFE) and secondary structures for a partitioning of the secondary st..." alt="" coords="240,133,455,173"/>
+</map>

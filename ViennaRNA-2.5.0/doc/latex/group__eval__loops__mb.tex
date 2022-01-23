@@ -1,0 +1,103 @@
+\hypertarget{group__eval__loops__mb}{}\doxysection{Multibranch Loops}
+\label{group__eval__loops__mb}\index{Multibranch Loops@{Multibranch Loops}}
+
+
+Functions to evaluate the free energy contributions for mutlibranch loops.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to evaluate the free energy contributions for mutlibranch loops. 
+
+Collaboration diagram for Multibranch Loops\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__eval__loops__mb}
+\end{center}
+\end{figure}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{multibranch_8h}{multibranch.\+h}}
+\begin{DoxyCompactList}\small\item\em Energy evaluation of multibranch loops for MFE and partition function calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Boltzmann weight (partition function) interface}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+s $\ast$ \mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Auxiliary helper arrays for fast exterior loop computations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__loops__mb_gac4a6acc1fded0e89460692ef9f62a6c2}\label{group__eval__loops__mb_gac4a6acc1fded0e89460692ef9f62a6c2}} 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+fast} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, \mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_gab4ec400cb861b8102ca9974406d9de9b}\label{group__eval__loops__mb_gab4ec400cb861b8102ca9974406d9de9b}} 
+\mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+init} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_gabc73c029027ba09bfe70e2318052f0ae}\label{group__eval__loops__mb_gabc73c029027ba09bfe70e2318052f0ae}} 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+rotate} (\mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_ga3bbc24b3950867b039104ce8b4f39346}\label{group__eval__loops__mb_ga3bbc24b3950867b039104ce8b4f39346}} 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+free} (\mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_ga3fbdf2b1b409f7effe26548c3cf63771}\label{group__eval__loops__mb_ga3fbdf2b1b409f7effe26548c3cf63771}} 
+const \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+qqm} (\mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_gac24e309bf62854d9880171df8a37b48b}\label{group__eval__loops__mb_gac24e309bf62854d9880171df8a37b48b}} 
+const \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} $\ast$ {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+qqm1} (\mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} aux\+\_\+mx)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_gaf688fa4e6331403debb9802f3fda8bf4}\label{group__eval__loops__mb_gaf688fa4e6331403debb9802f3fda8bf4}} 
+\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, \mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}} aux\+\_\+mx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Basic free energy interface}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}{vrna\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+stack}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate energy of a multi branch helices stacking onto closing pair (i,j) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__eval__loops__mb_ga2fb0e2d1e0d6280f4e8e7f12b345c334}\label{group__eval__loops__mb_ga2fb0e2d1e0d6280f4e8e7f12b345c334}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+fast} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int $\ast$dmli1, int $\ast$dmli2)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_gabbf601fe425b60dbc6599865bb8a1ee3}\label{group__eval__loops__mb_gabbf601fe425b60dbc6599865bb8a1ee3}} 
+int {\bfseries E\+\_\+ml\+\_\+rightmost\+\_\+stem} (int i, int j, \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc)
+\item 
+\mbox{\Hypertarget{group__eval__loops__mb_ga9e000f5f16177b8696bde5ed4db96d18}\label{group__eval__loops__mb_ga9e000f5f16177b8696bde5ed4db96d18}} 
+int {\bfseries vrna\+\_\+\+E\+\_\+ml\+\_\+stems\+\_\+fast} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$fc, int i, int j, int $\ast$fmi, int $\ast$dmli)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}\label{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}} 
+\index{Multibranch Loops@{Multibranch Loops}!vrna\_mx\_pf\_aux\_ml\_t@{vrna\_mx\_pf\_aux\_ml\_t}}
+\index{vrna\_mx\_pf\_aux\_ml\_t@{vrna\_mx\_pf\_aux\_ml\_t}!Multibranch Loops@{Multibranch Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_mx\_pf\_aux\_ml\_t}{vrna\_mx\_pf\_aux\_ml\_t}}
+{\footnotesize\ttfamily typedef struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+s$\ast$ \mbox{\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}}}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{multibranch_8h}{Vienna\+RNA/loops/multibranch.\+h}}$>$}
+
+
+
+Auxiliary helper arrays for fast exterior loop computations. 
+
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+init(), vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+rotate(), vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+free(), vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast() 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}\label{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}} 
+\index{Multibranch Loops@{Multibranch Loops}!vrna\_E\_mb\_loop\_stack@{vrna\_E\_mb\_loop\_stack}}
+\index{vrna\_E\_mb\_loop\_stack@{vrna\_E\_mb\_loop\_stack}!Multibranch Loops@{Multibranch Loops}}
+\doxysubsubsection{\texorpdfstring{vrna\_E\_mb\_loop\_stack()}{vrna\_E\_mb\_loop\_stack()}}
+{\footnotesize\ttfamily int vrna\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+stack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{fc,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{multibranch_8h}{Vienna\+RNA/loops/multibranch.\+h}}$>$}
+
+
+
+Evaluate energy of a multi branch helices stacking onto closing pair (i,j) 
+
+Computes total free energy for coaxial stacking of (i.\+j) with (i+1.k) or (k+1.j-\/1) 

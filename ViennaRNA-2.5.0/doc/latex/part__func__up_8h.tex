@@ -1,0 +1,31 @@
+\hypertarget{part__func__up_8h}{}\doxysection{Vienna\+RNA/part\+\_\+func\+\_\+up.h File Reference}
+\label{part__func__up_8h}\index{ViennaRNA/part\_func\_up.h@{ViennaRNA/part\_func\_up.h}}
+
+
+Implementations for accessibility and RNA-\/\+RNA interaction as a stepwise process.  
+
+
+Include dependency graph for part\+\_\+func\+\_\+up.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{part__func__up_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$ \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru}} (char $\ast$sequence, int max\+\_\+w)
+\begin{DoxyCompactList}\small\item\em Calculate the partition function over all unpaired regions of a maximal length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__data__structures_structinteract}{interact}} $\ast$ \mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\+\_\+interact}} (const char $\ast$s1, const char $\ast$s2, \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$p\+\_\+c, \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$p\+\_\+c2, int max\+\_\+w, char $\ast$cstruc, int incr3, int incr5)
+\begin{DoxyCompactList}\small\item\em Calculates the probability of a local interaction between two sequences. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}{free\+\_\+interact}} (\mbox{\hyperlink{group__data__structures_structinteract}{interact}} $\ast$pin)
+\begin{DoxyCompactList}\small\item\em Frees the output of function \mbox{\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\+\_\+interact()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}{free\+\_\+pu\+\_\+contrib\+\_\+struct}} (\mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} $\ast$pu)
+\begin{DoxyCompactList}\small\item\em Frees the output of function \mbox{\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\+\_\+unstru()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementations for accessibility and RNA-\/\+RNA interaction as a stepwise process. 
+

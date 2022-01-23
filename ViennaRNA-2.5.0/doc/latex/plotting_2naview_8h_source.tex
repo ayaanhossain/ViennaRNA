@@ -1,0 +1,44 @@
+\hypertarget{plotting_2naview_8h_source}{}\doxysection{naview.\+h}
+\label{plotting_2naview_8h_source}\index{ViennaRNA/plotting/naview.h@{ViennaRNA/plotting/naview.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PLOT\_NAVIEW\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PLOT\_NAVIEW\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00061 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{plotting_2naview_8h_source_l00062}\mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{00062}} \mbox{\hyperlink{group__plot__layout__utils_gac0335e398d01202c77c1d7b28811b761}{vrna\_plot\_coords\_naview}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *structure,}
+\DoxyCodeLine{00063                         \textcolor{keywordtype}{float}       **x,}
+\DoxyCodeLine{00064                         \textcolor{keywordtype}{float}       **y);}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00085 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{plotting_2naview_8h_source_l00086}\mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{00086}} \mbox{\hyperlink{group__plot__layout__utils_gaa5089debe89c11e301dea04b3236efe3}{vrna\_plot\_coords\_naview\_pt}}(\textcolor{keyword}{const} \textcolor{keywordtype}{short}  *pt,}
+\DoxyCodeLine{00087                            \textcolor{keywordtype}{float}        **x,}
+\DoxyCodeLine{00088                            \textcolor{keywordtype}{float}        **y);}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00096 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00106 DEPRECATED(\textcolor{keywordtype}{int}}
+\DoxyCodeLine{00107            \mbox{\hyperlink{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}{naview\_xy\_coordinates}}(\textcolor{keywordtype}{short}  *pair\_table,}
+\DoxyCodeLine{00108                                  \textcolor{keywordtype}{float}  *X,}
+\DoxyCodeLine{00109                                  \textcolor{keywordtype}{float}  *Y),}
+\DoxyCodeLine{\Hypertarget{plotting_2naview_8h_source_l00110}\mbox{\hyperlink{group__plotting__utils__deprecated_ga948111b910926f0405a3fa920c790816}{00110}}            \textcolor{stringliteral}{"{}Use vrna\_plot\_coords\_naview\_pt() instead!"{}});}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00119 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

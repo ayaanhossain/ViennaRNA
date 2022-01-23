@@ -1,0 +1,212 @@
+\hypertarget{2Dpfold_8h}{}\doxysection{Vienna\+RNA/2\+Dpfold.h File Reference}
+\label{2Dpfold_8h}\index{ViennaRNA/2Dpfold.h@{ViennaRNA/2Dpfold.h}}
+
+
+Partition function implementations for base pair distance classes.  
+
+
+Include dependency graph for 2Dpfold.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{2Dpfold_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}  \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Variables compound for 2Dfold partition function folding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}} \mbox{\hyperlink{group__kl__neighborhood__pf_ga95d3090db32590ccdb72b9915c8748f6}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}} $\ast$ \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int max\+Distance1, int max\+Distance2)
+\begin{DoxyCompactList}\small\item\em Compute the partition function for all distance classes. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}{vrna\+\_\+pbacktrack\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int d1, int d2)
+\begin{DoxyCompactList}\small\item\em Sample secondary structure representatives from a set of distance classes according to their Boltzmann probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga6504913303bc325659c365d5f59b41e0}{vrna\+\_\+pbacktrack5\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int d1, int d2, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Sample secondary structure representatives with a specified length from a set of distance classes according to their Boltzmann probability. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$ \mbox{\hyperlink{2Dpfold_8h_a1aca740e2a75ab2b2951538266e53d64}{get\+\_\+\+Two\+Dpfold\+\_\+variables}} (const char $\ast$seq, const char $\ast$structure1, char $\ast$structure2, int \mbox{\hyperlink{group__model__details_gaf9202a1a09f5828dc731e2d9a10fa111}{circ}})
+\begin{DoxyCompactList}\small\item\em Get a datastructure containing all necessary attributes and global folding switches. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{2Dpfold_8h_afe994291458ee2ac34d3eb825ef62a15}{destroy\+\_\+\+Two\+Dpfold\+\_\+variables}} (\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$vars)
+\begin{DoxyCompactList}\small\item\em Free all memory occupied by a \mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} datastructure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}} $\ast$ \mbox{\hyperlink{2Dpfold_8h_a692243dac482a1e158a8e1b7881cfda2}{Two\+Dpfold\+List}} (\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$vars, int max\+Distance1, int max\+Distance2)
+\begin{DoxyCompactList}\small\item\em Compute the partition function for all distance classes. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{2Dpfold_8h_ae251288f50dd4ae7d315af0085775f71}{Two\+Dpfold\+\_\+pbacktrack}} (\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$vars, int d1, int d2)
+\begin{DoxyCompactList}\small\item\em Sample secondary structure representatives from a set of distance classes according to their Boltzmann probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{2Dpfold_8h_a13430ac6a7f90df426774f131647d2c7}{Two\+Dpfold\+\_\+pbacktrack5}} (\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$vars, int d1, int d2, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Sample secondary structure representatives with a specified length from a set of distance classes according to their Boltzmann probability. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Partition function implementations for base pair distance classes. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{2Dpfold_8h_a1aca740e2a75ab2b2951538266e53d64}\label{2Dpfold_8h_a1aca740e2a75ab2b2951538266e53d64}} 
+\index{2Dpfold.h@{2Dpfold.h}!get\_TwoDpfold\_variables@{get\_TwoDpfold\_variables}}
+\index{get\_TwoDpfold\_variables@{get\_TwoDpfold\_variables}!2Dpfold.h@{2Dpfold.h}}
+\doxysubsubsection{\texorpdfstring{get\_TwoDpfold\_variables()}{get\_TwoDpfold\_variables()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}}$\ast$ get\+\_\+\+Two\+Dpfold\+\_\+variables (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{structure1,  }\item[{char $\ast$}]{structure2,  }\item[{int}]{circ }\end{DoxyParamCaption})}
+
+
+
+Get a datastructure containing all necessary attributes and global folding switches. 
+
+This function prepares all necessary attributes and matrices etc which are needed for a call of Two\+Dpfold() . A snapshot of all current global model switches (dangles, temperature and so on) is done and stored in the returned datastructure. Additionally, all matrices that will hold the partition function values are prepared.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000007}{Deprecated}}]Use the new API that relies on \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}, and \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & the RNA sequence in uppercase format with letters from the alphabet \{AUCG\} \\
+\hline
+{\em structure1} & the first reference structure in dot-\/bracket notation \\
+\hline
+{\em structure2} & the second reference structure in dot-\/bracket notation \\
+\hline
+{\em circ} & a switch indicating if the sequence is linear (0) or circular (1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the datastructure containing all necessary partition function attributes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{2Dpfold_8h_afe994291458ee2ac34d3eb825ef62a15}\label{2Dpfold_8h_afe994291458ee2ac34d3eb825ef62a15}} 
+\index{2Dpfold.h@{2Dpfold.h}!destroy\_TwoDpfold\_variables@{destroy\_TwoDpfold\_variables}}
+\index{destroy\_TwoDpfold\_variables@{destroy\_TwoDpfold\_variables}!2Dpfold.h@{2Dpfold.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_TwoDpfold\_variables()}{destroy\_TwoDpfold\_variables()}}
+{\footnotesize\ttfamily void destroy\+\_\+\+Two\+Dpfold\+\_\+variables (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$}]{vars }\end{DoxyParamCaption})}
+
+
+
+Free all memory occupied by a \mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} datastructure. 
+
+This function free\textquotesingle{}s all memory occupied by a datastructure obtained from from get\+\_\+\+Two\+Dpfold\+\_\+variabless() or get\+\_\+\+Two\+Dpfold\+\_\+variables\+\_\+from\+\_\+\+MFE()
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000008}{Deprecated}}]Use the new API that relies on \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}, and \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{2Dpfold_8h_a1aca740e2a75ab2b2951538266e53d64}{get\+\_\+\+Two\+Dpfold\+\_\+variables()}}, get\+\_\+\+Two\+Dpfold\+\_\+variables\+\_\+from\+\_\+\+MFE()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vars} & the datastructure to be free\textquotesingle{}d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{2Dpfold_8h_a692243dac482a1e158a8e1b7881cfda2}\label{2Dpfold_8h_a692243dac482a1e158a8e1b7881cfda2}} 
+\index{2Dpfold.h@{2Dpfold.h}!TwoDpfoldList@{TwoDpfoldList}}
+\index{TwoDpfoldList@{TwoDpfoldList}!2Dpfold.h@{2Dpfold.h}}
+\doxysubsubsection{\texorpdfstring{TwoDpfoldList()}{TwoDpfoldList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}$\ast$ Two\+Dpfold\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$}]{vars,  }\item[{int}]{max\+Distance1,  }\item[{int}]{max\+Distance2 }\end{DoxyParamCaption})}
+
+
+
+Compute the partition function for all distance classes. 
+
+This function computes the partition functions for all distance classes according the two reference structures specified in the datastructure \textquotesingle{}vars\textquotesingle{}. Similar to Two\+Dfold() the arguments max\+Distance1 and max\+Distance2 specify the maximum distance to both reference structures. A value of \textquotesingle{}-\/1\textquotesingle{} in either of them makes the appropriate distance restrictionless, i.\+e. all basepair distancies to the reference are taken into account during computation. In case there is a restriction, the returned solution contains an entry where the attribute k=l=-\/1 contains the partition function for all structures exceeding the restriction. A values of \mbox{\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}} in the attribute \textquotesingle{}k\textquotesingle{} of the returned list denotes the end of the list
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000009}{Deprecated}}]Use the new API that relies on \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}, and \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{2Dpfold_8h_a1aca740e2a75ab2b2951538266e53d64}{get\+\_\+\+Two\+Dpfold\+\_\+variables()}}, \mbox{\hyperlink{2Dpfold_8h_afe994291458ee2ac34d3eb825ef62a15}{destroy\+\_\+\+Two\+Dpfold\+\_\+variables()}}, \mbox{\hyperlink{group__kl__neighborhood__pf_structvrna__sol__TwoD__pf__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+pf\+\_\+t}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vars} & the datastructure containing all necessary folding attributes and matrices \\
+\hline
+{\em max\+Distance1} & the maximum basepair distance to reference1 (may be -\/1) \\
+\hline
+{\em max\+Distance2} & the maximum basepair distance to reference2 (may be -\/1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of partition funtions for the appropriate distance classes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{2Dpfold_8h_ae251288f50dd4ae7d315af0085775f71}\label{2Dpfold_8h_ae251288f50dd4ae7d315af0085775f71}} 
+\index{2Dpfold.h@{2Dpfold.h}!TwoDpfold\_pbacktrack@{TwoDpfold\_pbacktrack}}
+\index{TwoDpfold\_pbacktrack@{TwoDpfold\_pbacktrack}!2Dpfold.h@{2Dpfold.h}}
+\doxysubsubsection{\texorpdfstring{TwoDpfold\_pbacktrack()}{TwoDpfold\_pbacktrack()}}
+{\footnotesize\ttfamily char$\ast$ Two\+Dpfold\+\_\+pbacktrack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$}]{vars,  }\item[{int}]{d1,  }\item[{int}]{d2 }\end{DoxyParamCaption})}
+
+
+
+Sample secondary structure representatives from a set of distance classes according to their Boltzmann probability. 
+
+If the argument \textquotesingle{}d1\textquotesingle{} is set to \textquotesingle{}-\/1\textquotesingle{}, the structure will be backtracked in the distance class where all structures exceeding the maximum basepair distance to either of the references reside.
+
+\begin{DoxyPrecond}{Precondition}
+The argument \textquotesingle{}vars\textquotesingle{} must contain precalculated partition function matrices, i.\+e. a call to Two\+Dpfold() preceding this function is mandatory!
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000010}{Deprecated}}]Use the new API that relies on \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}, \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}{vrna\+\_\+pbacktrack\+\_\+\+Two\+D()}}, and \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+Two\+Dpfold()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vars} & the datastructure containing all necessary folding attributes and matrices \\
+\hline
+\mbox{\texttt{ in}}  & {\em d1} & the distance to reference1 (may be -\/1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em d2} & the distance to reference2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{2Dpfold_8h_a13430ac6a7f90df426774f131647d2c7}\label{2Dpfold_8h_a13430ac6a7f90df426774f131647d2c7}} 
+\index{2Dpfold.h@{2Dpfold.h}!TwoDpfold\_pbacktrack5@{TwoDpfold\_pbacktrack5}}
+\index{TwoDpfold\_pbacktrack5@{TwoDpfold\_pbacktrack5}!2Dpfold.h@{2Dpfold.h}}
+\doxysubsubsection{\texorpdfstring{TwoDpfold\_pbacktrack5()}{TwoDpfold\_pbacktrack5()}}
+{\footnotesize\ttfamily char$\ast$ Two\+Dpfold\+\_\+pbacktrack5 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTwoDpfold__vars}{Two\+Dpfold\+\_\+vars}} $\ast$}]{vars,  }\item[{int}]{d1,  }\item[{int}]{d2,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+Sample secondary structure representatives with a specified length from a set of distance classes according to their Boltzmann probability. 
+
+This function does essentially the same as \mbox{\hyperlink{2Dpfold_8h_ae251288f50dd4ae7d315af0085775f71}{Two\+Dpfold\+\_\+pbacktrack()}} with the only difference that partial structures, i.\+e. structures beginning from the 5\textquotesingle{} end with a specified length of the sequence, are backtracked
+
+\begin{DoxyNote}{Note}
+This function does not work (since it makes no sense) for circular RNA sequences! 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+The argument \textquotesingle{}vars\textquotesingle{} must contain precalculated partition function matrices, i.\+e. a call to Two\+Dpfold() preceding this function is mandatory!
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000011}{Deprecated}}]Use the new API that relies on \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}, \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga6504913303bc325659c365d5f59b41e0}{vrna\+\_\+pbacktrack5\+\_\+\+Two\+D()}}, and \mbox{\hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}} instead!\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{2Dpfold_8h_ae251288f50dd4ae7d315af0085775f71}{Two\+Dpfold\+\_\+pbacktrack()}}, Two\+Dpfold()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vars} & the datastructure containing all necessary folding attributes and matrices \\
+\hline
+\mbox{\texttt{ in}}  & {\em d1} & the distance to reference1 (may be -\/1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em d2} & the distance to reference2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & the length of the structure beginning from the 5\textquotesingle{} end \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}

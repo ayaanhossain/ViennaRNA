@@ -1,0 +1,83 @@
+\hypertarget{group__struct__utils__wuss}{}\doxysection{Washington University Secondary Structure (WUSS) notation}
+\label{group__struct__utils__wuss}\index{Washington University Secondary Structure (WUSS) notation@{Washington University Secondary Structure (WUSS) notation}}
+
+
+The WUSS notation, as frequently used for consensus secondary structures in \mbox{\hyperlink{file_formats_msa-formats-stockholm}{Stockholm 1.\+0 format}}.  
+
+
+
+
+\doxysubsection{Detailed Description}
+The WUSS notation, as frequently used for consensus secondary structures in \mbox{\hyperlink{file_formats_msa-formats-stockholm}{Stockholm 1.\+0 format}}. 
+
+This notation allows for a fine-\/grained annotation of base pairs and unpaired nucleotides, including pseudo-\/knots. Below, you\textquotesingle{}ll find a list of secondary structure elements and their corresponding WUSS annotation (See also the infernal user guide at \href{http://eddylab.org/infernal/Userguide.pdf}{\texttt{ http\+://eddylab.\+org/infernal/\+Userguide.\+pdf}}) 
+\begin{DoxyItemize}
+\item {\bfseries{Base pairs}}~\newline
+ Nested base pairs are annotated by matching pairs of the symbols {\ttfamily $<$$>$}, {\ttfamily ()}, {\ttfamily \{\}}, and {\ttfamily \mbox{[}\mbox{]}}. Each of the matching pairs of parenthesis have their special meaning, however, when used as input in our programs, e.\+g. structure constraint, these details are usually ignored. Furthermore, base pairs that constitute as pseudo-\/knot are denoted by letters from the latin alphabet and are, if not denoted otherwise, ignored entirely in our programs.
+\item {\bfseries{Hairpin loops}}~\newline
+ Unpaired nucleotides that constitute the hairpin loop are indicated by underscores, {\ttfamily \+\_\+}.
+
+Example\+: {\ttfamily $<$$<$$<$$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$$>$$>$$>$}
+\item {\bfseries{Bulges and interior loops}}~\newline
+ Residues that constitute a bulge or interior loop are denoted by dashes, {\ttfamily -\/}.
+
+Example\+: {\ttfamily (((-\/-\/$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$-\/)))}
+\item {\bfseries{Multibranch loops}}~\newline
+ Unpaired nucleotides in multibranch loops are indicated by commas {\ttfamily ,}.
+
+Example\+: {\ttfamily (((,,$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$,$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$)))}
+\item {\bfseries{External residues}}~\newline
+ Single stranded nucleotides in the exterior loop, i.\+e. not enclosed by any other pair are denoted by colons, {\ttfamily \+:}.
+
+Example\+: {\ttfamily $<$$<$$<$\+\_\+\+\_\+\+\_\+\+\_\+$>$$>$$>$\+::\+:}
+\item {\bfseries{Insertions}}~\newline
+ In cases where an alignment represents the consensus with a known structure, insertions relative to the known structure are denoted by periods, {\ttfamily .}. Regions where local structural alignment was invoked, leaving regions of both target and query sequence unaligned, are indicated by tildes, {\ttfamily $\sim$}. \begin{DoxyNote}{Note}
+These symbols only appear in alignments of a known (query) structure annotation to a target sequence of unknown structure.
+\end{DoxyNote}
+
+\item {\bfseries{Pseudo-\/knots}}~\newline
+ The WUSS notation allows for annotation of pseudo-\/knots using pairs of upper-\/case/lower-\/case letters. \begin{DoxyNote}{Note}
+Our programs and library functions usually ignore pseudo-\/knots entirely treating them as unpaired nucleotides, if not stated otherwise.
+\end{DoxyNote}
+Example\+: {\ttfamily $<$$<$$<$\+\_\+\+AAA\+\_\+\+\_\+\+\_\+$>$$>$$>$aaa} 
+\end{DoxyItemize}Collaboration diagram for Washington University Secondary Structure (WUSS) notation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{group__struct__utils__wuss}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__wuss_ga02ca70cffb2d864f7b2d95d92218bae0}{vrna\+\_\+db\+\_\+from\+\_\+\+WUSS}} (const char $\ast$wuss)
+\begin{DoxyCompactList}\small\item\em Convert a WUSS annotation string to dot-\/bracket format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__wuss_ga02ca70cffb2d864f7b2d95d92218bae0}\label{group__struct__utils__wuss_ga02ca70cffb2d864f7b2d95d92218bae0}} 
+\index{Washington University Secondary Structure (WUSS) notation@{Washington University Secondary Structure (WUSS) notation}!vrna\_db\_from\_WUSS@{vrna\_db\_from\_WUSS}}
+\index{vrna\_db\_from\_WUSS@{vrna\_db\_from\_WUSS}!Washington University Secondary Structure (WUSS) notation@{Washington University Secondary Structure (WUSS) notation}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_from\_WUSS()}{vrna\_db\_from\_WUSS()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+from\+\_\+\+WUSS (\begin{DoxyParamCaption}\item[{const char $\ast$}]{wuss }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a WUSS annotation string to dot-\/bracket format. 
+
+\begin{DoxyNote}{Note}
+This function flattens all brackets, and treats pseudo-\/knots annotated by matching pairs of upper/lowercase letters as unpaired nucleotides
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em wuss} & The input string in WUSS notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dot-\/bracket notation of the input secondary structure 
+\end{DoxyReturn}

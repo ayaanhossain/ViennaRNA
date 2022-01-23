@@ -1,0 +1,103 @@
+\hypertarget{group__kl__neighborhood__stochbt}{}\doxysection{Stochastic Backtracking of Structures from Distance Based Partitioning}
+\label{group__kl__neighborhood__stochbt}\index{Stochastic Backtracking of Structures from Distance Based Partitioning@{Stochastic Backtracking of Structures from Distance Based Partitioning}}
+
+
+Contains functions related to stochastic backtracking from a specified distance class.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Contains functions related to stochastic backtracking from a specified distance class. 
+
+Collaboration diagram for Stochastic Backtracking of Structures from Distance Based Partitioning\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__kl__neighborhood__stochbt}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}{vrna\+\_\+pbacktrack\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int d1, int d2)
+\begin{DoxyCompactList}\small\item\em Sample secondary structure representatives from a set of distance classes according to their Boltzmann probability. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga6504913303bc325659c365d5f59b41e0}{vrna\+\_\+pbacktrack5\+\_\+\+TwoD}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, int d1, int d2, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Sample secondary structure representatives with a specified length from a set of distance classes according to their Boltzmann probability. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}\label{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}} 
+\index{Stochastic Backtracking of Structures from Distance Based Partitioning@{Stochastic Backtracking of Structures from Distance Based Partitioning}!vrna\_pbacktrack\_TwoD@{vrna\_pbacktrack\_TwoD}}
+\index{vrna\_pbacktrack\_TwoD@{vrna\_pbacktrack\_TwoD}!Stochastic Backtracking of Structures from Distance Based Partitioning@{Stochastic Backtracking of Structures from Distance Based Partitioning}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack\_TwoD()}{vrna\_pbacktrack\_TwoD()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+pbacktrack\+\_\+\+TwoD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{d1,  }\item[{int}]{d2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{2Dpfold_8h}{Vienna\+RNA/2\+Dpfold.\+h}}$>$}
+
+
+
+Sample secondary structure representatives from a set of distance classes according to their Boltzmann probability. 
+
+If the argument \textquotesingle{}d1\textquotesingle{} is set to \textquotesingle{}-\/1\textquotesingle{}, the structure will be backtracked in the distance class where all structures exceeding the maximum basepair distance to either of the references reside.
+
+\begin{DoxyPrecond}{Precondition}
+The argument \textquotesingle{}vars\textquotesingle{} must contain precalculated partition function matrices, i.\+e. a call to \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} preceding this function is mandatory!
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} datastructure containing all necessary folding attributes and matrices \\
+\hline
+\mbox{\texttt{ in}}  & {\em d1} & The distance to reference1 (may be -\/1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em d2} & The distance to reference2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__kl__neighborhood__stochbt_ga6504913303bc325659c365d5f59b41e0}\label{group__kl__neighborhood__stochbt_ga6504913303bc325659c365d5f59b41e0}} 
+\index{Stochastic Backtracking of Structures from Distance Based Partitioning@{Stochastic Backtracking of Structures from Distance Based Partitioning}!vrna\_pbacktrack5\_TwoD@{vrna\_pbacktrack5\_TwoD}}
+\index{vrna\_pbacktrack5\_TwoD@{vrna\_pbacktrack5\_TwoD}!Stochastic Backtracking of Structures from Distance Based Partitioning@{Stochastic Backtracking of Structures from Distance Based Partitioning}}
+\doxysubsubsection{\texorpdfstring{vrna\_pbacktrack5\_TwoD()}{vrna\_pbacktrack5\_TwoD()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+pbacktrack5\+\_\+\+TwoD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$}]{vc,  }\item[{int}]{d1,  }\item[{int}]{d2,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{2Dpfold_8h}{Vienna\+RNA/2\+Dpfold.\+h}}$>$}
+
+
+
+Sample secondary structure representatives with a specified length from a set of distance classes according to their Boltzmann probability. 
+
+This function does essentially the same as \mbox{\hyperlink{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}{vrna\+\_\+pbacktrack\+\_\+\+Two\+D()}} with the only difference that partial structures, i.\+e. structures beginning from the 5\textquotesingle{} end with a specified length of the sequence, are backtracked
+
+\begin{DoxyNote}{Note}
+This function does not work (since it makes no sense) for circular RNA sequences! 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+The argument \textquotesingle{}vars\textquotesingle{} must contain precalculated partition function matrices, i.\+e. a call to \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}} preceding this function is mandatory!
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__kl__neighborhood__stochbt_ga14aceef73f83bbde77bb3a0ca06c9d13}{vrna\+\_\+pbacktrack\+\_\+\+Two\+D()}}, \mbox{\hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em vc} & The \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} datastructure containing all necessary folding attributes and matrices \\
+\hline
+\mbox{\texttt{ in}}  & {\em d1} & The distance to reference1 (may be -\/1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em d2} & The distance to reference2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & The length of the structure beginning from the 5\textquotesingle{} end \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sampled secondary structure in dot-\/bracket notation 
+\end{DoxyReturn}

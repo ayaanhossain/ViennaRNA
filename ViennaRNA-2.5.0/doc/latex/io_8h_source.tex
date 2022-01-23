@@ -1,0 +1,108 @@
+\hypertarget{io_8h_source}{}\doxysection{io.\+h}
+\label{io_8h_source}\index{ViennaRNA/params/io.h@{ViennaRNA/params/io.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PARAMS\_IO\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PARAMS\_IO\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00035}\mbox{\hyperlink{group__energy__parameters__rw_ga2d46720ac5bf0e56ce0dbbff459667d2}{00035}} \textcolor{preprocessor}{\#define VRNA\_PARAMETER\_FORMAT\_DEFAULT     0}}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00051 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00052}\mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{00052}} \mbox{\hyperlink{group__energy__parameters__rw_gabb0583595c67094986ef90cb4f1c7555}{vrna\_params\_load}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   fname[],}
+\DoxyCodeLine{00053                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00065 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00066}\mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{00066}} \mbox{\hyperlink{group__energy__parameters__rw_ga0de3731b3e4017c52bd678549f6c4ae5}{vrna\_params\_save}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   fname[],}
+\DoxyCodeLine{00067                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00089 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00090}\mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{00090}} \mbox{\hyperlink{group__energy__parameters__rw_gabcd9cc7040a6b633b56b1cbd6a14d68e}{vrna\_params\_load\_from\_string}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}   *\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00091                              \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *name,}
+\DoxyCodeLine{00092                              \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00110 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00111}\mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{00111}} \mbox{\hyperlink{group__energy__parameters__rw_ga413bc688695c9a707dbcc678412d6792}{vrna\_params\_load\_defaults}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00126 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00127}\mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{00127}} \mbox{\hyperlink{group__energy__parameters__rw_ga7327fe66ef60c33ba80a87c04db0ee83}{vrna\_params\_load\_RNA\_Turner2004}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00142 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00143}\mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{00143}} \mbox{\hyperlink{group__energy__parameters__rw_ga804393b6dfe06a2c6cae89219dffabb1}{vrna\_params\_load\_RNA\_Turner1999}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00158 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00159}\mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{00159}} \mbox{\hyperlink{group__energy__parameters__rw_ga511a1c17c0fd10a1fbb0936674712ff8}{vrna\_params\_load\_RNA\_Andronescu2007}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00174 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00175}\mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{00175}} \mbox{\hyperlink{group__energy__parameters__rw_ga3a87fe5e73eb906c0fa26f2c42c787fd}{vrna\_params\_load\_RNA\_Langdon2018}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177 }
+\DoxyCodeLine{00190 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00191}\mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{00191}} \mbox{\hyperlink{group__energy__parameters__rw_ga00e07504d66dc24aca7befb4bdaa0db1}{vrna\_params\_load\_RNA\_misc\_special\_hairpins}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193 }
+\DoxyCodeLine{00206 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00207}\mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{00207}} \mbox{\hyperlink{group__energy__parameters__rw_gafa45b5734355baa634ca0a2e2857563e}{vrna\_params\_load\_DNA\_Mathews2004}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00208 }
+\DoxyCodeLine{00209 }
+\DoxyCodeLine{00222 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00223}\mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{00223}} \mbox{\hyperlink{group__energy__parameters__rw_ga4d897130a700f86b7d4035a95f25615a}{vrna\_params\_load\_DNA\_Mathews1999}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00224 }
+\DoxyCodeLine{00225 }
+\DoxyCodeLine{00226 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00227 }
+\DoxyCodeLine{00232 \textcolor{keyword}{enum} parset \{}
+\DoxyCodeLine{00233   UNKNOWN= -\/1, QUIT,}
+\DoxyCodeLine{00234   S, S\_H, HP, HP\_H, B, B\_H, IL, IL\_H, MMH, MMH\_H, MMI, MMI\_H,}
+\DoxyCodeLine{00235   MMI1N, MMI1N\_H, MMI23, MMI23\_H, MMM, MMM\_H, MME, MME\_H, D5, D5\_H, D3, D3\_H,}
+\DoxyCodeLine{00236   INT11, INT11\_H, INT21, INT21\_H, INT22, INT22\_H, ML, TL,}
+\DoxyCodeLine{00237   TRI, HEX, NIN, MISC}
+\DoxyCodeLine{00238 \};}
+\DoxyCodeLine{00239 }
+\DoxyCodeLine{00240 }
+\DoxyCodeLine{00246 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00247}\mbox{\hyperlink{group__energy__parameters__rw_ga5abafd7bad6d506e18bed13b18123cfe}{00247}} \mbox{\hyperlink{group__energy__parameters__rw_ga5abafd7bad6d506e18bed13b18123cfe}{last\_parameter\_file}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00248 }
+\DoxyCodeLine{00249 }
+\DoxyCodeLine{00256 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{00257            \mbox{\hyperlink{group__energy__parameters__rw_ga165a142a3c68fb6655c69ef4ab7cd749}{read\_parameter\_file}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} fname[]),}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00258}\mbox{\hyperlink{group__energy__parameters__rw_ga165a142a3c68fb6655c69ef4ab7cd749}{00258}}            \textcolor{stringliteral}{"{}Use vrna\_params\_load() instead!"{}});}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260 }
+\DoxyCodeLine{00267 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{00268            \mbox{\hyperlink{group__energy__parameters__rw_ga8a43459be386a7489feeab68dc2c6c76}{write\_parameter\_file}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} fname[]),}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00269}\mbox{\hyperlink{group__energy__parameters__rw_ga8a43459be386a7489feeab68dc2c6c76}{00269}}            \textcolor{stringliteral}{"{}Use vrna\_params\_save() instead!"{}});}
+\DoxyCodeLine{00270 }
+\DoxyCodeLine{00271 }
+\DoxyCodeLine{00276 \textcolor{keyword}{enum}  parset}
+\DoxyCodeLine{00277 gettype(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *ident);}
+\DoxyCodeLine{00278 }
+\DoxyCodeLine{00279 }
+\DoxyCodeLine{00284 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{00285 settype(\textcolor{keyword}{enum} parset s);}
+\DoxyCodeLine{00286 }
+\DoxyCodeLine{00287 }
+\DoxyCodeLine{00292 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00293 }
+\DoxyCodeLine{00294 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

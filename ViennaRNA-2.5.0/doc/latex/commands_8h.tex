@@ -1,0 +1,50 @@
+\hypertarget{commands_8h}{}\doxysection{Vienna\+RNA/commands.h File Reference}
+\label{commands_8h}\index{ViennaRNA/commands.h@{ViennaRNA/commands.h}}
+
+
+Parse and apply different commands that alter the behavior of secondary structure prediction and evaluation.  
+
+
+Include dependency graph for commands.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{commands_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__command__files_gac54dec838d7b6bebd5df85f71702d324}{VRNA\+\_\+\+CMD\+\_\+\+PARSE\+\_\+\+HC}}~1U
+\begin{DoxyCompactList}\small\item\em Command parse/apply flag indicating hard constraints. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__command__files_ga8cad3c1f83e6f149829c49a186a83e21}{VRNA\+\_\+\+CMD\+\_\+\+PARSE\+\_\+\+SC}}~2U
+\begin{DoxyCompactList}\small\item\em Command parse/apply flag indicating soft constraints. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__command__files_ga6c6409780698826b04ebfed9151d7649}{VRNA\+\_\+\+CMD\+\_\+\+PARSE\+\_\+\+UD}}~4U
+\begin{DoxyCompactList}\small\item\em Command parse/apply flag indicating unstructured domains. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__command__files_gaf5e20210173cdb83bf70256a454f284b}{VRNA\+\_\+\+CMD\+\_\+\+PARSE\+\_\+\+SD}}~8U
+\begin{DoxyCompactList}\small\item\em Command parse/apply flag indicating structured domains. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__command__files_ga0a6c88e21e366dca14958d69cd024008}{VRNA\+\_\+\+CMD\+\_\+\+PARSE\+\_\+\+DEFAULTS}}
+\begin{DoxyCompactList}\small\item\em Command parse/apply flag indicating default set of commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+command\+\_\+s $\ast$ \mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\+\_\+cmd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A data structure that contains commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{group__command__files_gae5f56400ed43683338f7bf1c1102655a}{vrna\+\_\+file\+\_\+commands\+\_\+read}} (const char $\ast$filename, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Extract a list of commands from a command file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__command__files_gadbe8c9622f7bcc6dcbe3448b98df8656}{vrna\+\_\+file\+\_\+commands\+\_\+apply}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, const char $\ast$filename, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Apply a list of commands from a command file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__command__files_gac65d0fe86f7671a2d2b85dda1a3ddc16}{vrna\+\_\+commands\+\_\+apply}} (\mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}} $\ast$vc, \mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\+\_\+cmd\+\_\+t}} commands, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Apply a list of commands to a \mbox{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__command__files_ga3dc372dcbb43d2c4c91b5ef79b460428}{vrna\+\_\+commands\+\_\+free}} (\mbox{\hyperlink{group__command__files_gaf31afe4c5f8e4bf44a670ab4c3dcd916}{vrna\+\_\+cmd\+\_\+t}} commands)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by a list of commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parse and apply different commands that alter the behavior of secondary structure prediction and evaluation. 
+
+, , 

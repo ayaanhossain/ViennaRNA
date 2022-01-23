@@ -1,0 +1,107 @@
+\hypertarget{group__struct__utils__plist}{}\doxysection{Pair List Representation of Secondary Structures}
+\label{group__struct__utils__plist}\index{Pair List Representation of Secondary Structures@{Pair List Representation of Secondary Structures}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Pair List Representation of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{group__struct__utils__plist}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Data structure representing a single entry of an element probability list (e.\+g. list of pair probabilities)  \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__struct__utils__plist_ga7c7484a8a1e6704b1aefaf589f3b27c1}\label{group__struct__utils__plist_ga7c7484a8a1e6704b1aefaf589f3b27c1}} 
+\#define \mbox{\hyperlink{group__struct__utils__plist_ga7c7484a8a1e6704b1aefaf589f3b27c1}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+BASEPAIR}}~0
+\begin{DoxyCompactList}\small\item\em A Base Pair element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_gac91ab79e9feede5347103949ecf04f8a}\label{group__struct__utils__plist_gac91ab79e9feede5347103949ecf04f8a}} 
+\#define \mbox{\hyperlink{group__struct__utils__plist_gac91ab79e9feede5347103949ecf04f8a}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+GQUAD}}~1
+\begin{DoxyCompactList}\small\item\em A G-\/\+Quadruplex element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_ga4d142e0187b8410b61ec2b168ed4513e}\label{group__struct__utils__plist_ga4d142e0187b8410b61ec2b168ed4513e}} 
+\#define \mbox{\hyperlink{group__struct__utils__plist_ga4d142e0187b8410b61ec2b168ed4513e}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+H\+\_\+\+MOTIF}}~2
+\begin{DoxyCompactList}\small\item\em A Hairpin loop motif element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_gadf5905518079b5495bce3394cd7afb9a}\label{group__struct__utils__plist_gadf5905518079b5495bce3394cd7afb9a}} 
+\#define \mbox{\hyperlink{group__struct__utils__plist_gadf5905518079b5495bce3394cd7afb9a}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+I\+\_\+\+MOTIF}}~3
+\begin{DoxyCompactList}\small\item\em An Internal loop motif element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_ga01d749cdb675dcdbac1dc5103378c699}\label{group__struct__utils__plist_ga01d749cdb675dcdbac1dc5103378c699}} 
+\#define \mbox{\hyperlink{group__struct__utils__plist_ga01d749cdb675dcdbac1dc5103378c699}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+UD\+\_\+\+MOTIF}}~4
+\begin{DoxyCompactList}\small\item\em An Unstructured Domain motif element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_ga36df728a95452170ca8684fc224299ea}\label{group__struct__utils__plist_ga36df728a95452170ca8684fc224299ea}} 
+\#define \mbox{\hyperlink{group__struct__utils__plist_ga36df728a95452170ca8684fc224299ea}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+STACK}}~5
+\begin{DoxyCompactList}\small\item\em A Base Pair stack element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}\label{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}} 
+typedef struct \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}} \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Convenience typedef for data structure \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} $\ast$ \mbox{\hyperlink{group__struct__utils__plist_gaf002d69024d709744664a8b9ca3dd77d}{vrna\+\_\+plist}} (const char $\ast$struc, float \mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}})
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} from a dot-\/bracket string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_elem\_prob\_s@{vrna\_elem\_prob\_s}}\label{structvrna__elem__prob__s}
+\Hypertarget{group__struct__utils__plist_structvrna__elem__prob__s}
+\doxysubsubsection{struct vrna\+\_\+elem\+\_\+prob\+\_\+s}
+Data structure representing a single entry of an element probability list (e.\+g. list of pair probabilities) 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__plist_gaf002d69024d709744664a8b9ca3dd77d}{vrna\+\_\+plist()}}, \mbox{\hyperlink{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}{vrna\+\_\+plist\+\_\+from\+\_\+probs()}}, \mbox{\hyperlink{group__struct__utils__dot__bracket_ga6a51a36b9245d0bac868c5cd172b9611}{vrna\+\_\+db\+\_\+from\+\_\+plist()}}, \mbox{\hyperlink{group__struct__utils__plist_ga7c7484a8a1e6704b1aefaf589f3b27c1}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+BASEPAIR}}, \mbox{\hyperlink{group__struct__utils__plist_gac91ab79e9feede5347103949ecf04f8a}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+GQUAD}}, \mbox{\hyperlink{group__struct__utils__plist_ga4d142e0187b8410b61ec2b168ed4513e}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+H\+\_\+\+MOTIF}}, \mbox{\hyperlink{group__struct__utils__plist_gadf5905518079b5495bce3394cd7afb9a}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+I\+\_\+\+MOTIF}}, \mbox{\hyperlink{group__struct__utils__plist_ga01d749cdb675dcdbac1dc5103378c699}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+UD\+\_\+\+MOTIF}}, \mbox{\hyperlink{group__struct__utils__plist_ga36df728a95452170ca8684fc224299ea}{VRNA\+\_\+\+PLIST\+\_\+\+TYPE\+\_\+\+STACK}} 
+\end{DoxySeeAlso}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}\label{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}} 
+int \mbox{\hyperlink{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}{i}}
+\begin{DoxyCompactList}\small\item\em Start position (usually 5\textquotesingle{} nucleotide that starts the element, e.\+g. base pair) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_acada5be62ed6843334a918ca543f0c0d}\label{group__struct__utils__plist_acada5be62ed6843334a918ca543f0c0d}} 
+int \mbox{\hyperlink{group__struct__utils__plist_acada5be62ed6843334a918ca543f0c0d}{j}}
+\begin{DoxyCompactList}\small\item\em End position (usually 3\textquotesingle{} nucleotide that ends the element, e.\+g. base pair) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}\label{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}} 
+float \mbox{\hyperlink{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}{p}}
+\begin{DoxyCompactList}\small\item\em Probability of the element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__plist_a11715ffa51cb6277db7ebd3d9170d691}\label{group__struct__utils__plist_a11715ffa51cb6277db7ebd3d9170d691}} 
+int \mbox{\hyperlink{group__struct__utils__plist_a11715ffa51cb6277db7ebd3d9170d691}{type}}
+\begin{DoxyCompactList}\small\item\em Type of the element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__plist_gaf002d69024d709744664a8b9ca3dd77d}\label{group__struct__utils__plist_gaf002d69024d709744664a8b9ca3dd77d}} 
+\index{Pair List Representation of Secondary Structures@{Pair List Representation of Secondary Structures}!vrna\_plist@{vrna\_plist}}
+\index{vrna\_plist@{vrna\_plist}!Pair List Representation of Secondary Structures@{Pair List Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_plist()}{vrna\_plist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}}$\ast$ vrna\+\_\+plist (\begin{DoxyParamCaption}\item[{const char $\ast$}]{struc,  }\item[{float}]{pr }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Create a \mbox{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}} from a dot-\/bracket string. 
+
+The dot-\/bracket string is parsed and for each base pair an entry in the plist is created. The probability of each pair in the list is set by a function parameter.
+
+The end of the plist is marked by sequence positions i as well as j equal to 0. This condition should be used to stop looping over its entries
+
+
+\begin{DoxyParams}{Parameters}
+{\em struc} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em pr} & The probability for each base pair used in the plist \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The plist array 
+\end{DoxyReturn}

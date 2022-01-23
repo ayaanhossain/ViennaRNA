@@ -1,0 +1,17 @@
+<map id="Utilities" name="Utilities">
+<area shape="rect" id="node1" href="$group__command__files.html" title="Functions to parse and interpret the content of Command Files." alt="" coords="273,11,388,37"/>
+<area shape="rect" id="node2" href="$group__message__utils.html" title="Functions to print various kind of messages." alt="" coords="289,61,372,86"/>
+<area shape="rect" id="node3" href="$group__data__structures.html" title="All datastructures and typedefs shared among the ViennaRNA Package can be found here." alt="" coords="243,110,418,135"/>
+<area shape="rect" id="node4" href="$group__combinatorics__utils.html" title="Implementations to solve various combinatorial aspects for strings of objects." alt="" coords="245,161,416,186"/>
+<area shape="rect" id="node5" href="$group__struct__utils.html" title="Functions to create, parse, convert, manipulate, and compare secondary structure representations." alt="" coords="260,213,401,253"/>
+<area shape="rect" id="node6" href="$group__units.html" title="Functions to convert between various physical units." alt="" coords="273,283,389,309"/>
+<area shape="rect" id="node7" href="$group__string__utils.html" title="Functions to parse, convert, manipulate, create, and compare (nucleic acid sequence) strings." alt="" coords="248,347,413,387"/>
+<area shape="rect" id="node8" href="$group__alphabet__utils.html" title="Functions to cope with various aspects related to the nucleotide sequence alphabet." alt="" coords="256,432,405,472"/>
+<area shape="rect" id="node9" href="$group__plotting__utils.html" title="Functions for Creating Secondary Structure Plots, Dot&#45;Plots, and More." alt="" coords="297,522,364,547"/>
+<area shape="rect" id="node10" href="$group__search__utils.html" title="Implementations of various search algorithms to detect strings of objects within other strings of obj..." alt="" coords="267,601,395,626"/>
+<area shape="rect" id="node11" href="$group__file__utils.html" title="Functions to parse, write, and convert various file formats and to deal with file system related issu..." alt="" coords="282,694,379,719"/>
+<area shape="rect" id="node12" title=" " alt="" coords="5,437,72,462"/>
+<area shape="rect" id="node13" href="$group__buffer__utils.html" title="Functions that provide dynamically buffered stream&#45;like data structures." alt="" coords="299,786,363,811"/>
+<area shape="rect" id="node14" href="$group__aln__utils.html" title="Functions to extract features from and to manipulate multiple sequence alignments." alt="" coords="235,840,426,880"/>
+<area shape="rect" id="node15" href="$group__file__formats__msa.html" title="Functions to read/write multiple sequence alignments (MSA) in various file formats." alt="" coords="232,910,429,935"/>
+</map>

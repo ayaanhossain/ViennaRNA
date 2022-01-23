@@ -1,0 +1,36 @@
+\hypertarget{RNApuzzler_8h}{}\doxysection{Vienna\+RNA/plotting/\+RNApuzzler/\+RNApuzzler.h File Reference}
+\label{RNApuzzler_8h}\index{ViennaRNA/plotting/RNApuzzler/RNApuzzler.h@{ViennaRNA/plotting/RNApuzzler/RNApuzzler.h}}
+
+
+Implementation of the RNApuzzler RNA secondary structure layout algorithm \cite{wiegreffe:2018}.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{RNApuzzler_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Options data structure for RNApuzzler algorithm implementation.  \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gafd49896df8780c9669125429bc0da9b3}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler}} (const char $\ast$structure, float $\ast$$\ast$x, float $\ast$$\ast$y, double $\ast$$\ast$arc\+\_\+coords, \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape RNApuzzler} algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__plot__layout__utils_gab50a90dd6000a1920d741537af7e0b24}{vrna\+\_\+plot\+\_\+coords\+\_\+puzzler\+\_\+pt}} (short const $\ast$const pair\+\_\+table, float $\ast$$\ast$x, float $\ast$$\ast$y, double $\ast$$\ast$arc\+\_\+coords, \mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$puzzler)
+\begin{DoxyCompactList}\small\item\em Compute nucleotide coordinates for secondary structure plot using the {\itshape RNApuzzler} algorithm \cite{wiegreffe:2018}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$ \mbox{\hyperlink{group__plot__layout__utils_ga838ff131d5430461d0c4c41c4aba45bc}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler}} (void)
+\begin{DoxyCompactList}\small\item\em Create an RNApuzzler options data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__plot__layout__utils_ga551344268c4245f3f75994a51c517a30}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+free}} (\mbox{\hyperlink{group__plot__layout__utils_structvrna__plot__options__puzzler__t}{vrna\+\_\+plot\+\_\+options\+\_\+puzzler\+\_\+t}} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Free memory occupied by an RNApuzzler options data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the RNApuzzler RNA secondary structure layout algorithm \cite{wiegreffe:2018}. 
+

@@ -1,0 +1,7 @@
+<map id="The RNA Folding Grammar" name="The RNA Folding Grammar">
+<area shape="rect" id="node1" href="$group__model__details.html" title="Functions and data structures to fine&#45;tune the implemented secondary structure evaluation model." alt="" coords="244,5,391,45"/>
+<area shape="rect" id="node2" href="$group__energy__parameters.html" title="All relevant functions to retrieve and copy pre&#45;calculated energy parameter sets as well as reading/w..." alt="" coords="250,70,385,95"/>
+<area shape="rect" id="node3" href="$group__constraints.html" title="This module provides general functions that allow for an easy control of constrained secondary struct..." alt="" coords="242,120,393,160"/>
+<area shape="rect" id="node4" title="The RNA folding grammar as implemented in RNAlib." alt="" coords="5,99,185,125"/>
+<area shape="rect" id="node5" href="$group__domains.html" title="This module covers simple and straight&#45;forward extensions to the RNA folding grammar." alt="" coords="233,185,401,239"/>
+</map>

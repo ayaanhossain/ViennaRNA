@@ -1,0 +1,199 @@
+\hypertarget{utils_2basic_8h_source}{}\doxysection{basic.\+h}
+\label{utils_2basic_8h_source}\index{ViennaRNA/utils/basic.h@{ViennaRNA/utils/basic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_UTILS\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_UTILS\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00027 \textcolor{comment}{/* two helper macros to indicate whether a function should be exported in}}
+\DoxyCodeLine{00028 \textcolor{comment}{ * the library or stays hidden */}}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#define PUBLIC}}
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\#define PRIVATE static}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00035}\mbox{\hyperlink{group__utils_gad403c9ea58f1836689404c2931419c8c}{00035}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_ERROR                  1U}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00039}\mbox{\hyperlink{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}{00039}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_QUIT                   2U}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00043}\mbox{\hyperlink{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}{00043}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_MISC                   4U}}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00052}\mbox{\hyperlink{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}{00052}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_FASTA\_HEADER           8U}}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054 \textcolor{comment}{/*}}
+\DoxyCodeLine{00055 \textcolor{comment}{ *  @brief  Input flag for get\_input\_line():\(\backslash\)n}}
+\DoxyCodeLine{00056 \textcolor{comment}{ *  Tell get\_input\_line() that we assume to read a nucleotide sequence}}
+\DoxyCodeLine{00057 \textcolor{comment}{ *}}
+\DoxyCodeLine{00058 \textcolor{comment}{ */}}
+\DoxyCodeLine{00059 \textcolor{preprocessor}{\#define VRNA\_INPUT\_SEQUENCE               16U}}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00065}\mbox{\hyperlink{group__utils_gac08a9df45b9721b97a47dbfe7a6e5f85}{00065}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_CONSTRAINT             32U}}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00071}\mbox{\hyperlink{group__utils_ga086742158293217a46ae2f71bb296937}{00071}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_NO\_TRUNCATION          256U}}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00076}\mbox{\hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{00076}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_NO\_REST                512U}}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00081}\mbox{\hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{00081}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_NO\_SPAN                1024U}}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00086}\mbox{\hyperlink{group__utils_gab4db885222b3b69608310d7c7e63e286}{00086}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_NOSKIP\_BLANK\_LINES     2048U}}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00091}\mbox{\hyperlink{group__utils_ga305474b93ccb79ae4c7754016a8ddd84}{00091}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_BLANK\_LINE             4096U}}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00096}\mbox{\hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{00096}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_NOSKIP\_COMMENTS        128U}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00101}\mbox{\hyperlink{group__utils_gaf2062e0eeefffd3ed639af460b3d4fab}{00101}} \textcolor{preprocessor}{\#define VRNA\_INPUT\_COMMENT                8192U}}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00106}\mbox{\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{00106}} \textcolor{preprocessor}{\#define MIN2(A, B)      ((A) < (B) ? (A) : (B))}}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00111}\mbox{\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{00111}} \textcolor{preprocessor}{\#define MAX2(A, B)      ((A) > (B) ? (A) : (B))}}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00116}\mbox{\hyperlink{group__utils_ga721b8d5f3abef17f10293f1f7f8c958e}{00116}} \textcolor{preprocessor}{\#define MIN3(A, B, C)   (MIN2((MIN2((A), (B))), (C)))}}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00121}\mbox{\hyperlink{group__utils_ga8d577123d2e66d2b7d0bf9af6e172b93}{00121}} \textcolor{preprocessor}{\#define MAX3(A, B, C)   (MAX2((MAX2((A), (B))), (C)))}}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{00124 \textcolor{preprocessor}{\#include <stdarg.h>}}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129 \textcolor{preprocessor}{\#ifdef WITH\_DMALLOC}}
+\DoxyCodeLine{00130 \textcolor{comment}{/* use dmalloc library to check for memory management bugs */}}
+\DoxyCodeLine{00131 \textcolor{preprocessor}{\#include "{}dmalloc.h"{}}}
+\DoxyCodeLine{00132 \textcolor{preprocessor}{\#define vrna\_alloc(S)       calloc(1, (S))}}
+\DoxyCodeLine{00133 \textcolor{preprocessor}{\#define vrna\_realloc(p, S)  xrealloc(p, S)}}
+\DoxyCodeLine{00134 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{00142 \textcolor{keywordtype}{void} *}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00143}\mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{00143}} \mbox{\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}}(\textcolor{keywordtype}{unsigned} size);}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00153 \textcolor{keywordtype}{void} *}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00154}\mbox{\hyperlink{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}{00154}} \mbox{\hyperlink{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}{vrna\_realloc}}(\textcolor{keywordtype}{void}     *p,}
+\DoxyCodeLine{00155              \textcolor{keywordtype}{unsigned} size);}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00159 }
+\DoxyCodeLine{00163 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00164}\mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{00164}} \mbox{\hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00175 \textcolor{keyword}{extern} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \mbox{\hyperlink{group__utils_gaf9a866c8417afda7368bbac939ab3c47}{xsubi}}[3];}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00184 \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00185}\mbox{\hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{00185}} \mbox{\hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\_urn}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00186 }
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00196 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00197}\mbox{\hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{00197}} \mbox{\hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{vrna\_int\_urn}}(\textcolor{keywordtype}{int}  from,}
+\DoxyCodeLine{00198              \textcolor{keywordtype}{int}  to);}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200 }
+\DoxyCodeLine{00209 \textcolor{keywordtype}{char} *}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00210}\mbox{\hyperlink{group__utils_gad3bbe8d01afb1310609cb018d5290550}{00210}} \mbox{\hyperlink{group__utils_gad3bbe8d01afb1310609cb018d5290550}{vrna\_time\_stamp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00211 }
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00233 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00234}\mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{00234}} \mbox{\hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\_input\_line}}(\textcolor{keywordtype}{char}         **\textcolor{keywordtype}{string},}
+\DoxyCodeLine{00235                \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);}
+\DoxyCodeLine{00236 }
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00251 \textcolor{keywordtype}{int} *}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00252}\mbox{\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{00252}} \mbox{\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\_idx\_row\_wise}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254 }
+\DoxyCodeLine{00269 \textcolor{keywordtype}{int} *}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00270}\mbox{\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{00270}} \mbox{\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\_idx\_col\_wise}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{00271 }
+\DoxyCodeLine{00272 }
+\DoxyCodeLine{00295 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00296}\mbox{\hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{00296}} \mbox{\hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\_message\_error}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format,}
+\DoxyCodeLine{00297                    ...);}
+\DoxyCodeLine{00298 }
+\DoxyCodeLine{00299 }
+\DoxyCodeLine{00312 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00313}\mbox{\hyperlink{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}{00313}} \mbox{\hyperlink{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}{vrna\_message\_verror}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,}
+\DoxyCodeLine{00314                     va\_list     args);}
+\DoxyCodeLine{00315 }
+\DoxyCodeLine{00316 }
+\DoxyCodeLine{00328 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00329}\mbox{\hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{00329}} \mbox{\hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\_message\_warning}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format,}
+\DoxyCodeLine{00330                      ...);}
+\DoxyCodeLine{00331 }
+\DoxyCodeLine{00332 }
+\DoxyCodeLine{00344 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00345}\mbox{\hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{00345}} \mbox{\hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{vrna\_message\_vwarning}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,}
+\DoxyCodeLine{00346                       va\_list     args);}
+\DoxyCodeLine{00347 }
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00360 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00361}\mbox{\hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{00361}} \mbox{\hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\_message\_info}}(FILE        *fp,}
+\DoxyCodeLine{00362                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,}
+\DoxyCodeLine{00363                   ...);}
+\DoxyCodeLine{00364 }
+\DoxyCodeLine{00365 }
+\DoxyCodeLine{00377 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00378}\mbox{\hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{00378}} \mbox{\hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{vrna\_message\_vinfo}}(FILE       *fp,}
+\DoxyCodeLine{00379                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *format,}
+\DoxyCodeLine{00380                    va\_list    args);}
+\DoxyCodeLine{00381 }
+\DoxyCodeLine{00382 }
+\DoxyCodeLine{00388 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00389}\mbox{\hyperlink{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}{00389}} \mbox{\hyperlink{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}{vrna\_message\_input\_seq\_simple}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00390 }
+\DoxyCodeLine{00391 }
+\DoxyCodeLine{00400 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00401}\mbox{\hyperlink{group__message__utils_gaf4d194d558b0c975f269de01dea52460}{00401}} \mbox{\hyperlink{group__message__utils_gaf4d194d558b0c975f269de01dea52460}{vrna\_message\_input\_seq}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{00402 }
+\DoxyCodeLine{00403 }
+\DoxyCodeLine{00404 \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00405 vrna\_message\_input\_msa(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{00406 }
+\DoxyCodeLine{00407 }
+\DoxyCodeLine{00412 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00413 }
+\DoxyCodeLine{00414 DEPRECATED(\textcolor{keywordtype}{int} *get\_indx(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"{}Use vrna\_idx\_col\_wise() instead"{}});}
+\DoxyCodeLine{00415 }
+\DoxyCodeLine{00416 DEPRECATED(\textcolor{keywordtype}{int} *get\_iindx(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"{}Use vrna\_idx\_row\_wise() instead"{}});}
+\DoxyCodeLine{00417 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00430}\mbox{\hyperlink{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}{00430}} DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}{get\_line}}(FILE *fp), \textcolor{stringliteral}{"{}Use vrna\_read\_line() instead"{}});}
+\DoxyCodeLine{00431 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00438}\mbox{\hyperlink{utils_2basic_8h_a6bf778117d31b7fd90db435323f4ef74}{00438}} DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{utils_2basic_8h_a6bf778117d31b7fd90db435323f4ef74}{print\_tty\_input\_seq}}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"{}Use vrna\_message\_input\_seq\_simple() instead"{}});}
+\DoxyCodeLine{00439 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00448}\mbox{\hyperlink{utils_2basic_8h_ae4ef89b662a3e9b5b5f0781d9757aba0}{00448}} DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{utils_2basic_8h_ae4ef89b662a3e9b5b5f0781d9757aba0}{print\_tty\_input\_seq\_str}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s), \textcolor{stringliteral}{"{}Use vrna\_message\_input\_seq() instead"{}});}
+\DoxyCodeLine{00449 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00457}\mbox{\hyperlink{utils_2basic_8h_af2355fa8746f2f30fbe71db65dea3d51}{00457}} DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{utils_2basic_8h_af2355fa8746f2f30fbe71db65dea3d51}{warn\_user}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} message[]), \textcolor{stringliteral}{"{}Use vrna\_message\_warning() instead"{}});}
+\DoxyCodeLine{00458 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00464}\mbox{\hyperlink{utils_2basic_8h_a127ce946e56b5a5773781cabe68e38c5}{00464}} DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{utils_2basic_8h_a127ce946e56b5a5773781cabe68e38c5}{nrerror}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} message[]), \textcolor{stringliteral}{"{}Use vrna\_message\_error() instead()"{}});}
+\DoxyCodeLine{00465 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00471}\mbox{\hyperlink{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}{00471}} DEPRECATED(\textcolor{keywordtype}{void} *\mbox{\hyperlink{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}}(\textcolor{keywordtype}{unsigned} size), \textcolor{stringliteral}{"{}Use vrna\_alloc() instead"{}});}
+\DoxyCodeLine{00472 }
+\DoxyCodeLine{00478 DEPRECATED(\textcolor{keywordtype}{void} *\mbox{\hyperlink{utils_2basic_8h_a9037ada838835b1b9db41581a021b0c8}{xrealloc}}(\textcolor{keywordtype}{void}      *p,}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00479}\mbox{\hyperlink{utils_2basic_8h_a9037ada838835b1b9db41581a021b0c8}{00479}}                           \textcolor{keywordtype}{unsigned}  size), \textcolor{stringliteral}{"{}Use vrna\_realloc() instead"{}});}
+\DoxyCodeLine{00480 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00485}\mbox{\hyperlink{utils_2basic_8h_a8aaa6d9be6f803f496d9b97375c371f3}{00485}} DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{utils_2basic_8h_a8aaa6d9be6f803f496d9b97375c371f3}{init\_rand}}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"{}Use vrna\_init\_rand() instead"{}});}
+\DoxyCodeLine{00486 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00492}\mbox{\hyperlink{utils_2basic_8h_aaa328491c84996e445d027fde9800f2e}{00492}} DEPRECATED(\textcolor{keywordtype}{double} \mbox{\hyperlink{utils_2basic_8h_aaa328491c84996e445d027fde9800f2e}{urn}}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"{}Use vrna\_urn() instead"{}});}
+\DoxyCodeLine{00493 }
+\DoxyCodeLine{00499 DEPRECATED(\textcolor{keywordtype}{int} \mbox{\hyperlink{utils_2basic_8h_a68ff0849d44f62fe491800378a5ffcb4}{int\_urn}}(\textcolor{keywordtype}{int}  from,}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00500}\mbox{\hyperlink{utils_2basic_8h_a68ff0849d44f62fe491800378a5ffcb4}{00500}}                        \textcolor{keywordtype}{int}  to), \textcolor{stringliteral}{"{}Use vrna\_int\_urn() instead()"{}});}
+\DoxyCodeLine{00501 }
+\DoxyCodeLine{00507 DEPRECATED(\textcolor{keywordtype}{void} \mbox{\hyperlink{utils_2basic_8h_ab213334ce977b6d21611cdea6b80c3bf}{filecopy}}(FILE *from,}
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00508}\mbox{\hyperlink{utils_2basic_8h_ab213334ce977b6d21611cdea6b80c3bf}{00508}}                          FILE *to), \textcolor{stringliteral}{"{}Use vrna\_file\_copy() instead"{}});}
+\DoxyCodeLine{00509 }
+\DoxyCodeLine{\Hypertarget{utils_2basic_8h_source_l00515}\mbox{\hyperlink{utils_2basic_8h_a7afeb906cb36e9d77379eabc6907ac46}{00515}} DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{utils_2basic_8h_a7afeb906cb36e9d77379eabc6907ac46}{time\_stamp}}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"{}Use vrna\_time\_stamp() instead"{}});}
+\DoxyCodeLine{00516 }
+\DoxyCodeLine{00517 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00518 }
+\DoxyCodeLine{00519 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,101 @@
+\hypertarget{datastructures_2basic_8h}{}\doxysection{Vienna\+RNA/datastructures/basic.h File Reference}
+\label{datastructures_2basic_8h}\index{ViennaRNA/datastructures/basic.h@{ViennaRNA/datastructures/basic.h}}
+
+
+Various data structures and pre-\/processor macros.  
+
+
+Include dependency graph for basic.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{datastructures_2basic_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{datastructures_2basic_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__data__structures_structvrna__basepair__s}{vrna\+\_\+basepair\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Base pair data structure used in subopt.\+c.  \mbox{\hyperlink{group__data__structures_structvrna__basepair__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{vrna\+\_\+cpair\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em this datastructure is used as input parameter in functions of PS\+\_\+dot.\+c  \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structvrna__color__s}{vrna\+\_\+color\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{group__data__structures_structvrna__data__linear__s}{vrna\+\_\+data\+\_\+linear\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{vrna\+\_\+sect\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Stack of partial structures for backtracking.  \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\+\_\+bp\+\_\+stack\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Base pair stack element.  \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}}
+\begin{DoxyCompactList}\small\item\em contributions to p\+\_\+u  \mbox{\hyperlink{group__data__structures_structpu__contrib}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structinteract}{interact}}
+\begin{DoxyCompactList}\small\item\em interaction data structure for RNAup  \mbox{\hyperlink{group__data__structures_structinteract}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structpu__out}{pu\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em Collection of all free\+\_\+energy of beeing unpaired values for output.  \mbox{\hyperlink{group__data__structures_structpu__out}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structconstrain}{constrain}}
+\begin{DoxyCompactList}\small\item\em constraints for cofolding  \mbox{\hyperlink{group__data__structures_structconstrain}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structduplexT}{duplexT}}
+\begin{DoxyCompactList}\small\item\em Data structure for RNAduplex.  \mbox{\hyperlink{group__data__structures_structduplexT}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structnode}{node}}
+\begin{DoxyCompactList}\small\item\em Data structure for RNAsnoop (fold energy list)  \mbox{\hyperlink{group__data__structures_structnode}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structsnoopT}{snoopT}}
+\begin{DoxyCompactList}\small\item\em Data structure for RNAsnoop.  \mbox{\hyperlink{group__data__structures_structsnoopT}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{group__data__structures_structdupVar}{dup\+Var}}
+\begin{DoxyCompactList}\small\item\em Data structure used in RNApkplex.  \mbox{\hyperlink{group__data__structures_structdupVar}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__basepair__s}{vrna\+\_\+basepair\+\_\+s}} \mbox{\hyperlink{group__data__structures_gac8c5669d3fb813cacf506489689305ce}{vrna\+\_\+basepair\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the base pair repesenting data structure \mbox{\hyperlink{group__data__structures_structvrna__basepair__s}{vrna\+\_\+basepair\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}} \mbox{\hyperlink{group__data__structures_ga5bd6f0d16685b1249b7c3b73049dd5dc}{vrna\+\_\+plist\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the base pair list repesenting data structure \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\+\_\+bp\+\_\+stack\+\_\+s}} \mbox{\hyperlink{group__data__structures_gaa651bda42e7692f08cb603cd6834b0ee}{vrna\+\_\+bp\+\_\+stack\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for the base pair stack repesenting data structure \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\+\_\+bp\+\_\+stack\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{vrna\+\_\+cpair\+\_\+s}} \mbox{\hyperlink{group__data__structures_gae4fc91141cc69c6d8eaf1332cb991ecc}{vrna\+\_\+cpair\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for data structure \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{vrna\+\_\+cpair\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{vrna\+\_\+sect\+\_\+s}} \mbox{\hyperlink{group__data__structures_gacc9cdae790dac75a7024e7069c0d4400}{vrna\+\_\+sect\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Typename for stack of partial structures \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{vrna\+\_\+sect\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef double \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\+\_\+\+OR\+\_\+\+DBL}}
+\begin{DoxyCompactList}\small\item\em Typename for floating point number in partition function computations. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__basepair__s}{vrna\+\_\+basepair\+\_\+s}} \mbox{\hyperlink{group__data__structures_ga4381025ffbd692e54189b2c679c79c99}{PAIR}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__data__structures_structvrna__basepair__s}{vrna\+\_\+basepair\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}} \mbox{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\+\_\+elem\+\_\+prob\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{vrna\+\_\+cpair\+\_\+s}} \mbox{\hyperlink{group__data__structures_ga8412f116a2eb07b59ade9e14ca7c5ef1}{cpair}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__data__structures_structvrna__cpair__s}{vrna\+\_\+cpair\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{vrna\+\_\+sect\+\_\+s}} \mbox{\hyperlink{group__data__structures_gaaacedee1f05d3d45aa6764eca51a8876}{sect}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__data__structures_structvrna__sect__s}{vrna\+\_\+sect\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\+\_\+bp\+\_\+stack\+\_\+s}} \mbox{\hyperlink{group__data__structures_gaaeed53a7508c6ce549a98223e94b25df}{bondT}}
+\begin{DoxyCompactList}\small\item\em Old typename of \mbox{\hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\+\_\+bp\+\_\+stack\+\_\+s}}. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structpu__contrib}{pu\+\_\+contrib}} \mbox{\hyperlink{group__data__structures_ga8f28b2ff98fb3f7a139c50fda3d01a77}{pu\+\_\+contrib}}
+\begin{DoxyCompactList}\small\item\em contributions to p\+\_\+u \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structinteract}{interact}} \mbox{\hyperlink{group__data__structures_ga2d25e7fc868ebb4fa8b5bfec1c5eb771}{interact}}
+\begin{DoxyCompactList}\small\item\em interaction data structure for RNAup \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structpu__out}{pu\+\_\+out}} \mbox{\hyperlink{group__data__structures_gabc7a2003605bb458e161a391be3f2cbd}{pu\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em Collection of all free\+\_\+energy of beeing unpaired values for output. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structconstrain}{constrain}} \mbox{\hyperlink{group__data__structures_ga77624181a1c5caa27e9cf9f1da33604f}{constrain}}
+\begin{DoxyCompactList}\small\item\em constraints for cofolding \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structnode}{node}} \mbox{\hyperlink{group__data__structures_ga520389d6980cd4ce9f2450e93e270944}{folden}}
+\begin{DoxyCompactList}\small\item\em Data structure for RNAsnoop (fold energy list) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{group__data__structures_structdupVar}{dup\+Var}} \mbox{\hyperlink{group__data__structures_gaa527b6c15d607e89f7107bbb24e70c4c}{dup\+Var}}
+\begin{DoxyCompactList}\small\item\em Data structure used in RNApkplex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__data__structures_ga21744ae2d6a17309f9327d3547cef0cb}{vrna\+\_\+\+C11\+\_\+features}} (void)
+\begin{DoxyCompactList}\small\item\em Dummy symbol to check whether the library was build using C11/\+C++11 features. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Various data structures and pre-\/processor macros. 
+

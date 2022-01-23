@@ -1,0 +1,47 @@
+\hypertarget{perturbation__fold_8h_source}{}\doxysection{perturbation\+\_\+fold.\+h}
+\label{perturbation__fold_8h_source}\index{ViennaRNA/perturbation\_fold.h@{ViennaRNA/perturbation\_fold.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PERTURBATION\_FOLD\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PERTURBATION\_FOLD\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00024}\mbox{\hyperlink{group__perturbation_ga81e10993d1ae728e4e02022b33155a12}{00024}} \textcolor{preprocessor}{\#define VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC 0}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00033}\mbox{\hyperlink{group__perturbation_gac070dfb9cafaeb14d5652bd9adf0f6b1}{00033}} \textcolor{preprocessor}{\#define VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE 1}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00040}\mbox{\hyperlink{group__perturbation_gae5126200d80dbb282f46083fffc606bf}{00040}} \textcolor{preprocessor}{\#define VRNA\_MINIMIZER\_DEFAULT 0}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00049}\mbox{\hyperlink{group__perturbation_gab1d89db58e8c497795a5005f5dbc8c4a}{00049}} \textcolor{preprocessor}{\#define VRNA\_MINIMIZER\_CONJUGATE\_FR 1}}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00058}\mbox{\hyperlink{group__perturbation_ga5aaeafe1b0aa77a5cda18943ff94b02f}{00058}} \textcolor{preprocessor}{\#define VRNA\_MINIMIZER\_CONJUGATE\_PR 2}}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00067}\mbox{\hyperlink{group__perturbation_ga9be8a702cddf58235571ace11cc41b22}{00067}} \textcolor{preprocessor}{\#define VRNA\_MINIMIZER\_VECTOR\_BFGS 3}}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00076}\mbox{\hyperlink{group__perturbation_ga7b0a65c6c92fa1d8012383ba9d3dcb4f}{00076}} \textcolor{preprocessor}{\#define VRNA\_MINIMIZER\_VECTOR\_BFGS2 4}}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00085}\mbox{\hyperlink{group__perturbation_ga9ecd2144c2ebed7533233da3986521b0}{00085}} \textcolor{preprocessor}{\#define VRNA\_MINIMIZER\_STEEPEST\_DESCENT 5}}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00096}\mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{00096}} \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\_callback}})(\textcolor{keywordtype}{int}     iteration,}
+\DoxyCodeLine{00097                                   \textcolor{keywordtype}{double}  score,}
+\DoxyCodeLine{00098                                   \textcolor{keywordtype}{double}  *epsilon);}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{\Hypertarget{perturbation__fold_8h_source_l00139}\mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{00139}} \textcolor{keywordtype}{void} \mbox{\hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\_sc\_minimize\_pertubation}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00140                                   \textcolor{keyword}{const} \textcolor{keywordtype}{double}          *q\_prob\_unpaired,}
+\DoxyCodeLine{00141                                   \textcolor{keywordtype}{int}                   objective\_function,}
+\DoxyCodeLine{00142                                   \textcolor{keywordtype}{double}                sigma\_squared,}
+\DoxyCodeLine{00143                                   \textcolor{keywordtype}{double}                tau\_squared,}
+\DoxyCodeLine{00144                                   \textcolor{keywordtype}{int}                   algorithm,}
+\DoxyCodeLine{00145                                   \textcolor{keywordtype}{int}                   sample\_size,}
+\DoxyCodeLine{00146                                   \textcolor{keywordtype}{double}                *epsilon,}
+\DoxyCodeLine{00147                                   \textcolor{keywordtype}{double}                initialStepSize,}
+\DoxyCodeLine{00148                                   \textcolor{keywordtype}{double}                minStepSize,}
+\DoxyCodeLine{00149                                   \textcolor{keywordtype}{double}                minImprovement,}
+\DoxyCodeLine{00150                                   \textcolor{keywordtype}{double}                minimizerTolerance,}
+\DoxyCodeLine{00151                                   \mbox{\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\_callback}}     callback);}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

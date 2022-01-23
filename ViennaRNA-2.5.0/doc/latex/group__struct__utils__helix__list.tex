@@ -1,0 +1,63 @@
+\hypertarget{group__struct__utils__helix__list}{}\doxysection{Helix List Representation of Secondary Structures}
+\label{group__struct__utils__helix__list}\index{Helix List Representation of Secondary Structures@{Helix List Representation of Secondary Structures}}
+
+
+\doxysubsection{Detailed Description}
+Collaboration diagram for Helix List Representation of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{group__struct__utils__helix__list}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group__struct__utils__helix__list_structvrna__hx__s}{vrna\+\_\+hx\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Data structure representing an entry of a helix list.  \mbox{\hyperlink{group__struct__utils__helix__list_structvrna__hx__s}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}\label{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}} 
+typedef struct \mbox{\hyperlink{group__struct__utils__helix__list_structvrna__hx__s}{vrna\+\_\+hx\+\_\+s}} \mbox{\hyperlink{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}{vrna\+\_\+hx\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Convenience typedef for data structure \mbox{\hyperlink{group__struct__utils__helix__list_structvrna__hx__s}{vrna\+\_\+hx\+\_\+s}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}{vrna\+\_\+hx\+\_\+t}} $\ast$ \mbox{\hyperlink{group__struct__utils__helix__list_ga7ca60670fbbf23ae2ac9f63e5dbf8aef}{vrna\+\_\+hx\+\_\+from\+\_\+ptable}} (short $\ast$pt)
+\begin{DoxyCompactList}\small\item\em Convert a pair table representation of a secondary structure into a helix list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__struct__utils__helix__list_ga2fdaac8bb6c239c119ad5c20b145b7f2}\label{group__struct__utils__helix__list_ga2fdaac8bb6c239c119ad5c20b145b7f2}} 
+\mbox{\hyperlink{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}{vrna\+\_\+hx\+\_\+t}} $\ast$ \mbox{\hyperlink{group__struct__utils__helix__list_ga2fdaac8bb6c239c119ad5c20b145b7f2}{vrna\+\_\+hx\+\_\+merge}} (const \mbox{\hyperlink{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}{vrna\+\_\+hx\+\_\+t}} $\ast$list, int maxdist)
+\begin{DoxyCompactList}\small\item\em Create a merged helix list from another helix list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{vrna\_hx\_s@{vrna\_hx\_s}}\label{structvrna__hx__s}
+\Hypertarget{group__struct__utils__helix__list_structvrna__hx__s}
+\doxysubsubsection{struct vrna\+\_\+hx\+\_\+s}
+Data structure representing an entry of a helix list. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__helix__list_ga7ca60670fbbf23ae2ac9f63e5dbf8aef}\label{group__struct__utils__helix__list_ga7ca60670fbbf23ae2ac9f63e5dbf8aef}} 
+\index{Helix List Representation of Secondary Structures@{Helix List Representation of Secondary Structures}!vrna\_hx\_from\_ptable@{vrna\_hx\_from\_ptable}}
+\index{vrna\_hx\_from\_ptable@{vrna\_hx\_from\_ptable}!Helix List Representation of Secondary Structures@{Helix List Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_hx\_from\_ptable()}{vrna\_hx\_from\_ptable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__struct__utils__helix__list_ga877363f3a1703b53ecd025c6fcf897a0}{vrna\+\_\+hx\+\_\+t}}$\ast$ vrna\+\_\+hx\+\_\+from\+\_\+ptable (\begin{DoxyParamCaption}\item[{short $\ast$}]{pt }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a pair table representation of a secondary structure into a helix list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & The secondary structure in pair table representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The secondary structure represented as a helix list 
+\end{DoxyReturn}

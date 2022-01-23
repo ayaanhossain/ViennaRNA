@@ -1,0 +1,5 @@
+<map id="Stochastic Backtracking of Structures from Distance Based Partitioning" name="Stochastic Backtracking of Structures from Distance Based Partitioning">
+<area shape="rect" id="node1" title="Contains functions related to stochastic backtracking from a specified distance class." alt="" coords="276,30,463,85"/>
+<area shape="rect" id="node2" href="$group__kl__neighborhood.html" title=" " alt="" coords="5,5,228,45"/>
+<area shape="rect" id="node3" href="$group__subopt__stochbt.html" title="Functions to draw random structure samples from the ensemble according to their equilibrium probabili..." alt="" coords="25,69,208,109"/>
+</map>

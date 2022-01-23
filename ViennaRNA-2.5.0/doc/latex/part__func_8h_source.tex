@@ -1,0 +1,246 @@
+\hypertarget{part__func_8h_source}{}\doxysection{part\+\_\+func.\+h}
+\label{part__func_8h_source}\index{ViennaRNA/part\_func.h@{ViennaRNA/part\_func.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00001}\mbox{\hyperlink{group__pf__cofold_ga5445d8d96a40e9e79b1fa5a7f1a6b7ea}{00001}} \textcolor{preprocessor}{\#ifndef VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00008 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_s}} \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_t}};}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{group__part__func__global_structvrna__multimer__pf__s}{vrna\_multimer\_pf\_s}} \mbox{\hyperlink{group__part__func__global_structvrna__multimer__pf__s}{vrna\_multimer\_pf\_t}};}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00018 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_s}} \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{cofoldF}};}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}}>}}
+\DoxyCodeLine{00024 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}}>}}
+\DoxyCodeLine{00025 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_2structures_8h}{ViennaRNA/utils/structures.h}}>}}
+\DoxyCodeLine{00026 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}}>}}
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{centroid_8h}{ViennaRNA/centroid.h}}>}}
+\DoxyCodeLine{00028 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{equilibrium__probs_8h}{ViennaRNA/equilibrium\_probs.h}}>}}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{boltzmann__sampling_8h}{ViennaRNA/boltzmann\_sampling.h}}>}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#ifdef VRNA\_WARN\_DEPRECATED}}
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\# if defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00033 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("{}"{}}, msg)))}
+\DoxyCodeLine{00034 \textcolor{preprocessor}{\# elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00035 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}}
+\DoxyCodeLine{00036 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{00037 \textcolor{preprocessor}{\#  define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00038 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{00039 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\# define DEPRECATED(func, msg) func}}
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00052 \textcolor{comment}{/*}}
+\DoxyCodeLine{00053 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00054 \textcolor{comment}{ \# PARTITION FUNCTION COMPUTATION                \#}}
+\DoxyCodeLine{00055 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00056 \textcolor{comment}{ */}}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00098}\mbox{\hyperlink{group__part__func__global}{00098}} \textcolor{keyword}{struct }\mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_s}} \{}
+\DoxyCodeLine{00099   \textcolor{comment}{/* free energies for: */}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00100}\mbox{\hyperlink{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}{00100}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}{F0AB}}; }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00101}\mbox{\hyperlink{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}{00101}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}{FAB}};  }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00102}\mbox{\hyperlink{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}{00102}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}{FcAB}}; }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00103}\mbox{\hyperlink{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}{00103}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}{FA}};   }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00104}\mbox{\hyperlink{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}{00104}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}{FB}};   }
+\DoxyCodeLine{00105 \};}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00107}\mbox{\hyperlink{group__part__func__global}{00107}} \textcolor{keyword}{struct }\mbox{\hyperlink{group__part__func__global_structvrna__multimer__pf__s}{vrna\_multimer\_pf\_s}} \{}
+\DoxyCodeLine{00108   \textcolor{comment}{/* free energies for: */}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00109}\mbox{\hyperlink{group__part__func__global_ac9c2a58bc07ae9c0e97d0bfb4b973db3}{00109}}   \textcolor{keywordtype}{double}  \mbox{\hyperlink{group__part__func__global_ac9c2a58bc07ae9c0e97d0bfb4b973db3}{F\_connected}};  }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00110}\mbox{\hyperlink{group__part__func__global_a33856f7edf687ad26bafd0c62536c2bc}{00110}}   \textcolor{keywordtype}{double}  *\mbox{\hyperlink{group__part__func__global_a33856f7edf687ad26bafd0c62536c2bc}{F\_monomers}};  }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00111}\mbox{\hyperlink{group__part__func__global_a1ccd8466abb58ff6cecdc1a1deda0d36}{00111}}   \textcolor{keywordtype}{size\_t}  \mbox{\hyperlink{group__part__func__global_a1ccd8466abb58ff6cecdc1a1deda0d36}{num\_monomers}}; }
+\DoxyCodeLine{00112 \};}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00147 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00148}\mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{00148}} \mbox{\hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\_pf}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00149         \textcolor{keywordtype}{char}                  *structure);}
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00170 \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_t}}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00171}\mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{00171}} \mbox{\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\_pf\_dimer}}(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}}  *vc,}
+\DoxyCodeLine{00172               \textcolor{keywordtype}{char}                  *structure);}
+\DoxyCodeLine{00173 }
+\DoxyCodeLine{00174 }
+\DoxyCodeLine{00175 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *}
+\DoxyCodeLine{00176 vrna\_pf\_substrands(\mbox{\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}} *fc,}
+\DoxyCodeLine{00177                    \textcolor{keywordtype}{size\_t}               complex\_size);}
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{00179 \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}}
+\DoxyCodeLine{00180 vrna\_pf\_add(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  dG1,}
+\DoxyCodeLine{00181             \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}}  dG2,}
+\DoxyCodeLine{00182             \textcolor{keywordtype}{double}      kT);}
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{00184 \textcolor{comment}{/* End basic global interface */}}
+\DoxyCodeLine{00213 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00214}\mbox{\hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{00214}} \mbox{\hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\_pf\_fold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{00215              \textcolor{keywordtype}{char}       *structure,}
+\DoxyCodeLine{00216              \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}  **pl);}
+\DoxyCodeLine{00217 }
+\DoxyCodeLine{00218 }
+\DoxyCodeLine{00243 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00244}\mbox{\hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{00244}} \mbox{\hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{vrna\_pf\_circfold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{00245                  \textcolor{keywordtype}{char}       *structure,}
+\DoxyCodeLine{00246                  \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}  **pl);}
+\DoxyCodeLine{00247 }
+\DoxyCodeLine{00248 }
+\DoxyCodeLine{00270 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00271}\mbox{\hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{00271}} \mbox{\hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{vrna\_pf\_alifold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  **sequences,}
+\DoxyCodeLine{00272                 \textcolor{keywordtype}{char}        *structure,}
+\DoxyCodeLine{00273                 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}   **pl);}
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{00300 \textcolor{keywordtype}{float}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00301}\mbox{\hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{00301}} \mbox{\hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{vrna\_pf\_circalifold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  **sequences,}
+\DoxyCodeLine{00302                     \textcolor{keywordtype}{char}        *structure,}
+\DoxyCodeLine{00303                     \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}   **pl);}
+\DoxyCodeLine{00304 }
+\DoxyCodeLine{00305 }
+\DoxyCodeLine{00332 \mbox{\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_t}}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00333}\mbox{\hyperlink{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}{00333}} \mbox{\hyperlink{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}{vrna\_pf\_co\_fold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,}
+\DoxyCodeLine{00334                 \textcolor{keywordtype}{char}        *structure,}
+\DoxyCodeLine{00335                 \mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}}   **pl);}
+\DoxyCodeLine{00336 }
+\DoxyCodeLine{00337 }
+\DoxyCodeLine{00338 \textcolor{comment}{/* End simplified global interface */}}
+\DoxyCodeLine{00343 \textcolor{comment}{/*}}
+\DoxyCodeLine{00344 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00345 \textcolor{comment}{ \# OTHER PARTITION FUNCTION RELATED DECLARATIONS \#}}
+\DoxyCodeLine{00346 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00347 \textcolor{comment}{ */}}
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00358 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00359}\mbox{\hyperlink{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}{00359}} \mbox{\hyperlink{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}{vrna\_pf\_float\_precision}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00360 }
+\DoxyCodeLine{00361 }
+\DoxyCodeLine{00362 \textcolor{preprocessor}{\#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}}
+\DoxyCodeLine{00363 }
+\DoxyCodeLine{00364 \textcolor{comment}{/*}}
+\DoxyCodeLine{00365 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00366 \textcolor{comment}{ \# DEPRECATED FUNCTIONS                          \#}}
+\DoxyCodeLine{00367 \textcolor{comment}{ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00368 \textcolor{comment}{ */}}
+\DoxyCodeLine{00369 }
+\DoxyCodeLine{00382 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{group__subopt__stochbt__deprecated_gacd79b1a570e6ad9be24cb11fe8cae30a}{st\_back}};}
+\DoxyCodeLine{00383 }
+\DoxyCodeLine{00424 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00425            \mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\_fold\_par}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}       *sequence,}
+\DoxyCodeLine{00426                        \textcolor{keywordtype}{char}             *structure,}
+\DoxyCodeLine{00427                        \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}} *parameters,}
+\DoxyCodeLine{00428                        \textcolor{keywordtype}{int}              calculate\_bppm,}
+\DoxyCodeLine{00429                        \textcolor{keywordtype}{int}              is\_constrained,}
+\DoxyCodeLine{00430                        \textcolor{keywordtype}{int}              is\_circular),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00431}\mbox{\hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{00431}}            \textcolor{stringliteral}{"{}Use the new API and vrna\_pf() instead"{}});}
+\DoxyCodeLine{00432 }
+\DoxyCodeLine{00472 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00473            \mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\_fold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{00474                    \textcolor{keywordtype}{char}       *structure),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00475}\mbox{\hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{00475}}            \textcolor{stringliteral}{"{}Use vrna\_pf\_fold() or vrna\_pf() instead"{}});}
+\DoxyCodeLine{00476 }
+\DoxyCodeLine{00503 DEPRECATED(\textcolor{keywordtype}{float}}
+\DoxyCodeLine{00504            \mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\_circ\_fold}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,}
+\DoxyCodeLine{00505                         \textcolor{keywordtype}{char}        *structure),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00506}\mbox{\hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{00506}}            \textcolor{stringliteral}{"{}Use vrna\_pf\_circfold() or vrna\_pf() instead"{}});}
+\DoxyCodeLine{00507 }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00519}\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{00519}} DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__subopt__stochbt__deprecated_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack}}(\textcolor{keywordtype}{char} *sequence), \textcolor{stringliteral}{"{}Use vrna\_pbacktrack() instead"{}});}
+\DoxyCodeLine{00520 }
+\DoxyCodeLine{00526 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{pbacktrack5}}(\textcolor{keywordtype}{char} *sequence,}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00527}\mbox{\hyperlink{group__subopt__stochbt__deprecated_gaf2e614b8beb4ddf3e8751433b76f39db}{00527}}                              \textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"{}Use vrna\_pbacktrack5() instead"{}});}
+\DoxyCodeLine{00528 }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00544}\mbox{\hyperlink{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}{00544}} DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{group__subopt__stochbt__deprecated_ga00474051204ac9ad576b3e45174d03ff}{pbacktrack\_circ}}(\textcolor{keywordtype}{char} *sequence), \textcolor{stringliteral}{"{}Use vrna\_pbacktrack() instead"{}});}
+\DoxyCodeLine{00545 }
+\DoxyCodeLine{00564 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00565}\mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{00565}}            \mbox{\hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\_pf\_arrays}}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00566 }
+\DoxyCodeLine{00578 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00579}\mbox{\hyperlink{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}{00579}}            \mbox{\hyperlink{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}{update\_pf\_params}}(\textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00580 }
+\DoxyCodeLine{00589 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{00590            \mbox{\hyperlink{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}{update\_pf\_params\_par}}(\textcolor{keywordtype}{int}               length,}
+\DoxyCodeLine{00591                                 \mbox{\hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}}  *parameters),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00592}\mbox{\hyperlink{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}{00592}}            \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00593 }
+\DoxyCodeLine{00611 DEPRECATED(\mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} * \mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}}(\textcolor{keywordtype}{void}),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00612}\mbox{\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{00612}}            \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00613 }
+\DoxyCodeLine{00614 }
+\DoxyCodeLine{00631 DEPRECATED(\textcolor{keywordtype}{int}}
+\DoxyCodeLine{00632            \mbox{\hyperlink{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}{get\_pf\_arrays}}(\textcolor{keywordtype}{short}      **S\_p,}
+\DoxyCodeLine{00633                          \textcolor{keywordtype}{short}      **S1\_p,}
+\DoxyCodeLine{00634                          \textcolor{keywordtype}{char}       **ptype\_p,}
+\DoxyCodeLine{00635                          \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **qb\_p,}
+\DoxyCodeLine{00636                          \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **qm\_p,}
+\DoxyCodeLine{00637                          \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **q1k\_p,}
+\DoxyCodeLine{00638                          \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} **qln\_p),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00639}\mbox{\hyperlink{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}{00639}}            \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00640 }
+\DoxyCodeLine{00646 DEPRECATED(\textcolor{keywordtype}{double}}
+\DoxyCodeLine{00647            \mbox{\hyperlink{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}{get\_subseq\_F}}(\textcolor{keywordtype}{int} i,}
+\DoxyCodeLine{00648                         \textcolor{keywordtype}{int} j),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00649}\mbox{\hyperlink{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}{00649}}            \textcolor{stringliteral}{"{}Use the new API with vrna\_fold\_compound\_t instead"{}});}
+\DoxyCodeLine{00650 }
+\DoxyCodeLine{00651 }
+\DoxyCodeLine{00663 DEPRECATED(\textcolor{keywordtype}{double}}
+\DoxyCodeLine{00664            \mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\_bp\_distance}}(\textcolor{keywordtype}{int} length),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00665}\mbox{\hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{00665}}            \textcolor{stringliteral}{"{}Use vrna\_mean\_bp\_distance() or vrna\_mean\_bp\_distance\_pr() instead"{}});}
+\DoxyCodeLine{00666 }
+\DoxyCodeLine{00684 DEPRECATED(\textcolor{keywordtype}{double}}
+\DoxyCodeLine{00685            \mbox{\hyperlink{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{mean\_bp\_distance\_pr}}(\textcolor{keywordtype}{int}        length,}
+\DoxyCodeLine{00686                                \mbox{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}} *\mbox{\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}}),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00687}\mbox{\hyperlink{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{00687}}            \textcolor{stringliteral}{"{}Use vrna\_mean\_bp\_distance() or vrna\_mean\_bp\_distance\_pr() instead"{}});}
+\DoxyCodeLine{00688 }
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00696}\mbox{\hyperlink{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}{00696}} DEPRECATED(\mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} * \mbox{\hyperlink{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}{stackProb}}(\textcolor{keywordtype}{double} cutoff), \textcolor{stringliteral}{"{}Use vrna\_stack\_prob() instead"{}});}
+\DoxyCodeLine{00697 }
+\DoxyCodeLine{00698 }
+\DoxyCodeLine{00706 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00707}\mbox{\hyperlink{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}{00707}}            \mbox{\hyperlink{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}{init\_pf\_fold}}(\textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"{}This function is obsolete"{}});}
+\DoxyCodeLine{00708 }
+\DoxyCodeLine{00713 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}{centroid}}(\textcolor{keywordtype}{int} length,}
+\DoxyCodeLine{00714                           \textcolor{keywordtype}{double} *dist),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00715}\mbox{\hyperlink{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}{00715}}            \textcolor{stringliteral}{"{}Use vrna\_centroid() instead"{}});}
+\DoxyCodeLine{00716 }
+\DoxyCodeLine{00721 DEPRECATED(\textcolor{keywordtype}{char} *\mbox{\hyperlink{part__func_8h_a4e99e951dfdc006fe56c3a59374378ed}{get\_centroid\_struct\_gquad\_pr}}(\textcolor{keywordtype}{int} length,}
+\DoxyCodeLine{00722                                               \textcolor{keywordtype}{double} *dist),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00723}\mbox{\hyperlink{part__func_8h_a4e99e951dfdc006fe56c3a59374378ed}{00723}}            \textcolor{stringliteral}{"{}Use vrna\_centroid() instead"{}});}
+\DoxyCodeLine{00724 }
+\DoxyCodeLine{00730 DEPRECATED(\textcolor{keywordtype}{double}}
+\DoxyCodeLine{00731            \mbox{\hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{mean\_bp\_dist}}(\textcolor{keywordtype}{int} length),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00732}\mbox{\hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{00732}}            \textcolor{stringliteral}{"{}Use vrna\_mean\_bp\_distance() or vrna\_mean\_bp\_distance\_pr() instead"{}});}
+\DoxyCodeLine{00733 }
+\DoxyCodeLine{00737 DEPRECATED(\textcolor{keywordtype}{double}}
+\DoxyCodeLine{00738            \mbox{\hyperlink{part__func_8h_a68ba6f3a48e08ca131ab54621ce3a2d7}{expLoopEnergy}}(\textcolor{keywordtype}{int}    u1,}
+\DoxyCodeLine{00739                          \textcolor{keywordtype}{int}    u2,}
+\DoxyCodeLine{00740                          \textcolor{keywordtype}{int}    type,}
+\DoxyCodeLine{00741                          \textcolor{keywordtype}{int}    type2,}
+\DoxyCodeLine{00742                          \textcolor{keywordtype}{short}  si1,}
+\DoxyCodeLine{00743                          \textcolor{keywordtype}{short}  sj1,}
+\DoxyCodeLine{00744                          \textcolor{keywordtype}{short}  sp1,}
+\DoxyCodeLine{00745                          \textcolor{keywordtype}{short}  sq1),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00746}\mbox{\hyperlink{part__func_8h_a68ba6f3a48e08ca131ab54621ce3a2d7}{00746}}            \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00747 }
+\DoxyCodeLine{00751 DEPRECATED(\textcolor{keywordtype}{double}}
+\DoxyCodeLine{00752            \mbox{\hyperlink{part__func_8h_a7b6ab474cc80accc48010ccfcc59f96b}{expHairpinEnergy}}(\textcolor{keywordtype}{int}         u,}
+\DoxyCodeLine{00753                             \textcolor{keywordtype}{int}         type,}
+\DoxyCodeLine{00754                             \textcolor{keywordtype}{short}       si1,}
+\DoxyCodeLine{00755                             \textcolor{keywordtype}{short}       sj1,}
+\DoxyCodeLine{00756                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *\textcolor{keywordtype}{string}),}
+\DoxyCodeLine{\Hypertarget{part__func_8h_source_l00757}\mbox{\hyperlink{part__func_8h_a7b6ab474cc80accc48010ccfcc59f96b}{00757}}            \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00758 }
+\DoxyCodeLine{00759 \textcolor{comment}{/* this doesn't work if free\_pf\_arrays() is called before */}}
+\DoxyCodeLine{00760 DEPRECATED(\textcolor{keywordtype}{void}}
+\DoxyCodeLine{00761            assign\_plist\_gquad\_from\_pr(\mbox{\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}} **pl,}
+\DoxyCodeLine{00762                                       \textcolor{keywordtype}{int}       length,}
+\DoxyCodeLine{00763                                       \textcolor{keywordtype}{double}    cut\_off),}
+\DoxyCodeLine{00764            \textcolor{stringliteral}{"{}Use vrna\_plist\_from\_probs() instead"{}});}
+\DoxyCodeLine{00765 }
+\DoxyCodeLine{00766 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00767 }
+\DoxyCodeLine{00768 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

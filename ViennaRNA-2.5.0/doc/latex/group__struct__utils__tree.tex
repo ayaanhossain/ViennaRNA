@@ -1,0 +1,299 @@
+\hypertarget{group__struct__utils__tree}{}\doxysection{Tree Representation of Secondary Structures}
+\label{group__struct__utils__tree}\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+
+
+Secondary structures can be readily represented as trees, where internal nodes represent base pairs, and leaves represent unpaired nucleotides. The dot-\/bracket structure string already is a tree represented by a string of parenthesis (base pairs) and dots for the leaf nodes (unpaired nucleotides).  
+
+
+
+
+\doxysubsection{Detailed Description}
+Secondary structures can be readily represented as trees, where internal nodes represent base pairs, and leaves represent unpaired nucleotides. The dot-\/bracket structure string already is a tree represented by a string of parenthesis (base pairs) and dots for the leaf nodes (unpaired nucleotides). 
+
+Alternatively, one may find representations with two types of node labels, {\ttfamily P} for paired and {\ttfamily U} for unpaired; a dot is then replaced by {\ttfamily (U)}, and each closed bracket is assigned an additional identifier {\ttfamily P}. We call this the expanded notation. In \cite{fontana:1993b} a condensed representation of the secondary structure is proposed, the so-\/called homeomorphically irreducible tree (HIT) representation. Here a stack is represented as a single pair of matching brackets labeled {\ttfamily P} and weighted by the number of base pairs. Correspondingly, a contiguous strain of unpaired bases is shown as one pair of matching brackets labeled {\ttfamily U} and weighted by its length. Generally any string consisting of matching brackets and identifiers is equivalent to a plane tree with as many different types of nodes as there are identifiers.
+
+Bruce Shapiro proposed a coarse grained representation \cite{shapiro:1988}, which, does not retain the full information of the secondary structure. He represents the different structure elements by single matching brackets and labels them as
+
+
+\begin{DoxyItemize}
+\item {\ttfamily H} (hairpin loop),
+\item {\ttfamily I} (interior loop),
+\item {\ttfamily B} (bulge),
+\item {\ttfamily M} (multi-\/loop), and
+\item {\ttfamily S} (stack).
+\end{DoxyItemize}
+
+We extend his alphabet by an extra letter for external elements {\ttfamily E}. Again these identifiers may be followed by a weight corresponding to the number of unpaired bases or base pairs in the structure element. All tree representations (except for the dot-\/bracket form) can be encapsulated into a virtual root (labeled {\ttfamily R}).
+
+The following example illustrates the different linear tree representations used by the package\+:
+
+Consider the secondary structure represented by the dot-\/bracket string (full tree) {\ttfamily .((..(((...)))..((..)))).} which is the most convenient condensed notation used by our programs and library functions.
+
+Then, the following tree representations are equivalent\+:
+
+
+\begin{DoxyItemize}
+\item Expanded tree\+:~\newline
+ {\ttfamily ((U)(((U)(U)((((U)(U)(U)P)P)P)(U)(U)(((U)(U)P)P)P)P)(U)R)}
+\item HIT representation (Fontana et al. 1993 \cite{fontana:1993b})\+:~\newline
+ {\ttfamily ((U1)((U2)((U3)P3)(U2)((U2)P2)P2)(U1)R)}
+\item Coarse Grained \mbox{\hyperlink{structTree}{Tree}} Representation (Shapiro 1988 \cite{shapiro:1988})\+:
+\begin{DoxyItemize}
+\item Short (with root node {\ttfamily R}, without stem nodes {\ttfamily S})\+:~\newline
+ {\ttfamily ((H)((H)M)R)}
+\item Full (with root node {\ttfamily R})\+:~\newline
+ {\ttfamily (((((H)S)((H)S)M)S)R)}
+\item Extended (with root node {\ttfamily R}, with external nodes {\ttfamily E})\+:~\newline
+ {\ttfamily ((((((H)S)((H)S)M)S)E)R)}
+\item Weighted (with root node {\ttfamily R}, with external nodes {\ttfamily E})\+:~\newline
+ {\ttfamily ((((((H3)S3)((H2)S2)M4)S2)E2)R)}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+The Expanded tree is rather clumsy and mostly included for the sake of completeness. The different versions of Coarse Grained \mbox{\hyperlink{structTree}{Tree}} Representations are variatios of Shapiro\textquotesingle{}s linear tree notation.
+
+For the output of aligned structures from string editing, different representations are needed, where we put the label on both sides. The above examples for tree representations would then look like\+:
+
+\begin{DoxyVerb}*  a) (UU)(P(P(P(P(UU)(UU)(P(P(P(UU)(UU)(UU)P)P)P)(UU)(UU)(P(P(UU)(U...
+*  b) (UU)(P2(P2(U2U2)(P2(U3U3)P3)(U2U2)(P2(U2U2)P2)P2)(UU)P2)(UU)
+*  c) (B(M(HH)(HH)M)B)
+*     (S(B(S(M(S(HH)S)(S(HH)S)M)S)B)S)
+*     (E(S(B(S(M(S(HH)S)(S(HH)S)M)S)B)S)E)
+*  d) (R(E2(S2(B1(S2(M4(S3(H3)S3)((H2)S2)M4)S2)B1)S2)E2)R)
+*  \end{DoxyVerb}
+
+
+Aligned structures additionally contain the gap character {\ttfamily \+\_\+}. Collaboration diagram for Tree Representation of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{group__struct__utils__tree}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__struct__utils__tree_ga3ad5609bc93ef20034c3ab989365c1f0}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+HIT}}~1U
+\begin{DoxyCompactList}\small\item\em Homeomorphically Irreducible \mbox{\hyperlink{structTree}{Tree}} (HIT) representation of a secondary structure. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__tree_ga549e259a963d77e2d5b7e14083fc016e}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+SHORT}}~2U
+\begin{DoxyCompactList}\small\item\em (short) Coarse Grained representation of a secondary structure \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__tree_ga4acd9991a0250ccd4cd44c4725b31927}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO}}~3U
+\begin{DoxyCompactList}\small\item\em (full) Coarse Grained representation of a secondary structure \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__tree_ga8666a10982a4f7a26892066ff07b4b48}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+EXT}}~4U
+\begin{DoxyCompactList}\small\item\em (extended) Coarse Grained representation of a secondary structure \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__tree_ga91f2e3a3a502d5445fd7fe5983a5fe92}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+WEIGHT}}~5U
+\begin{DoxyCompactList}\small\item\em (weighted) Coarse Grained representation of a secondary structure \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__struct__utils__tree_gab3b65489d1322da65d3a3e53242307ef}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+EXPANDED}}~6U
+\begin{DoxyCompactList}\small\item\em Expanded \mbox{\hyperlink{structTree}{Tree}} representation of a secondary structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string}} (const char $\ast$structure, unsigned int type)
+\begin{DoxyCompactList}\small\item\em Convert a Dot-\/\+Bracket structure string into tree string representation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__tree_gaa31da26a3f582ddc35a84ff1b9c0a2b0}{vrna\+\_\+tree\+\_\+string\+\_\+unweight}} (const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Remove weights from a linear string tree representation of a secondary structure. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__struct__utils__tree_ga99d280319a7fd3f87e9f0d8c44520774}{vrna\+\_\+tree\+\_\+string\+\_\+to\+\_\+db}} (const char $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Convert a linear tree string representation of a secondary structure back to Dot-\/\+Bracket notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__struct__utils__tree_ga3ad5609bc93ef20034c3ab989365c1f0}\label{group__struct__utils__tree_ga3ad5609bc93ef20034c3ab989365c1f0}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!VRNA\_STRUCTURE\_TREE\_HIT@{VRNA\_STRUCTURE\_TREE\_HIT}}
+\index{VRNA\_STRUCTURE\_TREE\_HIT@{VRNA\_STRUCTURE\_TREE\_HIT}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STRUCTURE\_TREE\_HIT}{VRNA\_STRUCTURE\_TREE\_HIT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+HIT~1U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Homeomorphically Irreducible \mbox{\hyperlink{structTree}{Tree}} (HIT) representation of a secondary structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__tree_ga549e259a963d77e2d5b7e14083fc016e}\label{group__struct__utils__tree_ga549e259a963d77e2d5b7e14083fc016e}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!VRNA\_STRUCTURE\_TREE\_SHAPIRO\_SHORT@{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_SHORT}}
+\index{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_SHORT@{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_SHORT}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_SHORT}{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_SHORT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+SHORT~2U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+(short) Coarse Grained representation of a secondary structure 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__tree_ga4acd9991a0250ccd4cd44c4725b31927}\label{group__struct__utils__tree_ga4acd9991a0250ccd4cd44c4725b31927}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!VRNA\_STRUCTURE\_TREE\_SHAPIRO@{VRNA\_STRUCTURE\_TREE\_SHAPIRO}}
+\index{VRNA\_STRUCTURE\_TREE\_SHAPIRO@{VRNA\_STRUCTURE\_TREE\_SHAPIRO}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STRUCTURE\_TREE\_SHAPIRO}{VRNA\_STRUCTURE\_TREE\_SHAPIRO}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO~3U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+(full) Coarse Grained representation of a secondary structure 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__tree_ga8666a10982a4f7a26892066ff07b4b48}\label{group__struct__utils__tree_ga8666a10982a4f7a26892066ff07b4b48}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!VRNA\_STRUCTURE\_TREE\_SHAPIRO\_EXT@{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_EXT}}
+\index{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_EXT@{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_EXT}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_EXT}{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_EXT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+EXT~4U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+(extended) Coarse Grained representation of a secondary structure 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__tree_ga91f2e3a3a502d5445fd7fe5983a5fe92}\label{group__struct__utils__tree_ga91f2e3a3a502d5445fd7fe5983a5fe92}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!VRNA\_STRUCTURE\_TREE\_SHAPIRO\_WEIGHT@{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_WEIGHT}}
+\index{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_WEIGHT@{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_WEIGHT}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_WEIGHT}{VRNA\_STRUCTURE\_TREE\_SHAPIRO\_WEIGHT}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+WEIGHT~5U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+(weighted) Coarse Grained representation of a secondary structure 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__struct__utils__tree_gab3b65489d1322da65d3a3e53242307ef}\label{group__struct__utils__tree_gab3b65489d1322da65d3a3e53242307ef}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!VRNA\_STRUCTURE\_TREE\_EXPANDED@{VRNA\_STRUCTURE\_TREE\_EXPANDED}}
+\index{VRNA\_STRUCTURE\_TREE\_EXPANDED@{VRNA\_STRUCTURE\_TREE\_EXPANDED}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{VRNA\_STRUCTURE\_TREE\_EXPANDED}{VRNA\_STRUCTURE\_TREE\_EXPANDED}}
+{\footnotesize\ttfamily \#define VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+EXPANDED~6U}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Expanded \mbox{\hyperlink{structTree}{Tree}} representation of a secondary structure. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}\label{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!vrna\_db\_to\_tree\_string@{vrna\_db\_to\_tree\_string}}
+\index{vrna\_db\_to\_tree\_string@{vrna\_db\_to\_tree\_string}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_db\_to\_tree\_string()}{vrna\_db\_to\_tree\_string()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{unsigned int}]{type }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a Dot-\/\+Bracket structure string into tree string representation. 
+
+This function allows one to convert a secondary structure in dot-\/bracket notation into one of the various tree representations for secondary structures. The resulting tree is then represented as a string of parenthesis and node symbols, similar to to the Newick format.
+
+Currently we support conversion into the following formats, denoted by the value of parameter {\ttfamily type\+:} 
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__struct__utils__tree_ga3ad5609bc93ef20034c3ab989365c1f0}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+HIT}} -\/ Homeomorphically Irreducible \mbox{\hyperlink{structTree}{Tree}} (HIT) representation of a secondary structure. (See also Fontana et al. 1993 \cite{fontana:1993b})
+\item \mbox{\hyperlink{group__struct__utils__tree_ga549e259a963d77e2d5b7e14083fc016e}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+SHORT}} -\/ (short) Coarse Grained representation of a secondary structure (same as Shapiro 1988 \cite{shapiro:1988}, but with root node {\ttfamily R} and without {\ttfamily S} nodes for the stems)
+\item \mbox{\hyperlink{group__struct__utils__tree_ga4acd9991a0250ccd4cd44c4725b31927}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO}} -\/ (full) Coarse Grained representation of a secondary structure (See also Shapiro 1988 \cite{shapiro:1988})
+\item \mbox{\hyperlink{group__struct__utils__tree_ga8666a10982a4f7a26892066ff07b4b48}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+EXT}} -\/ (extended) Coarse Grained representation of a secondary structure (same as Shapiro 1988 \cite{shapiro:1988}, but external nodes denoted as {\ttfamily E} )
+\item \mbox{\hyperlink{group__struct__utils__tree_ga91f2e3a3a502d5445fd7fe5983a5fe92}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+WEIGHT}} -\/ (weighted) Coarse Grained representation of a secondary structure (same as \mbox{\hyperlink{group__struct__utils__tree_ga8666a10982a4f7a26892066ff07b4b48}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+SHAPIRO\+\_\+\+EXT}} but with additional weights for number of unpaired nucleotides in loop, and number of pairs in stems)
+\item \mbox{\hyperlink{group__struct__utils__tree_gab3b65489d1322da65d3a3e53242307ef}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+EXPANDED}} -\/ Expanded \mbox{\hyperlink{structTree}{Tree}} representation of a secondary structure.
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{rna_structure_notations_sec_structure_representations_tree}{Tree Representations of Secondary Structures}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & The null-\/terminated dot-\/bracket structure string \\
+\hline
+{\em type} & A switch to determine the type of tree string representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tree representation of the input {\ttfamily structure} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__tree_gaa31da26a3f582ddc35a84ff1b9c0a2b0}\label{group__struct__utils__tree_gaa31da26a3f582ddc35a84ff1b9c0a2b0}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!vrna\_tree\_string\_unweight@{vrna\_tree\_string\_unweight}}
+\index{vrna\_tree\_string\_unweight@{vrna\_tree\_string\_unweight}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_tree\_string\_unweight()}{vrna\_tree\_string\_unweight()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+tree\+\_\+string\+\_\+unweight (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Remove weights from a linear string tree representation of a secondary structure. 
+
+This function strips the weights of a linear string tree representation such as {\ttfamily HIT}, or Coarse Grained \mbox{\hyperlink{structTree}{Tree}} sensu Shapiro \cite{shapiro:1988}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em structure} & A linear string tree representation of a secondary structure with weights \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A linear string tree representation of a secondary structure without weights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__struct__utils__tree_ga99d280319a7fd3f87e9f0d8c44520774}\label{group__struct__utils__tree_ga99d280319a7fd3f87e9f0d8c44520774}} 
+\index{Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}!vrna\_tree\_string\_to\_db@{vrna\_tree\_string\_to\_db}}
+\index{vrna\_tree\_string\_to\_db@{vrna\_tree\_string\_to\_db}!Tree Representation of Secondary Structures@{Tree Representation of Secondary Structures}}
+\doxysubsubsection{\texorpdfstring{vrna\_tree\_string\_to\_db()}{vrna\_tree\_string\_to\_db()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+tree\+\_\+string\+\_\+to\+\_\+db (\begin{DoxyParamCaption}\item[{const char $\ast$}]{tree }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{utils_2structures_8h}{Vienna\+RNA/utils/structures.\+h}}$>$}
+
+
+
+Convert a linear tree string representation of a secondary structure back to Dot-\/\+Bracket notation. 
+
+\begin{DoxyWarning}{Warning}
+This function only accepts {\itshape Expanded} and {\itshape HIT} tree representations!
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__struct__utils__tree_ga56551ab7da64933a7230d29430f40cfe}{vrna\+\_\+db\+\_\+to\+\_\+tree\+\_\+string()}}, \mbox{\hyperlink{group__struct__utils__tree_gab3b65489d1322da65d3a3e53242307ef}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+EXPANDED}}, \mbox{\hyperlink{group__struct__utils__tree_ga3ad5609bc93ef20034c3ab989365c1f0}{VRNA\+\_\+\+STRUCTURE\+\_\+\+TREE\+\_\+\+HIT}}, \mbox{\hyperlink{rna_structure_notations_sec_structure_representations_tree}{Tree Representations of Secondary Structures}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & A linear tree string representation of a secondary structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dot-\/bracket notation of the secondary structure provided in {\ttfamily tree} 
+\end{DoxyReturn}

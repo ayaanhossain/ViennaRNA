@@ -1,0 +1,166 @@
+\hypertarget{group__file__utils}{}\doxysection{Files and I/O}
+\label{group__file__utils}\index{Files and I/O@{Files and I/O}}
+
+
+Functions to parse, write, and convert various file formats and to deal with file system related issues.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Functions to parse, write, and convert various file formats and to deal with file system related issues. 
+
+Collaboration diagram for Files and I/O\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__file__utils}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__file__formats}{Nucleic Acid Sequences and Structures}}
+\begin{DoxyCompactList}\small\item\em Functions to read/write different file formats for nucleic acid sequences and secondary structures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__file__formats__msa}{Multiple Sequence Alignments}}
+\begin{DoxyCompactList}\small\item\em Functions to read/write multiple sequence alignments (MSA) in various file formats. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__command__files}{Command Files}}
+\begin{DoxyCompactList}\small\item\em Functions to parse and interpret the content of \mbox{\hyperlink{file_formats_constraint-formats-file}{Command Files}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{commands_8h}{commands.\+h}}
+\begin{DoxyCompactList}\small\item\em Parse and apply different commands that alter the behavior of secondary structure prediction and evaluation. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{ribo_8h}{ribo.\+h}}
+\begin{DoxyCompactList}\small\item\em Parse Ribo\+Sum Scoring Matrices for Covariance Scoring of Alignments. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{io_2file__formats_8h}{file\+\_\+formats.\+h}}
+\begin{DoxyCompactList}\small\item\em Read and write different file formats for RNA sequences, structures. \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{io_2file__formats__msa_8h}{file\+\_\+formats\+\_\+msa.\+h}}
+\begin{DoxyCompactList}\small\item\em Functions dealing with file formats for Multiple Sequence Alignments (MSA) \end{DoxyCompactList}\item 
+file \mbox{\hyperlink{io_2utils_8h}{utils.\+h}}
+\begin{DoxyCompactList}\small\item\em Several utilities for file handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__file__utils_ga1116aed4b2dab5252cd23946d47d52c3}\label{group__file__utils_ga1116aed4b2dab5252cd23946d47d52c3}} 
+float $\ast$$\ast$ \mbox{\hyperlink{group__file__utils_ga1116aed4b2dab5252cd23946d47d52c3}{get\+\_\+ribosum}} (const char $\ast$$\ast$Alseq, int n\+\_\+seq, int length)
+\begin{DoxyCompactList}\small\item\em Retrieve a Ribo\+Sum Scoring Matrix for a given Alignment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}\label{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}} 
+float $\ast$$\ast$ \mbox{\hyperlink{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}{readribosum}} (char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Read a Ribo\+Sum or other user-\/defined Scoring Matrix and Store into global Memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__file__utils_ga4382a56d2fee9ed738364b99329edc7c}\label{group__file__utils_ga4382a56d2fee9ed738364b99329edc7c}} 
+void \mbox{\hyperlink{group__file__utils_ga4382a56d2fee9ed738364b99329edc7c}{vrna\+\_\+file\+\_\+copy}} (FILE $\ast$from, FILE $\ast$to)
+\begin{DoxyCompactList}\small\item\em Inefficient `cp'. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__file__utils_gad16c270b70a77c753088b29de8a802dc}{vrna\+\_\+read\+\_\+line}} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Read a line of arbitrary length from a stream. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__file__utils_gacfa44a974272a4d42c5d391cc780a0ec}\label{group__file__utils_gacfa44a974272a4d42c5d391cc780a0ec}} 
+int \mbox{\hyperlink{group__file__utils_gacfa44a974272a4d42c5d391cc780a0ec}{vrna\+\_\+mkdir\+\_\+p}} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Recursivly create a directory tree. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__file__utils_ga8d0f8f84f1e2628172cf3c8648b2e507}\label{group__file__utils_ga8d0f8f84f1e2628172cf3c8648b2e507}} 
+char $\ast$ \mbox{\hyperlink{group__file__utils_ga8d0f8f84f1e2628172cf3c8648b2e507}{vrna\+\_\+basename}} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Extract the filename from a file path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__file__utils_gae006d31b088d52d8aace86948def5fe8}\label{group__file__utils_gae006d31b088d52d8aace86948def5fe8}} 
+char $\ast$ \mbox{\hyperlink{group__file__utils_gae006d31b088d52d8aace86948def5fe8}{vrna\+\_\+dirname}} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Extract the directory part of a file path. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__file__utils_ga72eae0a472bad905b6facccf5b453a76}{vrna\+\_\+filename\+\_\+sanitize}} (const char $\ast$name, const char $\ast$replacement)
+\begin{DoxyCompactList}\small\item\em Sanitize a file name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__file__utils_ga80cf1f4bb5704622f72f2911f48aee55}{vrna\+\_\+file\+\_\+exists}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Check if a file already exists in the file system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__file__utils_gad16c270b70a77c753088b29de8a802dc}\label{group__file__utils_gad16c270b70a77c753088b29de8a802dc}} 
+\index{Files and I/O@{Files and I/O}!vrna\_read\_line@{vrna\_read\_line}}
+\index{vrna\_read\_line@{vrna\_read\_line}!Files and I/O@{Files and I/O}}
+\doxysubsubsection{\texorpdfstring{vrna\_read\_line()}{vrna\_read\_line()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+read\+\_\+line (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2utils_8h}{Vienna\+RNA/io/utils.\+h}}$>$}
+
+
+
+Read a line of arbitrary length from a stream. 
+
+Returns a pointer to the resulting string. The necessary memory is allocated and should be released using {\itshape free()} when the string is no longer needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & A file pointer to the stream where the function should read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the resulting string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__file__utils_ga72eae0a472bad905b6facccf5b453a76}\label{group__file__utils_ga72eae0a472bad905b6facccf5b453a76}} 
+\index{Files and I/O@{Files and I/O}!vrna\_filename\_sanitize@{vrna\_filename\_sanitize}}
+\index{vrna\_filename\_sanitize@{vrna\_filename\_sanitize}!Files and I/O@{Files and I/O}}
+\doxysubsubsection{\texorpdfstring{vrna\_filename\_sanitize()}{vrna\_filename\_sanitize()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+filename\+\_\+sanitize (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{replacement }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2utils_8h}{Vienna\+RNA/io/utils.\+h}}$>$}
+
+
+
+Sanitize a file name. 
+
+Returns a new file name where all invalid characters are substituted by a replacement character. If no replacement character is supplied, invalid characters are simply removed from the filename. File names may also never exceed a length of 255 characters. Longer file names will undergo a \textquotesingle{}smart\textquotesingle{} truncation process, where the filenames` suffix, i.\+e. everything after the last dot '.\textquotesingle{}, is attempted to be kept intact. Hence, only the filename part before the suffix is reduced in such a way that the total filename complies to the length restriction of 255 characters. If no suffix is present or the suffix itself already exceeds the maximum length, the filename is simply truncated from the back of the string.
+
+For now we consider the following characters invalid\+:
+\begin{DoxyItemize}
+\item backslash \textquotesingle{}\textbackslash{}\textquotesingle{}
+\item slash \textquotesingle{}/\textquotesingle{}
+\item question mark \textquotesingle{}?\textquotesingle{}
+\item percent sign \textquotesingle{}\textquotesingle{}
+\item asterisk \textquotesingle{}$\ast$\textquotesingle{}
+\item colon \textquotesingle{}\+:\textquotesingle{}
+\item pipe symbol \textquotesingle{}$\vert$\textquotesingle{}
+\item double quote \textquotesingle{}\char`\"{}\textquotesingle{}
+\item triangular brackets \textquotesingle{}$<$\textquotesingle{} and \textquotesingle{}$>$\textquotesingle{}
+\end{DoxyItemize}
+
+Furthermore, the (resulting) file name must not be a reserved file name, such as\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}.\textquotesingle{}
+\item \textquotesingle{}..\textquotesingle{}
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This function allocates a new block of memory for the sanitized string. It also may return (a) NULL if the input is pointing to NULL, or (b) an empty string if the input only consists of invalid characters which are simply removed!
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The input file name \\
+\hline
+{\em replacement} & The replacement character, or NULL \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sanitized file name, or NULL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__file__utils_ga80cf1f4bb5704622f72f2911f48aee55}\label{group__file__utils_ga80cf1f4bb5704622f72f2911f48aee55}} 
+\index{Files and I/O@{Files and I/O}!vrna\_file\_exists@{vrna\_file\_exists}}
+\index{vrna\_file\_exists@{vrna\_file\_exists}!Files and I/O@{Files and I/O}}
+\doxysubsubsection{\texorpdfstring{vrna\_file\_exists()}{vrna\_file\_exists()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+exists (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\mbox{\hyperlink{io_2utils_8h}{Vienna\+RNA/io/utils.\+h}}$>$}
+
+
+
+Check if a file already exists in the file system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of (path to) the file to check for existence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if it doesn\textquotesingle{}t exists, 1 otherwise 
+\end{DoxyReturn}

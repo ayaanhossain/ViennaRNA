@@ -1,0 +1,13 @@
+<map id="ViennaRNA/utils/basic.h" name="ViennaRNA/utils/basic.h">
+<area shape="rect" id="node1" title="General utility&#45; and helper&#45;functions used throughout the ViennaRNA Package." alt="" coords="347,5,513,32"/>
+<area shape="rect" id="node2" href="$pair__mat_8h_source.html" title=" " alt="" coords="5,80,161,107"/>
+<area shape="rect" id="node3" href="$utils_8h.html" title="Use ViennaRNA/utils/basic.h instead." alt="" coords="186,80,317,107"/>
+<area shape="rect" id="node4" href="$hairpin_8h.html" title="Energy evaluation of hairpin loops for MFE and partition function calculations." alt="" coords="341,80,519,107"/>
+<area shape="rect" id="node8" href="$internal_8h.html" title="Energy evaluation of interior loops for MFE and partition function calculations." alt="" coords="544,80,727,107"/>
+<area shape="rect" id="node10" href="$multibranch_8h.html" title="Energy evaluation of multibranch loops for MFE and partition function calculations." alt="" coords="751,80,959,107"/>
+<area shape="rect" id="node5" href="$hairpin__loops_8h.html" title="Use ViennaRNA/loops/hairpin.h instead." alt="" coords="283,162,465,189"/>
+<area shape="rect" id="node6" href="$all_8h.html" title="Energy evaluation for MFE and partition function calculations." alt="" coords="490,162,645,189"/>
+<area shape="rect" id="node7" href="$loop__energies_8h.html" title="Use ViennaRNA/loops/all.h instead." alt="" coords="474,244,661,271"/>
+<area shape="rect" id="node9" href="$interior__loops_8h.html" title="Use ViennaRNA/loops/internal.h instead." alt="" coords="669,155,804,196"/>
+<area shape="rect" id="node11" href="$multibranch__loops_8h.html" title="Use ViennaRNA/loops/multibranch.h instead." alt="" coords="829,155,991,196"/>
+</map>

@@ -1,0 +1,30 @@
+<map id="ViennaRNA/loop_energies.h" name="ViennaRNA/loop_energies.h">
+<area shape="rect" id="node1" title="Use ViennaRNA/loops/all.h instead." alt="" coords="438,5,624,32"/>
+<area shape="rect" id="node2" href="$all_8h.html" title="Energy evaluation for MFE and partition function calculations." alt="" coords="454,80,608,107"/>
+<area shape="rect" id="node3" href="$external_8h.html" title="Energy evaluation of exterior loops for MFE and partition function calculations." alt="" coords="76,229,263,256"/>
+<area shape="rect" id="node21" href="$hairpin_8h.html" title="Energy evaluation of hairpin loops for MFE and partition function calculations." alt="" coords="572,155,751,181"/>
+<area shape="rect" id="node26" href="$internal_8h.html" title="Energy evaluation of interior loops for MFE and partition function calculations." alt="" coords="881,155,1064,181"/>
+<area shape="rect" id="node28" href="$multibranch_8h.html" title="Energy evaluation of multibranch loops for MFE and partition function calculations." alt="" coords="298,155,506,181"/>
+<area shape="rect" id="node4" href="$datastructures_2basic_8h.html" title="Various data structures and pre&#45;processor macros." alt="" coords="370,304,548,345"/>
+<area shape="rect" id="node7" href="$fold__compound_8h.html" title="The Basic Fold Compound API." alt="" coords="926,393,1120,420"/>
+<area shape="rect" id="node9" href="$params_2basic_8h.html" title="Functions to deal with sets of energy parameters." alt="" coords="167,475,351,502"/>
+<area shape="rect" id="node5" href="$constants_8h.html" title="Energy parameter constants." alt="" coords="242,565,452,591"/>
+<area shape="rect" id="node8" href="$model_8h.html" title="The model details data structure and its corresponding modifiers." alt="" coords="1424,565,1566,591"/>
+<area shape="rect" id="node11" href="$dp__matrices_8h.html" title="Functions to deal with standard dynamic programming (DP) matrices." alt="" coords="744,475,921,502"/>
+<area shape="rect" id="node12" href="$hard_8h.html" title="Functions and data structures for handling of secondary structure hard constraints." alt="" coords="1634,468,1793,509"/>
+<area shape="rect" id="node14" href="$soft_8h.html" title="Functions and data structures for secondary structure soft constraints." alt="" coords="1817,468,1976,509"/>
+<area shape="rect" id="node15" href="$grammar_8h.html" title="Implementations for the RNA folding grammar." alt="" coords="945,475,1101,502"/>
+<area shape="rect" id="node16" href="$structured__domains_8h.html" title="This module provides interfaces that deal with additional structured domains in the folding grammar." alt="" coords="566,468,720,509"/>
+<area shape="rect" id="node17" href="$unstructured__domains_8h.html" title="Functions to modify unstructured domains, e.g. to incorporate ligands binding to unpaired stretches." alt="" coords="376,468,542,509"/>
+<area shape="rect" id="node18" href="$utils_2structures_8h.html" title="Various utility&#45; and helper&#45;functions for secondary structure parsing, converting,..." alt="" coords="26,565,218,591"/>
+<area shape="rect" id="node6" title=" " alt="" coords="315,647,379,673"/>
+<area shape="rect" id="node10" href="$sequence_8h.html" title="Functions and data structures related to sequence representations ,." alt="" coords="1295,475,1458,502"/>
+<area shape="rect" id="node20" href="$zscore_8h_source.html" title=" " alt="" coords="1125,475,1270,502"/>
+<area shape="rect" id="node13" href="$constraints_2basic_8h.html" title="Functions and data structures for constraining secondary structure predictions and evaluation." alt="" coords="1634,557,1793,599"/>
+<area shape="rect" id="node19" title=" " alt="" coords="24,647,86,673"/>
+<area shape="rect" id="node22" title=" " alt="" coords="821,229,884,256"/>
+<area shape="rect" id="node23" title=" " alt="" coords="629,229,694,256"/>
+<area shape="rect" id="node24" href="$utils_2basic_8h.html" title="General utility&#45; and helper&#45;functions used throughout the ViennaRNA Package." alt="" coords="439,229,604,256"/>
+<area shape="rect" id="node25" title=" " alt="" coords="674,311,743,338"/>
+<area shape="rect" id="node27" href="$default_8h_source.html" title=" " alt="" coords="1910,393,2102,420"/>
+</map>
