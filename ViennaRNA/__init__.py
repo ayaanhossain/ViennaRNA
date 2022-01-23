@@ -13,7 +13,7 @@ rna       = RNA
 __license__ = '''
     MIT License
 
-    Copyright (c) 2021 Ayaan Hossain
+    Copyright (c) 2022 Ayaan Hossain
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -35,19 +35,7 @@ __license__ = '''
 '''
 
 __doc__     = '''
-    The ViennaRNA Package consists of a C code library and several stand-alone
-    programs for the prediction and comparison of RNA secondary structures.
-
-    RNA secondary structure prediction through energy minimization is the most used
-    function in the package. It provides three kinds of dynamic programming algorithms
-    for structure prediction: the minimum free energy algorithm of Zuker & Stiegler 1981
-    which yields a single optimal structure, the partition function algorithm of McCaskill 1990
-    which calculates base pair probabilities in the thermodynamic ensemble, and the suboptimal
-    folding algorithm of Wuchty et.al 1999 which generates all suboptimal structures within
-    a given energy range of the optimal energy. For secondary structure comparison, the package
-    contains several measures of distance (dissimilarities) using either string alignment or
-    tree-editing (Shapiro & Zhang 1990). Finally, it provides an algorithm to design sequences
-    with a predefined structure (inverse folding).
+    The ViennaRNA Package consists of a C code library and several stand-alone programs for the prediction and comparison of RNA secondary structures. It is developed and maintained by the Theoretical Biochemistry Group at the University of Vienna.
 
     In case you are using ViennaRNA software for your publications you may want to cite:
 
@@ -64,9 +52,9 @@ __doc__     = '''
     dependency installation should not deter application adoption.
 '''
 
-__version__ = '0.0.0'
+__version__ = '2.5.0'
 
-__author__ = 'Ayaan Hossain (auh57@psu.edu)'
+__author__ = 'Ayaan Hossain'
 
 
 def main():

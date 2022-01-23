@@ -9,9 +9,9 @@ import platform
 import uuid
 import atexit
 
-VIENNA_VER = '2.4.18'
-VIENNA_DIR = './ViennaRNA-{}-Latest'.format(VIENNA_VER)
-SETUP_VER  = 'a1'
+VIENNA_VER = '2.5.0'
+VIENNA_DIR = './ViennaRNA-{}'.format(VIENNA_VER)
+SETUP_VER  = ''
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -68,9 +68,15 @@ class ViennaRNAInstall(install):
             '--enable-simd',
             '--with-python3',
             '--without-perl',
-            '--without-python'
+            '--without-python2',
+            '--without-doc-pdf',
+            '--without-doc-html',
             '--without-doc',
+            '--without-tutorial-pdf',
+            '--without-tutorial-html',
             '--without-tutorial',
+            '--without-cla-pdf',
+            '--without-cla',
             '--without-kinfold',
             '--without-forester',
             '--without-rnalocmin']
