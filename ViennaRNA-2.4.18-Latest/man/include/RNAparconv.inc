@@ -1,4 +1,0 @@
-[AUTHOR]
-
-Ronny Lorenz
-
