@@ -1,6 +1,6 @@
 ### ViennaRNA
 
-**Update:** We're now on ViennaRNA 2.5.0. If you're having trouble installing this inside a `conda` environment due to `libgcc` issues, you might want to install `mamba` (`conda install -c conda-forge mamba`), or create your environment with `mamba` to begin with (`conda create -n myEnvName -c conda-forge mamba`). Then, simply `mamba install libgcc` and try `pip install ViennaRNA again.
+**Update:** We're now on `ViennaRNA` `2.5.0`. If you're having trouble installing this inside a `conda` environment due to `libgcc` issues, you might want to install `mamba` (`conda install -c conda-forge mamba`), or create your environment with `mamba` to begin with (`conda create -n myEnvName -c conda-forge mamba`). Then, simply `mamba install libgcc` and try `pip install ViennaRNA` again.
 
 ### Overview
 
