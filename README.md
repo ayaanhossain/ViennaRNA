@@ -1,9 +1,6 @@
 ### ViennaRNA
 
-The `ViennaRNA` Package consists of a **C** code library and several stand-alone programs for the prediction and comparison of RNA secondary structures.
-
-RNA secondary structure prediction through energy minimization is the most used function in the package. It provides three kinds of dynamic programming algorithms for structure prediction: the minimum free energy algorithm of Zuker & Stiegler 1981 which yields a single optimal structure, the partition function algorithm of McCaskill 1990 which calculates base pair probabilities in the thermodynamic ensemble, and the suboptimal folding algorithm of Wuchty et.al 1999 which generates all suboptimal structures within a given energy range of the optimal energy. For secondary structure comparison, the package contains several measures of distance (dissimilarities) using either string alignment or tree-editing (Shapiro & Zhang 1990). Finally, it provides an algorithm to design sequences
-with a predefined structure (inverse folding).
+The [`ViennaRNA` Package](https://www.tbi.univie.ac.at/RNA/) consists of a **C** code library and several stand-alone programs for the prediction and comparison of RNA secondary structures. It is developed and maintained by the [Theoretical Biochemistry Group](https://www.tbi.univie.ac.at/index.html) at the University of Vienna.
 
 In case you are using `ViennaRNA` software for your publications you may want to cite:
 
@@ -31,7 +28,7 @@ Sit back, relax and let `pip` do its thing. When everything is installed, verify
 
 ```bash
 $ python
-Python 3.9.5 (default, Jun  4 2021, 12:28:51)
+Python 3.9.5 (default, Jun  4 2022, 12:28:51)
 [GCC 7.5.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import ViennaRNA
@@ -85,8 +82,8 @@ setup(
         'awesomeRNA': ['params/*.par']},
 
     install_requires=[
-        'numpy>=1.19.0',
-        'ViennaRNA>=2.4.18,]
+        'numpy',
+        'ViennaRNA']
 
     # stuff after
 )
@@ -129,7 +126,11 @@ def awesomeRNA_main(
 > **Note** These examples are for demonstrative purposes only.
 
 ### License
-`ViennaRNA` PyPI Installer (c) 2021 Ayaan Hossain.
+`ViennaRNA` Package (c) Theoretical Biochemistry Group, University of Vienna.
+
+`ViennaRNA` Package has its [own custom LICENSE](https://github.com/ViennaRNA/ViennaRNA/blob/master/COPYING).
+
+`ViennaRNA` PyPI Installer (c) 2022 Ayaan Hossain.
 
 `ViennaRNA` PyPI Installer is an **open-source software** under [MIT](https://opensource.org/licenses/MIT) License.
 
