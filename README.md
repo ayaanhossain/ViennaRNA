@@ -127,7 +127,7 @@ def awesomeRNA_main(
 
 ### Troubleshooting
 
-If you have trouble installing this inside a `conda` environment due to `libgcc` issues, you might want to install `mamba` (`conda install -c conda-forge mamba`), or create your environment with `mamba` to begin with (`conda create -n myEnvName -c conda-forge mamba`). Then, simply `mamba install libgcc` and try `pip install ViennaRNA` again. Additionally, you might require to `mamba install libgcc-ng libstdcxx-ng`.
+If you have trouble installing this package inside a `conda` environment due to `libgcc` issues, you might want to install `mamba` (`conda install -c conda-forge mamba`), or create your environment with `mamba` to begin with (`conda create -n myEnvName -c conda-forge mamba`). Then, simply `mamba install libgcc` and try `pip install ViennaRNA` again. Additionally, you might require to `mamba install libgcc-ng libstdcxx-ng`.
 
 ### License
 `ViennaRNA` Package (c) Theoretical Biochemistry Group, University of Vienna.
