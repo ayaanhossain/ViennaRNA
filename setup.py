@@ -11,7 +11,7 @@ import atexit
 
 VIENNA_VER = '2.5.0'
 VIENNA_DIR = './ViennaRNA-{}'.format(VIENNA_VER)
-SETUP_VER  = ''
+SETUP_VER  = 'a1'
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -68,7 +68,6 @@ class ViennaRNAInstall(install):
             '--enable-simd',
             '--with-python3',
             '--without-perl',
-            '--without-python2',
             '--without-doc-pdf',
             '--without-doc-html',
             '--without-doc',
