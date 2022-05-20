@@ -12,7 +12,7 @@ import atexit
 
 VIENNA_VER = '2.5.0'
 VIENNA_DIR = './ViennaRNA-{}'.format(VIENNA_VER)
-SETUP_VER  = 'a4'
+SETUP_VER  = 'a5'
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -49,7 +49,7 @@ def get_sitepath():
     '''
     return site.getsitepackages()[-1]
 
-class ViennaRNAInstall(install):
+class ViennaRNAInstall(install, object):
     '''
     Custom ViennaRNA installer from latest
     source code version.
