@@ -44,7 +44,7 @@ The PyPI installer was developed so that computational synthetic biologists coul
 
 Relevant DNA or RNA parameter files will need to be packaged with developed application and supplied to `RNA.read_parameter_file(parameter_file_path)` for proper usage. You may then want to specify those parameter files as part of your `package_data` in your `setup.py`, and make it available to `RNA.read_parameter_file(...)` via `pkg_resource.resource_filename(...)` function.
 
-You can find all of the different DNA and RNA parameters accepted by the `RNA` module in [here](https://github.com/ayaanhossain/ViennaRNA/tree/main/ViennaRNA-2.4.18-Latest/misc).
+You can find all of the different DNA and RNA parameters accepted by the `RNA` module in [here](https://github.com/ayaanhossain/ViennaRNA/tree/main/ViennaRNA-2.5.0/misc).
 
 **Example:** Say, your application is called `awesomeRNA` and your package is structured like the following.
 
