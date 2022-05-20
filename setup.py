@@ -1,6 +1,7 @@
 from setuptools import setup
 from setuptools.command.install import install
 import subprocess
+import sys
 import os
 import shutil
 import io
@@ -11,7 +12,7 @@ import atexit
 
 VIENNA_VER = '2.5.0'
 VIENNA_DIR = './ViennaRNA-{}'.format(VIENNA_VER)
-SETUP_VER  = 'a1'
+SETUP_VER  = 'a4'
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -62,11 +63,12 @@ class ViennaRNAInstall(install):
         src_path = VIENNA_DIR
         sitepath = get_sitepath()
 
+        python_ver = sys.version[0]
+
         # Configure ViennaRNA
         cmd = ['./configure',
             '--prefix={}'.format(tmp_path),
             '--enable-simd',
-            '--with-python3',
             '--without-perl',
             '--without-doc-pdf',
             '--without-doc-html',
@@ -82,8 +84,8 @@ class ViennaRNAInstall(install):
         if platform.system().lower() == 'darwin':
             cmd.append('--disable-openmp')
         cmd.extend([
-            'PYTHON3_DIR={}'.format(sitepath),
-            'PYTHON3_EXECDIR={}'.format(sitepath)])
+            'PYTHON{}_DIR={}'.format(python_ver, sitepath),
+            'PYTHON{}_EXECDIR={}'.format(python_ver, sitepath)])
         cmd = ' '.join(cmd)
 
         # Execute Configuration
@@ -100,7 +102,7 @@ class ViennaRNAInstall(install):
 
     def run(self):
         self.compile_and_install_ViennaRNA()
-        super().run()
+        super(ViennaRNAInstall, self).run()
 
 setup(
     name='ViennaRNA',
@@ -140,10 +142,12 @@ setup(
         # that you indicate whether you support Python 2, Python 3 or both.
         # These classifiers are *not* checked by 'pip install'. See instead
         # 'python_requires' below.
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     keywords=' '.join([
         'synthetic',
@@ -171,16 +175,16 @@ setup(
         'ViennaRNA': './ViennaRNA'
     },
 
-    python_requires=', '.join([
-        '!=2.7',
-        '!=3.0.*',
-        '!=3.1.*',
-        '!=3.2.*',
-        '!=3.3.*',
-        '!=3.4.*',
-        '!=3.5.*',
-        '>=3.6.*',
-        '<4.0.*']),
+    # python_requires=', '.join([
+    #     '>=2.7',
+    #     '!=3.0.*',
+    #     '!=3.1.*',
+    #     '!=3.2.*',
+    #     '!=3.3.*',
+    #     '!=3.4.*',
+    #     '!=3.5.*',
+    #     '>=3.6.*',
+    #     '<4.0.*']),
 
     install_requires=[],
 
