@@ -49,7 +49,10 @@ def get_sitepath():
     '''
     return site.getsitepackages()[-1]
 
-class ViennaRNAInstall(install, object):
+class new_style_install(install, object):
+    pass
+
+class ViennaRNAInstall(new_style_install):
     '''
     Custom ViennaRNA installer from latest
     source code version.
